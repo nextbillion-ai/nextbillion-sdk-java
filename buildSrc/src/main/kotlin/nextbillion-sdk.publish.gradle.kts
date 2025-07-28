@@ -26,9 +26,9 @@ configure<PublishingExtension> {
                 }
 
                 scm {
-                    connection.set("scm:git:git://github.com/stainless-sdks/nextbillion-sdk-java.git")
-                    developerConnection.set("scm:git:git://github.com/stainless-sdks/nextbillion-sdk-java.git")
-                    url.set("https://github.com/stainless-sdks/nextbillion-sdk-java")
+                    connection.set("scm:git:git://github.com/nextbillion-ai/nextbillion-sdk-java.git")
+                    developerConnection.set("scm:git:git://github.com/nextbillion-ai/nextbillion-sdk-java.git")
+                    url.set("https://github.com/nextbillion-ai/nextbillion-sdk-java")
                 }
 
                 versionMapping {
