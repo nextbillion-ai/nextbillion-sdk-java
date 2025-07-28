@@ -8,7 +8,7 @@ repositories {
 }
 
 allprojects {
-    group = "com.nextbillion_sdk.api"
+    group = "io.nextbillion.api"
     version = "0.0.1-alpha.0" // x-release-please-version
 }
 
