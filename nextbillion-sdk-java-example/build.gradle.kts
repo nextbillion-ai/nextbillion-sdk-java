@@ -19,7 +19,7 @@ tasks.withType<JavaCompile>().configureEach {
 application {
     // Use `./gradlew :nextbillion-sdk-java-example:run` to run `Main`
     // Use `./gradlew :nextbillion-sdk-java-example:run -Dexample=Something` to run `SomethingExample`
-    mainClass = "io.nextbillion.api.example.${
+    mainClass = "ai.nextbillion.example.${
         if (project.hasProperty("example"))
             "${project.property("example")}Example"
         else
