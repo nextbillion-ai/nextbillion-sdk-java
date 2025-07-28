@@ -81,7 +81,7 @@ private constructor(
      * Defaults to 2.
      */
     @get:JvmName("maxRetries") val maxRetries: Int,
-    private val apiKey: String?,
+    @get:JvmName("apiKey") val apiKey: String,
 ) {
 
     init {
@@ -97,8 +97,6 @@ private constructor(
      */
     fun baseUrl(): String = baseUrl ?: PRODUCTION_URL
 
-    fun apiKey(): Optional<String> = Optional.ofNullable(apiKey)
-
     fun toBuilder() = Builder().from(this)
 
     companion object {
@@ -111,6 +109,7 @@ private constructor(
          * The following fields are required:
          * ```java
          * .httpClient()
+         * .apiKey()
          * ```
          */
         @JvmStatic fun builder() = Builder()
@@ -244,10 +243,7 @@ private constructor(
          */
         fun maxRetries(maxRetries: Int) = apply { this.maxRetries = maxRetries }
 
-        fun apiKey(apiKey: String?) = apply { this.apiKey = apiKey }
-
-        /** Alias for calling [Builder.apiKey] with `apiKey.orElse(null)`. */
-        fun apiKey(apiKey: Optional<String>) = apiKey(apiKey.getOrNull())
+        fun apiKey(apiKey: String) = apply { this.apiKey = apiKey }
 
         fun headers(headers: Headers) = apply {
             this.headers.clear()
@@ -338,7 +334,7 @@ private constructor(
          *
          * |Setter   |System property         |Environment variable      |Required|Default value                 |
          * |---------|------------------------|--------------------------|--------|------------------------------|
-         * |`apiKey` |`nextbillionsdk.apiKey` |`NEXTBILLION_SDK_API_KEY` |false   |-                             |
+         * |`apiKey` |`nextbillionsdk.apiKey` |`NEXTBILLION_SDK_API_KEY` |true    |-                             |
          * |`baseUrl`|`nextbillionsdk.baseUrl`|`NEXTBILLION_SDK_BASE_URL`|true    |`"https://api.nextbillion.io"`|
          *
          * System properties take precedence over environment variables.
@@ -360,12 +356,14 @@ private constructor(
          * The following fields are required:
          * ```java
          * .httpClient()
+         * .apiKey()
          * ```
          *
          * @throws IllegalStateException if any required field is unset.
          */
         fun build(): ClientOptions {
             val httpClient = checkRequired("httpClient", httpClient)
+            val apiKey = checkRequired("apiKey", apiKey)
 
             val headers = Headers.builder()
             val queryParams = QueryParams.builder()
@@ -376,9 +374,9 @@ private constructor(
             headers.put("X-Stainless-Package-Version", getPackageVersion())
             headers.put("X-Stainless-Runtime", "JRE")
             headers.put("X-Stainless-Runtime-Version", getJavaVersion())
-            apiKey?.let {
+            apiKey.let {
                 if (!it.isEmpty()) {
-                    headers.put("Authorization", "Bearer $it")
+                    queryParams.put("key", it)
                 }
             }
             headers.replaceAll(this.headers.build())

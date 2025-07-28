@@ -110,7 +110,7 @@ See this table for the available options:
 
 | Setter    | System property          | Environment variable       | Required | Default value                  |
 | --------- | ------------------------ | -------------------------- | -------- | ------------------------------ |
-| `apiKey`  | `nextbillionsdk.apiKey`  | `NEXTBILLION_SDK_API_KEY`  | false    | -                              |
+| `apiKey`  | `nextbillionsdk.apiKey`  | `NEXTBILLION_SDK_API_KEY`  | true     | -                              |
 | `baseUrl` | `nextbillionsdk.baseUrl` | `NEXTBILLION_SDK_BASE_URL` | true     | `"https://api.nextbillion.io"` |
 
 System properties take precedence over environment variables.
