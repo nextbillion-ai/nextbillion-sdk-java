@@ -22,10 +22,7 @@ import com.nextbillion_sdk.api.errors.RateLimitException
 import com.nextbillion_sdk.api.errors.UnauthorizedException
 import com.nextbillion_sdk.api.errors.UnexpectedStatusCodeException
 import com.nextbillion_sdk.api.errors.UnprocessableEntityException
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateParams
-import com.nextbillion_sdk.api.models.fleetify.routes.steps.RouteStepCompletionMode
-import com.nextbillion_sdk.api.models.fleetify.routes.steps.RouteStepGeofenceConfig
-import com.nextbillion_sdk.api.models.fleetify.routes.steps.RouteStepsRequest
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteParams
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.entry
 import org.junit.jupiter.api.BeforeEach
@@ -64,8 +61,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate400() {
-        val routeService = client.fleetify().routes()
+    fun directionsComputeRoute400() {
+        val directionService = client.directions()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -75,56 +72,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<BadRequestException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -136,8 +111,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate400WithRawResponse() {
-        val routeService = client.fleetify().routes().withRawResponse()
+    fun directionsComputeRoute400WithRawResponse() {
+        val directionService = client.directions().withRawResponse()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -147,56 +122,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<BadRequestException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -208,8 +161,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate401() {
-        val routeService = client.fleetify().routes()
+    fun directionsComputeRoute401() {
+        val directionService = client.directions()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -219,56 +172,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<UnauthorizedException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -280,8 +211,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate401WithRawResponse() {
-        val routeService = client.fleetify().routes().withRawResponse()
+    fun directionsComputeRoute401WithRawResponse() {
+        val directionService = client.directions().withRawResponse()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -291,56 +222,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<UnauthorizedException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -352,8 +261,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate403() {
-        val routeService = client.fleetify().routes()
+    fun directionsComputeRoute403() {
+        val directionService = client.directions()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -363,56 +272,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<PermissionDeniedException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -424,8 +311,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate403WithRawResponse() {
-        val routeService = client.fleetify().routes().withRawResponse()
+    fun directionsComputeRoute403WithRawResponse() {
+        val directionService = client.directions().withRawResponse()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -435,56 +322,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<PermissionDeniedException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -496,8 +361,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate404() {
-        val routeService = client.fleetify().routes()
+    fun directionsComputeRoute404() {
+        val directionService = client.directions()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -507,56 +372,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<NotFoundException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -568,8 +411,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate404WithRawResponse() {
-        val routeService = client.fleetify().routes().withRawResponse()
+    fun directionsComputeRoute404WithRawResponse() {
+        val directionService = client.directions().withRawResponse()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -579,56 +422,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<NotFoundException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -640,8 +461,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate422() {
-        val routeService = client.fleetify().routes()
+    fun directionsComputeRoute422() {
+        val directionService = client.directions()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -651,56 +472,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<UnprocessableEntityException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -712,8 +511,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate422WithRawResponse() {
-        val routeService = client.fleetify().routes().withRawResponse()
+    fun directionsComputeRoute422WithRawResponse() {
+        val directionService = client.directions().withRawResponse()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -723,56 +522,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<UnprocessableEntityException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -784,8 +561,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate429() {
-        val routeService = client.fleetify().routes()
+    fun directionsComputeRoute429() {
+        val directionService = client.directions()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -795,56 +572,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<RateLimitException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -856,8 +611,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate429WithRawResponse() {
-        val routeService = client.fleetify().routes().withRawResponse()
+    fun directionsComputeRoute429WithRawResponse() {
+        val directionService = client.directions().withRawResponse()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -867,56 +622,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<RateLimitException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -928,8 +661,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate500() {
-        val routeService = client.fleetify().routes()
+    fun directionsComputeRoute500() {
+        val directionService = client.directions()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -939,56 +672,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<InternalServerException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -1000,8 +711,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate500WithRawResponse() {
-        val routeService = client.fleetify().routes().withRawResponse()
+    fun directionsComputeRoute500WithRawResponse() {
+        val directionService = client.directions().withRawResponse()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -1011,56 +722,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<InternalServerException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -1072,8 +761,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate999() {
-        val routeService = client.fleetify().routes()
+    fun directionsComputeRoute999() {
+        val directionService = client.directions()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -1083,56 +772,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<UnexpectedStatusCodeException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -1144,8 +811,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreate999WithRawResponse() {
-        val routeService = client.fleetify().routes().withRawResponse()
+    fun directionsComputeRoute999WithRawResponse() {
+        val directionService = client.directions().withRawResponse()
         stubFor(
             post(anyUrl())
                 .willReturn(
@@ -1155,56 +822,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<UnexpectedStatusCodeException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
@@ -1216,8 +861,8 @@ internal class ErrorHandlingTest {
 
     @Disabled("skipped: tests are disabled for the time being")
     @Test
-    fun routesCreateInvalidJsonBody() {
-        val routeService = client.fleetify().routes()
+    fun directionsComputeRouteInvalidJsonBody() {
+        val directionService = client.directions()
         stubFor(
             post(anyUrl())
                 .willReturn(status(200).withHeader(HEADER_NAME, HEADER_VALUE).withBody(NOT_JSON))
@@ -1225,56 +870,34 @@ internal class ErrorHandlingTest {
 
         val e =
             assertThrows<NextbillionSdkException> {
-                routeService.create(
-                    RouteCreateParams.builder()
-                        .key("key")
-                        .driverEmail("johndoe@abc.com")
-                        .addStep(
-                            RouteStepsRequest.builder()
-                                .arrival(0L)
-                                .addLocation(0.0)
-                                .type(RouteStepsRequest.Type.START)
-                                .address(
-                                    "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\","
-                                )
-                                .completionMode(RouteStepCompletionMode.MANUAL)
-                                .documentTemplateId("document_template_id")
-                                .duration(0L)
-                                .geofenceConfig(
-                                    RouteStepGeofenceConfig.builder()
-                                        .radius(0.0)
-                                        .type(RouteStepGeofenceConfig.Type.CIRCLE)
-                                        .build()
-                                )
-                                .meta(
-                                    RouteStepsRequest.Meta.builder()
-                                        .customerName("\"customer_name\": \"Chandler Bing\"")
-                                        .customerPhoneNumber(
-                                            "\"customer_phone_number\": \"+1 707 234 1234\""
-                                        )
-                                        .instructions(
-                                            "\"instructions\": \"Customer asked not to ring the doorbell.\""
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
-                        .distance(0L)
-                        .documentTemplateId(
-                            "\"document_template_id\": \"bfbc4799-bc2f-4515-9054-d888560909bf\""
-                        )
-                        .roRequestId("ro_request_id")
-                        .routing(
-                            RouteCreateParams.Routing.builder()
-                                .approaches(RouteCreateParams.Routing.Approaches.UNRESTRICTED)
-                                .avoid(RouteCreateParams.Routing.Avoid.TOLL)
-                                .hazmatType(RouteCreateParams.Routing.HazmatType.GENERAL)
-                                .mode(RouteCreateParams.Routing.Mode.CAR)
-                                .truckAxleLoad(0L)
-                                .truckSize("\"truck_size\": \"200, 210, 600\"")
-                                .truckWeight(0L)
-                                .build()
-                        )
+                directionService.computeRoute(
+                    DirectionComputeRouteParams.builder()
+                        .destination("41.349302,2.136480")
+                        .origin("41.349302,2.136480")
+                        .altcount(1L)
+                        .alternatives(true)
+                        .approaches("unrestricted;;curb;")
+                        .avoid(DirectionComputeRouteParams.Avoid.TOLL)
+                        .bearings("0,180;0,180")
+                        .crossBorder(true)
+                        .departureTime(0L)
+                        .driveTimeLimits("500,400,400")
+                        .emissionClass(DirectionComputeRouteParams.EmissionClass.EURO0)
+                        .exclude(DirectionComputeRouteParams.Exclude.TOLL)
+                        .geometry(DirectionComputeRouteParams.Geometry.POLYLINE)
+                        .hazmatType(DirectionComputeRouteParams.HazmatType.GENERAL)
+                        .mode(DirectionComputeRouteParams.Mode.CAR)
+                        .option(DirectionComputeRouteParams.Option.FAST)
+                        .overview(DirectionComputeRouteParams.Overview.FULL)
+                        .restTimes("500,300,100")
+                        .roadInfo(DirectionComputeRouteParams.RoadInfo.MAX_SPEED)
+                        .routeType(DirectionComputeRouteParams.RouteType.FASTEST)
+                        .steps(true)
+                        .truckAxleLoad(0.0)
+                        .truckSize("200,210,600")
+                        .truckWeight(1L)
+                        .turnAngleRange(0L)
+                        .waypoints("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
                         .build()
                 )
             }
