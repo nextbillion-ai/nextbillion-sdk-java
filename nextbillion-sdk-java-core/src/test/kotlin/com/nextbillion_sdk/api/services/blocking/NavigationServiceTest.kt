@@ -1,0 +1,48 @@
+// File generated from our OpenAPI spec by Stainless.
+
+package com.nextbillion_sdk.api.services.blocking
+
+import com.nextbillion_sdk.api.TestServerExtension
+import com.nextbillion_sdk.api.client.okhttp.NextbillionSdkOkHttpClient
+import com.nextbillion_sdk.api.models.navigation.NavigationRetrieveRouteParams
+import org.junit.jupiter.api.Disabled
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+
+@ExtendWith(TestServerExtension::class)
+internal class NavigationServiceTest {
+
+    @Disabled("skipped: tests are disabled for the time being")
+    @Test
+    fun retrieveRoute() {
+        val client =
+            NextbillionSdkOkHttpClient.builder()
+                .baseUrl(TestServerExtension.BASE_URL)
+                .apiKey("My API Key")
+                .build()
+        val navigationService = client.navigation()
+
+        val response =
+            navigationService.retrieveRoute(
+                NavigationRetrieveRouteParams.builder()
+                    .key("key=API_KEY")
+                    .altcount(1L)
+                    .alternatives(true)
+                    .approaches(NavigationRetrieveRouteParams.Approaches.UNRESTRICTED)
+                    .avoid(NavigationRetrieveRouteParams.Avoid.TOLL)
+                    .bearings("bearings=0,180;0,180")
+                    .destination("destination=41.349302,2.136480")
+                    .geometry(NavigationRetrieveRouteParams.Geometry.POLYLINE)
+                    .lang("lang=en")
+                    .mode(NavigationRetrieveRouteParams.Mode.CAR)
+                    .origin("origin=41.349302,2.136480")
+                    .originalShape("original_shape=sbp}_Almgp`FnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
+                    .originalShapeType(NavigationRetrieveRouteParams.OriginalShapeType.POLYLINE)
+                    .overview(NavigationRetrieveRouteParams.Overview.FULL)
+                    .waypoints("waypoints=41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
+                    .build()
+            )
+
+        response.validate()
+    }
+}
