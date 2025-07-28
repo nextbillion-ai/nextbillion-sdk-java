@@ -20,7 +20,7 @@ internal class JsonServiceTest {
                 .baseUrl(TestServerExtension.BASE_URL)
                 .apiKey("My API Key")
                 .build()
-        val jsonService = client.distancematrix().json()
+        val jsonService = client.distanceMatrix().json()
 
         jsonService.create()
     }
@@ -33,7 +33,7 @@ internal class JsonServiceTest {
                 .baseUrl(TestServerExtension.BASE_URL)
                 .apiKey("My API Key")
                 .build()
-        val jsonService = client.distancematrix().json()
+        val jsonService = client.distanceMatrix().json()
 
         val json =
             jsonService.retrieve(

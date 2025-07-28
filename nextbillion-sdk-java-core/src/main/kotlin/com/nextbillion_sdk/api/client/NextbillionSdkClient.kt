@@ -10,7 +10,7 @@ import com.nextbillion_sdk.api.services.blocking.BatchService
 import com.nextbillion_sdk.api.services.blocking.BrowseService
 import com.nextbillion_sdk.api.services.blocking.DirectionService
 import com.nextbillion_sdk.api.services.blocking.DiscoverService
-import com.nextbillion_sdk.api.services.blocking.DistancematrixService
+import com.nextbillion_sdk.api.services.blocking.DistanceMatrixService
 import com.nextbillion_sdk.api.services.blocking.FleetifyService
 import com.nextbillion_sdk.api.services.blocking.GeocodeService
 import com.nextbillion_sdk.api.services.blocking.GeofenceService
@@ -88,7 +88,7 @@ interface NextbillionSdkClient {
 
     fun restrictionsItems(): RestrictionsItemService
 
-    fun distancematrix(): DistancematrixService
+    fun distanceMatrix(): DistanceMatrixService
 
     fun autocomplete(): AutocompleteService
 
@@ -165,7 +165,7 @@ interface NextbillionSdkClient {
 
         fun restrictionsItems(): RestrictionsItemService.WithRawResponse
 
-        fun distancematrix(): DistancematrixService.WithRawResponse
+        fun distanceMatrix(): DistanceMatrixService.WithRawResponse
 
         fun autocomplete(): AutocompleteService.WithRawResponse
 

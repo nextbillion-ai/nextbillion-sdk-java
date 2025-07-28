@@ -6,7 +6,7 @@ import com.nextbillion_sdk.api.core.ClientOptions
 import com.nextbillion_sdk.api.services.blocking.distancematrix.JsonService
 import java.util.function.Consumer
 
-interface DistancematrixService {
+interface DistanceMatrixService {
 
     /**
      * Returns a view of this service that provides access to raw HTTP responses for each method.
@@ -18,12 +18,12 @@ interface DistancematrixService {
      *
      * The original service is not modified.
      */
-    fun withOptions(modifier: Consumer<ClientOptions.Builder>): DistancematrixService
+    fun withOptions(modifier: Consumer<ClientOptions.Builder>): DistanceMatrixService
 
     fun json(): JsonService
 
     /**
-     * A view of [DistancematrixService] that provides access to raw HTTP responses for each method.
+     * A view of [DistanceMatrixService] that provides access to raw HTTP responses for each method.
      */
     interface WithRawResponse {
 
@@ -34,7 +34,7 @@ interface DistancematrixService {
          */
         fun withOptions(
             modifier: Consumer<ClientOptions.Builder>
-        ): DistancematrixService.WithRawResponse
+        ): DistanceMatrixService.WithRawResponse
 
         fun json(): JsonService.WithRawResponse
     }

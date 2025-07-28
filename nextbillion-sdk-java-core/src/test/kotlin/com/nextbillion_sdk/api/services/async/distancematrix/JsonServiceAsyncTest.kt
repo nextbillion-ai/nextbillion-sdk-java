@@ -20,7 +20,7 @@ internal class JsonServiceAsyncTest {
                 .baseUrl(TestServerExtension.BASE_URL)
                 .apiKey("My API Key")
                 .build()
-        val jsonServiceAsync = client.distancematrix().json()
+        val jsonServiceAsync = client.distanceMatrix().json()
 
         val future = jsonServiceAsync.create()
 
@@ -35,7 +35,7 @@ internal class JsonServiceAsyncTest {
                 .baseUrl(TestServerExtension.BASE_URL)
                 .apiKey("My API Key")
                 .build()
-        val jsonServiceAsync = client.distancematrix().json()
+        val jsonServiceAsync = client.distanceMatrix().json()
 
         val jsonFuture =
             jsonServiceAsync.retrieve(

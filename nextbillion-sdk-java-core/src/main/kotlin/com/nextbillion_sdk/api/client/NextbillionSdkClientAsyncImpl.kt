@@ -18,8 +18,8 @@ import com.nextbillion_sdk.api.services.async.DirectionServiceAsync
 import com.nextbillion_sdk.api.services.async.DirectionServiceAsyncImpl
 import com.nextbillion_sdk.api.services.async.DiscoverServiceAsync
 import com.nextbillion_sdk.api.services.async.DiscoverServiceAsyncImpl
-import com.nextbillion_sdk.api.services.async.DistancematrixServiceAsync
-import com.nextbillion_sdk.api.services.async.DistancematrixServiceAsyncImpl
+import com.nextbillion_sdk.api.services.async.DistanceMatrixServiceAsync
+import com.nextbillion_sdk.api.services.async.DistanceMatrixServiceAsyncImpl
 import com.nextbillion_sdk.api.services.async.FleetifyServiceAsync
 import com.nextbillion_sdk.api.services.async.FleetifyServiceAsyncImpl
 import com.nextbillion_sdk.api.services.async.GeocodeServiceAsync
@@ -116,8 +116,8 @@ class NextbillionSdkClientAsyncImpl(private val clientOptions: ClientOptions) :
         RestrictionsItemServiceAsyncImpl(clientOptionsWithUserAgent)
     }
 
-    private val distancematrix: DistancematrixServiceAsync by lazy {
-        DistancematrixServiceAsyncImpl(clientOptionsWithUserAgent)
+    private val distanceMatrix: DistanceMatrixServiceAsync by lazy {
+        DistanceMatrixServiceAsyncImpl(clientOptionsWithUserAgent)
     }
 
     private val autocomplete: AutocompleteServiceAsync by lazy {
@@ -197,7 +197,7 @@ class NextbillionSdkClientAsyncImpl(private val clientOptions: ClientOptions) :
 
     override fun restrictionsItems(): RestrictionsItemServiceAsync = restrictionsItems
 
-    override fun distancematrix(): DistancematrixServiceAsync = distancematrix
+    override fun distanceMatrix(): DistanceMatrixServiceAsync = distanceMatrix
 
     override fun autocomplete(): AutocompleteServiceAsync = autocomplete
 
@@ -274,8 +274,8 @@ class NextbillionSdkClientAsyncImpl(private val clientOptions: ClientOptions) :
             RestrictionsItemServiceAsyncImpl.WithRawResponseImpl(clientOptions)
         }
 
-        private val distancematrix: DistancematrixServiceAsync.WithRawResponse by lazy {
-            DistancematrixServiceAsyncImpl.WithRawResponseImpl(clientOptions)
+        private val distanceMatrix: DistanceMatrixServiceAsync.WithRawResponse by lazy {
+            DistanceMatrixServiceAsyncImpl.WithRawResponseImpl(clientOptions)
         }
 
         private val autocomplete: AutocompleteServiceAsync.WithRawResponse by lazy {
@@ -360,7 +360,7 @@ class NextbillionSdkClientAsyncImpl(private val clientOptions: ClientOptions) :
         override fun restrictionsItems(): RestrictionsItemServiceAsync.WithRawResponse =
             restrictionsItems
 
-        override fun distancematrix(): DistancematrixServiceAsync.WithRawResponse = distancematrix
+        override fun distanceMatrix(): DistanceMatrixServiceAsync.WithRawResponse = distanceMatrix
 
         override fun autocomplete(): AutocompleteServiceAsync.WithRawResponse = autocomplete
 
