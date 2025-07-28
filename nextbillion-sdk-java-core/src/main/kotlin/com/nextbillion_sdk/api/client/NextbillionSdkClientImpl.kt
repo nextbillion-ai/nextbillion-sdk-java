@@ -18,8 +18,8 @@ import com.nextbillion_sdk.api.services.blocking.DirectionService
 import com.nextbillion_sdk.api.services.blocking.DirectionServiceImpl
 import com.nextbillion_sdk.api.services.blocking.DiscoverService
 import com.nextbillion_sdk.api.services.blocking.DiscoverServiceImpl
-import com.nextbillion_sdk.api.services.blocking.DistancematrixService
-import com.nextbillion_sdk.api.services.blocking.DistancematrixServiceImpl
+import com.nextbillion_sdk.api.services.blocking.DistanceMatrixService
+import com.nextbillion_sdk.api.services.blocking.DistanceMatrixServiceImpl
 import com.nextbillion_sdk.api.services.blocking.FleetifyService
 import com.nextbillion_sdk.api.services.blocking.FleetifyServiceImpl
 import com.nextbillion_sdk.api.services.blocking.GeocodeService
@@ -111,8 +111,8 @@ class NextbillionSdkClientImpl(private val clientOptions: ClientOptions) : Nextb
         RestrictionsItemServiceImpl(clientOptionsWithUserAgent)
     }
 
-    private val distancematrix: DistancematrixService by lazy {
-        DistancematrixServiceImpl(clientOptionsWithUserAgent)
+    private val distanceMatrix: DistanceMatrixService by lazy {
+        DistanceMatrixServiceImpl(clientOptionsWithUserAgent)
     }
 
     private val autocomplete: AutocompleteService by lazy {
@@ -188,7 +188,7 @@ class NextbillionSdkClientImpl(private val clientOptions: ClientOptions) : Nextb
 
     override fun restrictionsItems(): RestrictionsItemService = restrictionsItems
 
-    override fun distancematrix(): DistancematrixService = distancematrix
+    override fun distanceMatrix(): DistanceMatrixService = distanceMatrix
 
     override fun autocomplete(): AutocompleteService = autocomplete
 
@@ -265,8 +265,8 @@ class NextbillionSdkClientImpl(private val clientOptions: ClientOptions) : Nextb
             RestrictionsItemServiceImpl.WithRawResponseImpl(clientOptions)
         }
 
-        private val distancematrix: DistancematrixService.WithRawResponse by lazy {
-            DistancematrixServiceImpl.WithRawResponseImpl(clientOptions)
+        private val distanceMatrix: DistanceMatrixService.WithRawResponse by lazy {
+            DistanceMatrixServiceImpl.WithRawResponseImpl(clientOptions)
         }
 
         private val autocomplete: AutocompleteService.WithRawResponse by lazy {
@@ -351,7 +351,7 @@ class NextbillionSdkClientImpl(private val clientOptions: ClientOptions) : Nextb
         override fun restrictionsItems(): RestrictionsItemService.WithRawResponse =
             restrictionsItems
 
-        override fun distancematrix(): DistancematrixService.WithRawResponse = distancematrix
+        override fun distanceMatrix(): DistanceMatrixService.WithRawResponse = distanceMatrix
 
         override fun autocomplete(): AutocompleteService.WithRawResponse = autocomplete
 
