@@ -48,24 +48,18 @@ This library requires Java 8 or later.
 ```java
 import com.nextbillion_sdk.api.client.NextbillionSdkClient;
 import com.nextbillion_sdk.api.client.okhttp.NextbillionSdkOkHttpClient;
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateParams;
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateResponse;
-import com.nextbillion_sdk.api.models.fleetify.routes.steps.RouteStepsRequest;
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteParams;
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteResponse;
 
 // Configures using the `nextbillionsdk.apiKey` and `nextbillionsdk.baseUrl` system properties
 // Or configures using the `NEXTBILLION_SDK_API_KEY` and `NEXTBILLION_SDK_BASE_URL` environment variables
 NextbillionSdkClient client = NextbillionSdkOkHttpClient.fromEnv();
 
-RouteCreateParams params = RouteCreateParams.builder()
-    .key("REPLACE_ME")
-    .driverEmail("REPLACE_ME")
-    .addStep(RouteStepsRequest.builder()
-        .arrival(0L)
-        .addLocation(0.0)
-        .type(RouteStepsRequest.Type.START)
-        .build())
+DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
+    .destination("41.349302,2.136480")
+    .origin("41.349302,2.136480")
     .build();
-RouteCreateResponse route = client.fleetify().routes().create(params);
+DirectionComputeRouteResponse response = client.directions().computeRoute(params);
 ```
 
 ## Client configuration
@@ -138,7 +132,7 @@ The `withOptions()` method does not affect the original client or service.
 
 To send a request to the Nextbillion SDK API, build an instance of some `Params` class and pass it to the corresponding client method. When the response is received, it will be deserialized into an instance of a Java class.
 
-For example, `client.fleetify().routes().create(...)` should be called with an instance of `RouteCreateParams`, and it will return an instance of `RouteCreateResponse`.
+For example, `client.directions().computeRoute(...)` should be called with an instance of `DirectionComputeRouteParams`, and it will return an instance of `DirectionComputeRouteResponse`.
 
 ## Immutability
 
@@ -155,25 +149,19 @@ The default client is synchronous. To switch to asynchronous execution, call the
 ```java
 import com.nextbillion_sdk.api.client.NextbillionSdkClient;
 import com.nextbillion_sdk.api.client.okhttp.NextbillionSdkOkHttpClient;
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateParams;
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateResponse;
-import com.nextbillion_sdk.api.models.fleetify.routes.steps.RouteStepsRequest;
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteParams;
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteResponse;
 import java.util.concurrent.CompletableFuture;
 
 // Configures using the `nextbillionsdk.apiKey` and `nextbillionsdk.baseUrl` system properties
 // Or configures using the `NEXTBILLION_SDK_API_KEY` and `NEXTBILLION_SDK_BASE_URL` environment variables
 NextbillionSdkClient client = NextbillionSdkOkHttpClient.fromEnv();
 
-RouteCreateParams params = RouteCreateParams.builder()
-    .key("REPLACE_ME")
-    .driverEmail("REPLACE_ME")
-    .addStep(RouteStepsRequest.builder()
-        .arrival(0L)
-        .addLocation(0.0)
-        .type(RouteStepsRequest.Type.START)
-        .build())
+DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
+    .destination("41.349302,2.136480")
+    .origin("41.349302,2.136480")
     .build();
-CompletableFuture<RouteCreateResponse> route = client.async().fleetify().routes().create(params);
+CompletableFuture<DirectionComputeRouteResponse> response = client.async().directions().computeRoute(params);
 ```
 
 Or create an asynchronous client from the beginning:
@@ -181,25 +169,19 @@ Or create an asynchronous client from the beginning:
 ```java
 import com.nextbillion_sdk.api.client.NextbillionSdkClientAsync;
 import com.nextbillion_sdk.api.client.okhttp.NextbillionSdkOkHttpClientAsync;
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateParams;
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateResponse;
-import com.nextbillion_sdk.api.models.fleetify.routes.steps.RouteStepsRequest;
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteParams;
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteResponse;
 import java.util.concurrent.CompletableFuture;
 
 // Configures using the `nextbillionsdk.apiKey` and `nextbillionsdk.baseUrl` system properties
 // Or configures using the `NEXTBILLION_SDK_API_KEY` and `NEXTBILLION_SDK_BASE_URL` environment variables
 NextbillionSdkClientAsync client = NextbillionSdkOkHttpClientAsync.fromEnv();
 
-RouteCreateParams params = RouteCreateParams.builder()
-    .key("REPLACE_ME")
-    .driverEmail("REPLACE_ME")
-    .addStep(RouteStepsRequest.builder()
-        .arrival(0L)
-        .addLocation(0.0)
-        .type(RouteStepsRequest.Type.START)
-        .build())
+DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
+    .destination("41.349302,2.136480")
+    .origin("41.349302,2.136480")
     .build();
-CompletableFuture<RouteCreateResponse> route = client.fleetify().routes().create(params);
+CompletableFuture<DirectionComputeRouteResponse> response = client.directions().computeRoute(params);
 ```
 
 The asynchronous client supports the same options as the synchronous one, except most methods return `CompletableFuture`s.
@@ -213,31 +195,25 @@ To access this data, prefix any HTTP method call on a client or service with `wi
 ```java
 import com.nextbillion_sdk.api.core.http.Headers;
 import com.nextbillion_sdk.api.core.http.HttpResponseFor;
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateParams;
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateResponse;
-import com.nextbillion_sdk.api.models.fleetify.routes.steps.RouteStepsRequest;
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteParams;
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteResponse;
 
-RouteCreateParams params = RouteCreateParams.builder()
-    .key("REPLACE_ME")
-    .driverEmail("REPLACE_ME")
-    .addStep(RouteStepsRequest.builder()
-        .arrival(0L)
-        .addLocation(0.0)
-        .type(RouteStepsRequest.Type.START)
-        .build())
+DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
+    .destination("41.349302,2.136480")
+    .origin("41.349302,2.136480")
     .build();
-HttpResponseFor<RouteCreateResponse> route = client.fleetify().routes().withRawResponse().create(params);
+HttpResponseFor<DirectionComputeRouteResponse> response = client.directions().withRawResponse().computeRoute(params);
 
-int statusCode = route.statusCode();
-Headers headers = route.headers();
+int statusCode = response.statusCode();
+Headers headers = response.headers();
 ```
 
 You can still deserialize the response into an instance of a Java class if needed:
 
 ```java
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateResponse;
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteResponse;
 
-RouteCreateResponse parsedRoute = route.parse();
+DirectionComputeRouteResponse parsedResponse = response.parse();
 ```
 
 ## Error handling
@@ -325,9 +301,9 @@ Requests time out after 1 minute by default.
 To set a custom timeout, configure the method call using the `timeout` method:
 
 ```java
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateResponse;
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteResponse;
 
-RouteCreateResponse route = client.fleetify().routes().create(
+DirectionComputeRouteResponse response = client.directions().computeRoute(
   params, RequestOptions.builder().timeout(Duration.ofSeconds(30)).build()
 );
 ```
@@ -432,9 +408,9 @@ To set undocumented parameters, call the `putAdditionalHeader`, `putAdditionalQu
 
 ```java
 import com.nextbillion_sdk.api.core.JsonValue;
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateParams;
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteParams;
 
-RouteCreateParams params = RouteCreateParams.builder()
+DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
     .putAdditionalHeader("Secret-Header", "42")
     .putAdditionalQueryParam("secret_query_param", "42")
     .putAdditionalBodyProperty("secretProperty", JsonValue.from("42"))
@@ -462,17 +438,11 @@ To set a documented parameter or property to an undocumented or not yet supporte
 
 ```java
 import com.nextbillion_sdk.api.core.JsonValue;
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateParams;
-import com.nextbillion_sdk.api.models.fleetify.routes.steps.RouteStepsRequest;
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteParams;
 
-RouteCreateParams params = RouteCreateParams.builder()
-    .key("REPLACE_ME")
-    .driverEmail(JsonValue.from(42))
-    .addStep(RouteStepsRequest.builder()
-        .arrival(0L)
-        .addLocation(0.0)
-        .type(RouteStepsRequest.Type.START)
-        .build())
+DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
+    .destination(JsonValue.from(42))
+    .origin("41.349302,2.136480")
     .build();
 ```
 
@@ -521,17 +491,11 @@ To forcibly omit a required parameter or property, pass [`JsonMissing`](nextbill
 
 ```java
 import com.nextbillion_sdk.api.core.JsonMissing;
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateParams;
-import com.nextbillion_sdk.api.models.fleetify.routes.steps.RouteStepsRequest;
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteParams;
 
-RouteCreateParams params = RouteCreateParams.builder()
-    .driverEmail("johndoe@abc.com")
-    .addStep(RouteStepsRequest.builder()
-        .arrival(0L)
-        .addLocation(0.0)
-        .type(RouteStepsRequest.Type.START)
-        .build())
-    .key(JsonMissing.of())
+DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
+    .origin("41.349302,2.136480")
+    .destination(JsonMissing.of())
     .build();
 ```
 
@@ -543,7 +507,7 @@ To access undocumented response properties, call the `_additionalProperties()` m
 import com.nextbillion_sdk.api.core.JsonValue;
 import java.util.Map;
 
-Map<String, JsonValue> additionalProperties = client.fleetify().routes().create(params)._additionalProperties();
+Map<String, JsonValue> additionalProperties = client.directions().computeRoute(params)._additionalProperties();
 JsonValue secretPropertyValue = additionalProperties.get("secretProperty");
 
 String result = secretPropertyValue.accept(new JsonValue.Visitor<>() {
@@ -573,19 +537,19 @@ To access a property's raw JSON value, which may be undocumented, call its `_` p
 import com.nextbillion_sdk.api.core.JsonField;
 import java.util.Optional;
 
-JsonField<String> driverEmail = client.fleetify().routes().create(params)._driverEmail();
+JsonField<String> destination = client.directions().computeRoute(params)._destination();
 
-if (driverEmail.isMissing()) {
+if (destination.isMissing()) {
   // The property is absent from the JSON response
-} else if (driverEmail.isNull()) {
+} else if (destination.isNull()) {
   // The property was set to literal null
 } else {
   // Check if value was provided as a string
   // Other methods include `asNumber()`, `asBoolean()`, etc.
-  Optional<String> jsonString = driverEmail.asString();
+  Optional<String> jsonString = destination.asString();
 
   // Try to deserialize into a custom type
-  MyClass myObject = driverEmail.asUnknown().orElseThrow().convert(MyClass.class);
+  MyClass myObject = destination.asUnknown().orElseThrow().convert(MyClass.class);
 }
 ```
 
@@ -598,17 +562,17 @@ By default, the SDK will not throw an exception in this case. It will throw [`Ne
 If you would prefer to check that the response is completely well-typed upfront, then either call `validate()`:
 
 ```java
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateResponse;
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteResponse;
 
-RouteCreateResponse route = client.fleetify().routes().create(params).validate();
+DirectionComputeRouteResponse response = client.directions().computeRoute(params).validate();
 ```
 
 Or configure the method call to validate the response using the `responseValidation` method:
 
 ```java
-import com.nextbillion_sdk.api.models.fleetify.routes.RouteCreateResponse;
+import com.nextbillion_sdk.api.models.directions.DirectionComputeRouteResponse;
 
-RouteCreateResponse route = client.fleetify().routes().create(
+DirectionComputeRouteResponse response = client.directions().computeRoute(
   params, RequestOptions.builder().responseValidation(true).build()
 );
 ```
