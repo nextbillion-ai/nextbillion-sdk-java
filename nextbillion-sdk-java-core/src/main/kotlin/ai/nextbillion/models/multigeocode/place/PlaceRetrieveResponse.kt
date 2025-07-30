@@ -68,7 +68,7 @@ private constructor(
      * It returns the system calculated weighted score of the place. It depends on how ‘richly’ the
      * place was defined at the time of creation. In order to modify the score, use “Update Place”
      * method and update information for parameters which are not set currently. As an alternative,
-     * you can directly update the `score` to a custom value.
+     * you can directly update the score to a custom value.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -198,7 +198,7 @@ private constructor(
          * It returns the system calculated weighted score of the place. It depends on how ‘richly’
          * the place was defined at the time of creation. In order to modify the score, use “Update
          * Place” method and update information for parameters which are not set currently. As an
-         * alternative, you can directly update the `score` to a custom value.
+         * alternative, you can directly update the score to a custom value.
          */
         fun score(score: Long) = score(JsonField.of(score))
 

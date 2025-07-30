@@ -48,7 +48,7 @@ private constructor(
     ) : this(label, type, meta, name, required, validation, mutableMapOf())
 
     /**
-     * Specify the label or the name of the field. The `label` specified here can be used as field
+     * Specify the label or the name of the field. The label specified here can be used as field
      * name when rendering the document in the Driver app.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
@@ -66,8 +66,8 @@ private constructor(
     fun type(): Type = type.getRequired("type")
 
     /**
-     * An object to define additional information required for `single_choice` or `multi_choices`
-     * type document items.
+     * An object to define additional information required for single_choice or multi_choices type
+     * document items.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -75,8 +75,8 @@ private constructor(
     fun meta(): Optional<Meta> = meta.getOptional("meta")
 
     /**
-     * Specify the name of the document field. A field's`name` can be used for internal references
-     * to the document field.
+     * Specify the name of the document field. A field'sname can be used for internal references to
+     * the document field.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -93,7 +93,7 @@ private constructor(
 
     /**
      * Specify the validation rules for the field. This can be used to enforce data quality and
-     * integrity checks. For example, if the field is a number type, `validation` can define
+     * integrity checks. For example, if the field is a number type, validation can define
      * constraints like minimum / maximum number values.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -196,8 +196,8 @@ private constructor(
         }
 
         /**
-         * Specify the label or the name of the field. The `label` specified here can be used as
-         * field name when rendering the document in the Driver app.
+         * Specify the label or the name of the field. The label specified here can be used as field
+         * name when rendering the document in the Driver app.
          */
         fun label(label: String) = label(JsonField.of(label))
 
@@ -224,8 +224,8 @@ private constructor(
         fun type(type: JsonField<Type>) = apply { this.type = type }
 
         /**
-         * An object to define additional information required for `single_choice` or
-         * `multi_choices` type document items.
+         * An object to define additional information required for single_choice or multi_choices
+         * type document items.
          */
         fun meta(meta: Meta) = meta(JsonField.of(meta))
 
@@ -238,8 +238,8 @@ private constructor(
         fun meta(meta: JsonField<Meta>) = apply { this.meta = meta }
 
         /**
-         * Specify the name of the document field. A field's`name` can be used for internal
-         * references to the document field.
+         * Specify the name of the document field. A field'sname can be used for internal references
+         * to the document field.
          */
         fun name(name: String) = name(JsonField.of(name))
 
@@ -265,7 +265,7 @@ private constructor(
 
         /**
          * Specify the validation rules for the field. This can be used to enforce data quality and
-         * integrity checks. For example, if the field is a number type, `validation` can define
+         * integrity checks. For example, if the field is a number type, validation can define
          * constraints like minimum / maximum number values.
          */
         fun validation(validation: Validation) = validation(JsonField.of(validation))
@@ -379,21 +379,21 @@ private constructor(
 
         companion object {
 
-            @JvmField val STRING = of("`string`")
+            @JvmField val STRING = of("string")
 
-            @JvmField val NUMBER = of("`number`")
+            @JvmField val NUMBER = of("number")
 
-            @JvmField val DATE_TIME = of("`date_time`")
+            @JvmField val DATE_TIME = of("date_time")
 
-            @JvmField val PHOTOS = of("`photos`")
+            @JvmField val PHOTOS = of("photos")
 
-            @JvmField val MULTI_CHOICES = of("`multi_choices`")
+            @JvmField val MULTI_CHOICES = of("multi_choices")
 
-            @JvmField val SIGNATURE = of("`signature`")
+            @JvmField val SIGNATURE = of("signature")
 
-            @JvmField val BARCODE = of("`barcode`")
+            @JvmField val BARCODE = of("barcode")
 
-            @JvmField val SINGLE_CHOICE = of("`single_choice`")
+            @JvmField val SINGLE_CHOICE = of("single_choice")
 
             @JvmStatic fun of(value: String) = Type(JsonField.of(value))
         }
@@ -529,8 +529,8 @@ private constructor(
     }
 
     /**
-     * An object to define additional information required for `single_choice` or `multi_choices`
-     * type document items.
+     * An object to define additional information required for single_choice or multi_choices type
+     * document items.
      */
     class Meta
     private constructor(
@@ -546,8 +546,8 @@ private constructor(
         ) : this(options, mutableMapOf())
 
         /**
-         * An array of objects to define options for a `multi_choices` or `single_choice` type
-         * document field. Each object represents one option.
+         * An array of objects to define options for a multi_choices or single_choice type document
+         * field. Each object represents one option.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -599,7 +599,7 @@ private constructor(
             }
 
             /**
-             * An array of objects to define options for a `multi_choices` or `single_choice` type
+             * An array of objects to define options for a multi_choices or single_choice type
              * document field. Each object represents one option.
              */
             fun options(options: List<Option>) = options(JsonField.of(options))
@@ -919,7 +919,7 @@ private constructor(
 
     /**
      * Specify the validation rules for the field. This can be used to enforce data quality and
-     * integrity checks. For example, if the field is a number type, `validation` can define
+     * integrity checks. For example, if the field is a number type, validation can define
      * constraints like minimum / maximum number values.
      */
     class Validation
@@ -940,8 +940,8 @@ private constructor(
         ) : this(max, maxItems, min, minItems, mutableMapOf())
 
         /**
-         * Specifies the maximum allowed value for `number` type document field. Input values must
-         * be less than or equal to this threshold.
+         * Specifies the maximum allowed value for number type document field. Input values must be
+         * less than or equal to this threshold.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -949,8 +949,8 @@ private constructor(
         fun max(): Optional<Long> = max.getOptional("max")
 
         /**
-         * Specifies the maximum number of items for `multi_choices`, `photos` type document fields.
-         * The number of provided input items must be less than or equal to this threshold.
+         * Specifies the maximum number of items for multi_choices, photos type document fields. The
+         * number of provided input items must be less than or equal to this threshold.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -958,8 +958,8 @@ private constructor(
         fun maxItems(): Optional<Long> = maxItems.getOptional("max_items")
 
         /**
-         * Specifies the minimum allowed value for `number` type document field. Input values must
-         * be greater than or equal to this threshold.
+         * Specifies the minimum allowed value for number type document field. Input values must be
+         * greater than or equal to this threshold.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -967,8 +967,8 @@ private constructor(
         fun min(): Optional<Long> = min.getOptional("min")
 
         /**
-         * Specifies the minimum number of items for `multi_choices`, `photos` type document fields.
-         * The number of provided input items must be greater than or equal to this threshold.
+         * Specifies the minimum number of items for multi_choices, photos type document fields. The
+         * number of provided input items must be greater than or equal to this threshold.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1040,8 +1040,8 @@ private constructor(
             }
 
             /**
-             * Specifies the maximum allowed value for `number` type document field. Input values
-             * must be less than or equal to this threshold.
+             * Specifies the maximum allowed value for number type document field. Input values must
+             * be less than or equal to this threshold.
              */
             fun max(max: Long) = max(JsonField.of(max))
 
@@ -1055,9 +1055,8 @@ private constructor(
             fun max(max: JsonField<Long>) = apply { this.max = max }
 
             /**
-             * Specifies the maximum number of items for `multi_choices`, `photos` type document
-             * fields. The number of provided input items must be less than or equal to this
-             * threshold.
+             * Specifies the maximum number of items for multi_choices, photos type document fields.
+             * The number of provided input items must be less than or equal to this threshold.
              */
             fun maxItems(maxItems: Long) = maxItems(JsonField.of(maxItems))
 
@@ -1071,8 +1070,8 @@ private constructor(
             fun maxItems(maxItems: JsonField<Long>) = apply { this.maxItems = maxItems }
 
             /**
-             * Specifies the minimum allowed value for `number` type document field. Input values
-             * must be greater than or equal to this threshold.
+             * Specifies the minimum allowed value for number type document field. Input values must
+             * be greater than or equal to this threshold.
              */
             fun min(min: Long) = min(JsonField.of(min))
 
@@ -1086,9 +1085,8 @@ private constructor(
             fun min(min: JsonField<Long>) = apply { this.min = min }
 
             /**
-             * Specifies the minimum number of items for `multi_choices`, `photos` type document
-             * fields. The number of provided input items must be greater than or equal to this
-             * threshold.
+             * Specifies the minimum number of items for multi_choices, photos type document fields.
+             * The number of provided input items must be greater than or equal to this threshold.
              */
             fun minItems(minItems: Long) = minItems(JsonField.of(minItems))
 

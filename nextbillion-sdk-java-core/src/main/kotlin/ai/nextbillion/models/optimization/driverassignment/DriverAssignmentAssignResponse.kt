@@ -252,7 +252,7 @@ private constructor(
         /**
          * An array of objects containing the details of the potential, alternate vehicle
          * assignments for the orders in the input. This attribute will not be returned in the
-         * response if the `alternate_assignments` was not provided in the input. Each object
+         * response if the alternate_assignments was not provided in the input. Each object
          * represents alternate assignments for a single order.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -262,7 +262,7 @@ private constructor(
             alternateAssignments.getOptional("alternate_assignments")
 
         /**
-         * A collection of vehicles IDs that were not assigned to any orders. A `null` value is
+         * A collection of vehicles IDs that were not assigned to any orders. A null value is
          * returned if there are no vehicles without an order assignment.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -282,7 +282,7 @@ private constructor(
 
         /**
          * A collection of objects listing the details of orders which remained unassigned. Each
-         * object represents a single order. A `null` value is returned if there are no unassigned
+         * object represents a single order. A null value is returned if there are no unassigned
          * orders.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -367,7 +367,7 @@ private constructor(
             /**
              * An array of objects containing the details of the potential, alternate vehicle
              * assignments for the orders in the input. This attribute will not be returned in the
-             * response if the `alternate_assignments` was not provided in the input. Each object
+             * response if the alternate_assignments was not provided in the input. Each object
              * represents alternate assignments for a single order.
              */
             fun alternateAssignments(alternateAssignments: List<AlternateAssignment>) =
@@ -398,7 +398,7 @@ private constructor(
             }
 
             /**
-             * A collection of vehicles IDs that were not assigned to any orders. A `null` value is
+             * A collection of vehicles IDs that were not assigned to any orders. A null value is
              * returned if there are no vehicles without an order assignment.
              */
             fun availableVehicles(availableVehicles: List<String>) =
@@ -458,8 +458,8 @@ private constructor(
 
             /**
              * A collection of objects listing the details of orders which remained unassigned. Each
-             * object represents a single order. A `null` value is returned if there are no
-             * unassigned orders.
+             * object represents a single order. A null value is returned if there are no unassigned
+             * orders.
              */
             fun unassignedOrders(unassignedOrders: List<UnassignedOrder>) =
                 unassignedOrders(JsonField.of(unassignedOrders))
@@ -1377,8 +1377,8 @@ private constructor(
 
                     /**
                      * Returns the driving distance, in meters, to the step's location from previous
-                     * step's location. For the first step of a trip, `distance` indicates the
-                     * driving distance from `vehicle_current_location` to the step's location.
+                     * step's location. For the first step of a trip, distance indicates the driving
+                     * distance from vehicle_current_location to the step's location.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -1387,8 +1387,8 @@ private constructor(
 
                     /**
                      * Returns the driving duration, in seconds, to the step's location from
-                     * previous step's location. For the first step of a trip, `eta` indicates the
-                     * driving duration from `vehicle_current_location` to the step's location.
+                     * previous step's location. For the first step of a trip, eta indicates the
+                     * driving duration from vehicle_current_location to the step's location.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -1416,10 +1416,10 @@ private constructor(
                      * Returns the type of the step. Currently, it can take following values:
                      * - **pickup:** Indicates the pickup step for an order
                      * - **dropoff:** Indicates the dropoff step for an order. It is returned only
-                     *   if `dropoff_details` was **true** in the input request.
+                     *   if dropoff_details was **true** in the input request.
                      * - **ongoing:** Indicates a step that the vehicle needs to complete on its
                      *   current trip. This is returned in the response only when
-                     *   `remaining_waypoints` input was provided for the given vehicle.
+                     *   remaining_waypoints input was provided for the given vehicle.
                      * - **intermediate_waypoint:** Indicates an intermediate stop that the vehicle
                      *   needs to complete in case multiple dropoffs are provided in the input.
                      *
@@ -1515,8 +1515,8 @@ private constructor(
 
                         /**
                          * Returns the driving distance, in meters, to the step's location from
-                         * previous step's location. For the first step of a trip, `distance`
-                         * indicates the driving distance from `vehicle_current_location` to the
+                         * previous step's location. For the first step of a trip, distance
+                         * indicates the driving distance from vehicle_current_location to the
                          * step's location.
                          */
                         fun distance(distance: Long) = distance(JsonField.of(distance))
@@ -1532,9 +1532,8 @@ private constructor(
 
                         /**
                          * Returns the driving duration, in seconds, to the step's location from
-                         * previous step's location. For the first step of a trip, `eta` indicates
-                         * the driving duration from `vehicle_current_location` to the step's
-                         * location.
+                         * previous step's location. For the first step of a trip, eta indicates the
+                         * driving duration from vehicle_current_location to the step's location.
                          */
                         fun eta(eta: Long) = eta(JsonField.of(eta))
 
@@ -1580,10 +1579,10 @@ private constructor(
                          * Returns the type of the step. Currently, it can take following values:
                          * - **pickup:** Indicates the pickup step for an order
                          * - **dropoff:** Indicates the dropoff step for an order. It is returned
-                         *   only if `dropoff_details` was **true** in the input request.
+                         *   only if dropoff_details was **true** in the input request.
                          * - **ongoing:** Indicates a step that the vehicle needs to complete on its
                          *   current trip. This is returned in the response only when
-                         *   `remaining_waypoints` input was provided for the given vehicle.
+                         *   remaining_waypoints input was provided for the given vehicle.
                          * - **intermediate_waypoint:** Indicates an intermediate stop that the
                          *   vehicle needs to complete in case multiple dropoffs are provided in the
                          *   input.
@@ -1678,10 +1677,10 @@ private constructor(
                      * Returns the type of the step. Currently, it can take following values:
                      * - **pickup:** Indicates the pickup step for an order
                      * - **dropoff:** Indicates the dropoff step for an order. It is returned only
-                     *   if `dropoff_details` was **true** in the input request.
+                     *   if dropoff_details was **true** in the input request.
                      * - **ongoing:** Indicates a step that the vehicle needs to complete on its
                      *   current trip. This is returned in the response only when
-                     *   `remaining_waypoints` input was provided for the given vehicle.
+                     *   remaining_waypoints input was provided for the given vehicle.
                      * - **intermediate_waypoint:** Indicates an intermediate stop that the vehicle
                      *   needs to complete in case multiple dropoffs are provided in the input.
                      */

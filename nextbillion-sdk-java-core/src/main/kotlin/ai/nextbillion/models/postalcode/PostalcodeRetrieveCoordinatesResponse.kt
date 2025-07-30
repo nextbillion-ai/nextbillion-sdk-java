@@ -254,7 +254,7 @@ private constructor(
         )
 
         /**
-         * Returns the address of the `postalcode` returned.
+         * Returns the address of the postalcode returned.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -266,11 +266,11 @@ private constructor(
          * be returned in case the boundary information of the postal code provided is not available
          * (only for selected countries).
          *
-         * Please note the contents of this object will change based on the `format` field in the
-         * input. When the `format` field is not present in the input this object would contain
-         * `multipolygon` - `polygon` - `points` objects depending on the boundary of the given
-         * postal code. When the `format` field is present in the input, then the contents of this
-         * object would match the
+         * Please note the contents of this object will change based on the format field in the
+         * input. When the format field is not present in the input this object would contain
+         * multipolygon - polygon - points objects depending on the boundary of the given postal
+         * code. When the format field is present in the input, then the contents of this object
+         * would match the
          * [geojson format and standard](https://datatracker.ietf.org/doc/html/rfc7946).
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -289,7 +289,7 @@ private constructor(
 
         /**
          * Returns the [alpha-3 ISO code](https://www.iban.com/country-codes) of the country
-         * containing the `postalcode` returned.
+         * containing the postalcode returned.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -298,9 +298,9 @@ private constructor(
 
         /**
          * This property is returned only when the API is requested to fetch the postal code
-         * containing the location coordinate provided in the `at` input parameter. `distance`
-         * denotes the straight line distance, in meters, from the requested location coordinate to
-         * the postal code centroid.
+         * containing the location coordinate provided in the at input parameter. distance denotes
+         * the straight line distance, in meters, from the requested location coordinate to the
+         * postal code centroid.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -476,7 +476,7 @@ private constructor(
                 additionalProperties = places.additionalProperties.toMutableMap()
             }
 
-            /** Returns the address of the `postalcode` returned. */
+            /** Returns the address of the postalcode returned. */
             fun address(address: String) = address(JsonField.of(address))
 
             /**
@@ -493,11 +493,11 @@ private constructor(
              * not be returned in case the boundary information of the postal code provided is not
              * available (only for selected countries).
              *
-             * Please note the contents of this object will change based on the `format` field in
-             * the input. When the `format` field is not present in the input this object would
-             * contain `multipolygon` - `polygon` - `points` objects depending on the boundary of
-             * the given postal code. When the `format` field is present in the input, then the
-             * contents of this object would match the
+             * Please note the contents of this object will change based on the format field in the
+             * input. When the format field is not present in the input this object would contain
+             * multipolygon - polygon - points objects depending on the boundary of the given postal
+             * code. When the format field is present in the input, then the contents of this object
+             * would match the
              * [geojson format and standard](https://datatracker.ietf.org/doc/html/rfc7946).
              */
             fun boundary(boundary: Boundary) = boundary(JsonField.of(boundary))
@@ -528,7 +528,7 @@ private constructor(
 
             /**
              * Returns the [alpha-3 ISO code](https://www.iban.com/country-codes) of the country
-             * containing the `postalcode` returned.
+             * containing the postalcode returned.
              */
             fun countryCode(countryCode: String) = countryCode(JsonField.of(countryCode))
 
@@ -545,7 +545,7 @@ private constructor(
 
             /**
              * This property is returned only when the API is requested to fetch the postal code
-             * containing the location coordinate provided in the `at` input parameter. `distance`
+             * containing the location coordinate provided in the at input parameter. distance
              * denotes the straight line distance, in meters, from the requested location coordinate
              * to the postal code centroid.
              */
@@ -729,11 +729,11 @@ private constructor(
          * be returned in case the boundary information of the postal code provided is not available
          * (only for selected countries).
          *
-         * Please note the contents of this object will change based on the `format` field in the
-         * input. When the `format` field is not present in the input this object would contain
-         * `multipolygon` - `polygon` - `points` objects depending on the boundary of the given
-         * postal code. When the `format` field is present in the input, then the contents of this
-         * object would match the
+         * Please note the contents of this object will change based on the format field in the
+         * input. When the format field is not present in the input this object would contain
+         * multipolygon - polygon - points objects depending on the boundary of the given postal
+         * code. When the format field is present in the input, then the contents of this object
+         * would match the
          * [geojson format and standard](https://datatracker.ietf.org/doc/html/rfc7946).
          */
         class Boundary
@@ -761,8 +761,8 @@ private constructor(
 
             /**
              * An object with geoJSON details of the boundary. This object is returned when the
-             * `format` field is set to `geojson` in the input request, otherwise it is not present
-             * in the response. The contents of this object follow the
+             * format field is set to geojson in the input request, otherwise it is not present in
+             * the response. The contents of this object follow the
              * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
@@ -773,9 +773,9 @@ private constructor(
             /**
              * An array of objects containing information about all the polygons forming the postal
              * code area. In case, the postal code area is formed by multiple polygons not
-             * containing each other, a matching count of `polygon` objects will be returned.
+             * containing each other, a matching count of polygon objects will be returned.
              *
-             * Please note that this object is returned only when `format` field is not specified in
+             * Please note that this object is returned only when format field is not specified in
              * the input, otherwise it is not present in the response.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
@@ -793,8 +793,8 @@ private constructor(
             fun properties(): Optional<String> = properties.getOptional("properties")
 
             /**
-             * Type of the geoJSON object. This parameter is returned when the `format` field is set
-             * to `geojson` in the input request, otherwise it is not present in the response. The
+             * Type of the geoJSON object. This parameter is returned when the format field is set
+             * to geojson in the input request, otherwise it is not present in the response. The
              * contents of this object follow the
              * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
              *
@@ -878,8 +878,8 @@ private constructor(
 
                 /**
                  * An object with geoJSON details of the boundary. This object is returned when the
-                 * `format` field is set to `geojson` in the input request, otherwise it is not
-                 * present in the response. The contents of this object follow the
+                 * format field is set to geojson in the input request, otherwise it is not present
+                 * in the response. The contents of this object follow the
                  * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
                  */
                 fun geometry(geometry: Geometry) = geometry(JsonField.of(geometry))
@@ -896,11 +896,10 @@ private constructor(
                 /**
                  * An array of objects containing information about all the polygons forming the
                  * postal code area. In case, the postal code area is formed by multiple polygons
-                 * not containing each other, a matching count of `polygon` objects will be
-                 * returned.
+                 * not containing each other, a matching count of polygon objects will be returned.
                  *
-                 * Please note that this object is returned only when `format` field is not
-                 * specified in the input, otherwise it is not present in the response.
+                 * Please note that this object is returned only when format field is not specified
+                 * in the input, otherwise it is not present in the response.
                  */
                 fun multipolygon(multipolygon: List<Multipolygon>) =
                     multipolygon(JsonField.of(multipolygon))
@@ -943,9 +942,9 @@ private constructor(
                 }
 
                 /**
-                 * Type of the geoJSON object. This parameter is returned when the `format` field is
-                 * set to `geojson` in the input request, otherwise it is not present in the
-                 * response. The contents of this object follow the
+                 * Type of the geoJSON object. This parameter is returned when the format field is
+                 * set to geojson in the input request, otherwise it is not present in the response.
+                 * The contents of this object follow the
                  * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
                  */
                 fun type(type: String) = type(JsonField.of(type))
@@ -1033,8 +1032,8 @@ private constructor(
 
             /**
              * An object with geoJSON details of the boundary. This object is returned when the
-             * `format` field is set to `geojson` in the input request, otherwise it is not present
-             * in the response. The contents of this object follow the
+             * format field is set to geojson in the input request, otherwise it is not present in
+             * the response. The contents of this object follow the
              * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
              */
             class Geometry
@@ -1263,7 +1262,7 @@ private constructor(
                 /**
                  * An object containing the details of a single polygon that is a part of the postal
                  * code area. In case the postal code area contains other polygon(s), the details of
-                 * such polygon(s) would be returned through an array of `points` object.
+                 * such polygon(s) would be returned through an array of points object.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1313,7 +1312,7 @@ private constructor(
                     /**
                      * An object containing the details of a single polygon that is a part of the
                      * postal code area. In case the postal code area contains other polygon(s), the
-                     * details of such polygon(s) would be returned through an array of `points`
+                     * details of such polygon(s) would be returned through an array of points
                      * object.
                      */
                     fun polygon(polygon: List<Polygon>) = polygon(JsonField.of(polygon))
@@ -1418,8 +1417,7 @@ private constructor(
                     ) : this(points, mutableMapOf())
 
                     /**
-                     * Represents an array of geographic coordinates that define a `polygon`
-                     * boundary.
+                     * Represents an array of geographic coordinates that define a polygon boundary.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -1468,7 +1466,7 @@ private constructor(
                         }
 
                         /**
-                         * Represents an array of geographic coordinates that define a `polygon`
+                         * Represents an array of geographic coordinates that define a polygon
                          * boundary.
                          */
                         fun points(points: List<Point>) = points(JsonField.of(points))

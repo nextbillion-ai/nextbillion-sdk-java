@@ -112,9 +112,9 @@ interface NextbillionSdkClientAsync {
 
     fun postalcode(): PostalcodeServiceAsync
 
-    fun areas(): AreaServiceAsync
-
     fun lookup(): LookupServiceAsync
+
+    fun areas(): AreaServiceAsync
 
     /**
      * Closes this client, relinquishing any underlying resources.
@@ -190,8 +190,8 @@ interface NextbillionSdkClientAsync {
 
         fun postalcode(): PostalcodeServiceAsync.WithRawResponse
 
-        fun areas(): AreaServiceAsync.WithRawResponse
-
         fun lookup(): LookupServiceAsync.WithRawResponse
+
+        fun areas(): AreaServiceAsync.WithRawResponse
     }
 }

@@ -51,8 +51,8 @@ private constructor(
     fun arrival(): Long = body.arrival()
 
     /**
-     * Specify the location coordinates where the steps should be performed in `[latitude,
-     * longitude]`.
+     * Specify the location coordinates where the steps should be performed in
+     * [latitude, longitude].
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
      *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -60,9 +60,8 @@ private constructor(
     fun location(): List<Double> = body.location()
 
     /**
-     * Specify the step type. It can belong to one of the following: `start`, `job` , `pickup`,
-     * `delivery`, `end`. A `duration` is mandatory when the step type is either `layover` or a
-     * `break`.
+     * Specify the step type. It can belong to one of the following: start, job , pickup, delivery,
+     * end. A duration is mandatory when the step type is either layover or a break.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
      *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -80,12 +79,12 @@ private constructor(
     /**
      * Specify the mode of completion to be used for the step. Currently, following values are
      * allowed:
-     * - `manual`: Steps must be marked as completed manually through the Driver App.
-     * - `geofence`: Steps are marked as completed automatically based on the entry conditions and
+     * - manual: Steps must be marked as completed manually through the Driver App.
+     * - geofence: Steps are marked as completed automatically based on the entry conditions and
      *   geofence specified.
-     * - `geofence_manual_fallback`: Steps will be marked as completed automatically based on
-     *   geofence and entry condition configurations but there will also be a provision for manually
-     *   updating the status in case, geofence detection fails.
+     * - geofence_manual_fallback: Steps will be marked as completed automatically based on geofence
+     *   and entry condition configurations but there will also be a provision for manually updating
+     *   the status in case, geofence detection fails.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -99,7 +98,7 @@ private constructor(
      * to create, read and manage the document templates.
      *
      * Please note that the document template ID can not be assigned to following step types -
-     * `start`, `end`, `break`, `layover`.
+     * start, end, break, layover.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -107,7 +106,7 @@ private constructor(
     fun documentTemplateId(): Optional<String> = body.documentTemplateId()
 
     /**
-     * Specify the duration of the `layover` or `break` type steps, in seconds. Please note it is
+     * Specify the duration of the layover or break type steps, in seconds. Please note it is
      * mandatory when step type is either "layover" or "break".
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -118,7 +117,7 @@ private constructor(
     /**
      * Specify the configurations of the geofence which will be used to detect presence of the
      * driver and complete the tasks automatically. Please note that this attribute is required when
-     * `completion_mode` is either "geofence" or "geofence_manual_fallback".
+     * completion_mode is either "geofence" or "geofence_manual_fallback".
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -302,8 +301,8 @@ private constructor(
         fun arrival(arrival: JsonField<Long>) = apply { body.arrival(arrival) }
 
         /**
-         * Specify the location coordinates where the steps should be performed in `[latitude,
-         * longitude]`.
+         * Specify the location coordinates where the steps should be performed in
+         * [latitude, longitude].
          */
         fun location(location: List<Double>) = apply { body.location(location) }
 
@@ -324,9 +323,8 @@ private constructor(
         fun addLocation(location: Double) = apply { body.addLocation(location) }
 
         /**
-         * Specify the step type. It can belong to one of the following: `start`, `job` , `pickup`,
-         * `delivery`, `end`. A `duration` is mandatory when the step type is either `layover` or a
-         * `break`.
+         * Specify the step type. It can belong to one of the following: start, job , pickup,
+         * delivery, end. A duration is mandatory when the step type is either layover or a break.
          */
         fun type(type: RouteStepsRequest.Type) = apply { body.type(type) }
 
@@ -353,10 +351,10 @@ private constructor(
         /**
          * Specify the mode of completion to be used for the step. Currently, following values are
          * allowed:
-         * - `manual`: Steps must be marked as completed manually through the Driver App.
-         * - `geofence`: Steps are marked as completed automatically based on the entry conditions
-         *   and geofence specified.
-         * - `geofence_manual_fallback`: Steps will be marked as completed automatically based on
+         * - manual: Steps must be marked as completed manually through the Driver App.
+         * - geofence: Steps are marked as completed automatically based on the entry conditions and
+         *   geofence specified.
+         * - geofence_manual_fallback: Steps will be marked as completed automatically based on
          *   geofence and entry condition configurations but there will also be a provision for
          *   manually updating the status in case, geofence detection fails.
          */
@@ -383,7 +381,7 @@ private constructor(
          * read and manage the document templates.
          *
          * Please note that the document template ID can not be assigned to following step types -
-         * `start`, `end`, `break`, `layover`.
+         * start, end, break, layover.
          */
         fun documentTemplateId(documentTemplateId: String) = apply {
             body.documentTemplateId(documentTemplateId)
@@ -401,8 +399,8 @@ private constructor(
         }
 
         /**
-         * Specify the duration of the `layover` or `break` type steps, in seconds. Please note it
-         * is mandatory when step type is either "layover" or "break".
+         * Specify the duration of the layover or break type steps, in seconds. Please note it is
+         * mandatory when step type is either "layover" or "break".
          */
         fun duration(duration: Long) = apply { body.duration(duration) }
 
@@ -417,7 +415,7 @@ private constructor(
         /**
          * Specify the configurations of the geofence which will be used to detect presence of the
          * driver and complete the tasks automatically. Please note that this attribute is required
-         * when `completion_mode` is either "geofence" or "geofence_manual_fallback".
+         * when completion_mode is either "geofence" or "geofence_manual_fallback".
          */
         fun geofenceConfig(geofenceConfig: RouteStepGeofenceConfig) = apply {
             body.geofenceConfig(geofenceConfig)
@@ -706,8 +704,8 @@ private constructor(
         fun arrival(): Long = arrival.getRequired("arrival")
 
         /**
-         * Specify the location coordinates where the steps should be performed in `[latitude,
-         * longitude]`.
+         * Specify the location coordinates where the steps should be performed in
+         * [latitude, longitude].
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -715,9 +713,8 @@ private constructor(
         fun location(): List<Double> = location.getRequired("location")
 
         /**
-         * Specify the step type. It can belong to one of the following: `start`, `job` , `pickup`,
-         * `delivery`, `end`. A `duration` is mandatory when the step type is either `layover` or a
-         * `break`.
+         * Specify the step type. It can belong to one of the following: start, job , pickup,
+         * delivery, end. A duration is mandatory when the step type is either layover or a break.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -735,10 +732,10 @@ private constructor(
         /**
          * Specify the mode of completion to be used for the step. Currently, following values are
          * allowed:
-         * - `manual`: Steps must be marked as completed manually through the Driver App.
-         * - `geofence`: Steps are marked as completed automatically based on the entry conditions
-         *   and geofence specified.
-         * - `geofence_manual_fallback`: Steps will be marked as completed automatically based on
+         * - manual: Steps must be marked as completed manually through the Driver App.
+         * - geofence: Steps are marked as completed automatically based on the entry conditions and
+         *   geofence specified.
+         * - geofence_manual_fallback: Steps will be marked as completed automatically based on
          *   geofence and entry condition configurations but there will also be a provision for
          *   manually updating the status in case, geofence detection fails.
          *
@@ -756,7 +753,7 @@ private constructor(
          * read and manage the document templates.
          *
          * Please note that the document template ID can not be assigned to following step types -
-         * `start`, `end`, `break`, `layover`.
+         * start, end, break, layover.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -765,8 +762,8 @@ private constructor(
             documentTemplateId.getOptional("document_template_id")
 
         /**
-         * Specify the duration of the `layover` or `break` type steps, in seconds. Please note it
-         * is mandatory when step type is either "layover" or "break".
+         * Specify the duration of the layover or break type steps, in seconds. Please note it is
+         * mandatory when step type is either "layover" or "break".
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -776,7 +773,7 @@ private constructor(
         /**
          * Specify the configurations of the geofence which will be used to detect presence of the
          * driver and complete the tasks automatically. Please note that this attribute is required
-         * when `completion_mode` is either "geofence" or "geofence_manual_fallback".
+         * when completion_mode is either "geofence" or "geofence_manual_fallback".
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -963,8 +960,8 @@ private constructor(
             fun arrival(arrival: JsonField<Long>) = apply { this.arrival = arrival }
 
             /**
-             * Specify the location coordinates where the steps should be performed in `[latitude,
-             * longitude]`.
+             * Specify the location coordinates where the steps should be performed in
+             * [latitude, longitude].
              */
             fun location(location: List<Double>) = location(JsonField.of(location))
 
@@ -992,9 +989,9 @@ private constructor(
             }
 
             /**
-             * Specify the step type. It can belong to one of the following: `start`, `job` ,
-             * `pickup`, `delivery`, `end`. A `duration` is mandatory when the step type is either
-             * `layover` or a `break`.
+             * Specify the step type. It can belong to one of the following: start, job , pickup,
+             * delivery, end. A duration is mandatory when the step type is either layover or a
+             * break.
              */
             fun type(type: RouteStepsRequest.Type) = type(JsonField.of(type))
 
@@ -1022,12 +1019,12 @@ private constructor(
             /**
              * Specify the mode of completion to be used for the step. Currently, following values
              * are allowed:
-             * - `manual`: Steps must be marked as completed manually through the Driver App.
-             * - `geofence`: Steps are marked as completed automatically based on the entry
-             *   conditions and geofence specified.
-             * - `geofence_manual_fallback`: Steps will be marked as completed automatically based
-             *   on geofence and entry condition configurations but there will also be a provision
-             *   for manually updating the status in case, geofence detection fails.
+             * - manual: Steps must be marked as completed manually through the Driver App.
+             * - geofence: Steps are marked as completed automatically based on the entry conditions
+             *   and geofence specified.
+             * - geofence_manual_fallback: Steps will be marked as completed automatically based on
+             *   geofence and entry condition configurations but there will also be a provision for
+             *   manually updating the status in case, geofence detection fails.
              */
             fun completionMode(completionMode: RouteStepCompletionMode) =
                 completionMode(JsonField.of(completionMode))
@@ -1051,7 +1048,7 @@ private constructor(
              * read and manage the document templates.
              *
              * Please note that the document template ID can not be assigned to following step
-             * types - `start`, `end`, `break`, `layover`.
+             * types - start, end, break, layover.
              */
             fun documentTemplateId(documentTemplateId: String) =
                 documentTemplateId(JsonField.of(documentTemplateId))
@@ -1068,8 +1065,8 @@ private constructor(
             }
 
             /**
-             * Specify the duration of the `layover` or `break` type steps, in seconds. Please note
-             * it is mandatory when step type is either "layover" or "break".
+             * Specify the duration of the layover or break type steps, in seconds. Please note it
+             * is mandatory when step type is either "layover" or "break".
              */
             fun duration(duration: Long) = duration(JsonField.of(duration))
 
@@ -1085,7 +1082,7 @@ private constructor(
             /**
              * Specify the configurations of the geofence which will be used to detect presence of
              * the driver and complete the tasks automatically. Please note that this attribute is
-             * required when `completion_mode` is either "geofence" or "geofence_manual_fallback".
+             * required when completion_mode is either "geofence" or "geofence_manual_fallback".
              */
             fun geofenceConfig(geofenceConfig: RouteStepGeofenceConfig) =
                 geofenceConfig(JsonField.of(geofenceConfig))

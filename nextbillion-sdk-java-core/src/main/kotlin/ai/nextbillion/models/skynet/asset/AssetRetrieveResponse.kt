@@ -33,7 +33,7 @@ private constructor(
     ) : this(data, message, status, mutableMapOf())
 
     /**
-     * An object containing the information about the `asset` returned.
+     * An object containing the information about the asset returned.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -50,8 +50,8 @@ private constructor(
     fun message(): Optional<String> = message.getOptional("message")
 
     /**
-     * A string indicating the state of the response. On successful responses, the value will be
-     * `Ok`. Indicative error messages are returned for different errors. See the
+     * A string indicating the state of the response. On successful responses, the value will be Ok.
+     * Indicative error messages are returned for different errors. See the
      * [API Error Codes](#api-error-codes) section below for more information.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -114,7 +114,7 @@ private constructor(
             additionalProperties = assetRetrieveResponse.additionalProperties.toMutableMap()
         }
 
-        /** An object containing the information about the `asset` returned. */
+        /** An object containing the information about the asset returned. */
         fun data(data: Data) = data(JsonField.of(data))
 
         /**
@@ -141,7 +141,7 @@ private constructor(
 
         /**
          * A string indicating the state of the response. On successful responses, the value will be
-         * `Ok`. Indicative error messages are returned for different errors. See the
+         * Ok. Indicative error messages are returned for different errors. See the
          * [API Error Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -214,7 +214,7 @@ private constructor(
             (if (message.asKnown().isPresent) 1 else 0) +
             (if (status.asKnown().isPresent) 1 else 0)
 
-    /** An object containing the information about the `asset` returned. */
+    /** An object containing the information about the asset returned. */
     class Data
     private constructor(
         private val asset: JsonField<AssetDetails>,
@@ -227,7 +227,7 @@ private constructor(
         ) : this(asset, mutableMapOf())
 
         /**
-         * An object with details of the `asset` properties.
+         * An object with details of the asset properties.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -271,7 +271,7 @@ private constructor(
                 additionalProperties = data.additionalProperties.toMutableMap()
             }
 
-            /** An object with details of the `asset` properties. */
+            /** An object with details of the asset properties. */
             fun asset(asset: AssetDetails) = asset(JsonField.of(asset))
 
             /**

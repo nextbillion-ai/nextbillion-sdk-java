@@ -56,9 +56,9 @@ private constructor(
     fun distance(): Optional<Long> = distance.getOptional("distance")
 
     /**
-     * A GeoJSON object with details of the snapped path. This object is returned when the
-     * `geometry` field is set to `geojson` in the input request, otherwise it is not present in the
-     * response. The contents of this object follow the
+     * A GeoJSON object with details of the snapped path. This object is returned when the geometry
+     * field is set to geojson in the input request, otherwise it is not present in the response.
+     * The contents of this object follow the
      * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -67,8 +67,8 @@ private constructor(
     fun geojson(): Optional<Geojson> = geojson.getOptional("geojson")
 
     /**
-     * An array of strings containing the encoded geometries of snapped paths in `polyline` or
-     * `polyline6` format.
+     * An array of strings containing the encoded geometries of snapped paths in polyline or
+     * polyline6 format.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -94,7 +94,7 @@ private constructor(
     fun roadInfo(): Optional<RoadInfo> = roadInfo.getOptional("road_info")
 
     /**
-     * An array of objects. Each object provides the details of a `path` coordinate point snapped to
+     * An array of objects. Each object provides the details of a path coordinate point snapped to
      * the nearest road.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -103,7 +103,7 @@ private constructor(
     fun snappedPoints(): Optional<List<SnappedPoint>> = snappedPoints.getOptional("snappedPoints")
 
     /**
-     * A string indicating the state of the response. On normal responses, the value will be `Ok`.
+     * A string indicating the state of the response. On normal responses, the value will be Ok.
      * Indicative HTTP error codes are returned for different errors. See the
      * [API Errors Codes](#api-error-codes) section below for more information.
      *
@@ -218,8 +218,8 @@ private constructor(
 
         /**
          * A GeoJSON object with details of the snapped path. This object is returned when the
-         * `geometry` field is set to `geojson` in the input request, otherwise it is not present in
-         * the response. The contents of this object follow the
+         * geometry field is set to geojson in the input request, otherwise it is not present in the
+         * response. The contents of this object follow the
          * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
          */
         fun geojson(geojson: Geojson) = geojson(JsonField.of(geojson))
@@ -233,8 +233,8 @@ private constructor(
         fun geojson(geojson: JsonField<Geojson>) = apply { this.geojson = geojson }
 
         /**
-         * An array of strings containing the encoded geometries of snapped paths in `polyline` or
-         * `polyline6` format.
+         * An array of strings containing the encoded geometries of snapped paths in polyline or
+         * polyline6 format.
          */
         fun geometry(geometry: List<String>) = geometry(JsonField.of(geometry))
 
@@ -291,8 +291,8 @@ private constructor(
         fun roadInfo(roadInfo: JsonField<RoadInfo>) = apply { this.roadInfo = roadInfo }
 
         /**
-         * An array of objects. Each object provides the details of a `path` coordinate point
-         * snapped to the nearest road.
+         * An array of objects. Each object provides the details of a path coordinate point snapped
+         * to the nearest road.
          */
         fun snappedPoints(snappedPoints: List<SnappedPoint>) =
             snappedPoints(JsonField.of(snappedPoints))
@@ -321,8 +321,8 @@ private constructor(
         }
 
         /**
-         * A string indicating the state of the response. On normal responses, the value will be
-         * `Ok`. Indicative HTTP error codes are returned for different errors. See the
+         * A string indicating the state of the response. On normal responses, the value will be Ok.
+         * Indicative HTTP error codes are returned for different errors. See the
          * [API Errors Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -413,9 +413,9 @@ private constructor(
             (if (status.asKnown().isPresent) 1 else 0)
 
     /**
-     * A GeoJSON object with details of the snapped path. This object is returned when the
-     * `geometry` field is set to `geojson` in the input request, otherwise it is not present in the
-     * response. The contents of this object follow the
+     * A GeoJSON object with details of the snapped path. This object is returned when the geometry
+     * field is set to geojson in the input request, otherwise it is not present in the response.
+     * The contents of this object follow the
      * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
      */
     class Geojson
@@ -1010,9 +1010,9 @@ private constructor(
             ) : this(length, offset, value, mutableMapOf())
 
             /**
-             * `length` refers to a sequence of 'n' consecutive vertices in the route geometry
-             * starting from the `offset`, forming a continuous section of route where the maximum
-             * speed is the same and is indicated in `value`.
+             * length refers to a sequence of 'n' consecutive vertices in the route geometry
+             * starting from the offset, forming a continuous section of route where the maximum
+             * speed is the same and is indicated in value.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -1020,7 +1020,7 @@ private constructor(
             fun length(): Optional<Long> = length.getOptional("length")
 
             /**
-             * `offset` is the index value of the vertex of route geometry, which is the starting
+             * offset is the index value of the vertex of route geometry, which is the starting
              * point of the segment.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
@@ -1029,7 +1029,7 @@ private constructor(
             fun offset(): Optional<Long> = offset.getOptional("offset")
 
             /**
-             * `value` denotes the maximum speed of this segment, in kilometers per hour.
+             * value denotes the maximum speed of this segment, in kilometers per hour.
              * - A value of "-1" indicates that the speed is unlimited for this road segment.
              * - A value of "0" indicates that there is no information about the maximum speed for
              *   this road segment.
@@ -1095,9 +1095,9 @@ private constructor(
                 }
 
                 /**
-                 * `length` refers to a sequence of 'n' consecutive vertices in the route geometry
-                 * starting from the `offset`, forming a continuous section of route where the
-                 * maximum speed is the same and is indicated in `value`.
+                 * length refers to a sequence of 'n' consecutive vertices in the route geometry
+                 * starting from the offset, forming a continuous section of route where the maximum
+                 * speed is the same and is indicated in value.
                  */
                 fun length(length: Long) = length(JsonField.of(length))
 
@@ -1111,8 +1111,8 @@ private constructor(
                 fun length(length: JsonField<Long>) = apply { this.length = length }
 
                 /**
-                 * `offset` is the index value of the vertex of route geometry, which is the
-                 * starting point of the segment.
+                 * offset is the index value of the vertex of route geometry, which is the starting
+                 * point of the segment.
                  */
                 fun offset(offset: Long) = offset(JsonField.of(offset))
 
@@ -1126,7 +1126,7 @@ private constructor(
                 fun offset(offset: JsonField<Long>) = apply { this.offset = offset }
 
                 /**
-                 * `value` denotes the maximum speed of this segment, in kilometers per hour.
+                 * value denotes the maximum speed of this segment, in kilometers per hour.
                  * - A value of "-1" indicates that the speed is unlimited for this road segment.
                  * - A value of "0" indicates that there is no information about the maximum speed
                  *   for this road segment.
@@ -1269,9 +1269,9 @@ private constructor(
 
         /**
          * The bearing, calculated as the angle from true north in clockwise direction, of the route
-         * leading to the next snapped point from the current `snapped_point`, in radians. In case
-         * of the last `snapped_point` of the route, the bearing indicates the direction of the
-         * route to the previous `snapped_location`.
+         * leading to the next snapped point from the current snapped_point, in radians. In case of
+         * the last snapped_point of the route, the bearing indicates the direction of the route to
+         * the previous snapped_location.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -1303,8 +1303,7 @@ private constructor(
         fun name(): String = name.getRequired("name")
 
         /**
-         * The index of the input `path` coordinate point to which this snapped point corresponds
-         * to.
+         * The index of the input path coordinate point to which this snapped point corresponds to.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -1400,9 +1399,9 @@ private constructor(
 
             /**
              * The bearing, calculated as the angle from true north in clockwise direction, of the
-             * route leading to the next snapped point from the current `snapped_point`, in radians.
-             * In case of the last `snapped_point` of the route, the bearing indicates the direction
-             * of the route to the previous `snapped_location`.
+             * route leading to the next snapped point from the current snapped_point, in radians.
+             * In case of the last snapped_point of the route, the bearing indicates the direction
+             * of the route to the previous snapped_location.
              */
             fun bearing(bearing: Double) = bearing(JsonField.of(bearing))
 
@@ -1452,8 +1451,8 @@ private constructor(
             fun name(name: JsonField<String>) = apply { this.name = name }
 
             /**
-             * The index of the input `path` coordinate point to which this snapped point
-             * corresponds to.
+             * The index of the input path coordinate point to which this snapped point corresponds
+             * to.
              */
             fun originalIndex(originalIndex: Long) = originalIndex(JsonField.of(originalIndex))
 

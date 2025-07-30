@@ -40,8 +40,8 @@ private constructor(
     fun msg(): Optional<String> = msg.getOptional("msg")
 
     /**
-     * Returns the overall status of the API request. Its value will belong to one of `success`,
-     * `failed`, and `pending`. It can also contain HTTP error codes in case of a failed request or
+     * Returns the overall status of the API request. Its value will belong to one of success,
+     * failed, and pending. It can also contain HTTP error codes in case of a failed request or
      * operation.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -128,9 +128,9 @@ private constructor(
         fun msg(msg: JsonField<String>) = apply { this.msg = msg }
 
         /**
-         * Returns the overall status of the API request. Its value will belong to one of `success`,
-         * `failed`, and `pending`. It can also contain HTTP error codes in case of a failed request
-         * or operation.
+         * Returns the overall status of the API request. Its value will belong to one of success,
+         * failed, and pending. It can also contain HTTP error codes in case of a failed request or
+         * operation.
          */
         fun status(status: String) = status(JsonField.of(status))
 

@@ -29,7 +29,7 @@ private constructor(
     ) : this(msg, status, mutableMapOf())
 
     /**
-     * Its value is `OK` in case of a successful delete operation. Indicative error messages are
+     * Its value is OK in case of a successful delete operation. Indicative error messages are
      * returned otherwise, for different errors.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -39,7 +39,7 @@ private constructor(
 
     /**
      * A string indicating the state of the response. A successful delete operation ins indicated by
-     * an HTTP code of`200`. See the
+     * an HTTP code of200. See the
      * [API Error Codes](https://docs.nextbillion.ai/docs/tracking/api/live-tracking-api#api-error-codes)
      * section below for possible values in case of errors.
      *
@@ -99,7 +99,7 @@ private constructor(
         }
 
         /**
-         * Its value is `OK` in case of a successful delete operation. Indicative error messages are
+         * Its value is OK in case of a successful delete operation. Indicative error messages are
          * returned otherwise, for different errors.
          */
         fun msg(msg: String) = msg(JsonField.of(msg))
@@ -114,7 +114,7 @@ private constructor(
 
         /**
          * A string indicating the state of the response. A successful delete operation ins
-         * indicated by an HTTP code of`200`. See the
+         * indicated by an HTTP code of200. See the
          * [API Error Codes](https://docs.nextbillion.ai/docs/tracking/api/live-tracking-api#api-error-codes)
          * section below for possible values in case of errors.
          */

@@ -93,12 +93,12 @@ internal class StepCreateParamsTest {
                     .put("key", "key")
                     .put("arrival", "0")
                     .put("location", listOf("0.0").joinToString(","))
-                    .put("type", "`start`")
+                    .put("type", "start")
                     .put(
                         "address",
                         "\"address\": \"503, Dublin Drive, Los Angeles, California - 500674\",",
                     )
-                    .put("completion_mode", "`manual`")
+                    .put("completion_mode", "manual")
                     .put("document_template_id", "document_template_id")
                     .put("duration", "0")
                     .put("geofence_config[radius]", "0.0")
@@ -136,7 +136,7 @@ internal class StepCreateParamsTest {
                     .put("key", "key")
                     .put("arrival", "0")
                     .put("location", listOf("0.0").joinToString(","))
-                    .put("type", "`start`")
+                    .put("type", "start")
                     .build()
             )
     }
