@@ -5,12 +5,10 @@ package ai.nextbillion.models.geofence.console
 import ai.nextbillion.core.JsonValue
 import ai.nextbillion.models.geofence.GeofenceEntityCreate
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class ConsolePreviewParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         ConsolePreviewParams.builder()
@@ -59,7 +57,6 @@ internal class ConsolePreviewParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun body() {
         val params =
@@ -157,7 +154,6 @@ internal class ConsolePreviewParamsTest {
             )
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun bodyWithoutOptionalFields() {
         val params =

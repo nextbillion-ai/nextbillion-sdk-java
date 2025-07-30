@@ -6,12 +6,10 @@ import ai.nextbillion.core.JsonValue
 import ai.nextbillion.core.jsonMapper
 import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class MonitorListResponseTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         val monitorListResponse =
@@ -123,7 +121,6 @@ internal class MonitorListResponseTest {
         assertThat(monitorListResponse.status()).contains("status")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun roundtrip() {
         val jsonMapper = jsonMapper()

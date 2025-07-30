@@ -4,12 +4,10 @@ package ai.nextbillion.models.geofence
 
 import ai.nextbillion.core.http.QueryParams
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class GeofenceContainsParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         GeofenceContainsParams.builder()
@@ -22,7 +20,6 @@ internal class GeofenceContainsParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -56,7 +53,6 @@ internal class GeofenceContainsParamsTest {
             )
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params =

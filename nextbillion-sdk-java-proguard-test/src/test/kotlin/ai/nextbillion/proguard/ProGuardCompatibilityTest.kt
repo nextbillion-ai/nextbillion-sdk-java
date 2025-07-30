@@ -9,7 +9,6 @@ import ai.nextbillion.models.fleetify.routes.steps.RouteStepCompletionMode
 import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeAll
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class ProGuardCompatibilityTest {
@@ -67,7 +66,6 @@ internal class ProGuardCompatibilityTest {
         assertThat(client.areas()).isNotNull()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionComputeRouteResponseRoundtrip() {
         val jsonMapper = jsonMapper()
@@ -210,7 +208,6 @@ internal class ProGuardCompatibilityTest {
             .isEqualTo(directionComputeRouteResponse)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun routeStepCompletionModeRoundtrip() {
         val jsonMapper = jsonMapper()

@@ -4,18 +4,15 @@ package ai.nextbillion.models.geofence
 
 import ai.nextbillion.core.http.QueryParams
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class GeofenceRetrieveParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         GeofenceRetrieveParams.builder().id("id").key("key=API_KEY").build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun pathParams() {
         val params = GeofenceRetrieveParams.builder().id("id").key("key=API_KEY").build()
@@ -25,7 +22,6 @@ internal class GeofenceRetrieveParamsTest {
         assertThat(params._pathParam(1)).isEqualTo("")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params = GeofenceRetrieveParams.builder().id("id").key("key=API_KEY").build()

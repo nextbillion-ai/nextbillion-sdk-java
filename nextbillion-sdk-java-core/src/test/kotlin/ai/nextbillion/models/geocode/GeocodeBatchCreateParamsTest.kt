@@ -4,12 +4,10 @@ package ai.nextbillion.models.geocode
 
 import ai.nextbillion.core.http.QueryParams
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class GeocodeBatchCreateParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         GeocodeBatchCreateParams.builder()
@@ -26,7 +24,6 @@ internal class GeocodeBatchCreateParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -48,7 +45,6 @@ internal class GeocodeBatchCreateParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key=API_KEY").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params =
@@ -66,7 +62,6 @@ internal class GeocodeBatchCreateParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key=API_KEY").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun body() {
         val params =
@@ -97,7 +92,6 @@ internal class GeocodeBatchCreateParamsTest {
             )
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun bodyWithoutOptionalFields() {
         val params =

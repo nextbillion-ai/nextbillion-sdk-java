@@ -3,12 +3,10 @@
 package ai.nextbillion.models.directions
 
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class DirectionComputeRouteParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         DirectionComputeRouteParams.builder()
@@ -41,7 +39,6 @@ internal class DirectionComputeRouteParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun body() {
         val params =
@@ -105,7 +102,6 @@ internal class DirectionComputeRouteParamsTest {
             .contains("41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun bodyWithoutOptionalFields() {
         val params =

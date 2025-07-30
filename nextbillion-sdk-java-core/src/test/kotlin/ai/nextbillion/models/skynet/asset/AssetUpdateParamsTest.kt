@@ -6,12 +6,10 @@ import ai.nextbillion.core.JsonValue
 import ai.nextbillion.core.http.QueryParams
 import kotlin.jvm.optionals.getOrNull
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class AssetUpdateParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         AssetUpdateParams.builder()
@@ -30,7 +28,6 @@ internal class AssetUpdateParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun pathParams() {
         val params = AssetUpdateParams.builder().id("id").key("key=API_KEY").build()
@@ -40,7 +37,6 @@ internal class AssetUpdateParamsTest {
         assertThat(params._pathParam(1)).isEqualTo("")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -67,7 +63,6 @@ internal class AssetUpdateParamsTest {
             )
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params = AssetUpdateParams.builder().id("id").key("key=API_KEY").build()
@@ -77,7 +72,6 @@ internal class AssetUpdateParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key=API_KEY").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun body() {
         val params =
@@ -110,7 +104,6 @@ internal class AssetUpdateParamsTest {
         assertThat(body.tags().getOrNull()).containsExactly("string")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun bodyWithoutOptionalFields() {
         val params = AssetUpdateParams.builder().id("id").key("key=API_KEY").build()

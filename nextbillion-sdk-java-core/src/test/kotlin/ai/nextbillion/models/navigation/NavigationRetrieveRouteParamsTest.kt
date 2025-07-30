@@ -4,12 +4,10 @@ package ai.nextbillion.models.navigation
 
 import ai.nextbillion.core.http.QueryParams
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class NavigationRetrieveRouteParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         NavigationRetrieveRouteParams.builder()
@@ -31,7 +29,6 @@ internal class NavigationRetrieveRouteParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -83,7 +80,6 @@ internal class NavigationRetrieveRouteParamsTest {
             )
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params = NavigationRetrieveRouteParams.builder().key("key=API_KEY").build()

@@ -4,12 +4,10 @@ package ai.nextbillion.models.restrictionsitems
 
 import ai.nextbillion.core.http.QueryParams
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class RestrictionsItemListParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         RestrictionsItemListParams.builder()
@@ -26,7 +24,6 @@ internal class RestrictionsItemListParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -62,7 +59,6 @@ internal class RestrictionsItemListParamsTest {
             )
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params =

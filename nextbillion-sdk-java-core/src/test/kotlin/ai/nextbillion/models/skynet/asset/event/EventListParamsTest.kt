@@ -4,12 +4,10 @@ package ai.nextbillion.models.skynet.asset.event
 
 import ai.nextbillion.core.http.QueryParams
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class EventListParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         EventListParams.builder()
@@ -24,7 +22,6 @@ internal class EventListParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun pathParams() {
         val params = EventListParams.builder().id("id").key("key=API_KEY").build()
@@ -34,7 +31,6 @@ internal class EventListParamsTest {
         assertThat(params._pathParam(1)).isEqualTo("")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -65,7 +61,6 @@ internal class EventListParamsTest {
             )
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params = EventListParams.builder().id("id").key("key=API_KEY").build()

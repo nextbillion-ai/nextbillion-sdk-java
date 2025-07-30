@@ -3,12 +3,10 @@
 package ai.nextbillion.models.skynet
 
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class SkynetSubscribeParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         SkynetSubscribeParams.builder()
@@ -18,7 +16,6 @@ internal class SkynetSubscribeParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun body() {
         val params =
@@ -35,7 +32,6 @@ internal class SkynetSubscribeParamsTest {
         assertThat(body.params()).contains(SkynetSubscribeParams.Params.builder().id("id").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun bodyWithoutOptionalFields() {
         val params =

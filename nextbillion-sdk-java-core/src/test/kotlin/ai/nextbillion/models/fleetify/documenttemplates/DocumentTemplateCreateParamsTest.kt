@@ -4,12 +4,10 @@ package ai.nextbillion.models.fleetify.documenttemplates
 
 import ai.nextbillion.core.http.QueryParams
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class DocumentTemplateCreateParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         DocumentTemplateCreateParams.builder()
@@ -44,7 +42,6 @@ internal class DocumentTemplateCreateParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -84,7 +81,6 @@ internal class DocumentTemplateCreateParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params =
@@ -104,7 +100,6 @@ internal class DocumentTemplateCreateParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun body() {
         val params =
@@ -171,7 +166,6 @@ internal class DocumentTemplateCreateParamsTest {
         assertThat(body.name()).isEqualTo("name")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun bodyWithoutOptionalFields() {
         val params =

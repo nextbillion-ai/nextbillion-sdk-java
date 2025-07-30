@@ -10,12 +10,10 @@ import ai.nextbillion.models.optimization.v2.Job
 import ai.nextbillion.models.optimization.v2.Shipment
 import kotlin.jvm.optionals.getOrNull
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class OptimizationReOptimizeParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         OptimizationReOptimizeParams.builder()
@@ -254,7 +252,6 @@ internal class OptimizationReOptimizeParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -502,7 +499,6 @@ internal class OptimizationReOptimizeParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key=API_KEY").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params =
@@ -516,7 +512,6 @@ internal class OptimizationReOptimizeParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key=API_KEY").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun body() {
         val params =
@@ -997,7 +992,6 @@ internal class OptimizationReOptimizeParamsTest {
             )
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun bodyWithoutOptionalFields() {
         val params =

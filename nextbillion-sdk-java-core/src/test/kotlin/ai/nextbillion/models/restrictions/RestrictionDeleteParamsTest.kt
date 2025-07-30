@@ -4,18 +4,15 @@ package ai.nextbillion.models.restrictions
 
 import ai.nextbillion.core.http.QueryParams
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class RestrictionDeleteParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         RestrictionDeleteParams.builder().id(0L).key("key=API_KEY").build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun pathParams() {
         val params = RestrictionDeleteParams.builder().id(0L).key("key=API_KEY").build()
@@ -25,7 +22,6 @@ internal class RestrictionDeleteParamsTest {
         assertThat(params._pathParam(1)).isEqualTo("")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params = RestrictionDeleteParams.builder().id(0L).key("key=API_KEY").build()

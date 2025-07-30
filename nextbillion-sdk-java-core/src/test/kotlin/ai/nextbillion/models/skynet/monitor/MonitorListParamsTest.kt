@@ -4,12 +4,10 @@ package ai.nextbillion.models.skynet.monitor
 
 import ai.nextbillion.core.http.QueryParams
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class MonitorListParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         MonitorListParams.builder()
@@ -22,7 +20,6 @@ internal class MonitorListParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -50,7 +47,6 @@ internal class MonitorListParamsTest {
             )
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params = MonitorListParams.builder().key("key=API_KEY").build()

@@ -4,12 +4,10 @@ package ai.nextbillion.models.postalcode
 
 import ai.nextbillion.core.http.QueryParams
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class PostalcodeRetrieveCoordinatesParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         PostalcodeRetrieveCoordinatesParams.builder()
@@ -21,7 +19,6 @@ internal class PostalcodeRetrieveCoordinatesParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -38,7 +35,6 @@ internal class PostalcodeRetrieveCoordinatesParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key=API_KEY").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params = PostalcodeRetrieveCoordinatesParams.builder().key("key=API_KEY").build()
@@ -48,7 +44,6 @@ internal class PostalcodeRetrieveCoordinatesParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key=API_KEY").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun body() {
         val params =
@@ -69,7 +64,6 @@ internal class PostalcodeRetrieveCoordinatesParamsTest {
         assertThat(body.postalcode()).contains("postalcode")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun bodyWithoutOptionalFields() {
         val params = PostalcodeRetrieveCoordinatesParams.builder().key("key=API_KEY").build()

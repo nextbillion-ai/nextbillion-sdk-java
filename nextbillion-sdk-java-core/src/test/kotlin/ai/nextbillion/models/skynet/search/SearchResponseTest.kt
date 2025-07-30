@@ -9,12 +9,10 @@ import ai.nextbillion.models.skynet.asset.location.TrackLocation
 import ai.nextbillion.models.skynet.monitor.Pagination
 import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class SearchResponseTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         val searchResponse =
@@ -115,7 +113,6 @@ internal class SearchResponseTest {
         assertThat(searchResponse.status()).contains("status")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun roundtrip() {
         val jsonMapper = jsonMapper()

@@ -5,12 +5,10 @@ package ai.nextbillion.models.skynet.namespacedapikeys
 import ai.nextbillion.core.JsonValue
 import ai.nextbillion.core.http.QueryParams
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class NamespacedApikeyCreateParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         NamespacedApikeyCreateParams.builder()
@@ -20,7 +18,6 @@ internal class NamespacedApikeyCreateParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -41,7 +38,6 @@ internal class NamespacedApikeyCreateParamsTest {
             )
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun body() {
         val params =
