@@ -20,7 +20,7 @@ import kotlin.jvm.optionals.getOrNull
 /**
  * Specify the configurations of the geofence which will be used to detect presence of the driver
  * and complete the tasks automatically. Please note that this attribute is required when
- * `completion_mode` is either "geofence" or "geofence_manual_fallback".
+ * completion_mode is either "geofence" or "geofence_manual_fallback".
  */
 class RouteStepGeofenceConfig
 private constructor(
@@ -38,7 +38,7 @@ private constructor(
     /**
      * Specify the radius of the cicular geofence, in meters. Once specified, the service will
      * create a geofence with task's location as the center of the circle having the given radius.
-     * Valid values for `radius` are \[10, 5000\].
+     * Valid values for radius are \[10, 5000\].
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -46,7 +46,7 @@ private constructor(
     fun radius(): Optional<Double> = radius.getOptional("radius")
 
     /**
-     * Specify the type of the geofence. Currently, `circle` is the only suppoeted value.
+     * Specify the type of the geofence. Currently, circle is the only suppoeted value.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -102,7 +102,7 @@ private constructor(
         /**
          * Specify the radius of the cicular geofence, in meters. Once specified, the service will
          * create a geofence with task's location as the center of the circle having the given
-         * radius. Valid values for `radius` are \[10, 5000\].
+         * radius. Valid values for radius are \[10, 5000\].
          */
         fun radius(radius: Double) = radius(JsonField.of(radius))
 
@@ -114,7 +114,7 @@ private constructor(
          */
         fun radius(radius: JsonField<Double>) = apply { this.radius = radius }
 
-        /** Specify the type of the geofence. Currently, `circle` is the only suppoeted value. */
+        /** Specify the type of the geofence. Currently, circle is the only suppoeted value. */
         fun type(type: Type) = type(JsonField.of(type))
 
         /**
@@ -182,7 +182,7 @@ private constructor(
     internal fun validity(): Int =
         (if (radius.asKnown().isPresent) 1 else 0) + (type.asKnown().getOrNull()?.validity() ?: 0)
 
-    /** Specify the type of the geofence. Currently, `circle` is the only suppoeted value. */
+    /** Specify the type of the geofence. Currently, circle is the only suppoeted value. */
     class Type @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
         /**

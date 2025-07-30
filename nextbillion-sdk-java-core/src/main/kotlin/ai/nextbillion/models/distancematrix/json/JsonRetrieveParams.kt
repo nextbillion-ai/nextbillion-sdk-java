@@ -465,9 +465,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val UNRESTRICTED = of("`unrestricted`")
+            @JvmField val UNRESTRICTED = of("unrestricted")
 
-            @JvmField val CURB = of("`curb`")
+            @JvmField val CURB = of("curb")
 
             @JvmStatic fun of(value: String) = Approaches(JsonField.of(value))
         }
@@ -763,9 +763,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val CAR = of("`car`")
+            @JvmField val CAR = of("car")
 
-            @JvmField val TRUCK = of("`truck`")
+            @JvmField val TRUCK = of("truck")
 
             @JvmStatic fun of(value: String) = Mode(JsonField.of(value))
         }

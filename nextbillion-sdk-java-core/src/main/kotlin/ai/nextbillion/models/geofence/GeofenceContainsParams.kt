@@ -31,7 +31,7 @@ private constructor(
     fun locations(): String = locations
 
     /**
-     * A `,` separated list geofence IDs against which the `locations` will be searched. If not
+     * A , separated list geofence IDs against which the locations will be searched. If not
      * provided, then the 'locations' will be searched against all your existing geofences.
      *
      * Maximum length of the string can be 256 characters.
@@ -39,8 +39,8 @@ private constructor(
     fun geofences(): Optional<String> = Optional.ofNullable(geofences)
 
     /**
-     * When `true`, an array with detailed information of geofences is returned. When `false`, an
-     * array containing only the IDs of the geofences is returned.
+     * When true, an array with detailed information of geofences is returned. When false, an array
+     * containing only the IDs of the geofences is returned.
      */
     fun verbose(): Optional<String> = Optional.ofNullable(verbose)
 
@@ -96,7 +96,7 @@ private constructor(
         fun locations(locations: String) = apply { this.locations = locations }
 
         /**
-         * A `,` separated list geofence IDs against which the `locations` will be searched. If not
+         * A , separated list geofence IDs against which the locations will be searched. If not
          * provided, then the 'locations' will be searched against all your existing geofences.
          *
          * Maximum length of the string can be 256 characters.
@@ -107,8 +107,8 @@ private constructor(
         fun geofences(geofences: Optional<String>) = geofences(geofences.getOrNull())
 
         /**
-         * When `true`, an array with detailed information of geofences is returned. When `false`,
-         * an array containing only the IDs of the geofences is returned.
+         * When true, an array with detailed information of geofences is returned. When false, an
+         * array containing only the IDs of the geofences is returned.
          */
         fun verbose(verbose: String?) = apply { this.verbose = verbose }
 

@@ -43,8 +43,8 @@ private constructor(
 
     /**
      * Specify a spliter to split the matrix by. It accepts 2 values:
-     * - `od_number_spliter`:
-     * - `straight_distance_spliter`:
+     * - od_number_spliter:
+     * - straight_distance_spliter:
      *
      * Please note it is an internal, debug field only.
      *
@@ -53,7 +53,7 @@ private constructor(
     fun spliter(): Optional<Spliter> = Optional.ofNullable(spliter)
 
     /**
-     * `origins` are the starting point of your route. Ensure that origins are routable land
+     * origins are the starting point of your route. Ensure that origins are routable land
      * locations. Multiple origins should be separated by a pipe symbol (|).
      *
      * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
@@ -75,20 +75,20 @@ private constructor(
 
     /**
      * Setting this will ensure the route avoids the object(s) specified as input. Multiple values
-     * should be separated by a pipe (|). If `none` is provided along with other values, an error is
+     * should be separated by a pipe (|). If none is provided along with other values, an error is
      * returned as a valid route is not feasible.
      * - **Note:**
-     *     - This parameter is effective only when `route_type=fastest`.
+     *     - This parameter is effective only when route_type=fastest.
      *     - When this parameter is not provided in the input, ferries are set to be avoided by
-     *       default. When `avoid` input is provided, only the mentioned objects are avoided.
-     *     - When using `avoid=bbox` users also need to specify the boundaries of the bounding box
-     *       to be avoid. Multiple bounding boxes can be specified simultaneously. Please note that
+     *       default. When avoid input is provided, only the mentioned objects are avoided.
+     *     - When using avoid=bbox users also need to specify the boundaries of the bounding box to
+     *       be avoid. Multiple bounding boxes can be specified simultaneously. Please note that
      *       bounding box is a hard filter and if it blocks all possible routes between given
      *       locations, a 4xx error is returned.
      *
      *     - **Format:** bbox: min_latitude,min_longtitude,max_latitude,max_longitude.
      *     - **Example:** avoid=bbox: 34.0635,-118.2547, 34.0679,-118.2478 | bbox: 34.0521,-118.2342, 34.0478,-118.2437
-     *     - When using `avoid=sharp_turn`, default range of permissible turn angles is \[120,240\].
+     *     - When using avoid=sharp_turn, default range of permissible turn angles is \[120,240\].
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -99,8 +99,8 @@ private constructor(
      * Specify if crossing an international border is expected for operations near border areas.
      * When set to false, the API will prohibit routes going back & forth between countries.
      * Consequently, routes within the same country will be preferred if they are feasible for the
-     * given set of `destination` or `waypoints` . When set to true, the routes will be allowed to
-     * go back & forth between countries as needed.
+     * given set of destination or waypoints . When set to true, the routes will be allowed to go
+     * back & forth between countries as needed.
      *
      * This feature is available in North America region only. Please get in touch with
      * [support@nextbillion.ai](mailto:support@nextbillion.ai) to enquire/enable other areas.
@@ -112,11 +112,11 @@ private constructor(
 
     /**
      * This is a number in UNIX epoch timestamp in seconds format that can be used to provide the
-     * departure time. The response will return the `distance` and `duration` of the route based on
+     * departure time. The response will return the distance and duration of the route based on
      * typical traffic for at the given start time.If no input is provided for this parameter then
      * the traffic conditions at the time of making the request are considered.
      *
-     * Please note that when `route_type` is set to `shortest` then the `departure_time` will be
+     * Please note that when route_type is set to shortest then the departure_time will be
      * ineffective as the service will return the result for the shortest path possible irrespective
      * of the traffic conditions.
      *
@@ -126,11 +126,11 @@ private constructor(
     fun departureTime(): Optional<Long> = body.departureTime()
 
     /**
-     * `destinations` are the ending coordinates of your route. Ensure that destinations are
-     * routable land locations. Multiple destinations should be separated by a pipe symbol (|).
+     * destinations are the ending coordinates of your route. Ensure that destinations are routable
+     * land locations. Multiple destinations should be separated by a pipe symbol (|).
      *
-     * In case `destinations` are not provided or if it is left empty, then the input value of
-     * `origins` will be copied to `destinations` to create the OD matrix pairs.
+     * In case destinations are not provided or if it is left empty, then the input value of origins
+     * will be copied to destinations to create the OD matrix pairs.
      *
      * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
      *
@@ -140,8 +140,8 @@ private constructor(
     fun destinations(): Optional<String> = body.destinations()
 
     /**
-     * Specify the side of the road from which to approach `destinations` points. Please note that
-     * the given approach will be applied to all the `destinations`.
+     * Specify the side of the road from which to approach destinations points. Please note that the
+     * given approach will be applied to all the destinations.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -151,9 +151,9 @@ private constructor(
     /**
      * Specify the type of hazardous material being carried and the service will avoid roads which
      * are not suitable for the type of goods specified. Multiple values can be separated using a
-     * pipe operator `|` .
+     * pipe operator | .
      *
-     * Please note that this parameter is effective only when `mode=truck`.
+     * Please note that this parameter is effective only when mode=truck.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -163,7 +163,7 @@ private constructor(
     /**
      * Set which driving mode the service should use to determine a route.
      *
-     * For example, if you use `car`, the API will return a route that a car can take. Using `truck`
+     * For example, if you use car, the API will return a route that a car can take. Using truck
      * will return a route a truck can use, taking into account appropriate truck routing
      * restrictions.
      *
@@ -173,8 +173,8 @@ private constructor(
     fun mode(): Optional<Mode> = body.mode()
 
     /**
-     * Specify the side of the road from which to approach `origins` points. Please note that the
-     * given approach will be applied to all the points provided as `origins`.
+     * Specify the side of the road from which to approach origins points. Please note that the
+     * given approach will be applied to all the points provided as origins.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -182,8 +182,8 @@ private constructor(
     fun originsApproach(): Optional<OriginsApproach> = body.originsApproach()
 
     /**
-     * Set the route type that needs to be returned. Please note that `route_type` is effective only
-     * when `option=flexible`.
+     * Set the route type that needs to be returned. Please note that route_type is effective only
+     * when option=flexible.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -195,7 +195,7 @@ private constructor(
      * truck, in tonnes. When used, the service will return routes which are legally allowed to
      * carry the load specified per axle.
      *
-     * Please note this parameter is effective only when `mode=truck`.
+     * Please note this parameter is effective only when mode=truck.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -204,8 +204,8 @@ private constructor(
 
     /**
      * This defines the dimensions of a truck in centimeters (cm) in the format of
-     * "height,width,length". This parameter is effective only when `mode=truck` and
-     * `option=flexible`. Maximum dimensions are as follows:
+     * "height,width,length". This parameter is effective only when mode=truck and option=flexible.
+     * Maximum dimensions are as follows:
      *
      * Height = 1000 cm Width = 5000 cm Length = 5000 cm
      *
@@ -216,7 +216,7 @@ private constructor(
 
     /**
      * This parameter defines the weight of the truck including trailers and shipped goods in
-     * kilograms (kg). This parameter is effective only when `mode=truck` and `option=flexible`.
+     * kilograms (kg). This parameter is effective only when mode=truck and option=flexible.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -379,8 +379,8 @@ private constructor(
 
         /**
          * Specify a spliter to split the matrix by. It accepts 2 values:
-         * - `od_number_spliter`:
-         * - `straight_distance_spliter`:
+         * - od_number_spliter:
+         * - straight_distance_spliter:
          *
          * Please note it is an internal, debug field only.
          *
@@ -406,7 +406,7 @@ private constructor(
         fun body(body: Body) = apply { this.body = body.toBuilder() }
 
         /**
-         * `origins` are the starting point of your route. Ensure that origins are routable land
+         * origins are the starting point of your route. Ensure that origins are routable land
          * locations. Multiple origins should be separated by a pipe symbol (|).
          *
          * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
@@ -438,20 +438,20 @@ private constructor(
 
         /**
          * Setting this will ensure the route avoids the object(s) specified as input. Multiple
-         * values should be separated by a pipe (|). If `none` is provided along with other values,
-         * an error is returned as a valid route is not feasible.
+         * values should be separated by a pipe (|). If none is provided along with other values, an
+         * error is returned as a valid route is not feasible.
          * - **Note:**
-         *     - This parameter is effective only when `route_type=fastest`.
+         *     - This parameter is effective only when route_type=fastest.
          *     - When this parameter is not provided in the input, ferries are set to be avoided by
-         *       default. When `avoid` input is provided, only the mentioned objects are avoided.
-         *     - When using `avoid=bbox` users also need to specify the boundaries of the bounding
-         *       box to be avoid. Multiple bounding boxes can be specified simultaneously. Please
-         *       note that bounding box is a hard filter and if it blocks all possible routes
-         *       between given locations, a 4xx error is returned.
+         *       default. When avoid input is provided, only the mentioned objects are avoided.
+         *     - When using avoid=bbox users also need to specify the boundaries of the bounding box
+         *       to be avoid. Multiple bounding boxes can be specified simultaneously. Please note
+         *       that bounding box is a hard filter and if it blocks all possible routes between
+         *       given locations, a 4xx error is returned.
          *
          *     - **Format:** bbox: min_latitude,min_longtitude,max_latitude,max_longitude.
          *     - **Example:** avoid=bbox: 34.0635,-118.2547, 34.0679,-118.2478 | bbox: 34.0521,-118.2342, 34.0478,-118.2437
-         *     - When using `avoid=sharp_turn`, default range of permissible turn angles is
+         *     - When using avoid=sharp_turn, default range of permissible turn angles is
          *       \[120,240\].
          */
         fun avoid(avoid: Avoid) = apply { body.avoid(avoid) }
@@ -468,8 +468,8 @@ private constructor(
          * Specify if crossing an international border is expected for operations near border areas.
          * When set to false, the API will prohibit routes going back & forth between countries.
          * Consequently, routes within the same country will be preferred if they are feasible for
-         * the given set of `destination` or `waypoints` . When set to true, the routes will be
-         * allowed to go back & forth between countries as needed.
+         * the given set of destination or waypoints . When set to true, the routes will be allowed
+         * to go back & forth between countries as needed.
          *
          * This feature is available in North America region only. Please get in touch with
          * [support@nextbillion.ai](mailto:support@nextbillion.ai) to enquire/enable other areas.
@@ -487,11 +487,11 @@ private constructor(
 
         /**
          * This is a number in UNIX epoch timestamp in seconds format that can be used to provide
-         * the departure time. The response will return the `distance` and `duration` of the route
-         * based on typical traffic for at the given start time.If no input is provided for this
-         * parameter then the traffic conditions at the time of making the request are considered.
+         * the departure time. The response will return the distance and duration of the route based
+         * on typical traffic for at the given start time.If no input is provided for this parameter
+         * then the traffic conditions at the time of making the request are considered.
          *
-         * Please note that when `route_type` is set to `shortest` then the `departure_time` will be
+         * Please note that when route_type is set to shortest then the departure_time will be
          * ineffective as the service will return the result for the shortest path possible
          * irrespective of the traffic conditions.
          */
@@ -509,11 +509,11 @@ private constructor(
         }
 
         /**
-         * `destinations` are the ending coordinates of your route. Ensure that destinations are
+         * destinations are the ending coordinates of your route. Ensure that destinations are
          * routable land locations. Multiple destinations should be separated by a pipe symbol (|).
          *
-         * In case `destinations` are not provided or if it is left empty, then the input value of
-         * `origins` will be copied to `destinations` to create the OD matrix pairs.
+         * In case destinations are not provided or if it is left empty, then the input value of
+         * origins will be copied to destinations to create the OD matrix pairs.
          *
          * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
          */
@@ -531,8 +531,8 @@ private constructor(
         }
 
         /**
-         * Specify the side of the road from which to approach `destinations` points. Please note
-         * that the given approach will be applied to all the `destinations`.
+         * Specify the side of the road from which to approach destinations points. Please note that
+         * the given approach will be applied to all the destinations.
          */
         fun destinationsApproach(destinationsApproach: DestinationsApproach) = apply {
             body.destinationsApproach(destinationsApproach)
@@ -552,9 +552,9 @@ private constructor(
         /**
          * Specify the type of hazardous material being carried and the service will avoid roads
          * which are not suitable for the type of goods specified. Multiple values can be separated
-         * using a pipe operator `|` .
+         * using a pipe operator | .
          *
-         * Please note that this parameter is effective only when `mode=truck`.
+         * Please note that this parameter is effective only when mode=truck.
          */
         fun hazmatType(hazmatType: HazmatType) = apply { body.hazmatType(hazmatType) }
 
@@ -570,9 +570,9 @@ private constructor(
         /**
          * Set which driving mode the service should use to determine a route.
          *
-         * For example, if you use `car`, the API will return a route that a car can take. Using
-         * `truck` will return a route a truck can use, taking into account appropriate truck
-         * routing restrictions.
+         * For example, if you use car, the API will return a route that a car can take. Using truck
+         * will return a route a truck can use, taking into account appropriate truck routing
+         * restrictions.
          */
         fun mode(mode: Mode) = apply { body.mode(mode) }
 
@@ -585,8 +585,8 @@ private constructor(
         fun mode(mode: JsonField<Mode>) = apply { body.mode(mode) }
 
         /**
-         * Specify the side of the road from which to approach `origins` points. Please note that
-         * the given approach will be applied to all the points provided as `origins`.
+         * Specify the side of the road from which to approach origins points. Please note that the
+         * given approach will be applied to all the points provided as origins.
          */
         fun originsApproach(originsApproach: OriginsApproach) = apply {
             body.originsApproach(originsApproach)
@@ -604,8 +604,8 @@ private constructor(
         }
 
         /**
-         * Set the route type that needs to be returned. Please note that `route_type` is effective
-         * only when `option=flexible`.
+         * Set the route type that needs to be returned. Please note that route_type is effective
+         * only when option=flexible.
          */
         fun routeType(routeType: RouteType) = apply { body.routeType(routeType) }
 
@@ -623,7 +623,7 @@ private constructor(
          * the truck, in tonnes. When used, the service will return routes which are legally allowed
          * to carry the load specified per axle.
          *
-         * Please note this parameter is effective only when `mode=truck`.
+         * Please note this parameter is effective only when mode=truck.
          */
         fun truckAxleLoad(truckAxleLoad: Double) = apply { body.truckAxleLoad(truckAxleLoad) }
 
@@ -640,8 +640,8 @@ private constructor(
 
         /**
          * This defines the dimensions of a truck in centimeters (cm) in the format of
-         * "height,width,length". This parameter is effective only when `mode=truck` and
-         * `option=flexible`. Maximum dimensions are as follows:
+         * "height,width,length". This parameter is effective only when mode=truck and
+         * option=flexible. Maximum dimensions are as follows:
          *
          * Height = 1000 cm Width = 5000 cm Length = 5000 cm
          */
@@ -658,7 +658,7 @@ private constructor(
 
         /**
          * This parameter defines the weight of the truck including trailers and shipped goods in
-         * kilograms (kg). This parameter is effective only when `mode=truck` and `option=flexible`.
+         * kilograms (kg). This parameter is effective only when mode=truck and option=flexible.
          */
         fun truckWeight(truckWeight: Long) = apply { body.truckWeight(truckWeight) }
 
@@ -901,7 +901,7 @@ private constructor(
         )
 
         /**
-         * `origins` are the starting point of your route. Ensure that origins are routable land
+         * origins are the starting point of your route. Ensure that origins are routable land
          * locations. Multiple origins should be separated by a pipe symbol (|).
          *
          * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
@@ -923,20 +923,20 @@ private constructor(
 
         /**
          * Setting this will ensure the route avoids the object(s) specified as input. Multiple
-         * values should be separated by a pipe (|). If `none` is provided along with other values,
-         * an error is returned as a valid route is not feasible.
+         * values should be separated by a pipe (|). If none is provided along with other values, an
+         * error is returned as a valid route is not feasible.
          * - **Note:**
-         *     - This parameter is effective only when `route_type=fastest`.
+         *     - This parameter is effective only when route_type=fastest.
          *     - When this parameter is not provided in the input, ferries are set to be avoided by
-         *       default. When `avoid` input is provided, only the mentioned objects are avoided.
-         *     - When using `avoid=bbox` users also need to specify the boundaries of the bounding
-         *       box to be avoid. Multiple bounding boxes can be specified simultaneously. Please
-         *       note that bounding box is a hard filter and if it blocks all possible routes
-         *       between given locations, a 4xx error is returned.
+         *       default. When avoid input is provided, only the mentioned objects are avoided.
+         *     - When using avoid=bbox users also need to specify the boundaries of the bounding box
+         *       to be avoid. Multiple bounding boxes can be specified simultaneously. Please note
+         *       that bounding box is a hard filter and if it blocks all possible routes between
+         *       given locations, a 4xx error is returned.
          *
          *     - **Format:** bbox: min_latitude,min_longtitude,max_latitude,max_longitude.
          *     - **Example:** avoid=bbox: 34.0635,-118.2547, 34.0679,-118.2478 | bbox: 34.0521,-118.2342, 34.0478,-118.2437
-         *     - When using `avoid=sharp_turn`, default range of permissible turn angles is
+         *     - When using avoid=sharp_turn, default range of permissible turn angles is
          *       \[120,240\].
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -948,8 +948,8 @@ private constructor(
          * Specify if crossing an international border is expected for operations near border areas.
          * When set to false, the API will prohibit routes going back & forth between countries.
          * Consequently, routes within the same country will be preferred if they are feasible for
-         * the given set of `destination` or `waypoints` . When set to true, the routes will be
-         * allowed to go back & forth between countries as needed.
+         * the given set of destination or waypoints . When set to true, the routes will be allowed
+         * to go back & forth between countries as needed.
          *
          * This feature is available in North America region only. Please get in touch with
          * [support@nextbillion.ai](mailto:support@nextbillion.ai) to enquire/enable other areas.
@@ -961,11 +961,11 @@ private constructor(
 
         /**
          * This is a number in UNIX epoch timestamp in seconds format that can be used to provide
-         * the departure time. The response will return the `distance` and `duration` of the route
-         * based on typical traffic for at the given start time.If no input is provided for this
-         * parameter then the traffic conditions at the time of making the request are considered.
+         * the departure time. The response will return the distance and duration of the route based
+         * on typical traffic for at the given start time.If no input is provided for this parameter
+         * then the traffic conditions at the time of making the request are considered.
          *
-         * Please note that when `route_type` is set to `shortest` then the `departure_time` will be
+         * Please note that when route_type is set to shortest then the departure_time will be
          * ineffective as the service will return the result for the shortest path possible
          * irrespective of the traffic conditions.
          *
@@ -975,11 +975,11 @@ private constructor(
         fun departureTime(): Optional<Long> = departureTime.getOptional("departure_time")
 
         /**
-         * `destinations` are the ending coordinates of your route. Ensure that destinations are
+         * destinations are the ending coordinates of your route. Ensure that destinations are
          * routable land locations. Multiple destinations should be separated by a pipe symbol (|).
          *
-         * In case `destinations` are not provided or if it is left empty, then the input value of
-         * `origins` will be copied to `destinations` to create the OD matrix pairs.
+         * In case destinations are not provided or if it is left empty, then the input value of
+         * origins will be copied to destinations to create the OD matrix pairs.
          *
          * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
          *
@@ -989,8 +989,8 @@ private constructor(
         fun destinations(): Optional<String> = destinations.getOptional("destinations")
 
         /**
-         * Specify the side of the road from which to approach `destinations` points. Please note
-         * that the given approach will be applied to all the `destinations`.
+         * Specify the side of the road from which to approach destinations points. Please note that
+         * the given approach will be applied to all the destinations.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1001,9 +1001,9 @@ private constructor(
         /**
          * Specify the type of hazardous material being carried and the service will avoid roads
          * which are not suitable for the type of goods specified. Multiple values can be separated
-         * using a pipe operator `|` .
+         * using a pipe operator | .
          *
-         * Please note that this parameter is effective only when `mode=truck`.
+         * Please note that this parameter is effective only when mode=truck.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1013,9 +1013,9 @@ private constructor(
         /**
          * Set which driving mode the service should use to determine a route.
          *
-         * For example, if you use `car`, the API will return a route that a car can take. Using
-         * `truck` will return a route a truck can use, taking into account appropriate truck
-         * routing restrictions.
+         * For example, if you use car, the API will return a route that a car can take. Using truck
+         * will return a route a truck can use, taking into account appropriate truck routing
+         * restrictions.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1023,8 +1023,8 @@ private constructor(
         fun mode(): Optional<Mode> = mode.getOptional("mode")
 
         /**
-         * Specify the side of the road from which to approach `origins` points. Please note that
-         * the given approach will be applied to all the points provided as `origins`.
+         * Specify the side of the road from which to approach origins points. Please note that the
+         * given approach will be applied to all the points provided as origins.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1033,8 +1033,8 @@ private constructor(
             originsApproach.getOptional("origins_approach")
 
         /**
-         * Set the route type that needs to be returned. Please note that `route_type` is effective
-         * only when `option=flexible`.
+         * Set the route type that needs to be returned. Please note that route_type is effective
+         * only when option=flexible.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1046,7 +1046,7 @@ private constructor(
          * the truck, in tonnes. When used, the service will return routes which are legally allowed
          * to carry the load specified per axle.
          *
-         * Please note this parameter is effective only when `mode=truck`.
+         * Please note this parameter is effective only when mode=truck.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1055,8 +1055,8 @@ private constructor(
 
         /**
          * This defines the dimensions of a truck in centimeters (cm) in the format of
-         * "height,width,length". This parameter is effective only when `mode=truck` and
-         * `option=flexible`. Maximum dimensions are as follows:
+         * "height,width,length". This parameter is effective only when mode=truck and
+         * option=flexible. Maximum dimensions are as follows:
          *
          * Height = 1000 cm Width = 5000 cm Length = 5000 cm
          *
@@ -1067,7 +1067,7 @@ private constructor(
 
         /**
          * This parameter defines the weight of the truck including trailers and shipped goods in
-         * kilograms (kg). This parameter is effective only when `mode=truck` and `option=flexible`.
+         * kilograms (kg). This parameter is effective only when mode=truck and option=flexible.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1259,7 +1259,7 @@ private constructor(
             }
 
             /**
-             * `origins` are the starting point of your route. Ensure that origins are routable land
+             * origins are the starting point of your route. Ensure that origins are routable land
              * locations. Multiple origins should be separated by a pipe symbol (|).
              *
              * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
@@ -1293,21 +1293,21 @@ private constructor(
 
             /**
              * Setting this will ensure the route avoids the object(s) specified as input. Multiple
-             * values should be separated by a pipe (|). If `none` is provided along with other
+             * values should be separated by a pipe (|). If none is provided along with other
              * values, an error is returned as a valid route is not feasible.
              * - **Note:**
-             *     - This parameter is effective only when `route_type=fastest`.
+             *     - This parameter is effective only when route_type=fastest.
              *     - When this parameter is not provided in the input, ferries are set to be avoided
-             *       by default. When `avoid` input is provided, only the mentioned objects are
+             *       by default. When avoid input is provided, only the mentioned objects are
              *       avoided.
-             *     - When using `avoid=bbox` users also need to specify the boundaries of the
-             *       bounding box to be avoid. Multiple bounding boxes can be specified
-             *       simultaneously. Please note that bounding box is a hard filter and if it blocks
-             *       all possible routes between given locations, a 4xx error is returned.
+             *     - When using avoid=bbox users also need to specify the boundaries of the bounding
+             *       box to be avoid. Multiple bounding boxes can be specified simultaneously.
+             *       Please note that bounding box is a hard filter and if it blocks all possible
+             *       routes between given locations, a 4xx error is returned.
              *
              *     - **Format:** bbox: min_latitude,min_longtitude,max_latitude,max_longitude.
              *     - **Example:** avoid=bbox: 34.0635,-118.2547, 34.0679,-118.2478 | bbox: 34.0521,-118.2342, 34.0478,-118.2437
-             *     - When using `avoid=sharp_turn`, default range of permissible turn angles is
+             *     - When using avoid=sharp_turn, default range of permissible turn angles is
              *       \[120,240\].
              */
             fun avoid(avoid: Avoid) = avoid(JsonField.of(avoid))
@@ -1325,8 +1325,8 @@ private constructor(
              * Specify if crossing an international border is expected for operations near border
              * areas. When set to false, the API will prohibit routes going back & forth between
              * countries. Consequently, routes within the same country will be preferred if they are
-             * feasible for the given set of `destination` or `waypoints` . When set to true, the
-             * routes will be allowed to go back & forth between countries as needed.
+             * feasible for the given set of destination or waypoints . When set to true, the routes
+             * will be allowed to go back & forth between countries as needed.
              *
              * This feature is available in North America region only. Please get in touch with
              * [support@nextbillion.ai](mailto:support@nextbillion.ai) to enquire/enable other
@@ -1347,14 +1347,14 @@ private constructor(
 
             /**
              * This is a number in UNIX epoch timestamp in seconds format that can be used to
-             * provide the departure time. The response will return the `distance` and `duration` of
-             * the route based on typical traffic for at the given start time.If no input is
-             * provided for this parameter then the traffic conditions at the time of making the
-             * request are considered.
+             * provide the departure time. The response will return the distance and duration of the
+             * route based on typical traffic for at the given start time.If no input is provided
+             * for this parameter then the traffic conditions at the time of making the request are
+             * considered.
              *
-             * Please note that when `route_type` is set to `shortest` then the `departure_time`
-             * will be ineffective as the service will return the result for the shortest path
-             * possible irrespective of the traffic conditions.
+             * Please note that when route_type is set to shortest then the departure_time will be
+             * ineffective as the service will return the result for the shortest path possible
+             * irrespective of the traffic conditions.
              */
             fun departureTime(departureTime: Long) = departureTime(JsonField.of(departureTime))
 
@@ -1370,12 +1370,12 @@ private constructor(
             }
 
             /**
-             * `destinations` are the ending coordinates of your route. Ensure that destinations are
+             * destinations are the ending coordinates of your route. Ensure that destinations are
              * routable land locations. Multiple destinations should be separated by a pipe symbol
              * (|).
              *
-             * In case `destinations` are not provided or if it is left empty, then the input value
-             * of `origins` will be copied to `destinations` to create the OD matrix pairs.
+             * In case destinations are not provided or if it is left empty, then the input value of
+             * origins will be copied to destinations to create the OD matrix pairs.
              *
              * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
              */
@@ -1393,8 +1393,8 @@ private constructor(
             }
 
             /**
-             * Specify the side of the road from which to approach `destinations` points. Please
-             * note that the given approach will be applied to all the `destinations`.
+             * Specify the side of the road from which to approach destinations points. Please note
+             * that the given approach will be applied to all the destinations.
              */
             fun destinationsApproach(destinationsApproach: DestinationsApproach) =
                 destinationsApproach(JsonField.of(destinationsApproach))
@@ -1414,9 +1414,9 @@ private constructor(
             /**
              * Specify the type of hazardous material being carried and the service will avoid roads
              * which are not suitable for the type of goods specified. Multiple values can be
-             * separated using a pipe operator `|` .
+             * separated using a pipe operator | .
              *
-             * Please note that this parameter is effective only when `mode=truck`.
+             * Please note that this parameter is effective only when mode=truck.
              */
             fun hazmatType(hazmatType: HazmatType) = hazmatType(JsonField.of(hazmatType))
 
@@ -1434,8 +1434,8 @@ private constructor(
             /**
              * Set which driving mode the service should use to determine a route.
              *
-             * For example, if you use `car`, the API will return a route that a car can take. Using
-             * `truck` will return a route a truck can use, taking into account appropriate truck
+             * For example, if you use car, the API will return a route that a car can take. Using
+             * truck will return a route a truck can use, taking into account appropriate truck
              * routing restrictions.
              */
             fun mode(mode: Mode) = mode(JsonField.of(mode))
@@ -1450,8 +1450,8 @@ private constructor(
             fun mode(mode: JsonField<Mode>) = apply { this.mode = mode }
 
             /**
-             * Specify the side of the road from which to approach `origins` points. Please note
-             * that the given approach will be applied to all the points provided as `origins`.
+             * Specify the side of the road from which to approach origins points. Please note that
+             * the given approach will be applied to all the points provided as origins.
              */
             fun originsApproach(originsApproach: OriginsApproach) =
                 originsApproach(JsonField.of(originsApproach))
@@ -1468,8 +1468,8 @@ private constructor(
             }
 
             /**
-             * Set the route type that needs to be returned. Please note that `route_type` is
-             * effective only when `option=flexible`.
+             * Set the route type that needs to be returned. Please note that route_type is
+             * effective only when option=flexible.
              */
             fun routeType(routeType: RouteType) = routeType(JsonField.of(routeType))
 
@@ -1487,7 +1487,7 @@ private constructor(
              * of the truck, in tonnes. When used, the service will return routes which are legally
              * allowed to carry the load specified per axle.
              *
-             * Please note this parameter is effective only when `mode=truck`.
+             * Please note this parameter is effective only when mode=truck.
              */
             fun truckAxleLoad(truckAxleLoad: Double) = truckAxleLoad(JsonField.of(truckAxleLoad))
 
@@ -1504,8 +1504,8 @@ private constructor(
 
             /**
              * This defines the dimensions of a truck in centimeters (cm) in the format of
-             * "height,width,length". This parameter is effective only when `mode=truck` and
-             * `option=flexible`. Maximum dimensions are as follows:
+             * "height,width,length". This parameter is effective only when mode=truck and
+             * option=flexible. Maximum dimensions are as follows:
              *
              * Height = 1000 cm Width = 5000 cm Length = 5000 cm
              */
@@ -1522,8 +1522,8 @@ private constructor(
 
             /**
              * This parameter defines the weight of the truck including trailers and shipped goods
-             * in kilograms (kg). This parameter is effective only when `mode=truck` and
-             * `option=flexible`.
+             * in kilograms (kg). This parameter is effective only when mode=truck and
+             * option=flexible.
              */
             fun truckWeight(truckWeight: Long) = truckWeight(JsonField.of(truckWeight))
 
@@ -1800,20 +1800,20 @@ private constructor(
 
     /**
      * Setting this will ensure the route avoids the object(s) specified as input. Multiple values
-     * should be separated by a pipe (|). If `none` is provided along with other values, an error is
+     * should be separated by a pipe (|). If none is provided along with other values, an error is
      * returned as a valid route is not feasible.
      * - **Note:**
-     *     - This parameter is effective only when `route_type=fastest`.
+     *     - This parameter is effective only when route_type=fastest.
      *     - When this parameter is not provided in the input, ferries are set to be avoided by
-     *       default. When `avoid` input is provided, only the mentioned objects are avoided.
-     *     - When using `avoid=bbox` users also need to specify the boundaries of the bounding box
-     *       to be avoid. Multiple bounding boxes can be specified simultaneously. Please note that
+     *       default. When avoid input is provided, only the mentioned objects are avoided.
+     *     - When using avoid=bbox users also need to specify the boundaries of the bounding box to
+     *       be avoid. Multiple bounding boxes can be specified simultaneously. Please note that
      *       bounding box is a hard filter and if it blocks all possible routes between given
      *       locations, a 4xx error is returned.
      *
      *     - **Format:** bbox: min_latitude,min_longtitude,max_latitude,max_longitude.
      *     - **Example:** avoid=bbox: 34.0635,-118.2547, 34.0679,-118.2478 | bbox: 34.0521,-118.2342, 34.0478,-118.2437
-     *     - When using `avoid=sharp_turn`, default range of permissible turn angles is \[120,240\].
+     *     - When using avoid=sharp_turn, default range of permissible turn angles is \[120,240\].
      */
     class Avoid @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -1829,23 +1829,23 @@ private constructor(
 
         companion object {
 
-            @JvmField val TOLL = of("`toll`")
+            @JvmField val TOLL = of("toll")
 
-            @JvmField val FERRY = of("`ferry`")
+            @JvmField val FERRY = of("ferry")
 
-            @JvmField val HIGHWAY = of("`highway`")
+            @JvmField val HIGHWAY = of("highway")
 
-            @JvmField val SHARP_TURN = of("`sharp_turn`")
+            @JvmField val SHARP_TURN = of("sharp_turn")
 
-            @JvmField val SERVICE_ROAD = of("`service_road`")
+            @JvmField val SERVICE_ROAD = of("service_road")
 
-            @JvmField val BBOX = of("`bbox`")
+            @JvmField val BBOX = of("bbox")
 
-            @JvmField val LEFT_TURN = of("`left_turn`")
+            @JvmField val LEFT_TURN = of("left_turn")
 
-            @JvmField val RIGHT_TURN = of("`right_turn`")
+            @JvmField val RIGHT_TURN = of("right_turn")
 
-            @JvmField val NONE = of("`none`")
+            @JvmField val NONE = of("none")
 
             @JvmStatic fun of(value: String) = Avoid(JsonField.of(value))
         }
@@ -1985,8 +1985,8 @@ private constructor(
     }
 
     /**
-     * Specify the side of the road from which to approach `destinations` points. Please note that
-     * the given approach will be applied to all the `destinations`.
+     * Specify the side of the road from which to approach destinations points. Please note that the
+     * given approach will be applied to all the destinations.
      */
     class DestinationsApproach
     @JsonCreator
@@ -2004,9 +2004,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val UNRESTRICTED = of("`unrestricted`")
+            @JvmField val UNRESTRICTED = of("unrestricted")
 
-            @JvmField val CURB = of("`curb`")
+            @JvmField val CURB = of("curb")
 
             @JvmStatic fun of(value: String) = DestinationsApproach(JsonField.of(value))
         }
@@ -2125,9 +2125,9 @@ private constructor(
     /**
      * Specify the type of hazardous material being carried and the service will avoid roads which
      * are not suitable for the type of goods specified. Multiple values can be separated using a
-     * pipe operator `|` .
+     * pipe operator | .
      *
-     * Please note that this parameter is effective only when `mode=truck`.
+     * Please note that this parameter is effective only when mode=truck.
      */
     class HazmatType @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -2143,13 +2143,13 @@ private constructor(
 
         companion object {
 
-            @JvmField val GENERAL = of("`general`")
+            @JvmField val GENERAL = of("general")
 
-            @JvmField val CIRCUMSTANTIAL = of("`circumstantial`")
+            @JvmField val CIRCUMSTANTIAL = of("circumstantial")
 
-            @JvmField val EXPLOSIVE = of("`explosive`")
+            @JvmField val EXPLOSIVE = of("explosive")
 
-            @JvmField val HARMFUL_TO_WATER = of("`harmful_to_water`")
+            @JvmField val HARMFUL_TO_WATER = of("harmful_to_water")
 
             @JvmStatic fun of(value: String) = HazmatType(JsonField.of(value))
         }
@@ -2273,7 +2273,7 @@ private constructor(
     /**
      * Set which driving mode the service should use to determine a route.
      *
-     * For example, if you use `car`, the API will return a route that a car can take. Using `truck`
+     * For example, if you use car, the API will return a route that a car can take. Using truck
      * will return a route a truck can use, taking into account appropriate truck routing
      * restrictions.
      */
@@ -2291,9 +2291,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val CAR = of("`car`")
+            @JvmField val CAR = of("car")
 
-            @JvmField val TRUCK = of("`truck`")
+            @JvmField val TRUCK = of("truck")
 
             @JvmStatic fun of(value: String) = Mode(JsonField.of(value))
         }
@@ -2405,8 +2405,8 @@ private constructor(
     }
 
     /**
-     * Specify the side of the road from which to approach `origins` points. Please note that the
-     * given approach will be applied to all the points provided as `origins`.
+     * Specify the side of the road from which to approach origins points. Please note that the
+     * given approach will be applied to all the points provided as origins.
      */
     class OriginsApproach @JsonCreator private constructor(private val value: JsonField<String>) :
         Enum {
@@ -2423,9 +2423,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val UNRESTRICTED = of("`unrestricted`")
+            @JvmField val UNRESTRICTED = of("unrestricted")
 
-            @JvmField val CURB = of("`curb`")
+            @JvmField val CURB = of("curb")
 
             @JvmStatic fun of(value: String) = OriginsApproach(JsonField.of(value))
         }
@@ -2540,8 +2540,8 @@ private constructor(
     }
 
     /**
-     * Set the route type that needs to be returned. Please note that `route_type` is effective only
-     * when `option=flexible`.
+     * Set the route type that needs to be returned. Please note that route_type is effective only
+     * when option=flexible.
      */
     class RouteType @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -2557,9 +2557,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val FASTEST = of("`fastest`")
+            @JvmField val FASTEST = of("fastest")
 
-            @JvmField val SHORTEST = of("`shortest`")
+            @JvmField val SHORTEST = of("shortest")
 
             @JvmStatic fun of(value: String) = RouteType(JsonField.of(value))
         }
@@ -2799,8 +2799,8 @@ private constructor(
 
     /**
      * Specify a spliter to split the matrix by. It accepts 2 values:
-     * - `od_number_spliter`:
-     * - `straight_distance_spliter`:
+     * - od_number_spliter:
+     * - straight_distance_spliter:
      *
      * Please note it is an internal, debug field only.
      *

@@ -58,11 +58,11 @@ private constructor(
     fun location(): Location = location.getRequired("location")
 
     /**
-     * Specify custom attributes for the vehicle. Each attribute should be created as a `key:value`
-     * pair. These attributes can be used in the `orders.vehicle_preferences` input to refine the
+     * Specify custom attributes for the vehicle. Each attribute should be created as a key:value
+     * pair. These attributes can be used in the orders.vehicle_preferences input to refine the
      * search of vehicles for each order.
      *
-     * The maximum number of key:value pairs that can be specified under `attributes` for a given
+     * The maximum number of key:value pairs that can be specified under attributes for a given
      * vehicle, is limited to 30.
      */
     @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
@@ -70,8 +70,8 @@ private constructor(
     /**
      * Specify the priority for this vehicle. A higher value indicates a higher priority. When
      * specified, it will override any priority score deduced from
-     * `vehicle_attribute_priority_mappings` for this vehicle. Valid values are \[1, 10\] and
-     * default is 0.
+     * vehicle_attribute_priority_mappings for this vehicle. Valid values are \[1, 10\] and default
+     * is 0.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -197,18 +197,18 @@ private constructor(
 
         /**
          * Specify custom attributes for the vehicle. Each attribute should be created as a
-         * `key:value` pair. These attributes can be used in the `orders.vehicle_preferences` input
-         * to refine the search of vehicles for each order.
+         * key:value pair. These attributes can be used in the orders.vehicle_preferences input to
+         * refine the search of vehicles for each order.
          *
-         * The maximum number of key:value pairs that can be specified under `attributes` for a
-         * given vehicle, is limited to 30.
+         * The maximum number of key:value pairs that can be specified under attributes for a given
+         * vehicle, is limited to 30.
          */
         fun attributes(attributes: JsonValue) = apply { this.attributes = attributes }
 
         /**
          * Specify the priority for this vehicle. A higher value indicates a higher priority. When
          * specified, it will override any priority score deduced from
-         * `vehicle_attribute_priority_mappings` for this vehicle. Valid values are \[1, 10\] and
+         * vehicle_attribute_priority_mappings for this vehicle. Valid values are \[1, 10\] and
          * default is 0.
          */
         fun priority(priority: Long) = priority(JsonField.of(priority))

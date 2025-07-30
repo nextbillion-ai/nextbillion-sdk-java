@@ -669,8 +669,8 @@ private constructor(
         fun source(): Optional<String> = source.getOptional("source")
 
         /**
-         * Set this to either `enable` or `disable` to allow the place to be retrieved by a search
-         * API or block it respectively.
+         * Set this to either enable or disable to allow the place to be retrieved by a search API
+         * or block it respectively.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -765,8 +765,8 @@ private constructor(
             fun source(source: JsonField<String>) = apply { this.source = source }
 
             /**
-             * Set this to either `enable` or `disable` to allow the place to be retrieved by a
-             * search API or block it respectively.
+             * Set this to either enable or disable to allow the place to be retrieved by a search
+             * API or block it respectively.
              */
             fun status(status: Status) = status(JsonField.of(status))
 
@@ -841,8 +841,8 @@ private constructor(
                 (status.asKnown().getOrNull()?.validity() ?: 0)
 
         /**
-         * Set this to either `enable` or `disable` to allow the place to be retrieved by a search
-         * API or block it respectively.
+         * Set this to either enable or disable to allow the place to be retrieved by a search API
+         * or block it respectively.
          */
         class Status @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 

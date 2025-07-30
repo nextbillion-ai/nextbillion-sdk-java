@@ -29,7 +29,7 @@ internal class LocationServiceAsyncTest {
                     .id("id")
                     .key("key=API_KEY")
                     .cluster(LocationListParams.Cluster.AMERICA)
-                    .correction("correction=mapmatch=1,interpolate=0,mode=`car`")
+                    .correction("correction=mapmatch=1,interpolate=0,mode=car")
                     .endTime(0L)
                     .geometryType(LocationListParams.GeometryType.POLYLINE)
                     .pn(0L)

@@ -56,8 +56,8 @@ private constructor(
     fun responses(): Optional<List<Response>> = responses.getOptional("responses")
 
     /**
-     * Returns the overall status of the API request. Its value will always be one of `success`,
-     * `failed`, and `pending`.
+     * Returns the overall status of the API request. Its value will always be one of success,
+     * failed, and pending.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -182,8 +182,8 @@ private constructor(
         }
 
         /**
-         * Returns the overall status of the API request. Its value will always be one of `success`,
-         * `failed`, and `pending`.
+         * Returns the overall status of the API request. Its value will always be one of success,
+         * failed, and pending.
          */
         fun status(status: String) = status(JsonField.of(status))
 
@@ -291,7 +291,7 @@ private constructor(
 
         /**
          * An object returning the routing solution of an individual query. The JSON format and
-         * structure of the `response` would vary depending on the routing endpoint used in each
+         * structure of the response would vary depending on the routing endpoint used in each
          * individual query. However, it will be consistent with standard response for a given
          * routing endpoint.
          */
@@ -347,7 +347,7 @@ private constructor(
 
             /**
              * An object returning the routing solution of an individual query. The JSON format and
-             * structure of the `response` would vary depending on the routing endpoint used in each
+             * structure of the response would vary depending on the routing endpoint used in each
              * individual query. However, it will be consistent with standard response for a given
              * routing endpoint.
              */

@@ -37,7 +37,7 @@ private constructor(
     fun id(): Optional<Double> = id.getOptional("id")
 
     /**
-     * Returns the state of the restriction. It would always be `deleted`.
+     * Returns the state of the restriction. It would always be deleted.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -103,7 +103,7 @@ private constructor(
          */
         fun id(id: JsonField<Double>) = apply { this.id = id }
 
-        /** Returns the state of the restriction. It would always be `deleted`. */
+        /** Returns the state of the restriction. It would always be deleted. */
         fun state(state: String) = state(JsonField.of(state))
 
         /**

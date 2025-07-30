@@ -41,8 +41,7 @@ private constructor(
     fun id(): Optional<String> = id.getOptional("id")
 
     /**
-     * Returns the error message when `status: error`. Otherwise, response doesn't contain this
-     * field.
+     * Returns the error message when status: error. Otherwise, response doesn't contain this field.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -142,7 +141,7 @@ private constructor(
         fun id(id: JsonField<String>) = apply { this.id = id }
 
         /**
-         * Returns the error message when `status: error`. Otherwise, response doesn't contain this
+         * Returns the error message when status: error. Otherwise, response doesn't contain this
          * field.
          */
         fun error(error: String) = error(JsonField.of(error))
