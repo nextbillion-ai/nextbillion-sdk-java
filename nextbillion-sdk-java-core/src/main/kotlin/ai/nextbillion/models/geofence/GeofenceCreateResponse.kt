@@ -38,8 +38,8 @@ private constructor(
     fun data(): Optional<Data> = data.getOptional("data")
 
     /**
-     * A string indicating the state of the response. On successful responses, the value will be Ok.
-     * Indicative error messages are returned for different errors. See the
+     * A string indicating the state of the response. On successful responses, the value will be
+     * `Ok`. Indicative error messages are returned for different errors. See the
      * [API Error Codes](#api-error-codes) section below for more information.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -106,7 +106,7 @@ private constructor(
 
         /**
          * A string indicating the state of the response. On successful responses, the value will be
-         * Ok. Indicative error messages are returned for different errors. See the
+         * `Ok`. Indicative error messages are returned for different errors. See the
          * [API Error Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -189,8 +189,8 @@ private constructor(
         ) : this(id, mutableMapOf())
 
         /**
-         * Unique ID of the geofence created. It will be the same as custom_id, if provided. Else it
-         * will be an auto generated UUID. Please note this ID cannot be updated.
+         * Unique ID of the geofence created. It will be the same as `custom_id`, if provided. Else
+         * it will be an auto generated UUID. Please note this ID cannot be updated.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -235,7 +235,7 @@ private constructor(
             }
 
             /**
-             * Unique ID of the geofence created. It will be the same as custom_id, if provided.
+             * Unique ID of the geofence created. It will be the same as `custom_id`, if provided.
              * Else it will be an auto generated UUID. Please note this ID cannot be updated.
              */
             fun id(id: String) = id(JsonField.of(id))

@@ -208,7 +208,7 @@ private constructor(
      *
      * This parameter serves as a mandatory filter, ensuring the service returns only those routes
      * that strictly avoid the object(s) indicated. Multiple values should be separated by a pipe
-     * |). If no routes can be found that exclude the specified object(s), the service will return
+     * `|`). If no routes can be found that exclude the specified object(s), the service will return
      * an error. For a less strict filtering approach, consider using the avoid parameter.
      *
      * \- This parameter is effective only when route_type=fastest. \- When using
@@ -903,9 +903,9 @@ private constructor(
          *
          * This parameter serves as a mandatory filter, ensuring the service returns only those
          * routes that strictly avoid the object(s) indicated. Multiple values should be separated
-         * by a pipe |). If no routes can be found that exclude the specified object(s), the service
-         * will return an error. For a less strict filtering approach, consider using the avoid
-         * parameter.
+         * by a pipe `|`). If no routes can be found that exclude the specified object(s), the
+         * service will return an error. For a less strict filtering approach, consider using the
+         * avoid parameter.
          *
          * \- This parameter is effective only when route_type=fastest. \- When using
          * exclude=sharp_turn, default range of permissible turn angles is \[120,240\]. In order to
@@ -1654,9 +1654,9 @@ private constructor(
          *
          * This parameter serves as a mandatory filter, ensuring the service returns only those
          * routes that strictly avoid the object(s) indicated. Multiple values should be separated
-         * by a pipe |). If no routes can be found that exclude the specified object(s), the service
-         * will return an error. For a less strict filtering approach, consider using the avoid
-         * parameter.
+         * by a pipe `|`). If no routes can be found that exclude the specified object(s), the
+         * service will return an error. For a less strict filtering approach, consider using the
+         * avoid parameter.
          *
          * \- This parameter is effective only when route_type=fastest. \- When using
          * exclude=sharp_turn, default range of permissible turn angles is \[120,240\]. In order to
@@ -2430,7 +2430,7 @@ private constructor(
              *
              * This parameter serves as a mandatory filter, ensuring the service returns only those
              * routes that strictly avoid the object(s) indicated. Multiple values should be
-             * separated by a pipe |). If no routes can be found that exclude the specified
+             * separated by a pipe `|`). If no routes can be found that exclude the specified
              * object(s), the service will return an error. For a less strict filtering approach,
              * consider using the avoid parameter.
              *
@@ -3307,7 +3307,7 @@ private constructor(
      *
      * This parameter serves as a mandatory filter, ensuring the service returns only those routes
      * that strictly avoid the object(s) indicated. Multiple values should be separated by a pipe
-     * |). If no routes can be found that exclude the specified object(s), the service will return
+     * `|`). If no routes can be found that exclude the specified object(s), the service will return
      * an error. For a less strict filtering approach, consider using the avoid parameter.
      *
      * \- This parameter is effective only when route_type=fastest. \- When using

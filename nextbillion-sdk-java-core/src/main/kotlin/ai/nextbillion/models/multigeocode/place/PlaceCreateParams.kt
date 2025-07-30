@@ -63,7 +63,7 @@ private constructor(
     /**
      * When 2 places are located within 100 meters of each other and have more than 90% of matching
      * attributes (at least 11 out of 12 attributes in the “place” object), they will be considered
-     * duplicates and any requests to add such a new place would be rejected. Set force=true to
+     * duplicates and any requests to add such a new place would be rejected. Set `force=true` to
      * override this duplicate check. You can use this to create closely located POIs. For instance,
      * places inside a mall, university or a government building etc.
      *
@@ -206,7 +206,7 @@ private constructor(
          * When 2 places are located within 100 meters of each other and have more than 90% of
          * matching attributes (at least 11 out of 12 attributes in the “place” object), they will
          * be considered duplicates and any requests to add such a new place would be rejected. Set
-         * force=true to override this duplicate check. You can use this to create closely located
+         * `force=true` to override this duplicate check. You can use this to create closely located
          * POIs. For instance, places inside a mall, university or a government building etc.
          */
         fun force(force: Boolean) = apply { body.force(force) }
@@ -428,7 +428,7 @@ private constructor(
          * When 2 places are located within 100 meters of each other and have more than 90% of
          * matching attributes (at least 11 out of 12 attributes in the “place” object), they will
          * be considered duplicates and any requests to add such a new place would be rejected. Set
-         * force=true to override this duplicate check. You can use this to create closely located
+         * `force=true` to override this duplicate check. You can use this to create closely located
          * POIs. For instance, places inside a mall, university or a government building etc.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -569,9 +569,9 @@ private constructor(
              * When 2 places are located within 100 meters of each other and have more than 90% of
              * matching attributes (at least 11 out of 12 attributes in the “place” object), they
              * will be considered duplicates and any requests to add such a new place would be
-             * rejected. Set force=true to override this duplicate check. You can use this to create
-             * closely located POIs. For instance, places inside a mall, university or a government
-             * building etc.
+             * rejected. Set `force=true` to override this duplicate check. You can use this to
+             * create closely located POIs. For instance, places inside a mall, university or a
+             * government building etc.
              */
             fun force(force: Boolean) = force(JsonField.of(force))
 

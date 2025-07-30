@@ -51,7 +51,7 @@ private constructor(
     fun rows(): Optional<List<Row>> = rows.getOptional("rows")
 
     /**
-     * A string indicating the state of the response. On normal responses, the value will be Ok.
+     * A string indicating the state of the response. On normal responses, the value will be `Ok`.
      * Indicative HTTP error codes are returned for different errors. See the
      * [API Errors Codes](#api-error-codes) section below for more information.
      *
@@ -150,8 +150,8 @@ private constructor(
         }
 
         /**
-         * A string indicating the state of the response. On normal responses, the value will be Ok.
-         * Indicative HTTP error codes are returned for different errors. See the
+         * A string indicating the state of the response. On normal responses, the value will be
+         * `Ok`. Indicative HTTP error codes are returned for different errors. See the
          * [API Errors Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -243,10 +243,11 @@ private constructor(
         ) : this(elements, mutableMapOf())
 
         /**
-         * An array of objects. Each elements array corresponds to a single origins coordinate and
-         * contains objects with distance and duration values for each of the destinations. The
-         * details in the first elements array correspond to the first origins point and the first
-         * object corresponds to the first destinations point and so on.
+         * An array of objects. Each `elements` array corresponds to a single `origins` coordinate
+         * and contains objects with `distance` and `duration` values for each of the
+         * `destinations`. The details in the first `elements` array correspond to the first
+         * `origins` point and the first object corresponds to the first `destinations` point and so
+         * on.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -293,10 +294,11 @@ private constructor(
             }
 
             /**
-             * An array of objects. Each elements array corresponds to a single origins coordinate
-             * and contains objects with distance and duration values for each of the destinations.
-             * The details in the first elements array correspond to the first origins point and the
-             * first object corresponds to the first destinations point and so on.
+             * An array of objects. Each `elements` array corresponds to a single `origins`
+             * coordinate and contains objects with `distance` and `duration` values for each of the
+             * `destinations`. The details in the first `elements` array correspond to the first
+             * `origins` point and the first object corresponds to the first `destinations` point
+             * and so on.
              */
             fun elements(elements: List<Element>) = elements(JsonField.of(elements))
 

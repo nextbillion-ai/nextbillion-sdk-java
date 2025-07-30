@@ -32,7 +32,8 @@ private constructor(
     ) : this(data, message, status, mutableMapOf())
 
     /**
-     * An object containing the information about the last tracked location of the requested asset.
+     * An object containing the information about the last tracked location of the requested
+     * `asset`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -49,8 +50,8 @@ private constructor(
     fun message(): Optional<String> = message.getOptional("message")
 
     /**
-     * A string indicating the state of the response. On successful responses, the value will be Ok.
-     * Indicative error messages are returned for different errors. See the
+     * A string indicating the state of the response. On successful responses, the value will be
+     * `Ok`. Indicative error messages are returned for different errors. See the
      * [API Error Codes](#api-error-codes) section below for more information.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -115,7 +116,7 @@ private constructor(
 
         /**
          * An object containing the information about the last tracked location of the requested
-         * asset.
+         * `asset`.
          */
         fun data(data: Data) = data(JsonField.of(data))
 
@@ -143,7 +144,7 @@ private constructor(
 
         /**
          * A string indicating the state of the response. On successful responses, the value will be
-         * Ok. Indicative error messages are returned for different errors. See the
+         * `Ok`. Indicative error messages are returned for different errors. See the
          * [API Error Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -217,7 +218,8 @@ private constructor(
             (if (status.asKnown().isPresent) 1 else 0)
 
     /**
-     * An object containing the information about the last tracked location of the requested asset.
+     * An object containing the information about the last tracked location of the requested
+     * `asset`.
      */
     class Data
     private constructor(

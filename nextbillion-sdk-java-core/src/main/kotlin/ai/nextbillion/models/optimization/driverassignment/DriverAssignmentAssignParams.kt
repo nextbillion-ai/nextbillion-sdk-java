@@ -39,7 +39,7 @@ private constructor(
 
     /**
      * Specify the filtering criterion for the vehicles with respect to each order's location.
-     * filter is a mandatory input for all requests.
+     * `filter` is a mandatory input for all requests.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
      *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -48,7 +48,7 @@ private constructor(
 
     /**
      * Collects the details of open orders to be fulfilled. Each object represents one order. All
-     * requests must include orders as a mandatory input. A maximum of 200 orders is allowed per
+     * requests must include `orders` as a mandatory input. A maximum of 200 orders is allowed per
      * request.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
@@ -58,7 +58,7 @@ private constructor(
 
     /**
      * Collects the details of vehicles available to fulfill the orders. Each object represents one
-     * vehicle. All requests must include vehicles as a mandatory input. A maximum of 100 vehicles
+     * vehicle. All requests must include `vehicles` as a mandatory input. A maximum of 100 vehicles
      * is allowed per request.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
@@ -161,7 +161,7 @@ private constructor(
 
         /**
          * Specify the filtering criterion for the vehicles with respect to each order's location.
-         * filter is a mandatory input for all requests.
+         * `filter` is a mandatory input for all requests.
          */
         fun filter(filter: Filter) = apply { body.filter(filter) }
 
@@ -175,8 +175,8 @@ private constructor(
 
         /**
          * Collects the details of open orders to be fulfilled. Each object represents one order.
-         * All requests must include orders as a mandatory input. A maximum of 200 orders is allowed
-         * per request.
+         * All requests must include `orders` as a mandatory input. A maximum of 200 orders is
+         * allowed per request.
          */
         fun orders(orders: List<Order>) = apply { body.orders(orders) }
 
@@ -198,7 +198,7 @@ private constructor(
 
         /**
          * Collects the details of vehicles available to fulfill the orders. Each object represents
-         * one vehicle. All requests must include vehicles as a mandatory input. A maximum of 100
+         * one vehicle. All requests must include `vehicles` as a mandatory input. A maximum of 100
          * vehicles is allowed per request.
          */
         fun vehicles(vehicles: List<Vehicle>) = apply { body.vehicles(vehicles) }
@@ -406,7 +406,7 @@ private constructor(
 
         /**
          * Specify the filtering criterion for the vehicles with respect to each order's location.
-         * filter is a mandatory input for all requests.
+         * `filter` is a mandatory input for all requests.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -415,8 +415,8 @@ private constructor(
 
         /**
          * Collects the details of open orders to be fulfilled. Each object represents one order.
-         * All requests must include orders as a mandatory input. A maximum of 200 orders is allowed
-         * per request.
+         * All requests must include `orders` as a mandatory input. A maximum of 200 orders is
+         * allowed per request.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -425,7 +425,7 @@ private constructor(
 
         /**
          * Collects the details of vehicles available to fulfill the orders. Each object represents
-         * one vehicle. All requests must include vehicles as a mandatory input. A maximum of 100
+         * one vehicle. All requests must include `vehicles` as a mandatory input. A maximum of 100
          * vehicles is allowed per request.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
@@ -518,7 +518,7 @@ private constructor(
 
             /**
              * Specify the filtering criterion for the vehicles with respect to each order's
-             * location. filter is a mandatory input for all requests.
+             * location. `filter` is a mandatory input for all requests.
              */
             fun filter(filter: Filter) = filter(JsonField.of(filter))
 
@@ -533,8 +533,8 @@ private constructor(
 
             /**
              * Collects the details of open orders to be fulfilled. Each object represents one
-             * order. All requests must include orders as a mandatory input. A maximum of 200 orders
-             * is allowed per request.
+             * order. All requests must include `orders` as a mandatory input. A maximum of 200
+             * orders is allowed per request.
              */
             fun orders(orders: List<Order>) = orders(JsonField.of(orders))
 
@@ -563,7 +563,7 @@ private constructor(
 
             /**
              * Collects the details of vehicles available to fulfill the orders. Each object
-             * represents one vehicle. All requests must include vehicles as a mandatory input. A
+             * represents one vehicle. All requests must include `vehicles` as a mandatory input. A
              * maximum of 100 vehicles is allowed per request.
              */
             fun vehicles(vehicles: List<Vehicle>) = vehicles(JsonField.of(vehicles))
@@ -701,7 +701,7 @@ private constructor(
 
     /**
      * Specify the filtering criterion for the vehicles with respect to each order's location.
-     * filter is a mandatory input for all requests.
+     * `filter` is a mandatory input for all requests.
      */
     class Filter
     private constructor(
@@ -723,7 +723,7 @@ private constructor(
         ) : this(drivingDistance, pickupEta, radius, mutableMapOf())
 
         /**
-         * Defines a driving_distance filter, in meters. If a vehicle needs to drive further than
+         * Defines a `driving_distance` filter, in meters. If a vehicle needs to drive further than
          * this distance to reach a pickup location, it will not be assigned to that order. Valid
          * range of values for this filter is \[1, 10000\].
          *
@@ -736,7 +736,7 @@ private constructor(
          * Specify a duration, in seconds, which will be used to filter out ineligible vehicles for
          * each order. Any vehicle which would take more time than specified here, to reach the
          * pickup location of a given order, will be ruled out for assignment for that particular
-         * order. Valid values for pickup_eta are \[1, 3600\].
+         * order. Valid values for `pickup_eta` are \[1, 3600\].
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -746,7 +746,7 @@ private constructor(
         /**
          * Specify a radius, in meters, which will be used to filter out ineligible vehicles for
          * each order. The pickup location of an order will act as the center of the circle when
-         * identifying eligible vehicles. Valid values for radius are \[1, 10000\].
+         * identifying eligible vehicles. Valid values for `radius` are \[1, 10000\].
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -812,7 +812,7 @@ private constructor(
             }
 
             /**
-             * Defines a driving_distance filter, in meters. If a vehicle needs to drive further
+             * Defines a `driving_distance` filter, in meters. If a vehicle needs to drive further
              * than this distance to reach a pickup location, it will not be assigned to that order.
              * Valid range of values for this filter is \[1, 10000\].
              */
@@ -834,7 +834,7 @@ private constructor(
              * Specify a duration, in seconds, which will be used to filter out ineligible vehicles
              * for each order. Any vehicle which would take more time than specified here, to reach
              * the pickup location of a given order, will be ruled out for assignment for that
-             * particular order. Valid values for pickup_eta are \[1, 3600\].
+             * particular order. Valid values for `pickup_eta` are \[1, 3600\].
              */
             fun pickupEta(pickupEta: Long) = pickupEta(JsonField.of(pickupEta))
 
@@ -850,7 +850,7 @@ private constructor(
             /**
              * Specify a radius, in meters, which will be used to filter out ineligible vehicles for
              * each order. The pickup location of an order will act as the center of the circle when
-             * identifying eligible vehicles. Valid values for radius are \[1, 10000\].
+             * identifying eligible vehicles. Valid values for `radius` are \[1, 10000\].
              */
             fun radius(radius: Double) = radius(JsonField.of(radius))
 
@@ -998,12 +998,13 @@ private constructor(
         fun pickup(): Pickup = pickup.getRequired("pickup")
 
         /**
-         * Specify custom attributes for the orders. Each attribute should be created as a key:value
-         * pair. The **keys** provided can be used in options.order_attribute_priority_mappings to
-         * assign a custom priority for this order based on its attributes.
+         * Specify custom attributes for the orders. Each attribute should be created as a
+         * `key:value` pair. The **keys** provided can be used in
+         * `options.order_attribute_priority_mappings` to assign a custom priority for this order
+         * based on its attributes.
          *
-         * The maximum number of key:value pairs that can be specified under attributes for a given
-         * order, is limited to 30.
+         * The maximum number of key:value pairs that can be specified under `attributes` for a
+         * given order, is limited to 30.
          */
         @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 
@@ -1013,7 +1014,7 @@ private constructor(
          *
          * Please note
          * - The last location provided is treated as the destination of the trip.
-         * - dropoffs is mandatory when dropoff_details is set to **true**.
+         * - `dropoffs` is mandatory when `dropoff_details` is set to **true**.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1023,8 +1024,8 @@ private constructor(
         /**
          * Specify the priority for this order. A higher value indicates a higher priority. When
          * specified, it will override any priority score deduced from
-         * order_attribute_priority_mappings for this order. Valid values are \[1, 10\] and default
-         * is 0.
+         * `order_attribute_priority_mappings` for this order. Valid values are \[1, 10\] and
+         * default is 0.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1046,15 +1047,15 @@ private constructor(
          * criteria are provided, they are evaluated using an AND condition—meaning all specified
          * criteria must be met individually for a vehicle to be considered.
          *
-         * For example, if required_all_of_attributes, required_any_of_attributes, and
-         * exclude_all_of_attributes are all provided, an eligible vehicle must satisfy the
+         * For example, if `required_all_of_attributes`, `required_any_of_attributes`, and
+         * `exclude_all_of_attributes` are all provided, an eligible vehicle must satisfy the
          * following to be considered for assignments:
-         * 1. Meet all conditions specified in required_all_of_attributes.
-         * 2. Meet at least one of the conditions listed in required_any_of_attributes.
-         * 3. Not meet any conditions mentioned in exclude_all_of_attributes.
+         * 1. Meet all conditions specified in `required_all_of_attributes`.
+         * 2. Meet at least one of the conditions listed in `required_any_of_attributes`.
+         * 3. Not meet any conditions mentioned in `exclude_all_of_attributes`.
          *
-         * Consequently, a vehicle which does not have any attributes defined can't be assigned to
-         * an order which has vehicle_preferences configured.
+         * Consequently, a vehicle which does not have any `attributes` defined can't be assigned to
+         * an order which has `vehicle_preferences` configured.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1190,11 +1191,11 @@ private constructor(
 
             /**
              * Specify custom attributes for the orders. Each attribute should be created as a
-             * key:value pair. The **keys** provided can be used in
-             * options.order_attribute_priority_mappings to assign a custom priority for this order
-             * based on its attributes.
+             * `key:value` pair. The **keys** provided can be used in
+             * `options.order_attribute_priority_mappings` to assign a custom priority for this
+             * order based on its attributes.
              *
-             * The maximum number of key:value pairs that can be specified under attributes for a
+             * The maximum number of key:value pairs that can be specified under `attributes` for a
              * given order, is limited to 30.
              */
             fun attributes(attributes: JsonValue) = apply { this.attributes = attributes }
@@ -1205,7 +1206,7 @@ private constructor(
              *
              * Please note
              * - The last location provided is treated as the destination of the trip.
-             * - dropoffs is mandatory when dropoff_details is set to **true**.
+             * - `dropoffs` is mandatory when `dropoff_details` is set to **true**.
              */
             fun dropoffs(dropoffs: List<Dropoff>) = dropoffs(JsonField.of(dropoffs))
 
@@ -1235,7 +1236,7 @@ private constructor(
             /**
              * Specify the priority for this order. A higher value indicates a higher priority. When
              * specified, it will override any priority score deduced from
-             * order_attribute_priority_mappings for this order. Valid values are \[1, 10\] and
+             * `order_attribute_priority_mappings` for this order. Valid values are \[1, 10\] and
              * default is 0.
              */
             fun priority(priority: Long) = priority(JsonField.of(priority))
@@ -1270,15 +1271,15 @@ private constructor(
              * multiple criteria are provided, they are evaluated using an AND condition—meaning all
              * specified criteria must be met individually for a vehicle to be considered.
              *
-             * For example, if required_all_of_attributes, required_any_of_attributes, and
-             * exclude_all_of_attributes are all provided, an eligible vehicle must satisfy the
+             * For example, if `required_all_of_attributes`, `required_any_of_attributes`, and
+             * `exclude_all_of_attributes` are all provided, an eligible vehicle must satisfy the
              * following to be considered for assignments:
-             * 1. Meet all conditions specified in required_all_of_attributes.
-             * 2. Meet at least one of the conditions listed in required_any_of_attributes.
-             * 3. Not meet any conditions mentioned in exclude_all_of_attributes.
+             * 1. Meet all conditions specified in `required_all_of_attributes`.
+             * 2. Meet at least one of the conditions listed in `required_any_of_attributes`.
+             * 3. Not meet any conditions mentioned in `exclude_all_of_attributes`.
              *
-             * Consequently, a vehicle which does not have any attributes defined can't be assigned
-             * to an order which has vehicle_preferences configured.
+             * Consequently, a vehicle which does not have any `attributes` defined can't be
+             * assigned to an order which has `vehicle_preferences` configured.
              */
             fun vehiclePreferences(vehiclePreferences: VehiclePreferences) =
                 vehiclePreferences(JsonField.of(vehiclePreferences))
@@ -1741,15 +1742,15 @@ private constructor(
          * criteria are provided, they are evaluated using an AND condition—meaning all specified
          * criteria must be met individually for a vehicle to be considered.
          *
-         * For example, if required_all_of_attributes, required_any_of_attributes, and
-         * exclude_all_of_attributes are all provided, an eligible vehicle must satisfy the
+         * For example, if `required_all_of_attributes`, `required_any_of_attributes`, and
+         * `exclude_all_of_attributes` are all provided, an eligible vehicle must satisfy the
          * following to be considered for assignments:
-         * 1. Meet all conditions specified in required_all_of_attributes.
-         * 2. Meet at least one of the conditions listed in required_any_of_attributes.
-         * 3. Not meet any conditions mentioned in exclude_all_of_attributes.
+         * 1. Meet all conditions specified in `required_all_of_attributes`.
+         * 2. Meet at least one of the conditions listed in `required_any_of_attributes`.
+         * 3. Not meet any conditions mentioned in `exclude_all_of_attributes`.
          *
-         * Consequently, a vehicle which does not have any attributes defined can't be assigned to
-         * an order which has vehicle_preferences configured.
+         * Consequently, a vehicle which does not have any `attributes` defined can't be assigned to
+         * an order which has `vehicle_preferences` configured.
          */
         class VehiclePreferences
         private constructor(
@@ -2092,8 +2093,8 @@ private constructor(
                 ) : this(attribute, operator, value, mutableMapOf())
 
                 /**
-                 * Specify the name of the attribute. The attribute is compared to the keys (of each
-                 * key:value pair) in vehicles.attributes during evaluation.
+                 * Specify the name of the attribute. The `attribute` is compared to the keys (of
+                 * each `key:value` pair) in `vehicles.attributes` during evaluation.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type or is unexpectedly missing or null (e.g. if the server responded with an
@@ -2102,8 +2103,8 @@ private constructor(
                 fun attribute(): String = attribute.getRequired("attribute")
 
                 /**
-                 * Specify the operator to denote the relation between attribute and the value
-                 * specified above. The attribute , operator and value together constitute the
+                 * Specify the operator to denote the relation between `attribute` and the `value`
+                 * specified above. The `attribute` , `operator` and `value` together constitute the
                  * condition that a vehicle must meet to be eligible for assignment. Currently, we
                  * support following operators currently:
                  * - Equal to (==)
@@ -2113,8 +2114,8 @@ private constructor(
                  * - Greater than equal to (>=)
                  * - Contains (contains)
                  *
-                 * Please note that when using "contains" operator only one value can be specified
-                 * and the corresponding attribute must contain multiple values when defined for a
+                 * Please note that when using "contains" operator only one `value` can be specified
+                 * and the corresponding `attribute` must contain multiple values when defined for a
                  * vehicle.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
@@ -2124,9 +2125,9 @@ private constructor(
                 fun operator(): String = operator.getRequired("operator")
 
                 /**
-                 * Specify the desired value of the attribute to be applied for this order. value
-                 * provided here is compared to the values (of each key:value pair) in
-                 * vehicles.attributes during evaluation.
+                 * Specify the desired value of the attribute to be applied for this order. `value`
+                 * provided here is compared to the values (of each `key:value` pair) in
+                 * `vehicles.attributes` during evaluation.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type or is unexpectedly missing or null (e.g. if the server responded with an
@@ -2208,8 +2209,8 @@ private constructor(
                     }
 
                     /**
-                     * Specify the name of the attribute. The attribute is compared to the keys (of
-                     * each key:value pair) in vehicles.attributes during evaluation.
+                     * Specify the name of the attribute. The `attribute` is compared to the keys
+                     * (of each `key:value` pair) in `vehicles.attributes` during evaluation.
                      */
                     fun attribute(attribute: String) = attribute(JsonField.of(attribute))
 
@@ -2225,10 +2226,10 @@ private constructor(
                     }
 
                     /**
-                     * Specify the operator to denote the relation between attribute and the value
-                     * specified above. The attribute , operator and value together constitute the
-                     * condition that a vehicle must meet to be eligible for assignment. Currently,
-                     * we support following operators currently:
+                     * Specify the operator to denote the relation between `attribute` and the
+                     * `value` specified above. The `attribute` , `operator` and `value` together
+                     * constitute the condition that a vehicle must meet to be eligible for
+                     * assignment. Currently, we support following operators currently:
                      * - Equal to (==)
                      * - Less than (<)
                      * - Less tha equal to (<=)
@@ -2236,8 +2237,8 @@ private constructor(
                      * - Greater than equal to (>=)
                      * - Contains (contains)
                      *
-                     * Please note that when using "contains" operator only one value can be
-                     * specified and the corresponding attribute must contain multiple values when
+                     * Please note that when using "contains" operator only one `value` can be
+                     * specified and the corresponding `attribute` must contain multiple values when
                      * defined for a vehicle.
                      */
                     fun operator(operator: String) = operator(JsonField.of(operator))
@@ -2253,8 +2254,8 @@ private constructor(
 
                     /**
                      * Specify the desired value of the attribute to be applied for this order.
-                     * value provided here is compared to the values (of each key:value pair) in
-                     * vehicles.attributes during evaluation.
+                     * `value` provided here is compared to the values (of each `key:value` pair) in
+                     * `vehicles.attributes` during evaluation.
                      */
                     fun value(value: String) = value(JsonField.of(value))
 
@@ -2385,8 +2386,8 @@ private constructor(
                 ) : this(attribute, operator, value, mutableMapOf())
 
                 /**
-                 * Specify the name of the attribute. The attribute is compared to the keys (of each
-                 * key:value pair) in vehicles.attributes during evaluation.
+                 * Specify the name of the attribute. The `attribute` is compared to the keys (of
+                 * each `key:value` pair) in `vehicles.attributes` during evaluation.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type or is unexpectedly missing or null (e.g. if the server responded with an
@@ -2395,8 +2396,8 @@ private constructor(
                 fun attribute(): String = attribute.getRequired("attribute")
 
                 /**
-                 * Specify the operator to denote the relation between attribute and the value
-                 * specified above. The attribute , operator and value together constitute the
+                 * Specify the operator to denote the relation between `attribute` and the `value`
+                 * specified above. The `attribute` , `operator` and `value` together constitute the
                  * condition that a vehicle must meet to be eligible for assignment. Currently, we
                  * support following operators currently:
                  * - Equal to (==)
@@ -2406,8 +2407,8 @@ private constructor(
                  * - Greater than equal to (>=)
                  * - Contains (contains)
                  *
-                 * Please note that when using "contains" operator only one value can be specified
-                 * and the corresponding attribute must contain multiple values when defined for a
+                 * Please note that when using "contains" operator only one `value` can be specified
+                 * and the corresponding `attribute` must contain multiple values when defined for a
                  * vehicle.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
@@ -2417,9 +2418,9 @@ private constructor(
                 fun operator(): String = operator.getRequired("operator")
 
                 /**
-                 * Specify the desired value of the attribute to be applied for this order. value
-                 * provided here is compared to the values (of each key:value pair) in
-                 * vehicles.attributes during evaluation.
+                 * Specify the desired value of the attribute to be applied for this order. `value`
+                 * provided here is compared to the values (of each `key:value` pair) in
+                 * `vehicles.attributes` during evaluation.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type or is unexpectedly missing or null (e.g. if the server responded with an
@@ -2501,8 +2502,8 @@ private constructor(
                     }
 
                     /**
-                     * Specify the name of the attribute. The attribute is compared to the keys (of
-                     * each key:value pair) in vehicles.attributes during evaluation.
+                     * Specify the name of the attribute. The `attribute` is compared to the keys
+                     * (of each `key:value` pair) in `vehicles.attributes` during evaluation.
                      */
                     fun attribute(attribute: String) = attribute(JsonField.of(attribute))
 
@@ -2518,10 +2519,10 @@ private constructor(
                     }
 
                     /**
-                     * Specify the operator to denote the relation between attribute and the value
-                     * specified above. The attribute , operator and value together constitute the
-                     * condition that a vehicle must meet to be eligible for assignment. Currently,
-                     * we support following operators currently:
+                     * Specify the operator to denote the relation between `attribute` and the
+                     * `value` specified above. The `attribute` , `operator` and `value` together
+                     * constitute the condition that a vehicle must meet to be eligible for
+                     * assignment. Currently, we support following operators currently:
                      * - Equal to (==)
                      * - Less than (<)
                      * - Less tha equal to (<=)
@@ -2529,8 +2530,8 @@ private constructor(
                      * - Greater than equal to (>=)
                      * - Contains (contains)
                      *
-                     * Please note that when using "contains" operator only one value can be
-                     * specified and the corresponding attribute must contain multiple values when
+                     * Please note that when using "contains" operator only one `value` can be
+                     * specified and the corresponding `attribute` must contain multiple values when
                      * defined for a vehicle.
                      */
                     fun operator(operator: String) = operator(JsonField.of(operator))
@@ -2546,8 +2547,8 @@ private constructor(
 
                     /**
                      * Specify the desired value of the attribute to be applied for this order.
-                     * value provided here is compared to the values (of each key:value pair) in
-                     * vehicles.attributes during evaluation.
+                     * `value` provided here is compared to the values (of each `key:value` pair) in
+                     * `vehicles.attributes` during evaluation.
                      */
                     fun value(value: String) = value(JsonField.of(value))
 
@@ -2678,8 +2679,8 @@ private constructor(
                 ) : this(attribute, operator, value, mutableMapOf())
 
                 /**
-                 * Specify the name of the attribute. The attribute is compared to the keys (of each
-                 * key:value pair) in vehicles.attributes during evaluation.
+                 * Specify the name of the attribute. The `attribute` is compared to the keys (of
+                 * each `key:value` pair) in `vehicles.attributes` during evaluation.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type or is unexpectedly missing or null (e.g. if the server responded with an
@@ -2688,8 +2689,8 @@ private constructor(
                 fun attribute(): String = attribute.getRequired("attribute")
 
                 /**
-                 * Specify the operator to denote the relation between attribute and the value
-                 * specified above. The attribute , operator and value together constitute the
+                 * Specify the operator to denote the relation between `attribute` and the `value`
+                 * specified above. The `attribute` , `operator` and `value` together constitute the
                  * condition that a vehicle must meet to be eligible for assignment. Currently, we
                  * support following operators currently:
                  * - Equal to (==)
@@ -2699,8 +2700,8 @@ private constructor(
                  * - Greater than equal to (>=)
                  * - Contains (contains)
                  *
-                 * Please note that when using "contains" operator only one value can be specified
-                 * and the corresponding attribute must contain multiple values when defined for a
+                 * Please note that when using "contains" operator only one `value` can be specified
+                 * and the corresponding `attribute` must contain multiple values when defined for a
                  * vehicle.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
@@ -2710,9 +2711,9 @@ private constructor(
                 fun operator(): String = operator.getRequired("operator")
 
                 /**
-                 * Specify the desired value of the attribute to be applied for this order. value
-                 * provided here is compared to the values (of each key:value pair) in
-                 * vehicles.attributes during evaluation.
+                 * Specify the desired value of the attribute to be applied for this order. `value`
+                 * provided here is compared to the values (of each `key:value` pair) in
+                 * `vehicles.attributes` during evaluation.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type or is unexpectedly missing or null (e.g. if the server responded with an
@@ -2794,8 +2795,8 @@ private constructor(
                     }
 
                     /**
-                     * Specify the name of the attribute. The attribute is compared to the keys (of
-                     * each key:value pair) in vehicles.attributes during evaluation.
+                     * Specify the name of the attribute. The `attribute` is compared to the keys
+                     * (of each `key:value` pair) in `vehicles.attributes` during evaluation.
                      */
                     fun attribute(attribute: String) = attribute(JsonField.of(attribute))
 
@@ -2811,10 +2812,10 @@ private constructor(
                     }
 
                     /**
-                     * Specify the operator to denote the relation between attribute and the value
-                     * specified above. The attribute , operator and value together constitute the
-                     * condition that a vehicle must meet to be eligible for assignment. Currently,
-                     * we support following operators currently:
+                     * Specify the operator to denote the relation between `attribute` and the
+                     * `value` specified above. The `attribute` , `operator` and `value` together
+                     * constitute the condition that a vehicle must meet to be eligible for
+                     * assignment. Currently, we support following operators currently:
                      * - Equal to (==)
                      * - Less than (<)
                      * - Less tha equal to (<=)
@@ -2822,8 +2823,8 @@ private constructor(
                      * - Greater than equal to (>=)
                      * - Contains (contains)
                      *
-                     * Please note that when using "contains" operator only one value can be
-                     * specified and the corresponding attribute must contain multiple values when
+                     * Please note that when using "contains" operator only one `value` can be
+                     * specified and the corresponding `attribute` must contain multiple values when
                      * defined for a vehicle.
                      */
                     fun operator(operator: String) = operator(JsonField.of(operator))
@@ -2839,8 +2840,8 @@ private constructor(
 
                     /**
                      * Specify the desired value of the attribute to be applied for this order.
-                     * value provided here is compared to the values (of each key:value pair) in
-                     * vehicles.attributes during evaluation.
+                     * `value` provided here is compared to the values (of each `key:value` pair) in
+                     * `vehicles.attributes` during evaluation.
                      */
                     fun value(value: String) = value(JsonField.of(value))
 
@@ -3032,7 +3033,7 @@ private constructor(
          * - It is not necessary that the service will return the specified number of alternate
          *   assignments for each order. The number of alternate assignments returned will depend on
          *   the number of vehicles provided in the input.
-         * - Order which could not be assigned to any vehicles due to their filter or attribute
+         * - Order which could not be assigned to any vehicles due to their `filter` or attribute
          *   matching criteria will not be eligible for alternate assignments as well.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -3184,8 +3185,8 @@ private constructor(
              * - It is not necessary that the service will return the specified number of alternate
              *   assignments for each order. The number of alternate assignments returned will
              *   depend on the number of vehicles provided in the input.
-             * - Order which could not be assigned to any vehicles due to their filter or attribute
-             *   matching criteria will not be eligible for alternate assignments as well.
+             * - Order which could not be assigned to any vehicles due to their `filter` or
+             *   attribute matching criteria will not be eligible for alternate assignments as well.
              */
             fun alternateAssignments(alternateAssignments: Long) =
                 alternateAssignments(JsonField.of(alternateAssignments))
@@ -3415,8 +3416,8 @@ private constructor(
             ) : this(attribute, operator, priority, value, mutableMapOf())
 
             /**
-             * Specify the name of the attribute. The attribute is compared to the keys (of each
-             * key:value pair) in orders.attributes during evaluation.
+             * Specify the name of the attribute. The `attribute` is compared to the keys (of each
+             * `key:value` pair) in `orders.attributes` during evaluation.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   or is unexpectedly missing or null (e.g. if the server responded with an unexpected
@@ -3425,10 +3426,10 @@ private constructor(
             fun attribute(): String = attribute.getRequired("attribute")
 
             /**
-             * Specify the operator to denote the relation between attribute and the value specified
-             * above. The attribute , operator and value together constitute the condition that an
-             * order must meet to assume the specified priority. We support the following operators
-             * currently:
+             * Specify the operator to denote the relation between `attribute` and the `value`
+             * specified above. The `attribute` , `operator` and `value` together constitute the
+             * condition that an order must meet to assume the specified priority. We support the
+             * following operators currently:
              * - Equal to (==)
              * - Less than (<)
              * - Less tha equal to (<=)
@@ -3436,8 +3437,8 @@ private constructor(
              * - Greater than equal to (>=)
              * - Contains (contains)
              *
-             * Please note that when using "contains" operator only one value can be specified and
-             * the corresponding attribute must contain multiple values when defined for an order.
+             * Please note that when using "contains" operator only one `value` can be specified and
+             * the corresponding `attribute` must contain multiple values when defined for an order.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   or is unexpectedly missing or null (e.g. if the server responded with an unexpected
@@ -3457,9 +3458,9 @@ private constructor(
             fun priority(): String = priority.getRequired("priority")
 
             /**
-             * Specify the desired value of the attribute to be applied for this order. value
-             * provided here is compared to the values (of each key:value pair) in orders.attributes
-             * during evaluation.
+             * Specify the desired value of the attribute to be applied for this order. `value`
+             * provided here is compared to the values (of each `key:value` pair) in
+             * `orders.attributes` during evaluation.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   or is unexpectedly missing or null (e.g. if the server responded with an unexpected
@@ -3550,8 +3551,8 @@ private constructor(
                     }
 
                 /**
-                 * Specify the name of the attribute. The attribute is compared to the keys (of each
-                 * key:value pair) in orders.attributes during evaluation.
+                 * Specify the name of the attribute. The `attribute` is compared to the keys (of
+                 * each `key:value` pair) in `orders.attributes` during evaluation.
                  */
                 fun attribute(attribute: String) = attribute(JsonField.of(attribute))
 
@@ -3565,8 +3566,8 @@ private constructor(
                 fun attribute(attribute: JsonField<String>) = apply { this.attribute = attribute }
 
                 /**
-                 * Specify the operator to denote the relation between attribute and the value
-                 * specified above. The attribute , operator and value together constitute the
+                 * Specify the operator to denote the relation between `attribute` and the `value`
+                 * specified above. The `attribute` , `operator` and `value` together constitute the
                  * condition that an order must meet to assume the specified priority. We support
                  * the following operators currently:
                  * - Equal to (==)
@@ -3576,9 +3577,9 @@ private constructor(
                  * - Greater than equal to (>=)
                  * - Contains (contains)
                  *
-                 * Please note that when using "contains" operator only one value can be specified
-                 * and the corresponding attribute must contain multiple values when defined for an
-                 * order.
+                 * Please note that when using "contains" operator only one `value` can be specified
+                 * and the corresponding `attribute` must contain multiple values when defined for
+                 * an order.
                  */
                 fun operator(operator: String) = operator(JsonField.of(operator))
 
@@ -3608,9 +3609,9 @@ private constructor(
                 fun priority(priority: JsonField<String>) = apply { this.priority = priority }
 
                 /**
-                 * Specify the desired value of the attribute to be applied for this order. value
-                 * provided here is compared to the values (of each key:value pair) in
-                 * orders.attributes during evaluation.
+                 * Specify the desired value of the attribute to be applied for this order. `value`
+                 * provided here is compared to the values (of each `key:value` pair) in
+                 * `orders.attributes` during evaluation.
                  */
                 fun value(value: String) = value(JsonField.of(value))
 
@@ -3888,8 +3889,8 @@ private constructor(
             ) : this(attribute, operator, priority, value, mutableMapOf())
 
             /**
-             * Specify the name of the attribute. The attribute is compared to the keys (of each
-             * key:value pair) in vehicles.attributes during evaluation.
+             * Specify the name of the attribute. The `attribute` is compared to the keys (of each
+             * `key:value` pair) in `vehicles.attributes` during evaluation.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   or is unexpectedly missing or null (e.g. if the server responded with an unexpected
@@ -3898,10 +3899,10 @@ private constructor(
             fun attribute(): String = attribute.getRequired("attribute")
 
             /**
-             * Specify the operator to denote the relation between attribute and the value specified
-             * above. The attribute , operator and value together constitute the condition that a
-             * vehicle must meet to assume the specified priority. We support the following
-             * operators currently:
+             * Specify the operator to denote the relation between `attribute` and the `value`
+             * specified above. The `attribute` , `operator` and `value` together constitute the
+             * condition that a vehicle must meet to assume the specified priority. We support the
+             * following operators currently:
              * - Equal to (==)
              * - Less than (<)
              * - Less tha equal to (<=)
@@ -3909,8 +3910,9 @@ private constructor(
              * - Greater than equal to (>=)
              * - Contains (contains)
              *
-             * Please note that when using "contains" operator only one value can be specified and
-             * the corresponding attribute must contain multiple values when defined for a vehicle.
+             * Please note that when using "contains" operator only one `value` can be specified and
+             * the corresponding `attribute` must contain multiple values when defined for a
+             * vehicle.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   or is unexpectedly missing or null (e.g. if the server responded with an unexpected
@@ -3930,9 +3932,9 @@ private constructor(
             fun priority(): String = priority.getRequired("priority")
 
             /**
-             * Specify the desired value of the attribute to be applied for this vehicle. value
-             * provided here is compared to the values (of each key:value pair) in
-             * vehicles.attributes during evaluation.
+             * Specify the desired value of the attribute to be applied for this vehicle. `value`
+             * provided here is compared to the values (of each `key:value` pair) in
+             * `vehicles.attributes` during evaluation.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   or is unexpectedly missing or null (e.g. if the server responded with an unexpected
@@ -4024,8 +4026,8 @@ private constructor(
                 }
 
                 /**
-                 * Specify the name of the attribute. The attribute is compared to the keys (of each
-                 * key:value pair) in vehicles.attributes during evaluation.
+                 * Specify the name of the attribute. The `attribute` is compared to the keys (of
+                 * each `key:value` pair) in `vehicles.attributes` during evaluation.
                  */
                 fun attribute(attribute: String) = attribute(JsonField.of(attribute))
 
@@ -4039,8 +4041,8 @@ private constructor(
                 fun attribute(attribute: JsonField<String>) = apply { this.attribute = attribute }
 
                 /**
-                 * Specify the operator to denote the relation between attribute and the value
-                 * specified above. The attribute , operator and value together constitute the
+                 * Specify the operator to denote the relation between `attribute` and the `value`
+                 * specified above. The `attribute` , `operator` and `value` together constitute the
                  * condition that a vehicle must meet to assume the specified priority. We support
                  * the following operators currently:
                  * - Equal to (==)
@@ -4050,8 +4052,8 @@ private constructor(
                  * - Greater than equal to (>=)
                  * - Contains (contains)
                  *
-                 * Please note that when using "contains" operator only one value can be specified
-                 * and the corresponding attribute must contain multiple values when defined for a
+                 * Please note that when using "contains" operator only one `value` can be specified
+                 * and the corresponding `attribute` must contain multiple values when defined for a
                  * vehicle.
                  */
                 fun operator(operator: String) = operator(JsonField.of(operator))
@@ -4082,9 +4084,9 @@ private constructor(
                 fun priority(priority: JsonField<String>) = apply { this.priority = priority }
 
                 /**
-                 * Specify the desired value of the attribute to be applied for this vehicle. value
-                 * provided here is compared to the values (of each key:value pair) in
-                 * vehicles.attributes during evaluation.
+                 * Specify the desired value of the attribute to be applied for this vehicle.
+                 * `value` provided here is compared to the values (of each `key:value` pair) in
+                 * `vehicles.attributes` during evaluation.
                  */
                 fun value(value: String) = value(JsonField.of(value))
 

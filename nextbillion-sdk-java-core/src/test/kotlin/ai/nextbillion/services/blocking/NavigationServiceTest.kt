@@ -36,7 +36,7 @@ internal class NavigationServiceTest {
                     .lang("lang=en")
                     .mode(NavigationRetrieveRouteParams.Mode.CAR)
                     .origin("origin=41.349302,2.136480")
-                    .originalShape("original_shape=sbp}_AlmgpFnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
+                    .originalShape("original_shape=sbp}_Almgp`FnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
                     .originalShapeType(NavigationRetrieveRouteParams.OriginalShapeType.POLYLINE)
                     .overview(NavigationRetrieveRouteParams.Overview.FULL)
                     .waypoints("waypoints=41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")

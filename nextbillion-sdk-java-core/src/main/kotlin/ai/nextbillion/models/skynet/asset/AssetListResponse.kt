@@ -53,8 +53,8 @@ private constructor(
     fun message(): Optional<String> = message.getOptional("message")
 
     /**
-     * A string indicating the state of the response. On successful responses, the value will be Ok.
-     * Indicative error messages are returned for different errors. See the
+     * A string indicating the state of the response. On successful responses, the value will be
+     * `Ok`. Indicative error messages are returned for different errors. See the
      * [API Error Codes](#api-error-codes) section below for more information.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -144,7 +144,7 @@ private constructor(
 
         /**
          * A string indicating the state of the response. On successful responses, the value will be
-         * Ok. Indicative error messages are returned for different errors. See the
+         * `Ok`. Indicative error messages are returned for different errors. See the
          * [API Error Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -234,7 +234,7 @@ private constructor(
         ) : this(list, page, mutableMapOf())
 
         /**
-         * An array of objects, with each object representing one asset.
+         * An array of objects, with each object representing one `asset`.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -296,7 +296,7 @@ private constructor(
                 additionalProperties = data.additionalProperties.toMutableMap()
             }
 
-            /** An array of objects, with each object representing one asset. */
+            /** An array of objects, with each object representing one `asset`. */
             fun list(list: List<AssetDetails>) = list(JsonField.of(list))
 
             /**

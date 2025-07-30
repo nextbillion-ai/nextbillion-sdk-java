@@ -81,7 +81,7 @@ private constructor(
     fun roadSummary(): Optional<List<RoadSummary>> = roadSummary.getOptional("road_summary")
 
     /**
-     * A string indicating the state of the response. On normal responses, the value will be Ok.
+     * A string indicating the state of the response. On normal responses, the value will be `Ok`.
      * Indicative HTTP error codes are returned for different errors. See the
      * [**API Errors Codes**](https://app.reapi.com/ws/hmx8aL45B5jjrJa8/p/vNNilNksLVz675pI/s/ealJmVGjTQv4x5Wi/edit/path/VYzo7gOlRsQQZo0U#api-error-codes)
      * section below for more information.
@@ -271,8 +271,8 @@ private constructor(
         }
 
         /**
-         * A string indicating the state of the response. On normal responses, the value will be Ok.
-         * Indicative HTTP error codes are returned for different errors. See the
+         * A string indicating the state of the response. On normal responses, the value will be
+         * `Ok`. Indicative HTTP error codes are returned for different errors. See the
          * [**API Errors Codes**](https://app.reapi.com/ws/hmx8aL45B5jjrJa8/p/vNNilNksLVz675pI/s/ealJmVGjTQv4x5Wi/edit/path/VYzo7gOlRsQQZo0U#api-error-codes)
          * section below for more information.
          */
@@ -767,8 +767,8 @@ private constructor(
 
                 /**
                  * Represents a sequence of ‘n’ consecutive vertices in the route geometry starting
-                 * from the offset, forming a continuous section of route with a distance indicated
-                 * in distancefield.
+                 * from the `offset`, forming a continuous section of route with a distance
+                 * indicated in `distance`field.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -876,8 +876,8 @@ private constructor(
 
                     /**
                      * Represents a sequence of ‘n’ consecutive vertices in the route geometry
-                     * starting from the offset, forming a continuous section of route with a
-                     * distance indicated in distancefield.
+                     * starting from the `offset`, forming a continuous section of route with a
+                     * distance indicated in `distance`field.
                      */
                     fun length(length: Long) = length(JsonField.of(length))
 
@@ -1042,8 +1042,8 @@ private constructor(
 
                 /**
                  * Represents a sequence of ‘n’ consecutive vertices in the route geometry starting
-                 * from the offset, forming a continuous section of route with a distance indicated
-                 * in distancefield.
+                 * from the `offset`, forming a continuous section of route with a distance
+                 * indicated in `distance`field.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1151,8 +1151,8 @@ private constructor(
 
                     /**
                      * Represents a sequence of ‘n’ consecutive vertices in the route geometry
-                     * starting from the offset, forming a continuous section of route with a
-                     * distance indicated in distancefield.
+                     * starting from the `offset`, forming a continuous section of route with a
+                     * distance indicated in `distance`field.
                      */
                     fun length(length: Long) = length(JsonField.of(length))
 
@@ -1311,13 +1311,14 @@ private constructor(
             ) : this(country, state, mutableMapOf())
 
             /**
-             * A break up of country-wise distances that the route covers in key:value pair format.
+             * A break up of country-wise distances that the route covers in `key:value` pair
+             * format.
              */
             @JsonProperty("country") @ExcludeMissing fun _country(): JsonValue = country
 
             /**
-             * A break up of state-wise distances that the route covers specified in key:value pair
-             * format.
+             * A break up of state-wise distances that the route covers specified in `key:value`
+             * pair format.
              */
             @JsonProperty("state") @ExcludeMissing fun _state(): JsonValue = state
 
@@ -1354,13 +1355,13 @@ private constructor(
                 }
 
                 /**
-                 * A break up of country-wise distances that the route covers in key:value pair
+                 * A break up of country-wise distances that the route covers in `key:value` pair
                  * format.
                  */
                 fun country(country: JsonValue) = apply { this.country = country }
 
                 /**
-                 * A break up of state-wise distances that the route covers specified in key:value
+                 * A break up of state-wise distances that the route covers specified in `key:value`
                  * pair format.
                  */
                 fun state(state: JsonValue) = apply { this.state = state }
@@ -1865,8 +1866,8 @@ private constructor(
 
                 /**
                  * Represents a sequence of ‘n’ consecutive vertices in the route geometry starting
-                 * from the offset, forming a continuous section of route where the maximum speed is
-                 * same and is indicated in value.
+                 * from the `offset`, forming a continuous section of route where the maximum speed
+                 * is same and is indicated in `value`.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1977,8 +1978,8 @@ private constructor(
 
                     /**
                      * Represents a sequence of ‘n’ consecutive vertices in the route geometry
-                     * starting from the offset, forming a continuous section of route where the
-                     * maximum speed is same and is indicated in value.
+                     * starting from the `offset`, forming a continuous section of route where the
+                     * maximum speed is same and is indicated in `value`.
                      */
                     fun length(length: Long) = length(JsonField.of(length))
 
@@ -2148,8 +2149,8 @@ private constructor(
 
                 /**
                  * Represents a sequence of ‘n’ consecutive vertices in the route geometry starting
-                 * from the offset, forming a continuous section of route with a distance indicated
-                 * in distancefield.
+                 * from the `offset`, forming a continuous section of route with a distance
+                 * indicated in `distance`field.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2257,8 +2258,8 @@ private constructor(
 
                     /**
                      * Represents a sequence of ‘n’ consecutive vertices in the route geometry
-                     * starting from the offset, forming a continuous section of route with a
-                     * distance indicated in distancefield.
+                     * starting from the `offset`, forming a continuous section of route with a
+                     * distance indicated in `distance`field.
                      */
                     fun length(length: Long) = length(JsonField.of(length))
 
@@ -2510,13 +2511,13 @@ private constructor(
             /**
              * An object with details about the different types of road classes that the route goes
              * through. Distance traversed on a given road class is also returned. The contents of
-             * this object follow the key:value pair format.
+             * this object follow the `key:value` pair format.
              */
             @JsonProperty("road_class") @ExcludeMissing fun _roadClass(): JsonValue = roadClass
 
             /**
              * Returns the total distance travelled on toll roads. This field is present in the
-             * response only when the has_toll property is true.
+             * response only when the `has_toll` property is true.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -2708,13 +2709,13 @@ private constructor(
                 /**
                  * An object with details about the different types of road classes that the route
                  * goes through. Distance traversed on a given road class is also returned. The
-                 * contents of this object follow the key:value pair format.
+                 * contents of this object follow the `key:value` pair format.
                  */
                 fun roadClass(roadClass: JsonValue) = apply { this.roadClass = roadClass }
 
                 /**
                  * Returns the total distance travelled on toll roads. This field is present in the
-                 * response only when the has_toll property is true.
+                 * response only when the `has_toll` property is true.
                  */
                 fun tollDistance(tollDistance: Double) = tollDistance(JsonField.of(tollDistance))
 

@@ -39,44 +39,44 @@ private constructor(
     fun cluster(): Optional<Cluster> = Optional.ofNullable(cluster)
 
     /**
-     * Describe the geometry characteristics through a , separated list of properties.
+     * Describe the geometry characteristics through a `,` separated list of properties.
      *
-     * Setting mapmatch to 1 returns the geometry of the tracked points, snapped to the nearest
+     * Setting `mapmatch` to 1 returns the geometry of the tracked points, snapped to the nearest
      * road.
      *
-     * Setting interpolate to 1 smoothens the snapped geometry by adding more points, as needed.
-     * Please note, mapmatch should be set to 1 for interpolate to be effective.
+     * Setting `interpolate` to 1 smoothens the snapped geometry by adding more points, as needed.
+     * Please note, `mapmatch` should be set to 1 for `interpolate` to be effective.
      *
-     * mode is used to set the transport mode for which the snapped route will be determined.
-     * Allowed values for mode are car and truck.
+     * `mode` is used to set the transport mode for which the snapped route will be determined.
+     * Allowed values for `mode` are `car` and `truck`.
      */
     fun correction(): Optional<String> = Optional.ofNullable(correction)
 
-    /** Time until which the tracked locations of the asset need to be retrieved. */
+    /** Time until which the tracked locations of the `asset` need to be retrieved. */
     fun endTime(): Optional<Long> = Optional.ofNullable(endTime)
 
     /**
-     * Set the geometry format to encode the path linking the tracked locations of the asset.
+     * Set the geometry format to encode the path linking the tracked locations of the `asset`.
      *
-     * Please note that geometry_type is effective only when mapmatch property of correction
+     * Please note that `geometry_type` is effective only when `mapmatch` property of `correction`
      * parameter is set to 1.
      */
     fun geometryType(): Optional<GeometryType> = Optional.ofNullable(geometryType)
 
     /**
-     * Denotes page number. Use this along with the ps parameter to implement pagination for your
+     * Denotes page number. Use this along with the `ps` parameter to implement pagination for your
      * searched results. This parameter does not have a maximum limit but would return an empty
      * response in case a higher value is provided when the result-set itself is smaller.
      */
     fun pn(): Optional<Long> = Optional.ofNullable(pn)
 
     /**
-     * Denotes number of search results per page. Use this along with the pn parameter to implement
-     * pagination for your searched results.
+     * Denotes number of search results per page. Use this along with the `pn` parameter to
+     * implement pagination for your searched results.
      */
     fun ps(): Optional<Long> = Optional.ofNullable(ps)
 
-    /** Time after which the tracked locations of the asset need to be retrieved. */
+    /** Time after which the tracked locations of the `asset` need to be retrieved. */
     fun startTime(): Optional<Long> = Optional.ofNullable(startTime)
 
     /** Additional headers to send with the request. */
@@ -145,23 +145,23 @@ private constructor(
         fun cluster(cluster: Optional<Cluster>) = cluster(cluster.getOrNull())
 
         /**
-         * Describe the geometry characteristics through a , separated list of properties.
+         * Describe the geometry characteristics through a `,` separated list of properties.
          *
-         * Setting mapmatch to 1 returns the geometry of the tracked points, snapped to the nearest
-         * road.
+         * Setting `mapmatch` to 1 returns the geometry of the tracked points, snapped to the
+         * nearest road.
          *
-         * Setting interpolate to 1 smoothens the snapped geometry by adding more points, as needed.
-         * Please note, mapmatch should be set to 1 for interpolate to be effective.
+         * Setting `interpolate` to 1 smoothens the snapped geometry by adding more points, as
+         * needed. Please note, `mapmatch` should be set to 1 for `interpolate` to be effective.
          *
-         * mode is used to set the transport mode for which the snapped route will be determined.
-         * Allowed values for mode are car and truck.
+         * `mode` is used to set the transport mode for which the snapped route will be determined.
+         * Allowed values for `mode` are `car` and `truck`.
          */
         fun correction(correction: String?) = apply { this.correction = correction }
 
         /** Alias for calling [Builder.correction] with `correction.orElse(null)`. */
         fun correction(correction: Optional<String>) = correction(correction.getOrNull())
 
-        /** Time until which the tracked locations of the asset need to be retrieved. */
+        /** Time until which the tracked locations of the `asset` need to be retrieved. */
         fun endTime(endTime: Long?) = apply { this.endTime = endTime }
 
         /**
@@ -175,10 +175,10 @@ private constructor(
         fun endTime(endTime: Optional<Long>) = endTime(endTime.getOrNull())
 
         /**
-         * Set the geometry format to encode the path linking the tracked locations of the asset.
+         * Set the geometry format to encode the path linking the tracked locations of the `asset`.
          *
-         * Please note that geometry_type is effective only when mapmatch property of correction
-         * parameter is set to 1.
+         * Please note that `geometry_type` is effective only when `mapmatch` property of
+         * `correction` parameter is set to 1.
          */
         fun geometryType(geometryType: GeometryType?) = apply { this.geometryType = geometryType }
 
@@ -187,7 +187,7 @@ private constructor(
             geometryType(geometryType.getOrNull())
 
         /**
-         * Denotes page number. Use this along with the ps parameter to implement pagination for
+         * Denotes page number. Use this along with the `ps` parameter to implement pagination for
          * your searched results. This parameter does not have a maximum limit but would return an
          * empty response in case a higher value is provided when the result-set itself is smaller.
          */
@@ -204,7 +204,7 @@ private constructor(
         fun pn(pn: Optional<Long>) = pn(pn.getOrNull())
 
         /**
-         * Denotes number of search results per page. Use this along with the pn parameter to
+         * Denotes number of search results per page. Use this along with the `pn` parameter to
          * implement pagination for your searched results.
          */
         fun ps(ps: Long?) = apply { this.ps = ps }
@@ -219,7 +219,7 @@ private constructor(
         /** Alias for calling [Builder.ps] with `ps.orElse(null)`. */
         fun ps(ps: Optional<Long>) = ps(ps.getOrNull())
 
-        /** Time after which the tracked locations of the asset need to be retrieved. */
+        /** Time after which the tracked locations of the `asset` need to be retrieved. */
         fun startTime(startTime: Long?) = apply { this.startTime = startTime }
 
         /**
@@ -504,9 +504,9 @@ private constructor(
     }
 
     /**
-     * Set the geometry format to encode the path linking the tracked locations of the asset.
+     * Set the geometry format to encode the path linking the tracked locations of the `asset`.
      *
-     * Please note that geometry_type is effective only when mapmatch property of correction
+     * Please note that `geometry_type` is effective only when `mapmatch` property of `correction`
      * parameter is set to 1.
      */
     class GeometryType @JsonCreator private constructor(private val value: JsonField<String>) :
@@ -524,11 +524,11 @@ private constructor(
 
         companion object {
 
-            @JvmField val POLYLINE = of("polyline")
+            @JvmField val POLYLINE = of("`polyline`")
 
-            @JvmField val POLYLINE6 = of("polyline6")
+            @JvmField val POLYLINE6 = of("`polyline6`")
 
-            @JvmField val GEOJSON = of("geojson")
+            @JvmField val GEOJSON = of("`geojson`")
 
             @JvmStatic fun of(value: String) = GeometryType(JsonField.of(value))
         }

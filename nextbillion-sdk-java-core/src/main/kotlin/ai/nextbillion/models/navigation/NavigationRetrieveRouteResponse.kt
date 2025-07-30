@@ -55,7 +55,7 @@ private constructor(
     fun routes(): Optional<List<Route>> = routes.getOptional("routes")
 
     /**
-     * A string indicating the state of the response. On normal responses, the value will be Ok.
+     * A string indicating the state of the response. On normal responses, the value will be `Ok`.
      * Indicative HTTP error codes are returned for different errors. See the
      * [API Errors Codes](#api-error-codes) section below for more information.
      *
@@ -185,8 +185,8 @@ private constructor(
         }
 
         /**
-         * A string indicating the state of the response. On normal responses, the value will be Ok.
-         * Indicative HTTP error codes are returned for different errors. See the
+         * A string indicating the state of the response. On normal responses, the value will be
+         * `Ok`. Indicative HTTP error codes are returned for different errors. See the
          * [API Errors Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -398,9 +398,9 @@ private constructor(
         fun geojson(): Optional<Geojson> = geojson.getOptional("geojson")
 
         /**
-         * Encoded geometry of the returned route as per the selected format in geometry and
-         * specified overview verbosity. Please note the overview will always be full when
-         * original_shape parameter is used in the input request.
+         * Encoded geometry of the returned route as per the selected format in `geometry` and
+         * specified `overview` verbosity. Please note the `overview` will always be `full` when
+         * `original_shape` parameter is used in the input request.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -408,8 +408,8 @@ private constructor(
         fun geometry(): Optional<String> = geometry.getOptional("geometry")
 
         /**
-         * An array of objects returning the details about each leg of the route. waypoints split
-         * the route into legs.
+         * An array of objects returning the details about each `leg` of the route. `waypoints`
+         * split the route into legs.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -664,9 +664,9 @@ private constructor(
             fun geojson(geojson: JsonField<Geojson>) = apply { this.geojson = geojson }
 
             /**
-             * Encoded geometry of the returned route as per the selected format in geometry and
-             * specified overview verbosity. Please note the overview will always be full when
-             * original_shape parameter is used in the input request.
+             * Encoded geometry of the returned route as per the selected format in `geometry` and
+             * specified `overview` verbosity. Please note the `overview` will always be `full` when
+             * `original_shape` parameter is used in the input request.
              */
             fun geometry(geometry: String) = geometry(JsonField.of(geometry))
 
@@ -680,7 +680,7 @@ private constructor(
             fun geometry(geometry: JsonField<String>) = apply { this.geometry = geometry }
 
             /**
-             * An array of objects returning the details about each leg of the route. waypoints
+             * An array of objects returning the details about each `leg` of the route. `waypoints`
              * split the route into legs.
              */
             fun legs(legs: List<Leg>) = legs(JsonField.of(legs))
@@ -877,7 +877,7 @@ private constructor(
             ) : this(latitude, longitude, mutableMapOf())
 
             /**
-             * Latitude of the end_location.
+             * Latitude of the `end_location`.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -885,7 +885,7 @@ private constructor(
             fun latitude(): Optional<Double> = latitude.getOptional("latitude")
 
             /**
-             * Longitude of the end_location.
+             * Longitude of the `end_location`.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -942,7 +942,7 @@ private constructor(
                     additionalProperties = endLocation.additionalProperties.toMutableMap()
                 }
 
-                /** Latitude of the end_location. */
+                /** Latitude of the `end_location`. */
                 fun latitude(latitude: Double) = latitude(JsonField.of(latitude))
 
                 /**
@@ -954,7 +954,7 @@ private constructor(
                  */
                 fun latitude(latitude: JsonField<Double>) = apply { this.latitude = latitude }
 
-                /** Longitude of the end_location. */
+                /** Longitude of the `end_location`. */
                 fun longitude(longitude: Double) = longitude(JsonField.of(longitude))
 
                 /**
@@ -1503,7 +1503,7 @@ private constructor(
              */
             fun endLocation(): Optional<EndLocation> = endLocation.getOptional("end_location")
 
-            /** The raw estimated duration of the leg in seconds. */
+            /** The raw estimated duration of the `leg` in seconds. */
             @JsonProperty("raw_duration")
             @ExcludeMissing
             fun _rawDuration(): JsonValue = rawDuration
@@ -1650,7 +1650,7 @@ private constructor(
                     this.endLocation = endLocation
                 }
 
-                /** The raw estimated duration of the leg in seconds. */
+                /** The raw estimated duration of the `leg` in seconds. */
                 fun rawDuration(rawDuration: JsonValue) = apply { this.rawDuration = rawDuration }
 
                 /** Location coordinates of the point where the leg starts. */
@@ -2077,7 +2077,7 @@ private constructor(
                 ) : this(latitude, longitude, mutableMapOf())
 
                 /**
-                 * Latitude of end_location of the leg.
+                 * Latitude of `end_location` of the `leg`.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2085,7 +2085,7 @@ private constructor(
                 fun latitude(): Optional<Double> = latitude.getOptional("latitude")
 
                 /**
-                 * Longitude of end_location of the leg.
+                 * Longitude of `end_location` of the `leg`.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2144,7 +2144,7 @@ private constructor(
                         additionalProperties = endLocation.additionalProperties.toMutableMap()
                     }
 
-                    /** Latitude of end_location of the leg. */
+                    /** Latitude of `end_location` of the `leg`. */
                     fun latitude(latitude: Double) = latitude(JsonField.of(latitude))
 
                     /**
@@ -2156,7 +2156,7 @@ private constructor(
                      */
                     fun latitude(latitude: JsonField<Double>) = apply { this.latitude = latitude }
 
-                    /** Longitude of end_location of the leg. */
+                    /** Longitude of `end_location` of the `leg`. */
                     fun longitude(longitude: Double) = longitude(JsonField.of(longitude))
 
                     /**
@@ -2269,7 +2269,7 @@ private constructor(
                 ) : this(latitude, longitude, mutableMapOf())
 
                 /**
-                 * Latitude of start_location of the leg.
+                 * Latitude of `start_location` of the `leg`.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2277,7 +2277,7 @@ private constructor(
                 fun latitude(): Optional<Double> = latitude.getOptional("latitude")
 
                 /**
-                 * Longitude of start_location of the leg.
+                 * Longitude of `start_location` of the `leg`.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2338,7 +2338,7 @@ private constructor(
                         additionalProperties = startLocation.additionalProperties.toMutableMap()
                     }
 
-                    /** Latitude of start_location of the leg. */
+                    /** Latitude of `start_location` of the `leg`. */
                     fun latitude(latitude: Double) = latitude(JsonField.of(latitude))
 
                     /**
@@ -2350,7 +2350,7 @@ private constructor(
                      */
                     fun latitude(latitude: JsonField<Double>) = apply { this.latitude = latitude }
 
-                    /** Longitude of start_location of the leg. */
+                    /** Longitude of `start_location` of the `leg`. */
                     fun longitude(longitude: Double) = longitude(JsonField.of(longitude))
 
                     /**
@@ -2541,7 +2541,7 @@ private constructor(
                 fun duration(): Optional<Duration> = duration.getOptional("duration")
 
                 /**
-                 * Location coordinates of the point where the step ends.
+                 * Location coordinates of the point where the `step` ends.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2549,7 +2549,7 @@ private constructor(
                 fun endLocation(): Optional<EndLocation> = endLocation.getOptional("end_location")
 
                 /**
-                 * The GeoJSON representation of the step.
+                 * The GeoJSON representation of the `step`.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2557,7 +2557,7 @@ private constructor(
                 fun geojson(): Optional<Geojson> = geojson.getOptional("geojson")
 
                 /**
-                 * Encoded geometry of the step in the selected format.
+                 * Encoded geometry of the `step` in the selected format.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2566,9 +2566,9 @@ private constructor(
 
                 /**
                  * An array of objects representing intersections (or cross-way) that the route
-                 * passes by along the step. For every step, the very first intersection corresponds
-                 * to the location of the maneuver. All intersections until the next maneuver are
-                 * listed in this object.
+                 * passes by along the `step`. For every `step`, the very first `intersection`
+                 * corresponds to the location of the `maneuver`. All intersections until the next
+                 * `maneuver` are listed in this object.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2577,7 +2577,7 @@ private constructor(
                     intersections.getOptional("intersections")
 
                 /**
-                 * An object with maneuver details for the step.
+                 * An object with maneuver details for the `step`.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2585,7 +2585,7 @@ private constructor(
                 fun maneuver(): Optional<Maneuver> = maneuver.getOptional("maneuver")
 
                 /**
-                 * The name of the step.
+                 * The name of the `step`.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2593,7 +2593,7 @@ private constructor(
                 fun name(): Optional<String> = name.getOptional("name")
 
                 /**
-                 * A reference for the step.
+                 * A reference for the `step`.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2610,7 +2610,7 @@ private constructor(
                     roadShieldType.getOptional("road_shield_type")
 
                 /**
-                 * Location coordinates of the point where the step starts.
+                 * Location coordinates of the point where the `step` starts.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2829,7 +2829,7 @@ private constructor(
                      */
                     fun duration(duration: JsonField<Duration>) = apply { this.duration = duration }
 
-                    /** Location coordinates of the point where the step ends. */
+                    /** Location coordinates of the point where the `step` ends. */
                     fun endLocation(endLocation: EndLocation) =
                         endLocation(JsonField.of(endLocation))
 
@@ -2844,7 +2844,7 @@ private constructor(
                         this.endLocation = endLocation
                     }
 
-                    /** The GeoJSON representation of the step. */
+                    /** The GeoJSON representation of the `step`. */
                     fun geojson(geojson: Geojson) = geojson(JsonField.of(geojson))
 
                     /**
@@ -2856,7 +2856,7 @@ private constructor(
                      */
                     fun geojson(geojson: JsonField<Geojson>) = apply { this.geojson = geojson }
 
-                    /** Encoded geometry of the step in the selected format. */
+                    /** Encoded geometry of the `step` in the selected format. */
                     fun geometry(geometry: String) = geometry(JsonField.of(geometry))
 
                     /**
@@ -2870,9 +2870,9 @@ private constructor(
 
                     /**
                      * An array of objects representing intersections (or cross-way) that the route
-                     * passes by along the step. For every step, the very first intersection
-                     * corresponds to the location of the maneuver. All intersections until the next
-                     * maneuver are listed in this object.
+                     * passes by along the `step`. For every `step`, the very first `intersection`
+                     * corresponds to the location of the `maneuver`. All intersections until the
+                     * next `maneuver` are listed in this object.
                      */
                     fun intersections(intersections: List<Intersection>) =
                         intersections(JsonField.of(intersections))
@@ -2900,7 +2900,7 @@ private constructor(
                             }
                     }
 
-                    /** An object with maneuver details for the step. */
+                    /** An object with maneuver details for the `step`. */
                     fun maneuver(maneuver: Maneuver) = maneuver(JsonField.of(maneuver))
 
                     /**
@@ -2912,7 +2912,7 @@ private constructor(
                      */
                     fun maneuver(maneuver: JsonField<Maneuver>) = apply { this.maneuver = maneuver }
 
-                    /** The name of the step. */
+                    /** The name of the `step`. */
                     fun name(name: String) = name(JsonField.of(name))
 
                     /**
@@ -2924,7 +2924,7 @@ private constructor(
                      */
                     fun name(name: JsonField<String>) = apply { this.name = name }
 
-                    /** A reference for the step. */
+                    /** A reference for the `step`. */
                     fun reference(reference: String) = reference(JsonField.of(reference))
 
                     /**
@@ -2953,7 +2953,7 @@ private constructor(
                         this.roadShieldType = roadShieldType
                     }
 
-                    /** Location coordinates of the point where the step starts. */
+                    /** Location coordinates of the point where the `step` starts. */
                     fun startLocation(startLocation: StartLocation) =
                         startLocation(JsonField.of(startLocation))
 
@@ -3357,7 +3357,7 @@ private constructor(
                         "Duration{value=$value, additionalProperties=$additionalProperties}"
                 }
 
-                /** Location coordinates of the point where the step ends. */
+                /** Location coordinates of the point where the `step` ends. */
                 class EndLocation
                 private constructor(
                     private val latitude: JsonField<Double>,
@@ -3376,7 +3376,7 @@ private constructor(
                     ) : this(latitude, longitude, mutableMapOf())
 
                     /**
-                     * Latitude of the end_location of the step.
+                     * Latitude of the `end_location` of the `step`.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -3384,7 +3384,7 @@ private constructor(
                     fun latitude(): Optional<Double> = latitude.getOptional("latitude")
 
                     /**
-                     * Longitude of the end_location of the step.
+                     * Longitude of the `end_location` of the `step`.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -3446,7 +3446,7 @@ private constructor(
                             additionalProperties = endLocation.additionalProperties.toMutableMap()
                         }
 
-                        /** Latitude of the end_location of the step. */
+                        /** Latitude of the `end_location` of the `step`. */
                         fun latitude(latitude: Double) = latitude(JsonField.of(latitude))
 
                         /**
@@ -3460,7 +3460,7 @@ private constructor(
                             this.latitude = latitude
                         }
 
-                        /** Longitude of the end_location of the step. */
+                        /** Longitude of the `end_location` of the `step`. */
                         fun longitude(longitude: Double) = longitude(JsonField.of(longitude))
 
                         /**
@@ -3554,7 +3554,7 @@ private constructor(
                         "EndLocation{latitude=$latitude, longitude=$longitude, additionalProperties=$additionalProperties}"
                 }
 
-                /** The GeoJSON representation of the step. */
+                /** The GeoJSON representation of the `step`. */
                 class Geojson
                 private constructor(
                     private val geometry: JsonField<String>,
@@ -3787,7 +3787,8 @@ private constructor(
 
                     /**
                      * A list of bearing values (e.g. [0,90,180,270]) that are available at the
-                     * intersection. The bearings describe all available roads at the intersection.
+                     * intersection. The `bearings` describe all available roads at the
+                     * intersection.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -3805,8 +3806,8 @@ private constructor(
                     fun classes(): Optional<List<String>> = classes.getOptional("classes")
 
                     /**
-                     * A value of true indicates that the respective road could be entered on a
-                     * valid route. false indicates that the turn onto the respective road would
+                     * A value of `true` indicates that the respective road could be entered on a
+                     * valid route. `false` indicates that the turn onto the respective road would
                      * violate a restriction. Each entry value corresponds to the bearing angle at
                      * the same index.
                      *
@@ -3816,7 +3817,7 @@ private constructor(
                     fun entry(): Optional<List<Boolean>> = entry.getOptional("entry")
 
                     /**
-                     * The number of incoming roads or paths at the intersection.
+                     * The number of incoming roads or paths at the `intersection`.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -3825,7 +3826,7 @@ private constructor(
                         intersectionIn.getOptional("intersection_in")
 
                     /**
-                     * The number of outgoing roads or paths from the intersection.
+                     * The number of outgoing roads or paths from the `intersection`.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -3835,8 +3836,8 @@ private constructor(
 
                     /**
                      * An array of lane objects representing the lanes available at the
-                     * intersection. If no lane information is available for an intersection, the
-                     * lanes property will not be present.
+                     * intersection. If no lane information is available for an `intersection`, the
+                     * `lanes` property will not be present.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -3968,7 +3969,7 @@ private constructor(
 
                         /**
                          * A list of bearing values (e.g. [0,90,180,270]) that are available at the
-                         * intersection. The bearings describe all available roads at the
+                         * intersection. The `bearings` describe all available roads at the
                          * intersection.
                          */
                         fun bearings(bearings: List<Long>) = bearings(JsonField.of(bearings))
@@ -4029,10 +4030,10 @@ private constructor(
                         }
 
                         /**
-                         * A value of true indicates that the respective road could be entered on a
-                         * valid route. false indicates that the turn onto the respective road would
-                         * violate a restriction. Each entry value corresponds to the bearing angle
-                         * at the same index.
+                         * A value of `true` indicates that the respective road could be entered on
+                         * a valid route. `false` indicates that the turn onto the respective road
+                         * would violate a restriction. Each entry value corresponds to the bearing
+                         * angle at the same index.
                          */
                         fun entry(entry: List<Boolean>) = entry(JsonField.of(entry))
 
@@ -4060,7 +4061,7 @@ private constructor(
                                 }
                         }
 
-                        /** The number of incoming roads or paths at the intersection. */
+                        /** The number of incoming roads or paths at the `intersection`. */
                         fun intersectionIn(intersectionIn: Long) =
                             intersectionIn(JsonField.of(intersectionIn))
 
@@ -4075,7 +4076,7 @@ private constructor(
                             this.intersectionIn = intersectionIn
                         }
 
-                        /** The number of outgoing roads or paths from the intersection. */
+                        /** The number of outgoing roads or paths from the `intersection`. */
                         fun intersectionOut(intersectionOut: Long) =
                             intersectionOut(JsonField.of(intersectionOut))
 
@@ -4092,8 +4093,8 @@ private constructor(
 
                         /**
                          * An array of lane objects representing the lanes available at the
-                         * intersection. If no lane information is available for an intersection,
-                         * the lanes property will not be present.
+                         * intersection. If no lane information is available for an `intersection`,
+                         * the `lanes` property will not be present.
                          */
                         fun lanes(lanes: List<Lane>) = lanes(JsonField.of(lanes))
 
@@ -4469,7 +4470,7 @@ private constructor(
                         ) : this(latitude, longitude, name, mutableMapOf())
 
                         /**
-                         * The latitude coordinate of the intersection.
+                         * The latitude coordinate of the `intersection`.
                          *
                          * @throws NextbillionSdkInvalidDataException if the JSON field has an
                          *   unexpected type (e.g. if the server responded with an unexpected
@@ -4478,7 +4479,7 @@ private constructor(
                         fun latitude(): Optional<Double> = latitude.getOptional("latitude")
 
                         /**
-                         * The longitude coordinate of the intersection.
+                         * The longitude coordinate of the `intersection`.
                          *
                          * @throws NextbillionSdkInvalidDataException if the JSON field has an
                          *   unexpected type (e.g. if the server responded with an unexpected
@@ -4487,7 +4488,7 @@ private constructor(
                         fun longitude(): Optional<Double> = longitude.getOptional("longitude")
 
                         /**
-                         * The name or description of the intersection.
+                         * The name or description of the `intersection`.
                          *
                          * @throws NextbillionSdkInvalidDataException if the JSON field has an
                          *   unexpected type (e.g. if the server responded with an unexpected
@@ -4560,7 +4561,7 @@ private constructor(
                                 additionalProperties = location.additionalProperties.toMutableMap()
                             }
 
-                            /** The latitude coordinate of the intersection. */
+                            /** The latitude coordinate of the `intersection`. */
                             fun latitude(latitude: Double) = latitude(JsonField.of(latitude))
 
                             /**
@@ -4574,7 +4575,7 @@ private constructor(
                                 this.latitude = latitude
                             }
 
-                            /** The longitude coordinate of the intersection. */
+                            /** The longitude coordinate of the `intersection`. */
                             fun longitude(longitude: Double) = longitude(JsonField.of(longitude))
 
                             /**
@@ -4588,7 +4589,7 @@ private constructor(
                                 this.longitude = longitude
                             }
 
-                            /** The name or description of the intersection. */
+                            /** The name or description of the `intersection`. */
                             fun name(name: String) = name(JsonField.of(name))
 
                             /**
@@ -4706,7 +4707,7 @@ private constructor(
                         "Intersection{bearings=$bearings, classes=$classes, entry=$entry, intersectionIn=$intersectionIn, intersectionOut=$intersectionOut, lanes=$lanes, location=$location, additionalProperties=$additionalProperties}"
                 }
 
-                /** An object with maneuver details for the step. */
+                /** An object with maneuver details for the `step`. */
                 class Maneuver
                 private constructor(
                     private val bearingAfter: JsonField<Double>,
@@ -4760,7 +4761,7 @@ private constructor(
 
                     /**
                      * The clockwise angle from true north to the direction of travel immediately
-                     * after the maneuver. Range of values is between 0-359.
+                     * after the `maneuver`. Range of values is between 0-359.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -4769,7 +4770,7 @@ private constructor(
 
                     /**
                      * The clockwise angle from true north to the direction of travel immediately
-                     * before the maneuver. Range of values is between 0-359.
+                     * before the `maneuver`. Range of values is between 0-359.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -4778,7 +4779,7 @@ private constructor(
                         bearingBefore.getOptional("bearing_before")
 
                     /**
-                     * A coordinate pair describing the location of the maneuver.
+                     * A coordinate pair describing the location of the `maneuver`.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -4796,7 +4797,7 @@ private constructor(
                     fun instruction(): Optional<String> = instruction.getOptional("instruction")
 
                     /**
-                     * A string indicating the type of maneuver.
+                     * A string indicating the type of `maneuver`.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -4824,7 +4825,7 @@ private constructor(
                         roundaboutCount.getOptional("roundabout_count")
 
                     /**
-                     * An array of voice instruction objects associated with the maneuver. Each
+                     * An array of voice instruction objects associated with the `maneuver`. Each
                      * object provides additional details about the voice instruction, including the
                      * distance along the geometry where the instruction applies, the instruction
                      * text, and the unit of measurement.
@@ -4961,7 +4962,7 @@ private constructor(
 
                         /**
                          * The clockwise angle from true north to the direction of travel
-                         * immediately after the maneuver. Range of values is between 0-359.
+                         * immediately after the `maneuver`. Range of values is between 0-359.
                          */
                         fun bearingAfter(bearingAfter: Double) =
                             bearingAfter(JsonField.of(bearingAfter))
@@ -4979,7 +4980,7 @@ private constructor(
 
                         /**
                          * The clockwise angle from true north to the direction of travel
-                         * immediately before the maneuver. Range of values is between 0-359.
+                         * immediately before the `maneuver`. Range of values is between 0-359.
                          */
                         fun bearingBefore(bearingBefore: Double) =
                             bearingBefore(JsonField.of(bearingBefore))
@@ -4995,7 +4996,7 @@ private constructor(
                             this.bearingBefore = bearingBefore
                         }
 
-                        /** A coordinate pair describing the location of the maneuver. */
+                        /** A coordinate pair describing the location of the `maneuver`. */
                         fun coordinate(coordinate: Coordinate) =
                             coordinate(JsonField.of(coordinate))
 
@@ -5029,7 +5030,7 @@ private constructor(
                             this.instruction = instruction
                         }
 
-                        /** A string indicating the type of maneuver. */
+                        /** A string indicating the type of `maneuver`. */
                         fun maneuverType(maneuverType: String) =
                             maneuverType(JsonField.of(maneuverType))
 
@@ -5079,10 +5080,10 @@ private constructor(
                         }
 
                         /**
-                         * An array of voice instruction objects associated with the maneuver. Each
-                         * object provides additional details about the voice instruction, including
-                         * the distance along the geometry where the instruction applies, the
-                         * instruction text, and the unit of measurement.
+                         * An array of voice instruction objects associated with the `maneuver`.
+                         * Each object provides additional details about the voice instruction,
+                         * including the distance along the geometry where the instruction applies,
+                         * the instruction text, and the unit of measurement.
                          */
                         fun voiceInstruction(voiceInstruction: List<VoiceInstruction>) =
                             voiceInstruction(JsonField.of(voiceInstruction))
@@ -5197,7 +5198,7 @@ private constructor(
                             (voiceInstruction.asKnown().getOrNull()?.sumOf { it.validity().toInt() }
                                 ?: 0)
 
-                    /** A coordinate pair describing the location of the maneuver. */
+                    /** A coordinate pair describing the location of the `maneuver`. */
                     class Coordinate
                     private constructor(
                         private val latitude: JsonField<Double>,
@@ -5220,7 +5221,7 @@ private constructor(
                         ) : this(latitude, longitude, name, mutableMapOf())
 
                         /**
-                         * The latitude coordinate of the maneuver.
+                         * The latitude coordinate of the `maneuver`.
                          *
                          * @throws NextbillionSdkInvalidDataException if the JSON field has an
                          *   unexpected type (e.g. if the server responded with an unexpected
@@ -5229,7 +5230,7 @@ private constructor(
                         fun latitude(): Optional<Double> = latitude.getOptional("latitude")
 
                         /**
-                         * The longitude coordinate of the maneuver.
+                         * The longitude coordinate of the `maneuver`.
                          *
                          * @throws NextbillionSdkInvalidDataException if the JSON field has an
                          *   unexpected type (e.g. if the server responded with an unexpected
@@ -5313,7 +5314,7 @@ private constructor(
                                     coordinate.additionalProperties.toMutableMap()
                             }
 
-                            /** The latitude coordinate of the maneuver. */
+                            /** The latitude coordinate of the `maneuver`. */
                             fun latitude(latitude: Double) = latitude(JsonField.of(latitude))
 
                             /**
@@ -5327,7 +5328,7 @@ private constructor(
                                 this.latitude = latitude
                             }
 
-                            /** The longitude coordinate of the maneuver. */
+                            /** The longitude coordinate of the `maneuver`. */
                             fun longitude(longitude: Double) = longitude(JsonField.of(longitude))
 
                             /**
@@ -5471,7 +5472,7 @@ private constructor(
                             distanceAlongGeometry.getOptional("distance_along_geometry")
 
                         /**
-                         * The guidance instructions for the upcoming maneuver
+                         * The guidance instructions for the upcoming `maneuver`
                          *
                          * @throws NextbillionSdkInvalidDataException if the JSON field has an
                          *   unexpected type (e.g. if the server responded with an unexpected
@@ -5480,7 +5481,7 @@ private constructor(
                         fun instruction(): Optional<String> = instruction.getOptional("instruction")
 
                         /**
-                         * Unit of the distance_along_geometry metric
+                         * Unit of the `distance_along_geometry` metric
                          *
                          * @throws NextbillionSdkInvalidDataException if the JSON field has an
                          *   unexpected type (e.g. if the server responded with an unexpected
@@ -5570,7 +5571,7 @@ private constructor(
                                     this.distanceAlongGeometry = distanceAlongGeometry
                                 }
 
-                            /** The guidance instructions for the upcoming maneuver */
+                            /** The guidance instructions for the upcoming `maneuver` */
                             fun instruction(instruction: String) =
                                 instruction(JsonField.of(instruction))
 
@@ -5585,7 +5586,7 @@ private constructor(
                                 this.instruction = instruction
                             }
 
-                            /** Unit of the distance_along_geometry metric */
+                            /** Unit of the `distance_along_geometry` metric */
                             fun unit(unit: String) = unit(JsonField.of(unit))
 
                             /**
@@ -5902,7 +5903,7 @@ private constructor(
                         "RoadShieldType{imageUrl=$imageUrl, label=$label, additionalProperties=$additionalProperties}"
                 }
 
-                /** Location coordinates of the point where the step starts. */
+                /** Location coordinates of the point where the `step` starts. */
                 class StartLocation
                 private constructor(
                     private val latitude: JsonField<Double>,
@@ -5921,7 +5922,7 @@ private constructor(
                     ) : this(latitude, longitude, mutableMapOf())
 
                     /**
-                     * Latitude of start_location of the step.
+                     * Latitude of `start_location` of the `step`.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -5929,7 +5930,7 @@ private constructor(
                     fun latitude(): Optional<Double> = latitude.getOptional("latitude")
 
                     /**
-                     * Longitude of start_location of the step.
+                     * Longitude of `start_location` of the `step`.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -5992,7 +5993,7 @@ private constructor(
                             additionalProperties = startLocation.additionalProperties.toMutableMap()
                         }
 
-                        /** Latitude of start_location of the step. */
+                        /** Latitude of `start_location` of the `step`. */
                         fun latitude(latitude: Double) = latitude(JsonField.of(latitude))
 
                         /**
@@ -6006,7 +6007,7 @@ private constructor(
                             this.latitude = latitude
                         }
 
-                        /** Longitude of start_location of the step. */
+                        /** Longitude of `start_location` of the `step`. */
                         fun longitude(longitude: Double) = longitude(JsonField.of(longitude))
 
                         /**
@@ -6155,7 +6156,7 @@ private constructor(
             ) : this(latitude, longitude, mutableMapOf())
 
             /**
-             * Latitude of thestart_location.
+             * Latitude of the`start_location`.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -6163,7 +6164,7 @@ private constructor(
             fun latitude(): Optional<Double> = latitude.getOptional("latitude")
 
             /**
-             * Longitude of the start_location.
+             * Longitude of the `start_location`.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -6220,7 +6221,7 @@ private constructor(
                     additionalProperties = startLocation.additionalProperties.toMutableMap()
                 }
 
-                /** Latitude of thestart_location. */
+                /** Latitude of the`start_location`. */
                 fun latitude(latitude: Double) = latitude(JsonField.of(latitude))
 
                 /**
@@ -6232,7 +6233,7 @@ private constructor(
                  */
                 fun latitude(latitude: JsonField<Double>) = apply { this.latitude = latitude }
 
-                /** Longitude of the start_location. */
+                /** Longitude of the `start_location`. */
                 fun longitude(longitude: Double) = longitude(JsonField.of(longitude))
 
                 /**

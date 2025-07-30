@@ -282,11 +282,11 @@ private constructor(
 
         companion object {
 
-            @JvmField val OK = of("Ok")
+            @JvmField val OK = of("`Ok`")
 
-            @JvmField val PROCESSING = of("Processing")
+            @JvmField val PROCESSING = of("`Processing`")
 
-            @JvmField val FAILED = of("Failed")
+            @JvmField val FAILED = of("`Failed`")
 
             @JvmStatic fun of(value: String) = Code(JsonField.of(value))
         }

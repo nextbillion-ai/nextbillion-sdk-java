@@ -270,7 +270,7 @@ private constructor(
 
         /**
          * The bounding box enclosing the geometric shape (area or line) that an individual result
-         * covers. place typed results have no mapView.
+         * covers. `place` typed results have no `mapView`.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -551,7 +551,7 @@ private constructor(
 
             /**
              * The bounding box enclosing the geometric shape (area or line) that an individual
-             * result covers. place typed results have no mapView.
+             * result covers. `place` typed results have no `mapView`.
              */
             fun mapView(mapView: MapView) = mapView(JsonField.of(mapView))
 
@@ -1536,13 +1536,13 @@ private constructor(
 
             /**
              * A breakdown of how closely individual field of the result matched with the provided
-             * query q.
+             * query `q`.
              */
             @JsonProperty("fieldScore") @ExcludeMissing fun _fieldScore(): JsonValue = fieldScore
 
             /**
              * A score, out of 1, indicating how closely the result matches with the provided query
-             * q .
+             * `q` .
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -1593,13 +1593,13 @@ private constructor(
 
                 /**
                  * A breakdown of how closely individual field of the result matched with the
-                 * provided query q.
+                 * provided query `q`.
                  */
                 fun fieldScore(fieldScore: JsonValue) = apply { this.fieldScore = fieldScore }
 
                 /**
                  * A score, out of 1, indicating how closely the result matches with the provided
-                 * query q .
+                 * query `q` .
                  */
                 fun queryScore(queryScore: Double) = queryScore(JsonField.of(queryScore))
 

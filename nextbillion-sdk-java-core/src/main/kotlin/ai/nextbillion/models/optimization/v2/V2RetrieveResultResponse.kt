@@ -39,9 +39,9 @@ private constructor(
     ) : this(description, message, result, status, mutableMapOf())
 
     /**
-     * Returns the description of the optimization job as given in the input POST optimization
-     * request. This field will not be present in the response if no description was provided in the
-     * input request.
+     * Returns the `description` of the optimization job as given in the input POST optimization
+     * request. This field will not be present in the response if no `description` was provided in
+     * the input request.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -138,9 +138,9 @@ private constructor(
         }
 
         /**
-         * Returns the description of the optimization job as given in the input POST optimization
-         * request. This field will not be present in the response if no description was provided in
-         * the input request.
+         * Returns the `description` of the optimization job as given in the input POST optimization
+         * request. This field will not be present in the response if no `description` was provided
+         * in the input request.
          */
         fun description(description: String) = description(JsonField.of(description))
 
@@ -320,7 +320,7 @@ private constructor(
          * Returns all the routing profiles used in the solution. If no routing profiles were
          * provided in the input or if the vehicles tagged to profiles were not used in the
          * solution, the "default" routing properties are returned. Default routing properties are
-         * indicated by options.routing in the input.
+         * indicated by `options.routing` in the input.
          */
         @JsonProperty("routing_profiles")
         @ExcludeMissing
@@ -486,7 +486,7 @@ private constructor(
              * Returns all the routing profiles used in the solution. If no routing profiles were
              * provided in the input or if the vehicles tagged to profiles were not used in the
              * solution, the "default" routing properties are returned. Default routing properties
-             * are indicated by options.routing in the input.
+             * are indicated by `options.routing` in the input.
              */
             fun routingProfiles(routingProfiles: JsonValue) = apply {
                 this.routingProfiles = routingProfiles
@@ -706,8 +706,8 @@ private constructor(
 
             /**
              * Returns the capacity configuration of the vehicle that was used for this route. This
-             * field would return either the vehicle's capacity or one of the alternative_capacities
-             * provided in the input request.
+             * field would return either the vehicle's `capacity` or one of the
+             * `alternative_capacities` provided in the input request.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -717,7 +717,7 @@ private constructor(
 
             /**
              * Returns the cost of the route. The unit of cost type depends on the value of
-             * travel_cost attribute in the optimization request.
+             * `travel_cost` attribute in the optimization request.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -726,9 +726,9 @@ private constructor(
 
             /**
              * Returns the total quantities, for each dimension (or unit), of deliveries performed
-             * in the route. Please note that when both shipments and jobs are provided, this field
-             * corresponds to the sum of quantities delivered as part of the assigned shipments and
-             * jobs on the route.
+             * in the route. Please note that when both `shipments` and `jobs` are provided, this
+             * field corresponds to the sum of quantities delivered as part of the assigned
+             * `shipments` and `jobs` on the route.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -737,7 +737,7 @@ private constructor(
 
             /**
              * Return the description of the assigned vehicle. It would be the same as that provided
-             * in the description field of vehicles part of the input POST optimization request.
+             * in the `description` field of `vehicles` part of the input POST optimization request.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -777,9 +777,9 @@ private constructor(
 
             /**
              * Returns the total quantities, for each dimension (or unit), of pickups performed in
-             * the route. Please note that when both shipments and jobs are provided, this field
-             * corresponds to the sum of quantities picked-up as part of the assigned shipments and
-             * jobs on the route.
+             * the route. Please note that when both `shipments` and `jobs` are provided, this field
+             * corresponds to the sum of quantities picked-up as part of the assigned `shipments`
+             * and `jobs` on the route.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -1068,8 +1068,8 @@ private constructor(
 
                 /**
                  * Returns the capacity configuration of the vehicle that was used for this route.
-                 * This field would return either the vehicle's capacity or one of the
-                 * alternative_capacities provided in the input request.
+                 * This field would return either the vehicle's `capacity` or one of the
+                 * `alternative_capacities` provided in the input request.
                  */
                 fun adoptedCapacity(adoptedCapacity: List<Long>) =
                     adoptedCapacity(JsonField.of(adoptedCapacity))
@@ -1099,7 +1099,7 @@ private constructor(
 
                 /**
                  * Returns the cost of the route. The unit of cost type depends on the value of
-                 * travel_cost attribute in the optimization request.
+                 * `travel_cost` attribute in the optimization request.
                  */
                 fun cost(cost: Long) = cost(JsonField.of(cost))
 
@@ -1114,9 +1114,9 @@ private constructor(
 
                 /**
                  * Returns the total quantities, for each dimension (or unit), of deliveries
-                 * performed in the route. Please note that when both shipments and jobs are
+                 * performed in the route. Please note that when both `shipments` and `jobs` are
                  * provided, this field corresponds to the sum of quantities delivered as part of
-                 * the assigned shipments and jobs on the route.
+                 * the assigned `shipments` and `jobs` on the route.
                  */
                 fun delivery(delivery: List<Long>) = delivery(JsonField.of(delivery))
 
@@ -1145,8 +1145,8 @@ private constructor(
 
                 /**
                  * Return the description of the assigned vehicle. It would be the same as that
-                 * provided in the description field of vehicles part of the input POST optimization
-                 * request.
+                 * provided in the `description` field of `vehicles` part of the input POST
+                 * optimization request.
                  */
                 fun description(description: String) = description(JsonField.of(description))
 
@@ -1206,9 +1206,9 @@ private constructor(
 
                 /**
                  * Returns the total quantities, for each dimension (or unit), of pickups performed
-                 * in the route. Please note that when both shipments and jobs are provided, this
-                 * field corresponds to the sum of quantities picked-up as part of the assigned
-                 * shipments and jobs on the route.
+                 * in the route. Please note that when both `shipments` and `jobs` are provided,
+                 * this field corresponds to the sum of quantities picked-up as part of the assigned
+                 * `shipments` and `jobs` on the route.
                  */
                 fun pickup(pickup: List<Long>) = pickup(JsonField.of(pickup))
 
@@ -1596,7 +1596,7 @@ private constructor(
 
                 /**
                  * Returns the ID of the task. The ID returned here are the same values that were
-                 * provided for the given task in the jobs or the shipments objects of the input
+                 * provided for the given task in the `jobs` or the `shipments` objects of the input
                  * POST optimization request.
                  *
                  * **Note:** Since both integer and string value types are supported for job IDs,
@@ -1609,9 +1609,9 @@ private constructor(
                 fun id(): Optional<String> = id.getOptional("id")
 
                 /**
-                 * Returns the time at which the vehicle arrives at the step location. If
-                 * time_windows is provided for the task it will be returned as an UNIX timestamp
-                 * expressed in seconds. When time_windows is not provided, it is returned as the
+                 * Returns the time at which the vehicle arrives at the `step` location. If
+                 * `time_windows` is provided for the task it will be returned as an UNIX timestamp
+                 * expressed in seconds. When `time_windows` is not provided, it is returned as the
                  * total duration, in seconds, elapsed since the start of the route.
                  *
                  * Please note it includes all the other durations as well (setup, service,
@@ -1628,8 +1628,8 @@ private constructor(
                  * which the vehicle commenced its journey. Conversely, for "end" steps, the field
                  * will hold the ID of the depot where the vehicle concluded its trip.
                  *
-                 * Please note that start_depot_ids or end_depot_ids input for the vehicle must be
-                 * configured to get this field in the response for respective step types in a
+                 * Please note that `start_depot_ids` or `end_depot_ids` input for the vehicle must
+                 * be configured to get this field in the response for respective step types in a
                  * route.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
@@ -1639,8 +1639,8 @@ private constructor(
 
                 /**
                  * Returns the description of this step. The description returned here are the same
-                 * values that were provided for the given task in the jobs or the shipments objects
-                 * of the input POST optimization request.
+                 * values that were provided for the given task in the `jobs` or the `shipments`
+                 * objects of the input POST optimization request.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1652,8 +1652,8 @@ private constructor(
                  * the current step.
                  *
                  * Please note that the value of this parameter accumulates with each step. In case
-                 * , the travel_cost: air_distance, then the distance here represents straight line
-                 * distance.
+                 * , the `travel_cost: air_distance`, then the distance here represents straight
+                 * line distance.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1662,7 +1662,7 @@ private constructor(
 
                 /**
                  * Returns the total drive time, in seconds, from the start of the route up until
-                 * the start of the step. Please note that this value does not include any other
+                 * the start of the `step`. Please note that this value does not include any other
                  * category of durations (service, wait, setup) and the value of this parameter
                  * accumulates with each step.
                  *
@@ -1695,7 +1695,7 @@ private constructor(
                  * Returns the location coordinates of the step in the \[latitude, longitude\]
                  * format.
                  *
-                 * The index of this location is also returned by the location_index parameter.
+                 * The index of this location is also returned by the `location_index` parameter.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1703,11 +1703,11 @@ private constructor(
                 fun location(): Optional<List<Double>> = location.getOptional("location")
 
                 /**
-                 * Returns the index (in the location array) of the location coordinates where the
+                 * Returns the index (in the `location` array) of the location coordinates where the
                  * step is performed. The index will always be in the range of \[0, length of
-                 * location array).
+                 * `location` array).
                  *
-                 * Actual coordinates are also returned by the location parameter.
+                 * Actual coordinates are also returned by the `location` parameter.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1735,7 +1735,7 @@ private constructor(
 
                 /**
                  * When a vehicle is configured to make multiple runs to the depot (via
-                 * max_depot_runs), this field returns the iteration to which the step belongs to.
+                 * `max_depot_runs`), this field returns the iteration to which the step belongs to.
                  * Each run will begin with a "start" step from the depot's location and conclude
                  * with an "end" step at either the last task's or the configured end location.
                  *
@@ -1746,10 +1746,10 @@ private constructor(
 
                 /**
                  * Returns the service time, in seconds, for the task when the step type is not
-                 * start or end.
+                 * `start` or `end`.
                  *
-                 * When the step type is start or end , the field also returns the service time, in
-                 * seconds, spent at the depot when if the vehicle is starting or completing the
+                 * When the step type is `start` or `end` , the field also returns the service time,
+                 * in seconds, spent at the depot when if the vehicle is starting or completing the
                  * trip at one of the depots.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
@@ -1778,8 +1778,8 @@ private constructor(
 
                 /**
                  * Returns the type of the step. Its value will always be one of the following:
-                 * start, job, pickup, delivery, end. In case the type is start or end, steps object
-                 * will not have the id field.
+                 * `start`, `job`, `pickup`, `delivery`, `end`. In case the type is `start` or
+                 * `end`, `steps` object will not have the `id` field.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2010,8 +2010,8 @@ private constructor(
 
                     /**
                      * Returns the ID of the task. The ID returned here are the same values that
-                     * were provided for the given task in the jobs or the shipments objects of the
-                     * input POST optimization request.
+                     * were provided for the given task in the `jobs` or the `shipments` objects of
+                     * the input POST optimization request.
                      *
                      * **Note:** Since both integer and string value types are supported for job
                      * IDs, the value type returned for this field will depend on the value type
@@ -2029,9 +2029,9 @@ private constructor(
                     fun id(id: JsonField<String>) = apply { this.id = id }
 
                     /**
-                     * Returns the time at which the vehicle arrives at the step location. If
-                     * time_windows is provided for the task it will be returned as an UNIX
-                     * timestamp expressed in seconds. When time_windows is not provided, it is
+                     * Returns the time at which the vehicle arrives at the `step` location. If
+                     * `time_windows` is provided for the task it will be returned as an UNIX
+                     * timestamp expressed in seconds. When `time_windows` is not provided, it is
                      * returned as the total duration, in seconds, elapsed since the start of the
                      * route.
                      *
@@ -2056,9 +2056,9 @@ private constructor(
                      * steps, the field will hold the ID of the depot where the vehicle concluded
                      * its trip.
                      *
-                     * Please note that start_depot_ids or end_depot_ids input for the vehicle must
-                     * be configured to get this field in the response for respective step types in
-                     * a route.
+                     * Please note that `start_depot_ids` or `end_depot_ids` input for the vehicle
+                     * must be configured to get this field in the response for respective step
+                     * types in a route.
                      */
                     fun depot(depot: String) = depot(JsonField.of(depot))
 
@@ -2073,8 +2073,8 @@ private constructor(
 
                     /**
                      * Returns the description of this step. The description returned here are the
-                     * same values that were provided for the given task in the jobs or the
-                     * shipments objects of the input POST optimization request.
+                     * same values that were provided for the given task in the `jobs` or the
+                     * `shipments` objects of the input POST optimization request.
                      */
                     fun description(description: String) = description(JsonField.of(description))
 
@@ -2094,7 +2094,7 @@ private constructor(
                      * until the current step.
                      *
                      * Please note that the value of this parameter accumulates with each step. In
-                     * case , the travel_cost: air_distance, then the distance here represents
+                     * case , the `travel_cost: air_distance`, then the distance here represents
                      * straight line distance.
                      */
                     fun distance(distance: Long) = distance(JsonField.of(distance))
@@ -2110,8 +2110,8 @@ private constructor(
 
                     /**
                      * Returns the total drive time, in seconds, from the start of the route up
-                     * until the start of the step. Please note that this value does not include any
-                     * other category of durations (service, wait, setup) and the value of this
+                     * until the start of the `step`. Please note that this value does not include
+                     * any other category of durations (service, wait, setup) and the value of this
                      * parameter accumulates with each step.
                      */
                     fun duration(duration: Long) = duration(JsonField.of(duration))
@@ -2176,7 +2176,8 @@ private constructor(
                      * Returns the location coordinates of the step in the \[latitude, longitude\]
                      * format.
                      *
-                     * The index of this location is also returned by the location_index parameter.
+                     * The index of this location is also returned by the `location_index`
+                     * parameter.
                      */
                     fun location(location: List<Double>) = location(JsonField.of(location))
 
@@ -2204,11 +2205,11 @@ private constructor(
                     }
 
                     /**
-                     * Returns the index (in the location array) of the location coordinates where
+                     * Returns the index (in the `location` array) of the location coordinates where
                      * the step is performed. The index will always be in the range of \[0, length
-                     * of location array).
+                     * of `location` array).
                      *
-                     * Actual coordinates are also returned by the location parameter.
+                     * Actual coordinates are also returned by the `location` parameter.
                      */
                     fun locationIndex(locationIndex: Long) =
                         locationIndex(JsonField.of(locationIndex))
@@ -2265,7 +2266,7 @@ private constructor(
 
                     /**
                      * When a vehicle is configured to make multiple runs to the depot (via
-                     * max_depot_runs), this field returns the iteration to which the step belongs
+                     * `max_depot_runs`), this field returns the iteration to which the step belongs
                      * to. Each run will begin with a "start" step from the depot's location and
                      * conclude with an "end" step at either the last task's or the configured end
                      * location.
@@ -2283,11 +2284,11 @@ private constructor(
 
                     /**
                      * Returns the service time, in seconds, for the task when the step type is not
-                     * start or end.
+                     * `start` or `end`.
                      *
-                     * When the step type is start or end , the field also returns the service time,
-                     * in seconds, spent at the depot when if the vehicle is starting or completing
-                     * the trip at one of the depots.
+                     * When the step type is `start` or `end` , the field also returns the service
+                     * time, in seconds, spent at the depot when if the vehicle is starting or
+                     * completing the trip at one of the depots.
                      */
                     fun service(service: Long) = service(JsonField.of(service))
 
@@ -2345,8 +2346,8 @@ private constructor(
 
                     /**
                      * Returns the type of the step. Its value will always be one of the following:
-                     * start, job, pickup, delivery, end. In case the type is start or end, steps
-                     * object will not have the id field.
+                     * `start`, `job`, `pickup`, `delivery`, `end`. In case the type is `start` or
+                     * `end`, `steps` object will not have the `id` field.
                      */
                     fun type(type: String) = type(JsonField.of(type))
 
@@ -2602,7 +2603,7 @@ private constructor(
 
             /**
              * Returns the total cost of all the routes returned in the solution. The unit of cost
-             * type depends on the value of travel_cost attribute in the optimization request.
+             * type depends on the value of `travel_cost` attribute in the optimization request.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -2612,10 +2613,11 @@ private constructor(
             /**
              * Returns the sum of all quantities that were delivered in the optimized solution. If
              * quantities of different dimensions were delivered, then a matching number of elements
-             * is returned in the delivery array.
+             * is returned in the `delivery` array.
              *
-             * Please note that when both shipments and jobs are provided, this field corresponds to
-             * the sum of quantities delivered as part of all the assigned shipments and jobs .
+             * Please note that when both `shipments` and `jobs` are provided, this field
+             * corresponds to the sum of quantities delivered as part of all the assigned
+             * `shipments` and `jobs` .
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -2653,10 +2655,11 @@ private constructor(
             /**
              * Returns the sum of all quantities that were picked-up in the optimized solution. If
              * quantities of different dimensions were picked-up, then a matching number of elements
-             * is returned in the pickup array.
+             * is returned in the `pickup` array.
              *
-             * Please note that when both shipments and jobs are provided, this field corresponds to
-             * the sum of quantities picked-up as part of all the assigned shipments and jobs .
+             * Please note that when both `shipments` and `jobs` are provided, this field
+             * corresponds to the sum of quantities picked-up as part of all the assigned
+             * `shipments` and `jobs` .
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -2673,8 +2676,8 @@ private constructor(
 
             /**
              * Returns the revenue earned by completing all the assigned tasks. Overall profit
-             * earned by following the suggested route plan can be inferred by subtracting the cost
-             * of the solution from the reported revenue.
+             * earned by following the suggested route plan can be inferred by subtracting the
+             * `cost` of the solution from the reported `revenue`.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -2908,7 +2911,7 @@ private constructor(
 
                 /**
                  * Returns the total cost of all the routes returned in the solution. The unit of
-                 * cost type depends on the value of travel_cost attribute in the optimization
+                 * cost type depends on the value of `travel_cost` attribute in the optimization
                  * request.
                  */
                 fun cost(cost: Long) = cost(JsonField.of(cost))
@@ -2925,11 +2928,11 @@ private constructor(
                 /**
                  * Returns the sum of all quantities that were delivered in the optimized solution.
                  * If quantities of different dimensions were delivered, then a matching number of
-                 * elements is returned in the delivery array.
+                 * elements is returned in the `delivery` array.
                  *
-                 * Please note that when both shipments and jobs are provided, this field
+                 * Please note that when both `shipments` and `jobs` are provided, this field
                  * corresponds to the sum of quantities delivered as part of all the assigned
-                 * shipments and jobs .
+                 * `shipments` and `jobs` .
                  */
                 fun delivery(delivery: List<Long>) = delivery(JsonField.of(delivery))
 
@@ -3007,11 +3010,11 @@ private constructor(
                 /**
                  * Returns the sum of all quantities that were picked-up in the optimized solution.
                  * If quantities of different dimensions were picked-up, then a matching number of
-                 * elements is returned in the pickup array.
+                 * elements is returned in the `pickup` array.
                  *
-                 * Please note that when both shipments and jobs are provided, this field
+                 * Please note that when both `shipments` and `jobs` are provided, this field
                  * corresponds to the sum of quantities picked-up as part of all the assigned
-                 * shipments and jobs .
+                 * `shipments` and `jobs` .
                  */
                 fun pickup(pickup: List<Long>) = pickup(JsonField.of(pickup))
 
@@ -3053,7 +3056,7 @@ private constructor(
                 /**
                  * Returns the revenue earned by completing all the assigned tasks. Overall profit
                  * earned by following the suggested route plan can be inferred by subtracting the
-                 * cost of the solution from the reported revenue.
+                 * `cost` of the solution from the reported `revenue`.
                  */
                 fun revenue(revenue: Long) = revenue(JsonField.of(revenue))
 
@@ -3303,8 +3306,8 @@ private constructor(
 
             /**
              * Returns the ID of the unassigned task. The ID returned is the same as that provided
-             * for the given task in the jobs or the shipments part in the input POST optimization
-             * request.
+             * for the given task in the `jobs` or the `shipments` part in the input POST
+             * optimization request.
              *
              * **Note:** Since both integer and string value types are supported for task IDs, the
              * value type returned for this field will depend on the value type provided in the
@@ -3325,7 +3328,7 @@ private constructor(
 
             /**
              * Returns the cost of outsourcing the task. This is the same value as provided in the
-             * input. The field is present only if a outsourcing_cost was provided for the
+             * input. The field is present only if a `outsourcing_cost` was provided for the
              * unassigned task.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
@@ -3337,19 +3340,19 @@ private constructor(
              * Returns the most likely reason due to which the task remained unassigned. The
              * optimization service can capture the following causes of tasks remaining unassigned,
              * among others:
-             * - unmatched skills of the tasks
-             * - insufficient capacity of vehicle to accommodate the tasks
-             * - time_window requirements of the tasks or the vehicles
-             * - violation of vehicle’s max_activity_waiting_time constraint
-             * - violation of vehicle’s max_tasks or max_stops constraints
-             * - violation of vehicle’s max_distance or max_travel_time constraints
+             * - unmatched `skills` of the tasks
+             * - insufficient `capacity` of vehicle to accommodate the tasks
+             * - `time_window` requirements of the tasks or the vehicles
+             * - violation of vehicle’s `max_activity_waiting_time` constraint
+             * - violation of vehicle’s `max_tasks` or `max_stops` constraints
+             * - violation of vehicle’s `max_distance` or `max_travel_time` constraints
              * - task unassigned due to zone constraints
              * - task unassigned due to depot constraints
              * - task unassigned due to load type incompatibility constraints
              * - task unassigned due to max time in vehicle constraint
              * - task unassigned as it is unprofitable
              * - task unassigned due to low outsourcing cost
-             * - task unassigned due to infeasible conditions specified in relations attribute
+             * - task unassigned due to infeasible conditions specified in `relations` attribute
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -3357,8 +3360,8 @@ private constructor(
             fun reason(): Optional<String> = reason.getOptional("reason")
 
             /**
-             * Returns the type of the task that was unassigned. Will always belong to one of job,
-             * pickup, or delivery.
+             * Returns the type of the task that was unassigned. Will always belong to one of `job`,
+             * `pickup`, or `delivery`.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -3446,8 +3449,8 @@ private constructor(
 
                 /**
                  * Returns the ID of the unassigned task. The ID returned is the same as that
-                 * provided for the given task in the jobs or the shipments part in the input POST
-                 * optimization request.
+                 * provided for the given task in the `jobs` or the `shipments` part in the input
+                 * POST optimization request.
                  *
                  * **Note:** Since both integer and string value types are supported for task IDs,
                  * the value type returned for this field will depend on the value type provided in
@@ -3495,7 +3498,7 @@ private constructor(
 
                 /**
                  * Returns the cost of outsourcing the task. This is the same value as provided in
-                 * the input. The field is present only if a outsourcing_cost was provided for the
+                 * the input. The field is present only if a `outsourcing_cost` was provided for the
                  * unassigned task.
                  */
                 fun outsourcingCost(outsourcingCost: Long) =
@@ -3516,19 +3519,19 @@ private constructor(
                  * Returns the most likely reason due to which the task remained unassigned. The
                  * optimization service can capture the following causes of tasks remaining
                  * unassigned, among others:
-                 * - unmatched skills of the tasks
-                 * - insufficient capacity of vehicle to accommodate the tasks
-                 * - time_window requirements of the tasks or the vehicles
-                 * - violation of vehicle’s max_activity_waiting_time constraint
-                 * - violation of vehicle’s max_tasks or max_stops constraints
-                 * - violation of vehicle’s max_distance or max_travel_time constraints
+                 * - unmatched `skills` of the tasks
+                 * - insufficient `capacity` of vehicle to accommodate the tasks
+                 * - `time_window` requirements of the tasks or the vehicles
+                 * - violation of vehicle’s `max_activity_waiting_time` constraint
+                 * - violation of vehicle’s `max_tasks` or `max_stops` constraints
+                 * - violation of vehicle’s `max_distance` or `max_travel_time` constraints
                  * - task unassigned due to zone constraints
                  * - task unassigned due to depot constraints
                  * - task unassigned due to load type incompatibility constraints
                  * - task unassigned due to max time in vehicle constraint
                  * - task unassigned as it is unprofitable
                  * - task unassigned due to low outsourcing cost
-                 * - task unassigned due to infeasible conditions specified in relations attribute
+                 * - task unassigned due to infeasible conditions specified in `relations` attribute
                  */
                 fun reason(reason: String) = reason(JsonField.of(reason))
 
@@ -3543,7 +3546,7 @@ private constructor(
 
                 /**
                  * Returns the type of the task that was unassigned. Will always belong to one of
-                 * job, pickup, or delivery.
+                 * `job`, `pickup`, or `delivery`.
                  */
                 fun type(type: String) = type(JsonField.of(type))
 
@@ -3685,9 +3688,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val OK = of("Ok")
+            @JvmField val OK = of("`Ok`")
 
-            @JvmField val ERROR = of("Error")
+            @JvmField val ERROR = of("`Error`")
 
             @JvmStatic fun of(value: String) = Status(JsonField.of(value))
         }
