@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2025-07-30)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Features
+
+* **api:** manual updates ([3198fa6](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/3198fa61755001fbdb4f75ce0f71d7a54974772e))
+* publish to ruby gem and align namings ([53f0593](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/53f05936ff4d12c89ab252c0787c4c443090a4e0))
+
 ## 0.1.0-alpha.1 (2025-07-30)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.1](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.0.1-alpha.0...v0.1.0-alpha.1)
