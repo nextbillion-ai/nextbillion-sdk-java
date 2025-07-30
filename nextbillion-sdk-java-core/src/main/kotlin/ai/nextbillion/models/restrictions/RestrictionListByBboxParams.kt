@@ -67,7 +67,7 @@ private constructor(
     /**
      * This parameter is used to filter restrictions based on their state i.e. whether the
      * restriction is currently enabled, disabled, or deleted. For example, users can retrieve a
-     * list of all the deleted restrictions by setting state=deleted.
+     * list of all the deleted restrictions by setting `state=deleted`.
      */
     fun state(): Optional<State> = Optional.ofNullable(state)
 
@@ -82,7 +82,7 @@ private constructor(
      */
     fun status(): Optional<Status> = Optional.ofNullable(status)
 
-    /** This is internal parameter with a default value as false. */
+    /** This is internal parameter with a default value as `false`. */
     fun transform(): Optional<Boolean> = Optional.ofNullable(transform)
 
     /** Additional headers to send with the request. */
@@ -199,7 +199,7 @@ private constructor(
         /**
          * This parameter is used to filter restrictions based on their state i.e. whether the
          * restriction is currently enabled, disabled, or deleted. For example, users can retrieve a
-         * list of all the deleted restrictions by setting state=deleted.
+         * list of all the deleted restrictions by setting `state=deleted`.
          */
         fun state(state: State?) = apply { this.state = state }
 
@@ -220,7 +220,7 @@ private constructor(
         /** Alias for calling [Builder.status] with `status.orElse(null)`. */
         fun status(status: Optional<Status>) = status(status.getOrNull())
 
-        /** This is internal parameter with a default value as false. */
+        /** This is internal parameter with a default value as `false`. */
         fun transform(transform: Boolean?) = apply { this.transform = transform }
 
         /**
@@ -824,7 +824,7 @@ private constructor(
     /**
      * This parameter is used to filter restrictions based on their state i.e. whether the
      * restriction is currently enabled, disabled, or deleted. For example, users can retrieve a
-     * list of all the deleted restrictions by setting state=deleted.
+     * list of all the deleted restrictions by setting `state=deleted`.
      */
     class State @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -840,11 +840,11 @@ private constructor(
 
         companion object {
 
-            @JvmField val ENABLED = of("enabled")
+            @JvmField val ENABLED = of("`enabled`")
 
-            @JvmField val DISABLED = of("disabled")
+            @JvmField val DISABLED = of("`disabled`")
 
-            @JvmField val DELETED = of("deleted")
+            @JvmField val DELETED = of("`deleted`")
 
             @JvmStatic fun of(value: String) = State(JsonField.of(value))
         }
@@ -982,9 +982,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val ACTIVE = of("active")
+            @JvmField val ACTIVE = of("`active`")
 
-            @JvmField val INACTIVE = of("inactive")
+            @JvmField val INACTIVE = of("`inactive`")
 
             @JvmStatic fun of(value: String) = Status(JsonField.of(value))
         }

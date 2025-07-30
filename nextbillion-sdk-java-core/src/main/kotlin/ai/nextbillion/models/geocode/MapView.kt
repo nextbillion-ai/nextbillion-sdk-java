@@ -17,7 +17,7 @@ import java.util.Optional
 
 /**
  * The bounding box enclosing the geometric shape (area or line) that an individual result covers.
- * place typed results have no mapView.
+ * `place` typed results have no `mapView`.
  */
 class MapView
 private constructor(

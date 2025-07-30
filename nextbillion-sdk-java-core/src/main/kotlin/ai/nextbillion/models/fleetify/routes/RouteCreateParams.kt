@@ -72,7 +72,7 @@ private constructor(
      * and manage document templates.
      *
      * Please note that the document template ID assigned to a route does not apply to following
-     * step types - start, end, break, layover.
+     * step types - `start`, `end`, `break`, `layover`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -85,9 +85,9 @@ private constructor(
      * form the routes and corresponding steps.
      *
      * Please note that:
-     * - The driver's email ID must be provided in input vehicle.metadata as user_email such that
-     *   the route optimization result must contain a valid driver email, step's arrival time, etc.,
-     *   to make a successful dispatch.
+     * - The driver's email ID must be provided in input `vehicle.metadata` as `user_email` such
+     *   that the route optimization result must contain a valid driver email, step's arrival time,
+     *   etc., to make a successful dispatch.
      * - Document Template for collecting proof of delivery or completion can not be specified when
      *   using this field to dispatch a route.
      * - In case of an error at any part among the routes, the API will immediately return the error
@@ -101,8 +101,8 @@ private constructor(
     fun roRequestId(): Optional<String> = body.roRequestId()
 
     /**
-     * The routing object allows defining the routing characteristics that should be used to
-     * generate a route when the Driver uses the in-app navigation. Only car mode is supported
+     * The `routing` object allows defining the routing characteristics that should be used to
+     * generate a route when the Driver uses the in-app navigation. Only `car` mode is supported
      * currently.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -271,7 +271,7 @@ private constructor(
          * create, read and manage document templates.
          *
          * Please note that the document template ID assigned to a route does not apply to following
-         * step types - start, end, break, layover.
+         * step types - `start`, `end`, `break`, `layover`.
          */
         fun documentTemplateId(documentTemplateId: String) = apply {
             body.documentTemplateId(documentTemplateId)
@@ -294,7 +294,7 @@ private constructor(
          * used to form the routes and corresponding steps.
          *
          * Please note that:
-         * - The driver's email ID must be provided in input vehicle.metadata as user_email such
+         * - The driver's email ID must be provided in input `vehicle.metadata` as `user_email` such
          *   that the route optimization result must contain a valid driver email, step's arrival
          *   time, etc., to make a successful dispatch.
          * - Document Template for collecting proof of delivery or completion can not be specified
@@ -316,8 +316,8 @@ private constructor(
         fun roRequestId(roRequestId: JsonField<String>) = apply { body.roRequestId(roRequestId) }
 
         /**
-         * The routing object allows defining the routing characteristics that should be used to
-         * generate a route when the Driver uses the in-app navigation. Only car mode is supported
+         * The `routing` object allows defining the routing characteristics that should be used to
+         * generate a route when the Driver uses the in-app navigation. Only `car` mode is supported
          * currently.
          */
         fun routing(routing: Routing) = apply { body.routing(routing) }
@@ -555,7 +555,7 @@ private constructor(
          * create, read and manage document templates.
          *
          * Please note that the document template ID assigned to a route does not apply to following
-         * step types - start, end, break, layover.
+         * step types - `start`, `end`, `break`, `layover`.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -569,7 +569,7 @@ private constructor(
          * used to form the routes and corresponding steps.
          *
          * Please note that:
-         * - The driver's email ID must be provided in input vehicle.metadata as user_email such
+         * - The driver's email ID must be provided in input `vehicle.metadata` as `user_email` such
          *   that the route optimization result must contain a valid driver email, step's arrival
          *   time, etc., to make a successful dispatch.
          * - Document Template for collecting proof of delivery or completion can not be specified
@@ -585,8 +585,8 @@ private constructor(
         fun roRequestId(): Optional<String> = roRequestId.getOptional("ro_request_id")
 
         /**
-         * The routing object allows defining the routing characteristics that should be used to
-         * generate a route when the Driver uses the in-app navigation. Only car mode is supported
+         * The `routing` object allows defining the routing characteristics that should be used to
+         * generate a route when the Driver uses the in-app navigation. Only `car` mode is supported
          * currently.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -766,7 +766,7 @@ private constructor(
              * read and manage document templates.
              *
              * Please note that the document template ID assigned to a route does not apply to
-             * following step types - start, end, break, layover.
+             * following step types - `start`, `end`, `break`, `layover`.
              */
             fun documentTemplateId(documentTemplateId: String) =
                 documentTemplateId(JsonField.of(documentTemplateId))
@@ -788,8 +788,8 @@ private constructor(
              * will be used to form the routes and corresponding steps.
              *
              * Please note that:
-             * - The driver's email ID must be provided in input vehicle.metadata as user_email such
-             *   that the route optimization result must contain a valid driver email, step's
+             * - The driver's email ID must be provided in input `vehicle.metadata` as `user_email`
+             *   such that the route optimization result must contain a valid driver email, step's
              *   arrival time, etc., to make a successful dispatch.
              * - Document Template for collecting proof of delivery or completion can not be
              *   specified when using this field to dispatch a route.
@@ -812,8 +812,8 @@ private constructor(
             }
 
             /**
-             * The routing object allows defining the routing characteristics that should be used to
-             * generate a route when the Driver uses the in-app navigation. Only car mode is
+             * The `routing` object allows defining the routing characteristics that should be used
+             * to generate a route when the Driver uses the in-app navigation. Only `car` mode is
              * supported currently.
              */
             fun routing(routing: Routing) = routing(JsonField.of(routing))
@@ -929,8 +929,8 @@ private constructor(
     }
 
     /**
-     * The routing object allows defining the routing characteristics that should be used to
-     * generate a route when the Driver uses the in-app navigation. Only car mode is supported
+     * The `routing` object allows defining the routing characteristics that should be used to
+     * generate a route when the Driver uses the in-app navigation. Only `car` mode is supported
      * currently.
      */
     class Routing
@@ -977,10 +977,10 @@ private constructor(
 
         /**
          * Specify the side of the road from which the route should approach the step location. When
-         * set to unrestricted a route can arrive at the step location from either side of the road
-         * and when set to curb the route will arrive at the step location only from the driving
-         * side of the region. Use a semi-colon ; to specify approach configurations for multiple
-         * steps.
+         * set to `unrestricted` a route can arrive at the step location from either side of the
+         * road and when set to `curb` the route will arrive at the step location only from the
+         * driving side of the region. Use a semi-colon `;` to specify approach configurations for
+         * multiple steps.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -989,7 +989,7 @@ private constructor(
 
         /**
          * Setting this will ensure the generated route avoids the object(s) specified in the input.
-         * Multiple values should be separated by a pipe (|). If none is provided along with other
+         * Multiple values should be separated by a pipe (|). If `none` is provided along with other
          * values, an error is returned as a valid route is not feasible.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -1000,9 +1000,9 @@ private constructor(
         /**
          * Specify the type of hazardous material being carried and the dispatch service will avoid
          * roads which are not suitable for the type of goods specified. Multiple values can be
-         * separated using a pipe operator | .
+         * separated using a pipe operator `|` .
          *
-         * Please note that this parameter is effective only when mode=truck.
+         * Please note that this parameter is effective only when `mode=truck`.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1022,7 +1022,7 @@ private constructor(
          * the truck, in tonnes. When specified, the dispatched route uses only those roads which
          * can be used by a truck to carry the specified load per axle.
          *
-         * Please note this parameter is effective only when mode=truck.
+         * Please note this parameter is effective only when `mode=truck`.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1034,7 +1034,7 @@ private constructor(
          * length>. When specified, the dispatched route uses only those roads which allow trucks
          * with specified dimensions.
          *
-         * Please note this parameter is effective only when mode=truck. Also, the maximum
+         * Please note this parameter is effective only when `mode=truck`. Also, the maximum
          * dimensions that can be specified are as follows:
          *
          * Height = 1000 cm Width = 5000 cm Length = 5000 cm
@@ -1049,7 +1049,7 @@ private constructor(
          * When specified, the dispatched route uses only those roads which allow trucks with
          * specified weight.
          *
-         * Please note this parameter is effective only when mode=truck. Also, the maximum weight
+         * Please note this parameter is effective only when `mode=truck`. Also, the maximum weight
          * that can be specified for a truck is 100,000 kgs.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -1159,10 +1159,10 @@ private constructor(
 
             /**
              * Specify the side of the road from which the route should approach the step location.
-             * When set to unrestricted a route can arrive at the step location from either side of
-             * the road and when set to curb the route will arrive at the step location only from
-             * the driving side of the region. Use a semi-colon ; to specify approach configurations
-             * for multiple steps.
+             * When set to `unrestricted` a route can arrive at the step location from either side
+             * of the road and when set to `curb` the route will arrive at the step location only
+             * from the driving side of the region. Use a semi-colon `;` to specify approach
+             * configurations for multiple steps.
              */
             fun approaches(approaches: Approaches) = approaches(JsonField.of(approaches))
 
@@ -1179,7 +1179,7 @@ private constructor(
 
             /**
              * Setting this will ensure the generated route avoids the object(s) specified in the
-             * input. Multiple values should be separated by a pipe (|). If none is provided along
+             * input. Multiple values should be separated by a pipe (|). If `none` is provided along
              * with other values, an error is returned as a valid route is not feasible.
              */
             fun avoid(avoid: Avoid) = avoid(JsonField.of(avoid))
@@ -1196,9 +1196,9 @@ private constructor(
             /**
              * Specify the type of hazardous material being carried and the dispatch service will
              * avoid roads which are not suitable for the type of goods specified. Multiple values
-             * can be separated using a pipe operator | .
+             * can be separated using a pipe operator `|` .
              *
-             * Please note that this parameter is effective only when mode=truck.
+             * Please note that this parameter is effective only when `mode=truck`.
              */
             fun hazmatType(hazmatType: HazmatType) = hazmatType(JsonField.of(hazmatType))
 
@@ -1230,7 +1230,7 @@ private constructor(
              * of the truck, in tonnes. When specified, the dispatched route uses only those roads
              * which can be used by a truck to carry the specified load per axle.
              *
-             * Please note this parameter is effective only when mode=truck.
+             * Please note this parameter is effective only when `mode=truck`.
              */
             fun truckAxleLoad(truckAxleLoad: Long) = truckAxleLoad(JsonField.of(truckAxleLoad))
 
@@ -1250,7 +1250,7 @@ private constructor(
              * width, length>. When specified, the dispatched route uses only those roads which
              * allow trucks with specified dimensions.
              *
-             * Please note this parameter is effective only when mode=truck. Also, the maximum
+             * Please note this parameter is effective only when `mode=truck`. Also, the maximum
              * dimensions that can be specified are as follows:
              *
              * Height = 1000 cm Width = 5000 cm Length = 5000 cm
@@ -1271,7 +1271,7 @@ private constructor(
              * (kg). When specified, the dispatched route uses only those roads which allow trucks
              * with specified weight.
              *
-             * Please note this parameter is effective only when mode=truck. Also, the maximum
+             * Please note this parameter is effective only when `mode=truck`. Also, the maximum
              * weight that can be specified for a truck is 100,000 kgs.
              */
             fun truckWeight(truckWeight: Long) = truckWeight(JsonField.of(truckWeight))
@@ -1365,10 +1365,10 @@ private constructor(
 
         /**
          * Specify the side of the road from which the route should approach the step location. When
-         * set to unrestricted a route can arrive at the step location from either side of the road
-         * and when set to curb the route will arrive at the step location only from the driving
-         * side of the region. Use a semi-colon ; to specify approach configurations for multiple
-         * steps.
+         * set to `unrestricted` a route can arrive at the step location from either side of the
+         * road and when set to `curb` the route will arrive at the step location only from the
+         * driving side of the region. Use a semi-colon `;` to specify approach configurations for
+         * multiple steps.
          */
         class Approaches @JsonCreator private constructor(private val value: JsonField<String>) :
             Enum {
@@ -1385,9 +1385,9 @@ private constructor(
 
             companion object {
 
-                @JvmField val UNRESTRICTED = of("unrestricted")
+                @JvmField val UNRESTRICTED = of("`unrestricted`")
 
-                @JvmField val CURB = of("curb")
+                @JvmField val CURB = of("`curb`")
 
                 @JvmStatic fun of(value: String) = Approaches(JsonField.of(value))
             }
@@ -1503,7 +1503,7 @@ private constructor(
 
         /**
          * Setting this will ensure the generated route avoids the object(s) specified in the input.
-         * Multiple values should be separated by a pipe (|). If none is provided along with other
+         * Multiple values should be separated by a pipe (|). If `none` is provided along with other
          * values, an error is returned as a valid route is not feasible.
          */
         class Avoid @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
@@ -1520,23 +1520,23 @@ private constructor(
 
             companion object {
 
-                @JvmField val TOLL = of("toll")
+                @JvmField val TOLL = of("`toll`")
 
-                @JvmField val HIGHWAY = of("highway")
+                @JvmField val HIGHWAY = of("`highway`")
 
-                @JvmField val FERRY = of("ferry")
+                @JvmField val FERRY = of("`ferry`")
 
-                @JvmField val SHARP_TURN = of("sharp_turn")
+                @JvmField val SHARP_TURN = of("`sharp_turn`")
 
-                @JvmField val UTURN = of("uturn")
+                @JvmField val UTURN = of("`uturn`")
 
-                @JvmField val LEFT_TURN = of("left_turn")
+                @JvmField val LEFT_TURN = of("`left_turn`")
 
-                @JvmField val RIGHT_TURN = of("right_turn")
+                @JvmField val RIGHT_TURN = of("`right_turn`")
 
-                @JvmField val SERVICE_ROAD = of("service_road")
+                @JvmField val SERVICE_ROAD = of("`service_road`")
 
-                @JvmField val NONE = of("none")
+                @JvmField val NONE = of("`none`")
 
                 @JvmStatic fun of(value: String) = Avoid(JsonField.of(value))
             }
@@ -1680,9 +1680,9 @@ private constructor(
         /**
          * Specify the type of hazardous material being carried and the dispatch service will avoid
          * roads which are not suitable for the type of goods specified. Multiple values can be
-         * separated using a pipe operator | .
+         * separated using a pipe operator `|` .
          *
-         * Please note that this parameter is effective only when mode=truck.
+         * Please note that this parameter is effective only when `mode=truck`.
          */
         class HazmatType @JsonCreator private constructor(private val value: JsonField<String>) :
             Enum {
@@ -1699,13 +1699,13 @@ private constructor(
 
             companion object {
 
-                @JvmField val GENERAL = of("general")
+                @JvmField val GENERAL = of("`general`")
 
-                @JvmField val CIRCUMSTANTIAL = of("circumstantial")
+                @JvmField val CIRCUMSTANTIAL = of("`circumstantial`")
 
-                @JvmField val EXPLOSIVE = of("explosive")
+                @JvmField val EXPLOSIVE = of("`explosive`")
 
-                @JvmField val HARMFUL_TO_WATER = of("harmful_to_water")
+                @JvmField val HARMFUL_TO_WATER = of("`harmful_to_water`")
 
                 @JvmStatic fun of(value: String) = HazmatType(JsonField.of(value))
             }
@@ -1842,7 +1842,7 @@ private constructor(
 
             companion object {
 
-                @JvmField val CAR = of("car")
+                @JvmField val CAR = of("`car`")
 
                 @JvmStatic fun of(value: String) = Mode(JsonField.of(value))
             }

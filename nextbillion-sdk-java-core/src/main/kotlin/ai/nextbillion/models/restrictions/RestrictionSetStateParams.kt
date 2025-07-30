@@ -37,7 +37,7 @@ private constructor(
     fun key(): String = key
 
     /**
-     * Use this field to specify the new state of the restriction. Please note that this method
+     * Use this field to specify the new `state` of the restriction. Please note that this method
      * cannot update the state of restrictions that are currently in 'deleted' state.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
@@ -119,8 +119,8 @@ private constructor(
         fun body(body: Body) = apply { this.body = body.toBuilder() }
 
         /**
-         * Use this field to specify the new state of the restriction. Please note that this method
-         * cannot update the state of restrictions that are currently in 'deleted' state.
+         * Use this field to specify the new `state` of the restriction. Please note that this
+         * method cannot update the state of restrictions that are currently in 'deleted' state.
          */
         fun state(state: State) = apply { body.state(state) }
 
@@ -302,8 +302,8 @@ private constructor(
         ) : this(state, mutableMapOf())
 
         /**
-         * Use this field to specify the new state of the restriction. Please note that this method
-         * cannot update the state of restrictions that are currently in 'deleted' state.
+         * Use this field to specify the new `state` of the restriction. Please note that this
+         * method cannot update the state of restrictions that are currently in 'deleted' state.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -355,7 +355,7 @@ private constructor(
             }
 
             /**
-             * Use this field to specify the new state of the restriction. Please note that this
+             * Use this field to specify the new `state` of the restriction. Please note that this
              * method cannot update the state of restrictions that are currently in 'deleted' state.
              */
             fun state(state: State) = state(JsonField.of(state))
@@ -449,7 +449,7 @@ private constructor(
     }
 
     /**
-     * Use this field to specify the new state of the restriction. Please note that this method
+     * Use this field to specify the new `state` of the restriction. Please note that this method
      * cannot update the state of restrictions that are currently in 'deleted' state.
      */
     class State @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
@@ -466,11 +466,11 @@ private constructor(
 
         companion object {
 
-            @JvmField val ENABLED = of("enabled")
+            @JvmField val ENABLED = of("`enabled`")
 
-            @JvmField val DISABLED = of("disabled")
+            @JvmField val DISABLED = of("`disabled`")
 
-            @JvmField val DELETED = of("deleted")
+            @JvmField val DELETED = of("`deleted`")
 
             @JvmStatic fun of(value: String) = State(JsonField.of(value))
         }

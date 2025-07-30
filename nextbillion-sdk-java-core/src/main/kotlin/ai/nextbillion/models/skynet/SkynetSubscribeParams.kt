@@ -594,11 +594,11 @@ private constructor(
 
         companion object {
 
-            @JvmField val TRIP_SUBSCRIBE = of("TRIP_SUBSCRIBE")
+            @JvmField val TRIP_SUBSCRIBE = of("`TRIP_SUBSCRIBE`")
 
-            @JvmField val TRIP_UNSUBSCRIBE = of("TRIP_UNSUBSCRIBE")
+            @JvmField val TRIP_UNSUBSCRIBE = of("`TRIP_UNSUBSCRIBE`")
 
-            @JvmField val HEARTBEAT = of("HEARTBEAT")
+            @JvmField val HEARTBEAT = of("`HEARTBEAT`")
 
             @JvmStatic fun of(value: String) = Action(JsonField.of(value))
         }
@@ -728,7 +728,7 @@ private constructor(
          * Specify the ID of an active trip that needs to be subscribed. The ID of a trip is
          * returned in the response when _Start A Trip_ request is acknowledged.
          *
-         * This attribute is mandatory when action is set to either "TRIP_SUBSCRIBE" or
+         * This attribute is mandatory when `action` is set to either "TRIP_SUBSCRIBE" or
          * "TRIP_UNSUBSCRIBE"
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
@@ -784,7 +784,7 @@ private constructor(
              * Specify the ID of an active trip that needs to be subscribed. The ID of a trip is
              * returned in the response when _Start A Trip_ request is acknowledged.
              *
-             * This attribute is mandatory when action is set to either "TRIP_SUBSCRIBE" or
+             * This attribute is mandatory when `action` is set to either "TRIP_SUBSCRIBE" or
              * "TRIP_UNSUBSCRIBE"
              */
             fun id(id: String) = id(JsonField.of(id))

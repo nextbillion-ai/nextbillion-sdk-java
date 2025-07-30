@@ -40,7 +40,7 @@ private constructor(
 
     /**
      * A string indicating the state of the response. This is a separate code than the HTTP status
-     * code. On normal valid responses, the value will be Ok.
+     * code. On normal valid responses, the value will be `Ok`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -141,7 +141,7 @@ private constructor(
 
         /**
          * A string indicating the state of the response. This is a separate code than the HTTP
-         * status code. On normal valid responses, the value will be Ok.
+         * status code. On normal valid responses, the value will be `Ok`.
          */
         fun code(code: String) = code(JsonField.of(code))
 
@@ -514,7 +514,7 @@ private constructor(
         fun geojson(): Optional<Geojson> = geojson.getOptional("geojson")
 
         /**
-         * polyline or polyline6 format of route geometry.
+         * `polyline` or `polyline6` format of route geometry.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -636,7 +636,7 @@ private constructor(
              */
             fun geojson(geojson: JsonField<Geojson>) = apply { this.geojson = geojson }
 
-            /** polyline or polyline6 format of route geometry. */
+            /** `polyline` or `polyline6` format of route geometry. */
             fun geometry(geometry: String) = geometry(JsonField.of(geometry))
 
             /**
@@ -764,7 +764,7 @@ private constructor(
             ) : this(geometry, properties, type, mutableMapOf())
 
             /**
-             * The encoded geometry of the geojson in the trip.
+             * The encoded geometry of the geojson in the `trip`.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -772,7 +772,7 @@ private constructor(
             fun geometry(): Optional<String> = geometry.getOptional("geometry")
 
             /**
-             * Additional properties associated with the trip.
+             * Additional properties associated with the `trip`.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -846,7 +846,7 @@ private constructor(
                     additionalProperties = geojson.additionalProperties.toMutableMap()
                 }
 
-                /** The encoded geometry of the geojson in the trip. */
+                /** The encoded geometry of the geojson in the `trip`. */
                 fun geometry(geometry: String) = geometry(JsonField.of(geometry))
 
                 /**
@@ -858,7 +858,7 @@ private constructor(
                  */
                 fun geometry(geometry: JsonField<String>) = apply { this.geometry = geometry }
 
-                /** Additional properties associated with the trip. */
+                /** Additional properties associated with the `trip`. */
                 fun properties(properties: String) = properties(JsonField.of(properties))
 
                 /**
@@ -1195,7 +1195,7 @@ private constructor(
             fun steps(): Optional<List<Step>> = steps.getOptional("steps")
 
             /**
-             * Summary of the leg object.
+             * Summary of the `leg` object.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -1318,7 +1318,7 @@ private constructor(
                         }
                 }
 
-                /** Summary of the leg object. */
+                /** Summary of the `leg` object. */
                 fun summary(summary: String) = summary(JsonField.of(summary))
 
                 /**
@@ -1428,7 +1428,7 @@ private constructor(
                 ) : this(distance, duration, geojson, geometry, mutableMapOf())
 
                 /**
-                 * Distance of the step object in meters.
+                 * Distance of the `step` object in meters.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1436,7 +1436,7 @@ private constructor(
                 fun distance(): Optional<Double> = distance.getOptional("distance")
 
                 /**
-                 * Duration of the step object in seconds.
+                 * Duration of the `step` object in seconds.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1444,7 +1444,7 @@ private constructor(
                 fun duration(): Optional<Double> = duration.getOptional("duration")
 
                 /**
-                 * The GeoJSON representation of the step.
+                 * The GeoJSON representation of the `step`.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1452,7 +1452,7 @@ private constructor(
                 fun geojson(): Optional<Geojson> = geojson.getOptional("geojson")
 
                 /**
-                 * Encoded geometry of the step in the selected format.
+                 * Encoded geometry of the `step` in the selected format.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1535,7 +1535,7 @@ private constructor(
                         additionalProperties = step.additionalProperties.toMutableMap()
                     }
 
-                    /** Distance of the step object in meters. */
+                    /** Distance of the `step` object in meters. */
                     fun distance(distance: Double) = distance(JsonField.of(distance))
 
                     /**
@@ -1547,7 +1547,7 @@ private constructor(
                      */
                     fun distance(distance: JsonField<Double>) = apply { this.distance = distance }
 
-                    /** Duration of the step object in seconds. */
+                    /** Duration of the `step` object in seconds. */
                     fun duration(duration: Double) = duration(JsonField.of(duration))
 
                     /**
@@ -1559,7 +1559,7 @@ private constructor(
                      */
                     fun duration(duration: JsonField<Double>) = apply { this.duration = duration }
 
-                    /** The GeoJSON representation of the step. */
+                    /** The GeoJSON representation of the `step`. */
                     fun geojson(geojson: Geojson) = geojson(JsonField.of(geojson))
 
                     /**
@@ -1571,7 +1571,7 @@ private constructor(
                      */
                     fun geojson(geojson: JsonField<Geojson>) = apply { this.geojson = geojson }
 
-                    /** Encoded geometry of the step in the selected format. */
+                    /** Encoded geometry of the `step` in the selected format. */
                     fun geometry(geometry: String) = geometry(JsonField.of(geometry))
 
                     /**
@@ -1655,7 +1655,7 @@ private constructor(
                         (geojson.asKnown().getOrNull()?.validity() ?: 0) +
                         (if (geometry.asKnown().isPresent) 1 else 0)
 
-                /** The GeoJSON representation of the step. */
+                /** The GeoJSON representation of the `step`. */
                 class Geojson
                 private constructor(
                     private val geometry: JsonField<String>,
@@ -1678,7 +1678,7 @@ private constructor(
                     ) : this(geometry, properties, type, mutableMapOf())
 
                     /**
-                     * The encoded geometry of the geojson in the step.
+                     * The encoded geometry of the geojson in the `step`.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -1686,7 +1686,7 @@ private constructor(
                     fun geometry(): Optional<String> = geometry.getOptional("geometry")
 
                     /**
-                     * Additional properties associated with the step.
+                     * Additional properties associated with the `step`.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -1764,7 +1764,7 @@ private constructor(
                             additionalProperties = geojson.additionalProperties.toMutableMap()
                         }
 
-                        /** The encoded geometry of the geojson in the step. */
+                        /** The encoded geometry of the geojson in the `step`. */
                         fun geometry(geometry: String) = geometry(JsonField.of(geometry))
 
                         /**
@@ -1778,7 +1778,7 @@ private constructor(
                             this.geometry = geometry
                         }
 
-                        /** Additional properties associated with the step. */
+                        /** Additional properties associated with the `step`. */
                         fun properties(properties: String) = properties(JsonField.of(properties))
 
                         /**

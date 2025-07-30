@@ -32,7 +32,7 @@ private constructor(
     ) : this(data, message, status, mutableMapOf())
 
     /**
-     * A data object containing the ID of the monitor created.
+     * A data object containing the ID of the `monitor` created.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -49,8 +49,8 @@ private constructor(
     fun message(): Optional<String> = message.getOptional("message")
 
     /**
-     * A string indicating the state of the response. On successful responses, the value will be Ok.
-     * Indicative error messages are returned for different errors. See the
+     * A string indicating the state of the response. On successful responses, the value will be
+     * `Ok`. Indicative error messages are returned for different errors. See the
      * [API Error Codes](#api-error-codes) section below for more information.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -113,7 +113,7 @@ private constructor(
             additionalProperties = monitorCreateResponse.additionalProperties.toMutableMap()
         }
 
-        /** A data object containing the ID of the monitor created. */
+        /** A data object containing the ID of the `monitor` created. */
         fun data(data: Data) = data(JsonField.of(data))
 
         /**
@@ -140,7 +140,7 @@ private constructor(
 
         /**
          * A string indicating the state of the response. On successful responses, the value will be
-         * Ok. Indicative error messages are returned for different errors. See the
+         * `Ok`. Indicative error messages are returned for different errors. See the
          * [API Error Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -213,7 +213,7 @@ private constructor(
             (if (message.asKnown().isPresent) 1 else 0) +
             (if (status.asKnown().isPresent) 1 else 0)
 
-    /** A data object containing the ID of the monitor created. */
+    /** A data object containing the ID of the `monitor` created. */
     class Data
     private constructor(
         private val id: JsonField<String>,
@@ -226,7 +226,7 @@ private constructor(
         ) : this(id, mutableMapOf())
 
         /**
-         * Unique ID of the monitor created. Please note this ID cannot be updated.
+         * Unique ID of the `monitor` created. Please note this ID cannot be updated.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -270,7 +270,7 @@ private constructor(
                 additionalProperties = data.additionalProperties.toMutableMap()
             }
 
-            /** Unique ID of the monitor created. Please note this ID cannot be updated. */
+            /** Unique ID of the `monitor` created. Please note this ID cannot be updated. */
             fun id(id: String) = id(JsonField.of(id))
 
             /**

@@ -34,31 +34,32 @@ private constructor(
     fun cluster(): Optional<Cluster> = Optional.ofNullable(cluster)
 
     /**
-     * Denotes page number. Use this along with the ps parameter to implement pagination for your
+     * Denotes page number. Use this along with the `ps` parameter to implement pagination for your
      * searched results. This parameter does not have a maximum limit but would return an empty
      * response in case a higher value is provided when the result-set itself is smaller.
      */
     fun pn(): Optional<Long> = Optional.ofNullable(pn)
 
     /**
-     * Denotes number of search results per page. Use this along with the pn parameter to implement
-     * pagination for your searched results.
+     * Denotes number of search results per page. Use this along with the `pn` parameter to
+     * implement pagination for your searched results.
      */
     fun ps(): Optional<Long> = Optional.ofNullable(ps)
 
     /**
-     * Provide a single field to sort the results by. Only updated_at or created_at fields can be
-     * selected for ordering the results.
+     * Provide a single field to sort the results by. Only `updated_at` or `created_at` fields can
+     * be selected for ordering the results.
      *
-     * By default, the result is sorted by created_at field in the descending order. Allowed values
-     * for specifying the order are asc for ascending order and desc for descending order.
+     * By default, the result is sorted by `created_at` field in the descending order. Allowed
+     * values for specifying the order are `asc` for ascending order and `desc` for descending
+     * order.
      */
     fun sort(): Optional<String> = Optional.ofNullable(sort)
 
     /**
-     * tags can be used to filter the monitors. Only those monitors which have all the tags provided
-     * here, will be included in the search result. In case multiple tags need to be specified, use
-     * , to separate them.
+     * `tags` can be used to filter the monitors. Only those monitors which have all the `tags`
+     * provided here, will be included in the search result. In case multiple `tags` need to be
+     * specified, use `,` to separate them.
      */
     fun tags(): Optional<String> = Optional.ofNullable(tags)
 
@@ -117,7 +118,7 @@ private constructor(
         fun cluster(cluster: Optional<Cluster>) = cluster(cluster.getOrNull())
 
         /**
-         * Denotes page number. Use this along with the ps parameter to implement pagination for
+         * Denotes page number. Use this along with the `ps` parameter to implement pagination for
          * your searched results. This parameter does not have a maximum limit but would return an
          * empty response in case a higher value is provided when the result-set itself is smaller.
          */
@@ -134,7 +135,7 @@ private constructor(
         fun pn(pn: Optional<Long>) = pn(pn.getOrNull())
 
         /**
-         * Denotes number of search results per page. Use this along with the pn parameter to
+         * Denotes number of search results per page. Use this along with the `pn` parameter to
          * implement pagination for your searched results.
          */
         fun ps(ps: Long?) = apply { this.ps = ps }
@@ -150,11 +151,11 @@ private constructor(
         fun ps(ps: Optional<Long>) = ps(ps.getOrNull())
 
         /**
-         * Provide a single field to sort the results by. Only updated_at or created_at fields can
-         * be selected for ordering the results.
+         * Provide a single field to sort the results by. Only `updated_at` or `created_at` fields
+         * can be selected for ordering the results.
          *
-         * By default, the result is sorted by created_at field in the descending order. Allowed
-         * values for specifying the order are asc for ascending order and desc for descending
+         * By default, the result is sorted by `created_at` field in the descending order. Allowed
+         * values for specifying the order are `asc` for ascending order and `desc` for descending
          * order.
          */
         fun sort(sort: String?) = apply { this.sort = sort }
@@ -163,9 +164,9 @@ private constructor(
         fun sort(sort: Optional<String>) = sort(sort.getOrNull())
 
         /**
-         * tags can be used to filter the monitors. Only those monitors which have all the tags
-         * provided here, will be included in the search result. In case multiple tags need to be
-         * specified, use , to separate them.
+         * `tags` can be used to filter the monitors. Only those monitors which have all the `tags`
+         * provided here, will be included in the search result. In case multiple `tags` need to be
+         * specified, use `,` to separate them.
          */
         fun tags(tags: String?) = apply { this.tags = tags }
 

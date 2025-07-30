@@ -94,10 +94,10 @@ interface StepService {
      * Complete a route step with document submission, or update the document of a completed route
      * step.
      *
-     * When all steps are completed, the encapsulating route’s status will change to completed
+     * When all steps are completed, the encapsulating route’s status will change to `completed`
      * automatically.
      *
-     * Either Session Token must be provided to authenticate the request.
+     * Either `Session Token` must be provided to authenticate the request.
      */
     fun complete(stepId: String, params: StepCompleteParams) =
         complete(stepId, params, RequestOptions.none())

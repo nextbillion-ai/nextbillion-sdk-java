@@ -53,7 +53,7 @@ private constructor(
     fun page(): Optional<Long> = page.getOptional("page")
 
     /**
-     * An integer value indicating the maximum number of items retrieved per page.
+     * An integer value indicating the maximum number of items retrieved per `page`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -158,7 +158,7 @@ private constructor(
          */
         fun page(page: JsonField<Long>) = apply { this.page = page }
 
-        /** An integer value indicating the maximum number of items retrieved per page. */
+        /** An integer value indicating the maximum number of items retrieved per `page`. */
         fun size(size: Long) = size(JsonField.of(size))
 
         /**

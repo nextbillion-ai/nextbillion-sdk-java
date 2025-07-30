@@ -40,10 +40,11 @@ private constructor(
     fun cluster(): Optional<Cluster> = Optional.ofNullable(cluster)
 
     /**
-     * Use this parameter to add tags to the monitor. tags can be used for filtering monitors in the
-     * _Get Monitor List_ operation. They can also be used for easy identification of monitors.
+     * Use this parameter to add `tags` to the `monitor`. `tags` can be used for filtering monitors
+     * in the _Get Monitor List_ operation. They can also be used for easy identification of
+     * monitors.
      *
-     * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z, a-z,
+     * Please note that valid `tags` are strings, consisting of alphanumeric characters (A-Z, a-z,
      * 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
@@ -52,20 +53,22 @@ private constructor(
     fun tags(): List<String> = body.tags()
 
     /**
-     * Specify the type of activity the monitor would detect.
+     * Specify the type of activity the `monitor` would detect.
      *
-     * The monitor will be able to detect the specified type of activity and create events for
-     * eligible asset. A monitor can detect following types of asset activity:
-     * - enter: The monitor will create an event when a linked asset enters into the specified
+     * The `monitor` will be able to detect the specified `type` of activity and create events for
+     * eligible `asset`. A `monitor` can detect following types of asset activity:
+     * - `enter`: The `monitor` will create an event when a linked `asset` enters into the specified
      *   geofence.
-     * - exit: The monitor will create an event when a linked asset exits the specified geofence.
-     * - enter_and_exit: The monitor will create an event when a linked asset either enters or exits
-     *   the specified geofence.
-     * - speeding: The monitor will create an event when a linked asset exceeds a given speed limit.
-     * - idle: The monitor will create an event when a linked asset exhibits idle activity.
+     * - `exit`: The `monitor` will create an event when a linked `asset` exits the specified
+     *   geofence.
+     * - `enter_and_exit`: The `monitor` will create an event when a linked `asset` either enters or
+     *   exits the specified geofence.
+     * - `speeding`: The `monitor` will create an event when a linked `asset` exceeds a given speed
+     *   limit.
+     * - `idle`: The `monitor` will create an event when a linked `asset` exhibits idle activity.
      *
-     * Please note that assets and geofences can be linked to a monitor using the match_filter and
-     * geofence_config attributes respectively.
+     * Please note that `assets` and geofences can be linked to a `monitor` using the `match_filter`
+     * and `geofence_config` attributes respectively.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
      *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -73,10 +76,10 @@ private constructor(
     fun type(): Type = body.type()
 
     /**
-     * Set a unique ID for the new monitor. If not provided, an ID will be automatically generated
-     * in UUID format. A valid custom*id can contain letters, numbers, "-", & "*" only.
+     * Set a unique ID for the new `monitor`. If not provided, an ID will be automatically generated
+     * in UUID format. A valid `custom_id` can contain letters, numbers, "-", & "\_" only.
      *
-     * Please note that the ID of an monitor can not be changed once it is created.
+     * Please note that the ID of an `monitor` can not be changed once it is created.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -84,7 +87,7 @@ private constructor(
     fun customId(): Optional<String> = body.customId()
 
     /**
-     * Add a description for your monitor using this parameter.
+     * Add a description for your `monitor` using this parameter.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -92,14 +95,14 @@ private constructor(
     fun description(): Optional<String> = body.description()
 
     /**
-     * Geofences are geographic boundaries surrounding an area of interest. geofence_config is used
-     * to specify the geofences for creating enter or exit type of events based on the asset's
-     * location. When an asset associated with the monitor enters the given geofence, an enter type
-     * event is created, whereas when the asset moves out of the geofence an exit type event is
-     * created.
+     * Geofences are geographic boundaries surrounding an area of interest. `geofence_config` is
+     * used to specify the geofences for creating `enter` or `exit` type of events based on the
+     * asset's location. When an asset associated with the `monitor` enters the given geofence, an
+     * `enter` type event is created, whereas when the asset moves out of the geofence an `exit`
+     * type event is created.
      *
-     * Please note that this object is mandatory when the monitor type belongs to one of enter, exit
-     * or enter_and_exit.
+     * Please note that this object is mandatory when the monitor `type` belongs to one of `enter`,
+     * `exit` or `enter_and_exit`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -107,9 +110,10 @@ private constructor(
     fun geofenceConfig(): Optional<GeofenceConfig> = body.geofenceConfig()
 
     /**
-     * **Deprecated. Please use the geofence_config to specify the geofence_ids for this monitor.**
+     * **Deprecated. Please use the `geofence_config` to specify the geofence_ids for this
+     * monitor.**
      *
-     * An array of strings to collect the geofence IDs that should be linked to the monitor.
+     * An array of strings to collect the geofence IDs that should be linked to the `monitor`.
      * Geofences are geographic boundaries that can be used to trigger events based on an asset's
      * location.
      *
@@ -119,10 +123,10 @@ private constructor(
     fun geofenceIds(): Optional<List<String>> = body.geofenceIds()
 
     /**
-     * idle_config is used to set up constraints for creating idle events. When an asset associated
-     * with the monitor has not moved a given distance within a given time, the Live Tracking API
-     * can create events to denote such instances. Please note that this object is mandatory when
-     * the monitor type is idle.
+     * `idle_config` is used to set up constraints for creating idle events. When an asset
+     * associated with the `monitor` has not moved a given distance within a given time, the Live
+     * Tracking API can create events to denote such instances. Please note that this object is
+     * mandatory when the monitor `type` is `idle`.
      *
      * Let's look at the properties of this object.
      *
@@ -132,7 +136,7 @@ private constructor(
     fun idleConfig(): Optional<IdleConfig> = body.idleConfig()
 
     /**
-     * This object is used to identify the asset(s) on which the monitor would be applied.
+     * This object is used to identify the asset(s) on which the `monitor` would be applied.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -143,8 +147,8 @@ private constructor(
     fun _metaData(): JsonValue = body._metaData()
 
     /**
-     * Name of the monitor. Use this field to assign a meaningful, custom name to the monitor being
-     * created.
+     * Name of the `monitor`. Use this field to assign a meaningful, custom name to the `monitor`
+     * being created.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -152,10 +156,11 @@ private constructor(
     fun name(): Optional<String> = body.name()
 
     /**
-     * speeding_config is used to set up constraints for creating over-speed events. When an asset
-     * associated with a monitor is traveling at a speed above the given limits, the Live Tracking
-     * API can create events to denote such instances. There is also an option to set up a tolerance
-     * before creating an event. Please note that this object is mandatory when type=speeding.
+     * `speeding_config` is used to set up constraints for creating over-speed events. When an
+     * `asset` associated with a `monitor` is traveling at a speed above the given limits, the Live
+     * Tracking API can create events to denote such instances. There is also an option to set up a
+     * tolerance before creating an event. Please note that this object is mandatory when
+     * `type=speeding`.
      *
      * Let's look at the properties of this object.
      *
@@ -301,12 +306,12 @@ private constructor(
         fun body(body: Body) = apply { this.body = body.toBuilder() }
 
         /**
-         * Use this parameter to add tags to the monitor. tags can be used for filtering monitors in
-         * the _Get Monitor List_ operation. They can also be used for easy identification of
-         * monitors.
+         * Use this parameter to add `tags` to the `monitor`. `tags` can be used for filtering
+         * monitors in the _Get Monitor List_ operation. They can also be used for easy
+         * identification of monitors.
          *
-         * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z, a-z,
-         * 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
+         * Please note that valid `tags` are strings, consisting of alphanumeric characters (A-Z,
+         * a-z, 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
          */
         fun tags(tags: List<String>) = apply { body.tags(tags) }
 
@@ -327,22 +332,23 @@ private constructor(
         fun addTag(tag: String) = apply { body.addTag(tag) }
 
         /**
-         * Specify the type of activity the monitor would detect.
+         * Specify the type of activity the `monitor` would detect.
          *
-         * The monitor will be able to detect the specified type of activity and create events for
-         * eligible asset. A monitor can detect following types of asset activity:
-         * - enter: The monitor will create an event when a linked asset enters into the specified
+         * The `monitor` will be able to detect the specified `type` of activity and create events
+         * for eligible `asset`. A `monitor` can detect following types of asset activity:
+         * - `enter`: The `monitor` will create an event when a linked `asset` enters into the
+         *   specified geofence.
+         * - `exit`: The `monitor` will create an event when a linked `asset` exits the specified
          *   geofence.
-         * - exit: The monitor will create an event when a linked asset exits the specified
-         *   geofence.
-         * - enter_and_exit: The monitor will create an event when a linked asset either enters or
-         *   exits the specified geofence.
-         * - speeding: The monitor will create an event when a linked asset exceeds a given speed
-         *   limit.
-         * - idle: The monitor will create an event when a linked asset exhibits idle activity.
+         * - `enter_and_exit`: The `monitor` will create an event when a linked `asset` either
+         *   enters or exits the specified geofence.
+         * - `speeding`: The `monitor` will create an event when a linked `asset` exceeds a given
+         *   speed limit.
+         * - `idle`: The `monitor` will create an event when a linked `asset` exhibits idle
+         *   activity.
          *
-         * Please note that assets and geofences can be linked to a monitor using the match_filter
-         * and geofence_config attributes respectively.
+         * Please note that `assets` and geofences can be linked to a `monitor` using the
+         * `match_filter` and `geofence_config` attributes respectively.
          */
         fun type(type: Type) = apply { body.type(type) }
 
@@ -355,11 +361,11 @@ private constructor(
         fun type(type: JsonField<Type>) = apply { body.type(type) }
 
         /**
-         * Set a unique ID for the new monitor. If not provided, an ID will be automatically
-         * generated in UUID format. A valid custom*id can contain letters, numbers, "-", & "*"
+         * Set a unique ID for the new `monitor`. If not provided, an ID will be automatically
+         * generated in UUID format. A valid `custom_id` can contain letters, numbers, "-", & "\_"
          * only.
          *
-         * Please note that the ID of an monitor can not be changed once it is created.
+         * Please note that the ID of an `monitor` can not be changed once it is created.
          */
         fun customId(customId: String) = apply { body.customId(customId) }
 
@@ -371,7 +377,7 @@ private constructor(
          */
         fun customId(customId: JsonField<String>) = apply { body.customId(customId) }
 
-        /** Add a description for your monitor using this parameter. */
+        /** Add a description for your `monitor` using this parameter. */
         fun description(description: String) = apply { body.description(description) }
 
         /**
@@ -384,14 +390,14 @@ private constructor(
         fun description(description: JsonField<String>) = apply { body.description(description) }
 
         /**
-         * Geofences are geographic boundaries surrounding an area of interest. geofence_config is
-         * used to specify the geofences for creating enter or exit type of events based on the
-         * asset's location. When an asset associated with the monitor enters the given geofence, an
-         * enter type event is created, whereas when the asset moves out of the geofence an exit
-         * type event is created.
+         * Geofences are geographic boundaries surrounding an area of interest. `geofence_config` is
+         * used to specify the geofences for creating `enter` or `exit` type of events based on the
+         * asset's location. When an asset associated with the `monitor` enters the given geofence,
+         * an `enter` type event is created, whereas when the asset moves out of the geofence an
+         * `exit` type event is created.
          *
-         * Please note that this object is mandatory when the monitor type belongs to one of enter,
-         * exit or enter_and_exit.
+         * Please note that this object is mandatory when the monitor `type` belongs to one of
+         * `enter`, `exit` or `enter_and_exit`.
          */
         fun geofenceConfig(geofenceConfig: GeofenceConfig) = apply {
             body.geofenceConfig(geofenceConfig)
@@ -409,10 +415,10 @@ private constructor(
         }
 
         /**
-         * **Deprecated. Please use the geofence_config to specify the geofence_ids for this
+         * **Deprecated. Please use the `geofence_config` to specify the geofence_ids for this
          * monitor.**
          *
-         * An array of strings to collect the geofence IDs that should be linked to the monitor.
+         * An array of strings to collect the geofence IDs that should be linked to the `monitor`.
          * Geofences are geographic boundaries that can be used to trigger events based on an
          * asset's location.
          */
@@ -437,10 +443,10 @@ private constructor(
         fun addGeofenceId(geofenceId: String) = apply { body.addGeofenceId(geofenceId) }
 
         /**
-         * idle_config is used to set up constraints for creating idle events. When an asset
-         * associated with the monitor has not moved a given distance within a given time, the Live
-         * Tracking API can create events to denote such instances. Please note that this object is
-         * mandatory when the monitor type is idle.
+         * `idle_config` is used to set up constraints for creating idle events. When an asset
+         * associated with the `monitor` has not moved a given distance within a given time, the
+         * Live Tracking API can create events to denote such instances. Please note that this
+         * object is mandatory when the monitor `type` is `idle`.
          *
          * Let's look at the properties of this object.
          */
@@ -455,7 +461,7 @@ private constructor(
          */
         fun idleConfig(idleConfig: JsonField<IdleConfig>) = apply { body.idleConfig(idleConfig) }
 
-        /** This object is used to identify the asset(s) on which the monitor would be applied. */
+        /** This object is used to identify the asset(s) on which the `monitor` would be applied. */
         fun matchFilter(matchFilter: MatchFilter) = apply { body.matchFilter(matchFilter) }
 
         /**
@@ -473,8 +479,8 @@ private constructor(
         fun metaData(metaData: JsonValue) = apply { body.metaData(metaData) }
 
         /**
-         * Name of the monitor. Use this field to assign a meaningful, custom name to the monitor
-         * being created.
+         * Name of the `monitor`. Use this field to assign a meaningful, custom name to the
+         * `monitor` being created.
          */
         fun name(name: String) = apply { body.name(name) }
 
@@ -487,11 +493,11 @@ private constructor(
         fun name(name: JsonField<String>) = apply { body.name(name) }
 
         /**
-         * speeding_config is used to set up constraints for creating over-speed events. When an
-         * asset associated with a monitor is traveling at a speed above the given limits, the Live
-         * Tracking API can create events to denote such instances. There is also an option to set
-         * up a tolerance before creating an event. Please note that this object is mandatory when
-         * type=speeding.
+         * `speeding_config` is used to set up constraints for creating over-speed events. When an
+         * `asset` associated with a `monitor` is traveling at a speed above the given limits, the
+         * Live Tracking API can create events to denote such instances. There is also an option to
+         * set up a tolerance before creating an event. Please note that this object is mandatory
+         * when `type=speeding`.
          *
          * Let's look at the properties of this object.
          */
@@ -723,12 +729,12 @@ private constructor(
         )
 
         /**
-         * Use this parameter to add tags to the monitor. tags can be used for filtering monitors in
-         * the _Get Monitor List_ operation. They can also be used for easy identification of
-         * monitors.
+         * Use this parameter to add `tags` to the `monitor`. `tags` can be used for filtering
+         * monitors in the _Get Monitor List_ operation. They can also be used for easy
+         * identification of monitors.
          *
-         * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z, a-z,
-         * 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
+         * Please note that valid `tags` are strings, consisting of alphanumeric characters (A-Z,
+         * a-z, 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -736,22 +742,23 @@ private constructor(
         fun tags(): List<String> = tags.getRequired("tags")
 
         /**
-         * Specify the type of activity the monitor would detect.
+         * Specify the type of activity the `monitor` would detect.
          *
-         * The monitor will be able to detect the specified type of activity and create events for
-         * eligible asset. A monitor can detect following types of asset activity:
-         * - enter: The monitor will create an event when a linked asset enters into the specified
+         * The `monitor` will be able to detect the specified `type` of activity and create events
+         * for eligible `asset`. A `monitor` can detect following types of asset activity:
+         * - `enter`: The `monitor` will create an event when a linked `asset` enters into the
+         *   specified geofence.
+         * - `exit`: The `monitor` will create an event when a linked `asset` exits the specified
          *   geofence.
-         * - exit: The monitor will create an event when a linked asset exits the specified
-         *   geofence.
-         * - enter_and_exit: The monitor will create an event when a linked asset either enters or
-         *   exits the specified geofence.
-         * - speeding: The monitor will create an event when a linked asset exceeds a given speed
-         *   limit.
-         * - idle: The monitor will create an event when a linked asset exhibits idle activity.
+         * - `enter_and_exit`: The `monitor` will create an event when a linked `asset` either
+         *   enters or exits the specified geofence.
+         * - `speeding`: The `monitor` will create an event when a linked `asset` exceeds a given
+         *   speed limit.
+         * - `idle`: The `monitor` will create an event when a linked `asset` exhibits idle
+         *   activity.
          *
-         * Please note that assets and geofences can be linked to a monitor using the match_filter
-         * and geofence_config attributes respectively.
+         * Please note that `assets` and geofences can be linked to a `monitor` using the
+         * `match_filter` and `geofence_config` attributes respectively.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -759,11 +766,11 @@ private constructor(
         fun type(): Type = type.getRequired("type")
 
         /**
-         * Set a unique ID for the new monitor. If not provided, an ID will be automatically
-         * generated in UUID format. A valid custom*id can contain letters, numbers, "-", & "*"
+         * Set a unique ID for the new `monitor`. If not provided, an ID will be automatically
+         * generated in UUID format. A valid `custom_id` can contain letters, numbers, "-", & "\_"
          * only.
          *
-         * Please note that the ID of an monitor can not be changed once it is created.
+         * Please note that the ID of an `monitor` can not be changed once it is created.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -771,7 +778,7 @@ private constructor(
         fun customId(): Optional<String> = customId.getOptional("custom_id")
 
         /**
-         * Add a description for your monitor using this parameter.
+         * Add a description for your `monitor` using this parameter.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -779,14 +786,14 @@ private constructor(
         fun description(): Optional<String> = description.getOptional("description")
 
         /**
-         * Geofences are geographic boundaries surrounding an area of interest. geofence_config is
-         * used to specify the geofences for creating enter or exit type of events based on the
-         * asset's location. When an asset associated with the monitor enters the given geofence, an
-         * enter type event is created, whereas when the asset moves out of the geofence an exit
-         * type event is created.
+         * Geofences are geographic boundaries surrounding an area of interest. `geofence_config` is
+         * used to specify the geofences for creating `enter` or `exit` type of events based on the
+         * asset's location. When an asset associated with the `monitor` enters the given geofence,
+         * an `enter` type event is created, whereas when the asset moves out of the geofence an
+         * `exit` type event is created.
          *
-         * Please note that this object is mandatory when the monitor type belongs to one of enter,
-         * exit or enter_and_exit.
+         * Please note that this object is mandatory when the monitor `type` belongs to one of
+         * `enter`, `exit` or `enter_and_exit`.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -795,10 +802,10 @@ private constructor(
             geofenceConfig.getOptional("geofence_config")
 
         /**
-         * **Deprecated. Please use the geofence_config to specify the geofence_ids for this
+         * **Deprecated. Please use the `geofence_config` to specify the geofence_ids for this
          * monitor.**
          *
-         * An array of strings to collect the geofence IDs that should be linked to the monitor.
+         * An array of strings to collect the geofence IDs that should be linked to the `monitor`.
          * Geofences are geographic boundaries that can be used to trigger events based on an
          * asset's location.
          *
@@ -808,10 +815,10 @@ private constructor(
         fun geofenceIds(): Optional<List<String>> = geofenceIds.getOptional("geofence_ids")
 
         /**
-         * idle_config is used to set up constraints for creating idle events. When an asset
-         * associated with the monitor has not moved a given distance within a given time, the Live
-         * Tracking API can create events to denote such instances. Please note that this object is
-         * mandatory when the monitor type is idle.
+         * `idle_config` is used to set up constraints for creating idle events. When an asset
+         * associated with the `monitor` has not moved a given distance within a given time, the
+         * Live Tracking API can create events to denote such instances. Please note that this
+         * object is mandatory when the monitor `type` is `idle`.
          *
          * Let's look at the properties of this object.
          *
@@ -821,7 +828,7 @@ private constructor(
         fun idleConfig(): Optional<IdleConfig> = idleConfig.getOptional("idle_config")
 
         /**
-         * This object is used to identify the asset(s) on which the monitor would be applied.
+         * This object is used to identify the asset(s) on which the `monitor` would be applied.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -832,8 +839,8 @@ private constructor(
         @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
         /**
-         * Name of the monitor. Use this field to assign a meaningful, custom name to the monitor
-         * being created.
+         * Name of the `monitor`. Use this field to assign a meaningful, custom name to the
+         * `monitor` being created.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -841,11 +848,11 @@ private constructor(
         fun name(): Optional<String> = name.getOptional("name")
 
         /**
-         * speeding_config is used to set up constraints for creating over-speed events. When an
-         * asset associated with a monitor is traveling at a speed above the given limits, the Live
-         * Tracking API can create events to denote such instances. There is also an option to set
-         * up a tolerance before creating an event. Please note that this object is mandatory when
-         * type=speeding.
+         * `speeding_config` is used to set up constraints for creating over-speed events. When an
+         * `asset` associated with a `monitor` is traveling at a speed above the given limits, the
+         * Live Tracking API can create events to denote such instances. There is also an option to
+         * set up a tolerance before creating an event. Please note that this object is mandatory
+         * when `type=speeding`.
          *
          * Let's look at the properties of this object.
          *
@@ -998,12 +1005,12 @@ private constructor(
             }
 
             /**
-             * Use this parameter to add tags to the monitor. tags can be used for filtering
+             * Use this parameter to add `tags` to the `monitor`. `tags` can be used for filtering
              * monitors in the _Get Monitor List_ operation. They can also be used for easy
              * identification of monitors.
              *
-             * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z,
-             * a-z, 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
+             * Please note that valid `tags` are strings, consisting of alphanumeric characters
+             * (A-Z, a-z, 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
              */
             fun tags(tags: List<String>) = tags(JsonField.of(tags))
 
@@ -1029,22 +1036,24 @@ private constructor(
             }
 
             /**
-             * Specify the type of activity the monitor would detect.
+             * Specify the type of activity the `monitor` would detect.
              *
-             * The monitor will be able to detect the specified type of activity and create events
-             * for eligible asset. A monitor can detect following types of asset activity:
-             * - enter: The monitor will create an event when a linked asset enters into the
+             * The `monitor` will be able to detect the specified `type` of activity and create
+             * events for eligible `asset`. A `monitor` can detect following types of asset
+             * activity:
+             * - `enter`: The `monitor` will create an event when a linked `asset` enters into the
              *   specified geofence.
-             * - exit: The monitor will create an event when a linked asset exits the specified
-             *   geofence.
-             * - enter_and_exit: The monitor will create an event when a linked asset either enters
-             *   or exits the specified geofence.
-             * - speeding: The monitor will create an event when a linked asset exceeds a given
-             *   speed limit.
-             * - idle: The monitor will create an event when a linked asset exhibits idle activity.
+             * - `exit`: The `monitor` will create an event when a linked `asset` exits the
+             *   specified geofence.
+             * - `enter_and_exit`: The `monitor` will create an event when a linked `asset` either
+             *   enters or exits the specified geofence.
+             * - `speeding`: The `monitor` will create an event when a linked `asset` exceeds a
+             *   given speed limit.
+             * - `idle`: The `monitor` will create an event when a linked `asset` exhibits idle
+             *   activity.
              *
-             * Please note that assets and geofences can be linked to a monitor using the
-             * match_filter and geofence_config attributes respectively.
+             * Please note that `assets` and geofences can be linked to a `monitor` using the
+             * `match_filter` and `geofence_config` attributes respectively.
              */
             fun type(type: Type) = type(JsonField.of(type))
 
@@ -1058,11 +1067,11 @@ private constructor(
             fun type(type: JsonField<Type>) = apply { this.type = type }
 
             /**
-             * Set a unique ID for the new monitor. If not provided, an ID will be automatically
-             * generated in UUID format. A valid custom*id can contain letters, numbers, "-", & "*"
-             * only.
+             * Set a unique ID for the new `monitor`. If not provided, an ID will be automatically
+             * generated in UUID format. A valid `custom_id` can contain letters, numbers, "-", &
+             * "\_" only.
              *
-             * Please note that the ID of an monitor can not be changed once it is created.
+             * Please note that the ID of an `monitor` can not be changed once it is created.
              */
             fun customId(customId: String) = customId(JsonField.of(customId))
 
@@ -1075,7 +1084,7 @@ private constructor(
              */
             fun customId(customId: JsonField<String>) = apply { this.customId = customId }
 
-            /** Add a description for your monitor using this parameter. */
+            /** Add a description for your `monitor` using this parameter. */
             fun description(description: String) = description(JsonField.of(description))
 
             /**
@@ -1090,14 +1099,14 @@ private constructor(
             }
 
             /**
-             * Geofences are geographic boundaries surrounding an area of interest. geofence_config
-             * is used to specify the geofences for creating enter or exit type of events based on
-             * the asset's location. When an asset associated with the monitor enters the given
-             * geofence, an enter type event is created, whereas when the asset moves out of the
-             * geofence an exit type event is created.
+             * Geofences are geographic boundaries surrounding an area of interest.
+             * `geofence_config` is used to specify the geofences for creating `enter` or `exit`
+             * type of events based on the asset's location. When an asset associated with the
+             * `monitor` enters the given geofence, an `enter` type event is created, whereas when
+             * the asset moves out of the geofence an `exit` type event is created.
              *
-             * Please note that this object is mandatory when the monitor type belongs to one of
-             * enter, exit or enter_and_exit.
+             * Please note that this object is mandatory when the monitor `type` belongs to one of
+             * `enter`, `exit` or `enter_and_exit`.
              */
             fun geofenceConfig(geofenceConfig: GeofenceConfig) =
                 geofenceConfig(JsonField.of(geofenceConfig))
@@ -1114,12 +1123,12 @@ private constructor(
             }
 
             /**
-             * **Deprecated. Please use the geofence_config to specify the geofence_ids for this
+             * **Deprecated. Please use the `geofence_config` to specify the geofence_ids for this
              * monitor.**
              *
-             * An array of strings to collect the geofence IDs that should be linked to the monitor.
-             * Geofences are geographic boundaries that can be used to trigger events based on an
-             * asset's location.
+             * An array of strings to collect the geofence IDs that should be linked to the
+             * `monitor`. Geofences are geographic boundaries that can be used to trigger events
+             * based on an asset's location.
              */
             fun geofenceIds(geofenceIds: List<String>) = geofenceIds(JsonField.of(geofenceIds))
 
@@ -1147,10 +1156,10 @@ private constructor(
             }
 
             /**
-             * idle_config is used to set up constraints for creating idle events. When an asset
-             * associated with the monitor has not moved a given distance within a given time, the
+             * `idle_config` is used to set up constraints for creating idle events. When an asset
+             * associated with the `monitor` has not moved a given distance within a given time, the
              * Live Tracking API can create events to denote such instances. Please note that this
-             * object is mandatory when the monitor type is idle.
+             * object is mandatory when the monitor `type` is `idle`.
              *
              * Let's look at the properties of this object.
              */
@@ -1168,7 +1177,7 @@ private constructor(
             }
 
             /**
-             * This object is used to identify the asset(s) on which the monitor would be applied.
+             * This object is used to identify the asset(s) on which the `monitor` would be applied.
              */
             fun matchFilter(matchFilter: MatchFilter) = matchFilter(JsonField.of(matchFilter))
 
@@ -1189,8 +1198,8 @@ private constructor(
             fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }
 
             /**
-             * Name of the monitor. Use this field to assign a meaningful, custom name to the
-             * monitor being created.
+             * Name of the `monitor`. Use this field to assign a meaningful, custom name to the
+             * `monitor` being created.
              */
             fun name(name: String) = name(JsonField.of(name))
 
@@ -1204,11 +1213,11 @@ private constructor(
             fun name(name: JsonField<String>) = apply { this.name = name }
 
             /**
-             * speeding_config is used to set up constraints for creating over-speed events. When an
-             * asset associated with a monitor is traveling at a speed above the given limits, the
-             * Live Tracking API can create events to denote such instances. There is also an option
-             * to set up a tolerance before creating an event. Please note that this object is
-             * mandatory when type=speeding.
+             * `speeding_config` is used to set up constraints for creating over-speed events. When
+             * an `asset` associated with a `monitor` is traveling at a speed above the given
+             * limits, the Live Tracking API can create events to denote such instances. There is
+             * also an option to set up a tolerance before creating an event. Please note that this
+             * object is mandatory when `type=speeding`.
              *
              * Let's look at the properties of this object.
              */
@@ -1341,20 +1350,22 @@ private constructor(
     }
 
     /**
-     * Specify the type of activity the monitor would detect.
+     * Specify the type of activity the `monitor` would detect.
      *
-     * The monitor will be able to detect the specified type of activity and create events for
-     * eligible asset. A monitor can detect following types of asset activity:
-     * - enter: The monitor will create an event when a linked asset enters into the specified
+     * The `monitor` will be able to detect the specified `type` of activity and create events for
+     * eligible `asset`. A `monitor` can detect following types of asset activity:
+     * - `enter`: The `monitor` will create an event when a linked `asset` enters into the specified
      *   geofence.
-     * - exit: The monitor will create an event when a linked asset exits the specified geofence.
-     * - enter_and_exit: The monitor will create an event when a linked asset either enters or exits
-     *   the specified geofence.
-     * - speeding: The monitor will create an event when a linked asset exceeds a given speed limit.
-     * - idle: The monitor will create an event when a linked asset exhibits idle activity.
+     * - `exit`: The `monitor` will create an event when a linked `asset` exits the specified
+     *   geofence.
+     * - `enter_and_exit`: The `monitor` will create an event when a linked `asset` either enters or
+     *   exits the specified geofence.
+     * - `speeding`: The `monitor` will create an event when a linked `asset` exceeds a given speed
+     *   limit.
+     * - `idle`: The `monitor` will create an event when a linked `asset` exhibits idle activity.
      *
-     * Please note that assets and geofences can be linked to a monitor using the match_filter and
-     * geofence_config attributes respectively.
+     * Please note that `assets` and geofences can be linked to a `monitor` using the `match_filter`
+     * and `geofence_config` attributes respectively.
      */
     class Type @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -1370,15 +1381,15 @@ private constructor(
 
         companion object {
 
-            @JvmField val ENTER = of("enter")
+            @JvmField val ENTER = of("`enter`")
 
-            @JvmField val EXIT = of("exit")
+            @JvmField val EXIT = of("`exit`")
 
-            @JvmField val ENTER_AND_EXIT = of("enter_and_exit")
+            @JvmField val ENTER_AND_EXIT = of("`enter_and_exit`")
 
-            @JvmField val SPEEDING = of("speeding")
+            @JvmField val SPEEDING = of("`speeding`")
 
-            @JvmField val IDLE = of("idle")
+            @JvmField val IDLE = of("`idle`")
 
             @JvmStatic fun of(value: String) = Type(JsonField.of(value))
         }
@@ -1502,14 +1513,14 @@ private constructor(
     }
 
     /**
-     * Geofences are geographic boundaries surrounding an area of interest. geofence_config is used
-     * to specify the geofences for creating enter or exit type of events based on the asset's
-     * location. When an asset associated with the monitor enters the given geofence, an enter type
-     * event is created, whereas when the asset moves out of the geofence an exit type event is
-     * created.
+     * Geofences are geographic boundaries surrounding an area of interest. `geofence_config` is
+     * used to specify the geofences for creating `enter` or `exit` type of events based on the
+     * asset's location. When an asset associated with the `monitor` enters the given geofence, an
+     * `enter` type event is created, whereas when the asset moves out of the geofence an `exit`
+     * type event is created.
      *
-     * Please note that this object is mandatory when the monitor type belongs to one of enter, exit
-     * or enter_and_exit.
+     * Please note that this object is mandatory when the monitor `type` belongs to one of `enter`,
+     * `exit` or `enter_and_exit`.
      */
     class GeofenceConfig
     private constructor(
@@ -1525,8 +1536,8 @@ private constructor(
         ) : this(geofenceIds, mutableMapOf())
 
         /**
-         * An array of strings to collect the geofence IDs that should be linked to the monitor.
-         * Please note geofence_ids are mandatory when using the geofence_config attribute.
+         * An array of strings to collect the geofence IDs that should be linked to the `monitor`.
+         * Please note `geofence_ids` are mandatory when using the `geofence_config` attribute.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -1580,8 +1591,9 @@ private constructor(
             }
 
             /**
-             * An array of strings to collect the geofence IDs that should be linked to the monitor.
-             * Please note geofence_ids are mandatory when using the geofence_config attribute.
+             * An array of strings to collect the geofence IDs that should be linked to the
+             * `monitor`. Please note `geofence_ids` are mandatory when using the `geofence_config`
+             * attribute.
              */
             fun geofenceIds(geofenceIds: List<String>) = geofenceIds(JsonField.of(geofenceIds))
 
@@ -1692,10 +1704,10 @@ private constructor(
     }
 
     /**
-     * idle_config is used to set up constraints for creating idle events. When an asset associated
-     * with the monitor has not moved a given distance within a given time, the Live Tracking API
-     * can create events to denote such instances. Please note that this object is mandatory when
-     * the monitor type is idle.
+     * `idle_config` is used to set up constraints for creating idle events. When an asset
+     * associated with the `monitor` has not moved a given distance within a given time, the Live
+     * Tracking API can create events to denote such instances. Please note that this object is
+     * mandatory when the monitor `type` is `idle`.
      *
      * Let's look at the properties of this object.
      */
@@ -1719,11 +1731,11 @@ private constructor(
         /**
          * Use this parameter to configure a distance threshold that will be used to determine if
          * the asset was idle or not. If the asset moves by a distance less than the value of this
-         * parameter within a certain time period, the monitor would create an idle event against
-         * the asset. The distance_tolerance should be provided in meters.
+         * parameter within a certain time period, the `monitor` would create an idle event against
+         * the asset. The `distance_tolerance` should be provided in meters.
          *
          * Users can set an appropriate value for this parameter, along with appropriate
-         * time_tolerance value, to avoid triggering idle events when the asset is crossing a busy
+         * `time_tolerance` value, to avoid triggering idle events when the asset is crossing a busy
          * intersection or waiting at the traffic lights.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
@@ -1732,19 +1744,19 @@ private constructor(
         fun distanceTolerance(): Double = distanceTolerance.getRequired("distance_tolerance")
 
         /**
-         * Use this parameter to configure a time duration for which the monitor would track the
-         * distance covered by an asset before triggering an idle event. The time_tolerance should
+         * Use this parameter to configure a time duration for which the `monitor` would track the
+         * distance covered by an asset before triggering an idle event. The `time_tolerance` should
          * be provided in milliseconds.
          *
-         * If the distance covered by the asset during a time_tolerance is less than that specified
-         * in distance_tolerance the asset will be assumed to be idle.
+         * If the distance covered by the asset during a `time_tolerance` is less than that
+         * specified in `distance_tolerance` the asset will be assumed to be idle.
          *
-         * Please observe that this attribute along with distance_tolerance parameter can be used to
-         * control the "sensitivity" of the monitor with respect to idle alerts. If the
-         * distance_tolerance is set a high value, then setting time_tolerance to a low value may
-         * result in a situation where asset is always judged as idle. On the contrary, it might
-         * never be judged as idle if distance_tolerance is set to a low value but time_tolerance is
-         * set to a high value.
+         * Please observe that this attribute along with `distance_tolerance` parameter can be used
+         * to control the "sensitivity" of the `monitor` with respect to idle alerts. If the
+         * `distance_tolerance` is set a high value, then setting `time_tolerance` to a low value
+         * may result in a situation where asset is always judged as idle. On the contrary, it might
+         * never be judged as idle if `distance_tolerance` is set to a low value but
+         * `time_tolerance` is set to a high value.
          *
          * It is recommended to use these properties with appropriate values to trigger genuine idle
          * events. The appropriate values might depend on the traffic conditions, nature of
@@ -1817,11 +1829,11 @@ private constructor(
             /**
              * Use this parameter to configure a distance threshold that will be used to determine
              * if the asset was idle or not. If the asset moves by a distance less than the value of
-             * this parameter within a certain time period, the monitor would create an idle event
-             * against the asset. The distance_tolerance should be provided in meters.
+             * this parameter within a certain time period, the `monitor` would create an idle event
+             * against the asset. The `distance_tolerance` should be provided in meters.
              *
              * Users can set an appropriate value for this parameter, along with appropriate
-             * time_tolerance value, to avoid triggering idle events when the asset is crossing a
+             * `time_tolerance` value, to avoid triggering idle events when the asset is crossing a
              * busy intersection or waiting at the traffic lights.
              */
             fun distanceTolerance(distanceTolerance: Double) =
@@ -1839,19 +1851,19 @@ private constructor(
             }
 
             /**
-             * Use this parameter to configure a time duration for which the monitor would track the
-             * distance covered by an asset before triggering an idle event. The time_tolerance
-             * should be provided in milliseconds.
+             * Use this parameter to configure a time duration for which the `monitor` would track
+             * the distance covered by an asset before triggering an idle event. The
+             * `time_tolerance` should be provided in milliseconds.
              *
-             * If the distance covered by the asset during a time_tolerance is less than that
-             * specified in distance_tolerance the asset will be assumed to be idle.
+             * If the distance covered by the asset during a `time_tolerance` is less than that
+             * specified in `distance_tolerance` the asset will be assumed to be idle.
              *
-             * Please observe that this attribute along with distance_tolerance parameter can be
-             * used to control the "sensitivity" of the monitor with respect to idle alerts. If the
-             * distance_tolerance is set a high value, then setting time_tolerance to a low value
-             * may result in a situation where asset is always judged as idle. On the contrary, it
-             * might never be judged as idle if distance_tolerance is set to a low value but
-             * time_tolerance is set to a high value.
+             * Please observe that this attribute along with `distance_tolerance` parameter can be
+             * used to control the "sensitivity" of the `monitor` with respect to idle alerts. If
+             * the `distance_tolerance` is set a high value, then setting `time_tolerance` to a low
+             * value may result in a situation where asset is always judged as idle. On the
+             * contrary, it might never be judged as idle if `distance_tolerance` is set to a low
+             * value but `time_tolerance` is set to a high value.
              *
              * It is recommended to use these properties with appropriate values to trigger genuine
              * idle events. The appropriate values might depend on the traffic conditions, nature of
@@ -1958,7 +1970,7 @@ private constructor(
             "IdleConfig{distanceTolerance=$distanceTolerance, timeTolerance=$timeTolerance, additionalProperties=$additionalProperties}"
     }
 
-    /** This object is used to identify the asset(s) on which the monitor would be applied. */
+    /** This object is used to identify the asset(s) on which the `monitor` would be applied. */
     class MatchFilter
     private constructor(
         private val includeAllOfAttributes: JsonValue,
@@ -1977,15 +1989,15 @@ private constructor(
         ) : this(includeAllOfAttributes, includeAnyOfAttributes, mutableMapOf())
 
         /**
-         * A string type dictionary object to specify the attributes. Only the assets having all of
-         * the attributes added to this parameter will be linked to this monitor. Once an asset is
-         * linked to a monitor, the monitor will be able to create events for that asset whenever an
-         * activity specified in type is detected. Multiple attributes should be separated by a
-         * comma ,.
+         * A string type dictionary object to specify the `attributes`. Only the assets having all
+         * of the `attributes` added to this parameter will be linked to this `monitor`. Once an
+         * `asset` is linked to a `monitor`, the `monitor` will be able to create events for that
+         * `asset` whenever an activity specified in `type` is detected. Multiple attributes should
+         * be separated by a comma `,`.
          *
          * Please note that this parameter can not be used in conjunction with
-         * include_any_of_attributes. Also, the maximum number of key:value pairs that this
-         * parameter can take is 100 and the overall size of the match_filter object should not
+         * `include_any_of_attributes`. Also, the maximum number of `key`:`value` pairs that this
+         * parameter can take is 100 and the overall size of the `match_filter` object should not
          * exceed 65kb.
          */
         @JsonProperty("include_all_of_attributes")
@@ -1993,15 +2005,15 @@ private constructor(
         fun _includeAllOfAttributes(): JsonValue = includeAllOfAttributes
 
         /**
-         * A string type dictionary object to specify the attributes. The assets having at least one
-         * of the attributes added to this parameter will be linked to this monitor. Once an asset
-         * is linked to a monitor, the monitor will be able to create events for that asset whenever
-         * an activity specified in type is detected. Multiple attributes should be separated by a
-         * comma ,.
+         * A string type dictionary object to specify the `attributes`. The assets having at least
+         * one of the `attributes` added to this parameter will be linked to this `monitor`. Once an
+         * `asset` is linked to a `monitor`, the `monitor` will be able to create events for that
+         * `asset` whenever an activity specified in `type` is detected. Multiple attributes should
+         * be separated by a comma `,`.
          *
          * Please note that this parameter can not be used in conjunction with
-         * include_all_of_attributes. Also, the maximum number of key:value pairs that this
-         * parameter can take is 100 and the overall size of the match_filter object should not
+         * `include_all_of_attributes`. Also, the maximum number of `key`:`value` pairs that this
+         * parameter can take is 100 and the overall size of the `match_filter` object should not
          * exceed 65kb.
          */
         @JsonProperty("include_any_of_attributes")
@@ -2041,32 +2053,32 @@ private constructor(
             }
 
             /**
-             * A string type dictionary object to specify the attributes. Only the assets having all
-             * of the attributes added to this parameter will be linked to this monitor. Once an
-             * asset is linked to a monitor, the monitor will be able to create events for that
-             * asset whenever an activity specified in type is detected. Multiple attributes should
-             * be separated by a comma ,.
+             * A string type dictionary object to specify the `attributes`. Only the assets having
+             * all of the `attributes` added to this parameter will be linked to this `monitor`.
+             * Once an `asset` is linked to a `monitor`, the `monitor` will be able to create events
+             * for that `asset` whenever an activity specified in `type` is detected. Multiple
+             * attributes should be separated by a comma `,`.
              *
              * Please note that this parameter can not be used in conjunction with
-             * include_any_of_attributes. Also, the maximum number of key:value pairs that this
-             * parameter can take is 100 and the overall size of the match_filter object should not
-             * exceed 65kb.
+             * `include_any_of_attributes`. Also, the maximum number of `key`:`value` pairs that
+             * this parameter can take is 100 and the overall size of the `match_filter` object
+             * should not exceed 65kb.
              */
             fun includeAllOfAttributes(includeAllOfAttributes: JsonValue) = apply {
                 this.includeAllOfAttributes = includeAllOfAttributes
             }
 
             /**
-             * A string type dictionary object to specify the attributes. The assets having at least
-             * one of the attributes added to this parameter will be linked to this monitor. Once an
-             * asset is linked to a monitor, the monitor will be able to create events for that
-             * asset whenever an activity specified in type is detected. Multiple attributes should
-             * be separated by a comma ,.
+             * A string type dictionary object to specify the `attributes`. The assets having at
+             * least one of the `attributes` added to this parameter will be linked to this
+             * `monitor`. Once an `asset` is linked to a `monitor`, the `monitor` will be able to
+             * create events for that `asset` whenever an activity specified in `type` is detected.
+             * Multiple attributes should be separated by a comma `,`.
              *
              * Please note that this parameter can not be used in conjunction with
-             * include_all_of_attributes. Also, the maximum number of key:value pairs that this
-             * parameter can take is 100 and the overall size of the match_filter object should not
-             * exceed 65kb.
+             * `include_all_of_attributes`. Also, the maximum number of `key`:`value` pairs that
+             * this parameter can take is 100 and the overall size of the `match_filter` object
+             * should not exceed 65kb.
              */
             fun includeAnyOfAttributes(includeAnyOfAttributes: JsonValue) = apply {
                 this.includeAnyOfAttributes = includeAnyOfAttributes
@@ -2149,10 +2161,11 @@ private constructor(
     }
 
     /**
-     * speeding_config is used to set up constraints for creating over-speed events. When an asset
-     * associated with a monitor is traveling at a speed above the given limits, the Live Tracking
-     * API can create events to denote such instances. There is also an option to set up a tolerance
-     * before creating an event. Please note that this object is mandatory when type=speeding.
+     * `speeding_config` is used to set up constraints for creating over-speed events. When an
+     * `asset` associated with a `monitor` is traveling at a speed above the given limits, the Live
+     * Tracking API can create events to denote such instances. There is also an option to set up a
+     * tolerance before creating an event. Please note that this object is mandatory when
+     * `type=speeding`.
      *
      * Let's look at the properties of this object.
      */
@@ -2178,12 +2191,13 @@ private constructor(
         ) : this(customerSpeedLimit, timeTolerance, useAdminSpeedLimit, mutableMapOf())
 
         /**
-         * Use this parameter to establish the speed limit that will allow the monitor to create
-         * events, depending on the time_tolerance value, when an asset's tracked speed exceeds it.
-         * The speed limit should be specified in meters per second.
+         * Use this parameter to establish the speed limit that will allow the `monitor` to create
+         * events, depending on the `time_tolerance` value, when an asset's tracked speed exceeds
+         * it. The speed limit should be specified in meters per second.
          *
-         * Please note that customer_speed_limit is mandatory when use_admin_speed_limit is false.
-         * However, when use_admin_speed_limit is true, customer_speed_limit is ineffective.
+         * Please note that `customer_speed_limit` is mandatory when `use_admin_speed_limit` is
+         * false. However, when `use_admin_speed_limit` is true, `customer_speed_limit` is
+         * ineffective.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -2194,15 +2208,15 @@ private constructor(
         /**
          * Use this parameter to configure a time tolerance before triggering an event. Adding a
          * tolerance would make the Tracking service wait for the specified time before triggering
-         * the event. Consequently, an event is triggered only when the time for which the asset has
-         * been over-speeding continuously, exceeds the configured tolerance time. The unit for this
-         * parameter is milliseconds.
+         * the event. Consequently, an event is triggered only when the time for which the `asset`
+         * has been over-speeding continuously, exceeds the configured tolerance time. The unit for
+         * this parameter is milliseconds.
          *
-         * It can be seen that this attribute is used to control the "sensitivity" of the monitor
-         * with respect to speed alerts. Higher the value of time_tolerance the less sensitive the
-         * monitor would be to instances of over-speeding. Conversely, if 'time_tolerance' is set to
-         * 0, the monitor will be extremely sensitive and will create an event as soon as tracking
-         * information with a speed value greater than the specified limit is received.
+         * It can be seen that this attribute is used to control the "sensitivity" of the `monitor`
+         * with respect to speed alerts. Higher the value of `time_tolerance` the less sensitive the
+         * `monitor` would be to instances of over-speeding. Conversely, if 'time_tolerance' is set
+         * to 0, the `monitor` will be extremely sensitive and will create an event as soon as
+         * tracking information with a speed value greater than the specified limit is received.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -2210,14 +2224,15 @@ private constructor(
         fun timeTolerance(): Optional<Long> = timeTolerance.getOptional("time_tolerance")
 
         /**
-         * A boolean attribute to indicate which speed limit values should be used by the monitor.
-         * When use_admin_speed_limit is true, the administrative speed limit of the road on which
+         * A boolean attribute to indicate which speed limit values should be used by the `monitor`.
+         * When `use_admin_speed_limit` is true, the administrative speed limit of the road on which
          * the asset is located, will be used to generate events when the asset’s tracked speed
-         * exceeds it. Whereas, when use_admin_speed_limit is false, the customer_speed_limit
+         * exceeds it. Whereas, when `use_admin_speed_limit` is false, the `customer_speed_limit`
          * specified will be used to generate events when the asset's tracked speed exceeds it.
          *
-         * Please note that if use_admin_speed_limit is false, customer_speed_limit is mandatory,
-         * however, when use_admin_speed_limit is true then customer_speed_limit is ineffective.
+         * Please note that if `use_admin_speed_limit` is false, `customer_speed_limit` is
+         * mandatory, however, when `use_admin_speed_limit` is true then `customer_speed_limit` is
+         * ineffective.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -2290,12 +2305,12 @@ private constructor(
             }
 
             /**
-             * Use this parameter to establish the speed limit that will allow the monitor to create
-             * events, depending on the time_tolerance value, when an asset's tracked speed exceeds
-             * it. The speed limit should be specified in meters per second.
+             * Use this parameter to establish the speed limit that will allow the `monitor` to
+             * create events, depending on the `time_tolerance` value, when an asset's tracked speed
+             * exceeds it. The speed limit should be specified in meters per second.
              *
-             * Please note that customer_speed_limit is mandatory when use_admin_speed_limit is
-             * false. However, when use_admin_speed_limit is true, customer_speed_limit is
+             * Please note that `customer_speed_limit` is mandatory when `use_admin_speed_limit` is
+             * false. However, when `use_admin_speed_limit` is true, `customer_speed_limit` is
              * ineffective.
              */
             fun customerSpeedLimit(customerSpeedLimit: Long) =
@@ -2316,14 +2331,14 @@ private constructor(
              * Use this parameter to configure a time tolerance before triggering an event. Adding a
              * tolerance would make the Tracking service wait for the specified time before
              * triggering the event. Consequently, an event is triggered only when the time for
-             * which the asset has been over-speeding continuously, exceeds the configured tolerance
-             * time. The unit for this parameter is milliseconds.
+             * which the `asset` has been over-speeding continuously, exceeds the configured
+             * tolerance time. The unit for this parameter is milliseconds.
              *
              * It can be seen that this attribute is used to control the "sensitivity" of the
-             * monitor with respect to speed alerts. Higher the value of time_tolerance the less
-             * sensitive the monitor would be to instances of over-speeding. Conversely, if
-             * 'time_tolerance' is set to 0, the monitor will be extremely sensitive and will create
-             * an event as soon as tracking information with a speed value greater than the
+             * `monitor` with respect to speed alerts. Higher the value of `time_tolerance` the less
+             * sensitive the `monitor` would be to instances of over-speeding. Conversely, if
+             * 'time_tolerance' is set to 0, the `monitor` will be extremely sensitive and will
+             * create an event as soon as tracking information with a speed value greater than the
              * specified limit is received.
              */
             fun timeTolerance(timeTolerance: Long) = timeTolerance(JsonField.of(timeTolerance))
@@ -2341,15 +2356,15 @@ private constructor(
 
             /**
              * A boolean attribute to indicate which speed limit values should be used by the
-             * monitor. When use_admin_speed_limit is true, the administrative speed limit of the
-             * road on which the asset is located, will be used to generate events when the asset’s
-             * tracked speed exceeds it. Whereas, when use_admin_speed_limit is false, the
-             * customer_speed_limit specified will be used to generate events when the asset's
+             * `monitor`. When `use_admin_speed_limit` is true, the administrative speed limit of
+             * the road on which the asset is located, will be used to generate events when the
+             * asset’s tracked speed exceeds it. Whereas, when `use_admin_speed_limit` is false, the
+             * `customer_speed_limit` specified will be used to generate events when the asset's
              * tracked speed exceeds it.
              *
-             * Please note that if use_admin_speed_limit is false, customer_speed_limit is
-             * mandatory, however, when use_admin_speed_limit is true then customer_speed_limit is
-             * ineffective.
+             * Please note that if `use_admin_speed_limit` is false, `customer_speed_limit` is
+             * mandatory, however, when `use_admin_speed_limit` is true then `customer_speed_limit`
+             * is ineffective.
              */
             fun useAdminSpeedLimit(useAdminSpeedLimit: Boolean) =
                 useAdminSpeedLimit(JsonField.of(useAdminSpeedLimit))

@@ -263,7 +263,7 @@ private constructor(
 
         /**
          * Returns the total route distance, in meters, for informative display in the driver app.
-         * It is the same as the value provided for distance field in the input request.
+         * It is the same as the value provided for `distance` field in the input request.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -350,7 +350,7 @@ private constructor(
         /**
          * Returns the ID of the vehicle to which the route was dispatched. The vehicle ID returned
          * here is the same as the one used in the route optimization request for the given vehicle.
-         * An empty string is returned if the ro_request_id was not provided in the input.
+         * An empty string is returned if the `ro_request_id` was not provided in the input.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -531,7 +531,7 @@ private constructor(
 
             /**
              * Returns the total route distance, in meters, for informative display in the driver
-             * app. It is the same as the value provided for distance field in the input request.
+             * app. It is the same as the value provided for `distance` field in the input request.
              */
             fun distance(distance: Long) = distance(JsonField.of(distance))
 
@@ -698,7 +698,7 @@ private constructor(
             /**
              * Returns the ID of the vehicle to which the route was dispatched. The vehicle ID
              * returned here is the same as the one used in the route optimization request for the
-             * given vehicle. An empty string is returned if the ro_request_id was not provided in
+             * given vehicle. An empty string is returned if the `ro_request_id` was not provided in
              * the input.
              */
             fun vehicleId(vehicleId: String) = vehicleId(JsonField.of(vehicleId))
