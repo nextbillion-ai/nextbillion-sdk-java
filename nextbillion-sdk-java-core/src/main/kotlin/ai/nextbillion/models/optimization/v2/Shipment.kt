@@ -2385,8 +2385,6 @@ private constructor(
 
                 @JvmField val FIXED_BOTTOM = of("fixed_bottom")
 
-                @JvmField val Unknown0 = of("\" \"")
-
                 @JvmStatic fun of(value: String) = Alignment(JsonField.of(value))
             }
 
@@ -2395,7 +2393,6 @@ private constructor(
                 STRICT,
                 PARALLEL,
                 FIXED_BOTTOM,
-                Unknown0,
             }
 
             /**
@@ -2411,7 +2408,6 @@ private constructor(
                 STRICT,
                 PARALLEL,
                 FIXED_BOTTOM,
-                Unknown0,
                 /**
                  * An enum member indicating that [Alignment] was instantiated with an unknown
                  * value.
@@ -2431,7 +2427,6 @@ private constructor(
                     STRICT -> Value.STRICT
                     PARALLEL -> Value.PARALLEL
                     FIXED_BOTTOM -> Value.FIXED_BOTTOM
-                    Unknown0 -> Value.Unknown0
                     else -> Value._UNKNOWN
                 }
 
@@ -2449,7 +2444,6 @@ private constructor(
                     STRICT -> Known.STRICT
                     PARALLEL -> Known.PARALLEL
                     FIXED_BOTTOM -> Known.FIXED_BOTTOM
-                    Unknown0 -> Known.Unknown0
                     else -> throw NextbillionSdkInvalidDataException("Unknown Alignment: $value")
                 }
 
