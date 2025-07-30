@@ -205,7 +205,7 @@ private constructor(
 
     /**
      * Returns the fixed speed of segments. This field is not present in the response if the
-     * restriction type is not `fixedspeed`
+     * restriction type is not fixedspeed
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -214,7 +214,7 @@ private constructor(
 
     /**
      * Returns the maximum speed of segments. This field is not present in the response if the
-     * restriction type is not `maxspeed`
+     * restriction type is not maxspeed
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -240,11 +240,10 @@ private constructor(
 
     /**
      * Returns the status of the restriction at the time of making the request i.e. whether the
-     * restriction is in force or not. It will have one of the following values: `active` or
-     * `inactive`.
+     * restriction is in force or not. It will have one of the following values: active or inactive.
      *
      * Please note that this field can not be directly influenced by the users. It will always be
-     * calculated using the `start_time`, `end_time` and `repeat_on` parameters.
+     * calculated using the start_time, end_time and repeat_on parameters.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -618,7 +617,7 @@ private constructor(
 
         /**
          * Returns the fixed speed of segments. This field is not present in the response if the
-         * restriction type is not `fixedspeed`
+         * restriction type is not fixedspeed
          */
         fun speed(speed: Double) = speed(JsonField.of(speed))
 
@@ -632,7 +631,7 @@ private constructor(
 
         /**
          * Returns the maximum speed of segments. This field is not present in the response if the
-         * restriction type is not `maxspeed`
+         * restriction type is not maxspeed
          */
         fun speedLimit(speedLimit: Double) = speedLimit(JsonField.of(speedLimit))
 
@@ -673,11 +672,11 @@ private constructor(
 
         /**
          * Returns the status of the restriction at the time of making the request i.e. whether the
-         * restriction is in force or not. It will have one of the following values: `active` or
-         * `inactive`.
+         * restriction is in force or not. It will have one of the following values: active or
+         * inactive.
          *
          * Please note that this field can not be directly influenced by the users. It will always
-         * be calculated using the `start_time`, `end_time` and `repeat_on` parameters.
+         * be calculated using the start_time, end_time and repeat_on parameters.
          */
         fun status(status: Status) = status(JsonField.of(status))
 
@@ -1244,11 +1243,10 @@ private constructor(
 
     /**
      * Returns the status of the restriction at the time of making the request i.e. whether the
-     * restriction is in force or not. It will have one of the following values: `active` or
-     * `inactive`.
+     * restriction is in force or not. It will have one of the following values: active or inactive.
      *
      * Please note that this field can not be directly influenced by the users. It will always be
-     * calculated using the `start_time`, `end_time` and `repeat_on` parameters.
+     * calculated using the start_time, end_time and repeat_on parameters.
      */
     class Status @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 

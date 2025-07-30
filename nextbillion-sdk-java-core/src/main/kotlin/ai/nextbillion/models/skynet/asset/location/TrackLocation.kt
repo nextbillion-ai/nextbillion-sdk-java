@@ -73,7 +73,7 @@ private constructor(
     fun accuracy(): Optional<Double> = accuracy.getOptional("accuracy")
 
     /**
-     * If available in the GPS information, this property returns the altitude of the `asset` at the
+     * If available in the GPS information, this property returns the altitude of the asset at the
      * tracked location. It is represented as height, in meters, above the WGS84 reference
      * ellipsoid.
      *
@@ -92,7 +92,7 @@ private constructor(
     fun batteryLevel(): Optional<Long> = batteryLevel.getOptional("battery_level")
 
     /**
-     * If available in the GPS information, this property returns the heading of the `asset`
+     * If available in the GPS information, this property returns the heading of the asset
      * calculated from true north in clockwise direction at the tracked location. Please note that
      * the bearing is not affected by the device orientation.
      *
@@ -117,8 +117,8 @@ private constructor(
     @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
     /**
-     * If available in the GPS information, this property returns the speed of the `asset`, in
-     * meters per second, at the tracked location.
+     * If available in the GPS information, this property returns the speed of the asset, in meters
+     * per second, at the tracked location.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -264,7 +264,7 @@ private constructor(
         fun accuracy(accuracy: JsonField<Double>) = apply { this.accuracy = accuracy }
 
         /**
-         * If available in the GPS information, this property returns the altitude of the `asset` at
+         * If available in the GPS information, this property returns the altitude of the asset at
          * the tracked location. It is represented as height, in meters, above the WGS84 reference
          * ellipsoid.
          */
@@ -294,7 +294,7 @@ private constructor(
         fun batteryLevel(batteryLevel: JsonField<Long>) = apply { this.batteryLevel = batteryLevel }
 
         /**
-         * If available in the GPS information, this property returns the heading of the `asset`
+         * If available in the GPS information, this property returns the heading of the asset
          * calculated from true north in clockwise direction at the tracked location. Please note
          * that the bearing is not affected by the device orientation.
          *
@@ -329,7 +329,7 @@ private constructor(
         fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }
 
         /**
-         * If available in the GPS information, this property returns the speed of the `asset`, in
+         * If available in the GPS information, this property returns the speed of the asset, in
          * meters per second, at the tracked location.
          */
         fun speed(speed: Double) = speed(JsonField.of(speed))
@@ -466,7 +466,7 @@ private constructor(
         ) : this(lat, lon, mutableMapOf())
 
         /**
-         * Latitude of the tracked location of the `asset`.
+         * Latitude of the tracked location of the asset.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -474,7 +474,7 @@ private constructor(
         fun lat(): Optional<Double> = lat.getOptional("lat")
 
         /**
-         * Longitude of the tracked location of the `asset`.
+         * Longitude of the tracked location of the asset.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -527,7 +527,7 @@ private constructor(
                 additionalProperties = location.additionalProperties.toMutableMap()
             }
 
-            /** Latitude of the tracked location of the `asset`. */
+            /** Latitude of the tracked location of the asset. */
             fun lat(lat: Double) = lat(JsonField.of(lat))
 
             /**
@@ -539,7 +539,7 @@ private constructor(
              */
             fun lat(lat: JsonField<Double>) = apply { this.lat = lat }
 
-            /** Longitude of the tracked location of the `asset`. */
+            /** Longitude of the tracked location of the asset. */
             fun lon(lon: Double) = lon(JsonField.of(lon))
 
             /**

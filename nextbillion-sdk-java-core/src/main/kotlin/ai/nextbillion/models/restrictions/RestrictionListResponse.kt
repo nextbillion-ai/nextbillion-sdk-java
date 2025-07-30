@@ -212,7 +212,7 @@ private constructor(
 
         /**
          * An integer value indicating the maximum number of items retrieved per "page". This is the
-         * same number as provided for the `limit` parameter in input.
+         * same number as provided for the limit parameter in input.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -293,7 +293,7 @@ private constructor(
 
             /**
              * An integer value indicating the maximum number of items retrieved per "page". This is
-             * the same number as provided for the `limit` parameter in input.
+             * the same number as provided for the limit parameter in input.
              */
             fun limit(limit: Long) = limit(JsonField.of(limit))
 

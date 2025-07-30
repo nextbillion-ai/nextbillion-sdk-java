@@ -467,9 +467,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val CAR = of("`car`")
+            @JvmField val CAR = of("car")
 
-            @JvmField val TRUCK = of("`truck`")
+            @JvmField val TRUCK = of("truck")
 
             @JvmStatic fun of(value: String) = Mode(JsonField.of(value))
         }

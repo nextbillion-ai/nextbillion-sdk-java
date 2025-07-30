@@ -53,8 +53,8 @@ private constructor(
     fun message(): Optional<String> = message.getOptional("message")
 
     /**
-     * A string indicating the state of the response. On successful responses, the value will be
-     * `Ok`. Indicative error messages are returned for different errors. See the
+     * A string indicating the state of the response. On successful responses, the value will be Ok.
+     * Indicative error messages are returned for different errors. See the
      * [API Error Codes](#api-error-codes) section below for more information.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -144,7 +144,7 @@ private constructor(
 
         /**
          * A string indicating the state of the response. On successful responses, the value will be
-         * `Ok`. Indicative error messages are returned for different errors. See the
+         * Ok. Indicative error messages are returned for different errors. See the
          * [API Error Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -235,7 +235,7 @@ private constructor(
 
         /**
          * An array of objects with details of the asset(s) returned in the search result. Each
-         * object represents one `asset`
+         * object represents one asset
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -299,7 +299,7 @@ private constructor(
 
             /**
              * An array of objects with details of the asset(s) returned in the search result. Each
-             * object represents one `asset`
+             * object represents one asset
              */
             fun assets(assets: List<Asset>) = assets(JsonField.of(assets))
 
@@ -460,8 +460,8 @@ private constructor(
             )
 
             /**
-             * ID of `asset` which was last located inside the specified area in the input request.
-             * This is the same ID that was generated/provided at the time of creating the `asset`.
+             * ID of asset which was last located inside the specified area in the input request.
+             * This is the same ID that was generated/provided at the time of creating the asset.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -469,7 +469,7 @@ private constructor(
             fun id(): Optional<String> = id.getOptional("id")
 
             /**
-             * A UNIX timestamp in seconds representing the time at which the `asset` was created.
+             * A UNIX timestamp in seconds representing the time at which the asset was created.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -477,8 +477,8 @@ private constructor(
             fun createdAt(): Optional<Long> = createdAt.getOptional("created_at")
 
             /**
-             * Description of the `asset`. The value would be the same as that provided for the
-             * `description` parameter at the time of creating or updating the `asset`.
+             * Description of the asset. The value would be the same as that provided for the
+             * description parameter at the time of creating or updating the asset.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -501,8 +501,8 @@ private constructor(
             @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
             /**
-             * Name of `asset`. The value would be the same as that provided for the `name`
-             * parameter at the time of creating or updating the `asset`.
+             * Name of asset. The value would be the same as that provided for the name parameter at
+             * the time of creating or updating the asset.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -519,10 +519,10 @@ private constructor(
             fun rankingInfo(): Optional<RankingInfo> = rankingInfo.getOptional("ranking_info")
 
             /**
-             * **This parameter will be deprecated soon! Please move existing `tags` to `attributes`
+             * **This parameter will be deprecated soon! Please move existing tags to attributes
              * parameter.**
              *
-             * Tags associated with the `asset`.
+             * Tags associated with the asset.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -530,7 +530,7 @@ private constructor(
             fun tags(): Optional<List<String>> = tags.getOptional("tags")
 
             /**
-             * A UNIX epoch timestamp in seconds representing the last time when the `asset` was
+             * A UNIX epoch timestamp in seconds representing the last time when the asset was
              * tracked.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
@@ -539,7 +539,7 @@ private constructor(
             fun trackedAt(): Optional<Long> = trackedAt.getOptional("tracked_at")
 
             /**
-             * A UNIX timestamp in seconds representing the time at which the `asset` was last
+             * A UNIX timestamp in seconds representing the time at which the asset was last
              * updated.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
@@ -677,9 +677,9 @@ private constructor(
                 }
 
                 /**
-                 * ID of `asset` which was last located inside the specified area in the input
+                 * ID of asset which was last located inside the specified area in the input
                  * request. This is the same ID that was generated/provided at the time of creating
-                 * the `asset`.
+                 * the asset.
                  */
                 fun id(id: String) = id(JsonField.of(id))
 
@@ -693,8 +693,7 @@ private constructor(
                 fun id(id: JsonField<String>) = apply { this.id = id }
 
                 /**
-                 * A UNIX timestamp in seconds representing the time at which the `asset` was
-                 * created.
+                 * A UNIX timestamp in seconds representing the time at which the asset was created.
                  */
                 fun createdAt(createdAt: Long) = createdAt(JsonField.of(createdAt))
 
@@ -708,8 +707,8 @@ private constructor(
                 fun createdAt(createdAt: JsonField<Long>) = apply { this.createdAt = createdAt }
 
                 /**
-                 * Description of the `asset`. The value would be the same as that provided for the
-                 * `description` parameter at the time of creating or updating the `asset`.
+                 * Description of the asset. The value would be the same as that provided for the
+                 * description parameter at the time of creating or updating the asset.
                  */
                 fun description(description: String) = description(JsonField.of(description))
 
@@ -749,8 +748,8 @@ private constructor(
                 fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }
 
                 /**
-                 * Name of `asset`. The value would be the same as that provided for the `name`
-                 * parameter at the time of creating or updating the `asset`.
+                 * Name of asset. The value would be the same as that provided for the name
+                 * parameter at the time of creating or updating the asset.
                  */
                 fun name(name: String) = name(JsonField.of(name))
 
@@ -781,10 +780,10 @@ private constructor(
                 }
 
                 /**
-                 * **This parameter will be deprecated soon! Please move existing `tags` to
-                 * `attributes` parameter.**
+                 * **This parameter will be deprecated soon! Please move existing tags to attributes
+                 * parameter.**
                  *
-                 * Tags associated with the `asset`.
+                 * Tags associated with the asset.
                  */
                 fun tags(tags: List<String>) = tags(JsonField.of(tags))
 
@@ -812,7 +811,7 @@ private constructor(
                 }
 
                 /**
-                 * A UNIX epoch timestamp in seconds representing the last time when the `asset` was
+                 * A UNIX epoch timestamp in seconds representing the last time when the asset was
                  * tracked.
                  */
                 fun trackedAt(trackedAt: Long) = trackedAt(JsonField.of(trackedAt))
@@ -827,7 +826,7 @@ private constructor(
                 fun trackedAt(trackedAt: JsonField<Long>) = apply { this.trackedAt = trackedAt }
 
                 /**
-                 * A UNIX timestamp in seconds representing the time at which the `asset` was last
+                 * A UNIX timestamp in seconds representing the time at which the asset was last
                  * updated.
                  */
                 fun updatedAt(updatedAt: Long) = updatedAt(JsonField.of(updatedAt))
@@ -953,7 +952,7 @@ private constructor(
                 ) : this(distance, duration, index, mutableMapOf())
 
                 /**
-                 * Driving distance between the asset and the `sort_destination`.
+                 * Driving distance between the asset and the sort_destination.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -961,8 +960,8 @@ private constructor(
                 fun distance(): Optional<Double> = distance.getOptional("distance")
 
                 /**
-                 * Driving duration between the asset and the `sort_destination`. Please note this
-                 * field in not returned in the response when `sort_by = straight_distance` .
+                 * Driving duration between the asset and the sort_destination. Please note this
+                 * field in not returned in the response when sort_by = straight_distance .
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1039,7 +1038,7 @@ private constructor(
                         additionalProperties = rankingInfo.additionalProperties.toMutableMap()
                     }
 
-                    /** Driving distance between the asset and the `sort_destination`. */
+                    /** Driving distance between the asset and the sort_destination. */
                     fun distance(distance: Double) = distance(JsonField.of(distance))
 
                     /**
@@ -1052,9 +1051,8 @@ private constructor(
                     fun distance(distance: JsonField<Double>) = apply { this.distance = distance }
 
                     /**
-                     * Driving duration between the asset and the `sort_destination`. Please note
-                     * this field in not returned in the response when `sort_by = straight_distance`
-                     * .
+                     * Driving duration between the asset and the sort_destination. Please note this
+                     * field in not returned in the response when sort_by = straight_distance .
                      */
                     fun duration(duration: Double) = duration(JsonField.of(duration))
 

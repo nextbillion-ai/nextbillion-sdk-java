@@ -32,7 +32,7 @@ private constructor(
     ) : this(data, message, status, mutableMapOf())
 
     /**
-     * An object containing the ID of the `asset` created.
+     * An object containing the ID of the asset created.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -49,8 +49,8 @@ private constructor(
     fun message(): Optional<String> = message.getOptional("message")
 
     /**
-     * A string indicating the state of the response. On successful responses, the value will be
-     * `Ok`. Indicative error messages are returned for different errors. See the
+     * A string indicating the state of the response. On successful responses, the value will be Ok.
+     * Indicative error messages are returned for different errors. See the
      * [API Error Codes](#api-error-codes) section below for more information.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -113,7 +113,7 @@ private constructor(
             additionalProperties = assetCreateResponse.additionalProperties.toMutableMap()
         }
 
-        /** An object containing the ID of the `asset` created. */
+        /** An object containing the ID of the asset created. */
         fun data(data: Data) = data(JsonField.of(data))
 
         /**
@@ -140,7 +140,7 @@ private constructor(
 
         /**
          * A string indicating the state of the response. On successful responses, the value will be
-         * `Ok`. Indicative error messages are returned for different errors. See the
+         * Ok. Indicative error messages are returned for different errors. See the
          * [API Error Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -213,7 +213,7 @@ private constructor(
             (if (message.asKnown().isPresent) 1 else 0) +
             (if (status.asKnown().isPresent) 1 else 0)
 
-    /** An object containing the ID of the `asset` created. */
+    /** An object containing the ID of the asset created. */
     class Data
     private constructor(
         private val id: JsonField<String>,
@@ -226,7 +226,7 @@ private constructor(
         ) : this(id, mutableMapOf())
 
         /**
-         * Unique ID of the asset created. It will be the same as `custom_id`, if provided. Else it
+         * Unique ID of the asset created. It will be the same as custom_id, if provided. Else it
          * will be an auto generated UUID. Please note this ID cannot be updated.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -272,7 +272,7 @@ private constructor(
             }
 
             /**
-             * Unique ID of the asset created. It will be the same as `custom_id`, if provided. Else
+             * Unique ID of the asset created. It will be the same as custom_id, if provided. Else
              * it will be an auto generated UUID. Please note this ID cannot be updated.
              */
             fun id(id: String) = id(JsonField.of(id))

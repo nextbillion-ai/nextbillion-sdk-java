@@ -12,7 +12,7 @@ internal class RouteReportCreateParamsTest {
     fun create() {
         RouteReportCreateParams.builder()
             .key("key=API_KEY")
-            .originalShape("original_shape=sbp}_Almgp`FnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
+            .originalShape("original_shape=sbp}_AlmgpFnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
             .originalShapeType(RouteReportCreateParams.OriginalShapeType.POLYLINE)
             .build()
     }
@@ -22,7 +22,7 @@ internal class RouteReportCreateParamsTest {
         val params =
             RouteReportCreateParams.builder()
                 .key("key=API_KEY")
-                .originalShape("original_shape=sbp}_Almgp`FnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
+                .originalShape("original_shape=sbp}_AlmgpFnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
                 .originalShapeType(RouteReportCreateParams.OriginalShapeType.POLYLINE)
                 .build()
 
@@ -36,14 +36,14 @@ internal class RouteReportCreateParamsTest {
         val params =
             RouteReportCreateParams.builder()
                 .key("key=API_KEY")
-                .originalShape("original_shape=sbp}_Almgp`FnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
+                .originalShape("original_shape=sbp}_AlmgpFnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
                 .originalShapeType(RouteReportCreateParams.OriginalShapeType.POLYLINE)
                 .build()
 
         val body = params._body()
 
         assertThat(body.originalShape())
-            .isEqualTo("original_shape=sbp}_Almgp`FnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
+            .isEqualTo("original_shape=sbp}_AlmgpFnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
         assertThat(body.originalShapeType())
             .isEqualTo(RouteReportCreateParams.OriginalShapeType.POLYLINE)
     }

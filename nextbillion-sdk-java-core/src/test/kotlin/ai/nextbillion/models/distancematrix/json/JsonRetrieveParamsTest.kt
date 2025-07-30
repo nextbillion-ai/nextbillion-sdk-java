@@ -52,10 +52,10 @@ internal class JsonRetrieveParamsTest {
                         "origins",
                         "origins:41.349302,2.136480|41.389925,2.136258|41.357961,2.097878",
                     )
-                    .put("approaches", "`unrestricted`")
+                    .put("approaches", "unrestricted")
                     .put("avoid", "toll")
                     .put("bearings", "bearings=0,180;0,180")
-                    .put("mode", "`car`")
+                    .put("mode", "car")
                     .put("route_failed_prompt", "true")
                     .build()
             )
