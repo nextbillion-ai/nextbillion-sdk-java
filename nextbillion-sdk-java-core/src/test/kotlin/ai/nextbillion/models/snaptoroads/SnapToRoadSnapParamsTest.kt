@@ -56,13 +56,13 @@ internal class SnapToRoadSnapParamsTest {
                         "path",
                         "path=41.38602272,2.17621539|41.38312885,2.17207083|41.38157854,2.17906668|41.38288511,2.18186215",
                     )
-                    .put("approaches", "`unrestricted`")
+                    .put("approaches", "unrestricted")
                     .put("avoid", "toll")
-                    .put("geometry", "`polyline`")
-                    .put("mode", "`car`")
-                    .put("option", "`flexible`")
+                    .put("geometry", "polyline")
+                    .put("mode", "car")
+                    .put("option", "flexible")
                     .put("radiuses", "radiuses=14|16|14")
-                    .put("road_info", "`max_speed`")
+                    .put("road_info", "max_speed")
                     .put("timestamps", "timestamps=1656570000|1656570015|1656570030")
                     .put("tolerate_outlier", "true")
                     .build()

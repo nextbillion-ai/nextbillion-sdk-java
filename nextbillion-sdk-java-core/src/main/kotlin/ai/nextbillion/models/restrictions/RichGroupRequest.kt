@@ -141,10 +141,10 @@ private constructor(
 
     /**
      * An array of coordinates denoting the boundary of an area in which the restrictions are to be
-     * applied. The format in which coordinates should be listed is defined by the `latlon` field.
+     * applied. The format in which coordinates should be listed is defined by the latlon field.
      *
-     * Geofences can be used to create all restriction types, except for a `turn` type restriction.
-     * Please note that `segments` is not required when using `geofence` to create restrictions.
+     * Geofences can be used to create all restriction types, except for a turn type restriction.
+     * Please note that segments is not required when using geofence to create restrictions.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -155,9 +155,9 @@ private constructor(
      * Specify the maximum truck height, in centimeter, that will be allowed under the restriction.
      * A value of 0 indicates no limit.
      *
-     * Please note this parameter is effective only when `restriction_type` is `truck`. At least one
-     * of truck parameters - `weight`, `height`, `width` and `truck` - needs to be provided when
-     * restriction type is `truck`.
+     * Please note this parameter is effective only when restriction_type is truck. At least one of
+     * truck parameters - weight, height, width and truck - needs to be provided when restriction
+     * type is truck.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -168,9 +168,9 @@ private constructor(
      * Specify the maximum truck length, in centimeter, that will be allowed under the restriction.
      * A value of 0 indicates no limit.
      *
-     * Please note this parameter is effective only when `restriction_type` is `truck`. At least one
-     * of truck parameters - `weight`, `height`, `width` and `truck` - needs to be provided when
-     * restriction type is `truck`.
+     * Please note this parameter is effective only when restriction_type is truck. At least one of
+     * truck parameters - weight, height, width and truck - needs to be provided when restriction
+     * type is truck.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -204,7 +204,7 @@ private constructor(
      * An array of objects to collect the details of the segments of a road on which the restriction
      * has to be applied. Each object corresponds to a new segment.
      *
-     * Please note that `segments` is mandatory for all `restrtiction_type` except `turn`.
+     * Please note that segments is mandatory for all restrtiction_type except turn.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -213,7 +213,7 @@ private constructor(
 
     /**
      * Provide the the fixed speed of the segment where the restriction needs to be applied. Please
-     * note that this parameter is mandatory when the `restrictionType` is `fixedspeed`.
+     * note that this parameter is mandatory when the restrictionType is fixedspeed.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -222,7 +222,7 @@ private constructor(
 
     /**
      * Provide the the maximum speed of the segment where the restriction needs to be applied.
-     * Please note that this parameter is mandatory when the `restrictionType` is `maxspeed`.
+     * Please note that this parameter is mandatory when the restrictionType is maxspeed.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -240,8 +240,8 @@ private constructor(
 
     /**
      * Specify a sequence of coordinates (track) where the restriction is to be applied. The
-     * coordinates will be snapped to nearest road. Please note when using `tracks`, `segments` and
-     * `turns` are not required.
+     * coordinates will be snapped to nearest road. Please note when using tracks, segments and
+     * turns are not required.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -252,7 +252,7 @@ private constructor(
      * An array of objects to collect the details of the turns of a road on which the restriction
      * has to be applied. Each object corresponds to a new turn.
      *
-     * Please note that `turns` is mandatory for when `restrtiction_type=turn`.
+     * Please note that turns is mandatory for when restrtiction_type=turn.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -263,9 +263,9 @@ private constructor(
      * Specify the maximum truck weight, in kilograms, that the restriction will allow. A value of 0
      * indicates no limit.
      *
-     * Please note this parameter is effective only when `restriction_type` is `truck`. At least one
-     * of truck parameters - `weight`, `height`, `width` and `truck` - needs to be provided for is
-     * `truck` restriction type.
+     * Please note this parameter is effective only when restriction_type is truck. At least one of
+     * truck parameters - weight, height, width and truck - needs to be provided for is truck
+     * restriction type.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -276,9 +276,9 @@ private constructor(
      * Specify the maximum truck width, in centimeter, that will be allowed under the restriction. A
      * value of 0 indicates no limit.
      *
-     * Please note this parameter is effective only when `restriction_type` is `truck`. At least one
-     * of truck parameters - `weight`, `height`, `width` and `truck` - needs to be provided when
-     * restriction type is `truck`.
+     * Please note this parameter is effective only when restriction_type is truck. At least one of
+     * truck parameters - weight, height, width and truck - needs to be provided when restriction
+     * type is truck.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -555,11 +555,11 @@ private constructor(
 
         /**
          * An array of coordinates denoting the boundary of an area in which the restrictions are to
-         * be applied. The format in which coordinates should be listed is defined by the `latlon`
+         * be applied. The format in which coordinates should be listed is defined by the latlon
          * field.
          *
-         * Geofences can be used to create all restriction types, except for a `turn` type
-         * restriction. Please note that `segments` is not required when using `geofence` to create
+         * Geofences can be used to create all restriction types, except for a turn type
+         * restriction. Please note that segments is not required when using geofence to create
          * restrictions.
          */
         fun geofence(geofence: List<List<Double>>) = geofence(JsonField.of(geofence))
@@ -591,9 +591,9 @@ private constructor(
          * Specify the maximum truck height, in centimeter, that will be allowed under the
          * restriction. A value of 0 indicates no limit.
          *
-         * Please note this parameter is effective only when `restriction_type` is `truck`. At least
-         * one of truck parameters - `weight`, `height`, `width` and `truck` - needs to be provided
-         * when restriction type is `truck`.
+         * Please note this parameter is effective only when restriction_type is truck. At least one
+         * of truck parameters - weight, height, width and truck - needs to be provided when
+         * restriction type is truck.
          */
         fun height(height: Long) = height(JsonField.of(height))
 
@@ -609,9 +609,9 @@ private constructor(
          * Specify the maximum truck length, in centimeter, that will be allowed under the
          * restriction. A value of 0 indicates no limit.
          *
-         * Please note this parameter is effective only when `restriction_type` is `truck`. At least
-         * one of truck parameters - `weight`, `height`, `width` and `truck` - needs to be provided
-         * when restriction type is `truck`.
+         * Please note this parameter is effective only when restriction_type is truck. At least one
+         * of truck parameters - weight, height, width and truck - needs to be provided when
+         * restriction type is truck.
          */
         fun length(length: Long) = length(JsonField.of(length))
 
@@ -675,7 +675,7 @@ private constructor(
          * An array of objects to collect the details of the segments of a road on which the
          * restriction has to be applied. Each object corresponds to a new segment.
          *
-         * Please note that `segments` is mandatory for all `restrtiction_type` except `turn`.
+         * Please note that segments is mandatory for all restrtiction_type except turn.
          */
         fun segments(segments: List<Segment>) = segments(JsonField.of(segments))
 
@@ -704,7 +704,7 @@ private constructor(
 
         /**
          * Provide the the fixed speed of the segment where the restriction needs to be applied.
-         * Please note that this parameter is mandatory when the `restrictionType` is `fixedspeed`.
+         * Please note that this parameter is mandatory when the restrictionType is fixedspeed.
          */
         fun speed(speed: Double) = speed(JsonField.of(speed))
 
@@ -718,7 +718,7 @@ private constructor(
 
         /**
          * Provide the the maximum speed of the segment where the restriction needs to be applied.
-         * Please note that this parameter is mandatory when the `restrictionType` is `maxspeed`.
+         * Please note that this parameter is mandatory when the restrictionType is maxspeed.
          */
         fun speedLimit(speedLimit: Double) = speedLimit(JsonField.of(speedLimit))
 
@@ -748,8 +748,8 @@ private constructor(
 
         /**
          * Specify a sequence of coordinates (track) where the restriction is to be applied. The
-         * coordinates will be snapped to nearest road. Please note when using `tracks`, `segments`
-         * and `turns` are not required.
+         * coordinates will be snapped to nearest road. Please note when using tracks, segments and
+         * turns are not required.
          */
         fun tracks(tracks: List<List<Double>>) = tracks(JsonField.of(tracks))
 
@@ -780,7 +780,7 @@ private constructor(
          * An array of objects to collect the details of the turns of a road on which the
          * restriction has to be applied. Each object corresponds to a new turn.
          *
-         * Please note that `turns` is mandatory for when `restrtiction_type=turn`.
+         * Please note that turns is mandatory for when restrtiction_type=turn.
          */
         fun turns(turns: List<Turn>) = turns(JsonField.of(turns))
 
@@ -809,9 +809,9 @@ private constructor(
          * Specify the maximum truck weight, in kilograms, that the restriction will allow. A value
          * of 0 indicates no limit.
          *
-         * Please note this parameter is effective only when `restriction_type` is `truck`. At least
-         * one of truck parameters - `weight`, `height`, `width` and `truck` - needs to be provided
-         * for is `truck` restriction type.
+         * Please note this parameter is effective only when restriction_type is truck. At least one
+         * of truck parameters - weight, height, width and truck - needs to be provided for is truck
+         * restriction type.
          */
         fun weight(weight: Long) = weight(JsonField.of(weight))
 
@@ -827,9 +827,9 @@ private constructor(
          * Specify the maximum truck width, in centimeter, that will be allowed under the
          * restriction. A value of 0 indicates no limit.
          *
-         * Please note this parameter is effective only when `restriction_type` is `truck`. At least
-         * one of truck parameters - `weight`, `height`, `width` and `truck` - needs to be provided
-         * when restriction type is `truck`.
+         * Please note this parameter is effective only when restriction_type is truck. At least one
+         * of truck parameters - weight, height, width and truck - needs to be provided when
+         * restriction type is truck.
          */
         fun width(width: Long) = width(JsonField.of(width))
 
@@ -976,11 +976,11 @@ private constructor(
 
         companion object {
 
-            @JvmField val FORWARD = of("`forward`")
+            @JvmField val FORWARD = of("forward")
 
-            @JvmField val BACKWARD = of("`backward`")
+            @JvmField val BACKWARD = of("backward")
 
-            @JvmField val BOTH = of("`both`")
+            @JvmField val BOTH = of("both")
 
             @JvmStatic fun of(value: String) = Direction(JsonField.of(value))
         }
@@ -1448,7 +1448,7 @@ private constructor(
         fun to(): Optional<Long> = to.getOptional("to")
 
         /**
-         * An integer value that represents the ID of a node connecting `from` and `to` nodes of the
+         * An integer value that represents the ID of a node connecting from and to nodes of the
          * turn.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -1536,8 +1536,8 @@ private constructor(
             fun to(to: JsonField<Long>) = apply { this.to = to }
 
             /**
-             * An integer value that represents the ID of a node connecting `from` and `to` nodes of
-             * the turn.
+             * An integer value that represents the ID of a node connecting from and to nodes of the
+             * turn.
              */
             fun via(via: Long) = via(JsonField.of(via))
 

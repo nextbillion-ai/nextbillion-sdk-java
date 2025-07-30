@@ -36,56 +36,55 @@ private constructor(
     fun cluster(): Optional<Cluster> = Optional.ofNullable(cluster)
 
     /**
-     * Use this parameter to filter the assets by their `attributes`. Only the assets having all the
-     * `attributes` added to this parameter, will be returned in the response. Multiple `attributes`
-     * can be separated using pipes (`|`).
+     * Use this parameter to filter the assets by their attributes. Only the assets having all the
+     * attributes added to this parameter, will be returned in the response. Multiple attributes can
+     * be separated using pipes (|).
      *
      * Please note the attributes are case sensitive. Also, this parameter can not be used in
-     * conjunction with `include_any_of_attributes` parameter.
+     * conjunction with include_any_of_attributes parameter.
      */
     fun includeAllOfAttributes(): Optional<String> = Optional.ofNullable(includeAllOfAttributes)
 
     /**
-     * Use this parameter to filter the assets by their `attributes`. Assets having at least one of
-     * the `attributes` added to this parameter, will be returned in the response. Multiple
-     * `attributes` can be separated using pipes (`|`).
+     * Use this parameter to filter the assets by their attributes. Assets having at least one of
+     * the attributes added to this parameter, will be returned in the response. Multiple attributes
+     * can be separated using pipes (|).
      *
      * Please note the attributes are case sensitive. Also, this parameter can not be used in
-     * conjunction with `include_all_of_attributes` parameter.
+     * conjunction with include_all_of_attributes parameter.
      */
     fun includeAnyOfAttributes(): Optional<String> = Optional.ofNullable(includeAnyOfAttributes)
 
     /**
-     * Denotes page number. Use this along with the `ps` parameter to implement pagination for your
+     * Denotes page number. Use this along with the ps parameter to implement pagination for your
      * searched results. This parameter does not have a maximum limit but would return an empty
      * response in case a higher value is provided when the result-set itself is smaller.
      */
     fun pn(): Optional<Long> = Optional.ofNullable(pn)
 
     /**
-     * Denotes number of search results per page. Use this along with the `pn` parameter to
-     * implement pagination for your searched results.
+     * Denotes number of search results per page. Use this along with the pn parameter to implement
+     * pagination for your searched results.
      */
     fun ps(): Optional<Long> = Optional.ofNullable(ps)
 
     /**
-     * Provide a single field to sort the results by. Only `updated_at` or `created_at` fields can
-     * be selected for ordering the results.
+     * Provide a single field to sort the results by. Only updated_at or created_at fields can be
+     * selected for ordering the results.
      *
-     * By default, the result is sorted by `created_at` field in the descending order. Allowed
-     * values for specifying the order are `asc` for ascending order and `desc` for descending
-     * order.
+     * By default, the result is sorted by created_at field in the descending order. Allowed values
+     * for specifying the order are asc for ascending order and desc for descending order.
      */
     fun sort(): Optional<String> = Optional.ofNullable(sort)
 
     /**
-     * **This parameter will be deprecated soon! Please use the `include_all_of_attributes` or
-     * `include_any_of_attributes` parameters to provide labels or markers for the assets to be
+     * **This parameter will be deprecated soon! Please use the include_all_of_attributes or
+     * include_any_of_attributes parameters to provide labels or markers for the assets to be
      * retrieved.**
      *
-     * `tags` can be used to filter the assets. Only those assets which have all the `tags`
-     * provided, will be included in the result. In case multiple `tags` need to be specified, use
-     * `,` to separate them.
+     * tags can be used to filter the assets. Only those assets which have all the tags provided,
+     * will be included in the result. In case multiple tags need to be specified, use , to separate
+     * them.
      */
     fun tags(): Optional<String> = Optional.ofNullable(tags)
 
@@ -148,12 +147,12 @@ private constructor(
         fun cluster(cluster: Optional<Cluster>) = cluster(cluster.getOrNull())
 
         /**
-         * Use this parameter to filter the assets by their `attributes`. Only the assets having all
-         * the `attributes` added to this parameter, will be returned in the response. Multiple
-         * `attributes` can be separated using pipes (`|`).
+         * Use this parameter to filter the assets by their attributes. Only the assets having all
+         * the attributes added to this parameter, will be returned in the response. Multiple
+         * attributes can be separated using pipes (|).
          *
          * Please note the attributes are case sensitive. Also, this parameter can not be used in
-         * conjunction with `include_any_of_attributes` parameter.
+         * conjunction with include_any_of_attributes parameter.
          */
         fun includeAllOfAttributes(includeAllOfAttributes: String?) = apply {
             this.includeAllOfAttributes = includeAllOfAttributes
@@ -167,12 +166,12 @@ private constructor(
             includeAllOfAttributes(includeAllOfAttributes.getOrNull())
 
         /**
-         * Use this parameter to filter the assets by their `attributes`. Assets having at least one
-         * of the `attributes` added to this parameter, will be returned in the response. Multiple
-         * `attributes` can be separated using pipes (`|`).
+         * Use this parameter to filter the assets by their attributes. Assets having at least one
+         * of the attributes added to this parameter, will be returned in the response. Multiple
+         * attributes can be separated using pipes (|).
          *
          * Please note the attributes are case sensitive. Also, this parameter can not be used in
-         * conjunction with `include_all_of_attributes` parameter.
+         * conjunction with include_all_of_attributes parameter.
          */
         fun includeAnyOfAttributes(includeAnyOfAttributes: String?) = apply {
             this.includeAnyOfAttributes = includeAnyOfAttributes
@@ -186,7 +185,7 @@ private constructor(
             includeAnyOfAttributes(includeAnyOfAttributes.getOrNull())
 
         /**
-         * Denotes page number. Use this along with the `ps` parameter to implement pagination for
+         * Denotes page number. Use this along with the ps parameter to implement pagination for
          * your searched results. This parameter does not have a maximum limit but would return an
          * empty response in case a higher value is provided when the result-set itself is smaller.
          */
@@ -203,7 +202,7 @@ private constructor(
         fun pn(pn: Optional<Long>) = pn(pn.getOrNull())
 
         /**
-         * Denotes number of search results per page. Use this along with the `pn` parameter to
+         * Denotes number of search results per page. Use this along with the pn parameter to
          * implement pagination for your searched results.
          */
         fun ps(ps: Long?) = apply { this.ps = ps }
@@ -219,11 +218,11 @@ private constructor(
         fun ps(ps: Optional<Long>) = ps(ps.getOrNull())
 
         /**
-         * Provide a single field to sort the results by. Only `updated_at` or `created_at` fields
-         * can be selected for ordering the results.
+         * Provide a single field to sort the results by. Only updated_at or created_at fields can
+         * be selected for ordering the results.
          *
-         * By default, the result is sorted by `created_at` field in the descending order. Allowed
-         * values for specifying the order are `asc` for ascending order and `desc` for descending
+         * By default, the result is sorted by created_at field in the descending order. Allowed
+         * values for specifying the order are asc for ascending order and desc for descending
          * order.
          */
         fun sort(sort: String?) = apply { this.sort = sort }
@@ -232,13 +231,13 @@ private constructor(
         fun sort(sort: Optional<String>) = sort(sort.getOrNull())
 
         /**
-         * **This parameter will be deprecated soon! Please use the `include_all_of_attributes` or
-         * `include_any_of_attributes` parameters to provide labels or markers for the assets to be
+         * **This parameter will be deprecated soon! Please use the include_all_of_attributes or
+         * include_any_of_attributes parameters to provide labels or markers for the assets to be
          * retrieved.**
          *
-         * `tags` can be used to filter the assets. Only those assets which have all the `tags`
-         * provided, will be included in the result. In case multiple `tags` need to be specified,
-         * use `,` to separate them.
+         * tags can be used to filter the assets. Only those assets which have all the tags
+         * provided, will be included in the result. In case multiple tags need to be specified, use
+         * , to separate them.
          */
         fun tags(tags: String?) = apply { this.tags = tags }
 

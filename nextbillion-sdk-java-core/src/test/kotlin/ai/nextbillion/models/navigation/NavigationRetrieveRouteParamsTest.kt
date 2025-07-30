@@ -22,7 +22,7 @@ internal class NavigationRetrieveRouteParamsTest {
             .lang("lang=en")
             .mode(NavigationRetrieveRouteParams.Mode.CAR)
             .origin("origin=41.349302,2.136480")
-            .originalShape("original_shape=sbp}_Almgp`FnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
+            .originalShape("original_shape=sbp}_AlmgpFnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
             .originalShapeType(NavigationRetrieveRouteParams.OriginalShapeType.POLYLINE)
             .overview(NavigationRetrieveRouteParams.Overview.FULL)
             .waypoints("waypoints=41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
@@ -44,7 +44,7 @@ internal class NavigationRetrieveRouteParamsTest {
                 .lang("lang=en")
                 .mode(NavigationRetrieveRouteParams.Mode.CAR)
                 .origin("origin=41.349302,2.136480")
-                .originalShape("original_shape=sbp}_Almgp`FnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
+                .originalShape("original_shape=sbp}_AlmgpFnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
                 .originalShapeType(NavigationRetrieveRouteParams.OriginalShapeType.POLYLINE)
                 .overview(NavigationRetrieveRouteParams.Overview.FULL)
                 .waypoints("waypoints=41.349302,2.136480|41.349303,2.136481|41.349304,2.136482")
@@ -58,20 +58,20 @@ internal class NavigationRetrieveRouteParamsTest {
                     .put("key", "key=API_KEY")
                     .put("altcount", "1")
                     .put("alternatives", "true")
-                    .put("approaches", "`unrestricted`")
+                    .put("approaches", "unrestricted")
                     .put("avoid", "toll")
                     .put("bearings", "bearings=0,180;0,180")
                     .put("destination", "destination=41.349302,2.136480")
-                    .put("geometry", "`polyline`")
+                    .put("geometry", "polyline")
                     .put("lang", "lang=en")
-                    .put("mode", "`car`")
+                    .put("mode", "car")
                     .put("origin", "origin=41.349302,2.136480")
                     .put(
                         "original_shape",
-                        "original_shape=sbp}_Almgp`FnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA",
+                        "original_shape=sbp}_AlmgpFnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA",
                     )
                     .put("original_shape_type", "polyline")
-                    .put("overview", "`full`")
+                    .put("overview", "full")
                     .put(
                         "waypoints",
                         "waypoints=41.349302,2.136480|41.349303,2.136481|41.349304,2.136482",

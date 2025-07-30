@@ -35,8 +35,8 @@ private constructor(
     fun keyToDelete(): String = keyToDelete
 
     /**
-     * Specify the name of the `namespace` to which the \`key_to_delete\` belongs. Please note that
-     * a namespace key cannot be deleted using another namespace key.
+     * Specify the name of the namespace to which the \key_to_delete\ belongs. Please note that a
+     * namespace key cannot be deleted using another namespace key.
      */
     fun namespace(): String = namespace
 
@@ -100,8 +100,8 @@ private constructor(
         fun keyToDelete(keyToDelete: String) = apply { this.keyToDelete = keyToDelete }
 
         /**
-         * Specify the name of the `namespace` to which the \`key_to_delete\` belongs. Please note
-         * that a namespace key cannot be deleted using another namespace key.
+         * Specify the name of the namespace to which the \key_to_delete\ belongs. Please note that
+         * a namespace key cannot be deleted using another namespace key.
          */
         fun namespace(namespace: String) = apply { this.namespace = namespace }
 

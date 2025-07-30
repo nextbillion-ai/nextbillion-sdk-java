@@ -52,8 +52,8 @@ private constructor(
     fun message(): Optional<String> = message.getOptional("message")
 
     /**
-     * A string indicating the state of the response. On successful responses, the value will be
-     * `Ok`. Indicative error messages are returned for different errors. See the
+     * A string indicating the state of the response. On successful responses, the value will be Ok.
+     * Indicative error messages are returned for different errors. See the
      * [API Error Codes](#api-error-codes) section below for more information.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -143,7 +143,7 @@ private constructor(
 
         /**
          * A string indicating the state of the response. On successful responses, the value will be
-         * `Ok`. Indicative error messages are returned for different errors. See the
+         * Ok. Indicative error messages are returned for different errors. See the
          * [API Error Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -437,7 +437,7 @@ private constructor(
             fun id(): Optional<String> = id.getOptional("id")
 
             /**
-             * An object with details of the `asset` properties.
+             * An object with details of the asset properties.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -453,8 +453,7 @@ private constructor(
             fun assetId(): Optional<String> = assetId.getOptional("asset_id")
 
             /**
-             * Returns the `attributes` provided for the trip at the time of starting or updating
-             * it.
+             * Returns the attributes provided for the trip at the time of starting or updating it.
              */
             @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 
@@ -777,7 +776,7 @@ private constructor(
                  */
                 fun id(id: JsonField<String>) = apply { this.id = id }
 
-                /** An object with details of the `asset` properties. */
+                /** An object with details of the asset properties. */
                 fun asset(asset: AssetDetails) = asset(JsonField.of(asset))
 
                 /**
@@ -805,8 +804,8 @@ private constructor(
                 fun assetId(assetId: JsonField<String>) = apply { this.assetId = assetId }
 
                 /**
-                 * Returns the `attributes` provided for the trip at the time of starting or
-                 * updating it.
+                 * Returns the attributes provided for the trip at the time of starting or updating
+                 * it.
                  */
                 fun attributes(attributes: JsonValue) = apply { this.attributes = attributes }
 

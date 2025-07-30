@@ -82,8 +82,8 @@ private constructor(
     )
 
     /**
-     * Unique ID of the `monitor`. This is the same ID that was generated at the time of creating
-     * the `monitor`.
+     * Unique ID of the monitor. This is the same ID that was generated at the time of creating the
+     * monitor.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -91,7 +91,7 @@ private constructor(
     fun id(): Optional<String> = id.getOptional("id")
 
     /**
-     * A UNIX epoch timestamp in seconds representing the time at which the `monitor` was created.
+     * A UNIX epoch timestamp in seconds representing the time at which the monitor was created.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -99,8 +99,8 @@ private constructor(
     fun createdAt(): Optional<Long> = createdAt.getOptional("created_at")
 
     /**
-     * Description of the `monitor`. The value would be the same as that provided for the
-     * `description` parameter at the time of creating or updating the `monitor`.
+     * Description of the monitor. The value would be the same as that provided for the description
+     * parameter at the time of creating or updating the monitor.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -108,8 +108,8 @@ private constructor(
     fun description(): Optional<String> = description.getOptional("description")
 
     /**
-     * An object returning the details of the geofence that are associated with the `monitor` for an
-     * `enter`, `exit` or `enter_and_exit` type of monitor.
+     * An object returning the details of the geofence that are associated with the monitor for an
+     * enter, exit or enter_and_exit type of monitor.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -117,10 +117,10 @@ private constructor(
     fun geofenceConfig(): Optional<GeofenceConfig> = geofenceConfig.getOptional("geofence_config")
 
     /**
-     * Geofence IDs that are linked to the `monitor`. These IDs were associated with the `monitor`
-     * at the time of creating or updating it.
+     * Geofence IDs that are linked to the monitor. These IDs were associated with the monitor at
+     * the time of creating or updating it.
      *
-     * The `monitor` uses the geofences mentioned here to create events of `type` nature for the
+     * The monitor uses the geofences mentioned here to create events of type nature for the
      * eligible asset(s).
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -129,8 +129,7 @@ private constructor(
     fun geofences(): Optional<List<String>> = geofences.getOptional("geofences")
 
     /**
-     * An object returning the details of the idle activity constraints for a `idle` type of
-     * `monitor`.
+     * An object returning the details of the idle activity constraints for a idle type of monitor.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -138,7 +137,7 @@ private constructor(
     fun idleConfig(): Optional<IdleConfig> = idleConfig.getOptional("idle_config")
 
     /**
-     * Use this object to update the `attributes` of the `monitor`.
+     * Use this object to update the attributes of the monitor.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -149,8 +148,8 @@ private constructor(
     @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
     /**
-     * Name of the `monitor`. The value would be the same as that provided for the `name` parameter
-     * at the time of creating or updating the `monitor`.
+     * Name of the monitor. The value would be the same as that provided for the name parameter at
+     * the time of creating or updating the monitor.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -158,8 +157,8 @@ private constructor(
     fun name(): Optional<String> = name.getOptional("name")
 
     /**
-     * An object returning the details of the over-speeding constraints for a `speeding` type of
-     * `monitor`.
+     * An object returning the details of the over-speeding constraints for a speeding type of
+     * monitor.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -167,8 +166,8 @@ private constructor(
     fun speedingConfig(): Optional<SpeedingConfig> = speedingConfig.getOptional("speeding_config")
 
     /**
-     * Tags of the `monitor`. The values would be the same as that provided for the `tags` parameter
-     * at the time of creating or updating the `monitor`.
+     * Tags of the monitor. The values would be the same as that provided for the tags parameter at
+     * the time of creating or updating the monitor.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -176,8 +175,8 @@ private constructor(
     fun tags(): Optional<List<String>> = tags.getOptional("tags")
 
     /**
-     * Type of the `monitor`. It represents the type of `asset` activity that the `monitor` is
-     * configured to detect.
+     * Type of the monitor. It represents the type of asset activity that the monitor is configured
+     * to detect.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -185,7 +184,7 @@ private constructor(
     fun type(): Optional<Type> = type.getOptional("type")
 
     /**
-     * A UNIX epoch timestamp in seconds representing the time at which the `monitor` was last
+     * A UNIX epoch timestamp in seconds representing the time at which the monitor was last
      * updated.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -340,8 +339,8 @@ private constructor(
         }
 
         /**
-         * Unique ID of the `monitor`. This is the same ID that was generated at the time of
-         * creating the `monitor`.
+         * Unique ID of the monitor. This is the same ID that was generated at the time of creating
+         * the monitor.
          */
         fun id(id: String) = id(JsonField.of(id))
 
@@ -354,8 +353,7 @@ private constructor(
         fun id(id: JsonField<String>) = apply { this.id = id }
 
         /**
-         * A UNIX epoch timestamp in seconds representing the time at which the `monitor` was
-         * created.
+         * A UNIX epoch timestamp in seconds representing the time at which the monitor was created.
          */
         fun createdAt(createdAt: Long) = createdAt(JsonField.of(createdAt))
 
@@ -368,8 +366,8 @@ private constructor(
         fun createdAt(createdAt: JsonField<Long>) = apply { this.createdAt = createdAt }
 
         /**
-         * Description of the `monitor`. The value would be the same as that provided for the
-         * `description` parameter at the time of creating or updating the `monitor`.
+         * Description of the monitor. The value would be the same as that provided for the
+         * description parameter at the time of creating or updating the monitor.
          */
         fun description(description: String) = description(JsonField.of(description))
 
@@ -383,8 +381,8 @@ private constructor(
         fun description(description: JsonField<String>) = apply { this.description = description }
 
         /**
-         * An object returning the details of the geofence that are associated with the `monitor`
-         * for an `enter`, `exit` or `enter_and_exit` type of monitor.
+         * An object returning the details of the geofence that are associated with the monitor for
+         * an enter, exit or enter_and_exit type of monitor.
          */
         fun geofenceConfig(geofenceConfig: GeofenceConfig) =
             geofenceConfig(JsonField.of(geofenceConfig))
@@ -401,10 +399,10 @@ private constructor(
         }
 
         /**
-         * Geofence IDs that are linked to the `monitor`. These IDs were associated with the
-         * `monitor` at the time of creating or updating it.
+         * Geofence IDs that are linked to the monitor. These IDs were associated with the monitor
+         * at the time of creating or updating it.
          *
-         * The `monitor` uses the geofences mentioned here to create events of `type` nature for the
+         * The monitor uses the geofences mentioned here to create events of type nature for the
          * eligible asset(s).
          */
         fun geofences(geofences: List<String>) = geofences(JsonField.of(geofences))
@@ -433,8 +431,8 @@ private constructor(
         }
 
         /**
-         * An object returning the details of the idle activity constraints for a `idle` type of
-         * `monitor`.
+         * An object returning the details of the idle activity constraints for a idle type of
+         * monitor.
          */
         fun idleConfig(idleConfig: IdleConfig) = idleConfig(JsonField.of(idleConfig))
 
@@ -447,7 +445,7 @@ private constructor(
          */
         fun idleConfig(idleConfig: JsonField<IdleConfig>) = apply { this.idleConfig = idleConfig }
 
-        /** Use this object to update the `attributes` of the `monitor`. */
+        /** Use this object to update the attributes of the monitor. */
         fun matchFilter(matchFilter: MatchFilter) = matchFilter(JsonField.of(matchFilter))
 
         /**
@@ -465,8 +463,8 @@ private constructor(
         fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }
 
         /**
-         * Name of the `monitor`. The value would be the same as that provided for the `name`
-         * parameter at the time of creating or updating the `monitor`.
+         * Name of the monitor. The value would be the same as that provided for the name parameter
+         * at the time of creating or updating the monitor.
          */
         fun name(name: String) = name(JsonField.of(name))
 
@@ -479,8 +477,8 @@ private constructor(
         fun name(name: JsonField<String>) = apply { this.name = name }
 
         /**
-         * An object returning the details of the over-speeding constraints for a `speeding` type of
-         * `monitor`.
+         * An object returning the details of the over-speeding constraints for a speeding type of
+         * monitor.
          */
         fun speedingConfig(speedingConfig: SpeedingConfig) =
             speedingConfig(JsonField.of(speedingConfig))
@@ -497,8 +495,8 @@ private constructor(
         }
 
         /**
-         * Tags of the `monitor`. The values would be the same as that provided for the `tags`
-         * parameter at the time of creating or updating the `monitor`.
+         * Tags of the monitor. The values would be the same as that provided for the tags parameter
+         * at the time of creating or updating the monitor.
          */
         fun tags(tags: List<String>) = tags(JsonField.of(tags))
 
@@ -523,7 +521,7 @@ private constructor(
         }
 
         /**
-         * Type of the `monitor`. It represents the type of `asset` activity that the `monitor` is
+         * Type of the monitor. It represents the type of asset activity that the monitor is
          * configured to detect.
          */
         fun type(type: Type) = type(JsonField.of(type))
@@ -537,7 +535,7 @@ private constructor(
         fun type(type: JsonField<Type>) = apply { this.type = type }
 
         /**
-         * A UNIX epoch timestamp in seconds representing the time at which the `monitor` was last
+         * A UNIX epoch timestamp in seconds representing the time at which the monitor was last
          * updated.
          */
         fun updatedAt(updatedAt: Long) = updatedAt(JsonField.of(updatedAt))
@@ -644,8 +642,8 @@ private constructor(
             (if (updatedAt.asKnown().isPresent) 1 else 0)
 
     /**
-     * An object returning the details of the geofence that are associated with the `monitor` for an
-     * `enter`, `exit` or `enter_and_exit` type of monitor.
+     * An object returning the details of the geofence that are associated with the monitor for an
+     * enter, exit or enter_and_exit type of monitor.
      */
     class GeofenceConfig
     private constructor(
@@ -661,7 +659,7 @@ private constructor(
         ) : this(geofenceIds, mutableMapOf())
 
         /**
-         * An array of geofence IDs that are linked to the `monitor`. Geofences are geographic
+         * An array of geofence IDs that are linked to the monitor. Geofences are geographic
          * boundaries that can be used to trigger events based on an asset's location.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -709,7 +707,7 @@ private constructor(
             }
 
             /**
-             * An array of geofence IDs that are linked to the `monitor`. Geofences are geographic
+             * An array of geofence IDs that are linked to the monitor. Geofences are geographic
              * boundaries that can be used to trigger events based on an asset's location.
              */
             fun geofenceIds(geofenceIds: List<String>) = geofenceIds(JsonField.of(geofenceIds))
@@ -814,8 +812,7 @@ private constructor(
     }
 
     /**
-     * An object returning the details of the idle activity constraints for a `idle` type of
-     * `monitor`.
+     * An object returning the details of the idle activity constraints for a idle type of monitor.
      */
     class IdleConfig
     private constructor(
@@ -837,7 +834,7 @@ private constructor(
         /**
          * This parameter returns the distance threshold that was used to determine if the asset was
          * idle or not. The value returned for this parameter is the same as that provided while
-         * creating or updating a `idle` type `monitor`.
+         * creating or updating a idle type monitor.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -846,10 +843,9 @@ private constructor(
             distanceTolerance.getOptional("distance_tolerance")
 
         /**
-         * This parameter returns the time duration for which the `monitor` tracks the distance
+         * This parameter returns the time duration for which the monitor tracks the distance
          * covered by an asset before triggering an idle event. The value returned for this
-         * parameter is the same as that provided while creating or updating a `idle` type
-         * `monitor`.
+         * parameter is the same as that provided while creating or updating a idle type monitor.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -911,7 +907,7 @@ private constructor(
             /**
              * This parameter returns the distance threshold that was used to determine if the asset
              * was idle or not. The value returned for this parameter is the same as that provided
-             * while creating or updating a `idle` type `monitor`.
+             * while creating or updating a idle type monitor.
              */
             fun distanceTolerance(distanceTolerance: Double) =
                 distanceTolerance(JsonField.of(distanceTolerance))
@@ -928,10 +924,10 @@ private constructor(
             }
 
             /**
-             * This parameter returns the time duration for which the `monitor` tracks the distance
+             * This parameter returns the time duration for which the monitor tracks the distance
              * covered by an asset before triggering an idle event. The value returned for this
-             * parameter is the same as that provided while creating or updating a `idle` type
-             * `monitor`.
+             * parameter is the same as that provided while creating or updating a idle type
+             * monitor.
              */
             fun timeTolerance(timeTolerance: Long) = timeTolerance(JsonField.of(timeTolerance))
 
@@ -1023,7 +1019,7 @@ private constructor(
             "IdleConfig{distanceTolerance=$distanceTolerance, timeTolerance=$timeTolerance, additionalProperties=$additionalProperties}"
     }
 
-    /** Use this object to update the `attributes` of the `monitor`. */
+    /** Use this object to update the attributes of the monitor. */
     class MatchFilter
     private constructor(
         private val includeAllOfAttributes: JsonValue,
@@ -1042,33 +1038,32 @@ private constructor(
         ) : this(includeAllOfAttributes, includeAnyOfAttributes, mutableMapOf())
 
         /**
-         * A string type dictionary object to specify the `attributes` which will be used to
-         * identify the asset(s) on which the `monitor` would be applied. Please note that using
-         * this parameter overwrites the existing `attributes` of the monitor.
+         * A string type dictionary object to specify the attributes which will be used to identify
+         * the asset(s) on which the monitor would be applied. Please note that using this parameter
+         * overwrites the existing attributes of the monitor.
          *
-         * If the `attributes` added to a `monitor` do not match fully with the `attributes` added
-         * to any `asset`, the `monitor` will be ineffective.
+         * If the attributes added to a monitor do not match fully with the attributes added to any
+         * asset, the monitor will be ineffective.
          *
-         * Please note that the maximum number of `key`:`value` pairs that
-         * 'include_all_of_attributes' can take is 100. Also, the overall size of the `match_filter`
-         * object should not exceed 65kb.
+         * Please note that the maximum number of key:value pairs that 'include_all_of_attributes'
+         * can take is 100. Also, the overall size of the match_filter object should not exceed
+         * 65kb.
          */
         @JsonProperty("include_all_of_attributes")
         @ExcludeMissing
         fun _includeAllOfAttributes(): JsonValue = includeAllOfAttributes
 
         /**
-         * A string dictionary object to specify the `attributes`, separated by a `,`. Only the
-         * `assets` with any one of the `attributes` added to this parameter will be linked to this
-         * `monitor`. Once an `asset` and a `monitor` are linked, the `monitor` will be able to
-         * create events for the `asset` when an activity specified in `type` is detected.
+         * A string dictionary object to specify the attributes, separated by a ,. Only the assets
+         * with any one of the attributes added to this parameter will be linked to this monitor.
+         * Once an asset and a monitor are linked, the monitor will be able to create events for the
+         * asset when an activity specified in type is detected.
          *
-         * If no input is provided for this object or if the `attributes` added here do not match at
-         * least one of the `attributes` added to any `asset`, the `monitor` will be ineffective.
+         * If no input is provided for this object or if the attributes added here do not match at
+         * least one of the attributes added to any asset, the monitor will be ineffective.
          *
-         * Please note that the maximum number of `key`:`value` pairs that
-         * `include_any_of_attributes` can take is 100. Also, the overall size of `match_filter`
-         * object should not exceed 65kb.
+         * Please note that the maximum number of key:value pairs that include_any_of_attributes can
+         * take is 100. Also, the overall size of match_filter object should not exceed 65kb.
          */
         @JsonProperty("include_any_of_attributes")
         @ExcludeMissing
@@ -1107,35 +1102,33 @@ private constructor(
             }
 
             /**
-             * A string type dictionary object to specify the `attributes` which will be used to
-             * identify the asset(s) on which the `monitor` would be applied. Please note that using
-             * this parameter overwrites the existing `attributes` of the monitor.
+             * A string type dictionary object to specify the attributes which will be used to
+             * identify the asset(s) on which the monitor would be applied. Please note that using
+             * this parameter overwrites the existing attributes of the monitor.
              *
-             * If the `attributes` added to a `monitor` do not match fully with the `attributes`
-             * added to any `asset`, the `monitor` will be ineffective.
+             * If the attributes added to a monitor do not match fully with the attributes added to
+             * any asset, the monitor will be ineffective.
              *
-             * Please note that the maximum number of `key`:`value` pairs that
+             * Please note that the maximum number of key:value pairs that
              * 'include_all_of_attributes' can take is 100. Also, the overall size of the
-             * `match_filter` object should not exceed 65kb.
+             * match_filter object should not exceed 65kb.
              */
             fun includeAllOfAttributes(includeAllOfAttributes: JsonValue) = apply {
                 this.includeAllOfAttributes = includeAllOfAttributes
             }
 
             /**
-             * A string dictionary object to specify the `attributes`, separated by a `,`. Only the
-             * `assets` with any one of the `attributes` added to this parameter will be linked to
-             * this `monitor`. Once an `asset` and a `monitor` are linked, the `monitor` will be
-             * able to create events for the `asset` when an activity specified in `type` is
-             * detected.
+             * A string dictionary object to specify the attributes, separated by a ,. Only the
+             * assets with any one of the attributes added to this parameter will be linked to this
+             * monitor. Once an asset and a monitor are linked, the monitor will be able to create
+             * events for the asset when an activity specified in type is detected.
              *
-             * If no input is provided for this object or if the `attributes` added here do not
-             * match at least one of the `attributes` added to any `asset`, the `monitor` will be
-             * ineffective.
+             * If no input is provided for this object or if the attributes added here do not match
+             * at least one of the attributes added to any asset, the monitor will be ineffective.
              *
-             * Please note that the maximum number of `key`:`value` pairs that
-             * `include_any_of_attributes` can take is 100. Also, the overall size of `match_filter`
-             * object should not exceed 65kb.
+             * Please note that the maximum number of key:value pairs that include_any_of_attributes
+             * can take is 100. Also, the overall size of match_filter object should not exceed
+             * 65kb.
              */
             fun includeAnyOfAttributes(includeAnyOfAttributes: JsonValue) = apply {
                 this.includeAnyOfAttributes = includeAnyOfAttributes
@@ -1218,8 +1211,8 @@ private constructor(
     }
 
     /**
-     * An object returning the details of the over-speeding constraints for a `speeding` type of
-     * `monitor`.
+     * An object returning the details of the over-speeding constraints for a speeding type of
+     * monitor.
      */
     class SpeedingConfig
     private constructor(
@@ -1243,9 +1236,9 @@ private constructor(
         ) : this(customerSpeedLimit, timeTolerance, useAdminSpeedLimit, mutableMapOf())
 
         /**
-         * This property returns the actual speed limit that the `monitor` uses as a threshold for
+         * This property returns the actual speed limit that the monitor uses as a threshold for
          * generating a speed limit event. The value returned for this parameter is the same as that
-         * provided while creating or updating a `speeding` type `monitor`.
+         * provided while creating or updating a speeding type monitor.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1254,12 +1247,12 @@ private constructor(
             customerSpeedLimit.getOptional("customer_speed_limit")
 
         /**
-         * This property returns the time duration value, in milliseconds, for which the `monitor`
+         * This property returns the time duration value, in milliseconds, for which the monitor
          * will track the speed of the asset. An event is triggered if the speed remains higher than
          * the specified limit for a duration more than the tolerance value.
          *
          * The value returned for this parameter is the same as that provided while creating or
-         * updating a `speeding` type `monitor`.
+         * updating a speeding type monitor.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1269,7 +1262,7 @@ private constructor(
         /**
          * A boolean value denoting if the administrative speed limit of the road was used as speed
          * limit threshold for triggering events. The value returned for this parameter is the same
-         * as that provided while creating or updating a `speeding` type `monitor`.
+         * as that provided while creating or updating a speeding type monitor.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1342,9 +1335,9 @@ private constructor(
             }
 
             /**
-             * This property returns the actual speed limit that the `monitor` uses as a threshold
-             * for generating a speed limit event. The value returned for this parameter is the same
-             * as that provided while creating or updating a `speeding` type `monitor`.
+             * This property returns the actual speed limit that the monitor uses as a threshold for
+             * generating a speed limit event. The value returned for this parameter is the same as
+             * that provided while creating or updating a speeding type monitor.
              */
             fun customerSpeedLimit(customerSpeedLimit: Long) =
                 customerSpeedLimit(JsonField.of(customerSpeedLimit))
@@ -1361,12 +1354,12 @@ private constructor(
             }
 
             /**
-             * This property returns the time duration value, in milliseconds, for which the
-             * `monitor` will track the speed of the asset. An event is triggered if the speed
-             * remains higher than the specified limit for a duration more than the tolerance value.
+             * This property returns the time duration value, in milliseconds, for which the monitor
+             * will track the speed of the asset. An event is triggered if the speed remains higher
+             * than the specified limit for a duration more than the tolerance value.
              *
              * The value returned for this parameter is the same as that provided while creating or
-             * updating a `speeding` type `monitor`.
+             * updating a speeding type monitor.
              */
             fun timeTolerance(timeTolerance: Long) = timeTolerance(JsonField.of(timeTolerance))
 
@@ -1384,7 +1377,7 @@ private constructor(
             /**
              * A boolean value denoting if the administrative speed limit of the road was used as
              * speed limit threshold for triggering events. The value returned for this parameter is
-             * the same as that provided while creating or updating a `speeding` type `monitor`.
+             * the same as that provided while creating or updating a speeding type monitor.
              */
             fun useAdminSpeedLimit(useAdminSpeedLimit: Boolean) =
                 useAdminSpeedLimit(JsonField.of(useAdminSpeedLimit))
@@ -1485,8 +1478,8 @@ private constructor(
     }
 
     /**
-     * Type of the `monitor`. It represents the type of `asset` activity that the `monitor` is
-     * configured to detect.
+     * Type of the monitor. It represents the type of asset activity that the monitor is configured
+     * to detect.
      */
     class Type @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -1502,15 +1495,15 @@ private constructor(
 
         companion object {
 
-            @JvmField val ENTER = of("`enter`")
+            @JvmField val ENTER = of("enter")
 
-            @JvmField val EXIT = of("`exit`")
+            @JvmField val EXIT = of("exit")
 
-            @JvmField val ENTER_AND_EXIT = of("`enter_and_exit`")
+            @JvmField val ENTER_AND_EXIT = of("enter_and_exit")
 
-            @JvmField val SPEEDING = of("`speeding`")
+            @JvmField val SPEEDING = of("speeding")
 
-            @JvmField val IDLE = of("`idle`")
+            @JvmField val IDLE = of("idle")
 
             @JvmStatic fun of(value: String) = Type(JsonField.of(value))
         }

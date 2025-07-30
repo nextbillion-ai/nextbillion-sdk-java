@@ -57,8 +57,8 @@ private constructor(
 
     /**
      * Provide the details to create a circular geofence. Please note that this object is mandatory
-     * when `type` is `circle`. When the `type` is not `circle`, the properties of this object will
-     * be ignored while creating the geofence.
+     * when type is circle. When the type is not circle, the properties of this object will be
+     * ignored while creating the geofence.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -67,7 +67,7 @@ private constructor(
 
     /**
      * Set an unique ID for the new geofence. If not provided, an ID will be automatically generated
-     * in UUID format. A valid `custom_id` can contain letters, numbers, "-", & "\_" only.
+     * in UUID format. A valid custom*id can contain letters, numbers, "-", & "*" only.
      *
      * Please note that the ID of a geofence can not be changed once it is created.
      *
@@ -77,9 +77,9 @@ private constructor(
     fun customId(): Optional<String> = customId.getOptional("custom_id")
 
     /**
-     * Provide the details to create an isochrone based geofence. Use this object when `type` is
-     * `isochrone`. When the `type` is not `isochrone`, the properties of this object will be
-     * ignored while creating the geofence.
+     * Provide the details to create an isochrone based geofence. Use this object when type is
+     * isochrone. When the type is not isochrone, the properties of this object will be ignored
+     * while creating the geofence.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -90,8 +90,8 @@ private constructor(
      * Metadata of the geofence. Use this field to define custom attributes that provide more
      * context and information about the geofence being created like country, group ID etc.
      *
-     * The data being added should be in valid JSON object format (i.e. `key` and `value` pairs).
-     * Max size allowed for the object is 65kb.
+     * The data being added should be in valid JSON object format (i.e. key and value pairs). Max
+     * size allowed for the object is 65kb.
      */
     @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
@@ -106,8 +106,8 @@ private constructor(
 
     /**
      * Provide the details to create a custom polygon type of geofence. Please note that this object
-     * is mandatory when `type` is `polygon`. When the `type` is not `polygon`, the properties of
-     * this object will be ignored while creating the geofence.
+     * is mandatory when type is polygon. When the type is not polygon, the properties of this
+     * object will be ignored while creating the geofence.
      *
      * Self-intersecting polygons or polygons containing other polygons are invalid and will be
      * removed while processing the request.
@@ -120,11 +120,11 @@ private constructor(
     fun polygon(): Optional<Polygon> = polygon.getOptional("polygon")
 
     /**
-     * An array of strings to associate multiple tags to the geofence. `tags` can be used to search
-     * or filter geofences (using `Get Geofence List` method).
+     * An array of strings to associate multiple tags to the geofence. tags can be used to search or
+     * filter geofences (using Get Geofence List method).
      *
-     * Create valid `tags` using a string consisting of alphanumeric characters (A-Z, a-z, 0-9)
-     * along with the underscore ('\_') and hyphen ('-') symbols.
+     * Create valid tags using a string consisting of alphanumeric characters (A-Z, a-z, 0-9) along
+     * with the underscore ('\_') and hyphen ('-') symbols.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -244,8 +244,8 @@ private constructor(
 
         /**
          * Provide the details to create a circular geofence. Please note that this object is
-         * mandatory when `type` is `circle`. When the `type` is not `circle`, the properties of
-         * this object will be ignored while creating the geofence.
+         * mandatory when type is circle. When the type is not circle, the properties of this object
+         * will be ignored while creating the geofence.
          */
         fun circle(circle: Circle) = circle(JsonField.of(circle))
 
@@ -259,7 +259,7 @@ private constructor(
 
         /**
          * Set an unique ID for the new geofence. If not provided, an ID will be automatically
-         * generated in UUID format. A valid `custom_id` can contain letters, numbers, "-", & "\_"
+         * generated in UUID format. A valid custom*id can contain letters, numbers, "-", & "*"
          * only.
          *
          * Please note that the ID of a geofence can not be changed once it is created.
@@ -275,9 +275,9 @@ private constructor(
         fun customId(customId: JsonField<String>) = apply { this.customId = customId }
 
         /**
-         * Provide the details to create an isochrone based geofence. Use this object when `type` is
-         * `isochrone`. When the `type` is not `isochrone`, the properties of this object will be
-         * ignored while creating the geofence.
+         * Provide the details to create an isochrone based geofence. Use this object when type is
+         * isochrone. When the type is not isochrone, the properties of this object will be ignored
+         * while creating the geofence.
          */
         fun isochrone(isochrone: Isochrone) = isochrone(JsonField.of(isochrone))
 
@@ -294,8 +294,8 @@ private constructor(
          * Metadata of the geofence. Use this field to define custom attributes that provide more
          * context and information about the geofence being created like country, group ID etc.
          *
-         * The data being added should be in valid JSON object format (i.e. `key` and `value`
-         * pairs). Max size allowed for the object is 65kb.
+         * The data being added should be in valid JSON object format (i.e. key and value pairs).
+         * Max size allowed for the object is 65kb.
          */
         fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }
 
@@ -315,8 +315,8 @@ private constructor(
 
         /**
          * Provide the details to create a custom polygon type of geofence. Please note that this
-         * object is mandatory when `type` is `polygon`. When the `type` is not `polygon`, the
-         * properties of this object will be ignored while creating the geofence.
+         * object is mandatory when type is polygon. When the type is not polygon, the properties of
+         * this object will be ignored while creating the geofence.
          *
          * Self-intersecting polygons or polygons containing other polygons are invalid and will be
          * removed while processing the request.
@@ -334,10 +334,10 @@ private constructor(
         fun polygon(polygon: JsonField<Polygon>) = apply { this.polygon = polygon }
 
         /**
-         * An array of strings to associate multiple tags to the geofence. `tags` can be used to
-         * search or filter geofences (using `Get Geofence List` method).
+         * An array of strings to associate multiple tags to the geofence. tags can be used to
+         * search or filter geofences (using Get Geofence List method).
          *
-         * Create valid `tags` using a string consisting of alphanumeric characters (A-Z, a-z, 0-9)
+         * Create valid tags using a string consisting of alphanumeric characters (A-Z, a-z, 0-9)
          * along with the underscore ('\_') and hyphen ('-') symbols.
          */
         fun tags(tags: List<String>) = tags(JsonField.of(tags))
@@ -462,11 +462,11 @@ private constructor(
 
         companion object {
 
-            @JvmField val CIRCLE = of("`circle`")
+            @JvmField val CIRCLE = of("circle")
 
-            @JvmField val POLYGON = of("`polygon`")
+            @JvmField val POLYGON = of("polygon")
 
-            @JvmField val ISOCHRONE = of("`isochrone`")
+            @JvmField val ISOCHRONE = of("isochrone")
 
             @JvmStatic fun of(value: String) = Type(JsonField.of(value))
         }
@@ -583,8 +583,8 @@ private constructor(
 
     /**
      * Provide the details to create a circular geofence. Please note that this object is mandatory
-     * when `type` is `circle`. When the `type` is not `circle`, the properties of this object will
-     * be ignored while creating the geofence.
+     * when type is circle. When the type is not circle, the properties of this object will be
+     * ignored while creating the geofence.
      */
     class Circle
     private constructor(
@@ -781,7 +781,7 @@ private constructor(
             ) : this(lat, lon, mutableMapOf())
 
             /**
-             * Latitude of the `center` location.
+             * Latitude of the center location.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   or is unexpectedly missing or null (e.g. if the server responded with an unexpected
@@ -790,7 +790,7 @@ private constructor(
             fun lat(): Double = lat.getRequired("lat")
 
             /**
-             * Longitude of the `center` location.
+             * Longitude of the center location.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   or is unexpectedly missing or null (e.g. if the server responded with an unexpected
@@ -852,7 +852,7 @@ private constructor(
                     additionalProperties = center.additionalProperties.toMutableMap()
                 }
 
-                /** Latitude of the `center` location. */
+                /** Latitude of the center location. */
                 fun lat(lat: Double) = lat(JsonField.of(lat))
 
                 /**
@@ -864,7 +864,7 @@ private constructor(
                  */
                 fun lat(lat: JsonField<Double>) = apply { this.lat = lat }
 
-                /** Longitude of the `center` location. */
+                /** Longitude of the center location. */
                 fun lon(lon: Double) = lon(JsonField.of(lon))
 
                 /**
@@ -986,9 +986,9 @@ private constructor(
     }
 
     /**
-     * Provide the details to create an isochrone based geofence. Use this object when `type` is
-     * `isochrone`. When the `type` is not `isochrone`, the properties of this object will be
-     * ignored while creating the geofence.
+     * Provide the details to create an isochrone based geofence. Use this object when type is
+     * isochrone. When the type is not isochrone, the properties of this object will be ignored
+     * while creating the geofence.
      */
     class Isochrone
     private constructor(
@@ -1030,7 +1030,7 @@ private constructor(
         /**
          * Coordinates of the location, in [latitude,longitude] format, which would act as the
          * starting point for identifying the isochrone polygon or the boundary of reachable area.
-         * This parameter is mandatory when `type` is `isochrone`.
+         * This parameter is mandatory when type is isochrone.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -1040,12 +1040,11 @@ private constructor(
         /**
          * The distance, in meters, for which an isochrone polygon needs to be determined. When
          * provided, the API would create a geofence representing the area that can be reached after
-         * driving the given number of meters starting from the point specified in `coordinates`.
+         * driving the given number of meters starting from the point specified in coordinates.
          *
          * The maximum distance that can be specified is 60000 meters (60km).
          *
-         * At least one of `contours_meter` or `contours_minute` is mandatory when `type` is
-         * `isochrone`.
+         * At least one of contours_meter or contours_minute is mandatory when type is isochrone.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1055,13 +1054,11 @@ private constructor(
         /**
          * The duration, in minutes, for which an isochrone polygon needs to be determined. When
          * provided, the API would create a geofence representing the area that can be reached after
-         * driving for the given number of minutes starting from the point specified in
-         * `coordinates`.
+         * driving for the given number of minutes starting from the point specified in coordinates.
          *
          * The maximum duration that can be specified is 40 minutes.
          *
-         * At least one of `contours_meter` or `contours_minute` is mandatory when `type` is
-         * `isochrone`.
+         * At least one of contours_meter or contours_minute is mandatory when type is isochrone.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1093,10 +1090,10 @@ private constructor(
         /**
          * Set which driving mode the service should use to determine the isochrone line.
          *
-         * For example, if you use `car`, the API will return an isochrone polygon that a car can
-         * cover within the specified time or after driving the specified distance. Using `truck`
-         * will return an isochrone that a truck can reach after taking into account appropriate
-         * truck routing restrictions.
+         * For example, if you use car, the API will return an isochrone polygon that a car can
+         * cover within the specified time or after driving the specified distance. Using truck will
+         * return an isochrone that a truck can reach after taking into account appropriate truck
+         * routing restrictions.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1206,7 +1203,7 @@ private constructor(
             /**
              * Coordinates of the location, in [latitude,longitude] format, which would act as the
              * starting point for identifying the isochrone polygon or the boundary of reachable
-             * area. This parameter is mandatory when `type` is `isochrone`.
+             * area. This parameter is mandatory when type is isochrone.
              */
             fun coordinates(coordinates: String) = coordinates(JsonField.of(coordinates))
 
@@ -1225,12 +1222,12 @@ private constructor(
              * The distance, in meters, for which an isochrone polygon needs to be determined. When
              * provided, the API would create a geofence representing the area that can be reached
              * after driving the given number of meters starting from the point specified in
-             * `coordinates`.
+             * coordinates.
              *
              * The maximum distance that can be specified is 60000 meters (60km).
              *
-             * At least one of `contours_meter` or `contours_minute` is mandatory when `type` is
-             * `isochrone`.
+             * At least one of contours_meter or contours_minute is mandatory when type is
+             * isochrone.
              */
             fun contoursMeter(contoursMeter: Long) = contoursMeter(JsonField.of(contoursMeter))
 
@@ -1249,12 +1246,12 @@ private constructor(
              * The duration, in minutes, for which an isochrone polygon needs to be determined. When
              * provided, the API would create a geofence representing the area that can be reached
              * after driving for the given number of minutes starting from the point specified in
-             * `coordinates`.
+             * coordinates.
              *
              * The maximum duration that can be specified is 40 minutes.
              *
-             * At least one of `contours_meter` or `contours_minute` is mandatory when `type` is
-             * `isochrone`.
+             * At least one of contours_meter or contours_minute is mandatory when type is
+             * isochrone.
              */
             fun contoursMinute(contoursMinute: Long) = contoursMinute(JsonField.of(contoursMinute))
 
@@ -1308,10 +1305,10 @@ private constructor(
             /**
              * Set which driving mode the service should use to determine the isochrone line.
              *
-             * For example, if you use `car`, the API will return an isochrone polygon that a car
-             * can cover within the specified time or after driving the specified distance. Using
-             * `truck` will return an isochrone that a truck can reach after taking into account
-             * appropriate truck routing restrictions.
+             * For example, if you use car, the API will return an isochrone polygon that a car can
+             * cover within the specified time or after driving the specified distance. Using truck
+             * will return an isochrone that a truck can reach after taking into account appropriate
+             * truck routing restrictions.
              */
             fun mode(mode: Mode) = mode(JsonField.of(mode))
 
@@ -1409,10 +1406,10 @@ private constructor(
         /**
          * Set which driving mode the service should use to determine the isochrone line.
          *
-         * For example, if you use `car`, the API will return an isochrone polygon that a car can
-         * cover within the specified time or after driving the specified distance. Using `truck`
-         * will return an isochrone that a truck can reach after taking into account appropriate
-         * truck routing restrictions.
+         * For example, if you use car, the API will return an isochrone polygon that a car can
+         * cover within the specified time or after driving the specified distance. Using truck will
+         * return an isochrone that a truck can reach after taking into account appropriate truck
+         * routing restrictions.
          */
         class Mode @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -1428,9 +1425,9 @@ private constructor(
 
             companion object {
 
-                @JvmField val CAR = of("`car`")
+                @JvmField val CAR = of("car")
 
-                @JvmField val TRUCK = of("`truck`")
+                @JvmField val TRUCK = of("truck")
 
                 @JvmStatic fun of(value: String) = Mode(JsonField.of(value))
             }
@@ -1561,8 +1558,8 @@ private constructor(
 
     /**
      * Provide the details to create a custom polygon type of geofence. Please note that this object
-     * is mandatory when `type` is `polygon`. When the `type` is not `polygon`, the properties of
-     * this object will be ignored while creating the geofence.
+     * is mandatory when type is polygon. When the type is not polygon, the properties of this
+     * object will be ignored while creating the geofence.
      *
      * Self-intersecting polygons or polygons containing other polygons are invalid and will be
      * removed while processing the request.
@@ -1741,7 +1738,7 @@ private constructor(
             fun coordinates(): List<List<Double>> = coordinates.getRequired("coordinates")
 
             /**
-             * Type of the geoJSON geometry. Should always be `Polygon`.
+             * Type of the geoJSON geometry. Should always be Polygon.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   or is unexpectedly missing or null (e.g. if the server responded with an unexpected
@@ -1836,7 +1833,7 @@ private constructor(
                         }
                 }
 
-                /** Type of the geoJSON geometry. Should always be `Polygon`. */
+                /** Type of the geoJSON geometry. Should always be Polygon. */
                 fun type(type: String) = type(JsonField.of(type))
 
                 /**

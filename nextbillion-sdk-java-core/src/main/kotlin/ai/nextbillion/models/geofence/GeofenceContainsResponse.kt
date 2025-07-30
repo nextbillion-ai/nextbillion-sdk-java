@@ -38,8 +38,8 @@ private constructor(
     fun data(): Optional<Data> = data.getOptional("data")
 
     /**
-     * A string indicating the state of the response. On successful responses, the value will be
-     * `Ok`. Indicative error messages are returned for different errors. See the
+     * A string indicating the state of the response. On successful responses, the value will be Ok.
+     * Indicative error messages are returned for different errors. See the
      * [API Error Codes](#api-error-codes) section below for more information.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -105,7 +105,7 @@ private constructor(
 
         /**
          * A string indicating the state of the response. On successful responses, the value will be
-         * `Ok`. Indicative error messages are returned for different errors. See the
+         * Ok. Indicative error messages are returned for different errors. See the
          * [API Error Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -189,9 +189,9 @@ private constructor(
         ) : this(resultList, mutableMapOf())
 
         /**
-         * An array of objects containing each of the geofences provided in the `geofences` input.
-         * If `geofences` in not provided then the array will return all the geofences associated
-         * with the `key`
+         * An array of objects containing each of the geofences provided in the geofences input. If
+         * geofences in not provided then the array will return all the geofences associated with
+         * the key
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -238,9 +238,9 @@ private constructor(
             }
 
             /**
-             * An array of objects containing each of the geofences provided in the `geofences`
-             * input. If `geofences` in not provided then the array will return all the geofences
-             * associated with the `key`
+             * An array of objects containing each of the geofences provided in the geofences input.
+             * If geofences in not provided then the array will return all the geofences associated
+             * with the key
              */
             fun resultList(resultList: List<ResultList>) = resultList(JsonField.of(resultList))
 
@@ -366,7 +366,7 @@ private constructor(
 
             /**
              * An array of objects with results of the contains check for each of the coordinate
-             * points in `locations` against the geofence represented by `geofence_id`.
+             * points in locations against the geofence represented by geofence_id.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -465,7 +465,7 @@ private constructor(
 
                 /**
                  * An array of objects with results of the contains check for each of the coordinate
-                 * points in `locations` against the geofence represented by `geofence_id`.
+                 * points in locations against the geofence represented by geofence_id.
                  */
                 fun result(result: List<Result>) = result(JsonField.of(result))
 
@@ -579,7 +579,7 @@ private constructor(
                 ) : this(contain, locationIndex, mutableMapOf())
 
                 /**
-                 * `true` when a coordinate point in `locations` is contained by this geofence.
+                 * true when a coordinate point in locations is contained by this geofence.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -587,7 +587,7 @@ private constructor(
                 fun contain(): Optional<Boolean> = contain.getOptional("contain")
 
                 /**
-                 * Index of the coordinate point in the input `locations`.
+                 * Index of the coordinate point in the input locations.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -646,9 +646,7 @@ private constructor(
                         additionalProperties = result.additionalProperties.toMutableMap()
                     }
 
-                    /**
-                     * `true` when a coordinate point in `locations` is contained by this geofence.
-                     */
+                    /** true when a coordinate point in locations is contained by this geofence. */
                     fun contain(contain: Boolean) = contain(JsonField.of(contain))
 
                     /**
@@ -660,7 +658,7 @@ private constructor(
                      */
                     fun contain(contain: JsonField<Boolean>) = apply { this.contain = contain }
 
-                    /** Index of the coordinate point in the input `locations`. */
+                    /** Index of the coordinate point in the input locations. */
                     fun locationIndex(locationIndex: Long) =
                         locationIndex(JsonField.of(locationIndex))
 

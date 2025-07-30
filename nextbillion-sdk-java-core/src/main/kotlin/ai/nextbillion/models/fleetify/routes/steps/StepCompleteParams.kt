@@ -23,10 +23,10 @@ import kotlin.jvm.optionals.getOrNull
 /**
  * Complete a route step with document submission, or update the document of a completed route step.
  *
- * When all steps are completed, the encapsulating route’s status will change to `completed`
+ * When all steps are completed, the encapsulating route’s status will change to completed
  * automatically.
  *
- * Either `Session Token` must be provided to authenticate the request.
+ * Either Session Token must be provided to authenticate the request.
  */
 class StepCompleteParams
 private constructor(
@@ -52,10 +52,10 @@ private constructor(
     fun _document(): JsonValue = body._document()
 
     /**
-     * Sets the status of the route step. Currently only `completed` is supported.
+     * Sets the status of the route step. Currently only completed is supported.
      *
-     * Note: once marked `completed`, a step cannot transition to other statuses. You can only
-     * update the document afterwards.
+     * Note: once marked completed, a step cannot transition to other statuses. You can only update
+     * the document afterwards.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -63,10 +63,10 @@ private constructor(
     fun mode(): Optional<String> = body.mode()
 
     /**
-     * Sets the status of the route step. Currently only `completed` is supported.
+     * Sets the status of the route step. Currently only completed is supported.
      *
-     * Note: once marked `completed`, a step cannot transition to other statuses. You can only
-     * update the document afterwards.
+     * Note: once marked completed, a step cannot transition to other statuses. You can only update
+     * the document afterwards.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -159,9 +159,9 @@ private constructor(
         fun document(document: JsonValue) = apply { body.document(document) }
 
         /**
-         * Sets the status of the route step. Currently only `completed` is supported.
+         * Sets the status of the route step. Currently only completed is supported.
          *
-         * Note: once marked `completed`, a step cannot transition to other statuses. You can only
+         * Note: once marked completed, a step cannot transition to other statuses. You can only
          * update the document afterwards.
          */
         fun mode(mode: String) = apply { body.mode(mode) }
@@ -175,9 +175,9 @@ private constructor(
         fun mode(mode: JsonField<String>) = apply { body.mode(mode) }
 
         /**
-         * Sets the status of the route step. Currently only `completed` is supported.
+         * Sets the status of the route step. Currently only completed is supported.
          *
-         * Note: once marked `completed`, a step cannot transition to other statuses. You can only
+         * Note: once marked completed, a step cannot transition to other statuses. You can only
          * update the document afterwards.
          */
         fun status(status: String) = apply { body.status(status) }
@@ -372,9 +372,9 @@ private constructor(
         @JsonProperty("document") @ExcludeMissing fun _document(): JsonValue = document
 
         /**
-         * Sets the status of the route step. Currently only `completed` is supported.
+         * Sets the status of the route step. Currently only completed is supported.
          *
-         * Note: once marked `completed`, a step cannot transition to other statuses. You can only
+         * Note: once marked completed, a step cannot transition to other statuses. You can only
          * update the document afterwards.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -383,9 +383,9 @@ private constructor(
         fun mode(): Optional<String> = mode.getOptional("mode")
 
         /**
-         * Sets the status of the route step. Currently only `completed` is supported.
+         * Sets the status of the route step. Currently only completed is supported.
          *
-         * Note: once marked `completed`, a step cannot transition to other statuses. You can only
+         * Note: once marked completed, a step cannot transition to other statuses. You can only
          * update the document afterwards.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -448,10 +448,10 @@ private constructor(
             fun document(document: JsonValue) = apply { this.document = document }
 
             /**
-             * Sets the status of the route step. Currently only `completed` is supported.
+             * Sets the status of the route step. Currently only completed is supported.
              *
-             * Note: once marked `completed`, a step cannot transition to other statuses. You can
-             * only update the document afterwards.
+             * Note: once marked completed, a step cannot transition to other statuses. You can only
+             * update the document afterwards.
              */
             fun mode(mode: String) = mode(JsonField.of(mode))
 
@@ -465,10 +465,10 @@ private constructor(
             fun mode(mode: JsonField<String>) = apply { this.mode = mode }
 
             /**
-             * Sets the status of the route step. Currently only `completed` is supported.
+             * Sets the status of the route step. Currently only completed is supported.
              *
-             * Note: once marked `completed`, a step cannot transition to other statuses. You can
-             * only update the document afterwards.
+             * Note: once marked completed, a step cannot transition to other statuses. You can only
+             * update the document afterwards.
              */
             fun status(status: String) = status(JsonField.of(status))
 

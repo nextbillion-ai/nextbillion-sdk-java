@@ -155,9 +155,9 @@ class NextbillionSdkClientImpl(private val clientOptions: ClientOptions) : Nextb
         PostalcodeServiceImpl(clientOptionsWithUserAgent)
     }
 
-    private val areas: AreaService by lazy { AreaServiceImpl(clientOptionsWithUserAgent) }
-
     private val lookup: LookupService by lazy { LookupServiceImpl(clientOptionsWithUserAgent) }
+
+    private val areas: AreaService by lazy { AreaServiceImpl(clientOptionsWithUserAgent) }
 
     override fun async(): NextbillionSdkClientAsync = async
 
@@ -212,9 +212,9 @@ class NextbillionSdkClientImpl(private val clientOptions: ClientOptions) : Nextb
 
     override fun postalcode(): PostalcodeService = postalcode
 
-    override fun areas(): AreaService = areas
-
     override fun lookup(): LookupService = lookup
+
+    override fun areas(): AreaService = areas
 
     override fun close() = clientOptions.httpClient.close()
 
@@ -313,12 +313,12 @@ class NextbillionSdkClientImpl(private val clientOptions: ClientOptions) : Nextb
             PostalcodeServiceImpl.WithRawResponseImpl(clientOptions)
         }
 
-        private val areas: AreaService.WithRawResponse by lazy {
-            AreaServiceImpl.WithRawResponseImpl(clientOptions)
-        }
-
         private val lookup: LookupService.WithRawResponse by lazy {
             LookupServiceImpl.WithRawResponseImpl(clientOptions)
+        }
+
+        private val areas: AreaService.WithRawResponse by lazy {
+            AreaServiceImpl.WithRawResponseImpl(clientOptions)
         }
 
         override fun withOptions(
@@ -375,8 +375,8 @@ class NextbillionSdkClientImpl(private val clientOptions: ClientOptions) : Nextb
 
         override fun postalcode(): PostalcodeService.WithRawResponse = postalcode
 
-        override fun areas(): AreaService.WithRawResponse = areas
-
         override fun lookup(): LookupService.WithRawResponse = lookup
+
+        override fun areas(): AreaService.WithRawResponse = areas
     }
 }

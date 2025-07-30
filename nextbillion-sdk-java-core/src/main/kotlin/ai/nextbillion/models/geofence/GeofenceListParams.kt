@@ -25,22 +25,22 @@ private constructor(
     fun key(): String = key
 
     /**
-     * Denotes page number. Use this along with the `ps` parameter to implement pagination for your
+     * Denotes page number. Use this along with the ps parameter to implement pagination for your
      * searched results. This parameter does not have a maximum limit but would return an empty
      * response in case a higher value is provided when the result-set itself is smaller.
      */
     fun pn(): Optional<Long> = Optional.ofNullable(pn)
 
     /**
-     * Denotes number of search results per page. Use this along with the `pn` parameter to
-     * implement pagination for your searched results.
+     * Denotes number of search results per page. Use this along with the pn parameter to implement
+     * pagination for your searched results.
      */
     fun ps(): Optional<Long> = Optional.ofNullable(ps)
 
     /**
-     * Comma (`,`) separated list of `tags` which will be used to filter the geofences.
+     * Comma (,) separated list of tags which will be used to filter the geofences.
      *
-     * Please note only the geofences which have all the `tags` added to this parameter will be
+     * Please note only the geofences which have all the tags added to this parameter will be
      * included in the result. This parameter can accept a string with a maximum length of 256
      * characters.
      */
@@ -91,7 +91,7 @@ private constructor(
         fun key(key: String) = apply { this.key = key }
 
         /**
-         * Denotes page number. Use this along with the `ps` parameter to implement pagination for
+         * Denotes page number. Use this along with the ps parameter to implement pagination for
          * your searched results. This parameter does not have a maximum limit but would return an
          * empty response in case a higher value is provided when the result-set itself is smaller.
          */
@@ -108,7 +108,7 @@ private constructor(
         fun pn(pn: Optional<Long>) = pn(pn.getOrNull())
 
         /**
-         * Denotes number of search results per page. Use this along with the `pn` parameter to
+         * Denotes number of search results per page. Use this along with the pn parameter to
          * implement pagination for your searched results.
          */
         fun ps(ps: Long?) = apply { this.ps = ps }
@@ -124,9 +124,9 @@ private constructor(
         fun ps(ps: Optional<Long>) = ps(ps.getOrNull())
 
         /**
-         * Comma (`,`) separated list of `tags` which will be used to filter the geofences.
+         * Comma (,) separated list of tags which will be used to filter the geofences.
          *
-         * Please note only the geofences which have all the `tags` added to this parameter will be
+         * Please note only the geofences which have all the tags added to this parameter will be
          * included in the result. This parameter can accept a string with a maximum length of 256
          * characters.
          */

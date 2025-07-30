@@ -53,7 +53,7 @@ internal class IsochroneComputeParamsTest {
                     .put("denoise", "0.0")
                     .put("departure_time", "0")
                     .put("generalize", "0.0")
-                    .put("mode", "`car`")
+                    .put("mode", "car")
                     .put("polygons", "true")
                     .build()
             )

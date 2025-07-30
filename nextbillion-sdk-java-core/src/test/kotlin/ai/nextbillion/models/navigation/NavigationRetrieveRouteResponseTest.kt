@@ -138,7 +138,7 @@ internal class NavigationRetrieveRouteResponseTest {
                                                         .build()
                                                 )
                                                 .instruction("instruction")
-                                                .maneuverType("`turn`")
+                                                .maneuverType("turn")
                                                 .muted(true)
                                                 .roundaboutCount(0L)
                                                 .addVoiceInstruction(
@@ -312,7 +312,7 @@ internal class NavigationRetrieveRouteResponseTest {
                                                     .build()
                                             )
                                             .instruction("instruction")
-                                            .maneuverType("`turn`")
+                                            .maneuverType("turn")
                                             .muted(true)
                                             .roundaboutCount(0L)
                                             .addVoiceInstruction(
@@ -492,7 +492,7 @@ internal class NavigationRetrieveRouteResponseTest {
                                                         .build()
                                                 )
                                                 .instruction("instruction")
-                                                .maneuverType("`turn`")
+                                                .maneuverType("turn")
                                                 .muted(true)
                                                 .roundaboutCount(0L)
                                                 .addVoiceInstruction(
