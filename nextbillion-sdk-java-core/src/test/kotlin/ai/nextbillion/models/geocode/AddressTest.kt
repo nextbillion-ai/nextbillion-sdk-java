@@ -1,0 +1,65 @@
+// File generated from our OpenAPI spec by Stainless.
+
+package ai.nextbillion.models.geocode
+
+import ai.nextbillion.core.jsonMapper
+import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
+import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Test
+
+internal class AddressTest {
+
+    @Test
+    fun create() {
+        val address =
+            Address.builder()
+                .city("city")
+                .countryCode("countryCode")
+                .countryName("countryName")
+                .county("county")
+                .district("district")
+                .houseNumber("houseNumber")
+                .label("label")
+                .postalCode("postalCode")
+                .state("state")
+                .stateCode("stateCode")
+                .street("street")
+                .build()
+
+        assertThat(address.city()).contains("city")
+        assertThat(address.countryCode()).contains("countryCode")
+        assertThat(address.countryName()).contains("countryName")
+        assertThat(address.county()).contains("county")
+        assertThat(address.district()).contains("district")
+        assertThat(address.houseNumber()).contains("houseNumber")
+        assertThat(address.label()).contains("label")
+        assertThat(address.postalCode()).contains("postalCode")
+        assertThat(address.state()).contains("state")
+        assertThat(address.stateCode()).contains("stateCode")
+        assertThat(address.street()).contains("street")
+    }
+
+    @Test
+    fun roundtrip() {
+        val jsonMapper = jsonMapper()
+        val address =
+            Address.builder()
+                .city("city")
+                .countryCode("countryCode")
+                .countryName("countryName")
+                .county("county")
+                .district("district")
+                .houseNumber("houseNumber")
+                .label("label")
+                .postalCode("postalCode")
+                .state("state")
+                .stateCode("stateCode")
+                .street("street")
+                .build()
+
+        val roundtrippedAddress =
+            jsonMapper.readValue(jsonMapper.writeValueAsString(address), jacksonTypeRef<Address>())
+
+        assertThat(roundtrippedAddress).isEqualTo(address)
+    }
+}

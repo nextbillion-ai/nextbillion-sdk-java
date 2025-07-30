@@ -8,8 +8,8 @@ repositories {
 }
 
 allprojects {
-    group = "com.nextbillion_sdk.api"
-    version = "0.0.1-alpha.0"
+    group = "ai.nextbillion"
+    version = "0.1.0-alpha.1" // x-release-please-version
 }
 
 subprojects {

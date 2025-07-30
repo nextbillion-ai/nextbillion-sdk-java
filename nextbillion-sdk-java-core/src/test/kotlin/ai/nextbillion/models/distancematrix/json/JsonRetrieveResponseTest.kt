@@ -1,0 +1,73 @@
+// File generated from our OpenAPI spec by Stainless.
+
+package ai.nextbillion.models.distancematrix.json
+
+import ai.nextbillion.core.jsonMapper
+import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
+import kotlin.jvm.optionals.getOrNull
+import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Test
+
+internal class JsonRetrieveResponseTest {
+
+    @Test
+    fun create() {
+        val jsonRetrieveResponse =
+            JsonRetrieveResponse.builder()
+                .msg("msg")
+                .addRow(
+                    JsonRetrieveResponse.Row.builder()
+                        .addElement(
+                            JsonRetrieveResponse.Row.Element.builder()
+                                .distance(0.0)
+                                .duration(0.0)
+                                .build()
+                        )
+                        .build()
+                )
+                .status("status")
+                .build()
+
+        assertThat(jsonRetrieveResponse.msg()).contains("msg")
+        assertThat(jsonRetrieveResponse.rows().getOrNull())
+            .containsExactly(
+                JsonRetrieveResponse.Row.builder()
+                    .addElement(
+                        JsonRetrieveResponse.Row.Element.builder()
+                            .distance(0.0)
+                            .duration(0.0)
+                            .build()
+                    )
+                    .build()
+            )
+        assertThat(jsonRetrieveResponse.status()).contains("status")
+    }
+
+    @Test
+    fun roundtrip() {
+        val jsonMapper = jsonMapper()
+        val jsonRetrieveResponse =
+            JsonRetrieveResponse.builder()
+                .msg("msg")
+                .addRow(
+                    JsonRetrieveResponse.Row.builder()
+                        .addElement(
+                            JsonRetrieveResponse.Row.Element.builder()
+                                .distance(0.0)
+                                .duration(0.0)
+                                .build()
+                        )
+                        .build()
+                )
+                .status("status")
+                .build()
+
+        val roundtrippedJsonRetrieveResponse =
+            jsonMapper.readValue(
+                jsonMapper.writeValueAsString(jsonRetrieveResponse),
+                jacksonTypeRef<JsonRetrieveResponse>(),
+            )
+
+        assertThat(roundtrippedJsonRetrieveResponse).isEqualTo(jsonRetrieveResponse)
+    }
+}
