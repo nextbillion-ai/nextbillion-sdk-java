@@ -9,11 +9,11 @@ import com.fasterxml.jackson.annotation.JsonCreator
 
 /**
  * Specify the mode of completion to be used for the step. Currently, following values are allowed:
- * - `manual`: Steps must be marked as completed manually through the Driver App.
- * - `geofence`: Steps are marked as completed automatically based on the entry conditions and
+ * - manual: Steps must be marked as completed manually through the Driver App.
+ * - geofence: Steps are marked as completed automatically based on the entry conditions and
  *   geofence specified.
- * - `geofence_manual_fallback`: Steps will be marked as completed automatically based on geofence
- *   and entry condition configurations but there will also be a provision for manually updating the
+ * - geofence_manual_fallback: Steps will be marked as completed automatically based on geofence and
+ *   entry condition configurations but there will also be a provision for manually updating the
  *   status in case, geofence detection fails.
  */
 class RouteStepCompletionMode
@@ -31,11 +31,11 @@ private constructor(private val value: JsonField<String>) : Enum {
 
     companion object {
 
-        @JvmField val MANUAL = of("`manual`")
+        @JvmField val MANUAL = of("manual")
 
-        @JvmField val GEOFENCE = of("`geofence`")
+        @JvmField val GEOFENCE = of("geofence")
 
-        @JvmField val GEOFENCE_MANUAL_FALLBACK = of("`geofence_manual_fallback`")
+        @JvmField val GEOFENCE_MANUAL_FALLBACK = of("geofence_manual_fallback")
 
         @JvmStatic fun of(value: String) = RouteStepCompletionMode(JsonField.of(value))
     }

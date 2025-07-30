@@ -37,7 +37,7 @@ private constructor(
     fun key(): String = key
 
     /**
-     * The `locations` object is used to define all the locations that will be used during the
+     * The locations object is used to define all the locations that will be used during the
      * optimization process. Read more about this attribute in the
      * [Location Object](#location-object) section.
      *
@@ -47,7 +47,7 @@ private constructor(
     fun locations(): Locations = body.locations()
 
     /**
-     * The `vehicles` attribute describes the characteristics and constraints of the vehicles that
+     * The vehicles attribute describes the characteristics and constraints of the vehicles that
      * will be used for fulfilling the tasks. Read more about this attribute in the
      * [Vehicle Object](#vehicle-object) section.
      *
@@ -58,10 +58,10 @@ private constructor(
 
     /**
      * An array of arrays to denote the user-defined costs of traveling between each pair of
-     * geographic coordinates mentioned in the `location` array. The number of arrays should be
-     * equal to the number of coordinate points mentioned in the `location` array and each array
-     * should contain the same number of elements as well. Please note that `cost_matrix` is
-     * effective only when `travel_cost=customized`. Read more about this attribute in the
+     * geographic coordinates mentioned in the location array. The number of arrays should be equal
+     * to the number of coordinate points mentioned in the location array and each array should
+     * contain the same number of elements as well. Please note that cost_matrix is effective only
+     * when travel_cost=customized. Read more about this attribute in the
      * [Custom Cost Matrix](#custom-cost-matrix) section.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -70,11 +70,11 @@ private constructor(
     fun costMatrix(): Optional<List<List<Long>>> = body.costMatrix()
 
     /**
-     * `depots` object is used to collect the details of a depot. Depots can be used as a starting
+     * depots object is used to collect the details of a depot. Depots can be used as a starting
      * point and/or ending point for the routes and vehicles. They also can be used to fulfil pickup
-     * and delivery type`jobs` . The loads which are to be delivered at task locations will be
-     * picked from depots and loads picked-up from task locations will be delivered back to the
-     * depots. A depot can be configured using the following fields:
+     * and delivery typejobs . The loads which are to be delivered at task locations will be picked
+     * from depots and loads picked-up from task locations will be delivered back to the depots. A
+     * depot can be configured using the following fields:
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -92,20 +92,18 @@ private constructor(
 
     /**
      * An array of arrays to denote the user-defined distances, in meters, for travelling between
-     * each pair of geographic coordinates mentioned in the `location` array. When this input is
+     * each pair of geographic coordinates mentioned in the location array. When this input is
      * provided, actual distances between the locations will be ignored in favor of the values
      * provided in this input for any distance calculations during the optimization process. The
-     * values provided here will also be used for cost calculations when `travel_cost` is
-     * “distance”.
+     * values provided here will also be used for cost calculations when travel_cost is “distance”.
      *
      * The number of arrays in the input should be equal to the number of coordinate points
-     * mentioned in the `location` array and each array, in turn, should contain the same number of
+     * mentioned in the location array and each array, in turn, should contain the same number of
      * elements as well.
      *
      * **Note:**
-     * - `duration_matrix` is mandatory when using`distance_matrix`.
-     * - When using `distance_matrix` route geometry will not be available in the optimized
-     *   solution.
+     * - duration_matrix is mandatory when usingdistance_matrix.
+     * - When using distance_matrix route geometry will not be available in the optimized solution.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -114,23 +112,23 @@ private constructor(
 
     /**
      * An array of arrays to denote the user-defined durations, in seconds, for travelling between
-     * each pair of geographic coordinates mentioned in the `location` array. When this input is
+     * each pair of geographic coordinates mentioned in the location array. When this input is
      * provided, actual durations between the locations will be ignored in favor of the values
      * provided in the matrix for any ETA calculations during the optimization process. The values
-     * provided in the matrix will also be used for cost calculations when `travel_cost` is
+     * provided in the matrix will also be used for cost calculations when travel_cost is
      * “duration”.
      *
      * The number of arrays in the input should be equal to the number of coordinate points
-     * mentioned in the `location` array and each array, in turn, should contain the same number of
+     * mentioned in the location array and each array, in turn, should contain the same number of
      * elements as well.
      *
-     * Please note that, unlike `distance_matrix`, `duration_matrix` can be used independently in
+     * Please note that, unlike distance_matrix, duration_matrix can be used independently in
      * following cases:
-     * - when `travel_cost` is “duration”
-     * - when `travel_cost` is “customized” and a `cost_matrix` is provided
+     * - when travel_cost is “duration”
+     * - when travel_cost is “customized” and a cost_matrix is provided
      *
      * Also, the route geometry will not be available in the optimized solution when using
-     * `duration_matrix`.
+     * duration_matrix.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -146,13 +144,12 @@ private constructor(
     fun existingSolutionId(): Optional<String> = body.existingSolutionId()
 
     /**
-     * `jobs` object is used to collect the details of a particular job or task that needs to be
-     * completed as part of the optimization process. Each job can have either a `pickup` or
-     * `delivery` step, but not both. Read more about this attribute in the
-     * [Job Object](#job-object) section.
+     * jobs object is used to collect the details of a particular job or task that needs to be
+     * completed as part of the optimization process. Each job can have either a pickup or delivery
+     * step, but not both. Read more about this attribute in the [Job Object](#job-object) section.
      *
-     * Please note that either the `jobs` or the `shipments` attribute should be specified to build
-     * a valid request.
+     * Please note that either the jobs or the shipments attribute should be specified to build a
+     * valid request.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -169,11 +166,11 @@ private constructor(
     fun options(): Optional<Options> = body.options()
 
     /**
-     * `relations` attribute is an array of individual relation objects. `type` parameter and
-     * `steps` object are mandatory when using this attribute.
+     * relations attribute is an array of individual relation objects. type parameter and steps
+     * object are mandatory when using this attribute.
      *
      * Please note:
-     * - The soft constraints are **not** effective when using the `relations` attribute.
+     * - The soft constraints are **not** effective when using the relations attribute.
      * - In case a given relation can't be satisfied, the optimizer will flag all the tasks involved
      *   in that "relation" as unassigned.
      *
@@ -185,13 +182,13 @@ private constructor(
     fun relations(): Optional<List<Relation>> = body.relations()
 
     /**
-     * The `shipments` object is used to collect the details of shipments that need to be completed
-     * as part of the optimization process.
+     * The shipments object is used to collect the details of shipments that need to be completed as
+     * part of the optimization process.
      *
      * Each shipment should have a pickup and the corresponding delivery step.
      *
-     * Please note that either the `jobs` or the `shipments` attribute should be specified to build
-     * a valid request.
+     * Please note that either the jobs or the shipments attribute should be specified to build a
+     * valid request.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -201,9 +198,9 @@ private constructor(
     /**
      * This attribute is related to the re-optimization feature. It allows for the previous
      * optimization result to be provided in case new orders are received and the solution needs to
-     * be re-planned. The `solution` attribute should contain the same routes as the previous
-     * optimization result. `solution` attribute is an array of objects with each object
-     * corresponding to one route.
+     * be re-planned. The solution attribute should contain the same routes as the previous
+     * optimization result. solution attribute is an array of objects with each object corresponding
+     * to one route.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -211,10 +208,10 @@ private constructor(
     fun solution(): Optional<List<Solution>> = body.solution()
 
     /**
-     * `unassigned` attribute is related to the re-optimization feature. This attribute should
-     * contain the tasks that were not assigned during an earlier optimization process. Please note
-     * that the `unassigned` part in request should be consistent with the `unassigned` part in the
-     * previous optimization result.
+     * unassigned attribute is related to the re-optimization feature. This attribute should contain
+     * the tasks that were not assigned during an earlier optimization process. Please note that the
+     * unassigned part in request should be consistent with the unassigned part in the previous
+     * optimization result.
      *
      * Users can reduce the number of unassigned tasks in the re-optimized solution, by following
      * strategies such as:
@@ -239,8 +236,8 @@ private constructor(
      * API](https://docs.nextbillion.ai/docs/tracking/api/geofence).
      *
      * Please note that
-     * - Each zone should have a geometry specified either through`geometry` or through the
-     *   `geofence_id` parameter.
+     * - Each zone should have a geometry specified either throughgeometry or through the
+     *   geofence_id parameter.
      * - When zone IDs are not provided for individual tasks (jobs or shipments) then the API will
      *   automatically allocate zones based on the task’s geolocation and the geometries of the
      *   zones provided here. Otherwise, if the zone IDs are provided while configuring individual
@@ -416,7 +413,7 @@ private constructor(
         fun body(body: Body) = apply { this.body = body.toBuilder() }
 
         /**
-         * The `locations` object is used to define all the locations that will be used during the
+         * The locations object is used to define all the locations that will be used during the
          * optimization process. Read more about this attribute in the
          * [Location Object](#location-object) section.
          */
@@ -432,8 +429,8 @@ private constructor(
         fun locations(locations: JsonField<Locations>) = apply { body.locations(locations) }
 
         /**
-         * The `vehicles` attribute describes the characteristics and constraints of the vehicles
-         * that will be used for fulfilling the tasks. Read more about this attribute in the
+         * The vehicles attribute describes the characteristics and constraints of the vehicles that
+         * will be used for fulfilling the tasks. Read more about this attribute in the
          * [Vehicle Object](#vehicle-object) section.
          */
         fun vehicles(vehicles: List<Vehicle>) = apply { body.vehicles(vehicles) }
@@ -456,10 +453,10 @@ private constructor(
 
         /**
          * An array of arrays to denote the user-defined costs of traveling between each pair of
-         * geographic coordinates mentioned in the `location` array. The number of arrays should be
-         * equal to the number of coordinate points mentioned in the `location` array and each array
-         * should contain the same number of elements as well. Please note that `cost_matrix` is
-         * effective only when `travel_cost=customized`. Read more about this attribute in the
+         * geographic coordinates mentioned in the location array. The number of arrays should be
+         * equal to the number of coordinate points mentioned in the location array and each array
+         * should contain the same number of elements as well. Please note that cost_matrix is
+         * effective only when travel_cost=customized. Read more about this attribute in the
          * [Custom Cost Matrix](#custom-cost-matrix) section.
          */
         fun costMatrix(costMatrix: List<List<Long>>) = apply { body.costMatrix(costMatrix) }
@@ -483,11 +480,11 @@ private constructor(
         fun addCostMatrix(costMatrix: List<Long>) = apply { body.addCostMatrix(costMatrix) }
 
         /**
-         * `depots` object is used to collect the details of a depot. Depots can be used as a
-         * starting point and/or ending point for the routes and vehicles. They also can be used to
-         * fulfil pickup and delivery type`jobs` . The loads which are to be delivered at task
-         * locations will be picked from depots and loads picked-up from task locations will be
-         * delivered back to the depots. A depot can be configured using the following fields:
+         * depots object is used to collect the details of a depot. Depots can be used as a starting
+         * point and/or ending point for the routes and vehicles. They also can be used to fulfil
+         * pickup and delivery typejobs . The loads which are to be delivered at task locations will
+         * be picked from depots and loads picked-up from task locations will be delivered back to
+         * the depots. A depot can be configured using the following fields:
          */
         fun depots(depots: List<Depot>) = apply { body.depots(depots) }
 
@@ -524,19 +521,19 @@ private constructor(
 
         /**
          * An array of arrays to denote the user-defined distances, in meters, for travelling
-         * between each pair of geographic coordinates mentioned in the `location` array. When this
+         * between each pair of geographic coordinates mentioned in the location array. When this
          * input is provided, actual distances between the locations will be ignored in favor of the
          * values provided in this input for any distance calculations during the optimization
          * process. The values provided here will also be used for cost calculations when
-         * `travel_cost` is “distance”.
+         * travel_cost is “distance”.
          *
          * The number of arrays in the input should be equal to the number of coordinate points
-         * mentioned in the `location` array and each array, in turn, should contain the same number
+         * mentioned in the location array and each array, in turn, should contain the same number
          * of elements as well.
          *
          * **Note:**
-         * - `duration_matrix` is mandatory when using`distance_matrix`.
-         * - When using `distance_matrix` route geometry will not be available in the optimized
+         * - duration_matrix is mandatory when usingdistance_matrix.
+         * - When using distance_matrix route geometry will not be available in the optimized
          *   solution.
          */
         fun distanceMatrix(distanceMatrix: List<List<Long>>) = apply {
@@ -565,23 +562,23 @@ private constructor(
 
         /**
          * An array of arrays to denote the user-defined durations, in seconds, for travelling
-         * between each pair of geographic coordinates mentioned in the `location` array. When this
+         * between each pair of geographic coordinates mentioned in the location array. When this
          * input is provided, actual durations between the locations will be ignored in favor of the
          * values provided in the matrix for any ETA calculations during the optimization process.
          * The values provided in the matrix will also be used for cost calculations when
-         * `travel_cost` is “duration”.
+         * travel_cost is “duration”.
          *
          * The number of arrays in the input should be equal to the number of coordinate points
-         * mentioned in the `location` array and each array, in turn, should contain the same number
+         * mentioned in the location array and each array, in turn, should contain the same number
          * of elements as well.
          *
-         * Please note that, unlike `distance_matrix`, `duration_matrix` can be used independently
-         * in following cases:
-         * - when `travel_cost` is “duration”
-         * - when `travel_cost` is “customized” and a `cost_matrix` is provided
+         * Please note that, unlike distance_matrix, duration_matrix can be used independently in
+         * following cases:
+         * - when travel_cost is “duration”
+         * - when travel_cost is “customized” and a cost_matrix is provided
          *
          * Also, the route geometry will not be available in the optimized solution when using
-         * `duration_matrix`.
+         * duration_matrix.
          */
         fun durationMatrix(durationMatrix: List<List<Long>>) = apply {
             body.durationMatrix(durationMatrix)
@@ -624,13 +621,13 @@ private constructor(
         }
 
         /**
-         * `jobs` object is used to collect the details of a particular job or task that needs to be
-         * completed as part of the optimization process. Each job can have either a `pickup` or
-         * `delivery` step, but not both. Read more about this attribute in the
+         * jobs object is used to collect the details of a particular job or task that needs to be
+         * completed as part of the optimization process. Each job can have either a pickup or
+         * delivery step, but not both. Read more about this attribute in the
          * [Job Object](#job-object) section.
          *
-         * Please note that either the `jobs` or the `shipments` attribute should be specified to
-         * build a valid request.
+         * Please note that either the jobs or the shipments attribute should be specified to build
+         * a valid request.
          */
         fun jobs(jobs: List<Job>) = apply { body.jobs(jobs) }
 
@@ -664,11 +661,11 @@ private constructor(
         fun options(options: JsonField<Options>) = apply { body.options(options) }
 
         /**
-         * `relations` attribute is an array of individual relation objects. `type` parameter and
-         * `steps` object are mandatory when using this attribute.
+         * relations attribute is an array of individual relation objects. type parameter and steps
+         * object are mandatory when using this attribute.
          *
          * Please note:
-         * - The soft constraints are **not** effective when using the `relations` attribute.
+         * - The soft constraints are **not** effective when using the relations attribute.
          * - In case a given relation can't be satisfied, the optimizer will flag all the tasks
          *   involved in that "relation" as unassigned.
          *
@@ -693,13 +690,13 @@ private constructor(
         fun addRelation(relation: Relation) = apply { body.addRelation(relation) }
 
         /**
-         * The `shipments` object is used to collect the details of shipments that need to be
+         * The shipments object is used to collect the details of shipments that need to be
          * completed as part of the optimization process.
          *
          * Each shipment should have a pickup and the corresponding delivery step.
          *
-         * Please note that either the `jobs` or the `shipments` attribute should be specified to
-         * build a valid request.
+         * Please note that either the jobs or the shipments attribute should be specified to build
+         * a valid request.
          */
         fun shipments(shipments: List<Shipment>) = apply { body.shipments(shipments) }
 
@@ -722,8 +719,8 @@ private constructor(
         /**
          * This attribute is related to the re-optimization feature. It allows for the previous
          * optimization result to be provided in case new orders are received and the solution needs
-         * to be re-planned. The `solution` attribute should contain the same routes as the previous
-         * optimization result. `solution` attribute is an array of objects with each object
+         * to be re-planned. The solution attribute should contain the same routes as the previous
+         * optimization result. solution attribute is an array of objects with each object
          * corresponding to one route.
          */
         fun solution(solution: List<Solution>) = apply { body.solution(solution) }
@@ -745,10 +742,10 @@ private constructor(
         fun addSolution(solution: Solution) = apply { body.addSolution(solution) }
 
         /**
-         * `unassigned` attribute is related to the re-optimization feature. This attribute should
+         * unassigned attribute is related to the re-optimization feature. This attribute should
          * contain the tasks that were not assigned during an earlier optimization process. Please
-         * note that the `unassigned` part in request should be consistent with the `unassigned`
-         * part in the previous optimization result.
+         * note that the unassigned part in request should be consistent with the unassigned part in
+         * the previous optimization result.
          *
          * Users can reduce the number of unassigned tasks in the re-optimized solution, by
          * following strategies such as:
@@ -779,8 +776,8 @@ private constructor(
          * API](https://docs.nextbillion.ai/docs/tracking/api/geofence).
          *
          * Please note that
-         * - Each zone should have a geometry specified either through`geometry` or through the
-         *   `geofence_id` parameter.
+         * - Each zone should have a geometry specified either throughgeometry or through the
+         *   geofence_id parameter.
          * - When zone IDs are not provided for individual tasks (jobs or shipments) then the API
          *   will automatically allocate zones based on the task’s geolocation and the geometries of
          *   the zones provided here. Otherwise, if the zone IDs are provided while configuring
@@ -1037,7 +1034,7 @@ private constructor(
         )
 
         /**
-         * The `locations` object is used to define all the locations that will be used during the
+         * The locations object is used to define all the locations that will be used during the
          * optimization process. Read more about this attribute in the
          * [Location Object](#location-object) section.
          *
@@ -1047,8 +1044,8 @@ private constructor(
         fun locations(): Locations = locations.getRequired("locations")
 
         /**
-         * The `vehicles` attribute describes the characteristics and constraints of the vehicles
-         * that will be used for fulfilling the tasks. Read more about this attribute in the
+         * The vehicles attribute describes the characteristics and constraints of the vehicles that
+         * will be used for fulfilling the tasks. Read more about this attribute in the
          * [Vehicle Object](#vehicle-object) section.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
@@ -1058,10 +1055,10 @@ private constructor(
 
         /**
          * An array of arrays to denote the user-defined costs of traveling between each pair of
-         * geographic coordinates mentioned in the `location` array. The number of arrays should be
-         * equal to the number of coordinate points mentioned in the `location` array and each array
-         * should contain the same number of elements as well. Please note that `cost_matrix` is
-         * effective only when `travel_cost=customized`. Read more about this attribute in the
+         * geographic coordinates mentioned in the location array. The number of arrays should be
+         * equal to the number of coordinate points mentioned in the location array and each array
+         * should contain the same number of elements as well. Please note that cost_matrix is
+         * effective only when travel_cost=customized. Read more about this attribute in the
          * [Custom Cost Matrix](#custom-cost-matrix) section.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -1070,11 +1067,11 @@ private constructor(
         fun costMatrix(): Optional<List<List<Long>>> = costMatrix.getOptional("cost_matrix")
 
         /**
-         * `depots` object is used to collect the details of a depot. Depots can be used as a
-         * starting point and/or ending point for the routes and vehicles. They also can be used to
-         * fulfil pickup and delivery type`jobs` . The loads which are to be delivered at task
-         * locations will be picked from depots and loads picked-up from task locations will be
-         * delivered back to the depots. A depot can be configured using the following fields:
+         * depots object is used to collect the details of a depot. Depots can be used as a starting
+         * point and/or ending point for the routes and vehicles. They also can be used to fulfil
+         * pickup and delivery typejobs . The loads which are to be delivered at task locations will
+         * be picked from depots and loads picked-up from task locations will be delivered back to
+         * the depots. A depot can be configured using the following fields:
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1092,19 +1089,19 @@ private constructor(
 
         /**
          * An array of arrays to denote the user-defined distances, in meters, for travelling
-         * between each pair of geographic coordinates mentioned in the `location` array. When this
+         * between each pair of geographic coordinates mentioned in the location array. When this
          * input is provided, actual distances between the locations will be ignored in favor of the
          * values provided in this input for any distance calculations during the optimization
          * process. The values provided here will also be used for cost calculations when
-         * `travel_cost` is “distance”.
+         * travel_cost is “distance”.
          *
          * The number of arrays in the input should be equal to the number of coordinate points
-         * mentioned in the `location` array and each array, in turn, should contain the same number
+         * mentioned in the location array and each array, in turn, should contain the same number
          * of elements as well.
          *
          * **Note:**
-         * - `duration_matrix` is mandatory when using`distance_matrix`.
-         * - When using `distance_matrix` route geometry will not be available in the optimized
+         * - duration_matrix is mandatory when usingdistance_matrix.
+         * - When using distance_matrix route geometry will not be available in the optimized
          *   solution.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -1115,23 +1112,23 @@ private constructor(
 
         /**
          * An array of arrays to denote the user-defined durations, in seconds, for travelling
-         * between each pair of geographic coordinates mentioned in the `location` array. When this
+         * between each pair of geographic coordinates mentioned in the location array. When this
          * input is provided, actual durations between the locations will be ignored in favor of the
          * values provided in the matrix for any ETA calculations during the optimization process.
          * The values provided in the matrix will also be used for cost calculations when
-         * `travel_cost` is “duration”.
+         * travel_cost is “duration”.
          *
          * The number of arrays in the input should be equal to the number of coordinate points
-         * mentioned in the `location` array and each array, in turn, should contain the same number
+         * mentioned in the location array and each array, in turn, should contain the same number
          * of elements as well.
          *
-         * Please note that, unlike `distance_matrix`, `duration_matrix` can be used independently
-         * in following cases:
-         * - when `travel_cost` is “duration”
-         * - when `travel_cost` is “customized” and a `cost_matrix` is provided
+         * Please note that, unlike distance_matrix, duration_matrix can be used independently in
+         * following cases:
+         * - when travel_cost is “duration”
+         * - when travel_cost is “customized” and a cost_matrix is provided
          *
          * Also, the route geometry will not be available in the optimized solution when using
-         * `duration_matrix`.
+         * duration_matrix.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1149,13 +1146,13 @@ private constructor(
             existingSolutionId.getOptional("existing_solution_id")
 
         /**
-         * `jobs` object is used to collect the details of a particular job or task that needs to be
-         * completed as part of the optimization process. Each job can have either a `pickup` or
-         * `delivery` step, but not both. Read more about this attribute in the
+         * jobs object is used to collect the details of a particular job or task that needs to be
+         * completed as part of the optimization process. Each job can have either a pickup or
+         * delivery step, but not both. Read more about this attribute in the
          * [Job Object](#job-object) section.
          *
-         * Please note that either the `jobs` or the `shipments` attribute should be specified to
-         * build a valid request.
+         * Please note that either the jobs or the shipments attribute should be specified to build
+         * a valid request.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1172,11 +1169,11 @@ private constructor(
         fun options(): Optional<Options> = options.getOptional("options")
 
         /**
-         * `relations` attribute is an array of individual relation objects. `type` parameter and
-         * `steps` object are mandatory when using this attribute.
+         * relations attribute is an array of individual relation objects. type parameter and steps
+         * object are mandatory when using this attribute.
          *
          * Please note:
-         * - The soft constraints are **not** effective when using the `relations` attribute.
+         * - The soft constraints are **not** effective when using the relations attribute.
          * - In case a given relation can't be satisfied, the optimizer will flag all the tasks
          *   involved in that "relation" as unassigned.
          *
@@ -1188,13 +1185,13 @@ private constructor(
         fun relations(): Optional<List<Relation>> = relations.getOptional("relations")
 
         /**
-         * The `shipments` object is used to collect the details of shipments that need to be
+         * The shipments object is used to collect the details of shipments that need to be
          * completed as part of the optimization process.
          *
          * Each shipment should have a pickup and the corresponding delivery step.
          *
-         * Please note that either the `jobs` or the `shipments` attribute should be specified to
-         * build a valid request.
+         * Please note that either the jobs or the shipments attribute should be specified to build
+         * a valid request.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1204,8 +1201,8 @@ private constructor(
         /**
          * This attribute is related to the re-optimization feature. It allows for the previous
          * optimization result to be provided in case new orders are received and the solution needs
-         * to be re-planned. The `solution` attribute should contain the same routes as the previous
-         * optimization result. `solution` attribute is an array of objects with each object
+         * to be re-planned. The solution attribute should contain the same routes as the previous
+         * optimization result. solution attribute is an array of objects with each object
          * corresponding to one route.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -1214,10 +1211,10 @@ private constructor(
         fun solution(): Optional<List<Solution>> = solution.getOptional("solution")
 
         /**
-         * `unassigned` attribute is related to the re-optimization feature. This attribute should
+         * unassigned attribute is related to the re-optimization feature. This attribute should
          * contain the tasks that were not assigned during an earlier optimization process. Please
-         * note that the `unassigned` part in request should be consistent with the `unassigned`
-         * part in the previous optimization result.
+         * note that the unassigned part in request should be consistent with the unassigned part in
+         * the previous optimization result.
          *
          * Users can reduce the number of unassigned tasks in the re-optimized solution, by
          * following strategies such as:
@@ -1242,8 +1239,8 @@ private constructor(
          * API](https://docs.nextbillion.ai/docs/tracking/api/geofence).
          *
          * Please note that
-         * - Each zone should have a geometry specified either through`geometry` or through the
-         *   `geofence_id` parameter.
+         * - Each zone should have a geometry specified either throughgeometry or through the
+         *   geofence_id parameter.
          * - When zone IDs are not provided for individual tasks (jobs or shipments) then the API
          *   will automatically allocate zones based on the task’s geolocation and the geometries of
          *   the zones provided here. Otherwise, if the zone IDs are provided while configuring
@@ -1451,8 +1448,8 @@ private constructor(
             }
 
             /**
-             * The `locations` object is used to define all the locations that will be used during
-             * the optimization process. Read more about this attribute in the
+             * The locations object is used to define all the locations that will be used during the
+             * optimization process. Read more about this attribute in the
              * [Location Object](#location-object) section.
              */
             fun locations(locations: Locations) = locations(JsonField.of(locations))
@@ -1467,9 +1464,9 @@ private constructor(
             fun locations(locations: JsonField<Locations>) = apply { this.locations = locations }
 
             /**
-             * The `vehicles` attribute describes the characteristics and constraints of the
-             * vehicles that will be used for fulfilling the tasks. Read more about this attribute
-             * in the [Vehicle Object](#vehicle-object) section.
+             * The vehicles attribute describes the characteristics and constraints of the vehicles
+             * that will be used for fulfilling the tasks. Read more about this attribute in the
+             * [Vehicle Object](#vehicle-object) section.
              */
             fun vehicles(vehicles: List<Vehicle>) = vehicles(JsonField.of(vehicles))
 
@@ -1498,10 +1495,10 @@ private constructor(
 
             /**
              * An array of arrays to denote the user-defined costs of traveling between each pair of
-             * geographic coordinates mentioned in the `location` array. The number of arrays should
-             * be equal to the number of coordinate points mentioned in the `location` array and
-             * each array should contain the same number of elements as well. Please note that
-             * `cost_matrix` is effective only when `travel_cost=customized`. Read more about this
+             * geographic coordinates mentioned in the location array. The number of arrays should
+             * be equal to the number of coordinate points mentioned in the location array and each
+             * array should contain the same number of elements as well. Please note that
+             * cost_matrix is effective only when travel_cost=customized. Read more about this
              * attribute in the [Custom Cost Matrix](#custom-cost-matrix) section.
              */
             fun costMatrix(costMatrix: List<List<Long>>) = costMatrix(JsonField.of(costMatrix))
@@ -1530,12 +1527,11 @@ private constructor(
             }
 
             /**
-             * `depots` object is used to collect the details of a depot. Depots can be used as a
+             * depots object is used to collect the details of a depot. Depots can be used as a
              * starting point and/or ending point for the routes and vehicles. They also can be used
-             * to fulfil pickup and delivery type`jobs` . The loads which are to be delivered at
-             * task locations will be picked from depots and loads picked-up from task locations
-             * will be delivered back to the depots. A depot can be configured using the following
-             * fields:
+             * to fulfil pickup and delivery typejobs . The loads which are to be delivered at task
+             * locations will be picked from depots and loads picked-up from task locations will be
+             * delivered back to the depots. A depot can be configured using the following fields:
              */
             fun depots(depots: List<Depot>) = depots(JsonField.of(depots))
 
@@ -1581,19 +1577,19 @@ private constructor(
 
             /**
              * An array of arrays to denote the user-defined distances, in meters, for travelling
-             * between each pair of geographic coordinates mentioned in the `location` array. When
+             * between each pair of geographic coordinates mentioned in the location array. When
              * this input is provided, actual distances between the locations will be ignored in
              * favor of the values provided in this input for any distance calculations during the
              * optimization process. The values provided here will also be used for cost
-             * calculations when `travel_cost` is “distance”.
+             * calculations when travel_cost is “distance”.
              *
              * The number of arrays in the input should be equal to the number of coordinate points
-             * mentioned in the `location` array and each array, in turn, should contain the same
+             * mentioned in the location array and each array, in turn, should contain the same
              * number of elements as well.
              *
              * **Note:**
-             * - `duration_matrix` is mandatory when using`distance_matrix`.
-             * - When using `distance_matrix` route geometry will not be available in the optimized
+             * - duration_matrix is mandatory when usingdistance_matrix.
+             * - When using distance_matrix route geometry will not be available in the optimized
              *   solution.
              */
             fun distanceMatrix(distanceMatrix: List<List<Long>>) =
@@ -1624,23 +1620,23 @@ private constructor(
 
             /**
              * An array of arrays to denote the user-defined durations, in seconds, for travelling
-             * between each pair of geographic coordinates mentioned in the `location` array. When
+             * between each pair of geographic coordinates mentioned in the location array. When
              * this input is provided, actual durations between the locations will be ignored in
              * favor of the values provided in the matrix for any ETA calculations during the
              * optimization process. The values provided in the matrix will also be used for cost
-             * calculations when `travel_cost` is “duration”.
+             * calculations when travel_cost is “duration”.
              *
              * The number of arrays in the input should be equal to the number of coordinate points
-             * mentioned in the `location` array and each array, in turn, should contain the same
+             * mentioned in the location array and each array, in turn, should contain the same
              * number of elements as well.
              *
-             * Please note that, unlike `distance_matrix`, `duration_matrix` can be used
-             * independently in following cases:
-             * - when `travel_cost` is “duration”
-             * - when `travel_cost` is “customized” and a `cost_matrix` is provided
+             * Please note that, unlike distance_matrix, duration_matrix can be used independently
+             * in following cases:
+             * - when travel_cost is “duration”
+             * - when travel_cost is “customized” and a cost_matrix is provided
              *
              * Also, the route geometry will not be available in the optimized solution when using
-             * `duration_matrix`.
+             * duration_matrix.
              */
             fun durationMatrix(durationMatrix: List<List<Long>>) =
                 durationMatrix(JsonField.of(durationMatrix))
@@ -1684,13 +1680,13 @@ private constructor(
             }
 
             /**
-             * `jobs` object is used to collect the details of a particular job or task that needs
-             * to be completed as part of the optimization process. Each job can have either a
-             * `pickup` or `delivery` step, but not both. Read more about this attribute in the
+             * jobs object is used to collect the details of a particular job or task that needs to
+             * be completed as part of the optimization process. Each job can have either a pickup
+             * or delivery step, but not both. Read more about this attribute in the
              * [Job Object](#job-object) section.
              *
-             * Please note that either the `jobs` or the `shipments` attribute should be specified
-             * to build a valid request.
+             * Please note that either the jobs or the shipments attribute should be specified to
+             * build a valid request.
              */
             fun jobs(jobs: List<Job>) = jobs(JsonField.of(jobs))
 
@@ -1732,11 +1728,11 @@ private constructor(
             fun options(options: JsonField<Options>) = apply { this.options = options }
 
             /**
-             * `relations` attribute is an array of individual relation objects. `type` parameter
-             * and `steps` object are mandatory when using this attribute.
+             * relations attribute is an array of individual relation objects. type parameter and
+             * steps object are mandatory when using this attribute.
              *
              * Please note:
-             * - The soft constraints are **not** effective when using the `relations` attribute.
+             * - The soft constraints are **not** effective when using the relations attribute.
              * - In case a given relation can't be satisfied, the optimizer will flag all the tasks
              *   involved in that "relation" as unassigned.
              *
@@ -1768,13 +1764,13 @@ private constructor(
             }
 
             /**
-             * The `shipments` object is used to collect the details of shipments that need to be
+             * The shipments object is used to collect the details of shipments that need to be
              * completed as part of the optimization process.
              *
              * Each shipment should have a pickup and the corresponding delivery step.
              *
-             * Please note that either the `jobs` or the `shipments` attribute should be specified
-             * to build a valid request.
+             * Please note that either the jobs or the shipments attribute should be specified to
+             * build a valid request.
              */
             fun shipments(shipments: List<Shipment>) = shipments(JsonField.of(shipments))
 
@@ -1804,9 +1800,9 @@ private constructor(
             /**
              * This attribute is related to the re-optimization feature. It allows for the previous
              * optimization result to be provided in case new orders are received and the solution
-             * needs to be re-planned. The `solution` attribute should contain the same routes as
-             * the previous optimization result. `solution` attribute is an array of objects with
-             * each object corresponding to one route.
+             * needs to be re-planned. The solution attribute should contain the same routes as the
+             * previous optimization result. solution attribute is an array of objects with each
+             * object corresponding to one route.
              */
             fun solution(solution: List<Solution>) = solution(JsonField.of(solution))
 
@@ -1834,10 +1830,10 @@ private constructor(
             }
 
             /**
-             * `unassigned` attribute is related to the re-optimization feature. This attribute
-             * should contain the tasks that were not assigned during an earlier optimization
-             * process. Please note that the `unassigned` part in request should be consistent with
-             * the `unassigned` part in the previous optimization result.
+             * unassigned attribute is related to the re-optimization feature. This attribute should
+             * contain the tasks that were not assigned during an earlier optimization process.
+             * Please note that the unassigned part in request should be consistent with the
+             * unassigned part in the previous optimization result.
              *
              * Users can reduce the number of unassigned tasks in the re-optimized solution, by
              * following strategies such as:
@@ -1870,8 +1866,8 @@ private constructor(
              * [Geofence API](https://docs.nextbillion.ai/docs/tracking/api/geofence).
              *
              * Please note that
-             * - Each zone should have a geometry specified either through`geometry` or through the
-             *   `geofence_id` parameter.
+             * - Each zone should have a geometry specified either throughgeometry or through the
+             *   geofence_id parameter.
              * - When zone IDs are not provided for individual tasks (jobs or shipments) then the
              *   API will automatically allocate zones based on the task’s geolocation and the
              *   geometries of the zones provided here. Otherwise, if the zone IDs are provided
@@ -2032,7 +2028,7 @@ private constructor(
     }
 
     /**
-     * The `locations` object is used to define all the locations that will be used during the
+     * The locations object is used to define all the locations that will be used during the
      * optimization process. Read more about this attribute in the
      * [Location Object](#location-object) section.
      */
@@ -2063,9 +2059,8 @@ private constructor(
          * all such tasks.
          *
          * Please use this array to determine the index of a location when setting the
-         * `location_index` parameter in `jobs`, `shipments`, `vehicles` or other parts of the
-         * request. The length of this array determines the valid values for `location_index`
-         * parameter.
+         * location_index parameter in jobs, shipments, vehicles or other parts of the request. The
+         * length of this array determines the valid values for location_index parameter.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -2166,9 +2161,8 @@ private constructor(
              * location while configuring all such tasks.
              *
              * Please use this array to determine the index of a location when setting the
-             * `location_index` parameter in `jobs`, `shipments`, `vehicles` or other parts of the
-             * request. The length of this array determines the valid values for `location_index`
-             * parameter.
+             * location_index parameter in jobs, shipments, vehicles or other parts of the request.
+             * The length of this array determines the valid values for location_index parameter.
              */
             fun location(location: List<String>) = location(JsonField.of(location))
 
@@ -2327,9 +2321,9 @@ private constructor(
 
             companion object {
 
-                @JvmField val UNRESTRICTED = of("`unrestricted`")
+                @JvmField val UNRESTRICTED = of("unrestricted")
 
-                @JvmField val CURB = of("`curb`")
+                @JvmField val CURB = of("curb")
 
                 @JvmField val EMPTY_STRING = of("\"\"(empty string)")
 
@@ -2500,12 +2494,11 @@ private constructor(
         fun id(): String = id.getRequired("id")
 
         /**
-         * Specify the index of coordinates (in the `location` array) denoting the depot’s location.
-         * The valid range of values is \[0, length of `location` array). If the location index
-         * exceeds the count of input locations in the `location` array, the API will report an
-         * error.
+         * Specify the index of coordinates (in the location array) denoting the depot’s location.
+         * The valid range of values is \[0, length of location array). If the location index
+         * exceeds the count of input locations in the location array, the API will report an error.
          *
-         * Please note the `location_index` is mandatory when using the `depots` object.
+         * Please note the location_index is mandatory when using the depots object.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -2538,10 +2531,10 @@ private constructor(
          *   each other.
          * - Time windows should always be specified in the format of \[start_timestamp,
          *   end_timestamp\].
-         * - Depot's time-windows are ineffective used when `max_activity_waiting_time` is specified
+         * - Depot's time-windows are ineffective used when max_activity_waiting_time is specified
          *   in the input.
-         * - Using `relations` along with depot time-window is not allowed and the service will
-         *   return an error.
+         * - Using relations along with depot time-window is not allowed and the service will return
+         *   an error.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -2649,12 +2642,12 @@ private constructor(
             fun id(id: JsonField<String>) = apply { this.id = id }
 
             /**
-             * Specify the index of coordinates (in the `location` array) denoting the depot’s
-             * location. The valid range of values is \[0, length of `location` array). If the
-             * location index exceeds the count of input locations in the `location` array, the API
+             * Specify the index of coordinates (in the location array) denoting the depot’s
+             * location. The valid range of values is \[0, length of location array). If the
+             * location index exceeds the count of input locations in the location array, the API
              * will report an error.
              *
-             * Please note the `location_index` is mandatory when using the `depots` object.
+             * Please note the location_index is mandatory when using the depots object.
              */
             fun locationIndex(locationIndex: Long) = locationIndex(JsonField.of(locationIndex))
 
@@ -2708,9 +2701,9 @@ private constructor(
              *   with each other.
              * - Time windows should always be specified in the format of \[start_timestamp,
              *   end_timestamp\].
-             * - Depot's time-windows are ineffective used when `max_activity_waiting_time` is
+             * - Depot's time-windows are ineffective used when max_activity_waiting_time is
              *   specified in the input.
-             * - Using `relations` along with depot time-window is not allowed and the service will
+             * - Using relations along with depot time-window is not allowed and the service will
              *   return an error.
              */
             fun timeWindows(timeWindows: List<List<Long>>) = timeWindows(JsonField.of(timeWindows))
@@ -2871,9 +2864,9 @@ private constructor(
          * constraints are the constraints that will not be violated by the solver. Users can use
          * multiple constraints together.
          *
-         * Please note that soft constraints are ineffective when using `relations` attribute in a
-         * request. The hard constraint, `max_activity_waiting_time`, is effective only when
-         * relation type is `in_same_route` and ineffective for all other types.
+         * Please note that soft constraints are ineffective when using relations attribute in a
+         * request. The hard constraint, max_activity_waiting_time, is effective only when relation
+         * type is in_same_route and ineffective for all other types.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -2882,8 +2875,8 @@ private constructor(
 
         /**
          * Set grouping rules for the tasks and routes.
-         * - Use `order_grouping` to group nearby tasks
-         * - Use `route_grouping` to control route sequencing.
+         * - Use order_grouping to group nearby tasks
+         * - Use route_grouping to control route sequencing.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -2982,9 +2975,9 @@ private constructor(
              * hard constraints are the constraints that will not be violated by the solver. Users
              * can use multiple constraints together.
              *
-             * Please note that soft constraints are ineffective when using `relations` attribute in
-             * a request. The hard constraint, `max_activity_waiting_time`, is effective only when
-             * relation type is `in_same_route` and ineffective for all other types.
+             * Please note that soft constraints are ineffective when using relations attribute in a
+             * request. The hard constraint, max_activity_waiting_time, is effective only when
+             * relation type is in_same_route and ineffective for all other types.
              */
             fun constraint(constraint: Constraint) = constraint(JsonField.of(constraint))
 
@@ -3001,8 +2994,8 @@ private constructor(
 
             /**
              * Set grouping rules for the tasks and routes.
-             * - Use `order_grouping` to group nearby tasks
-             * - Use `route_grouping` to control route sequencing.
+             * - Use order_grouping to group nearby tasks
+             * - Use route_grouping to control route sequencing.
              */
             fun grouping(grouping: Grouping) = grouping(JsonField.of(grouping))
 
@@ -3118,9 +3111,9 @@ private constructor(
          * constraints are the constraints that will not be violated by the solver. Users can use
          * multiple constraints together.
          *
-         * Please note that soft constraints are ineffective when using `relations` attribute in a
-         * request. The hard constraint, `max_activity_waiting_time`, is effective only when
-         * relation type is `in_same_route` and ineffective for all other types.
+         * Please note that soft constraints are ineffective when using relations attribute in a
+         * request. The hard constraint, max_activity_waiting_time, is effective only when relation
+         * type is in_same_route and ineffective for all other types.
          */
         class Constraint
         private constructor(
@@ -3145,14 +3138,14 @@ private constructor(
 
             /**
              * This is a hard constraint which specifies the maximum waiting time, in seconds, for
-             * each `step`. It ensures that the vehicles do not have unreasonable wait times between
+             * each step. It ensures that the vehicles do not have unreasonable wait times between
              * jobs or shipments. This feature is useful for use cases where avoiding long wait
              * times between jobs or shipments is a primary concern.
              *
              * Please note that the waiting time constraint applies to all tasks in the optimization
              * request, ensuring that no single task exceeds the specified maximum waiting time.
-             * When being used together with `relations` attribute, this parameter is effective only
-             * for `in_same_route` relation type.
+             * When being used together with relations attribute, this parameter is effective only
+             * for in_same_route relation type.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -3163,9 +3156,9 @@ private constructor(
             /**
              * This is a soft constraint for vehicle overtime. Overtime is defined as the time that
              * a vehicle spends to complete a set of jobs after its time window has ended.
-             * `max_vehicle_overtime` attribute specifies the maximum amount of overtime a vehicle
-             * can have, in seconds. If a vehicle’s overtime exceeds this value, it will be
-             * considered a violation of this constraint.
+             * max_vehicle_overtime attribute specifies the maximum amount of overtime a vehicle can
+             * have, in seconds. If a vehicle’s overtime exceeds this value, it will be considered a
+             * violation of this constraint.
              *
              * Please note that this constraint applies to all vehicles in the optimization request.
              *
@@ -3182,7 +3175,7 @@ private constructor(
              *
              * Please note that this constraint applies to all tasks in the optimization request. In
              * case lateness duration needs to be applied for individual tasks, please use the
-             * `max_visit_lateness` parameter under `jobs` and `shipments`
+             * max_visit_lateness parameter under jobs and shipments
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -3256,14 +3249,14 @@ private constructor(
 
                 /**
                  * This is a hard constraint which specifies the maximum waiting time, in seconds,
-                 * for each `step`. It ensures that the vehicles do not have unreasonable wait times
+                 * for each step. It ensures that the vehicles do not have unreasonable wait times
                  * between jobs or shipments. This feature is useful for use cases where avoiding
                  * long wait times between jobs or shipments is a primary concern.
                  *
                  * Please note that the waiting time constraint applies to all tasks in the
                  * optimization request, ensuring that no single task exceeds the specified maximum
-                 * waiting time. When being used together with `relations` attribute, this parameter
-                 * is effective only for `in_same_route` relation type.
+                 * waiting time. When being used together with relations attribute, this parameter
+                 * is effective only for in_same_route relation type.
                  */
                 fun maxActivityWaitingTime(maxActivityWaitingTime: Long) =
                     maxActivityWaitingTime(JsonField.of(maxActivityWaitingTime))
@@ -3282,9 +3275,9 @@ private constructor(
                 /**
                  * This is a soft constraint for vehicle overtime. Overtime is defined as the time
                  * that a vehicle spends to complete a set of jobs after its time window has ended.
-                 * `max_vehicle_overtime` attribute specifies the maximum amount of overtime a
-                 * vehicle can have, in seconds. If a vehicle’s overtime exceeds this value, it will
-                 * be considered a violation of this constraint.
+                 * max_vehicle_overtime attribute specifies the maximum amount of overtime a vehicle
+                 * can have, in seconds. If a vehicle’s overtime exceeds this value, it will be
+                 * considered a violation of this constraint.
                  *
                  * Please note that this constraint applies to all vehicles in the optimization
                  * request.
@@ -3310,7 +3303,7 @@ private constructor(
                  *
                  * Please note that this constraint applies to all tasks in the optimization
                  * request. In case lateness duration needs to be applied for individual tasks,
-                 * please use the `max_visit_lateness` parameter under `jobs` and `shipments`
+                 * please use the max_visit_lateness parameter under jobs and shipments
                  */
                 fun maxVisitLateness(maxVisitLateness: Long) =
                     maxVisitLateness(JsonField.of(maxVisitLateness))
@@ -3415,8 +3408,8 @@ private constructor(
 
         /**
          * Set grouping rules for the tasks and routes.
-         * - Use `order_grouping` to group nearby tasks
-         * - Use `route_grouping` to control route sequencing.
+         * - Use order_grouping to group nearby tasks
+         * - Use route_grouping to control route sequencing.
          */
         class Grouping
         private constructor(
@@ -3731,7 +3724,7 @@ private constructor(
 
                 /**
                  * Specify the straight line distance, in meters, which will be used to identify the
-                 * tasks that should be grouped together. The default value is `null`.
+                 * tasks that should be grouped together. The default value is null.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -3783,7 +3776,7 @@ private constructor(
 
                     /**
                      * Specify the straight line distance, in meters, which will be used to identify
-                     * the tasks that should be grouped together. The default value is `null`.
+                     * the tasks that should be grouped together. The default value is null.
                      */
                     fun groupingDiameter(groupingDiameter: Double) =
                         groupingDiameter(JsonField.of(groupingDiameter))
@@ -3921,7 +3914,7 @@ private constructor(
 
                 /**
                  * Specify the diameter of the zone, routes within which will be prioritised before
-                 * routes falling in other zones. Please note that `zone_diameter` is the straight
+                 * routes falling in other zones. Please note that zone_diameter is the straight
                  * line distance, in meters.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
@@ -3933,10 +3926,10 @@ private constructor(
                  * Specify the source for creating boundaries of the routing zones. The default
                  * value is “system_generated”.
                  * - system_generated - Routing zone boundaries are created automatically by the
-                 *   optimizer based on the `zone_diameter` provided.
+                 *   optimizer based on the zone_diameter provided.
                  * - custom_definition - Custom routing zone boundaries should be provided by the
-                 *   user in input using the `zones` attribute. An error would be returned if the
-                 *   `zones` attribute is null or missing in the input request.
+                 *   user in input using the zones attribute. An error would be returned if the
+                 *   zones attribute is null or missing in the input request.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -4038,7 +4031,7 @@ private constructor(
 
                     /**
                      * Specify the diameter of the zone, routes within which will be prioritised
-                     * before routes falling in other zones. Please note that `zone_diameter` is the
+                     * before routes falling in other zones. Please note that zone_diameter is the
                      * straight line distance, in meters.
                      */
                     fun zoneDiameter(zoneDiameter: Double) =
@@ -4059,10 +4052,10 @@ private constructor(
                      * Specify the source for creating boundaries of the routing zones. The default
                      * value is “system_generated”.
                      * - system_generated - Routing zone boundaries are created automatically by the
-                     *   optimizer based on the `zone_diameter` provided.
+                     *   optimizer based on the zone_diameter provided.
                      * - custom_definition - Custom routing zone boundaries should be provided by
-                     *   the user in input using the `zones` attribute. An error would be returned
-                     *   if the `zones` attribute is null or missing in the input request.
+                     *   the user in input using the zones attribute. An error would be returned if
+                     *   the zones attribute is null or missing in the input request.
                      */
                     fun zoneSource(zoneSource: ZoneSource) = zoneSource(JsonField.of(zoneSource))
 
@@ -4150,10 +4143,10 @@ private constructor(
                  * Specify the source for creating boundaries of the routing zones. The default
                  * value is “system_generated”.
                  * - system_generated - Routing zone boundaries are created automatically by the
-                 *   optimizer based on the `zone_diameter` provided.
+                 *   optimizer based on the zone_diameter provided.
                  * - custom_definition - Custom routing zone boundaries should be provided by the
-                 *   user in input using the `zones` attribute. An error would be returned if the
-                 *   `zones` attribute is null or missing in the input request.
+                 *   user in input using the zones attribute. An error would be returned if the
+                 *   zones attribute is null or missing in the input request.
                  */
                 class ZoneSource
                 @JsonCreator
@@ -4172,9 +4165,9 @@ private constructor(
 
                     companion object {
 
-                        @JvmField val SYSTEM_GENERATED = of("`system_generated`")
+                        @JvmField val SYSTEM_GENERATED = of("system_generated")
 
-                        @JvmField val CUSTOM_DEFINITION = of("`custom_definition`")
+                        @JvmField val CUSTOM_DEFINITION = of("custom_definition")
 
                         @JvmStatic fun of(value: String) = ZoneSource(JsonField.of(value))
                     }
@@ -4373,9 +4366,9 @@ private constructor(
             )
 
             /**
-             * Choose where the optimizer should schedule the driver’s wait time. When set to `true`
+             * Choose where the optimizer should schedule the driver’s wait time. When set to true
              * the driver waits at the location of the task until its time window allows him to
-             * start the task. When set to `false` the driver waits at the location of the previous
+             * start the task. When set to false the driver waits at the location of the previous
              * task and starts driving only at such a time that makes him arrive at the next task
              * location in time to start the task as soon as he reaches.
              *
@@ -4386,7 +4379,7 @@ private constructor(
                 allowEarlyArrival.getOptional("allow_early_arrival")
 
             /**
-             * The `custom` parameter is used to define special objectives apart from the simpler
+             * The custom parameter is used to define special objectives apart from the simpler
              * travel cost minimization objectives.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
@@ -4433,31 +4426,31 @@ private constructor(
                 solvingTimeLimit.getOptional("solving_time_limit")
 
             /**
-             * The `travel_cost` parameter specifies the type of cost used by the solver to
-             * determine the routes.
+             * The travel_cost parameter specifies the type of cost used by the solver to determine
+             * the routes.
              *
-             * If the `travel_cost` parameter is set to `distance`, the solver will minimize the
-             * total distance traveled by vehicles while determining a solution. This objective
-             * would be useful in cases where the primary objective is to reduce fuel consumption or
-             * travel expenses.
+             * If the travel_cost parameter is set to distance, the solver will minimize the total
+             * distance traveled by vehicles while determining a solution. This objective would be
+             * useful in cases where the primary objective is to reduce fuel consumption or travel
+             * expenses.
              *
-             * If the `travel_cost` parameter is set to `duration`, the solver will minimize the
-             * total time taken by the vehicles to complete all tasks while determining a solution.
-             * This objective would be useful in cases where the primary objective is to minimize
+             * If the travel_cost parameter is set to duration, the solver will minimize the total
+             * time taken by the vehicles to complete all tasks while determining a solution. This
+             * objective would be useful in cases where the primary objective is to minimize
              * completion time or maximize the number of orders fulfilled within a given time
              * window.
              *
-             * If the `travel_cost` parameter is set to `air_distance`, the solver will try to
-             * calculate the distance,in meters, between two points using the great-circle distance
-             * formula (i.e., the shortest distance between two points on a sphere) instead of the
-             * actual road distance. This would be useful in cases where the delivery locations are
-             * far apart and the road distance between them is significantly longer than the actual
+             * If the travel_cost parameter is set to air_distance, the solver will try to calculate
+             * the distance,in meters, between two points using the great-circle distance formula
+             * (i.e., the shortest distance between two points on a sphere) instead of the actual
+             * road distance. This would be useful in cases where the delivery locations are far
+             * apart and the road distance between them is significantly longer than the actual
              * straight-line distance. For example, in Drone Delivery services.
              *
-             * If the `travel_cost` is set to `customized` the solver would use the custom cost
-             * values provided by the user (in `cost_matrix` attribute) and prefer a solution with
-             * lower overall cost. This enables the user to have greater control over the routes
-             * preferred by the solver and hence the sequence in which the jobs are completed.
+             * If the travel_cost is set to customized the solver would use the custom cost values
+             * provided by the user (in cost_matrix attribute) and prefer a solution with lower
+             * overall cost. This enables the user to have greater control over the routes preferred
+             * by the solver and hence the sequence in which the jobs are completed.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -4563,10 +4556,10 @@ private constructor(
 
                 /**
                  * Choose where the optimizer should schedule the driver’s wait time. When set to
-                 * `true` the driver waits at the location of the task until its time window allows
-                 * him to start the task. When set to `false` the driver waits at the location of
-                 * the previous task and starts driving only at such a time that makes him arrive at
-                 * the next task location in time to start the task as soon as he reaches.
+                 * true the driver waits at the location of the task until its time window allows
+                 * him to start the task. When set to false the driver waits at the location of the
+                 * previous task and starts driving only at such a time that makes him arrive at the
+                 * next task location in time to start the task as soon as he reaches.
                  */
                 fun allowEarlyArrival(allowEarlyArrival: Boolean) =
                     allowEarlyArrival(JsonField.of(allowEarlyArrival))
@@ -4583,8 +4576,8 @@ private constructor(
                 }
 
                 /**
-                 * The `custom` parameter is used to define special objectives apart from the
-                 * simpler travel cost minimization objectives.
+                 * The custom parameter is used to define special objectives apart from the simpler
+                 * travel cost minimization objectives.
                  */
                 fun custom(custom: Custom) = custom(JsonField.of(custom))
 
@@ -4659,21 +4652,21 @@ private constructor(
                 }
 
                 /**
-                 * The `travel_cost` parameter specifies the type of cost used by the solver to
+                 * The travel_cost parameter specifies the type of cost used by the solver to
                  * determine the routes.
                  *
-                 * If the `travel_cost` parameter is set to `distance`, the solver will minimize the
+                 * If the travel_cost parameter is set to distance, the solver will minimize the
                  * total distance traveled by vehicles while determining a solution. This objective
                  * would be useful in cases where the primary objective is to reduce fuel
                  * consumption or travel expenses.
                  *
-                 * If the `travel_cost` parameter is set to `duration`, the solver will minimize the
+                 * If the travel_cost parameter is set to duration, the solver will minimize the
                  * total time taken by the vehicles to complete all tasks while determining a
                  * solution. This objective would be useful in cases where the primary objective is
                  * to minimize completion time or maximize the number of orders fulfilled within a
                  * given time window.
                  *
-                 * If the `travel_cost` parameter is set to `air_distance`, the solver will try to
+                 * If the travel_cost parameter is set to air_distance, the solver will try to
                  * calculate the distance,in meters, between two points using the great-circle
                  * distance formula (i.e., the shortest distance between two points on a sphere)
                  * instead of the actual road distance. This would be useful in cases where the
@@ -4681,11 +4674,10 @@ private constructor(
                  * significantly longer than the actual straight-line distance. For example, in
                  * Drone Delivery services.
                  *
-                 * If the `travel_cost` is set to `customized` the solver would use the custom cost
-                 * values provided by the user (in `cost_matrix` attribute) and prefer a solution
-                 * with lower overall cost. This enables the user to have greater control over the
-                 * routes preferred by the solver and hence the sequence in which the jobs are
-                 * completed.
+                 * If the travel_cost is set to customized the solver would use the custom cost
+                 * values provided by the user (in cost_matrix attribute) and prefer a solution with
+                 * lower overall cost. This enables the user to have greater control over the routes
+                 * preferred by the solver and hence the sequence in which the jobs are completed.
                  */
                 fun travelCost(travelCost: TravelCost) = travelCost(JsonField.of(travelCost))
 
@@ -4779,7 +4771,7 @@ private constructor(
                     (travelCost.asKnown().getOrNull()?.validity() ?: 0)
 
             /**
-             * The `custom` parameter is used to define special objectives apart from the simpler
+             * The custom parameter is used to define special objectives apart from the simpler
              * travel cost minimization objectives.
              */
             class Custom
@@ -4798,14 +4790,14 @@ private constructor(
                 ) : this(type, value, mutableMapOf())
 
                 /**
-                 * The `type` parameter accepts two inputs:
-                 * - `min`: This type of customized objective will minimize the metric provided in
-                 *   the `value` parameter.
-                 * - `min-max`: This type of customized objective will approximate an even
-                 *   distribution of the metric provided in the `value` parameter, among all the
+                 * The type parameter accepts two inputs:
+                 * - min: This type of customized objective will minimize the metric provided in the
+                 *   value parameter.
+                 * - min-max: This type of customized objective will approximate an even
+                 *   distribution of the metric provided in the value parameter, among all the
                  *   routes in solution.
                  *
-                 * Please note that `type` is mandatory only when using `custom` attribute.
+                 * Please note that type is mandatory only when using custom attribute.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type or is unexpectedly missing or null (e.g. if the server responded with an
@@ -4814,21 +4806,21 @@ private constructor(
                 fun type(): Type = type.getRequired("type")
 
                 /**
-                 * The `value` parameter accepts four inputs, two of them are valid for `min` type
-                 * and other two are valid for `min-max` type custom objective. Let’s look at the
-                 * values for `min` type objective:
-                 * - `vehicles`: Solver will minimize the number of vehicles used in the solution.
-                 * - `completion_time`: Solver will minimize the total time taken to complete all
+                 * The value parameter accepts four inputs, two of them are valid for min type and
+                 * other two are valid for min-max type custom objective. Let’s look at the values
+                 * for min type objective:
+                 * - vehicles: Solver will minimize the number of vehicles used in the solution.
+                 * - completion_time: Solver will minimize the total time taken to complete all
                  *   tasks.
                  *
-                 * The next set of values are acceptable when `type` is set to `min-max`.
-                 * - `tasks`: Solver will evenly distribute the tasks on each route.
-                 * - `travel_cost`: Solver will assign tasks such that the traveling cost of each
+                 * The next set of values are acceptable when type is set to min-max.
+                 * - tasks: Solver will evenly distribute the tasks on each route.
+                 * - travel_cost: Solver will assign tasks such that the traveling cost of each
                  *   route is within a close range of other routes. The travel cost metric
-                 *   considered here is the one set using `objective.travel_cost` .
+                 *   considered here is the one set using objective.travel_cost .
                  *
-                 * Please note that `value` is mandatory only when using `custom` attribute. The
-                 * above values provide flexibility to tune the optimization algorithm to fulfill
+                 * Please note that value is mandatory only when using custom attribute. The above
+                 * values provide flexibility to tune the optimization algorithm to fulfill
                  * practical objectives beyond the relatively simpler time or distance minimization
                  * approaches.
                  *
@@ -4895,14 +4887,14 @@ private constructor(
                     }
 
                     /**
-                     * The `type` parameter accepts two inputs:
-                     * - `min`: This type of customized objective will minimize the metric provided
-                     *   in the `value` parameter.
-                     * - `min-max`: This type of customized objective will approximate an even
-                     *   distribution of the metric provided in the `value` parameter, among all the
+                     * The type parameter accepts two inputs:
+                     * - min: This type of customized objective will minimize the metric provided in
+                     *   the value parameter.
+                     * - min-max: This type of customized objective will approximate an even
+                     *   distribution of the metric provided in the value parameter, among all the
                      *   routes in solution.
                      *
-                     * Please note that `type` is mandatory only when using `custom` attribute.
+                     * Please note that type is mandatory only when using custom attribute.
                      */
                     fun type(type: Type) = type(JsonField.of(type))
 
@@ -4916,21 +4908,20 @@ private constructor(
                     fun type(type: JsonField<Type>) = apply { this.type = type }
 
                     /**
-                     * The `value` parameter accepts four inputs, two of them are valid for `min`
-                     * type and other two are valid for `min-max` type custom objective. Let’s look
-                     * at the values for `min` type objective:
-                     * - `vehicles`: Solver will minimize the number of vehicles used in the
-                     *   solution.
-                     * - `completion_time`: Solver will minimize the total time taken to complete
-                     *   all tasks.
+                     * The value parameter accepts four inputs, two of them are valid for min type
+                     * and other two are valid for min-max type custom objective. Let’s look at the
+                     * values for min type objective:
+                     * - vehicles: Solver will minimize the number of vehicles used in the solution.
+                     * - completion_time: Solver will minimize the total time taken to complete all
+                     *   tasks.
                      *
-                     * The next set of values are acceptable when `type` is set to `min-max`.
-                     * - `tasks`: Solver will evenly distribute the tasks on each route.
-                     * - `travel_cost`: Solver will assign tasks such that the traveling cost of
-                     *   each route is within a close range of other routes. The travel cost metric
-                     *   considered here is the one set using `objective.travel_cost` .
+                     * The next set of values are acceptable when type is set to min-max.
+                     * - tasks: Solver will evenly distribute the tasks on each route.
+                     * - travel_cost: Solver will assign tasks such that the traveling cost of each
+                     *   route is within a close range of other routes. The travel cost metric
+                     *   considered here is the one set using objective.travel_cost .
                      *
-                     * Please note that `value` is mandatory only when using `custom` attribute. The
+                     * Please note that value is mandatory only when using custom attribute. The
                      * above values provide flexibility to tune the optimization algorithm to
                      * fulfill practical objectives beyond the relatively simpler time or distance
                      * minimization approaches.
@@ -5021,14 +5012,14 @@ private constructor(
                         (value.asKnown().getOrNull()?.validity() ?: 0)
 
                 /**
-                 * The `type` parameter accepts two inputs:
-                 * - `min`: This type of customized objective will minimize the metric provided in
-                 *   the `value` parameter.
-                 * - `min-max`: This type of customized objective will approximate an even
-                 *   distribution of the metric provided in the `value` parameter, among all the
+                 * The type parameter accepts two inputs:
+                 * - min: This type of customized objective will minimize the metric provided in the
+                 *   value parameter.
+                 * - min-max: This type of customized objective will approximate an even
+                 *   distribution of the metric provided in the value parameter, among all the
                  *   routes in solution.
                  *
-                 * Please note that `type` is mandatory only when using `custom` attribute.
+                 * Please note that type is mandatory only when using custom attribute.
                  */
                 class Type @JsonCreator private constructor(private val value: JsonField<String>) :
                     Enum {
@@ -5046,9 +5037,9 @@ private constructor(
 
                     companion object {
 
-                        @JvmField val MIN = of("`min`")
+                        @JvmField val MIN = of("min")
 
-                        @JvmField val MIN_MAX = of("`min-max`")
+                        @JvmField val MIN_MAX = of("min-max")
 
                         @JvmStatic fun of(value: String) = Type(JsonField.of(value))
                     }
@@ -5164,21 +5155,21 @@ private constructor(
                 }
 
                 /**
-                 * The `value` parameter accepts four inputs, two of them are valid for `min` type
-                 * and other two are valid for `min-max` type custom objective. Let’s look at the
-                 * values for `min` type objective:
-                 * - `vehicles`: Solver will minimize the number of vehicles used in the solution.
-                 * - `completion_time`: Solver will minimize the total time taken to complete all
+                 * The value parameter accepts four inputs, two of them are valid for min type and
+                 * other two are valid for min-max type custom objective. Let’s look at the values
+                 * for min type objective:
+                 * - vehicles: Solver will minimize the number of vehicles used in the solution.
+                 * - completion_time: Solver will minimize the total time taken to complete all
                  *   tasks.
                  *
-                 * The next set of values are acceptable when `type` is set to `min-max`.
-                 * - `tasks`: Solver will evenly distribute the tasks on each route.
-                 * - `travel_cost`: Solver will assign tasks such that the traveling cost of each
+                 * The next set of values are acceptable when type is set to min-max.
+                 * - tasks: Solver will evenly distribute the tasks on each route.
+                 * - travel_cost: Solver will assign tasks such that the traveling cost of each
                  *   route is within a close range of other routes. The travel cost metric
-                 *   considered here is the one set using `objective.travel_cost` .
+                 *   considered here is the one set using objective.travel_cost .
                  *
-                 * Please note that `value` is mandatory only when using `custom` attribute. The
-                 * above values provide flexibility to tune the optimization algorithm to fulfill
+                 * Please note that value is mandatory only when using custom attribute. The above
+                 * values provide flexibility to tune the optimization algorithm to fulfill
                  * practical objectives beyond the relatively simpler time or distance minimization
                  * approaches.
                  */
@@ -5198,13 +5189,13 @@ private constructor(
 
                     companion object {
 
-                        @JvmField val VEHICLES = of("`vehicles`")
+                        @JvmField val VEHICLES = of("vehicles")
 
-                        @JvmField val COMPLETION_TIME = of("`completion_time`")
+                        @JvmField val COMPLETION_TIME = of("completion_time")
 
-                        @JvmField val TRAVEL_COST = of("`travel_cost`")
+                        @JvmField val TRAVEL_COST = of("travel_cost")
 
-                        @JvmField val TASKS = of("`tasks`")
+                        @JvmField val TASKS = of("tasks")
 
                         @JvmStatic fun of(value: String) = Value(JsonField.of(value))
                     }
@@ -5370,11 +5361,11 @@ private constructor(
 
                 companion object {
 
-                    @JvmField val FLEXIBLE = of("`flexible`")
+                    @JvmField val FLEXIBLE = of("flexible")
 
-                    @JvmField val FAST = of("`fast`")
+                    @JvmField val FAST = of("fast")
 
-                    @JvmField val INTERNAL = of("`internal`")
+                    @JvmField val INTERNAL = of("internal")
 
                     @JvmStatic fun of(value: String) = SolverMode(JsonField.of(value))
                 }
@@ -5494,31 +5485,31 @@ private constructor(
             }
 
             /**
-             * The `travel_cost` parameter specifies the type of cost used by the solver to
-             * determine the routes.
+             * The travel_cost parameter specifies the type of cost used by the solver to determine
+             * the routes.
              *
-             * If the `travel_cost` parameter is set to `distance`, the solver will minimize the
-             * total distance traveled by vehicles while determining a solution. This objective
-             * would be useful in cases where the primary objective is to reduce fuel consumption or
-             * travel expenses.
+             * If the travel_cost parameter is set to distance, the solver will minimize the total
+             * distance traveled by vehicles while determining a solution. This objective would be
+             * useful in cases where the primary objective is to reduce fuel consumption or travel
+             * expenses.
              *
-             * If the `travel_cost` parameter is set to `duration`, the solver will minimize the
-             * total time taken by the vehicles to complete all tasks while determining a solution.
-             * This objective would be useful in cases where the primary objective is to minimize
+             * If the travel_cost parameter is set to duration, the solver will minimize the total
+             * time taken by the vehicles to complete all tasks while determining a solution. This
+             * objective would be useful in cases where the primary objective is to minimize
              * completion time or maximize the number of orders fulfilled within a given time
              * window.
              *
-             * If the `travel_cost` parameter is set to `air_distance`, the solver will try to
-             * calculate the distance,in meters, between two points using the great-circle distance
-             * formula (i.e., the shortest distance between two points on a sphere) instead of the
-             * actual road distance. This would be useful in cases where the delivery locations are
-             * far apart and the road distance between them is significantly longer than the actual
+             * If the travel_cost parameter is set to air_distance, the solver will try to calculate
+             * the distance,in meters, between two points using the great-circle distance formula
+             * (i.e., the shortest distance between two points on a sphere) instead of the actual
+             * road distance. This would be useful in cases where the delivery locations are far
+             * apart and the road distance between them is significantly longer than the actual
              * straight-line distance. For example, in Drone Delivery services.
              *
-             * If the `travel_cost` is set to `customized` the solver would use the custom cost
-             * values provided by the user (in `cost_matrix` attribute) and prefer a solution with
-             * lower overall cost. This enables the user to have greater control over the routes
-             * preferred by the solver and hence the sequence in which the jobs are completed.
+             * If the travel_cost is set to customized the solver would use the custom cost values
+             * provided by the user (in cost_matrix attribute) and prefer a solution with lower
+             * overall cost. This enables the user to have greater control over the routes preferred
+             * by the solver and hence the sequence in which the jobs are completed.
              */
             class TravelCost
             @JsonCreator
@@ -5536,13 +5527,13 @@ private constructor(
 
                 companion object {
 
-                    @JvmField val DURATION = of("`duration`")
+                    @JvmField val DURATION = of("duration")
 
-                    @JvmField val DISTANCE = of("`distance`")
+                    @JvmField val DISTANCE = of("distance")
 
-                    @JvmField val AIR_DISTANCE = of("`air_distance`")
+                    @JvmField val AIR_DISTANCE = of("air_distance")
 
-                    @JvmField val CUSTOMIZED = of("`customized`")
+                    @JvmField val CUSTOMIZED = of("customized")
 
                     @JvmStatic fun of(value: String) = TravelCost(JsonField.of(value))
                 }
@@ -5762,17 +5753,17 @@ private constructor(
              *
              * Please note that:
              * - The values are case-sensitive.
-             * - When using `avoid:bbox` feature, users need to specify the boundaries of the
-             *   bounding box to be avoided. Multiple bounding boxes can be provided simultaneously.
-             *   Please note that bounding box is a hard filter and if it blocks all possible routes
+             * - When using avoid:bbox feature, users need to specify the boundaries of the bounding
+             *   box to be avoided. Multiple bounding boxes can be provided simultaneously. Please
+             *   note that bounding box is a hard filter and if it blocks all possible routes
              *   between given locations, a 4xx error is returned. Mention the bounding box
              *   boundaries in the following format: bbox:
              *   min_latitude,min_longitude,max_latitude,max_longitude.
-             * - When using `avoid=sharp_turn`, the range of allowed turn angles is \[120,240\] in
-             *   the clockwise direction from the current road. Any roads with turn angles outside
-             *   the range will be avoided.
-             * - If `none` is provided along with other values, an error is returned as a valid
-             *   route is not feasible.
+             * - When using avoid=sharp_turn, the range of allowed turn angles is \[120,240\] in the
+             *   clockwise direction from the current road. Any roads with turn angles outside the
+             *   range will be avoided.
+             * - If none is provided along with other values, an error is returned as a valid route
+             *   is not feasible.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -5781,8 +5772,8 @@ private constructor(
 
             /**
              * Use this parameter to apply a single speed value for all ETA and drive time
-             * calculations. In case, the `travel_cost` is set to duration then setting this
-             * parameter also impacts the cost of the solution.
+             * calculations. In case, the travel_cost is set to duration then setting this parameter
+             * also impacts the cost of the solution.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -5793,7 +5784,7 @@ private constructor(
              * Specify if crossing an international border is allowed for operations near border
              * areas. When set to false, the API will prohibit any routes crossing international
              * borders. When set to true, the service will return routes which cross the borders
-             * between countries, if required for the given set `locations`
+             * between countries, if required for the given set locations
              *
              * This feature is available in North America region only. Please get in touch with
              * [support@nextbillion.ai](mailto:support@nextbillion.ai) to enquire/enable other
@@ -5811,7 +5802,7 @@ private constructor(
              * locations are provided again. Please note that if a cached result is retrieved, the
              * timer is reset and that result will be available for another 60 mins.
              *
-             * If the users want to regenerate the result set, they can set this parameter to `true`
+             * If the users want to regenerate the result set, they can set this parameter to true
              * and optimizer will not use the cached results.
              *
              * This feature is helpful in expediting the optimization process and generate results
@@ -5826,9 +5817,9 @@ private constructor(
             /**
              * Specify the type of hazardous material being carried and the service will avoid roads
              * which are not suitable for the type of goods specified. Provide multiple values
-             * separated by a comma `,` .
+             * separated by a comma , .
              *
-             * Please note that this parameter is effective only when `mode=truck`.
+             * Please note that this parameter is effective only when mode=truck.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -5844,23 +5835,23 @@ private constructor(
             fun mode(): Optional<Mode> = mode.getOptional("mode")
 
             /**
-             * Defines all the vehicle profiles. `profiles` is implemented as a dictionary of
-             * objects where each profile name is the unique key and the associated value is an
-             * object describing the routing properties of that profile. All routing properties
-             * available in `options.routing` can be added as values for a given profile.
+             * Defines all the vehicle profiles. profiles is implemented as a dictionary of objects
+             * where each profile name is the unique key and the associated value is an object
+             * describing the routing properties of that profile. All routing properties available
+             * in options.routing can be added as values for a given profile.
              *
              * Please note:
-             * - The routing properties configured using `options.routing` (and not part of any
-             *   \`profiles\`) are considered as default route settings i.e. they are applied to
+             * - The routing properties configured using options.routing (and not part of any
+             *   \profiles\) are considered as default route settings i.e. they are applied to
              *   vehicles which are not associated with any profile.
-             * - The default route settings are independent from those defined for any `profiles` .
+             * - The default route settings are independent from those defined for any profiles .
              *   Consequently, for vehicles which are tagged to a given profile, only the routing
              *   properties configured for the given profile will apply.
              * - If the "mode" is not specified for any profile, by default it is considered to be
-             *   `car` .
+             *   car .
              * - "default" is a reserved keyword and can not be used as the name for any custom
              *   profile.
-             * - `profiles` can't be nested in other profiles.
+             * - profiles can't be nested in other profiles.
              * - The number of profiles, including default route settings, are limited to
              *     - 15, if 0 < number of location <= 100
              *     - 6, if 100 < number of location <= 600，
@@ -5891,7 +5882,7 @@ private constructor(
              * of the truck, in tonnes. When used, the optimizer will use only those routes which
              * are legally allowed to carry the load specified per axle.
              *
-             * Please note this parameter is effective only when `mode=truck`.
+             * Please note this parameter is effective only when mode=truck.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -5900,7 +5891,7 @@ private constructor(
 
             /**
              * Specify the truck dimensions, in centimeters, in the format of “height,width,length”.
-             * Please note that this parameter is effective only when `mode=truck`.
+             * Please note that this parameter is effective only when mode=truck.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -5909,7 +5900,7 @@ private constructor(
 
             /**
              * Specify the truck weight including the trailers and shipped goods, in kilograms.
-             * Please note that this parameter is effective only when `mode=truck`.
+             * Please note that this parameter is effective only when mode=truck.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -6096,16 +6087,16 @@ private constructor(
                  *
                  * Please note that:
                  * - The values are case-sensitive.
-                 * - When using `avoid:bbox` feature, users need to specify the boundaries of the
+                 * - When using avoid:bbox feature, users need to specify the boundaries of the
                  *   bounding box to be avoided. Multiple bounding boxes can be provided
                  *   simultaneously. Please note that bounding box is a hard filter and if it blocks
                  *   all possible routes between given locations, a 4xx error is returned. Mention
                  *   the bounding box boundaries in the following format: bbox:
                  *   min_latitude,min_longitude,max_latitude,max_longitude.
-                 * - When using `avoid=sharp_turn`, the range of allowed turn angles is \[120,240\]
-                 *   in the clockwise direction from the current road. Any roads with turn angles
+                 * - When using avoid=sharp_turn, the range of allowed turn angles is \[120,240\] in
+                 *   the clockwise direction from the current road. Any roads with turn angles
                  *   outside the range will be avoided.
-                 * - If `none` is provided along with other values, an error is returned as a valid
+                 * - If none is provided along with other values, an error is returned as a valid
                  *   route is not feasible.
                  */
                 fun avoid(avoid: List<Avoid>) = avoid(JsonField.of(avoid))
@@ -6135,7 +6126,7 @@ private constructor(
 
                 /**
                  * Use this parameter to apply a single speed value for all ETA and drive time
-                 * calculations. In case, the `travel_cost` is set to duration then setting this
+                 * calculations. In case, the travel_cost is set to duration then setting this
                  * parameter also impacts the cost of the solution.
                  */
                 fun context(context: Context) = context(JsonField.of(context))
@@ -6153,7 +6144,7 @@ private constructor(
                  * Specify if crossing an international border is allowed for operations near border
                  * areas. When set to false, the API will prohibit any routes crossing international
                  * borders. When set to true, the service will return routes which cross the borders
-                 * between countries, if required for the given set `locations`
+                 * between countries, if required for the given set locations
                  *
                  * This feature is available in North America region only. Please get in touch with
                  * [support@nextbillion.ai](mailto:support@nextbillion.ai) to enquire/enable other
@@ -6181,7 +6172,7 @@ private constructor(
                  * mins.
                  *
                  * If the users want to regenerate the result set, they can set this parameter to
-                 * `true` and optimizer will not use the cached results.
+                 * true and optimizer will not use the cached results.
                  *
                  * This feature is helpful in expediting the optimization process and generate
                  * results quickly. It also helps users to quickly simulate route plans for
@@ -6203,9 +6194,9 @@ private constructor(
                 /**
                  * Specify the type of hazardous material being carried and the service will avoid
                  * roads which are not suitable for the type of goods specified. Provide multiple
-                 * values separated by a comma `,` .
+                 * values separated by a comma , .
                  *
-                 * Please note that this parameter is effective only when `mode=truck`.
+                 * Please note that this parameter is effective only when mode=truck.
                  */
                 fun hazmatType(hazmatType: List<HazmatType>) = hazmatType(JsonField.of(hazmatType))
 
@@ -6245,23 +6236,23 @@ private constructor(
                 fun mode(mode: JsonField<Mode>) = apply { this.mode = mode }
 
                 /**
-                 * Defines all the vehicle profiles. `profiles` is implemented as a dictionary of
+                 * Defines all the vehicle profiles. profiles is implemented as a dictionary of
                  * objects where each profile name is the unique key and the associated value is an
                  * object describing the routing properties of that profile. All routing properties
-                 * available in `options.routing` can be added as values for a given profile.
+                 * available in options.routing can be added as values for a given profile.
                  *
                  * Please note:
-                 * - The routing properties configured using `options.routing` (and not part of any
-                 *   \`profiles\`) are considered as default route settings i.e. they are applied to
+                 * - The routing properties configured using options.routing (and not part of any
+                 *   \profiles\) are considered as default route settings i.e. they are applied to
                  *   vehicles which are not associated with any profile.
-                 * - The default route settings are independent from those defined for any
-                 *   `profiles` . Consequently, for vehicles which are tagged to a given profile,
-                 *   only the routing properties configured for the given profile will apply.
+                 * - The default route settings are independent from those defined for any profiles
+                 *   . Consequently, for vehicles which are tagged to a given profile, only the
+                 *   routing properties configured for the given profile will apply.
                  * - If the "mode" is not specified for any profile, by default it is considered to
-                 *   be `car` .
+                 *   be car .
                  * - "default" is a reserved keyword and can not be used as the name for any custom
                  *   profile.
-                 * - `profiles` can't be nested in other profiles.
+                 * - profiles can't be nested in other profiles.
                  * - The number of profiles, including default route settings, are limited to
                  *     - 15, if 0 < number of location <= 100
                  *     - 6, if 100 < number of location <= 600，
@@ -6300,7 +6291,7 @@ private constructor(
                  * goods) of the truck, in tonnes. When used, the optimizer will use only those
                  * routes which are legally allowed to carry the load specified per axle.
                  *
-                 * Please note this parameter is effective only when `mode=truck`.
+                 * Please note this parameter is effective only when mode=truck.
                  */
                 fun truckAxleLoad(truckAxleLoad: Double) =
                     truckAxleLoad(JsonField.of(truckAxleLoad))
@@ -6319,7 +6310,7 @@ private constructor(
                 /**
                  * Specify the truck dimensions, in centimeters, in the format of
                  * “height,width,length”. Please note that this parameter is effective only when
-                 * `mode=truck`.
+                 * mode=truck.
                  */
                 fun truckSize(truckSize: String) = truckSize(JsonField.of(truckSize))
 
@@ -6334,7 +6325,7 @@ private constructor(
 
                 /**
                  * Specify the truck weight including the trailers and shipped goods, in kilograms.
-                 * Please note that this parameter is effective only when `mode=truck`.
+                 * Please note that this parameter is effective only when mode=truck.
                  */
                 fun truckWeight(truckWeight: Long) = truckWeight(JsonField.of(truckWeight))
 
@@ -6589,25 +6580,25 @@ private constructor(
 
                 companion object {
 
-                    @JvmField val TOLL = of("`toll`")
+                    @JvmField val TOLL = of("toll")
 
-                    @JvmField val HIGHWAY = of("`highway`")
+                    @JvmField val HIGHWAY = of("highway")
 
-                    @JvmField val BBOX = of("`bbox`")
+                    @JvmField val BBOX = of("bbox")
 
-                    @JvmField val LEFT_TURN = of("`left_turn`")
+                    @JvmField val LEFT_TURN = of("left_turn")
 
-                    @JvmField val RIGHT_TURN = of("`right_turn`")
+                    @JvmField val RIGHT_TURN = of("right_turn")
 
-                    @JvmField val SHARP_TURN = of("`sharp_turn`")
+                    @JvmField val SHARP_TURN = of("sharp_turn")
 
-                    @JvmField val UTURN = of("`uturn`")
+                    @JvmField val UTURN = of("uturn")
 
-                    @JvmField val SERVICE_ROAD = of("`service_road`")
+                    @JvmField val SERVICE_ROAD = of("service_road")
 
-                    @JvmField val FERRY = of("`ferry`")
+                    @JvmField val FERRY = of("ferry")
 
-                    @JvmField val NONE = of("`none` ")
+                    @JvmField val NONE = of("none ")
 
                     @JvmStatic fun of(value: String) = Avoid(JsonField.of(value))
                 }
@@ -6755,8 +6746,8 @@ private constructor(
 
             /**
              * Use this parameter to apply a single speed value for all ETA and drive time
-             * calculations. In case, the `travel_cost` is set to duration then setting this
-             * parameter also impacts the cost of the solution.
+             * calculations. In case, the travel_cost is set to duration then setting this parameter
+             * also impacts the cost of the solution.
              */
             class Context @JsonCreator private constructor(private val value: JsonField<String>) :
                 Enum {
@@ -6773,7 +6764,7 @@ private constructor(
 
                 companion object {
 
-                    @JvmField val AVGSPEED = of("`avgspeed`")
+                    @JvmField val AVGSPEED = of("avgspeed")
 
                     @JvmStatic fun of(value: String) = Context(JsonField.of(value))
                 }
@@ -6899,13 +6890,13 @@ private constructor(
 
                 companion object {
 
-                    @JvmField val GENERAL = of("`general`")
+                    @JvmField val GENERAL = of("general")
 
-                    @JvmField val CIRCUMSTANTIAL = of("`circumstantial`")
+                    @JvmField val CIRCUMSTANTIAL = of("circumstantial")
 
-                    @JvmField val EXPLOSIVE = of("`explosive`")
+                    @JvmField val EXPLOSIVE = of("explosive")
 
-                    @JvmField val HARMFUL_TO_WATER = of("`harmful_to_water`")
+                    @JvmField val HARMFUL_TO_WATER = of("harmful_to_water")
 
                     @JvmStatic fun of(value: String) = HazmatType(JsonField.of(value))
                 }
@@ -7044,9 +7035,9 @@ private constructor(
 
                 companion object {
 
-                    @JvmField val CAR = of("`car`")
+                    @JvmField val CAR = of("car")
 
-                    @JvmField val TRUCK = of("`truck`")
+                    @JvmField val TRUCK = of("truck")
 
                     @JvmStatic fun of(value: String) = Mode(JsonField.of(value))
                 }
@@ -7221,10 +7212,9 @@ private constructor(
         ) : this(steps, type, id, maxDuration, minDuration, vehicle, mutableMapOf())
 
         /**
-         * The `steps` property specifies the tasks or steps that are part of the relation and must
-         * be carried out in a manner defined in the `type` parameter. Please note you can add any
-         * number of steps here, except when relation type is `precedence` where only 2 tasks can be
-         * added.
+         * The steps property specifies the tasks or steps that are part of the relation and must be
+         * carried out in a manner defined in the type parameter. Please note you can add any number
+         * of steps here, except when relation type is precedence where only 2 tasks can be added.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -7233,22 +7223,22 @@ private constructor(
 
         /**
          * Specifies the type of relation constraint. The following types are supported:
-         * - `in_same_route`: Ensures that all `steps` are covered in the same route in solution.
-         * - `in_sequence`: Ensures that all steps are in the same route and their sequence matches
-         *   the order specified in the `steps` field. Insertion of new steps between the `steps`
+         * - in_same_route: Ensures that all steps are covered in the same route in solution.
+         * - in_sequence: Ensures that all steps are in the same route and their sequence matches
+         *   the order specified in the steps field. Insertion of new steps between the steps
          *   specified, is allowed.
-         * - `in_direct_sequence`: Similar to `in_sequence`, but insertion of new `steps` is not
-         *   allowed in the final route.
-         * - `precedence`: Restricts the travel time between the first step and second step. If the
+         * - in_direct_sequence: Similar to in_sequence, but insertion of new steps is not allowed
+         *   in the final route.
+         * - precedence: Restricts the travel time between the first step and second step. If the
          *   precedence requirement cannot be satisfied, then the task specified at the second step
-         *   will not be assigned. Only 2 steps can be specified in a single `precedence` type
-         *   relations. Please use multiple `precedence` relations to apply restrictions on more
-         *   than 2 tasks.
+         *   will not be assigned. Only 2 steps can be specified in a single precedence type
+         *   relations. Please use multiple precedence relations to apply restrictions on more than
+         *   2 tasks.
          *
-         * If the `vehicle` field is specified in the relations input, all steps will be served by
+         * If the vehicle field is specified in the relations input, all steps will be served by
          * that particular vehicle. Otherwise, the route can be allocated to any feasible vehicle.
          *
-         * Please note that the `type` field is mandatory when using the `relations` object.
+         * Please note that the type field is mandatory when using the relations object.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -7256,10 +7246,10 @@ private constructor(
         fun type(): Type = type.getRequired("type")
 
         /**
-         * **Deprecated! Please use the** `vehicle` **parameter to specify the vehicle ID.**
+         * **Deprecated! Please use the** vehicle **parameter to specify the vehicle ID.**
          *
          * Specifies the ID of the vehicle that would fulfil the steps. ID should be consistent with
-         * input IDs provided in the `vehicles` object.
+         * input IDs provided in the vehicles object.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -7267,15 +7257,15 @@ private constructor(
         fun id(): Optional<Long> = id.getOptional("id")
 
         /**
-         * This attribute is effective only when `precedence` type relation is used. `max_duration`
+         * This attribute is effective only when precedence type relation is used. max_duration
          * restricts the travel time of the vehicle to go from location of first task to the
-         * location of second task specified in `steps` object. The unit for this parameter is
+         * location of second task specified in steps object. The unit for this parameter is
          * seconds. It accepts values greater than 0 only.
          *
-         * Please note that `max_duration` is a hard constraint. Hence, if aggressive durations are
-         * provided such that the second task cannot be reached within the specified `max_duration`,
-         * it might be done before the first task (usually in case of `jobs`) or remain un-assigned
-         * (usually in case of `shipments`).
+         * Please note that max_duration is a hard constraint. Hence, if aggressive durations are
+         * provided such that the second task cannot be reached within the specified max_duration,
+         * it might be done before the first task (usually in case of jobs) or remain un-assigned
+         * (usually in case of shipments).
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -7283,14 +7273,14 @@ private constructor(
         fun maxDuration(): Optional<Long> = maxDuration.getOptional("max_duration")
 
         /**
-         * This attribute is effective only when `precedence` type relation is used. Use
-         * `min_duration` to enforce a minimum time-gap between the two tasks specified in `steps`
-         * object. When specified, the second task will get completed after a gap of `min_duration`
-         * with respect to the first task. The unit for this parameter is seconds.
+         * This attribute is effective only when precedence type relation is used. Use min_duration
+         * to enforce a minimum time-gap between the two tasks specified in steps object. When
+         * specified, the second task will get completed after a gap of min_duration with respect to
+         * the first task. The unit for this parameter is seconds.
          *
-         * Please note that `min_duration` is implemented as a soft constraint and it can be
-         * violated in presence of other relation types. The optimizer will tend to provide
-         * solutions where `min_duration` is not violated, but it is not guaranteed.
+         * Please note that min_duration is implemented as a soft constraint and it can be violated
+         * in presence of other relation types. The optimizer will tend to provide solutions where
+         * min_duration is not violated, but it is not guaranteed.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -7300,7 +7290,7 @@ private constructor(
         /**
          * Specifies the ID of the vehicle that would fulfill the steps. Providing the same vehicle
          * ID to multiple ‘relations’ is prohibited. The vehicle ID provided here should be
-         * consistent with ID provided in the `vehicles` attribute.
+         * consistent with ID provided in the vehicles attribute.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -7402,9 +7392,9 @@ private constructor(
             }
 
             /**
-             * The `steps` property specifies the tasks or steps that are part of the relation and
-             * must be carried out in a manner defined in the `type` parameter. Please note you can
-             * add any number of steps here, except when relation type is `precedence` where only 2
+             * The steps property specifies the tasks or steps that are part of the relation and
+             * must be carried out in a manner defined in the type parameter. Please note you can
+             * add any number of steps here, except when relation type is precedence where only 2
              * tasks can be added.
              */
             fun steps(steps: List<Step>) = steps(JsonField.of(steps))
@@ -7434,24 +7424,23 @@ private constructor(
 
             /**
              * Specifies the type of relation constraint. The following types are supported:
-             * - `in_same_route`: Ensures that all `steps` are covered in the same route in
-             *   solution.
-             * - `in_sequence`: Ensures that all steps are in the same route and their sequence
-             *   matches the order specified in the `steps` field. Insertion of new steps between
-             *   the `steps` specified, is allowed.
-             * - `in_direct_sequence`: Similar to `in_sequence`, but insertion of new `steps` is not
+             * - in_same_route: Ensures that all steps are covered in the same route in solution.
+             * - in_sequence: Ensures that all steps are in the same route and their sequence
+             *   matches the order specified in the steps field. Insertion of new steps between the
+             *   steps specified, is allowed.
+             * - in_direct_sequence: Similar to in_sequence, but insertion of new steps is not
              *   allowed in the final route.
-             * - `precedence`: Restricts the travel time between the first step and second step. If
+             * - precedence: Restricts the travel time between the first step and second step. If
              *   the precedence requirement cannot be satisfied, then the task specified at the
              *   second step will not be assigned. Only 2 steps can be specified in a single
-             *   `precedence` type relations. Please use multiple `precedence` relations to apply
+             *   precedence type relations. Please use multiple precedence relations to apply
              *   restrictions on more than 2 tasks.
              *
-             * If the `vehicle` field is specified in the relations input, all steps will be served
-             * by that particular vehicle. Otherwise, the route can be allocated to any feasible
+             * If the vehicle field is specified in the relations input, all steps will be served by
+             * that particular vehicle. Otherwise, the route can be allocated to any feasible
              * vehicle.
              *
-             * Please note that the `type` field is mandatory when using the `relations` object.
+             * Please note that the type field is mandatory when using the relations object.
              */
             fun type(type: Type) = type(JsonField.of(type))
 
@@ -7465,10 +7454,10 @@ private constructor(
             fun type(type: JsonField<Type>) = apply { this.type = type }
 
             /**
-             * **Deprecated! Please use the** `vehicle` **parameter to specify the vehicle ID.**
+             * **Deprecated! Please use the** vehicle **parameter to specify the vehicle ID.**
              *
              * Specifies the ID of the vehicle that would fulfil the steps. ID should be consistent
-             * with input IDs provided in the `vehicles` object.
+             * with input IDs provided in the vehicles object.
              */
             fun id(id: Long) = id(JsonField.of(id))
 
@@ -7482,15 +7471,15 @@ private constructor(
             fun id(id: JsonField<Long>) = apply { this.id = id }
 
             /**
-             * This attribute is effective only when `precedence` type relation is used.
-             * `max_duration` restricts the travel time of the vehicle to go from location of first
-             * task to the location of second task specified in `steps` object. The unit for this
-             * parameter is seconds. It accepts values greater than 0 only.
+             * This attribute is effective only when precedence type relation is used. max_duration
+             * restricts the travel time of the vehicle to go from location of first task to the
+             * location of second task specified in steps object. The unit for this parameter is
+             * seconds. It accepts values greater than 0 only.
              *
-             * Please note that `max_duration` is a hard constraint. Hence, if aggressive durations
+             * Please note that max_duration is a hard constraint. Hence, if aggressive durations
              * are provided such that the second task cannot be reached within the specified
-             * `max_duration`, it might be done before the first task (usually in case of `jobs`) or
-             * remain un-assigned (usually in case of `shipments`).
+             * max_duration, it might be done before the first task (usually in case of jobs) or
+             * remain un-assigned (usually in case of shipments).
              */
             fun maxDuration(maxDuration: Long) = maxDuration(JsonField.of(maxDuration))
 
@@ -7504,15 +7493,14 @@ private constructor(
             fun maxDuration(maxDuration: JsonField<Long>) = apply { this.maxDuration = maxDuration }
 
             /**
-             * This attribute is effective only when `precedence` type relation is used. Use
-             * `min_duration` to enforce a minimum time-gap between the two tasks specified in
-             * `steps` object. When specified, the second task will get completed after a gap of
-             * `min_duration` with respect to the first task. The unit for this parameter is
-             * seconds.
+             * This attribute is effective only when precedence type relation is used. Use
+             * min_duration to enforce a minimum time-gap between the two tasks specified in steps
+             * object. When specified, the second task will get completed after a gap of
+             * min_duration with respect to the first task. The unit for this parameter is seconds.
              *
-             * Please note that `min_duration` is implemented as a soft constraint and it can be
+             * Please note that min_duration is implemented as a soft constraint and it can be
              * violated in presence of other relation types. The optimizer will tend to provide
-             * solutions where `min_duration` is not violated, but it is not guaranteed.
+             * solutions where min_duration is not violated, but it is not guaranteed.
              */
             fun minDuration(minDuration: Long) = minDuration(JsonField.of(minDuration))
 
@@ -7528,7 +7516,7 @@ private constructor(
             /**
              * Specifies the ID of the vehicle that would fulfill the steps. Providing the same
              * vehicle ID to multiple ‘relations’ is prohibited. The vehicle ID provided here should
-             * be consistent with ID provided in the `vehicles` attribute.
+             * be consistent with ID provided in the vehicles attribute.
              */
             fun vehicle(vehicle: String) = vehicle(JsonField.of(vehicle))
 
@@ -7638,10 +7626,10 @@ private constructor(
             ) : this(type, id, mutableMapOf())
 
             /**
-             * Specifies the type of the step. The `start` and `end` step types have to be the first
-             * and last steps, respectively, in a relation.
+             * Specifies the type of the step. The start and end step types have to be the first and
+             * last steps, respectively, in a relation.
              *
-             * Please note that the `type` is mandatory when using the `relations` object.
+             * Please note that the type is mandatory when using the relations object.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   or is unexpectedly missing or null (e.g. if the server responded with an unexpected
@@ -7651,8 +7639,8 @@ private constructor(
 
             /**
              * This represents the ID of the task and should be consistent with the input IDs
-             * provided in the `jobs` or `shipments` objects for a given step. The `id` is required
-             * for all steps other than `start` and `end`.
+             * provided in the jobs or shipments objects for a given step. The id is required for
+             * all steps other than start and end.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -7713,10 +7701,10 @@ private constructor(
                 }
 
                 /**
-                 * Specifies the type of the step. The `start` and `end` step types have to be the
-                 * first and last steps, respectively, in a relation.
+                 * Specifies the type of the step. The start and end step types have to be the first
+                 * and last steps, respectively, in a relation.
                  *
-                 * Please note that the `type` is mandatory when using the `relations` object.
+                 * Please note that the type is mandatory when using the relations object.
                  */
                 fun type(type: Type) = type(JsonField.of(type))
 
@@ -7731,8 +7719,8 @@ private constructor(
 
                 /**
                  * This represents the ID of the task and should be consistent with the input IDs
-                 * provided in the `jobs` or `shipments` objects for a given step. The `id` is
-                 * required for all steps other than `start` and `end`.
+                 * provided in the jobs or shipments objects for a given step. The id is required
+                 * for all steps other than start and end.
                  */
                 fun id(id: String) = id(JsonField.of(id))
 
@@ -7815,10 +7803,10 @@ private constructor(
                     (if (id.asKnown().isPresent) 1 else 0)
 
             /**
-             * Specifies the type of the step. The `start` and `end` step types have to be the first
-             * and last steps, respectively, in a relation.
+             * Specifies the type of the step. The start and end step types have to be the first and
+             * last steps, respectively, in a relation.
              *
-             * Please note that the `type` is mandatory when using the `relations` object.
+             * Please note that the type is mandatory when using the relations object.
              */
             class Type @JsonCreator private constructor(private val value: JsonField<String>) :
                 Enum {
@@ -7835,15 +7823,15 @@ private constructor(
 
                 companion object {
 
-                    @JvmField val START = of("`start`")
+                    @JvmField val START = of("start")
 
-                    @JvmField val END = of("`end`")
+                    @JvmField val END = of("end")
 
-                    @JvmField val JOB = of("`job`")
+                    @JvmField val JOB = of("job")
 
-                    @JvmField val PICKUP = of("`pickup`")
+                    @JvmField val PICKUP = of("pickup")
 
-                    @JvmField val DELIVERY = of("`delivery`")
+                    @JvmField val DELIVERY = of("delivery")
 
                     @JvmStatic fun of(value: String) = Type(JsonField.of(value))
                 }
@@ -7988,22 +7976,22 @@ private constructor(
 
         /**
          * Specifies the type of relation constraint. The following types are supported:
-         * - `in_same_route`: Ensures that all `steps` are covered in the same route in solution.
-         * - `in_sequence`: Ensures that all steps are in the same route and their sequence matches
-         *   the order specified in the `steps` field. Insertion of new steps between the `steps`
+         * - in_same_route: Ensures that all steps are covered in the same route in solution.
+         * - in_sequence: Ensures that all steps are in the same route and their sequence matches
+         *   the order specified in the steps field. Insertion of new steps between the steps
          *   specified, is allowed.
-         * - `in_direct_sequence`: Similar to `in_sequence`, but insertion of new `steps` is not
-         *   allowed in the final route.
-         * - `precedence`: Restricts the travel time between the first step and second step. If the
+         * - in_direct_sequence: Similar to in_sequence, but insertion of new steps is not allowed
+         *   in the final route.
+         * - precedence: Restricts the travel time between the first step and second step. If the
          *   precedence requirement cannot be satisfied, then the task specified at the second step
-         *   will not be assigned. Only 2 steps can be specified in a single `precedence` type
-         *   relations. Please use multiple `precedence` relations to apply restrictions on more
-         *   than 2 tasks.
+         *   will not be assigned. Only 2 steps can be specified in a single precedence type
+         *   relations. Please use multiple precedence relations to apply restrictions on more than
+         *   2 tasks.
          *
-         * If the `vehicle` field is specified in the relations input, all steps will be served by
+         * If the vehicle field is specified in the relations input, all steps will be served by
          * that particular vehicle. Otherwise, the route can be allocated to any feasible vehicle.
          *
-         * Please note that the `type` field is mandatory when using the `relations` object.
+         * Please note that the type field is mandatory when using the relations object.
          */
         class Type @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -8019,13 +8007,13 @@ private constructor(
 
             companion object {
 
-                @JvmField val IN_SAME_ROUTE = of("`in_same_route`")
+                @JvmField val IN_SAME_ROUTE = of("in_same_route")
 
-                @JvmField val IN_SEQUENCE = of("`in_sequence`")
+                @JvmField val IN_SEQUENCE = of("in_sequence")
 
-                @JvmField val IN_DIRECT_SEQUENCE = of("`in_direct_sequence`")
+                @JvmField val IN_DIRECT_SEQUENCE = of("in_direct_sequence")
 
-                @JvmField val PRECEDENCE = of("`precedence`")
+                @JvmField val PRECEDENCE = of("precedence")
 
                 @JvmStatic fun of(value: String) = Type(JsonField.of(value))
             }
@@ -8240,7 +8228,7 @@ private constructor(
 
         /**
          * Specify the ID of the vehicle that was assigned to the route. This field is mandatory
-         * when using the `solution` attribute and providing an empty string would result in error.
+         * when using the solution attribute and providing an empty string would result in error.
          * The IDs are case-sensitive.
          *
          * **Note:** Since the vehicles can be configured using either a string or an integer ID,
@@ -8532,7 +8520,7 @@ private constructor(
 
             /**
              * Specify the ID of the vehicle that was assigned to the route. This field is mandatory
-             * when using the `solution` attribute and providing an empty string would result in
+             * when using the solution attribute and providing an empty string would result in
              * error. The IDs are case-sensitive.
              *
              * **Note:** Since the vehicles can be configured using either a string or an integer
@@ -8878,11 +8866,11 @@ private constructor(
             )
 
             /**
-             * The ID of the step. This field is mandatory for all steps except for `start` and
-             * `end` type.
+             * The ID of the step. This field is mandatory for all steps except for start and end
+             * type.
              *
-             * Please note that the ID provided here must also be present in either the `jobs` or
-             * the `shipments` objects.
+             * Please note that the ID provided here must also be present in either the jobs or the
+             * shipments objects.
              *
              * **Note:** We have modified the data type of this field. The latest change is backward
              * compatible and both integer and string type IDs are valid for this field, as long as
@@ -8895,12 +8883,11 @@ private constructor(
             fun id(): String = id.getRequired("id")
 
             /**
-             * Specify the time at which the vehicle arrives at the `step` location. If
-             * `time_windows` is provided, then `arrival` will be an UNIX timestamp expressed in
-             * seconds. Otherwise, it will be the total duration, in seconds, elapsed since the
-             * start of the route.
+             * Specify the time at which the vehicle arrives at the step location. If time_windows
+             * is provided, then arrival will be an UNIX timestamp expressed in seconds. Otherwise,
+             * it will be the total duration, in seconds, elapsed since the start of the route.
              *
-             * Please note that arrival is mandatory when using the `solution` object.
+             * Please note that arrival is mandatory when using the solution object.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   or is unexpectedly missing or null (e.g. if the server responded with an unexpected
@@ -8930,7 +8917,7 @@ private constructor(
              * current step.
              *
              * Please note that the value of this parameter accumulates with each step. In case ,
-             * the `travel_cost: air_distance`, then the distance here should be the straight line
+             * the travel_cost: air_distance, then the distance here should be the straight line
              * distance.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
@@ -8940,7 +8927,7 @@ private constructor(
 
             /**
              * Specify the drive time, in seconds, from the start of the route up until the start of
-             * the `step`. Please note that the value of this parameter accumulates with each step.
+             * the step. Please note that the value of this parameter accumulates with each step.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -8958,10 +8945,10 @@ private constructor(
 
             /**
              * Specify the location coordinates of the step in the \[latitude, longitude\] format.
-             * Alternatively, `location_index` property can also be used to specify the location of
+             * Alternatively, location_index property can also be used to specify the location of
              * the step.
              *
-             * Please note that either `location` or `location_index` is mandatory.
+             * Please note that either location or location_index is mandatory.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -8969,11 +8956,11 @@ private constructor(
             fun location(): Optional<List<Double>> = location.getOptional("location")
 
             /**
-             * Specify the index (in the `location` array) of the location coordinates where the
-             * step is performed. The valid range of values is \[0, length of `location` array).
-             * Alternatively, `location` property can also be used to specify the location.
+             * Specify the index (in the location array) of the location coordinates where the step
+             * is performed. The valid range of values is \[0, length of location array).
+             * Alternatively, location property can also be used to specify the location.
              *
-             * Please note that either `location` or `location_index` is mandatory.
+             * Please note that either location or location_index is mandatory.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -9164,11 +9151,11 @@ private constructor(
                 }
 
                 /**
-                 * The ID of the step. This field is mandatory for all steps except for `start` and
-                 * `end` type.
+                 * The ID of the step. This field is mandatory for all steps except for start and
+                 * end type.
                  *
-                 * Please note that the ID provided here must also be present in either the `jobs`
-                 * or the `shipments` objects.
+                 * Please note that the ID provided here must also be present in either the jobs or
+                 * the shipments objects.
                  *
                  * **Note:** We have modified the data type of this field. The latest change is
                  * backward compatible and both integer and string type IDs are valid for this
@@ -9186,12 +9173,12 @@ private constructor(
                 fun id(id: JsonField<String>) = apply { this.id = id }
 
                 /**
-                 * Specify the time at which the vehicle arrives at the `step` location. If
-                 * `time_windows` is provided, then `arrival` will be an UNIX timestamp expressed in
+                 * Specify the time at which the vehicle arrives at the step location. If
+                 * time_windows is provided, then arrival will be an UNIX timestamp expressed in
                  * seconds. Otherwise, it will be the total duration, in seconds, elapsed since the
                  * start of the route.
                  *
-                 * Please note that arrival is mandatory when using the `solution` object.
+                 * Please note that arrival is mandatory when using the solution object.
                  */
                 fun arrival(arrival: Long) = arrival(JsonField.of(arrival))
 
@@ -9235,7 +9222,7 @@ private constructor(
                  * current step.
                  *
                  * Please note that the value of this parameter accumulates with each step. In case
-                 * , the `travel_cost: air_distance`, then the distance here should be the straight
+                 * , the travel_cost: air_distance, then the distance here should be the straight
                  * line distance.
                  */
                 fun distance(distance: Long) = distance(JsonField.of(distance))
@@ -9251,8 +9238,8 @@ private constructor(
 
                 /**
                  * Specify the drive time, in seconds, from the start of the route up until the
-                 * start of the `step`. Please note that the value of this parameter accumulates
-                 * with each step.
+                 * start of the step. Please note that the value of this parameter accumulates with
+                 * each step.
                  */
                 fun duration(duration: Long) = duration(JsonField.of(duration))
 
@@ -9296,10 +9283,10 @@ private constructor(
 
                 /**
                  * Specify the location coordinates of the step in the \[latitude, longitude\]
-                 * format. Alternatively, `location_index` property can also be used to specify the
+                 * format. Alternatively, location_index property can also be used to specify the
                  * location of the step.
                  *
-                 * Please note that either `location` or `location_index` is mandatory.
+                 * Please note that either location or location_index is mandatory.
                  */
                 fun location(location: List<Double>) = location(JsonField.of(location))
 
@@ -9327,11 +9314,11 @@ private constructor(
                 }
 
                 /**
-                 * Specify the index (in the `location` array) of the location coordinates where the
-                 * step is performed. The valid range of values is \[0, length of `location` array).
-                 * Alternatively, `location` property can also be used to specify the location.
+                 * Specify the index (in the location array) of the location coordinates where the
+                 * step is performed. The valid range of values is \[0, length of location array).
+                 * Alternatively, location property can also be used to specify the location.
                  *
-                 * Please note that either `location` or `location_index` is mandatory.
+                 * Please note that either location or location_index is mandatory.
                  */
                 fun locationIndex(locationIndex: Long) = locationIndex(JsonField.of(locationIndex))
 
@@ -9505,17 +9492,17 @@ private constructor(
 
                 companion object {
 
-                    @JvmField val START = of("`start`")
+                    @JvmField val START = of("start")
 
-                    @JvmField val END = of("`end`")
+                    @JvmField val END = of("end")
 
-                    @JvmField val JOB = of("`job`")
+                    @JvmField val JOB = of("job")
 
-                    @JvmField val PICKUP = of("`pickup`")
+                    @JvmField val PICKUP = of("pickup")
 
-                    @JvmField val DELIVERY = of("`delivery`")
+                    @JvmField val DELIVERY = of("delivery")
 
-                    @JvmField val BREAK = of("`break`")
+                    @JvmField val BREAK = of("break")
 
                     @JvmStatic fun of(value: String) = Type(JsonField.of(value))
                 }
@@ -9681,10 +9668,10 @@ private constructor(
     }
 
     /**
-     * `unassigned` attribute is related to the re-optimization feature. This attribute should
-     * contain the tasks that were not assigned during an earlier optimization process. Please note
-     * that the `unassigned` part in request should be consistent with the `unassigned` part in the
-     * previous optimization result.
+     * unassigned attribute is related to the re-optimization feature. This attribute should contain
+     * the tasks that were not assigned during an earlier optimization process. Please note that the
+     * unassigned part in request should be consistent with the unassigned part in the previous
+     * optimization result.
      *
      * Users can reduce the number of unassigned tasks in the re-optimized solution, by following
      * strategies such as:
@@ -9713,7 +9700,7 @@ private constructor(
 
         /**
          * Specify the unassigned job IDs from the previous optimization result. Please note the IDs
-         * should also be present in the `jobs` part of the input.
+         * should also be present in the jobs part of the input.
          *
          * **Note:** We have modified the data type of this field. However, the latest change is
          * backward compatible and both integer and string type job IDs are valid for this field, as
@@ -9789,7 +9776,7 @@ private constructor(
 
             /**
              * Specify the unassigned job IDs from the previous optimization result. Please note the
-             * IDs should also be present in the `jobs` part of the input.
+             * IDs should also be present in the jobs part of the input.
              *
              * **Note:** We have modified the data type of this field. However, the latest change is
              * backward compatible and both integer and string type job IDs are valid for this
@@ -9966,7 +9953,7 @@ private constructor(
          * Provide the ID of a pre-created geofence using the
          * [Geofence API](https://docs.nextbillion.ai/docs/tracking/api/geofence).
          *
-         * Please note that one of `geometry` or `geofence_id` should be provided.
+         * Please note that one of geometry or geofence_id should be provided.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -9978,7 +9965,7 @@ private constructor(
          * details of the geographic boundaries of the zone. Only “Polygon” and “MultiPolygon”
          * geoJSON types are supported.
          *
-         * Please note that one of `geometry` or `geofence_id` should be provided.
+         * Please note that one of geometry or geofence_id should be provided.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -10065,7 +10052,7 @@ private constructor(
              * Provide the ID of a pre-created geofence using the
              * [Geofence API](https://docs.nextbillion.ai/docs/tracking/api/geofence).
              *
-             * Please note that one of `geometry` or `geofence_id` should be provided.
+             * Please note that one of geometry or geofence_id should be provided.
              */
             fun geofenceId(geofenceId: String) = geofenceId(JsonField.of(geofenceId))
 
@@ -10083,7 +10070,7 @@ private constructor(
              * details of the geographic boundaries of the zone. Only “Polygon” and “MultiPolygon”
              * geoJSON types are supported.
              *
-             * Please note that one of `geometry` or `geofence_id` should be provided.
+             * Please note that one of geometry or geofence_id should be provided.
              */
             fun geometry(geometry: Geometry) = geometry(JsonField.of(geometry))
 
@@ -10174,7 +10161,7 @@ private constructor(
          * details of the geographic boundaries of the zone. Only “Polygon” and “MultiPolygon”
          * geoJSON types are supported.
          *
-         * Please note that one of `geometry` or `geofence_id` should be provided.
+         * Please note that one of geometry or geofence_id should be provided.
          */
         class Geometry
         private constructor(
@@ -10213,7 +10200,7 @@ private constructor(
             fun description(): Optional<String> = description.getOptional("description")
 
             /**
-             * Type of the geoJSON geometry. Should always be `Polygon` or `MultiPolygon`.
+             * Type of the geoJSON geometry. Should always be Polygon or MultiPolygon.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -10325,7 +10312,7 @@ private constructor(
                     this.description = description
                 }
 
-                /** Type of the geoJSON geometry. Should always be `Polygon` or `MultiPolygon`. */
+                /** Type of the geoJSON geometry. Should always be Polygon or MultiPolygon. */
                 fun type(type: Type) = type(JsonField.of(type))
 
                 /**
@@ -10406,7 +10393,7 @@ private constructor(
                     (if (description.asKnown().isPresent) 1 else 0) +
                     (type.asKnown().getOrNull()?.validity() ?: 0)
 
-            /** Type of the geoJSON geometry. Should always be `Polygon` or `MultiPolygon`. */
+            /** Type of the geoJSON geometry. Should always be Polygon or MultiPolygon. */
             class Type @JsonCreator private constructor(private val value: JsonField<String>) :
                 Enum {
 
@@ -10422,9 +10409,9 @@ private constructor(
 
                 companion object {
 
-                    @JvmField val POLYGON = of("`Polygon`")
+                    @JvmField val POLYGON = of("Polygon")
 
-                    @JvmField val MULTI_POLYGON = of("`MultiPolygon`")
+                    @JvmField val MULTI_POLYGON = of("MultiPolygon")
 
                     @JvmStatic fun of(value: String) = Type(JsonField.of(value))
                 }

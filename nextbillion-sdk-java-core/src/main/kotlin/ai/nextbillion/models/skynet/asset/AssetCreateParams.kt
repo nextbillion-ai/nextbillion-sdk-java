@@ -40,22 +40,21 @@ private constructor(
     fun cluster(): Optional<Cluster> = Optional.ofNullable(cluster)
 
     /**
-     * `attributes` can be used to store custom information about an asset in `key`:`value` format.
-     * Use `attributes` to add any useful information or context to your assets like the vehicle
-     * type, shift timing etc. Moreover, these attributes can be used to filter `assets` in
-     * **Search**, **Monitor**, and _Get Asset List_ queries.
+     * attributes can be used to store custom information about an asset in key:value format. Use
+     * attributes to add any useful information or context to your assets like the vehicle type,
+     * shift timing etc. Moreover, these attributes can be used to filter assets in **Search**,
+     * **Monitor**, and _Get Asset List_ queries.
      *
-     * Please note that the maximum number of `key`:`value` pairs that can be added to an
-     * `attributes` object is 100. Also, the overall size of `attributes` object should not exceed
-     * 65kb.
+     * Please note that the maximum number of key:value pairs that can be added to an attributes
+     * object is 100. Also, the overall size of attributes object should not exceed 65kb.
      */
     fun _attributes(): JsonValue = body._attributes()
 
     /**
-     * Set a unique ID for the new `asset`. If not provided, an ID will be automatically generated
-     * in UUID format. A valid `custom_id` can contain letters, numbers, "-", & "\_" only.
+     * Set a unique ID for the new asset. If not provided, an ID will be automatically generated in
+     * UUID format. A valid custom*id can contain letters, numbers, "-", & "*" only.
      *
-     * Please note that the ID of an `asset` can not be changed once it is created.
+     * Please note that the ID of an asset can not be changed once it is created.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -63,7 +62,7 @@ private constructor(
     fun customId(): Optional<String> = body.customId()
 
     /**
-     * Description for the `asset`.
+     * Description for the asset.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -74,7 +73,7 @@ private constructor(
     fun _metaData(): JsonValue = body._metaData()
 
     /**
-     * Name of the `asset`. Use this field to assign a meaningful, custom name to the `asset` being
+     * Name of the asset. Use this field to assign a meaningful, custom name to the asset being
      * created.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -83,14 +82,14 @@ private constructor(
     fun name(): Optional<String> = body.name()
 
     /**
-     * **This parameter will be deprecated soon! Please use the `attributes` parameter to add labels
+     * **This parameter will be deprecated soon! Please use the attributes parameter to add labels
      * or markers for the asset.**
      *
-     * Tags of the `asset`. `tags` can be used for filtering assets in operations like _Get Asset
-     * List_ and asset **Search** methods. They can also be used for monitoring of assets using the
-     * **Monitor** methods after linking `tags` and `asset`.
+     * Tags of the asset. tags can be used for filtering assets in operations like _Get Asset List_
+     * and asset **Search** methods. They can also be used for monitoring of assets using the
+     * **Monitor** methods after linking tags and asset.
      *
-     * Valid `tags` are strings consisting of alphanumeric characters (A-Z, a-z, 0-9) along with the
+     * Valid tags are strings consisting of alphanumeric characters (A-Z, a-z, 0-9) along with the
      * underscore ('\_') and hyphen ('-') symbols.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -191,23 +190,21 @@ private constructor(
         fun body(body: Body) = apply { this.body = body.toBuilder() }
 
         /**
-         * `attributes` can be used to store custom information about an asset in `key`:`value`
-         * format. Use `attributes` to add any useful information or context to your assets like the
-         * vehicle type, shift timing etc. Moreover, these attributes can be used to filter `assets`
-         * in **Search**, **Monitor**, and _Get Asset List_ queries.
+         * attributes can be used to store custom information about an asset in key:value format.
+         * Use attributes to add any useful information or context to your assets like the vehicle
+         * type, shift timing etc. Moreover, these attributes can be used to filter assets in
+         * **Search**, **Monitor**, and _Get Asset List_ queries.
          *
-         * Please note that the maximum number of `key`:`value` pairs that can be added to an
-         * `attributes` object is 100. Also, the overall size of `attributes` object should not
-         * exceed 65kb.
+         * Please note that the maximum number of key:value pairs that can be added to an attributes
+         * object is 100. Also, the overall size of attributes object should not exceed 65kb.
          */
         fun attributes(attributes: JsonValue) = apply { body.attributes(attributes) }
 
         /**
-         * Set a unique ID for the new `asset`. If not provided, an ID will be automatically
-         * generated in UUID format. A valid `custom_id` can contain letters, numbers, "-", & "\_"
-         * only.
+         * Set a unique ID for the new asset. If not provided, an ID will be automatically generated
+         * in UUID format. A valid custom*id can contain letters, numbers, "-", & "*" only.
          *
-         * Please note that the ID of an `asset` can not be changed once it is created.
+         * Please note that the ID of an asset can not be changed once it is created.
          */
         fun customId(customId: String) = apply { body.customId(customId) }
 
@@ -219,7 +216,7 @@ private constructor(
          */
         fun customId(customId: JsonField<String>) = apply { body.customId(customId) }
 
-        /** Description for the `asset`. */
+        /** Description for the asset. */
         fun description(description: String) = apply { body.description(description) }
 
         /**
@@ -235,8 +232,8 @@ private constructor(
         fun metaData(metaData: JsonValue) = apply { body.metaData(metaData) }
 
         /**
-         * Name of the `asset`. Use this field to assign a meaningful, custom name to the `asset`
-         * being created.
+         * Name of the asset. Use this field to assign a meaningful, custom name to the asset being
+         * created.
          */
         fun name(name: String) = apply { body.name(name) }
 
@@ -249,14 +246,14 @@ private constructor(
         fun name(name: JsonField<String>) = apply { body.name(name) }
 
         /**
-         * **This parameter will be deprecated soon! Please use the `attributes` parameter to add
+         * **This parameter will be deprecated soon! Please use the attributes parameter to add
          * labels or markers for the asset.**
          *
-         * Tags of the `asset`. `tags` can be used for filtering assets in operations like _Get
-         * Asset List_ and asset **Search** methods. They can also be used for monitoring of assets
-         * using the **Monitor** methods after linking `tags` and `asset`.
+         * Tags of the asset. tags can be used for filtering assets in operations like _Get Asset
+         * List_ and asset **Search** methods. They can also be used for monitoring of assets using
+         * the **Monitor** methods after linking tags and asset.
          *
-         * Valid `tags` are strings consisting of alphanumeric characters (A-Z, a-z, 0-9) along with
+         * Valid tags are strings consisting of alphanumeric characters (A-Z, a-z, 0-9) along with
          * the underscore ('\_') and hyphen ('-') symbols.
          */
         fun tags(tags: List<String>) = apply { body.tags(tags) }
@@ -455,23 +452,21 @@ private constructor(
         ) : this(attributes, customId, description, metaData, name, tags, mutableMapOf())
 
         /**
-         * `attributes` can be used to store custom information about an asset in `key`:`value`
-         * format. Use `attributes` to add any useful information or context to your assets like the
-         * vehicle type, shift timing etc. Moreover, these attributes can be used to filter `assets`
-         * in **Search**, **Monitor**, and _Get Asset List_ queries.
+         * attributes can be used to store custom information about an asset in key:value format.
+         * Use attributes to add any useful information or context to your assets like the vehicle
+         * type, shift timing etc. Moreover, these attributes can be used to filter assets in
+         * **Search**, **Monitor**, and _Get Asset List_ queries.
          *
-         * Please note that the maximum number of `key`:`value` pairs that can be added to an
-         * `attributes` object is 100. Also, the overall size of `attributes` object should not
-         * exceed 65kb.
+         * Please note that the maximum number of key:value pairs that can be added to an attributes
+         * object is 100. Also, the overall size of attributes object should not exceed 65kb.
          */
         @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 
         /**
-         * Set a unique ID for the new `asset`. If not provided, an ID will be automatically
-         * generated in UUID format. A valid `custom_id` can contain letters, numbers, "-", & "\_"
-         * only.
+         * Set a unique ID for the new asset. If not provided, an ID will be automatically generated
+         * in UUID format. A valid custom*id can contain letters, numbers, "-", & "*" only.
          *
-         * Please note that the ID of an `asset` can not be changed once it is created.
+         * Please note that the ID of an asset can not be changed once it is created.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -479,7 +474,7 @@ private constructor(
         fun customId(): Optional<String> = customId.getOptional("custom_id")
 
         /**
-         * Description for the `asset`.
+         * Description for the asset.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -490,8 +485,8 @@ private constructor(
         @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
         /**
-         * Name of the `asset`. Use this field to assign a meaningful, custom name to the `asset`
-         * being created.
+         * Name of the asset. Use this field to assign a meaningful, custom name to the asset being
+         * created.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -499,14 +494,14 @@ private constructor(
         fun name(): Optional<String> = name.getOptional("name")
 
         /**
-         * **This parameter will be deprecated soon! Please use the `attributes` parameter to add
+         * **This parameter will be deprecated soon! Please use the attributes parameter to add
          * labels or markers for the asset.**
          *
-         * Tags of the `asset`. `tags` can be used for filtering assets in operations like _Get
-         * Asset List_ and asset **Search** methods. They can also be used for monitoring of assets
-         * using the **Monitor** methods after linking `tags` and `asset`.
+         * Tags of the asset. tags can be used for filtering assets in operations like _Get Asset
+         * List_ and asset **Search** methods. They can also be used for monitoring of assets using
+         * the **Monitor** methods after linking tags and asset.
          *
-         * Valid `tags` are strings consisting of alphanumeric characters (A-Z, a-z, 0-9) along with
+         * Valid tags are strings consisting of alphanumeric characters (A-Z, a-z, 0-9) along with
          * the underscore ('\_') and hyphen ('-') symbols.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -585,23 +580,23 @@ private constructor(
             }
 
             /**
-             * `attributes` can be used to store custom information about an asset in `key`:`value`
-             * format. Use `attributes` to add any useful information or context to your assets like
+             * attributes can be used to store custom information about an asset in key:value
+             * format. Use attributes to add any useful information or context to your assets like
              * the vehicle type, shift timing etc. Moreover, these attributes can be used to filter
-             * `assets` in **Search**, **Monitor**, and _Get Asset List_ queries.
+             * assets in **Search**, **Monitor**, and _Get Asset List_ queries.
              *
-             * Please note that the maximum number of `key`:`value` pairs that can be added to an
-             * `attributes` object is 100. Also, the overall size of `attributes` object should not
+             * Please note that the maximum number of key:value pairs that can be added to an
+             * attributes object is 100. Also, the overall size of attributes object should not
              * exceed 65kb.
              */
             fun attributes(attributes: JsonValue) = apply { this.attributes = attributes }
 
             /**
-             * Set a unique ID for the new `asset`. If not provided, an ID will be automatically
-             * generated in UUID format. A valid `custom_id` can contain letters, numbers, "-", &
-             * "\_" only.
+             * Set a unique ID for the new asset. If not provided, an ID will be automatically
+             * generated in UUID format. A valid custom*id can contain letters, numbers, "-", & "*"
+             * only.
              *
-             * Please note that the ID of an `asset` can not be changed once it is created.
+             * Please note that the ID of an asset can not be changed once it is created.
              */
             fun customId(customId: String) = customId(JsonField.of(customId))
 
@@ -614,7 +609,7 @@ private constructor(
              */
             fun customId(customId: JsonField<String>) = apply { this.customId = customId }
 
-            /** Description for the `asset`. */
+            /** Description for the asset. */
             fun description(description: String) = description(JsonField.of(description))
 
             /**
@@ -634,8 +629,8 @@ private constructor(
             fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }
 
             /**
-             * Name of the `asset`. Use this field to assign a meaningful, custom name to the
-             * `asset` being created.
+             * Name of the asset. Use this field to assign a meaningful, custom name to the asset
+             * being created.
              */
             fun name(name: String) = name(JsonField.of(name))
 
@@ -649,14 +644,14 @@ private constructor(
             fun name(name: JsonField<String>) = apply { this.name = name }
 
             /**
-             * **This parameter will be deprecated soon! Please use the `attributes` parameter to
-             * add labels or markers for the asset.**
+             * **This parameter will be deprecated soon! Please use the attributes parameter to add
+             * labels or markers for the asset.**
              *
-             * Tags of the `asset`. `tags` can be used for filtering assets in operations like _Get
+             * Tags of the asset. tags can be used for filtering assets in operations like _Get
              * Asset List_ and asset **Search** methods. They can also be used for monitoring of
-             * assets using the **Monitor** methods after linking `tags` and `asset`.
+             * assets using the **Monitor** methods after linking tags and asset.
              *
-             * Valid `tags` are strings consisting of alphanumeric characters (A-Z, a-z, 0-9) along
+             * Valid tags are strings consisting of alphanumeric characters (A-Z, a-z, 0-9) along
              * with the underscore ('\_') and hyphen ('-') symbols.
              */
             fun tags(tags: List<String>) = tags(JsonField.of(tags))

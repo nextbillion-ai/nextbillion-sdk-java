@@ -37,7 +37,7 @@ private constructor(
 
     /**
      * An object to collect geoJSON details of a custom polygon. Please ensure that:
-     * - the `polygon` provided is enclosed. This can be achieved by making the last location
+     * - the polygon provided is enclosed. This can be achieved by making the last location
      *   coordinate in the list equal to the first location coordinate of the list.
      * - the 'polygon' provided does not contain multiple rings.
      *
@@ -52,11 +52,11 @@ private constructor(
     fun polygon(): Polygon = body.polygon()
 
     /**
-     * **`tags` parameter will be deprecated soon! Please use the `include_any_of_attributes` or
-     * `include_all_of_attributes` parameters to match assets based on their labels or markers.**
+     * **tags parameter will be deprecated soon! Please use the include_any_of_attributes or
+     * include_all_of_attributes parameters to match assets based on their labels or markers.**
      *
-     * Use this parameter to filter the assets found inside the specified area by their `tag`.
-     * Multiple `tag` can be separated using comma (`,`).
+     * Use this parameter to filter the assets found inside the specified area by their tag.
+     * Multiple tag can be separated using comma (,).
      *
      * Please note the tags are case sensitive.
      *
@@ -66,8 +66,8 @@ private constructor(
     fun filter(): Optional<String> = body.filter()
 
     /**
-     * An object to define the `attributes` which will be used to filter the assets found within the
-     * `polygon`.
+     * An object to define the attributes which will be used to filter the assets found within the
+     * polygon.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -83,7 +83,7 @@ private constructor(
     fun maxSearchLimit(): Optional<Boolean> = body.maxSearchLimit()
 
     /**
-     * Denotes page number. Use this along with the `ps` parameter to implement pagination for your
+     * Denotes page number. Use this along with the ps parameter to implement pagination for your
      * searched results. This parameter does not have a maximum limit but would return an empty
      * response in case a higher value is provided when the result-set itself is smaller.
      *
@@ -93,9 +93,9 @@ private constructor(
     fun pn(): Optional<Long> = body.pn()
 
     /**
-     * Denotes number of search results per page. Use this along with the `pn` parameter to
-     * implement pagination for your searched results. Please note that `ps` has a default value of
-     * 20 and accepts integers only in the range of [1, 100].
+     * Denotes number of search results per page. Use this along with the pn parameter to implement
+     * pagination for your searched results. Please note that ps has a default value of 20 and
+     * accepts integers only in the range of [1, 100].
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -216,7 +216,7 @@ private constructor(
 
         /**
          * An object to collect geoJSON details of a custom polygon. Please ensure that:
-         * - the `polygon` provided is enclosed. This can be achieved by making the last location
+         * - the polygon provided is enclosed. This can be achieved by making the last location
          *   coordinate in the list equal to the first location coordinate of the list.
          * - the 'polygon' provided does not contain multiple rings.
          *
@@ -236,12 +236,11 @@ private constructor(
         fun polygon(polygon: JsonField<Polygon>) = apply { body.polygon(polygon) }
 
         /**
-         * **`tags` parameter will be deprecated soon! Please use the `include_any_of_attributes` or
-         * `include_all_of_attributes` parameters to match assets based on their labels or
-         * markers.**
+         * **tags parameter will be deprecated soon! Please use the include_any_of_attributes or
+         * include_all_of_attributes parameters to match assets based on their labels or markers.**
          *
-         * Use this parameter to filter the assets found inside the specified area by their `tag`.
-         * Multiple `tag` can be separated using comma (`,`).
+         * Use this parameter to filter the assets found inside the specified area by their tag.
+         * Multiple tag can be separated using comma (,).
          *
          * Please note the tags are case sensitive.
          */
@@ -256,8 +255,8 @@ private constructor(
         fun filter(filter: JsonField<String>) = apply { body.filter(filter) }
 
         /**
-         * An object to define the `attributes` which will be used to filter the assets found within
-         * the `polygon`.
+         * An object to define the attributes which will be used to filter the assets found within
+         * the polygon.
          */
         fun matchFilter(matchFilter: MatchFilter) = apply { body.matchFilter(matchFilter) }
 
@@ -287,7 +286,7 @@ private constructor(
         }
 
         /**
-         * Denotes page number. Use this along with the `ps` parameter to implement pagination for
+         * Denotes page number. Use this along with the ps parameter to implement pagination for
          * your searched results. This parameter does not have a maximum limit but would return an
          * empty response in case a higher value is provided when the result-set itself is smaller.
          */
@@ -302,8 +301,8 @@ private constructor(
         fun pn(pn: JsonField<Long>) = apply { body.pn(pn) }
 
         /**
-         * Denotes number of search results per page. Use this along with the `pn` parameter to
-         * implement pagination for your searched results. Please note that `ps` has a default value
+         * Denotes number of search results per page. Use this along with the pn parameter to
+         * implement pagination for your searched results. Please note that ps has a default value
          * of 20 and accepts integers only in the range of [1, 100].
          */
         fun ps(ps: Long) = apply { body.ps(ps) }
@@ -506,7 +505,7 @@ private constructor(
 
         /**
          * An object to collect geoJSON details of a custom polygon. Please ensure that:
-         * - the `polygon` provided is enclosed. This can be achieved by making the last location
+         * - the polygon provided is enclosed. This can be achieved by making the last location
          *   coordinate in the list equal to the first location coordinate of the list.
          * - the 'polygon' provided does not contain multiple rings.
          *
@@ -521,12 +520,11 @@ private constructor(
         fun polygon(): Polygon = polygon.getRequired("polygon")
 
         /**
-         * **`tags` parameter will be deprecated soon! Please use the `include_any_of_attributes` or
-         * `include_all_of_attributes` parameters to match assets based on their labels or
-         * markers.**
+         * **tags parameter will be deprecated soon! Please use the include_any_of_attributes or
+         * include_all_of_attributes parameters to match assets based on their labels or markers.**
          *
-         * Use this parameter to filter the assets found inside the specified area by their `tag`.
-         * Multiple `tag` can be separated using comma (`,`).
+         * Use this parameter to filter the assets found inside the specified area by their tag.
+         * Multiple tag can be separated using comma (,).
          *
          * Please note the tags are case sensitive.
          *
@@ -536,8 +534,8 @@ private constructor(
         fun filter(): Optional<String> = filter.getOptional("filter")
 
         /**
-         * An object to define the `attributes` which will be used to filter the assets found within
-         * the `polygon`.
+         * An object to define the attributes which will be used to filter the assets found within
+         * the polygon.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -553,7 +551,7 @@ private constructor(
         fun maxSearchLimit(): Optional<Boolean> = maxSearchLimit.getOptional("max_search_limit")
 
         /**
-         * Denotes page number. Use this along with the `ps` parameter to implement pagination for
+         * Denotes page number. Use this along with the ps parameter to implement pagination for
          * your searched results. This parameter does not have a maximum limit but would return an
          * empty response in case a higher value is provided when the result-set itself is smaller.
          *
@@ -563,8 +561,8 @@ private constructor(
         fun pn(): Optional<Long> = pn.getOptional("pn")
 
         /**
-         * Denotes number of search results per page. Use this along with the `pn` parameter to
-         * implement pagination for your searched results. Please note that `ps` has a default value
+         * Denotes number of search results per page. Use this along with the pn parameter to
+         * implement pagination for your searched results. Please note that ps has a default value
          * of 20 and accepts integers only in the range of [1, 100].
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -683,8 +681,8 @@ private constructor(
 
             /**
              * An object to collect geoJSON details of a custom polygon. Please ensure that:
-             * - the `polygon` provided is enclosed. This can be achieved by making the last
-             *   location coordinate in the list equal to the first location coordinate of the list.
+             * - the polygon provided is enclosed. This can be achieved by making the last location
+             *   coordinate in the list equal to the first location coordinate of the list.
              * - the 'polygon' provided does not contain multiple rings.
              *
              * The contents of this object follow the
@@ -705,12 +703,12 @@ private constructor(
             fun polygon(polygon: JsonField<Polygon>) = apply { this.polygon = polygon }
 
             /**
-             * **`tags` parameter will be deprecated soon! Please use the
-             * `include_any_of_attributes` or `include_all_of_attributes` parameters to match assets
-             * based on their labels or markers.**
+             * **tags parameter will be deprecated soon! Please use the include_any_of_attributes or
+             * include_all_of_attributes parameters to match assets based on their labels or
+             * markers.**
              *
-             * Use this parameter to filter the assets found inside the specified area by their
-             * `tag`. Multiple `tag` can be separated using comma (`,`).
+             * Use this parameter to filter the assets found inside the specified area by their tag.
+             * Multiple tag can be separated using comma (,).
              *
              * Please note the tags are case sensitive.
              */
@@ -726,8 +724,8 @@ private constructor(
             fun filter(filter: JsonField<String>) = apply { this.filter = filter }
 
             /**
-             * An object to define the `attributes` which will be used to filter the assets found
-             * within the `polygon`.
+             * An object to define the attributes which will be used to filter the assets found
+             * within the polygon.
              */
             fun matchFilter(matchFilter: MatchFilter) = matchFilter(JsonField.of(matchFilter))
 
@@ -758,10 +756,10 @@ private constructor(
             }
 
             /**
-             * Denotes page number. Use this along with the `ps` parameter to implement pagination
-             * for your searched results. This parameter does not have a maximum limit but would
-             * return an empty response in case a higher value is provided when the result-set
-             * itself is smaller.
+             * Denotes page number. Use this along with the ps parameter to implement pagination for
+             * your searched results. This parameter does not have a maximum limit but would return
+             * an empty response in case a higher value is provided when the result-set itself is
+             * smaller.
              */
             fun pn(pn: Long) = pn(JsonField.of(pn))
 
@@ -775,8 +773,8 @@ private constructor(
             fun pn(pn: JsonField<Long>) = apply { this.pn = pn }
 
             /**
-             * Denotes number of search results per page. Use this along with the `pn` parameter to
-             * implement pagination for your searched results. Please note that `ps` has a default
+             * Denotes number of search results per page. Use this along with the pn parameter to
+             * implement pagination for your searched results. Please note that ps has a default
              * value of 20 and accepts integers only in the range of [1, 100].
              */
             fun ps(ps: Long) = ps(JsonField.of(ps))
@@ -906,7 +904,7 @@ private constructor(
 
     /**
      * An object to collect geoJSON details of a custom polygon. Please ensure that:
-     * - the `polygon` provided is enclosed. This can be achieved by making the last location
+     * - the polygon provided is enclosed. This can be achieved by making the last location
      *   coordinate in the list equal to the first location coordinate of the list.
      * - the 'polygon' provided does not contain multiple rings.
      *
@@ -940,7 +938,7 @@ private constructor(
         fun coordinates(): List<Double> = coordinates.getRequired("coordinates")
 
         /**
-         * Type of the geoJSON geometry. Should always be `polygon`.
+         * Type of the geoJSON geometry. Should always be polygon.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -1032,7 +1030,7 @@ private constructor(
                     }
             }
 
-            /** Type of the geoJSON geometry. Should always be `polygon`. */
+            /** Type of the geoJSON geometry. Should always be polygon. */
             fun type(type: String) = type(JsonField.of(type))
 
             /**
@@ -1134,8 +1132,8 @@ private constructor(
     }
 
     /**
-     * An object to define the `attributes` which will be used to filter the assets found within the
-     * `polygon`.
+     * An object to define the attributes which will be used to filter the assets found within the
+     * polygon.
      */
     class MatchFilter
     private constructor(
@@ -1156,12 +1154,12 @@ private constructor(
 
         /**
          * Use this parameter to filter the assets found inside the specified area by their
-         * `attributes`. Only the assets having all the `attributes` that are added to this
-         * parameter, will be returned in the search results. Multiple `attributes` can be separated
-         * using commas (`,`).
+         * attributes. Only the assets having all the attributes that are added to this parameter,
+         * will be returned in the search results. Multiple attributes can be separated using commas
+         * (,).
          *
          * Please note the attributes are case sensitive. Also, this parameter can not be used in
-         * conjunction with `include_any_of_attributes` parameter.
+         * conjunction with include_any_of_attributes parameter.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1171,12 +1169,11 @@ private constructor(
 
         /**
          * Use this parameter to filter the assets found inside the specified area by their
-         * `attributes`. Assets having at least one of the `attributes` added to this parameter,
-         * will be returned in the search results. Multiple `attributes` can be separated using
-         * commas (`,`).
+         * attributes. Assets having at least one of the attributes added to this parameter, will be
+         * returned in the search results. Multiple attributes can be separated using commas (,).
          *
          * Please note the attributes are case sensitive. Also, this parameter can not be used in
-         * conjunction with `include_all_of_attributes` parameter.
+         * conjunction with include_all_of_attributes parameter.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1238,12 +1235,12 @@ private constructor(
 
             /**
              * Use this parameter to filter the assets found inside the specified area by their
-             * `attributes`. Only the assets having all the `attributes` that are added to this
-             * parameter, will be returned in the search results. Multiple `attributes` can be
-             * separated using commas (`,`).
+             * attributes. Only the assets having all the attributes that are added to this
+             * parameter, will be returned in the search results. Multiple attributes can be
+             * separated using commas (,).
              *
              * Please note the attributes are case sensitive. Also, this parameter can not be used
-             * in conjunction with `include_any_of_attributes` parameter.
+             * in conjunction with include_any_of_attributes parameter.
              */
             fun includeAllOfAttributes(includeAllOfAttributes: String) =
                 includeAllOfAttributes(JsonField.of(includeAllOfAttributes))
@@ -1261,12 +1258,12 @@ private constructor(
 
             /**
              * Use this parameter to filter the assets found inside the specified area by their
-             * `attributes`. Assets having at least one of the `attributes` added to this parameter,
-             * will be returned in the search results. Multiple `attributes` can be separated using
-             * commas (`,`).
+             * attributes. Assets having at least one of the attributes added to this parameter,
+             * will be returned in the search results. Multiple attributes can be separated using
+             * commas (,).
              *
              * Please note the attributes are case sensitive. Also, this parameter can not be used
-             * in conjunction with `include_all_of_attributes` parameter.
+             * in conjunction with include_all_of_attributes parameter.
              */
             fun includeAnyOfAttributes(includeAnyOfAttributes: String) =
                 includeAnyOfAttributes(JsonField.of(includeAnyOfAttributes))
@@ -1385,10 +1382,10 @@ private constructor(
         /**
          * Specify the metric to sort the assets returned in the search result. The valid values
          * are:
-         * - **distance** : Sorts the assets by driving distance to the given `sort_destination` .
-         * - **duration** : Sorts the assets by travel time to the given `sort_destination` .
+         * - **distance** : Sorts the assets by driving distance to the given sort_destination .
+         * - **duration** : Sorts the assets by travel time to the given sort_destination .
          * - **straight_distance** : Sort the assets by straight-line distance to the given
-         *   `sort-destination` .
+         *   sort-destination .
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1398,9 +1395,9 @@ private constructor(
         /**
          * Specifies the location coordinates of the point which acts as destination for sorting the
          * assets in the search results. The service will sort each asset based on the driving
-         * distance or travel time to this destination, from its current location. Use the `sort_by`
+         * distance or travel time to this destination, from its current location. Use the sort_by
          * parameter to configure the metric that should be used for sorting the assets. Please note
-         * that `sort_destination` is required when `sort_by` is provided.
+         * that sort_destination is required when sort_by is provided.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1482,11 +1479,10 @@ private constructor(
             /**
              * Specify the metric to sort the assets returned in the search result. The valid values
              * are:
-             * - **distance** : Sorts the assets by driving distance to the given `sort_destination`
-             *   .
-             * - **duration** : Sorts the assets by travel time to the given `sort_destination` .
+             * - **distance** : Sorts the assets by driving distance to the given sort_destination .
+             * - **duration** : Sorts the assets by travel time to the given sort_destination .
              * - **straight_distance** : Sort the assets by straight-line distance to the given
-             *   `sort-destination` .
+             *   sort-destination .
              */
             fun sortBy(sortBy: SortBy) = sortBy(JsonField.of(sortBy))
 
@@ -1503,8 +1499,8 @@ private constructor(
              * Specifies the location coordinates of the point which acts as destination for sorting
              * the assets in the search results. The service will sort each asset based on the
              * driving distance or travel time to this destination, from its current location. Use
-             * the `sort_by` parameter to configure the metric that should be used for sorting the
-             * assets. Please note that `sort_destination` is required when `sort_by` is provided.
+             * the sort_by parameter to configure the metric that should be used for sorting the
+             * assets. Please note that sort_destination is required when sort_by is provided.
              */
             fun sortDestination(sortDestination: SortDestination) =
                 sortDestination(JsonField.of(sortDestination))
@@ -1602,10 +1598,10 @@ private constructor(
         /**
          * Specify the metric to sort the assets returned in the search result. The valid values
          * are:
-         * - **distance** : Sorts the assets by driving distance to the given `sort_destination` .
-         * - **duration** : Sorts the assets by travel time to the given `sort_destination` .
+         * - **distance** : Sorts the assets by driving distance to the given sort_destination .
+         * - **duration** : Sorts the assets by travel time to the given sort_destination .
          * - **straight_distance** : Sort the assets by straight-line distance to the given
-         *   `sort-destination` .
+         *   sort-destination .
          */
         class SortBy @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -1621,11 +1617,11 @@ private constructor(
 
             companion object {
 
-                @JvmField val DISTANCE = of("`distance`")
+                @JvmField val DISTANCE = of("distance")
 
-                @JvmField val DURATION = of("`duration`")
+                @JvmField val DURATION = of("duration")
 
-                @JvmField val STRAIGHT_DISTANCE = of("`straight_distance`")
+                @JvmField val STRAIGHT_DISTANCE = of("straight_distance")
 
                 @JvmStatic fun of(value: String) = SortBy(JsonField.of(value))
             }
@@ -1745,9 +1741,9 @@ private constructor(
         /**
          * Specifies the location coordinates of the point which acts as destination for sorting the
          * assets in the search results. The service will sort each asset based on the driving
-         * distance or travel time to this destination, from its current location. Use the `sort_by`
+         * distance or travel time to this destination, from its current location. Use the sort_by
          * parameter to configure the metric that should be used for sorting the assets. Please note
-         * that `sort_destination` is required when `sort_by` is provided.
+         * that sort_destination is required when sort_by is provided.
          */
         class SortDestination
         private constructor(
@@ -1969,9 +1965,9 @@ private constructor(
 
             companion object {
 
-                @JvmField val CAR = of("`car`")
+                @JvmField val CAR = of("car")
 
-                @JvmField val TRUCK = of("`truck`")
+                @JvmField val TRUCK = of("truck")
 
                 @JvmStatic fun of(value: String) = SortDrivingMode(JsonField.of(value))
             }

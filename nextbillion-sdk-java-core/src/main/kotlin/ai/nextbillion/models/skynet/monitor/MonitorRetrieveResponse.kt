@@ -32,7 +32,7 @@ private constructor(
     ) : this(data, message, status, mutableMapOf())
 
     /**
-     * A data object containing the details of the `monitor`.
+     * A data object containing the details of the monitor.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -49,8 +49,8 @@ private constructor(
     fun message(): Optional<String> = message.getOptional("message")
 
     /**
-     * A string indicating the state of the response. On successful responses, the value will be
-     * `Ok`. Indicative error messages are returned for different errors. See the
+     * A string indicating the state of the response. On successful responses, the value will be Ok.
+     * Indicative error messages are returned for different errors. See the
      * [API Error Codes](#api-error-codes) section below for more information.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -113,7 +113,7 @@ private constructor(
             additionalProperties = monitorRetrieveResponse.additionalProperties.toMutableMap()
         }
 
-        /** A data object containing the details of the `monitor`. */
+        /** A data object containing the details of the monitor. */
         fun data(data: Data) = data(JsonField.of(data))
 
         /**
@@ -140,7 +140,7 @@ private constructor(
 
         /**
          * A string indicating the state of the response. On successful responses, the value will be
-         * `Ok`. Indicative error messages are returned for different errors. See the
+         * Ok. Indicative error messages are returned for different errors. See the
          * [API Error Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -213,7 +213,7 @@ private constructor(
             (if (message.asKnown().isPresent) 1 else 0) +
             (if (status.asKnown().isPresent) 1 else 0)
 
-    /** A data object containing the details of the `monitor`. */
+    /** A data object containing the details of the monitor. */
     class Data
     private constructor(
         private val monitor: JsonField<Monitor>,

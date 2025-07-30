@@ -35,7 +35,7 @@ private constructor(
     /**
      * Specify two, pipe (|) delimited location coordinates which would act as corners of the
      * bounding box area to be searched. The first one should be the southwest coordinate of the
-     * `bounds` and the second one should be the northeast coordinate of the `bounds`.
+     * bounds and the second one should be the northeast coordinate of the bounds.
      */
     fun bound(): String = bound
 
@@ -43,34 +43,33 @@ private constructor(
     fun key(): String = key
 
     /**
-     * **`tags` parameter will be deprecated soon! Please use the `include_any_of_attributes` or
-     * `include_all_of_attributes` parameters to match assets based on their labels or markers.**
+     * **tags parameter will be deprecated soon! Please use the include_any_of_attributes or
+     * include_all_of_attributes parameters to match assets based on their labels or markers.**
      *
-     * Use this parameter to filter the assets found inside the specified area by their `tags`.
-     * Multiple `tags` can be separated using commas (`,`).
+     * Use this parameter to filter the assets found inside the specified area by their tags.
+     * Multiple tags can be separated using commas (,).
      *
      * Please note the tags are case sensitive.
      */
     fun filter(): Optional<String> = Optional.ofNullable(filter)
 
     /**
-     * Use this parameter to filter the assets found inside the specified area by their
-     * `attributes`. Only the assets having all the `attributes` that are added to this parameter,
-     * will be returned in the search results. Multiple `attributes` can be separated using pipes
-     * (`|`).
+     * Use this parameter to filter the assets found inside the specified area by their attributes.
+     * Only the assets having all the attributes that are added to this parameter, will be returned
+     * in the search results. Multiple attributes can be separated using pipes (|).
      *
      * Please note the attributes are case sensitive. Also, this parameter can not be used in
-     * conjunction with `include_any_of_attributes` parameter.
+     * conjunction with include_any_of_attributes parameter.
      */
     fun includeAllOfAttributes(): Optional<String> = Optional.ofNullable(includeAllOfAttributes)
 
     /**
-     * Use this parameter to filter the assets found inside the specified area by their
-     * `attributes`. Assets having at least one of the `attributes` added to this parameter, will be
-     * returned in the search results. Multiple `attributes` can be separated using pipes (`|`).
+     * Use this parameter to filter the assets found inside the specified area by their attributes.
+     * Assets having at least one of the attributes added to this parameter, will be returned in the
+     * search results. Multiple attributes can be separated using pipes (|).
      *
      * Please note the attributes are case sensitive. Also, this parameter can not be used in
-     * conjunction with `include_all_of_attributes` parameter.
+     * conjunction with include_all_of_attributes parameter.
      */
     fun includeAnyOfAttributes(): Optional<String> = Optional.ofNullable(includeAnyOfAttributes)
 
@@ -81,33 +80,33 @@ private constructor(
     fun maxSearchLimit(): Optional<Boolean> = Optional.ofNullable(maxSearchLimit)
 
     /**
-     * Denotes page number. Use this along with the `ps` parameter to implement pagination for your
+     * Denotes page number. Use this along with the ps parameter to implement pagination for your
      * searched results. This parameter does not have a maximum limit but would return an empty
      * response in case a higher value is provided when the result-set itself is smaller.
      */
     fun pn(): Optional<Long> = Optional.ofNullable(pn)
 
     /**
-     * Denotes number of search results per page. Use this along with the `pn` parameter to
-     * implement pagination for your searched results.
+     * Denotes number of search results per page. Use this along with the pn parameter to implement
+     * pagination for your searched results.
      */
     fun ps(): Optional<Long> = Optional.ofNullable(ps)
 
     /**
      * Specify the metric to sort the assets returned in the search result. The valid values are:
-     * - **distance** : Sorts the assets by driving distance to the given `sort_destination` .
-     * - **duration** : Sorts the assets by travel time to the given `sort_destination` .
+     * - **distance** : Sorts the assets by driving distance to the given sort_destination .
+     * - **duration** : Sorts the assets by travel time to the given sort_destination .
      * - **straight_distance** : Sort the assets by straight-line distance to the given
-     *   `sort-destination` .
+     *   sort-destination .
      */
     fun sortBy(): Optional<SortBy> = Optional.ofNullable(sortBy)
 
     /**
      * Specifies the location coordinates of the point which acts as destination for sorting the
      * assets in the search results. The service will sort each asset based on the driving distance
-     * or travel time to this destination, from its current location. Use the `sort_by` parameter to
+     * or travel time to this destination, from its current location. Use the sort_by parameter to
      * configure the metric that should be used for sorting the assets. Please note that
-     * `sort_destination` is required when `sort_by` is provided.
+     * sort_destination is required when sort_by is provided.
      */
     fun sortDestination(): Optional<String> = Optional.ofNullable(sortDestination)
 
@@ -176,7 +175,7 @@ private constructor(
         /**
          * Specify two, pipe (|) delimited location coordinates which would act as corners of the
          * bounding box area to be searched. The first one should be the southwest coordinate of the
-         * `bounds` and the second one should be the northeast coordinate of the `bounds`.
+         * bounds and the second one should be the northeast coordinate of the bounds.
          */
         fun bound(bound: String) = apply { this.bound = bound }
 
@@ -184,12 +183,11 @@ private constructor(
         fun key(key: String) = apply { this.key = key }
 
         /**
-         * **`tags` parameter will be deprecated soon! Please use the `include_any_of_attributes` or
-         * `include_all_of_attributes` parameters to match assets based on their labels or
-         * markers.**
+         * **tags parameter will be deprecated soon! Please use the include_any_of_attributes or
+         * include_all_of_attributes parameters to match assets based on their labels or markers.**
          *
-         * Use this parameter to filter the assets found inside the specified area by their `tags`.
-         * Multiple `tags` can be separated using commas (`,`).
+         * Use this parameter to filter the assets found inside the specified area by their tags.
+         * Multiple tags can be separated using commas (,).
          *
          * Please note the tags are case sensitive.
          */
@@ -200,12 +198,12 @@ private constructor(
 
         /**
          * Use this parameter to filter the assets found inside the specified area by their
-         * `attributes`. Only the assets having all the `attributes` that are added to this
-         * parameter, will be returned in the search results. Multiple `attributes` can be separated
-         * using pipes (`|`).
+         * attributes. Only the assets having all the attributes that are added to this parameter,
+         * will be returned in the search results. Multiple attributes can be separated using pipes
+         * (|).
          *
          * Please note the attributes are case sensitive. Also, this parameter can not be used in
-         * conjunction with `include_any_of_attributes` parameter.
+         * conjunction with include_any_of_attributes parameter.
          */
         fun includeAllOfAttributes(includeAllOfAttributes: String?) = apply {
             this.includeAllOfAttributes = includeAllOfAttributes
@@ -220,12 +218,11 @@ private constructor(
 
         /**
          * Use this parameter to filter the assets found inside the specified area by their
-         * `attributes`. Assets having at least one of the `attributes` added to this parameter,
-         * will be returned in the search results. Multiple `attributes` can be separated using
-         * pipes (`|`).
+         * attributes. Assets having at least one of the attributes added to this parameter, will be
+         * returned in the search results. Multiple attributes can be separated using pipes (|).
          *
          * Please note the attributes are case sensitive. Also, this parameter can not be used in
-         * conjunction with `include_all_of_attributes` parameter.
+         * conjunction with include_all_of_attributes parameter.
          */
         fun includeAnyOfAttributes(includeAnyOfAttributes: String?) = apply {
             this.includeAnyOfAttributes = includeAnyOfAttributes
@@ -258,7 +255,7 @@ private constructor(
             maxSearchLimit(maxSearchLimit.getOrNull())
 
         /**
-         * Denotes page number. Use this along with the `ps` parameter to implement pagination for
+         * Denotes page number. Use this along with the ps parameter to implement pagination for
          * your searched results. This parameter does not have a maximum limit but would return an
          * empty response in case a higher value is provided when the result-set itself is smaller.
          */
@@ -275,7 +272,7 @@ private constructor(
         fun pn(pn: Optional<Long>) = pn(pn.getOrNull())
 
         /**
-         * Denotes number of search results per page. Use this along with the `pn` parameter to
+         * Denotes number of search results per page. Use this along with the pn parameter to
          * implement pagination for your searched results.
          */
         fun ps(ps: Long?) = apply { this.ps = ps }
@@ -293,10 +290,10 @@ private constructor(
         /**
          * Specify the metric to sort the assets returned in the search result. The valid values
          * are:
-         * - **distance** : Sorts the assets by driving distance to the given `sort_destination` .
-         * - **duration** : Sorts the assets by travel time to the given `sort_destination` .
+         * - **distance** : Sorts the assets by driving distance to the given sort_destination .
+         * - **duration** : Sorts the assets by travel time to the given sort_destination .
          * - **straight_distance** : Sort the assets by straight-line distance to the given
-         *   `sort-destination` .
+         *   sort-destination .
          */
         fun sortBy(sortBy: SortBy?) = apply { this.sortBy = sortBy }
 
@@ -306,9 +303,9 @@ private constructor(
         /**
          * Specifies the location coordinates of the point which acts as destination for sorting the
          * assets in the search results. The service will sort each asset based on the driving
-         * distance or travel time to this destination, from its current location. Use the `sort_by`
+         * distance or travel time to this destination, from its current location. Use the sort_by
          * parameter to configure the metric that should be used for sorting the assets. Please note
-         * that `sort_destination` is required when `sort_by` is provided.
+         * that sort_destination is required when sort_by is provided.
          */
         fun sortDestination(sortDestination: String?) = apply {
             this.sortDestination = sortDestination
@@ -481,10 +478,10 @@ private constructor(
 
     /**
      * Specify the metric to sort the assets returned in the search result. The valid values are:
-     * - **distance** : Sorts the assets by driving distance to the given `sort_destination` .
-     * - **duration** : Sorts the assets by travel time to the given `sort_destination` .
+     * - **distance** : Sorts the assets by driving distance to the given sort_destination .
+     * - **duration** : Sorts the assets by travel time to the given sort_destination .
      * - **straight_distance** : Sort the assets by straight-line distance to the given
-     *   `sort-destination` .
+     *   sort-destination .
      */
     class SortBy @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -500,11 +497,11 @@ private constructor(
 
         companion object {
 
-            @JvmField val DISTANCE = of("`distance`")
+            @JvmField val DISTANCE = of("distance")
 
-            @JvmField val DURATION = of("`duration`")
+            @JvmField val DURATION = of("duration")
 
-            @JvmField val STRAIGHT_DISTANCE = of("`straight_distance`")
+            @JvmField val STRAIGHT_DISTANCE = of("straight_distance")
 
             @JvmStatic fun of(value: String) = SortBy(JsonField.of(value))
         }
@@ -638,9 +635,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val CAR = of("`car`")
+            @JvmField val CAR = of("car")
 
-            @JvmField val TRUCK = of("`truck`")
+            @JvmField val TRUCK = of("truck")
 
             @JvmStatic fun of(value: String) = SortDrivingMode(JsonField.of(value))
         }

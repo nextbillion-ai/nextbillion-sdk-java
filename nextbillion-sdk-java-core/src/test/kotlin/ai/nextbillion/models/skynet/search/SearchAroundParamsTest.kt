@@ -72,9 +72,9 @@ internal class SearchAroundParamsTest {
                     .put("max_search_limit", "true")
                     .put("pn", "0")
                     .put("ps", "100")
-                    .put("sort_by", "`distance`")
+                    .put("sort_by", "distance")
                     .put("sort_destination", "sort_destination= 34.0241,-118.2550")
-                    .put("sort_driving_mode", "`car`")
+                    .put("sort_driving_mode", "car")
                     .build()
             )
     }

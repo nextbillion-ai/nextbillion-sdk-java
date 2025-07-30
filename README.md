@@ -56,8 +56,8 @@ import ai.nextbillion.models.directions.DirectionComputeRouteResponse;
 NextbillionSdkClient client = NextbillionSdkOkHttpClient.fromEnv();
 
 DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
-    .destination("41.349302,2.136480")
-    .origin("41.349302,2.136480")
+    .destination("1.335368,103.785517")
+    .origin("1.312164,103.841062")
     .build();
 DirectionComputeRouteResponse response = client.directions().computeRoute(params);
 ```
@@ -158,8 +158,8 @@ import java.util.concurrent.CompletableFuture;
 NextbillionSdkClient client = NextbillionSdkOkHttpClient.fromEnv();
 
 DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
-    .destination("41.349302,2.136480")
-    .origin("41.349302,2.136480")
+    .destination("1.335368,103.785517")
+    .origin("1.312164,103.841062")
     .build();
 CompletableFuture<DirectionComputeRouteResponse> response = client.async().directions().computeRoute(params);
 ```
@@ -178,8 +178,8 @@ import java.util.concurrent.CompletableFuture;
 NextbillionSdkClientAsync client = NextbillionSdkOkHttpClientAsync.fromEnv();
 
 DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
-    .destination("41.349302,2.136480")
-    .origin("41.349302,2.136480")
+    .destination("1.335368,103.785517")
+    .origin("1.312164,103.841062")
     .build();
 CompletableFuture<DirectionComputeRouteResponse> response = client.directions().computeRoute(params);
 ```
@@ -199,8 +199,8 @@ import ai.nextbillion.models.directions.DirectionComputeRouteParams;
 import ai.nextbillion.models.directions.DirectionComputeRouteResponse;
 
 DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
-    .destination("41.349302,2.136480")
-    .origin("41.349302,2.136480")
+    .destination("1.335368,103.785517")
+    .origin("1.312164,103.841062")
     .build();
 HttpResponseFor<DirectionComputeRouteResponse> response = client.directions().withRawResponse().computeRoute(params);
 
@@ -450,7 +450,7 @@ import ai.nextbillion.models.directions.DirectionComputeRouteParams;
 
 DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
     .destination(JsonValue.from(42))
-    .origin("41.349302,2.136480")
+    .origin("1.312164,103.841062")
     .build();
 ```
 

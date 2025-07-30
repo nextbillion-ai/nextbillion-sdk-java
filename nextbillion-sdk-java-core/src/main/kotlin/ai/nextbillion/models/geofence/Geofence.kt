@@ -109,8 +109,8 @@ private constructor(
     fun circleCenter(): Optional<CircleCenter> = circleCenter.getOptional("circle_center")
 
     /**
-     * When the `type` of the geofence is `circle`, this property returns the radius of the geofence
-     * in meters (m).
+     * When the type of the geofence is circle, this property returns the radius of the geofence in
+     * meters (m).
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -138,8 +138,8 @@ private constructor(
      * For a geofence based on isochrone contour determined using a specific driving distance, this
      * property returns the duration value, in meters.
      *
-     * The value would be the same as that provided for the `contours_meter` parameter at the time
-     * of creating or updating the geofence.
+     * The value would be the same as that provided for the contours_meter parameter at the time of
+     * creating or updating the geofence.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -149,8 +149,7 @@ private constructor(
     /**
      * For a geofence based on isochrone contour determined using a specific driving duration, this
      * property returns the duration value, in minutes. The value would be the same as the value
-     * provided for the `contours_minute` parameter at the time of creating or updating the
-     * geofence.
+     * provided for the contours_minute parameter at the time of creating or updating the geofence.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -162,7 +161,7 @@ private constructor(
      * location, in [latitude,longitude] format, which was used as the starting point to identify
      * the geofence boundary.
      *
-     * The value would be the same as that provided for the `coordinates` parameter at the time of
+     * The value would be the same as that provided for the coordinates parameter at the time of
      * creating or updating the geofence.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -172,7 +171,7 @@ private constructor(
 
     /**
      * For a geofence based on isochrone contour, this property returns the denoise value which
-     * would be the same as that provided for the `denoise` parameter at the time of creating or
+     * would be the same as that provided for the denoise parameter at the time of creating or
      * updating the geofence.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -185,8 +184,8 @@ private constructor(
      * UNIX epoch timestamp in seconds, which was used to determine the geofence boundary after
      * taking into account the traffic conditions at the time.
      *
-     * The value would be the same as that provided for the `departure_time` parameter at the time
-     * of creating or updating the geofence.
+     * The value would be the same as that provided for the departure_time parameter at the time of
+     * creating or updating the geofence.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -197,7 +196,7 @@ private constructor(
      * For a geofence based on isochrone contour, this property returns the driving mode used to
      * determine the geofence boundary.
      *
-     * The value would be the same as that provided for the `mode` parameter at the time of creating
+     * The value would be the same as that provided for the mode parameter at the time of creating
      * or updating the geofence.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -217,7 +216,7 @@ private constructor(
     fun name(): Optional<String> = name.getOptional("name")
 
     /**
-     * An array of strings representing the `tags` associated with the geofence added at the time of
+     * An array of strings representing the tags associated with the geofence added at the time of
      * creating or updating it.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -444,8 +443,8 @@ private constructor(
         }
 
         /**
-         * When the `type` of the geofence is `circle`, this property returns the radius of the
-         * geofence in meters (m).
+         * When the type of the geofence is circle, this property returns the radius of the geofence
+         * in meters (m).
          */
         fun circleRadius(circleRadius: Double) = circleRadius(JsonField.of(circleRadius))
 
@@ -490,8 +489,8 @@ private constructor(
          * For a geofence based on isochrone contour determined using a specific driving distance,
          * this property returns the duration value, in meters.
          *
-         * The value would be the same as that provided for the `contours_meter` parameter at the
-         * time of creating or updating the geofence.
+         * The value would be the same as that provided for the contours_meter parameter at the time
+         * of creating or updating the geofence.
          */
         fun icContoursMeter(icContoursMeter: Long) = icContoursMeter(JsonField.of(icContoursMeter))
 
@@ -509,8 +508,8 @@ private constructor(
         /**
          * For a geofence based on isochrone contour determined using a specific driving duration,
          * this property returns the duration value, in minutes. The value would be the same as the
-         * value provided for the `contours_minute` parameter at the time of creating or updating
-         * the geofence.
+         * value provided for the contours_minute parameter at the time of creating or updating the
+         * geofence.
          */
         fun icContoursMinute(icContoursMinute: Long) =
             icContoursMinute(JsonField.of(icContoursMinute))
@@ -531,8 +530,8 @@ private constructor(
          * location, in [latitude,longitude] format, which was used as the starting point to
          * identify the geofence boundary.
          *
-         * The value would be the same as that provided for the `coordinates` parameter at the time
-         * of creating or updating the geofence.
+         * The value would be the same as that provided for the coordinates parameter at the time of
+         * creating or updating the geofence.
          */
         fun icCoordinates(icCoordinates: String) = icCoordinates(JsonField.of(icCoordinates))
 
@@ -549,7 +548,7 @@ private constructor(
 
         /**
          * For a geofence based on isochrone contour, this property returns the denoise value which
-         * would be the same as that provided for the `denoise` parameter at the time of creating or
+         * would be the same as that provided for the denoise parameter at the time of creating or
          * updating the geofence.
          */
         fun icDenoise(icDenoise: Double) = icDenoise(JsonField.of(icDenoise))
@@ -568,8 +567,8 @@ private constructor(
          * UNIX epoch timestamp in seconds, which was used to determine the geofence boundary after
          * taking into account the traffic conditions at the time.
          *
-         * The value would be the same as that provided for the `departure_time` parameter at the
-         * time of creating or updating the geofence.
+         * The value would be the same as that provided for the departure_time parameter at the time
+         * of creating or updating the geofence.
          */
         fun icDepartureTime(icDepartureTime: Long) = icDepartureTime(JsonField.of(icDepartureTime))
 
@@ -588,7 +587,7 @@ private constructor(
          * For a geofence based on isochrone contour, this property returns the driving mode used to
          * determine the geofence boundary.
          *
-         * The value would be the same as that provided for the `mode` parameter at the time of
+         * The value would be the same as that provided for the mode parameter at the time of
          * creating or updating the geofence.
          */
         fun icMode(icMode: Double) = icMode(JsonField.of(icMode))
@@ -616,8 +615,8 @@ private constructor(
         fun name(name: JsonField<String>) = apply { this.name = name }
 
         /**
-         * An array of strings representing the `tags` associated with the geofence added at the
-         * time of creating or updating it.
+         * An array of strings representing the tags associated with the geofence added at the time
+         * of creating or updating it.
          */
         fun tags(tags: List<String>) = tags(JsonField.of(tags))
 
@@ -956,11 +955,11 @@ private constructor(
 
         companion object {
 
-            @JvmField val CIRCLE = of("`circle`")
+            @JvmField val CIRCLE = of("circle")
 
-            @JvmField val POLYGON = of("`polygon`")
+            @JvmField val POLYGON = of("polygon")
 
-            @JvmField val ISOCHRONE = of("`isochrone`")
+            @JvmField val ISOCHRONE = of("isochrone")
 
             @JvmStatic fun of(value: String) = Type(JsonField.of(value))
         }

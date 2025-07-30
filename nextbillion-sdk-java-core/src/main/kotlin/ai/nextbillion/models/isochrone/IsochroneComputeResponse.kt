@@ -39,7 +39,7 @@ private constructor(
 
     /**
      * A [GeoJSON FeatureCollection](https://datatracker.ietf.org/doc/html/rfc7946#section-3.3)
-     * object with details of the isochrone contours. Each `feature` object in this collection
+     * object with details of the isochrone contours. Each feature object in this collection
      * represents an isochrone.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -57,7 +57,7 @@ private constructor(
     fun msg(): Optional<String> = msg.getOptional("msg")
 
     /**
-     * A string indicating the state of the response. On normal responses, the value will be `Ok`.
+     * A string indicating the state of the response. On normal responses, the value will be Ok.
      * Indicative HTTP error codes are returned for different errors. See the
      * [API Errors Codes](#api-error-codes) section below for more information.
      *
@@ -69,7 +69,7 @@ private constructor(
     /**
      * Type of the GeoJSON object. As prescribed in
      * [GeoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946#section-1.4), its value is
-     * `FeatureCollection` as the `feature` property contains a list of geoJSON feature objects.
+     * FeatureCollection as the feature property contains a list of geoJSON feature objects.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -142,7 +142,7 @@ private constructor(
 
         /**
          * A [GeoJSON FeatureCollection](https://datatracker.ietf.org/doc/html/rfc7946#section-3.3)
-         * object with details of the isochrone contours. Each `feature` object in this collection
+         * object with details of the isochrone contours. Each feature object in this collection
          * represents an isochrone.
          */
         fun features(features: List<Feature>) = features(JsonField.of(features))
@@ -185,8 +185,8 @@ private constructor(
         fun msg(msg: JsonField<String>) = apply { this.msg = msg }
 
         /**
-         * A string indicating the state of the response. On normal responses, the value will be
-         * `Ok`. Indicative HTTP error codes are returned for different errors. See the
+         * A string indicating the state of the response. On normal responses, the value will be Ok.
+         * Indicative HTTP error codes are returned for different errors. See the
          * [API Errors Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -202,8 +202,7 @@ private constructor(
         /**
          * Type of the GeoJSON object. As prescribed in
          * [GeoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946#section-1.4), its value
-         * is `FeatureCollection` as the `feature` property contains a list of geoJSON feature
-         * objects.
+         * is FeatureCollection as the feature property contains a list of geoJSON feature objects.
          */
         fun type(type: String) = type(JsonField.of(type))
 
@@ -320,7 +319,7 @@ private constructor(
         fun properties(): Optional<Properties> = properties.getOptional("properties")
 
         /**
-         * Type of the GeoJSON object. Its value is `Feature` as per the
+         * Type of the GeoJSON object. Its value is Feature as per the
          * [GeoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946#section-1.4) object.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -415,7 +414,7 @@ private constructor(
             }
 
             /**
-             * Type of the GeoJSON object. Its value is `Feature` as per the
+             * Type of the GeoJSON object. Its value is Feature as per the
              * [GeoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946#section-1.4) object.
              */
             fun type(type: String) = type(JsonField.of(type))
@@ -743,10 +742,10 @@ private constructor(
             fun color(): Optional<String> = color.getOptional("color")
 
             /**
-             * The value of the metric used in this contour. See the `metric` property to determine
-             * whether this is a `time` or `distance` contour. When the `metric` is `time` this
-             * value denotes the travel time in minutes and when the `metric` is `distance` this
-             * value denotes the travel distance in kilometers.
+             * The value of the metric used in this contour. See the metric property to determine
+             * whether this is a time or distance contour. When the metric is time this value
+             * denotes the travel time in minutes and when the metric is distance this value denotes
+             * the travel distance in kilometers.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -779,7 +778,7 @@ private constructor(
             fun fillOpacity(): Optional<Double> = fillOpacity.getOptional("fillOpacity")
 
             /**
-             * The metric that the contour represents - either `distance` or `time`
+             * The metric that the contour represents - either distance or time
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -905,10 +904,10 @@ private constructor(
                 fun color(color: JsonField<String>) = apply { this.color = color }
 
                 /**
-                 * The value of the metric used in this contour. See the `metric` property to
-                 * determine whether this is a `time` or `distance` contour. When the `metric` is
-                 * `time` this value denotes the travel time in minutes and when the `metric` is
-                 * `distance` this value denotes the travel distance in kilometers.
+                 * The value of the metric used in this contour. See the metric property to
+                 * determine whether this is a time or distance contour. When the metric is time
+                 * this value denotes the travel time in minutes and when the metric is distance
+                 * this value denotes the travel distance in kilometers.
                  */
                 fun contour(contour: Double) = contour(JsonField.of(contour))
 
@@ -962,7 +961,7 @@ private constructor(
                     this.fillOpacity = fillOpacity
                 }
 
-                /** The metric that the contour represents - either `distance` or `time` */
+                /** The metric that the contour represents - either distance or time */
                 fun metric(metric: String) = metric(JsonField.of(metric))
 
                 /**

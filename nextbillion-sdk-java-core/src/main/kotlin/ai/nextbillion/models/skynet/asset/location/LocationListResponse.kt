@@ -50,8 +50,8 @@ private constructor(
     fun message(): Optional<String> = message.getOptional("message")
 
     /**
-     * A string indicating the state of the response. On successful responses, the value will be
-     * `Ok`. Indicative error messages are returned for different errors. See the
+     * A string indicating the state of the response. On successful responses, the value will be Ok.
+     * Indicative error messages are returned for different errors. See the
      * [API Error Codes](#api-error-codes) section below for more information.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -140,7 +140,7 @@ private constructor(
 
         /**
          * A string indicating the state of the response. On successful responses, the value will be
-         * `Ok`. Indicative error messages are returned for different errors. See the
+         * Ok. Indicative error messages are returned for different errors. See the
          * [API Error Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -245,7 +245,7 @@ private constructor(
         /**
          * Distance of the path, in meters, formed by connecting all tracked locations returned.
          *
-         * Please note that `distance` is returned only when the `mapmatch` property of `correction`
+         * Please note that distance is returned only when the mapmatch property of correction
          * parameter is set to 1.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -254,9 +254,9 @@ private constructor(
         fun distance(): Optional<Double> = distance.getOptional("distance")
 
         /**
-         * An object with geoJSON details of the route. It is returned only when the `mapmatch`
-         * property of the `correction` parameter is set to 1 and `geometry_type` is `geojson,
-         * otherwise it is not present in the response. The contents of this object follow the
+         * An object with geoJSON details of the route. It is returned only when the mapmatch
+         * property of the correction parameter is set to 1 and geometry_type is geojson, otherwise
+         * it is not present in the response. The contents of this object follow the
          * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -266,7 +266,7 @@ private constructor(
 
         /**
          * Geometry of tracked locations in the requested format. It is returned only if the
-         * `mapmatch` property of the ‘correction’ parameter is set to 1.
+         * mapmatch property of the ‘correction’ parameter is set to 1.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -274,7 +274,7 @@ private constructor(
         fun geometry(): Optional<List<String>> = geometry.getOptional("geometry")
 
         /**
-         * An array of objects with details of the tracked locations of the `asset`. Each object
+         * An array of objects with details of the tracked locations of the asset. Each object
          * represents one tracked location.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -293,10 +293,10 @@ private constructor(
 
         /**
          * An array of objects with details about the snapped points for each of the tracked
-         * locations returned for the `asset`.
+         * locations returned for the asset.
          *
-         * Please note that this property is returned only when the `mapmatch` property of
-         * `correction` parameter is set to 1.
+         * Please note that this property is returned only when the mapmatch property of correction
+         * parameter is set to 1.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -394,8 +394,8 @@ private constructor(
             /**
              * Distance of the path, in meters, formed by connecting all tracked locations returned.
              *
-             * Please note that `distance` is returned only when the `mapmatch` property of
-             * `correction` parameter is set to 1.
+             * Please note that distance is returned only when the mapmatch property of correction
+             * parameter is set to 1.
              */
             fun distance(distance: Double) = distance(JsonField.of(distance))
 
@@ -409,8 +409,8 @@ private constructor(
             fun distance(distance: JsonField<Double>) = apply { this.distance = distance }
 
             /**
-             * An object with geoJSON details of the route. It is returned only when the `mapmatch`
-             * property of the `correction` parameter is set to 1 and `geometry_type` is `geojson,
+             * An object with geoJSON details of the route. It is returned only when the mapmatch
+             * property of the correction parameter is set to 1 and geometry_type is geojson,
              * otherwise it is not present in the response. The contents of this object follow the
              * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
              */
@@ -427,7 +427,7 @@ private constructor(
 
             /**
              * Geometry of tracked locations in the requested format. It is returned only if the
-             * `mapmatch` property of the ‘correction’ parameter is set to 1.
+             * mapmatch property of the ‘correction’ parameter is set to 1.
              */
             fun geometry(geometry: List<String>) = geometry(JsonField.of(geometry))
 
@@ -455,7 +455,7 @@ private constructor(
             }
 
             /**
-             * An array of objects with details of the tracked locations of the `asset`. Each object
+             * An array of objects with details of the tracked locations of the asset. Each object
              * represents one tracked location.
              */
             fun list(list: List<TrackLocation>) = list(JsonField.of(list))
@@ -500,10 +500,10 @@ private constructor(
 
             /**
              * An array of objects with details about the snapped points for each of the tracked
-             * locations returned for the `asset`.
+             * locations returned for the asset.
              *
-             * Please note that this property is returned only when the `mapmatch` property of
-             * `correction` parameter is set to 1.
+             * Please note that this property is returned only when the mapmatch property of
+             * correction parameter is set to 1.
              */
             fun snappedPoints(snappedPoints: List<SnappedPoint>) =
                 snappedPoints(JsonField.of(snappedPoints))
@@ -607,9 +607,9 @@ private constructor(
                 (snappedPoints.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
         /**
-         * An object with geoJSON details of the route. It is returned only when the `mapmatch`
-         * property of the `correction` parameter is set to 1 and `geometry_type` is `geojson,
-         * otherwise it is not present in the response. The contents of this object follow the
+         * An object with geoJSON details of the route. It is returned only when the mapmatch
+         * property of the correction parameter is set to 1 and geometry_type is geojson, otherwise
+         * it is not present in the response. The contents of this object follow the
          * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
          */
         class Geojson

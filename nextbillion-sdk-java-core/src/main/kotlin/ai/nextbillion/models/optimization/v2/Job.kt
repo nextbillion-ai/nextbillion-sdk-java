@@ -128,10 +128,10 @@ private constructor(
     fun id(): String = id.getRequired("id")
 
     /**
-     * An integer denoting the index (in the `location` array) of the location coordinates where the
-     * job needs to be performed. The valid range of values is \[0, length of `location` array).
+     * An integer denoting the index (in the location array) of the location coordinates where the
+     * job needs to be performed. The valid range of values is \[0, length of location array).
      *
-     * Please note the `location_index` is mandatory when using the `jobs` object.
+     * Please note the location_index is mandatory when using the jobs object.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
      *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -142,15 +142,13 @@ private constructor(
      * In case the job involves a delivery step, use this attribute to describe delivery quantity.
      * This attribute supports multidimensional quantities, to support delivering quantities of
      * different units/dimensions. It is recommended to keep the dimensions of quantity for
-     * pickup/delivery consistent when defining them in `jobs` and `vehicles` (in `capacity`
-     * attribute).
+     * pickup/delivery consistent when defining them in jobs and vehicles (in capacity attribute).
      *
      * Please note that the quantity of delivery will be added to the assigned vehicle’s initial
      * load.
      *
      * In case depots are being added, the delivery configured here can be fulfilled by vehicles
-     * starting from specific depots. Refer to `depot_ids` and `vehicles.start_depot_ids` to know
-     * more.
+     * starting from specific depots. Refer to depot_ids and vehicles.start_depot_ids to know more.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -186,8 +184,8 @@ private constructor(
 
     /**
      * Specify whether the job route should follow LIFO (last in, first out). Use this parameter
-     * when `pickup` or `delivery` jobs are involved and the loading or unloading sequence of cargo
-     * is important. The default is `false`.
+     * when pickup or delivery jobs are involved and the loading or unloading sequence of cargo is
+     * important. The default is false.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -197,18 +195,18 @@ private constructor(
     /**
      * Use this parameter to specify the type of loads which are incompatible with the job’s load
      * type. Once this property is configured, the job can only be serviced by a vehicle which has
-     * not serviced any other task with an incompatible `load_types` . Add multiple load types to
+     * not serviced any other task with an incompatible load_types . Add multiple load types to
      * indicate all the types which are incompatible for this job. The incompatible load type
      * considerations are ignored for the first task of the route.
      *
      * For example, an input value of \[“groceries”, “food”\] means that current job’s load is
      * incompatible with both groceries and food type of loads. Consequently, the optimizer will not
-     * assign this job to a vehicle which has served any task with `load_types` as either groceries
-     * or food.
+     * assign this job to a vehicle which has served any task with load_types as either groceries or
+     * food.
      *
      * Note:
      * - This parameter is effective only when a pickup / delivery is configured for the job.
-     * - If the job is part of any `relations` then, configured `incompatible_load_types` might be
+     * - If the job is part of any relations then, configured incompatible_load_types might be
      *   ignored.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -220,12 +218,12 @@ private constructor(
     /**
      * Specify a joint order group ID that this job is associated with. Tasks having the same joint
      * order group ID are treated as a single unit: either all tasks in the group are assigned, or
-     * none are. Users can add tasks of both `jobs` and `shipments` types to a single joint order
-     * group by using the same unique ID. Please note that:
+     * none are. Users can add tasks of both jobs and shipments types to a single joint order group
+     * by using the same unique ID. Please note that:
      * - Each job in a single joint order group will be fulfilled by a unique vehicle.
      * - Jobs belonging to a joint order group can be served in any sequence.
-     * - Joint order settings will not be effective if \`solution\` or \`relations\` attributes are
-     *   also provided in the input request.
+     * - Joint order settings will not be effective if \solution\ or \relations\ attributes are also
+     *   provided in the input request.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -235,17 +233,17 @@ private constructor(
     /**
      * Use this parameter to specify the type of loads for the given job. Once this property is
      * configured, the job can not be served by a vehicle which has serviced any task whose load is
-     * incompatible with any of the`load_types` provided in this input. The load type considerations
+     * incompatible with any of theload_types provided in this input. The load type considerations
      * are ignored for the first task of the route.
      *
      * For example, an input value of \[“groceries”, “food”\] means that job’s load characteristics
      * belong to either one or both types. Consequently, the optimizer will assign this job to a
-     * vehicle which has served other tasks whose `incompatible_load_types` do not contain either
+     * vehicle which has served other tasks whose incompatible_load_types do not contain either
      * groceries or food.
      *
      * Note:
      * - This parameter is effective only when a pickup / delivery is configured for the job.
-     * - If the job is part of any `relations` then, `load_types` might be ignored.
+     * - If the job is part of any relations then, load_types might be ignored.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -255,7 +253,7 @@ private constructor(
     /**
      * It determines the allowable delay, in seconds, to begin a job after its designated time
      * window has concluded. Please note that this parameter would override the
-     * `constraint.max_visit_lateness` (global) if both are specified.
+     * constraint.max_visit_lateness (global) if both are specified.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -264,27 +262,27 @@ private constructor(
 
     /**
      * Specify any custom data that should be attached along with job fulfilment details in the
-     * `steps` attribute of the optimized solution. Users can leverage this property to provide
+     * steps attribute of the optimized solution. Users can leverage this property to provide
      * additional details/context when sharing information about the job with integrated systems
      * (TMS, Fleet Management, Driver dispatch etc).
      *
-     * Please note that the `metadata` content must always be specified in a`key` : `value` pair
-     * format, where the “key” is always a string.
+     * Please note that the metadata content must always be specified in akey : value pair format,
+     * where the “key” is always a string.
      */
     @JsonProperty("metadata") @ExcludeMissing fun _metadata(): JsonValue = metadata
 
     /**
      * Specify the cost of keeping this job unassigned, namely, the cost of outsourcing the job.
      * When provided, the optimizer weighs the cost of assigning the job against the cost of keeping
-     * it unassigned and chooses a solution with lower cost. In the solution, the `outsourcing_cost`
+     * it unassigned and chooses a solution with lower cost. In the solution, the outsourcing_cost
      * of unassigned jobs is added to the total cost of the solution.
      *
-     * If the `outsourcing_cost` is not provided, which is to say that the job can not be
-     * outsourced, then the optimizer tries to fulfill the job irrespective of the cost incurred,
-     * subject to other constraints.
+     * If the outsourcing_cost is not provided, which is to say that the job can not be outsourced,
+     * then the optimizer tries to fulfill the job irrespective of the cost incurred, subject to
+     * other constraints.
      *
-     * Please note that `revenue` and `outsourcing_cost` can not be specified simultaneously for a
-     * job. Also, the `outsourcing_cost` would override the priority settings of the job.
+     * Please note that revenue and outsourcing_cost can not be specified simultaneously for a job.
+     * Also, the outsourcing_cost would override the priority settings of the job.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -295,13 +293,13 @@ private constructor(
      * In case the job involves a pickup step, use this attribute to describe pickup quantity. This
      * attribute supports multidimensional quantities, to support picking up quantities of different
      * units/dimensions. It is recommended to keep the dimensions of quantity for pickup/delivery
-     * consistent when defining them in `jobs` and `vehicles` (in `capacity` attribute).
+     * consistent when defining them in jobs and vehicles (in capacity attribute).
      *
      * Please note that the vehicle will continue to carry the picked-up quantity until its last
      * stop.
      *
      * In case depots are being added, the pickup configured here can be fulfilled by vehicles
-     * ending at specific depots. Refer to `depot_ids` and `vehicles.end_depot_ids` to know more.
+     * ending at specific depots. Refer to depot_ids and vehicles.end_depot_ids to know more.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -321,10 +319,10 @@ private constructor(
     fun priority(): Optional<Long> = priority.getOptional("priority")
 
     /**
-     * Specify the revenue earned by completing this job. The optimizer uses the `revenue` input to
+     * Specify the revenue earned by completing this job. The optimizer uses the revenue input to
      * identify the potential profit earned by fulfilling this job after taking into account the
-     * costs incurred to do so. The`options.objective` and `vehicles.costs` input are taken into
-     * account to identify the costs of fulfilling the job.
+     * costs incurred to do so. Theoptions.objective and vehicles.costs input are taken into account
+     * to identify the costs of fulfilling the job.
      *
      * In general, the optimizer will prefer fulfilling the tasks with higher profits over the tasks
      * with lower profits, should it need to reject some tasks in order to honor other constraints.
@@ -337,18 +335,17 @@ private constructor(
 
     /**
      * Use this parameter to prioritize completing a task relative to certain other tasks. A task
-     * configured with a `sequence_order` of 2 will be done after the task with `sequence_order` of
-     * 1, but before the task with `sequence_order` of 3. Valid range of values for this input is
+     * configured with a sequence_order of 2 will be done after the task with sequence_order of 1,
+     * but before the task with sequence_order of 3. Valid range of values for this input is
      * \[0,100\].
      *
      * Please note that:
-     * - Only the tasks within the same route are compared and ordered as per their
-     *   `sequence_order`.
-     * - Tasks without a `sequence_order` are not involved in the comparison.
-     * - Following is the precedence of `sequence_order` when used along side some of the other
+     * - Only the tasks within the same route are compared and ordered as per their sequence_order.
+     * - Tasks without a sequence_order are not involved in the comparison.
+     * - Following is the precedence of sequence_order when used along side some of the other
      *   constraints:
-     *     - `relations` are prioritized over `sequence_order` comparisons.
-     *     - `sequence_order` will override `order_grouping` configurations.
+     *     - relations are prioritized over sequence_order comparisons.
+     *     - sequence_order will override order_grouping configurations.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -365,13 +362,13 @@ private constructor(
     fun service(): Optional<Long> = service.getOptional("service")
 
     /**
-     * Specify the job set-up duration, in seconds. `setup` is the one-time effort needed apart from
+     * Specify the job set-up duration, in seconds. setup is the one-time effort needed apart from
      * working on the original task - for example, effort to record some information for compliance,
      * or effort to set-up the equipment, or perform any other action for completing all steps
      * required to fulfil the job.
      *
-     * Please note that `setup` time is applied only once for a given task location. `setup` time,
-     * unlike `service` time, is not repeated in case there are multiple tasks at the same location.
+     * Please note that setup time is applied only once for a given task location. setup time,
+     * unlike service time, is not repeated in case there are multiple tasks at the same location.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -409,7 +406,7 @@ private constructor(
      * its own dimensions, please specify the final characteristics for the task: total height,
      * total length, total width.
      *
-     * Please note that vehicles which contain the `volume` input, will only be considered for
+     * Please note that vehicles which contain the volume input, will only be considered for
      * arranging such items.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -423,11 +420,11 @@ private constructor(
      * this job. Please note following points about job zones:
      * - If zone IDs are provided for any one of the jobs, then all other jobs should also be
      *   specified with zone IDs. Zone IDs provided here will override any zone geometries provided
-     *   in the `zones` attribute and these IDs will be used for allocating appropriate vehicles.
+     *   in the zones attribute and these IDs will be used for allocating appropriate vehicles.
      * - Jobs can be auto-allocated to zones if this parameter is not specified while the zone
-     *   geometries (either `zones.geometry` or `zones.geofence_id`) are provided.
+     *   geometries (either zones.geometry or zones.geofence_id) are provided.
      * - Jobs not falling in any zones can be fulfilled by only those vehicles which are allowed to
-     *   take up tasks outside zones as well. Refer to `vehicles` attribute for more information.
+     *   take up tasks outside zones as well. Refer to vehicles attribute for more information.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -691,11 +688,11 @@ private constructor(
         fun id(id: JsonField<String>) = apply { this.id = id }
 
         /**
-         * An integer denoting the index (in the `location` array) of the location coordinates where
-         * the job needs to be performed. The valid range of values is \[0, length of `location`
+         * An integer denoting the index (in the location array) of the location coordinates where
+         * the job needs to be performed. The valid range of values is \[0, length of location
          * array).
          *
-         * Please note the `location_index` is mandatory when using the `jobs` object.
+         * Please note the location_index is mandatory when using the jobs object.
          */
         fun locationIndex(locationIndex: Long) = locationIndex(JsonField.of(locationIndex))
 
@@ -714,15 +711,15 @@ private constructor(
          * In case the job involves a delivery step, use this attribute to describe delivery
          * quantity. This attribute supports multidimensional quantities, to support delivering
          * quantities of different units/dimensions. It is recommended to keep the dimensions of
-         * quantity for pickup/delivery consistent when defining them in `jobs` and `vehicles` (in
-         * `capacity` attribute).
+         * quantity for pickup/delivery consistent when defining them in jobs and vehicles (in
+         * capacity attribute).
          *
          * Please note that the quantity of delivery will be added to the assigned vehicle’s initial
          * load.
          *
          * In case depots are being added, the delivery configured here can be fulfilled by vehicles
-         * starting from specific depots. Refer to `depot_ids` and `vehicles.start_depot_ids` to
-         * know more.
+         * starting from specific depots. Refer to depot_ids and vehicles.start_depot_ids to know
+         * more.
          */
         fun delivery(delivery: List<Long>) = delivery(JsonField.of(delivery))
 
@@ -802,8 +799,8 @@ private constructor(
 
         /**
          * Specify whether the job route should follow LIFO (last in, first out). Use this parameter
-         * when `pickup` or `delivery` jobs are involved and the loading or unloading sequence of
-         * cargo is important. The default is `false`.
+         * when pickup or delivery jobs are involved and the loading or unloading sequence of cargo
+         * is important. The default is false.
          */
         fun followLifoOrder(followLifoOrder: Boolean) =
             followLifoOrder(JsonField.of(followLifoOrder))
@@ -822,19 +819,19 @@ private constructor(
         /**
          * Use this parameter to specify the type of loads which are incompatible with the job’s
          * load type. Once this property is configured, the job can only be serviced by a vehicle
-         * which has not serviced any other task with an incompatible `load_types` . Add multiple
-         * load types to indicate all the types which are incompatible for this job. The
-         * incompatible load type considerations are ignored for the first task of the route.
+         * which has not serviced any other task with an incompatible load_types . Add multiple load
+         * types to indicate all the types which are incompatible for this job. The incompatible
+         * load type considerations are ignored for the first task of the route.
          *
          * For example, an input value of \[“groceries”, “food”\] means that current job’s load is
          * incompatible with both groceries and food type of loads. Consequently, the optimizer will
-         * not assign this job to a vehicle which has served any task with `load_types` as either
+         * not assign this job to a vehicle which has served any task with load_types as either
          * groceries or food.
          *
          * Note:
          * - This parameter is effective only when a pickup / delivery is configured for the job.
-         * - If the job is part of any `relations` then, configured `incompatible_load_types` might
-         *   be ignored.
+         * - If the job is part of any relations then, configured incompatible_load_types might be
+         *   ignored.
          */
         fun incompatibleLoadTypes(incompatibleLoadTypes: List<String>) =
             incompatibleLoadTypes(JsonField.of(incompatibleLoadTypes))
@@ -865,12 +862,12 @@ private constructor(
         /**
          * Specify a joint order group ID that this job is associated with. Tasks having the same
          * joint order group ID are treated as a single unit: either all tasks in the group are
-         * assigned, or none are. Users can add tasks of both `jobs` and `shipments` types to a
-         * single joint order group by using the same unique ID. Please note that:
+         * assigned, or none are. Users can add tasks of both jobs and shipments types to a single
+         * joint order group by using the same unique ID. Please note that:
          * - Each job in a single joint order group will be fulfilled by a unique vehicle.
          * - Jobs belonging to a joint order group can be served in any sequence.
-         * - Joint order settings will not be effective if \`solution\` or \`relations\` attributes
-         *   are also provided in the input request.
+         * - Joint order settings will not be effective if \solution\ or \relations\ attributes are
+         *   also provided in the input request.
          */
         fun jointOrder(jointOrder: Long) = jointOrder(JsonField.of(jointOrder))
 
@@ -885,17 +882,17 @@ private constructor(
         /**
          * Use this parameter to specify the type of loads for the given job. Once this property is
          * configured, the job can not be served by a vehicle which has serviced any task whose load
-         * is incompatible with any of the`load_types` provided in this input. The load type
+         * is incompatible with any of theload_types provided in this input. The load type
          * considerations are ignored for the first task of the route.
          *
          * For example, an input value of \[“groceries”, “food”\] means that job’s load
          * characteristics belong to either one or both types. Consequently, the optimizer will
-         * assign this job to a vehicle which has served other tasks whose `incompatible_load_types`
+         * assign this job to a vehicle which has served other tasks whose incompatible_load_types
          * do not contain either groceries or food.
          *
          * Note:
          * - This parameter is effective only when a pickup / delivery is configured for the job.
-         * - If the job is part of any `relations` then, `load_types` might be ignored.
+         * - If the job is part of any relations then, load_types might be ignored.
          */
         fun loadTypes(loadTypes: List<String>) = loadTypes(JsonField.of(loadTypes))
 
@@ -925,7 +922,7 @@ private constructor(
         /**
          * It determines the allowable delay, in seconds, to begin a job after its designated time
          * window has concluded. Please note that this parameter would override the
-         * `constraint.max_visit_lateness` (global) if both are specified.
+         * constraint.max_visit_lateness (global) if both are specified.
          */
         fun maxVisitLateness(maxVisitLateness: Long) =
             maxVisitLateness(JsonField.of(maxVisitLateness))
@@ -943,11 +940,11 @@ private constructor(
 
         /**
          * Specify any custom data that should be attached along with job fulfilment details in the
-         * `steps` attribute of the optimized solution. Users can leverage this property to provide
+         * steps attribute of the optimized solution. Users can leverage this property to provide
          * additional details/context when sharing information about the job with integrated systems
          * (TMS, Fleet Management, Driver dispatch etc).
          *
-         * Please note that the `metadata` content must always be specified in a`key` : `value` pair
+         * Please note that the metadata content must always be specified in akey : value pair
          * format, where the “key” is always a string.
          */
         fun metadata(metadata: JsonValue) = apply { this.metadata = metadata }
@@ -956,14 +953,14 @@ private constructor(
          * Specify the cost of keeping this job unassigned, namely, the cost of outsourcing the job.
          * When provided, the optimizer weighs the cost of assigning the job against the cost of
          * keeping it unassigned and chooses a solution with lower cost. In the solution, the
-         * `outsourcing_cost` of unassigned jobs is added to the total cost of the solution.
+         * outsourcing_cost of unassigned jobs is added to the total cost of the solution.
          *
-         * If the `outsourcing_cost` is not provided, which is to say that the job can not be
+         * If the outsourcing_cost is not provided, which is to say that the job can not be
          * outsourced, then the optimizer tries to fulfill the job irrespective of the cost
          * incurred, subject to other constraints.
          *
-         * Please note that `revenue` and `outsourcing_cost` can not be specified simultaneously for
-         * a job. Also, the `outsourcing_cost` would override the priority settings of the job.
+         * Please note that revenue and outsourcing_cost can not be specified simultaneously for a
+         * job. Also, the outsourcing_cost would override the priority settings of the job.
          */
         fun outsourcingCost(outsourcingCost: Long) = outsourcingCost(JsonField.of(outsourcingCost))
 
@@ -982,15 +979,14 @@ private constructor(
          * In case the job involves a pickup step, use this attribute to describe pickup quantity.
          * This attribute supports multidimensional quantities, to support picking up quantities of
          * different units/dimensions. It is recommended to keep the dimensions of quantity for
-         * pickup/delivery consistent when defining them in `jobs` and `vehicles` (in `capacity`
+         * pickup/delivery consistent when defining them in jobs and vehicles (in capacity
          * attribute).
          *
          * Please note that the vehicle will continue to carry the picked-up quantity until its last
          * stop.
          *
          * In case depots are being added, the pickup configured here can be fulfilled by vehicles
-         * ending at specific depots. Refer to `depot_ids` and `vehicles.end_depot_ids` to know
-         * more.
+         * ending at specific depots. Refer to depot_ids and vehicles.end_depot_ids to know more.
          */
         fun pickup(pickup: List<Long>) = pickup(JsonField.of(pickup))
 
@@ -1035,10 +1031,10 @@ private constructor(
         fun priority(priority: JsonField<Long>) = apply { this.priority = priority }
 
         /**
-         * Specify the revenue earned by completing this job. The optimizer uses the `revenue` input
+         * Specify the revenue earned by completing this job. The optimizer uses the revenue input
          * to identify the potential profit earned by fulfilling this job after taking into account
-         * the costs incurred to do so. The`options.objective` and `vehicles.costs` input are taken
-         * into account to identify the costs of fulfilling the job.
+         * the costs incurred to do so. Theoptions.objective and vehicles.costs input are taken into
+         * account to identify the costs of fulfilling the job.
          *
          * In general, the optimizer will prefer fulfilling the tasks with higher profits over the
          * tasks with lower profits, should it need to reject some tasks in order to honor other
@@ -1057,18 +1053,18 @@ private constructor(
 
         /**
          * Use this parameter to prioritize completing a task relative to certain other tasks. A
-         * task configured with a `sequence_order` of 2 will be done after the task with
-         * `sequence_order` of 1, but before the task with `sequence_order` of 3. Valid range of
-         * values for this input is \[0,100\].
+         * task configured with a sequence_order of 2 will be done after the task with
+         * sequence_order of 1, but before the task with sequence_order of 3. Valid range of values
+         * for this input is \[0,100\].
          *
          * Please note that:
          * - Only the tasks within the same route are compared and ordered as per their
-         *   `sequence_order`.
-         * - Tasks without a `sequence_order` are not involved in the comparison.
-         * - Following is the precedence of `sequence_order` when used along side some of the other
+         *   sequence_order.
+         * - Tasks without a sequence_order are not involved in the comparison.
+         * - Following is the precedence of sequence_order when used along side some of the other
          *   constraints:
-         *     - `relations` are prioritized over `sequence_order` comparisons.
-         *     - `sequence_order` will override `order_grouping` configurations.
+         *     - relations are prioritized over sequence_order comparisons.
+         *     - sequence_order will override order_grouping configurations.
          */
         fun sequenceOrder(sequenceOrder: Long) = sequenceOrder(JsonField.of(sequenceOrder))
 
@@ -1098,13 +1094,13 @@ private constructor(
         fun service(service: JsonField<Long>) = apply { this.service = service }
 
         /**
-         * Specify the job set-up duration, in seconds. `setup` is the one-time effort needed apart
+         * Specify the job set-up duration, in seconds. setup is the one-time effort needed apart
          * from working on the original task - for example, effort to record some information for
          * compliance, or effort to set-up the equipment, or perform any other action for completing
          * all steps required to fulfil the job.
          *
-         * Please note that `setup` time is applied only once for a given task location. `setup`
-         * time, unlike `service` time, is not repeated in case there are multiple tasks at the same
+         * Please note that setup time is applied only once for a given task location. setup time,
+         * unlike service time, is not repeated in case there are multiple tasks at the same
          * location.
          */
         fun setup(setup: Long) = setup(JsonField.of(setup))
@@ -1188,7 +1184,7 @@ private constructor(
          * items, each with its own dimensions, please specify the final characteristics for the
          * task: total height, total length, total width.
          *
-         * Please note that vehicles which contain the `volume` input, will only be considered for
+         * Please note that vehicles which contain the volume input, will only be considered for
          * arranging such items.
          */
         fun volume(volume: Volume) = volume(JsonField.of(volume))
@@ -1207,12 +1203,12 @@ private constructor(
          * assigned to this job. Please note following points about job zones:
          * - If zone IDs are provided for any one of the jobs, then all other jobs should also be
          *   specified with zone IDs. Zone IDs provided here will override any zone geometries
-         *   provided in the `zones` attribute and these IDs will be used for allocating appropriate
+         *   provided in the zones attribute and these IDs will be used for allocating appropriate
          *   vehicles.
          * - Jobs can be auto-allocated to zones if this parameter is not specified while the zone
-         *   geometries (either `zones.geometry` or `zones.geofence_id`) are provided.
+         *   geometries (either zones.geometry or zones.geofence_id) are provided.
          * - Jobs not falling in any zones can be fulfilled by only those vehicles which are allowed
-         *   to take up tasks outside zones as well. Refer to `vehicles` attribute for more
+         *   to take up tasks outside zones as well. Refer to vehicles attribute for more
          *   information.
          */
         fun zones(zones: List<Long>) = zones(JsonField.of(zones))
@@ -1373,7 +1369,7 @@ private constructor(
      * its own dimensions, please specify the final characteristics for the task: total height,
      * total length, total width.
      *
-     * Please note that vehicles which contain the `volume` input, will only be considered for
+     * Please note that vehicles which contain the volume input, will only be considered for
      * arranging such items.
      */
     class Volume
@@ -1681,13 +1677,11 @@ private constructor(
 
             companion object {
 
-                @JvmField val STRICT = of("`strict`")
+                @JvmField val STRICT = of("strict")
 
-                @JvmField val PARALLEL = of("`parallel`")
+                @JvmField val PARALLEL = of("parallel")
 
-                @JvmField val FIXED_BOTTOM = of("`fixed_bottom`")
-
-                @JvmField val Unknown0 = of("`\" \"`")
+                @JvmField val FIXED_BOTTOM = of("fixed_bottom")
 
                 @JvmStatic fun of(value: String) = Alignment(JsonField.of(value))
             }
@@ -1697,7 +1691,6 @@ private constructor(
                 STRICT,
                 PARALLEL,
                 FIXED_BOTTOM,
-                Unknown0,
             }
 
             /**
@@ -1713,7 +1706,6 @@ private constructor(
                 STRICT,
                 PARALLEL,
                 FIXED_BOTTOM,
-                Unknown0,
                 /**
                  * An enum member indicating that [Alignment] was instantiated with an unknown
                  * value.
@@ -1733,7 +1725,6 @@ private constructor(
                     STRICT -> Value.STRICT
                     PARALLEL -> Value.PARALLEL
                     FIXED_BOTTOM -> Value.FIXED_BOTTOM
-                    Unknown0 -> Value.Unknown0
                     else -> Value._UNKNOWN
                 }
 
@@ -1751,7 +1742,6 @@ private constructor(
                     STRICT -> Known.STRICT
                     PARALLEL -> Known.PARALLEL
                     FIXED_BOTTOM -> Known.FIXED_BOTTOM
-                    Unknown0 -> Known.Unknown0
                     else -> throw NextbillionSdkInvalidDataException("Unknown Alignment: $value")
                 }
 
