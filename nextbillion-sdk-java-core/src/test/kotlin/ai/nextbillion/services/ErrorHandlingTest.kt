@@ -26,7 +26,6 @@ import com.github.tomakehurst.wiremock.junit5.WireMockTest
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.entry
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.parallel.ResourceLock
@@ -59,7 +58,6 @@ internal class ErrorHandlingTest {
                 .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute400() {
         val directionService = client.directions()
@@ -109,7 +107,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute400WithRawResponse() {
         val directionService = client.directions().withRawResponse()
@@ -159,7 +156,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute401() {
         val directionService = client.directions()
@@ -209,7 +205,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute401WithRawResponse() {
         val directionService = client.directions().withRawResponse()
@@ -259,7 +254,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute403() {
         val directionService = client.directions()
@@ -309,7 +303,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute403WithRawResponse() {
         val directionService = client.directions().withRawResponse()
@@ -359,7 +352,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute404() {
         val directionService = client.directions()
@@ -409,7 +401,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute404WithRawResponse() {
         val directionService = client.directions().withRawResponse()
@@ -459,7 +450,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute422() {
         val directionService = client.directions()
@@ -509,7 +499,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute422WithRawResponse() {
         val directionService = client.directions().withRawResponse()
@@ -559,7 +548,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute429() {
         val directionService = client.directions()
@@ -609,7 +597,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute429WithRawResponse() {
         val directionService = client.directions().withRawResponse()
@@ -659,7 +646,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute500() {
         val directionService = client.directions()
@@ -709,7 +695,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute500WithRawResponse() {
         val directionService = client.directions().withRawResponse()
@@ -759,7 +744,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute999() {
         val directionService = client.directions()
@@ -809,7 +793,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRoute999WithRawResponse() {
         val directionService = client.directions().withRawResponse()
@@ -859,7 +842,6 @@ internal class ErrorHandlingTest {
         assertThat(e.body()).isEqualTo(ERROR_JSON)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun directionsComputeRouteInvalidJsonBody() {
         val directionService = client.directions()

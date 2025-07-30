@@ -7,12 +7,10 @@ import ai.nextbillion.models.fleetify.routes.steps.RouteStepCompletionMode
 import ai.nextbillion.models.fleetify.routes.steps.RouteStepGeofenceConfig
 import ai.nextbillion.models.fleetify.routes.steps.RouteStepsRequest
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class RouteRedispatchParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         RouteRedispatchParams.builder()
@@ -64,7 +62,6 @@ internal class RouteRedispatchParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun pathParams() {
         val params =
@@ -84,7 +81,6 @@ internal class RouteRedispatchParamsTest {
         assertThat(params._pathParam(1)).isEqualTo("")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -143,7 +139,6 @@ internal class RouteRedispatchParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params =
@@ -163,7 +158,6 @@ internal class RouteRedispatchParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun body() {
         val params =
@@ -265,7 +259,6 @@ internal class RouteRedispatchParamsTest {
         assertThat(body.distance()).contains(0.0)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun bodyWithoutOptionalFields() {
         val params =

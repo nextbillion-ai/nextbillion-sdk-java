@@ -8,12 +8,10 @@ import ai.nextbillion.models.geofence.console.PolygonGeojson
 import ai.nextbillion.models.skynet.monitor.Pagination
 import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class GeofenceListResponseTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         val geofenceListResponse =
@@ -89,7 +87,6 @@ internal class GeofenceListResponseTest {
         assertThat(geofenceListResponse.status()).contains("status")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun roundtrip() {
         val jsonMapper = jsonMapper()

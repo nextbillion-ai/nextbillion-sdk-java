@@ -4,12 +4,10 @@ package ai.nextbillion.models.skynet.trip
 
 import ai.nextbillion.core.http.QueryParams
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class TripEndParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         TripEndParams.builder()
@@ -19,7 +17,6 @@ internal class TripEndParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -37,7 +34,6 @@ internal class TripEndParamsTest {
             )
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params = TripEndParams.builder().key("key=API_KEY").id("id").build()
@@ -47,7 +43,6 @@ internal class TripEndParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key=API_KEY").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun body() {
         val params =
@@ -62,7 +57,6 @@ internal class TripEndParamsTest {
         assertThat(body.id()).isEqualTo("id")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun bodyWithoutOptionalFields() {
         val params = TripEndParams.builder().key("key=API_KEY").id("id").build()

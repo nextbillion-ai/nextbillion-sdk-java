@@ -6,12 +6,10 @@ import ai.nextbillion.core.JsonValue
 import ai.nextbillion.core.http.QueryParams
 import kotlin.jvm.optionals.getOrNull
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class MonitorUpdateParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         MonitorUpdateParams.builder()
@@ -56,7 +54,6 @@ internal class MonitorUpdateParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun pathParams() {
         val params = MonitorUpdateParams.builder().id("id").key("key=API_KEY").build()
@@ -66,7 +63,6 @@ internal class MonitorUpdateParamsTest {
         assertThat(params._pathParam(1)).isEqualTo("")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -116,7 +112,6 @@ internal class MonitorUpdateParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key=API_KEY").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params = MonitorUpdateParams.builder().id("id").key("key=API_KEY").build()
@@ -126,7 +121,6 @@ internal class MonitorUpdateParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key=API_KEY").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun body() {
         val params =
@@ -213,7 +207,6 @@ internal class MonitorUpdateParamsTest {
         assertThat(body.type()).contains(MonitorUpdateParams.Type.ENTER)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun bodyWithoutOptionalFields() {
         val params = MonitorUpdateParams.builder().id("id").key("key=API_KEY").build()

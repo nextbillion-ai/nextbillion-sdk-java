@@ -6,12 +6,10 @@ import ai.nextbillion.core.JsonValue
 import ai.nextbillion.core.http.QueryParams
 import kotlin.jvm.optionals.getOrNull
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class GeofenceUpdateParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         GeofenceUpdateParams.builder()
@@ -50,7 +48,6 @@ internal class GeofenceUpdateParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun pathParams() {
         val params = GeofenceUpdateParams.builder().id("id").key("key=API_KEY").build()
@@ -60,7 +57,6 @@ internal class GeofenceUpdateParamsTest {
         assertThat(params._pathParam(1)).isEqualTo("")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -106,7 +102,6 @@ internal class GeofenceUpdateParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key=API_KEY").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params = GeofenceUpdateParams.builder().id("id").key("key=API_KEY").build()
@@ -116,7 +111,6 @@ internal class GeofenceUpdateParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key=API_KEY").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun body() {
         val params =
@@ -195,7 +189,6 @@ internal class GeofenceUpdateParamsTest {
         assertThat(body.type()).contains(GeofenceUpdateParams.Type.CIRCLE)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun bodyWithoutOptionalFields() {
         val params = GeofenceUpdateParams.builder().id("id").key("key=API_KEY").build()

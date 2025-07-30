@@ -5,12 +5,10 @@ package ai.nextbillion.models.optimization.driverassignment
 import ai.nextbillion.core.jsonMapper
 import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class LocationTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         val location = Location.builder().lat(-90.0).lon(-180.0).build()
@@ -19,7 +17,6 @@ internal class LocationTest {
         assertThat(location.lon()).isEqualTo(-180.0)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun roundtrip() {
         val jsonMapper = jsonMapper()

@@ -5,12 +5,10 @@ package ai.nextbillion.models.fleetify.routes.steps
 import ai.nextbillion.core.http.QueryParams
 import kotlin.jvm.optionals.getOrNull
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class StepUpdateParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         StepUpdateParams.builder()
@@ -41,7 +39,6 @@ internal class StepUpdateParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun pathParams() {
         val params =
@@ -59,7 +56,6 @@ internal class StepUpdateParamsTest {
         assertThat(params._pathParam(2)).isEqualTo("")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -97,7 +93,6 @@ internal class StepUpdateParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params =
@@ -114,7 +109,6 @@ internal class StepUpdateParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun body() {
         val params =
@@ -175,7 +169,6 @@ internal class StepUpdateParamsTest {
         assertThat(body.type()).contains(StepUpdateParams.Type.START)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun bodyWithoutOptionalFields() {
         val params =

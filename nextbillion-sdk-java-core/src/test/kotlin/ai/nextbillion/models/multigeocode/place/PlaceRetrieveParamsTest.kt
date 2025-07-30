@@ -4,18 +4,15 @@ package ai.nextbillion.models.multigeocode.place
 
 import ai.nextbillion.core.http.QueryParams
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class PlaceRetrieveParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         PlaceRetrieveParams.builder().docId("docId").key("key=API_KEY").build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun pathParams() {
         val params = PlaceRetrieveParams.builder().docId("docId").key("key=API_KEY").build()
@@ -25,7 +22,6 @@ internal class PlaceRetrieveParamsTest {
         assertThat(params._pathParam(1)).isEqualTo("")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params = PlaceRetrieveParams.builder().docId("docId").key("key=API_KEY").build()

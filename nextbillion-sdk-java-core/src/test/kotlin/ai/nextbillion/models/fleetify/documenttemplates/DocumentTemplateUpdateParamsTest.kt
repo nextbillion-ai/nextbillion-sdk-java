@@ -5,12 +5,10 @@ package ai.nextbillion.models.fleetify.documenttemplates
 import ai.nextbillion.core.http.QueryParams
 import kotlin.jvm.optionals.getOrNull
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class DocumentTemplateUpdateParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         DocumentTemplateUpdateParams.builder()
@@ -46,7 +44,6 @@ internal class DocumentTemplateUpdateParamsTest {
             .build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun pathParams() {
         val params = DocumentTemplateUpdateParams.builder().id("id").key("key").build()
@@ -56,7 +53,6 @@ internal class DocumentTemplateUpdateParamsTest {
         assertThat(params._pathParam(1)).isEqualTo("")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params =
@@ -97,7 +93,6 @@ internal class DocumentTemplateUpdateParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParamsWithoutOptionalFields() {
         val params = DocumentTemplateUpdateParams.builder().id("id").key("key").build()
@@ -107,7 +102,6 @@ internal class DocumentTemplateUpdateParamsTest {
         assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key").build())
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun body() {
         val params =
@@ -175,7 +169,6 @@ internal class DocumentTemplateUpdateParamsTest {
         assertThat(body.name()).contains("name")
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun bodyWithoutOptionalFields() {
         val params = DocumentTemplateUpdateParams.builder().id("id").key("key").build()

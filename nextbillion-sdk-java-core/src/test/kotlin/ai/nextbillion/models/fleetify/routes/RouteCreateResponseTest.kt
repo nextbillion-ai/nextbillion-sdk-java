@@ -10,12 +10,10 @@ import ai.nextbillion.models.fleetify.routes.steps.RouteStepGeofenceConfig
 import ai.nextbillion.models.fleetify.routes.steps.RouteStepsResponse
 import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class RouteCreateResponseTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         val routeCreateResponse =
@@ -163,7 +161,6 @@ internal class RouteCreateResponseTest {
         assertThat(routeCreateResponse.status()).contains(0L)
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun roundtrip() {
         val jsonMapper = jsonMapper()

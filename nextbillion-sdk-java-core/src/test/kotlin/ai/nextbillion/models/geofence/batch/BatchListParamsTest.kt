@@ -4,18 +4,15 @@ package ai.nextbillion.models.geofence.batch
 
 import ai.nextbillion.core.http.QueryParams
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class BatchListParamsTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun create() {
         BatchListParams.builder().ids("ids").key("key=API_KEY").build()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
     @Test
     fun queryParams() {
         val params = BatchListParams.builder().ids("ids").key("key=API_KEY").build()
