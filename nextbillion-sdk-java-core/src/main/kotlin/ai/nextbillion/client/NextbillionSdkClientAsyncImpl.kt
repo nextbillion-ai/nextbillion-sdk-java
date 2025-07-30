@@ -162,11 +162,11 @@ class NextbillionSdkClientAsyncImpl(private val clientOptions: ClientOptions) :
         PostalcodeServiceAsyncImpl(clientOptionsWithUserAgent)
     }
 
-    private val areas: AreaServiceAsync by lazy { AreaServiceAsyncImpl(clientOptionsWithUserAgent) }
-
     private val lookup: LookupServiceAsync by lazy {
         LookupServiceAsyncImpl(clientOptionsWithUserAgent)
     }
+
+    private val areas: AreaServiceAsync by lazy { AreaServiceAsyncImpl(clientOptionsWithUserAgent) }
 
     override fun sync(): NextbillionSdkClient = sync
 
@@ -221,9 +221,9 @@ class NextbillionSdkClientAsyncImpl(private val clientOptions: ClientOptions) :
 
     override fun postalcode(): PostalcodeServiceAsync = postalcode
 
-    override fun areas(): AreaServiceAsync = areas
-
     override fun lookup(): LookupServiceAsync = lookup
+
+    override fun areas(): AreaServiceAsync = areas
 
     override fun close() = clientOptions.httpClient.close()
 
@@ -322,12 +322,12 @@ class NextbillionSdkClientAsyncImpl(private val clientOptions: ClientOptions) :
             PostalcodeServiceAsyncImpl.WithRawResponseImpl(clientOptions)
         }
 
-        private val areas: AreaServiceAsync.WithRawResponse by lazy {
-            AreaServiceAsyncImpl.WithRawResponseImpl(clientOptions)
-        }
-
         private val lookup: LookupServiceAsync.WithRawResponse by lazy {
             LookupServiceAsyncImpl.WithRawResponseImpl(clientOptions)
+        }
+
+        private val areas: AreaServiceAsync.WithRawResponse by lazy {
+            AreaServiceAsyncImpl.WithRawResponseImpl(clientOptions)
         }
 
         override fun withOptions(
@@ -384,8 +384,8 @@ class NextbillionSdkClientAsyncImpl(private val clientOptions: ClientOptions) :
 
         override fun postalcode(): PostalcodeServiceAsync.WithRawResponse = postalcode
 
-        override fun areas(): AreaServiceAsync.WithRawResponse = areas
-
         override fun lookup(): LookupServiceAsync.WithRawResponse = lookup
+
+        override fun areas(): AreaServiceAsync.WithRawResponse = areas
     }
 }
