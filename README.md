@@ -235,6 +235,8 @@ The SDK throws custom unchecked exception types:
 
 - [`NextbillionSdkIoException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkIoException.kt): I/O networking errors.
 
+- [`NextbillionSdkRetryableException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkRetryableException.kt): Generic error indicating a failure that could be retried by the client.
+
 - [`NextbillionSdkInvalidDataException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkInvalidDataException.kt): Failure to interpret successfully parsed data. For example, when accessing a property that's supposed to be required, but the API unexpectedly omitted it from the response.
 
 - [`NextbillionSdkException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkException.kt): Base class for all exceptions. Most errors will result in one of the previously mentioned ones, but completely generic errors may be thrown using the base class.
