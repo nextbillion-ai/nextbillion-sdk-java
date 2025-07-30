@@ -27,7 +27,7 @@ private constructor(
     ) : this(status, mutableMapOf())
 
     /**
-     * A string indicating the state of the response. Please note this value will always be Ok.
+     * A string indicating the state of the response. Please note this value will always be `Ok`.
      *
      * The sample event information will be received on the webhook, if they were successfully
      * configured. If no event information is received by the webhook, please reconfigure the
@@ -79,7 +79,8 @@ private constructor(
         }
 
         /**
-         * A string indicating the state of the response. Please note this value will always be Ok.
+         * A string indicating the state of the response. Please note this value will always be
+         * `Ok`.
          *
          * The sample event information will be received on the webhook, if they were successfully
          * configured. If no event information is received by the webhook, please reconfigure the

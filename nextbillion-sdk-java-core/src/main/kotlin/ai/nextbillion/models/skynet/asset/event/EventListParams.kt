@@ -37,32 +37,32 @@ private constructor(
     /** the cluster of the region you want to use */
     fun cluster(): Optional<Cluster> = Optional.ofNullable(cluster)
 
-    /** Time before which the events triggered by the asset need to be retrieved. */
+    /** Time before which the events triggered by the `asset` need to be retrieved. */
     fun endTime(): Optional<Long> = Optional.ofNullable(endTime)
 
     /**
-     * Filter the events by monitor_id. When provided, only the events triggered by the monitor will
-     * be returned in response.
+     * Filter the events by `monitor_id`. When provided, only the events triggered by the `monitor`
+     * will be returned in response.
      *
-     * Please note that if the attributes of the asset identified by id and those of the monitor do
-     * not match, then no events might be returned for this monitor_id.
+     * Please note that if the `attributes` of the asset identified by `id` and those of the
+     * `monitor` do not match, then no events might be returned for this `monitor_id`.
      */
     fun monitorId(): Optional<String> = Optional.ofNullable(monitorId)
 
     /**
-     * Denotes page number. Use this along with the ps parameter to implement pagination for your
+     * Denotes page number. Use this along with the `ps` parameter to implement pagination for your
      * searched results. This parameter does not have a maximum limit but would return an empty
      * response in case a higher value is provided when the result-set itself is smaller.
      */
     fun pn(): Optional<Long> = Optional.ofNullable(pn)
 
     /**
-     * Denotes number of search results per page. Use this along with the pn parameter to implement
-     * pagination for your searched results.
+     * Denotes number of search results per page. Use this along with the `pn` parameter to
+     * implement pagination for your searched results.
      */
     fun ps(): Optional<Long> = Optional.ofNullable(ps)
 
-    /** Time after which the events triggered by the asset need to be retrieved. */
+    /** Time after which the events triggered by the `asset` need to be retrieved. */
     fun startTime(): Optional<Long> = Optional.ofNullable(startTime)
 
     /** Additional headers to send with the request. */
@@ -128,7 +128,7 @@ private constructor(
         /** Alias for calling [Builder.cluster] with `cluster.orElse(null)`. */
         fun cluster(cluster: Optional<Cluster>) = cluster(cluster.getOrNull())
 
-        /** Time before which the events triggered by the asset need to be retrieved. */
+        /** Time before which the events triggered by the `asset` need to be retrieved. */
         fun endTime(endTime: Long?) = apply { this.endTime = endTime }
 
         /**
@@ -142,11 +142,11 @@ private constructor(
         fun endTime(endTime: Optional<Long>) = endTime(endTime.getOrNull())
 
         /**
-         * Filter the events by monitor_id. When provided, only the events triggered by the monitor
-         * will be returned in response.
+         * Filter the events by `monitor_id`. When provided, only the events triggered by the
+         * `monitor` will be returned in response.
          *
-         * Please note that if the attributes of the asset identified by id and those of the monitor
-         * do not match, then no events might be returned for this monitor_id.
+         * Please note that if the `attributes` of the asset identified by `id` and those of the
+         * `monitor` do not match, then no events might be returned for this `monitor_id`.
          */
         fun monitorId(monitorId: String?) = apply { this.monitorId = monitorId }
 
@@ -154,7 +154,7 @@ private constructor(
         fun monitorId(monitorId: Optional<String>) = monitorId(monitorId.getOrNull())
 
         /**
-         * Denotes page number. Use this along with the ps parameter to implement pagination for
+         * Denotes page number. Use this along with the `ps` parameter to implement pagination for
          * your searched results. This parameter does not have a maximum limit but would return an
          * empty response in case a higher value is provided when the result-set itself is smaller.
          */
@@ -171,7 +171,7 @@ private constructor(
         fun pn(pn: Optional<Long>) = pn(pn.getOrNull())
 
         /**
-         * Denotes number of search results per page. Use this along with the pn parameter to
+         * Denotes number of search results per page. Use this along with the `pn` parameter to
          * implement pagination for your searched results.
          */
         fun ps(ps: Long?) = apply { this.ps = ps }
@@ -186,7 +186,7 @@ private constructor(
         /** Alias for calling [Builder.ps] with `ps.orElse(null)`. */
         fun ps(ps: Optional<Long>) = ps(ps.getOrNull())
 
-        /** Time after which the events triggered by the asset need to be retrieved. */
+        /** Time after which the events triggered by the `asset` need to be retrieved. */
         fun startTime(startTime: Long?) = apply { this.startTime = startTime }
 
         /**

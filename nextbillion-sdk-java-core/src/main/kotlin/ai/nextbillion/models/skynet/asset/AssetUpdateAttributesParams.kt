@@ -35,18 +35,19 @@ private constructor(
     fun key(): String = key
 
     /**
-     * attributes can be used to add any useful information or context to your assets like the
+     * `attributes` can be used to add any useful information or context to your assets like the
      * vehicle type, shift timing etc. These attributes can also be used to filter assets in
      * **Search**, **Monitor**, and _Get Asset List_ queries.
      *
-     * Provide the attributes to be added or updated, in key:value format. If an existing key is
-     * provided in the input, then the value will be modified as per the input value. If a new key
-     * is provided in the input, then the key would be added to the existing set. The contents of
-     * any value field are neither altered nor removed unless specifically referred to by its key in
-     * the input request.
+     * Provide the attributes to be added or updated, in `key`:`value` format. If an existing `key`
+     * is provided in the input, then the `value` will be modified as per the input value. If a new
+     * `key` is provided in the input, then the `key` would be added to the existing set. The
+     * contents of any `value` field are neither altered nor removed unless specifically referred to
+     * by its `key` in the input request.
      *
-     * Please note that the maximum number of key:value pairs that can be added to an attributes
-     * object is 100. Also, the overall size of attributes object should not exceed 65kb.
+     * Please note that the maximum number of `key`:`value` pairs that can be added to an
+     * `attributes` object is 100. Also, the overall size of `attributes` object should not exceed
+     * 65kb.
      */
     fun _attributes(): JsonValue = body._attributes()
 
@@ -110,18 +111,19 @@ private constructor(
         fun body(body: Body) = apply { this.body = body.toBuilder() }
 
         /**
-         * attributes can be used to add any useful information or context to your assets like the
+         * `attributes` can be used to add any useful information or context to your assets like the
          * vehicle type, shift timing etc. These attributes can also be used to filter assets in
          * **Search**, **Monitor**, and _Get Asset List_ queries.
          *
-         * Provide the attributes to be added or updated, in key:value format. If an existing key is
-         * provided in the input, then the value will be modified as per the input value. If a new
-         * key is provided in the input, then the key would be added to the existing set. The
-         * contents of any value field are neither altered nor removed unless specifically referred
-         * to by its key in the input request.
+         * Provide the attributes to be added or updated, in `key`:`value` format. If an existing
+         * `key` is provided in the input, then the `value` will be modified as per the input value.
+         * If a new `key` is provided in the input, then the `key` would be added to the existing
+         * set. The contents of any `value` field are neither altered nor removed unless
+         * specifically referred to by its `key` in the input request.
          *
-         * Please note that the maximum number of key:value pairs that can be added to an attributes
-         * object is 100. Also, the overall size of attributes object should not exceed 65kb.
+         * Please note that the maximum number of `key`:`value` pairs that can be added to an
+         * `attributes` object is 100. Also, the overall size of `attributes` object should not
+         * exceed 65kb.
          */
         fun attributes(attributes: JsonValue) = apply { body.attributes(attributes) }
 
@@ -295,18 +297,19 @@ private constructor(
         ) : this(attributes, mutableMapOf())
 
         /**
-         * attributes can be used to add any useful information or context to your assets like the
+         * `attributes` can be used to add any useful information or context to your assets like the
          * vehicle type, shift timing etc. These attributes can also be used to filter assets in
          * **Search**, **Monitor**, and _Get Asset List_ queries.
          *
-         * Provide the attributes to be added or updated, in key:value format. If an existing key is
-         * provided in the input, then the value will be modified as per the input value. If a new
-         * key is provided in the input, then the key would be added to the existing set. The
-         * contents of any value field are neither altered nor removed unless specifically referred
-         * to by its key in the input request.
+         * Provide the attributes to be added or updated, in `key`:`value` format. If an existing
+         * `key` is provided in the input, then the `value` will be modified as per the input value.
+         * If a new `key` is provided in the input, then the `key` would be added to the existing
+         * set. The contents of any `value` field are neither altered nor removed unless
+         * specifically referred to by its `key` in the input request.
          *
-         * Please note that the maximum number of key:value pairs that can be added to an attributes
-         * object is 100. Also, the overall size of attributes object should not exceed 65kb.
+         * Please note that the maximum number of `key`:`value` pairs that can be added to an
+         * `attributes` object is 100. Also, the overall size of `attributes` object should not
+         * exceed 65kb.
          */
         @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 
@@ -348,18 +351,18 @@ private constructor(
             }
 
             /**
-             * attributes can be used to add any useful information or context to your assets like
+             * `attributes` can be used to add any useful information or context to your assets like
              * the vehicle type, shift timing etc. These attributes can also be used to filter
              * assets in **Search**, **Monitor**, and _Get Asset List_ queries.
              *
-             * Provide the attributes to be added or updated, in key:value format. If an existing
-             * key is provided in the input, then the value will be modified as per the input value.
-             * If a new key is provided in the input, then the key would be added to the existing
-             * set. The contents of any value field are neither altered nor removed unless
-             * specifically referred to by its key in the input request.
+             * Provide the attributes to be added or updated, in `key`:`value` format. If an
+             * existing `key` is provided in the input, then the `value` will be modified as per the
+             * input value. If a new `key` is provided in the input, then the `key` would be added
+             * to the existing set. The contents of any `value` field are neither altered nor
+             * removed unless specifically referred to by its `key` in the input request.
              *
-             * Please note that the maximum number of key:value pairs that can be added to an
-             * attributes object is 100. Also, the overall size of attributes object should not
+             * Please note that the maximum number of `key`:`value` pairs that can be added to an
+             * `attributes` object is 100. Also, the overall size of `attributes` object should not
              * exceed 65kb.
              */
             fun attributes(attributes: JsonValue) = apply { this.attributes = attributes }

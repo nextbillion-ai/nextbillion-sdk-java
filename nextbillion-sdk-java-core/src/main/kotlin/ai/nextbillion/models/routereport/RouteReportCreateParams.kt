@@ -33,8 +33,8 @@ private constructor(
     fun key(): String = key
 
     /**
-     * Takes a route geometry as input and returns the route details. Accepts polyline and polyline6
-     * encoded geometry as input.
+     * Takes a route geometry as input and returns the route details. Accepts `polyline` and
+     * `polyline6` encoded geometry as input.
      *
      * **Note**: Route geometries generated from sources other than
      * [NextBillion.ai](http://NextBillion.ai) services, are not supported in this version.
@@ -45,9 +45,9 @@ private constructor(
     fun originalShape(): String = body.originalShape()
 
     /**
-     * Specify the encoding type of route geometry provided in original_shape input. Please note
+     * Specify the encoding type of route geometry provided in `original_shape` input. Please note
      * that an error is returned when this parameter is not specified while an input is added to
-     * original_shape parameter.
+     * `original_shape` parameter.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
      *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -124,8 +124,8 @@ private constructor(
         fun body(body: Body) = apply { this.body = body.toBuilder() }
 
         /**
-         * Takes a route geometry as input and returns the route details. Accepts polyline and
-         * polyline6 encoded geometry as input.
+         * Takes a route geometry as input and returns the route details. Accepts `polyline` and
+         * `polyline6` encoded geometry as input.
          *
          * **Note**: Route geometries generated from sources other than
          * [NextBillion.ai](http://NextBillion.ai) services, are not supported in this version.
@@ -144,9 +144,9 @@ private constructor(
         }
 
         /**
-         * Specify the encoding type of route geometry provided in original_shape input. Please note
-         * that an error is returned when this parameter is not specified while an input is added to
-         * original_shape parameter.
+         * Specify the encoding type of route geometry provided in `original_shape` input. Please
+         * note that an error is returned when this parameter is not specified while an input is
+         * added to `original_shape` parameter.
          */
         fun originalShapeType(originalShapeType: OriginalShapeType) = apply {
             body.originalShapeType(originalShapeType)
@@ -333,8 +333,8 @@ private constructor(
         ) : this(originalShape, originalShapeType, mutableMapOf())
 
         /**
-         * Takes a route geometry as input and returns the route details. Accepts polyline and
-         * polyline6 encoded geometry as input.
+         * Takes a route geometry as input and returns the route details. Accepts `polyline` and
+         * `polyline6` encoded geometry as input.
          *
          * **Note**: Route geometries generated from sources other than
          * [NextBillion.ai](http://NextBillion.ai) services, are not supported in this version.
@@ -345,9 +345,9 @@ private constructor(
         fun originalShape(): String = originalShape.getRequired("original_shape")
 
         /**
-         * Specify the encoding type of route geometry provided in original_shape input. Please note
-         * that an error is returned when this parameter is not specified while an input is added to
-         * original_shape parameter.
+         * Specify the encoding type of route geometry provided in `original_shape` input. Please
+         * note that an error is returned when this parameter is not specified while an input is
+         * added to `original_shape` parameter.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -416,8 +416,8 @@ private constructor(
             }
 
             /**
-             * Takes a route geometry as input and returns the route details. Accepts polyline and
-             * polyline6 encoded geometry as input.
+             * Takes a route geometry as input and returns the route details. Accepts `polyline` and
+             * `polyline6` encoded geometry as input.
              *
              * **Note**: Route geometries generated from sources other than
              * [NextBillion.ai](http://NextBillion.ai) services, are not supported in this version.
@@ -436,9 +436,9 @@ private constructor(
             }
 
             /**
-             * Specify the encoding type of route geometry provided in original_shape input. Please
-             * note that an error is returned when this parameter is not specified while an input is
-             * added to original_shape parameter.
+             * Specify the encoding type of route geometry provided in `original_shape` input.
+             * Please note that an error is returned when this parameter is not specified while an
+             * input is added to `original_shape` parameter.
              */
             fun originalShapeType(originalShapeType: OriginalShapeType) =
                 originalShapeType(JsonField.of(originalShapeType))
@@ -544,9 +544,9 @@ private constructor(
     }
 
     /**
-     * Specify the encoding type of route geometry provided in original_shape input. Please note
+     * Specify the encoding type of route geometry provided in `original_shape` input. Please note
      * that an error is returned when this parameter is not specified while an input is added to
-     * original_shape parameter.
+     * `original_shape` parameter.
      */
     class OriginalShapeType @JsonCreator private constructor(private val value: JsonField<String>) :
         Enum {
@@ -563,9 +563,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val POLYLINE = of("polyline")
+            @JvmField val POLYLINE = of("`polyline`")
 
-            @JvmField val POLYLINE6 = of("polyline6")
+            @JvmField val POLYLINE6 = of("`polyline6`")
 
             @JvmStatic fun of(value: String) = OriginalShapeType(JsonField.of(value))
         }

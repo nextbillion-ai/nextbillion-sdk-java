@@ -324,7 +324,7 @@ private constructor(
 
         /**
          * Returns the total route distance, in meters, for informative display in the driver app.
-         * It is the same as the value provided for distance field in the input request.
+         * It is the same as the value provided for `distance` field in the input request.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -407,7 +407,7 @@ private constructor(
         /**
          * Returns the ID of the vehicle to which the route was dispatched. The vehicle ID returned
          * here is the same as the one used in the route optimization request for the given vehicle.
-         * An empty string is returned if the ro_request_id was not provided in the input.
+         * An empty string is returned if the `ro_request_id` was not provided in the input.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -637,7 +637,7 @@ private constructor(
 
             /**
              * Returns the total route distance, in meters, for informative display in the driver
-             * app. It is the same as the value provided for distance field in the input request.
+             * app. It is the same as the value provided for `distance` field in the input request.
              */
             fun distance(distance: Long) = distance(JsonField.of(distance))
 
@@ -786,7 +786,7 @@ private constructor(
             /**
              * Returns the ID of the vehicle to which the route was dispatched. The vehicle ID
              * returned here is the same as the one used in the route optimization request for the
-             * given vehicle. An empty string is returned if the ro_request_id was not provided in
+             * given vehicle. An empty string is returned if the `ro_request_id` was not provided in
              * the input.
              */
             fun vehicleId(vehicleId: String) = vehicleId(JsonField.of(vehicleId))
@@ -1049,9 +1049,9 @@ private constructor(
 
                 companion object {
 
-                    @JvmField val SCHEDULED = of("scheduled")
+                    @JvmField val SCHEDULED = of("`scheduled`")
 
-                    @JvmField val COMPLETED = of("completed")
+                    @JvmField val COMPLETED = of("`completed`")
 
                     @JvmStatic fun of(value: String) = Status(JsonField.of(value))
                 }
@@ -1525,7 +1525,7 @@ private constructor(
             /**
              * Returns the details of the document that was used for collecting the proof of
              * completion for the step. In case no document template ID was provided for the given
-             * step, then a null value is returned. Each object represents a new field in the
+             * step, then a `null` value is returned. Each object represents a new field in the
              * document.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
@@ -1535,7 +1535,7 @@ private constructor(
                 documentSnapshot.getOptional("document_snapshot")
 
             /**
-             * Returns the duration for layover or break type steps.
+             * Returns the duration for `layover` or `break` type steps.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -1569,9 +1569,9 @@ private constructor(
             fun shortId(): Optional<String> = shortId.getOptional("short_id")
 
             /**
-             * Returns the step type. It can belong to one of the following: start, job , pickup,
-             * delivery, break, layover , and end. For any given step, it would be the same as that
-             * specified in the input request while configuring the step details.
+             * Returns the step type. It can belong to one of the following: `start`, `job` ,
+             * `pickup`, `delivery`, `break`, `layover` , and `end`. For any given step, it would be
+             * the same as that specified in the input request while configuring the step details.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -1816,8 +1816,8 @@ private constructor(
                 /**
                  * Returns the details of the document that was used for collecting the proof of
                  * completion for the step. In case no document template ID was provided for the
-                 * given step, then a null value is returned. Each object represents a new field in
-                 * the document.
+                 * given step, then a `null` value is returned. Each object represents a new field
+                 * in the document.
                  */
                 fun documentSnapshot(documentSnapshot: List<JsonValue>) =
                     documentSnapshot(JsonField.of(documentSnapshot))
@@ -1845,7 +1845,7 @@ private constructor(
                         }
                 }
 
-                /** Returns the duration for layover or break type steps. */
+                /** Returns the duration for `layover` or `break` type steps. */
                 fun duration(duration: Long) = duration(JsonField.of(duration))
 
                 /**
@@ -1915,9 +1915,10 @@ private constructor(
                 fun shortId(shortId: JsonField<String>) = apply { this.shortId = shortId }
 
                 /**
-                 * Returns the step type. It can belong to one of the following: start, job ,
-                 * pickup, delivery, break, layover , and end. For any given step, it would be the
-                 * same as that specified in the input request while configuring the step details.
+                 * Returns the step type. It can belong to one of the following: `start`, `job` ,
+                 * `pickup`, `delivery`, `break`, `layover` , and `end`. For any given step, it
+                 * would be the same as that specified in the input request while configuring the
+                 * step details.
                  */
                 fun type(type: String) = type(JsonField.of(type))
 
@@ -2222,7 +2223,7 @@ private constructor(
 
                 /**
                  * Returns the customer name associated with the step. It can configured in the
-                 * input request using the metadata attribute of the step.
+                 * input request using the `metadata` attribute of the step.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2231,7 +2232,7 @@ private constructor(
 
                 /**
                  * Returns the customer's phone number associated with the step. It can configured
-                 * in the input request using the metadata attribute of the step.
+                 * in the input request using the `metadata` attribute of the step.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -2315,7 +2316,7 @@ private constructor(
 
                     /**
                      * Returns the customer name associated with the step. It can configured in the
-                     * input request using the metadata attribute of the step.
+                     * input request using the `metadata` attribute of the step.
                      */
                     fun customerName(customerName: String) =
                         customerName(JsonField.of(customerName))
@@ -2333,7 +2334,7 @@ private constructor(
 
                     /**
                      * Returns the customer's phone number associated with the step. It can
-                     * configured in the input request using the metadata attribute of the step.
+                     * configured in the input request using the `metadata` attribute of the step.
                      */
                     fun customerPhoneNumber(customerPhoneNumber: String) =
                         customerPhoneNumber(JsonField.of(customerPhoneNumber))

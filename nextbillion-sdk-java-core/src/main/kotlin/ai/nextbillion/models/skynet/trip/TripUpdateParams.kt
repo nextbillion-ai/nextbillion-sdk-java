@@ -54,8 +54,8 @@ private constructor(
     fun assetId(): String = body.assetId()
 
     /**
-     * Use this field to update the attributes of the trip. Please note that when updating the
-     * attributes field, previously added information will be overwritten.
+     * Use this field to update the `attributes` of the trip. Please note that when updating the
+     * `attributes` field, previously added information will be overwritten.
      */
     fun _attributes(): JsonValue = body._attributes()
 
@@ -71,7 +71,7 @@ private constructor(
      * Use this JSON object to update additional details about the trip. This property is used to
      * add any custom information / context about the trip.
      *
-     * Please note that updating the meta_data field will overwrite the previously added
+     * Please note that updating the `meta_data` field will overwrite the previously added
      * information.
      */
     fun _metaData(): JsonValue = body._metaData()
@@ -213,8 +213,8 @@ private constructor(
         fun assetId(assetId: JsonField<String>) = apply { body.assetId(assetId) }
 
         /**
-         * Use this field to update the attributes of the trip. Please note that when updating the
-         * attributes field, previously added information will be overwritten.
+         * Use this field to update the `attributes` of the trip. Please note that when updating the
+         * `attributes` field, previously added information will be overwritten.
          */
         fun attributes(attributes: JsonValue) = apply { body.attributes(attributes) }
 
@@ -234,7 +234,7 @@ private constructor(
          * Use this JSON object to update additional details about the trip. This property is used
          * to add any custom information / context about the trip.
          *
-         * Please note that updating the meta_data field will overwrite the previously added
+         * Please note that updating the `meta_data` field will overwrite the previously added
          * information.
          */
         fun metaData(metaData: JsonValue) = apply { body.metaData(metaData) }
@@ -470,8 +470,8 @@ private constructor(
         fun assetId(): String = assetId.getRequired("asset_id")
 
         /**
-         * Use this field to update the attributes of the trip. Please note that when updating the
-         * attributes field, previously added information will be overwritten.
+         * Use this field to update the `attributes` of the trip. Please note that when updating the
+         * `attributes` field, previously added information will be overwritten.
          */
         @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 
@@ -487,7 +487,7 @@ private constructor(
          * Use this JSON object to update additional details about the trip. This property is used
          * to add any custom information / context about the trip.
          *
-         * Please note that updating the meta_data field will overwrite the previously added
+         * Please note that updating the `meta_data` field will overwrite the previously added
          * information.
          */
         @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
@@ -607,8 +607,8 @@ private constructor(
             fun assetId(assetId: JsonField<String>) = apply { this.assetId = assetId }
 
             /**
-             * Use this field to update the attributes of the trip. Please note that when updating
-             * the attributes field, previously added information will be overwritten.
+             * Use this field to update the `attributes` of the trip. Please note that when updating
+             * the `attributes` field, previously added information will be overwritten.
              */
             fun attributes(attributes: JsonValue) = apply { this.attributes = attributes }
 
@@ -630,7 +630,7 @@ private constructor(
              * Use this JSON object to update additional details about the trip. This property is
              * used to add any custom information / context about the trip.
              *
-             * Please note that updating the meta_data field will overwrite the previously added
+             * Please note that updating the `meta_data` field will overwrite the previously added
              * information.
              */
             fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }
@@ -809,7 +809,7 @@ private constructor(
          * Use this JSON object to update additional details about the stop. This property is used
          * to add any custom information / context about the stop.
          *
-         * Please note that updating the meta_data field will overwrite the previously added
+         * Please note that updating the `meta_data` field will overwrite the previously added
          * information.
          */
         @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
@@ -895,7 +895,7 @@ private constructor(
              * Use this JSON object to update additional details about the stop. This property is
              * used to add any custom information / context about the stop.
              *
-             * Please note that updating the meta_data field will overwrite the previously added
+             * Please note that updating the `meta_data` field will overwrite the previously added
              * information.
              */
             fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }

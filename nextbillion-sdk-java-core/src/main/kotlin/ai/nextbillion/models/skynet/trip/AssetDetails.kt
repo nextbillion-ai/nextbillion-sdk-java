@@ -18,7 +18,7 @@ import java.util.Objects
 import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
-/** An object with details of the asset properties. */
+/** An object with details of the `asset` properties. */
 class AssetDetails
 private constructor(
     private val id: JsonField<String>,
@@ -71,8 +71,8 @@ private constructor(
     )
 
     /**
-     * ID of the asset. This is the same ID that was generated/provided at the time of creating the
-     * asset.
+     * ID of the `asset`. This is the same ID that was generated/provided at the time of creating
+     * the `asset`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -80,15 +80,15 @@ private constructor(
     fun id(): Optional<String> = id.getOptional("id")
 
     /**
-     * A string dictionary object containing attributes of the asset. These attributes were
-     * associated with the asset at the time of creating or updating it.
+     * A string dictionary object containing `attributes` of the `asset`. These `attributes` were
+     * associated with the `asset` at the time of creating or updating it.
      *
-     * attributes can be added to an asset using the _Update Asset Attributes_ method.
+     * `attributes` can be added to an `asset` using the _Update Asset Attributes_ method.
      */
     @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 
     /**
-     * A UNIX epoch timestamp in seconds representing the time at which the asset was created.
+     * A UNIX epoch timestamp in seconds representing the time at which the `asset` was created.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -96,8 +96,8 @@ private constructor(
     fun createdAt(): Optional<Long> = createdAt.getOptional("created_at")
 
     /**
-     * Description of the asset. The value would be the same as that provided for the description
-     * parameter at the time of creating or updating the asset.
+     * Description of the `asset`. The value would be the same as that provided for the
+     * `description` parameter at the time of creating or updating the `asset`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -105,11 +105,11 @@ private constructor(
     fun description(): Optional<String> = description.getOptional("description")
 
     /**
-     * ID of the device that is linked to this asset. Please note that there can be multiple
-     * device_id linked to a single asset. An empty response is returned if no devices are linked to
-     * the asset.
+     * ID of the `device` that is linked to this asset. Please note that there can be multiple
+     * `device_id` linked to a single `asset`. An empty response is returned if no devices are
+     * linked to the `asset`.
      *
-     * User can link a device to an asset using the _Bind Asset to Device_ method.
+     * User can link a device to an `asset` using the _Bind Asset to Device_ method.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -128,8 +128,8 @@ private constructor(
     @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
     /**
-     * Name of the asset. The value would be the same as that provided for the name parameter at the
-     * time of creating or updating the asset.
+     * Name of the `asset`. The value would be the same as that provided for the `name` parameter at
+     * the time of creating or updating the `asset`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -146,13 +146,13 @@ private constructor(
     fun state(): Optional<String> = state.getOptional("state")
 
     /**
-     * **This parameter will be deprecated soon! Please move existing tags to attributes
+     * **This parameter will be deprecated soon! Please move existing `tags` to `attributes`
      * parameter.**
      *
-     * Tags of the asset. These were associated with the asset when it was created or updated. tags
-     * can be used for filtering assets in operations like _Get Asset List_ and asset **Search**
-     * methods. They can also be used for monitoring of assets using **Monitor** methods after
-     * linking tags and asset.
+     * Tags of the asset. These were associated with the `asset` when it was created or updated.
+     * `tags` can be used for filtering assets in operations like _Get Asset List_ and asset
+     * **Search** methods. They can also be used for monitoring of assets using **Monitor** methods
+     * after linking `tags` and `asset`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -160,7 +160,7 @@ private constructor(
     fun tags(): Optional<List<String>> = tags.getOptional("tags")
 
     /**
-     * A UNIX epoch timestamp in seconds representing the last time when the asset was tracked.
+     * A UNIX epoch timestamp in seconds representing the last time when the `asset` was tracked.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -168,7 +168,8 @@ private constructor(
     fun trackedAt(): Optional<Long> = trackedAt.getOptional("tracked_at")
 
     /**
-     * A UNIX epoch timestamp in seconds representing the time at which the asset was last updated.
+     * A UNIX epoch timestamp in seconds representing the time at which the `asset` was last
+     * updated.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -300,8 +301,8 @@ private constructor(
         }
 
         /**
-         * ID of the asset. This is the same ID that was generated/provided at the time of creating
-         * the asset.
+         * ID of the `asset`. This is the same ID that was generated/provided at the time of
+         * creating the `asset`.
          */
         fun id(id: String) = id(JsonField.of(id))
 
@@ -314,15 +315,15 @@ private constructor(
         fun id(id: JsonField<String>) = apply { this.id = id }
 
         /**
-         * A string dictionary object containing attributes of the asset. These attributes were
-         * associated with the asset at the time of creating or updating it.
+         * A string dictionary object containing `attributes` of the `asset`. These `attributes`
+         * were associated with the `asset` at the time of creating or updating it.
          *
-         * attributes can be added to an asset using the _Update Asset Attributes_ method.
+         * `attributes` can be added to an `asset` using the _Update Asset Attributes_ method.
          */
         fun attributes(attributes: JsonValue) = apply { this.attributes = attributes }
 
         /**
-         * A UNIX epoch timestamp in seconds representing the time at which the asset was created.
+         * A UNIX epoch timestamp in seconds representing the time at which the `asset` was created.
          */
         fun createdAt(createdAt: Long) = createdAt(JsonField.of(createdAt))
 
@@ -335,8 +336,8 @@ private constructor(
         fun createdAt(createdAt: JsonField<Long>) = apply { this.createdAt = createdAt }
 
         /**
-         * Description of the asset. The value would be the same as that provided for the
-         * description parameter at the time of creating or updating the asset.
+         * Description of the `asset`. The value would be the same as that provided for the
+         * `description` parameter at the time of creating or updating the `asset`.
          */
         fun description(description: String) = description(JsonField.of(description))
 
@@ -350,11 +351,11 @@ private constructor(
         fun description(description: JsonField<String>) = apply { this.description = description }
 
         /**
-         * ID of the device that is linked to this asset. Please note that there can be multiple
-         * device_id linked to a single asset. An empty response is returned if no devices are
-         * linked to the asset.
+         * ID of the `device` that is linked to this asset. Please note that there can be multiple
+         * `device_id` linked to a single `asset`. An empty response is returned if no devices are
+         * linked to the `asset`.
          *
-         * User can link a device to an asset using the _Bind Asset to Device_ method.
+         * User can link a device to an `asset` using the _Bind Asset to Device_ method.
          */
         fun deviceId(deviceId: String) = deviceId(JsonField.of(deviceId))
 
@@ -385,8 +386,8 @@ private constructor(
         fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }
 
         /**
-         * Name of the asset. The value would be the same as that provided for the name parameter at
-         * the time of creating or updating the asset.
+         * Name of the `asset`. The value would be the same as that provided for the `name`
+         * parameter at the time of creating or updating the `asset`.
          */
         fun name(name: String) = name(JsonField.of(name))
 
@@ -413,13 +414,13 @@ private constructor(
         fun state(state: JsonField<String>) = apply { this.state = state }
 
         /**
-         * **This parameter will be deprecated soon! Please move existing tags to attributes
+         * **This parameter will be deprecated soon! Please move existing `tags` to `attributes`
          * parameter.**
          *
-         * Tags of the asset. These were associated with the asset when it was created or updated.
-         * tags can be used for filtering assets in operations like _Get Asset List_ and asset
+         * Tags of the asset. These were associated with the `asset` when it was created or updated.
+         * `tags` can be used for filtering assets in operations like _Get Asset List_ and asset
          * **Search** methods. They can also be used for monitoring of assets using **Monitor**
-         * methods after linking tags and asset.
+         * methods after linking `tags` and `asset`.
          */
         fun tags(tags: List<String>) = tags(JsonField.of(tags))
 
@@ -444,7 +445,8 @@ private constructor(
         }
 
         /**
-         * A UNIX epoch timestamp in seconds representing the last time when the asset was tracked.
+         * A UNIX epoch timestamp in seconds representing the last time when the `asset` was
+         * tracked.
          */
         fun trackedAt(trackedAt: Long) = trackedAt(JsonField.of(trackedAt))
 
@@ -457,7 +459,7 @@ private constructor(
         fun trackedAt(trackedAt: JsonField<Long>) = apply { this.trackedAt = trackedAt }
 
         /**
-         * A UNIX epoch timestamp in seconds representing the time at which the asset was last
+         * A UNIX epoch timestamp in seconds representing the time at which the `asset` was last
          * updated.
          */
         fun updatedAt(updatedAt: Long) = updatedAt(JsonField.of(updatedAt))
@@ -597,7 +599,7 @@ private constructor(
         fun accuracy(): Optional<Double> = accuracy.getOptional("accuracy")
 
         /**
-         * If available in the GPS information, this property returns the altitude of the asset at
+         * If available in the GPS information, this property returns the altitude of the `asset` at
          * the last tracked location. It is represented as height, in meters, above the WGS84
          * reference ellipsoid.
          *
@@ -607,7 +609,7 @@ private constructor(
         fun altitude(): Optional<Double> = altitude.getOptional("altitude")
 
         /**
-         * If available in the GPS information, this property returns the heading of the asset
+         * If available in the GPS information, this property returns the heading of the `asset`
          * calculated from true north in clockwise direction at the last tracked location. Please
          * note that the bearing is not affected by the device orientation.
          *
@@ -627,7 +629,7 @@ private constructor(
         fun location(): Optional<Location> = location.getOptional("location")
 
         /**
-         * If available in the GPS information, this property returns the speed of the asset, in
+         * If available in the GPS information, this property returns the speed of the `asset`, in
          * meters per second, at the last tracked location.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -743,9 +745,9 @@ private constructor(
             fun accuracy(accuracy: JsonField<Double>) = apply { this.accuracy = accuracy }
 
             /**
-             * If available in the GPS information, this property returns the altitude of the asset
-             * at the last tracked location. It is represented as height, in meters, above the WGS84
-             * reference ellipsoid.
+             * If available in the GPS information, this property returns the altitude of the
+             * `asset` at the last tracked location. It is represented as height, in meters, above
+             * the WGS84 reference ellipsoid.
              */
             fun altitude(altitude: Double) = altitude(JsonField.of(altitude))
 
@@ -759,7 +761,7 @@ private constructor(
             fun altitude(altitude: JsonField<Double>) = apply { this.altitude = altitude }
 
             /**
-             * If available in the GPS information, this property returns the heading of the asset
+             * If available in the GPS information, this property returns the heading of the `asset`
              * calculated from true north in clockwise direction at the last tracked location.
              * Please note that the bearing is not affected by the device orientation.
              *
@@ -789,8 +791,8 @@ private constructor(
             fun location(location: JsonField<Location>) = apply { this.location = location }
 
             /**
-             * If available in the GPS information, this property returns the speed of the asset, in
-             * meters per second, at the last tracked location.
+             * If available in the GPS information, this property returns the speed of the `asset`,
+             * in meters per second, at the last tracked location.
              */
             fun speed(speed: Double) = speed(JsonField.of(speed))
 
@@ -908,7 +910,7 @@ private constructor(
             ) : this(lat, lon, mutableMapOf())
 
             /**
-             * Latitude of the tracked location of the asset.
+             * Latitude of the tracked location of the `asset`.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -916,7 +918,7 @@ private constructor(
             fun lat(): Optional<Double> = lat.getOptional("lat")
 
             /**
-             * Longitude of the tracked location of the asset.
+             * Longitude of the tracked location of the `asset`.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -969,7 +971,7 @@ private constructor(
                     additionalProperties = location.additionalProperties.toMutableMap()
                 }
 
-                /** Latitude of the tracked location of the asset. */
+                /** Latitude of the tracked location of the `asset`. */
                 fun lat(lat: Double) = lat(JsonField.of(lat))
 
                 /**
@@ -981,7 +983,7 @@ private constructor(
                  */
                 fun lat(lat: JsonField<Double>) = apply { this.lat = lat }
 
-                /** Longitude of the tracked location of the asset. */
+                /** Longitude of the tracked location of the `asset`. */
                 fun lon(lon: Double) = lon(JsonField.of(lon))
 
                 /**

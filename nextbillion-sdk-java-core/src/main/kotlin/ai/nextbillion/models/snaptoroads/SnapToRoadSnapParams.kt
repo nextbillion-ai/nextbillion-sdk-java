@@ -477,9 +477,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val UNRESTRICTED = of("unrestricted")
+            @JvmField val UNRESTRICTED = of("`unrestricted`")
 
-            @JvmField val CURB = of("curb")
+            @JvmField val CURB = of("`curb`")
 
             @JvmStatic fun of(value: String) = Approaches(JsonField.of(value))
         }
@@ -758,11 +758,11 @@ private constructor(
 
         companion object {
 
-            @JvmField val POLYLINE = of("polyline")
+            @JvmField val POLYLINE = of("`polyline`")
 
-            @JvmField val POLYLINE6 = of("polyline6")
+            @JvmField val POLYLINE6 = of("`polyline6`")
 
-            @JvmField val GEOJSON = of("geojson")
+            @JvmField val GEOJSON = of("`geojson`")
 
             @JvmStatic fun of(value: String) = Geometry(JsonField.of(value))
         }
@@ -901,9 +901,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val CAR = of("car")
+            @JvmField val CAR = of("`car`")
 
-            @JvmField val TRUCK = of("truck")
+            @JvmField val TRUCK = of("`truck`")
 
             @JvmStatic fun of(value: String) = Mode(JsonField.of(value))
         }
@@ -1036,7 +1036,7 @@ private constructor(
 
         companion object {
 
-            @JvmField val FLEXIBLE = of("flexible")
+            @JvmField val FLEXIBLE = of("`flexible`")
 
             @JvmStatic fun of(value: String) = Option(JsonField.of(value))
         }
@@ -1161,7 +1161,7 @@ private constructor(
 
         companion object {
 
-            @JvmField val MAX_SPEED = of("max_speed")
+            @JvmField val MAX_SPEED = of("`max_speed`")
 
             @JvmStatic fun of(value: String) = RoadInfo(JsonField.of(value))
         }

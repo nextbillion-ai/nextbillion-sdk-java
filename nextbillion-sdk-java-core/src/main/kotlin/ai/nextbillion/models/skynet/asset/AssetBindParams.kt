@@ -36,10 +36,10 @@ private constructor(
     fun key(): String = key
 
     /**
-     * Device ID to be linked to the asset identified by id.
+     * Device ID to be linked to the `asset` identified by `id`.
      *
-     * Please note that the device needs to be linked to an asset before using it in the _Upload
-     * locations of an Asset_ method for sending GPS information about the asset.
+     * Please note that the device needs to be linked to an `asset` before using it in the _Upload
+     * locations of an Asset_ method for sending GPS information about the `asset`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
      *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -113,10 +113,10 @@ private constructor(
         fun body(body: Body) = apply { this.body = body.toBuilder() }
 
         /**
-         * Device ID to be linked to the asset identified by id.
+         * Device ID to be linked to the `asset` identified by `id`.
          *
-         * Please note that the device needs to be linked to an asset before using it in the _Upload
-         * locations of an Asset_ method for sending GPS information about the asset.
+         * Please note that the device needs to be linked to an `asset` before using it in the
+         * _Upload locations of an Asset_ method for sending GPS information about the `asset`.
          */
         fun deviceId(deviceId: String) = apply { body.deviceId(deviceId) }
 
@@ -300,10 +300,10 @@ private constructor(
         ) : this(deviceId, mutableMapOf())
 
         /**
-         * Device ID to be linked to the asset identified by id.
+         * Device ID to be linked to the `asset` identified by `id`.
          *
-         * Please note that the device needs to be linked to an asset before using it in the _Upload
-         * locations of an Asset_ method for sending GPS information about the asset.
+         * Please note that the device needs to be linked to an `asset` before using it in the
+         * _Upload locations of an Asset_ method for sending GPS information about the `asset`.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -355,10 +355,10 @@ private constructor(
             }
 
             /**
-             * Device ID to be linked to the asset identified by id.
+             * Device ID to be linked to the `asset` identified by `id`.
              *
-             * Please note that the device needs to be linked to an asset before using it in the
-             * _Upload locations of an Asset_ method for sending GPS information about the asset.
+             * Please note that the device needs to be linked to an `asset` before using it in the
+             * _Upload locations of an Asset_ method for sending GPS information about the `asset`.
              */
             fun deviceId(deviceId: String) = deviceId(JsonField.of(deviceId))
 

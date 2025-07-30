@@ -36,7 +36,7 @@ private constructor(
     ) : this(data, message, status, mutableMapOf())
 
     /**
-     * An object containing the information about the event history for the requested asset.
+     * An object containing the information about the event history for the requested `asset`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -53,8 +53,8 @@ private constructor(
     fun message(): Optional<String> = message.getOptional("message")
 
     /**
-     * A string indicating the state of the response. On successful responses, the value will be Ok.
-     * Indicative error messages are returned for different errors. See the
+     * A string indicating the state of the response. On successful responses, the value will be
+     * `Ok`. Indicative error messages are returned for different errors. See the
      * [API Error Codes](#api-error-codes) section below for more information.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -117,7 +117,9 @@ private constructor(
             additionalProperties = eventListResponse.additionalProperties.toMutableMap()
         }
 
-        /** An object containing the information about the event history for the requested asset. */
+        /**
+         * An object containing the information about the event history for the requested `asset`.
+         */
         fun data(data: Data) = data(JsonField.of(data))
 
         /**
@@ -144,7 +146,7 @@ private constructor(
 
         /**
          * A string indicating the state of the response. On successful responses, the value will be
-         * Ok. Indicative error messages are returned for different errors. See the
+         * `Ok`. Indicative error messages are returned for different errors. See the
          * [API Error Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))
@@ -217,7 +219,7 @@ private constructor(
             (if (message.asKnown().isPresent) 1 else 0) +
             (if (status.asKnown().isPresent) 1 else 0)
 
-    /** An object containing the information about the event history for the requested asset. */
+    /** An object containing the information about the event history for the requested `asset`. */
     class Data
     private constructor(
         private val list: JsonField<List<List>>,
@@ -458,8 +460,8 @@ private constructor(
             )
 
             /**
-             * ID of the asset. This is the same ID that was generated/provided at the time of
-             * creating the asset.
+             * ID of the `asset`. This is the same ID that was generated/provided at the time of
+             * creating the `asset`.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -467,11 +469,11 @@ private constructor(
             fun assetId(): Optional<String> = assetId.getOptional("asset_id")
 
             /**
-             * Nature of the event triggered by the asset. It can have following values:
-             * - enter: When the asset enters a specific geofence
-             * - exit: When the asset moves out of a specific geofence.
-             * - speeding: When the asset exceeds the certain speed limit.
-             * - idle: When the asset exhibits idle or no activity.
+             * Nature of the event triggered by the `asset`. It can have following values:
+             * - `enter`: When the `asset` enters a specific geofence
+             * - `exit`: When the `asset` moves out of a specific geofence.
+             * - `speeding`: When the `asset` exceeds the certain speed limit.
+             * - `idle`: When the `asset` exhibits idle or no activity.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -480,18 +482,19 @@ private constructor(
 
             /**
              * Additional information about the event. Currently, this object returns the speed
-             * limit that was used to generate the over-speeding events, for a speeding type event.
+             * limit that was used to generate the over-speeding events, for a `speeding` type
+             * event.
              *
-             * It is worth highlighting that, when the use_admin_speed_limit is true, the speed
+             * It is worth highlighting that, when the `use_admin_speed_limit` is `true`, the speed
              * limit value will be obtained from the underlying road information. Whereas, if the
-             * use_admin_speed_limit is false, the speed limit will be equal to the
-             * customer_speed_limit value provided by the user when creating or updating the
-             * monitor.
+             * `use_admin_speed_limit` is `false`, the speed limit will be equal to the
+             * `customer_speed_limit` value provided by the user when creating or updating the
+             * `monitor`.
              */
             @JsonProperty("extra") @ExcludeMissing fun _extra(): JsonValue = extra
 
             /**
-             * ID of the geofence associated with the event.
+             * ID of the `geofence` associated with the event.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -499,7 +502,7 @@ private constructor(
             fun geofenceId(): Optional<String> = geofenceId.getOptional("geofence_id")
 
             /**
-             * ID of the monitor associated with the event.
+             * ID of the `monitor` associated with the event.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -507,7 +510,7 @@ private constructor(
             fun monitorId(): Optional<String> = monitorId.getOptional("monitor_id")
 
             /**
-             * Tags associated with the monitor.
+             * Tags associated with the `monitor`.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -515,8 +518,8 @@ private constructor(
             fun monitorTags(): Optional<List<String>> = monitorTags.getOptional("monitor_tags")
 
             /**
-             * An object with details of the asset at the last tracked location before the event was
-             * triggered.
+             * An object with details of the `asset` at the last tracked location before the event
+             * was triggered.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -533,7 +536,7 @@ private constructor(
             fun timestamp(): Optional<Long> = timestamp.getOptional("timestamp")
 
             /**
-             * An object with details of the asset at the location where the event was triggered.
+             * An object with details of the `asset` at the location where the event was triggered.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -685,8 +688,8 @@ private constructor(
                 }
 
                 /**
-                 * ID of the asset. This is the same ID that was generated/provided at the time of
-                 * creating the asset.
+                 * ID of the `asset`. This is the same ID that was generated/provided at the time of
+                 * creating the `asset`.
                  */
                 fun assetId(assetId: String) = assetId(JsonField.of(assetId))
 
@@ -700,11 +703,11 @@ private constructor(
                 fun assetId(assetId: JsonField<String>) = apply { this.assetId = assetId }
 
                 /**
-                 * Nature of the event triggered by the asset. It can have following values:
-                 * - enter: When the asset enters a specific geofence
-                 * - exit: When the asset moves out of a specific geofence.
-                 * - speeding: When the asset exceeds the certain speed limit.
-                 * - idle: When the asset exhibits idle or no activity.
+                 * Nature of the event triggered by the `asset`. It can have following values:
+                 * - `enter`: When the `asset` enters a specific geofence
+                 * - `exit`: When the `asset` moves out of a specific geofence.
+                 * - `speeding`: When the `asset` exceeds the certain speed limit.
+                 * - `idle`: When the `asset` exhibits idle or no activity.
                  */
                 fun eventType(eventType: EventType) = eventType(JsonField.of(eventType))
 
@@ -721,18 +724,18 @@ private constructor(
 
                 /**
                  * Additional information about the event. Currently, this object returns the speed
-                 * limit that was used to generate the over-speeding events, for a speeding type
+                 * limit that was used to generate the over-speeding events, for a `speeding` type
                  * event.
                  *
-                 * It is worth highlighting that, when the use_admin_speed_limit is true, the speed
-                 * limit value will be obtained from the underlying road information. Whereas, if
-                 * the use_admin_speed_limit is false, the speed limit will be equal to the
-                 * customer_speed_limit value provided by the user when creating or updating the
-                 * monitor.
+                 * It is worth highlighting that, when the `use_admin_speed_limit` is `true`, the
+                 * speed limit value will be obtained from the underlying road information. Whereas,
+                 * if the `use_admin_speed_limit` is `false`, the speed limit will be equal to the
+                 * `customer_speed_limit` value provided by the user when creating or updating the
+                 * `monitor`.
                  */
                 fun extra(extra: JsonValue) = apply { this.extra = extra }
 
-                /** ID of the geofence associated with the event. */
+                /** ID of the `geofence` associated with the event. */
                 fun geofenceId(geofenceId: String) = geofenceId(JsonField.of(geofenceId))
 
                 /**
@@ -746,7 +749,7 @@ private constructor(
                     this.geofenceId = geofenceId
                 }
 
-                /** ID of the monitor associated with the event. */
+                /** ID of the `monitor` associated with the event. */
                 fun monitorId(monitorId: String) = monitorId(JsonField.of(monitorId))
 
                 /**
@@ -758,7 +761,7 @@ private constructor(
                  */
                 fun monitorId(monitorId: JsonField<String>) = apply { this.monitorId = monitorId }
 
-                /** Tags associated with the monitor. */
+                /** Tags associated with the `monitor`. */
                 fun monitorTags(monitorTags: List<String>) = monitorTags(JsonField.of(monitorTags))
 
                 /**
@@ -785,8 +788,8 @@ private constructor(
                 }
 
                 /**
-                 * An object with details of the asset at the last tracked location before the event
-                 * was triggered.
+                 * An object with details of the `asset` at the last tracked location before the
+                 * event was triggered.
                  */
                 fun prevLocation(prevLocation: PrevLocation) =
                     prevLocation(JsonField.of(prevLocation))
@@ -818,7 +821,7 @@ private constructor(
                 fun timestamp(timestamp: JsonField<Long>) = apply { this.timestamp = timestamp }
 
                 /**
-                 * An object with details of the asset at the location where the event was
+                 * An object with details of the `asset` at the location where the event was
                  * triggered.
                  */
                 fun triggeredLocation(triggeredLocation: TriggeredLocation) =
@@ -942,11 +945,11 @@ private constructor(
                     (if (triggeredTimestamp.asKnown().isPresent) 1 else 0)
 
             /**
-             * Nature of the event triggered by the asset. It can have following values:
-             * - enter: When the asset enters a specific geofence
-             * - exit: When the asset moves out of a specific geofence.
-             * - speeding: When the asset exceeds the certain speed limit.
-             * - idle: When the asset exhibits idle or no activity.
+             * Nature of the event triggered by the `asset`. It can have following values:
+             * - `enter`: When the `asset` enters a specific geofence
+             * - `exit`: When the `asset` moves out of a specific geofence.
+             * - `speeding`: When the `asset` exceeds the certain speed limit.
+             * - `idle`: When the `asset` exhibits idle or no activity.
              */
             class EventType @JsonCreator private constructor(private val value: JsonField<String>) :
                 Enum {
@@ -963,13 +966,13 @@ private constructor(
 
                 companion object {
 
-                    @JvmField val ENTER = of("enter")
+                    @JvmField val ENTER = of("`enter`")
 
-                    @JvmField val EXIT = of("exit")
+                    @JvmField val EXIT = of("`exit`")
 
-                    @JvmField val SPEEDING = of("speeding")
+                    @JvmField val SPEEDING = of("`speeding`")
 
-                    @JvmField val IDLE = of("idle")
+                    @JvmField val IDLE = of("`idle`")
 
                     @JvmStatic fun of(value: String) = EventType(JsonField.of(value))
                 }
@@ -1093,8 +1096,8 @@ private constructor(
             }
 
             /**
-             * An object with details of the asset at the last tracked location before the event was
-             * triggered.
+             * An object with details of the `asset` at the last tracked location before the event
+             * was triggered.
              */
             class PrevLocation
             private constructor(
@@ -1126,8 +1129,8 @@ private constructor(
                 ) : this(bearing, location, metaData, speed, timestamp, mutableMapOf())
 
                 /**
-                 * If available, this property returns the heading of the asset from true north in
-                 * clockwise direction, at the prev_location tracked for the asset.
+                 * If available, this property returns the heading of the `asset` from true north in
+                 * clockwise direction, at the `prev_location` tracked for the `asset`.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1135,7 +1138,7 @@ private constructor(
                 fun bearing(): Optional<Double> = bearing.getOptional("bearing")
 
                 /**
-                 * prev_location information of the asset.
+                 * `prev_location` information of the `asset`.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1146,8 +1149,8 @@ private constructor(
                 @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
                 /**
-                 * If available, this property returns the speed of the asset, in meters per second,
-                 * at the prev_location of the asset.
+                 * If available, this property returns the speed of the `asset`, in meters per
+                 * second, at the `prev_location` of the `asset`.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1155,8 +1158,8 @@ private constructor(
                 fun speed(): Optional<Double> = speed.getOptional("speed")
 
                 /**
-                 * A UNIX epoch timestamp in milliseconds representing the time at which the asset
-                 * was at the prev_location.
+                 * A UNIX epoch timestamp in milliseconds representing the time at which the `asset`
+                 * was at the `prev_location`.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1238,8 +1241,8 @@ private constructor(
                     }
 
                     /**
-                     * If available, this property returns the heading of the asset from true north
-                     * in clockwise direction, at the prev_location tracked for the asset.
+                     * If available, this property returns the heading of the `asset` from true
+                     * north in clockwise direction, at the `prev_location` tracked for the `asset`.
                      */
                     fun bearing(bearing: Double) = bearing(JsonField.of(bearing))
 
@@ -1252,7 +1255,7 @@ private constructor(
                      */
                     fun bearing(bearing: JsonField<Double>) = apply { this.bearing = bearing }
 
-                    /** prev_location information of the asset. */
+                    /** `prev_location` information of the `asset`. */
                     fun location(location: Location) = location(JsonField.of(location))
 
                     /**
@@ -1268,8 +1271,8 @@ private constructor(
                     fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }
 
                     /**
-                     * If available, this property returns the speed of the asset, in meters per
-                     * second, at the prev_location of the asset.
+                     * If available, this property returns the speed of the `asset`, in meters per
+                     * second, at the `prev_location` of the `asset`.
                      */
                     fun speed(speed: Double) = speed(JsonField.of(speed))
 
@@ -1284,7 +1287,7 @@ private constructor(
 
                     /**
                      * A UNIX epoch timestamp in milliseconds representing the time at which the
-                     * asset was at the prev_location.
+                     * `asset` was at the `prev_location`.
                      */
                     fun timestamp(timestamp: Long) = timestamp(JsonField.of(timestamp))
 
@@ -1370,7 +1373,7 @@ private constructor(
                         (if (speed.asKnown().isPresent) 1 else 0) +
                         (if (timestamp.asKnown().isPresent) 1 else 0)
 
-                /** prev_location information of the asset. */
+                /** `prev_location` information of the `asset`. */
                 class Location
                 private constructor(
                     private val lat: JsonField<Double>,
@@ -1389,7 +1392,7 @@ private constructor(
                     ) : this(lat, lon, mutableMapOf())
 
                     /**
-                     * Latitude of the prev_location tracked for the asset.
+                     * Latitude of the `prev_location` tracked for the `asset`.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -1397,7 +1400,7 @@ private constructor(
                     fun lat(): Optional<Double> = lat.getOptional("lat")
 
                     /**
-                     * Longitude of the prev_location tracked for the asset.
+                     * Longitude of the `prev_location` tracked for the `asset`.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -1453,7 +1456,7 @@ private constructor(
                             additionalProperties = location.additionalProperties.toMutableMap()
                         }
 
-                        /** Latitude of the prev_location tracked for the asset. */
+                        /** Latitude of the `prev_location` tracked for the `asset`. */
                         fun lat(lat: Double) = lat(JsonField.of(lat))
 
                         /**
@@ -1465,7 +1468,7 @@ private constructor(
                          */
                         fun lat(lat: JsonField<Double>) = apply { this.lat = lat }
 
-                        /** Longitude of the prev_location tracked for the asset. */
+                        /** Longitude of the `prev_location` tracked for the `asset`. */
                         fun lon(lon: Double) = lon(JsonField.of(lon))
 
                         /**
@@ -1576,7 +1579,7 @@ private constructor(
             }
 
             /**
-             * An object with details of the asset at the location where the event was triggered.
+             * An object with details of the `asset` at the location where the event was triggered.
              */
             class TriggeredLocation
             private constructor(
@@ -1608,7 +1611,7 @@ private constructor(
                 ) : this(bearing, location, metaData, speed, timestamp, mutableMapOf())
 
                 /**
-                 * If available, this property returns the heading of the asset from true north in
+                 * If available, this property returns the heading of the `asset` from true north in
                  * clockwise direction, when the event was triggered.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
@@ -1628,8 +1631,8 @@ private constructor(
                 @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
                 /**
-                 * If available, this property returns the speed of the asset, in meters per second,
-                 * when the event was triggered.
+                 * If available, this property returns the speed of the `asset`, in meters per
+                 * second, when the event was triggered.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1637,8 +1640,8 @@ private constructor(
                 fun speed(): Optional<Double> = speed.getOptional("speed")
 
                 /**
-                 * A UNIX epoch timestamp in milliseconds representing the time at which the asset
-                 * was at the triggered_location.
+                 * A UNIX epoch timestamp in milliseconds representing the time at which the `asset`
+                 * was at the `triggered_location`.
                  *
                  * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected
                  *   type (e.g. if the server responded with an unexpected value).
@@ -1723,8 +1726,8 @@ private constructor(
                     }
 
                     /**
-                     * If available, this property returns the heading of the asset from true north
-                     * in clockwise direction, when the event was triggered.
+                     * If available, this property returns the heading of the `asset` from true
+                     * north in clockwise direction, when the event was triggered.
                      */
                     fun bearing(bearing: Double) = bearing(JsonField.of(bearing))
 
@@ -1756,7 +1759,7 @@ private constructor(
                     fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }
 
                     /**
-                     * If available, this property returns the speed of the asset, in meters per
+                     * If available, this property returns the speed of the `asset`, in meters per
                      * second, when the event was triggered.
                      */
                     fun speed(speed: Double) = speed(JsonField.of(speed))
@@ -1772,7 +1775,7 @@ private constructor(
 
                     /**
                      * A UNIX epoch timestamp in milliseconds representing the time at which the
-                     * asset was at the triggered_location.
+                     * `asset` was at the `triggered_location`.
                      */
                     fun timestamp(timestamp: Long) = timestamp(JsonField.of(timestamp))
 
@@ -1879,7 +1882,7 @@ private constructor(
                     ) : this(lat, lon, mutableMapOf())
 
                     /**
-                     * Latitude of the triggered_location of the event.
+                     * Latitude of the `triggered_location` of the event.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -1887,7 +1890,7 @@ private constructor(
                     fun lat(): Optional<Double> = lat.getOptional("lat")
 
                     /**
-                     * Longitude of the triggered_location of the event.
+                     * Longitude of the `triggered_location` of the event.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
                      *   unexpected type (e.g. if the server responded with an unexpected value).
@@ -1943,7 +1946,7 @@ private constructor(
                             additionalProperties = location.additionalProperties.toMutableMap()
                         }
 
-                        /** Latitude of the triggered_location of the event. */
+                        /** Latitude of the `triggered_location` of the event. */
                         fun lat(lat: Double) = lat(JsonField.of(lat))
 
                         /**
@@ -1955,7 +1958,7 @@ private constructor(
                          */
                         fun lat(lat: JsonField<Double>) = apply { this.lat = lat }
 
-                        /** Longitude of the triggered_location of the event. */
+                        /** Longitude of the `triggered_location` of the event. */
                         fun lon(lon: Double) = lon(JsonField.of(lon))
 
                         /**
