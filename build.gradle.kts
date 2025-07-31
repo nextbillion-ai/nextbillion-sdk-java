@@ -19,7 +19,7 @@ subprojects {
 // Avoid race conditions between `dokkaJavadocCollector` and `dokkaJavadocJar` tasks
 tasks.named("dokkaJavadocCollector").configure {
     subprojects.flatMap { it.tasks }
-        .filter { it.project.name != "nextbillion-sdk-java" && it.name == "dokkaJavadocJar" }
+        .filter { it.project.name != "sdk" && it.name == "dokkaJavadocJar" }
         .forEach { mustRunAfter(it) }
 }
 

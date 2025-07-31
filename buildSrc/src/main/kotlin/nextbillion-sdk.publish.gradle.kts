@@ -22,6 +22,7 @@ configure<PublishingExtension> {
                 developers {
                     developer {
                         name.set("Nextbillion SDK")
+                        email.set("yun@nextbillion.ai")
                     }
                 }
 
