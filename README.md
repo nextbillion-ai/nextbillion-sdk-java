@@ -2,8 +2,8 @@
 
 <!-- x-release-please-start-version -->
 
-[![Maven Central](https://img.shields.io/maven-central/v/ai.nextbillion/nextbillion-sdk-java)](https://central.sonatype.com/artifact/ai.nextbillion/nextbillion-sdk-java/0.1.0-alpha.5)
-[![javadoc](https://javadoc.io/badge2/ai.nextbillion/nextbillion-sdk-java/0.1.0-alpha.5/javadoc.svg)](https://javadoc.io/doc/ai.nextbillion/nextbillion-sdk-java/0.1.0-alpha.5)
+[![Maven Central](https://img.shields.io/maven-central/v/ai.nextbillion/sdk)](https://central.sonatype.com/artifact/ai.nextbillion/sdk/0.1.0-alpha.6)
+[![javadoc](https://javadoc.io/badge2/ai.nextbillion/sdk/0.1.0-alpha.6/javadoc.svg)](https://javadoc.io/doc/ai.nextbillion/sdk/0.1.0-alpha.6)
 
 <!-- x-release-please-end -->
 
@@ -13,7 +13,7 @@ It is generated with [Stainless](https://www.stainless.com/).
 
 <!-- x-release-please-start-version -->
 
-The REST API documentation can be found on [docs.nextbillion.ai](https://docs.nextbillion.ai). Javadocs are available on [javadoc.io](https://javadoc.io/doc/ai.nextbillion/nextbillion-sdk-java/0.1.0-alpha.5).
+The REST API documentation can be found on [docs.nextbillion.ai](https://docs.nextbillion.ai). Javadocs are available on [javadoc.io](https://javadoc.io/doc/ai.nextbillion/sdk/0.1.0-alpha.6).
 
 <!-- x-release-please-end -->
 
@@ -24,7 +24,7 @@ The REST API documentation can be found on [docs.nextbillion.ai](https://docs.ne
 ### Gradle
 
 ```kotlin
-implementation("ai.nextbillion:nextbillion-sdk-java:0.1.0-alpha.5")
+implementation("ai.nextbillion:sdk:0.1.0-alpha.6")
 ```
 
 ### Maven
@@ -32,8 +32,8 @@ implementation("ai.nextbillion:nextbillion-sdk-java:0.1.0-alpha.5")
 ```xml
 <dependency>
   <groupId>ai.nextbillion</groupId>
-  <artifactId>nextbillion-sdk-java</artifactId>
-  <version>0.1.0-alpha.5</version>
+  <artifactId>sdk</artifactId>
+  <version>0.1.0-alpha.6</version>
 </dependency>
 ```
 
@@ -56,8 +56,8 @@ import ai.nextbillion.models.directions.DirectionComputeRouteResponse;
 NextbillionSdkClient client = NextbillionSdkOkHttpClient.fromEnv();
 
 DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
-    .destination("41.349302,2.136480")
-    .origin("41.349302,2.136480")
+    .destination("1.335368,103.785517")
+    .origin("1.312164,103.841063")
     .build();
 DirectionComputeRouteResponse response = client.directions().computeRoute(params);
 ```
@@ -158,8 +158,8 @@ import java.util.concurrent.CompletableFuture;
 NextbillionSdkClient client = NextbillionSdkOkHttpClient.fromEnv();
 
 DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
-    .destination("41.349302,2.136480")
-    .origin("41.349302,2.136480")
+    .destination("1.335368,103.785517")
+    .origin("1.312164,103.841063")
     .build();
 CompletableFuture<DirectionComputeRouteResponse> response = client.async().directions().computeRoute(params);
 ```
@@ -178,8 +178,8 @@ import java.util.concurrent.CompletableFuture;
 NextbillionSdkClientAsync client = NextbillionSdkOkHttpClientAsync.fromEnv();
 
 DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
-    .destination("41.349302,2.136480")
-    .origin("41.349302,2.136480")
+    .destination("1.335368,103.785517")
+    .origin("1.312164,103.841063")
     .build();
 CompletableFuture<DirectionComputeRouteResponse> response = client.directions().computeRoute(params);
 ```
@@ -199,8 +199,8 @@ import ai.nextbillion.models.directions.DirectionComputeRouteParams;
 import ai.nextbillion.models.directions.DirectionComputeRouteResponse;
 
 DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
-    .destination("41.349302,2.136480")
-    .origin("41.349302,2.136480")
+    .destination("1.335368,103.785517")
+    .origin("1.312164,103.841063")
     .build();
 HttpResponseFor<DirectionComputeRouteResponse> response = client.directions().withRawResponse().computeRoute(params);
 
@@ -220,26 +220,26 @@ DirectionComputeRouteResponse parsedResponse = response.parse();
 
 The SDK throws custom unchecked exception types:
 
-- [`NextbillionSdkServiceException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkServiceException.kt): Base class for HTTP errors. See this table for which exception subclass is thrown for each HTTP status code:
+- [`NextbillionSdkServiceException`](sdk-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkServiceException.kt): Base class for HTTP errors. See this table for which exception subclass is thrown for each HTTP status code:
 
-  | Status | Exception                                                                                                                           |
-  | ------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-  | 400    | [`BadRequestException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/BadRequestException.kt)                     |
-  | 401    | [`UnauthorizedException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/UnauthorizedException.kt)                 |
-  | 403    | [`PermissionDeniedException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/PermissionDeniedException.kt)         |
-  | 404    | [`NotFoundException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/NotFoundException.kt)                         |
-  | 422    | [`UnprocessableEntityException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/UnprocessableEntityException.kt)   |
-  | 429    | [`RateLimitException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/RateLimitException.kt)                       |
-  | 5xx    | [`InternalServerException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/InternalServerException.kt)             |
-  | others | [`UnexpectedStatusCodeException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/UnexpectedStatusCodeException.kt) |
+  | Status | Exception                                                                                                          |
+  | ------ | ------------------------------------------------------------------------------------------------------------------ |
+  | 400    | [`BadRequestException`](sdk-core/src/main/kotlin/ai/nextbillion/errors/BadRequestException.kt)                     |
+  | 401    | [`UnauthorizedException`](sdk-core/src/main/kotlin/ai/nextbillion/errors/UnauthorizedException.kt)                 |
+  | 403    | [`PermissionDeniedException`](sdk-core/src/main/kotlin/ai/nextbillion/errors/PermissionDeniedException.kt)         |
+  | 404    | [`NotFoundException`](sdk-core/src/main/kotlin/ai/nextbillion/errors/NotFoundException.kt)                         |
+  | 422    | [`UnprocessableEntityException`](sdk-core/src/main/kotlin/ai/nextbillion/errors/UnprocessableEntityException.kt)   |
+  | 429    | [`RateLimitException`](sdk-core/src/main/kotlin/ai/nextbillion/errors/RateLimitException.kt)                       |
+  | 5xx    | [`InternalServerException`](sdk-core/src/main/kotlin/ai/nextbillion/errors/InternalServerException.kt)             |
+  | others | [`UnexpectedStatusCodeException`](sdk-core/src/main/kotlin/ai/nextbillion/errors/UnexpectedStatusCodeException.kt) |
 
-- [`NextbillionSdkIoException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkIoException.kt): I/O networking errors.
+- [`NextbillionSdkIoException`](sdk-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkIoException.kt): I/O networking errors.
 
-- [`NextbillionSdkRetryableException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkRetryableException.kt): Generic error indicating a failure that could be retried by the client.
+- [`NextbillionSdkRetryableException`](sdk-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkRetryableException.kt): Generic error indicating a failure that could be retried by the client.
 
-- [`NextbillionSdkInvalidDataException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkInvalidDataException.kt): Failure to interpret successfully parsed data. For example, when accessing a property that's supposed to be required, but the API unexpectedly omitted it from the response.
+- [`NextbillionSdkInvalidDataException`](sdk-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkInvalidDataException.kt): Failure to interpret successfully parsed data. For example, when accessing a property that's supposed to be required, but the API unexpectedly omitted it from the response.
 
-- [`NextbillionSdkException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkException.kt): Base class for all exceptions. Most errors will result in one of the previously mentioned ones, but completely generic errors may be thrown using the base class.
+- [`NextbillionSdkException`](sdk-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkException.kt): Base class for all exceptions. Most errors will result in one of the previously mentioned ones, but completely generic errors may be thrown using the base class.
 
 ## Logging
 
@@ -259,7 +259,7 @@ $ export NEXTBILLION_SDK_LOG=debug
 
 ## ProGuard and R8
 
-Although the SDK uses reflection, it is still usable with [ProGuard](https://github.com/Guardsquare/proguard) and [R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization) because `nextbillion-sdk-java-core` is published with a [configuration file](nextbillion-sdk-java-core/src/main/resources/META-INF/proguard/nextbillion-sdk-java-core.pro) containing [keep rules](https://www.guardsquare.com/manual/configuration/usage).
+Although the SDK uses reflection, it is still usable with [ProGuard](https://github.com/Guardsquare/proguard) and [R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization) because `sdk-core` is published with a [configuration file](sdk-core/src/main/resources/META-INF/proguard/sdk-core.pro) containing [keep rules](https://www.guardsquare.com/manual/configuration/usage).
 
 ProGuard and R8 should automatically detect and use the published rules, but you can also manually copy the keep rules if necessary.
 
@@ -269,7 +269,7 @@ The SDK depends on [Jackson](https://github.com/FasterXML/jackson) for JSON seri
 
 The SDK throws an exception if it detects an incompatible Jackson version at runtime (e.g. if the default version was overridden in your Maven or Gradle config).
 
-If the SDK threw an exception, but you're _certain_ the version is compatible, then disable the version check using the `checkJacksonVersionCompatibility` on [`NextbillionSdkOkHttpClient`](nextbillion-sdk-java-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClient.kt) or [`NextbillionSdkOkHttpClientAsync`](nextbillion-sdk-java-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClientAsync.kt).
+If the SDK threw an exception, but you're _certain_ the version is compatible, then disable the version check using the `checkJacksonVersionCompatibility` on [`NextbillionSdkOkHttpClient`](sdk-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClient.kt) or [`NextbillionSdkOkHttpClientAsync`](sdk-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClientAsync.kt).
 
 > [!CAUTION]
 > We make no guarantee that the SDK works correctly when the Jackson version check is disabled.
@@ -374,15 +374,15 @@ NextbillionSdkClient client = NextbillionSdkOkHttpClient.builder()
 
 The SDK consists of three artifacts:
 
-- `nextbillion-sdk-java-core`
+- `sdk-core`
   - Contains core SDK logic
   - Does not depend on [OkHttp](https://square.github.io/okhttp)
-  - Exposes [`NextbillionSdkClient`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClient.kt), [`NextbillionSdkClientAsync`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientAsync.kt), [`NextbillionSdkClientImpl`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientImpl.kt), and [`NextbillionSdkClientAsyncImpl`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientAsyncImpl.kt), all of which can work with any HTTP client
-- `nextbillion-sdk-java-client-okhttp`
+  - Exposes [`NextbillionSdkClient`](sdk-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClient.kt), [`NextbillionSdkClientAsync`](sdk-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientAsync.kt), [`NextbillionSdkClientImpl`](sdk-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientImpl.kt), and [`NextbillionSdkClientAsyncImpl`](sdk-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientAsyncImpl.kt), all of which can work with any HTTP client
+- `sdk-client-okhttp`
   - Depends on [OkHttp](https://square.github.io/okhttp)
-  - Exposes [`NextbillionSdkOkHttpClient`](nextbillion-sdk-java-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClient.kt) and [`NextbillionSdkOkHttpClientAsync`](nextbillion-sdk-java-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClientAsync.kt), which provide a way to construct [`NextbillionSdkClientImpl`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientImpl.kt) and [`NextbillionSdkClientAsyncImpl`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientAsyncImpl.kt), respectively, using OkHttp
-- `nextbillion-sdk-java`
-  - Depends on and exposes the APIs of both `nextbillion-sdk-java-core` and `nextbillion-sdk-java-client-okhttp`
+  - Exposes [`NextbillionSdkOkHttpClient`](sdk-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClient.kt) and [`NextbillionSdkOkHttpClientAsync`](sdk-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClientAsync.kt), which provide a way to construct [`NextbillionSdkClientImpl`](sdk-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientImpl.kt) and [`NextbillionSdkClientAsyncImpl`](sdk-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientAsyncImpl.kt), respectively, using OkHttp
+- `sdk`
+  - Depends on and exposes the APIs of both `sdk-core` and `sdk-client-okhttp`
   - Does not have its own logic
 
 This structure allows replacing the SDK's default HTTP client without pulling in unnecessary dependencies.
@@ -394,17 +394,17 @@ This structure allows replacing the SDK's default HTTP client without pulling in
 
 To use a customized `OkHttpClient`:
 
-1. Replace your [`nextbillion-sdk-java` dependency](#installation) with `nextbillion-sdk-java-core`
-2. Copy `nextbillion-sdk-java-client-okhttp`'s [`OkHttpClient`](nextbillion-sdk-java-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/OkHttpClient.kt) class into your code and customize it
-3. Construct [`NextbillionSdkClientImpl`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientImpl.kt) or [`NextbillionSdkClientAsyncImpl`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientAsyncImpl.kt), similarly to [`NextbillionSdkOkHttpClient`](nextbillion-sdk-java-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClient.kt) or [`NextbillionSdkOkHttpClientAsync`](nextbillion-sdk-java-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClientAsync.kt), using your customized client
+1. Replace your [`sdk` dependency](#installation) with `sdk-core`
+2. Copy `sdk-client-okhttp`'s [`OkHttpClient`](sdk-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/OkHttpClient.kt) class into your code and customize it
+3. Construct [`NextbillionSdkClientImpl`](sdk-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientImpl.kt) or [`NextbillionSdkClientAsyncImpl`](sdk-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientAsyncImpl.kt), similarly to [`NextbillionSdkOkHttpClient`](sdk-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClient.kt) or [`NextbillionSdkOkHttpClientAsync`](sdk-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClientAsync.kt), using your customized client
 
 ### Completely custom HTTP client
 
 To use a completely custom HTTP client:
 
-1. Replace your [`nextbillion-sdk-java` dependency](#installation) with `nextbillion-sdk-java-core`
-2. Write a class that implements the [`HttpClient`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/core/http/HttpClient.kt) interface
-3. Construct [`NextbillionSdkClientImpl`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientImpl.kt) or [`NextbillionSdkClientAsyncImpl`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientAsyncImpl.kt), similarly to [`NextbillionSdkOkHttpClient`](nextbillion-sdk-java-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClient.kt) or [`NextbillionSdkOkHttpClientAsync`](nextbillion-sdk-java-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClientAsync.kt), using your new client class
+1. Replace your [`sdk` dependency](#installation) with `sdk-core`
+2. Write a class that implements the [`HttpClient`](sdk-core/src/main/kotlin/ai/nextbillion/core/http/HttpClient.kt) interface
+3. Construct [`NextbillionSdkClientImpl`](sdk-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientImpl.kt) or [`NextbillionSdkClientAsyncImpl`](sdk-core/src/main/kotlin/ai/nextbillion/client/NextbillionSdkClientAsyncImpl.kt), similarly to [`NextbillionSdkOkHttpClient`](sdk-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClient.kt) or [`NextbillionSdkOkHttpClientAsync`](sdk-client-okhttp/src/main/kotlin/ai/nextbillion/client/okhttp/NextbillionSdkOkHttpClientAsync.kt), using your new client class
 
 ## Undocumented API functionality
 
@@ -442,7 +442,7 @@ RouteCreateParams params = RouteCreateParams.builder()
 
 These properties can be accessed on the nested built object later using the `_additionalProperties()` method.
 
-To set a documented parameter or property to an undocumented or not yet supported _value_, pass a [`JsonValue`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/core/Values.kt) object to its setter:
+To set a documented parameter or property to an undocumented or not yet supported _value_, pass a [`JsonValue`](sdk-core/src/main/kotlin/ai/nextbillion/core/Values.kt) object to its setter:
 
 ```java
 import ai.nextbillion.core.JsonValue;
@@ -450,11 +450,11 @@ import ai.nextbillion.models.directions.DirectionComputeRouteParams;
 
 DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
     .destination(JsonValue.from(42))
-    .origin("41.349302,2.136480")
+    .origin("1.312164,103.841063")
     .build();
 ```
 
-The most straightforward way to create a [`JsonValue`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/core/Values.kt) is using its `from(...)` method:
+The most straightforward way to create a [`JsonValue`](sdk-core/src/main/kotlin/ai/nextbillion/core/Values.kt) is using its `from(...)` method:
 
 ```java
 import ai.nextbillion.core.JsonValue;
@@ -495,7 +495,7 @@ JsonValue complexValue = JsonValue.from(Map.of(
 
 Normally a `Builder` class's `build` method will throw [`IllegalStateException`](https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html) if any required parameter or property is unset.
 
-To forcibly omit a required parameter or property, pass [`JsonMissing`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/core/Values.kt):
+To forcibly omit a required parameter or property, pass [`JsonMissing`](sdk-core/src/main/kotlin/ai/nextbillion/core/Values.kt):
 
 ```java
 import ai.nextbillion.core.JsonMissing;
@@ -565,7 +565,7 @@ if (destination.isMissing()) {
 
 In rare cases, the API may return a response that doesn't match the expected type. For example, the SDK may expect a property to contain a `String`, but the API could return something else.
 
-By default, the SDK will not throw an exception in this case. It will throw [`NextbillionSdkInvalidDataException`](nextbillion-sdk-java-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkInvalidDataException.kt) only if you directly access the property.
+By default, the SDK will not throw an exception in this case. It will throw [`NextbillionSdkInvalidDataException`](sdk-core/src/main/kotlin/ai/nextbillion/errors/NextbillionSdkInvalidDataException.kt) only if you directly access the property.
 
 If you would prefer to check that the response is completely well-typed upfront, then either call `validate()`:
 

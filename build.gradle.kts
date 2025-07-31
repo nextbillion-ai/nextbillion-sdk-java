@@ -9,7 +9,7 @@ repositories {
 
 allprojects {
     group = "ai.nextbillion"
-    version = "0.1.0-alpha.5" // x-release-please-version
+    version = "0.1.0-alpha.6" // x-release-please-version
 }
 
 subprojects {
@@ -19,7 +19,7 @@ subprojects {
 // Avoid race conditions between `dokkaJavadocCollector` and `dokkaJavadocJar` tasks
 tasks.named("dokkaJavadocCollector").configure {
     subprojects.flatMap { it.tasks }
-        .filter { it.project.name != "nextbillion-sdk-java" && it.name == "dokkaJavadocJar" }
+        .filter { it.project.name != "sdk" && it.name == "dokkaJavadocJar" }
         .forEach { mustRunAfter(it) }
 }
 

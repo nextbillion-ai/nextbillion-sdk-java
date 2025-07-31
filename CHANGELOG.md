@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.6 (2025-07-31)
+
+Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
+
+### Features
+
+* **api:** manual updates ([0456bbc](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/0456bbc55d7eb7b25b1669676fa57b85869017ab))
+
 ## 0.1.0-alpha.5 (2025-07-31)
 
 Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
