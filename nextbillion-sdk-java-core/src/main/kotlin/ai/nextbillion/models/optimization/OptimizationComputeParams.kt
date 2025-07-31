@@ -54,14 +54,14 @@ private constructor(
 
     /**
      * A semicolon-separated list indicating the side of the road from which to approach waypoints
-     * in a requested route. If provided, the number of approaches must be the same as the number of
-     * coordinates. However, you can skip a coordinate and show its position in the list with the ;
-     * separator.
+     * in a requested route. If provided, the number of `approaches` must be the same as the number
+     * of `coordinates`. However, you can skip a coordinate and show its position in the list with
+     * the `;` separator.
      */
     fun approaches(): Optional<Approaches> = Optional.ofNullable(approaches)
 
     /**
-     * Specify the destination coordinate of the returned route. If the input is last, the last
+     * Specify the destination coordinate of the returned route. If the input is `last`, the last
      * coordinate will be the destination.
      */
     fun destination(): Optional<Destination> = Optional.ofNullable(destination)
@@ -69,9 +69,9 @@ private constructor(
     /**
      * Sets the output format of the route geometry in the response.
      *
-     * On providing polyline and polyline6 as input, respective encoded geometry is returned.
-     * However, when geojson is provided as the input value, polyline encoded geometry is returned
-     * in the response along with a geojson details of the route.
+     * On providing `polyline` and `polyline6` as input, respective encoded geometry is returned.
+     * However, when `geojson` is provided as the input value, `polyline` encoded geometry is
+     * returned in the response along with a geojson details of the route.
      */
     fun geometries(): Optional<Geometries> = Optional.ofNullable(geometries)
 
@@ -175,9 +175,9 @@ private constructor(
 
         /**
          * A semicolon-separated list indicating the side of the road from which to approach
-         * waypoints in a requested route. If provided, the number of approaches must be the same as
-         * the number of coordinates. However, you can skip a coordinate and show its position in
-         * the list with the ; separator.
+         * waypoints in a requested route. If provided, the number of `approaches` must be the same
+         * as the number of `coordinates`. However, you can skip a coordinate and show its position
+         * in the list with the `;` separator.
          */
         fun approaches(approaches: Approaches?) = apply { this.approaches = approaches }
 
@@ -185,8 +185,8 @@ private constructor(
         fun approaches(approaches: Optional<Approaches>) = approaches(approaches.getOrNull())
 
         /**
-         * Specify the destination coordinate of the returned route. If the input is last, the last
-         * coordinate will be the destination.
+         * Specify the destination coordinate of the returned route. If the input is `last`, the
+         * last coordinate will be the destination.
          */
         fun destination(destination: Destination?) = apply { this.destination = destination }
 
@@ -196,9 +196,9 @@ private constructor(
         /**
          * Sets the output format of the route geometry in the response.
          *
-         * On providing polyline and polyline6 as input, respective encoded geometry is returned.
-         * However, when geojson is provided as the input value, polyline encoded geometry is
-         * returned in the response along with a geojson details of the route.
+         * On providing `polyline` and `polyline6` as input, respective encoded geometry is
+         * returned. However, when `geojson` is provided as the input value, `polyline` encoded
+         * geometry is returned in the response along with a geojson details of the route.
          */
         fun geometries(geometries: Geometries?) = apply { this.geometries = geometries }
 
@@ -415,9 +415,9 @@ private constructor(
 
     /**
      * A semicolon-separated list indicating the side of the road from which to approach waypoints
-     * in a requested route. If provided, the number of approaches must be the same as the number of
-     * coordinates. However, you can skip a coordinate and show its position in the list with the ;
-     * separator.
+     * in a requested route. If provided, the number of `approaches` must be the same as the number
+     * of `coordinates`. However, you can skip a coordinate and show its position in the list with
+     * the `;` separator.
      */
     class Approaches @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -433,9 +433,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val UNRESTRICTED = of("unrestricted")
+            @JvmField val UNRESTRICTED = of("`unrestricted`")
 
-            @JvmField val CURB = of("curb")
+            @JvmField val CURB = of("`curb`")
 
             @JvmStatic fun of(value: String) = Approaches(JsonField.of(value))
         }
@@ -549,7 +549,7 @@ private constructor(
     }
 
     /**
-     * Specify the destination coordinate of the returned route. If the input is last, the last
+     * Specify the destination coordinate of the returned route. If the input is `last`, the last
      * coordinate will be the destination.
      */
     class Destination @JsonCreator private constructor(private val value: JsonField<String>) :
@@ -567,9 +567,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val ANY = of("any")
+            @JvmField val ANY = of("`any`")
 
-            @JvmField val LAST = of("last")
+            @JvmField val LAST = of("`last`")
 
             @JvmStatic fun of(value: String) = Destination(JsonField.of(value))
         }
@@ -685,9 +685,9 @@ private constructor(
     /**
      * Sets the output format of the route geometry in the response.
      *
-     * On providing polyline and polyline6 as input, respective encoded geometry is returned.
-     * However, when geojson is provided as the input value, polyline encoded geometry is returned
-     * in the response along with a geojson details of the route.
+     * On providing `polyline` and `polyline6` as input, respective encoded geometry is returned.
+     * However, when `geojson` is provided as the input value, `polyline` encoded geometry is
+     * returned in the response along with a geojson details of the route.
      */
     class Geometries @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -703,11 +703,11 @@ private constructor(
 
         companion object {
 
-            @JvmField val POLYLINE = of("polyline")
+            @JvmField val POLYLINE = of("`polyline`")
 
-            @JvmField val POLYLINE6 = of("polyline6")
+            @JvmField val POLYLINE6 = of("`polyline6`")
 
-            @JvmField val GEOJSON = of("geojson")
+            @JvmField val GEOJSON = of("`geojson`")
 
             @JvmStatic fun of(value: String) = Geometries(JsonField.of(value))
         }
@@ -860,9 +860,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val CAR = of("car")
+            @JvmField val CAR = of("`car`")
 
-            @JvmField val TRUCK = of("truck")
+            @JvmField val TRUCK = of("`truck`")
 
             @JvmStatic fun of(value: String) = Mode(JsonField.of(value))
         }
@@ -991,9 +991,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val ANY = of("any")
+            @JvmField val ANY = of("`any`")
 
-            @JvmField val FIRST = of("first")
+            @JvmField val FIRST = of("`first`")
 
             @JvmStatic fun of(value: String) = Source(JsonField.of(value))
         }

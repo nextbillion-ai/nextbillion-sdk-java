@@ -55,8 +55,8 @@ private constructor(
     fun message(): Optional<String> = message.getOptional("message")
 
     /**
-     * A string indicating the state of the response. On successful responses, the value will be Ok.
-     * Indicative error messages/codes are returned in case of errors. See the
+     * A string indicating the state of the response. On successful responses, the value will be
+     * `Ok`. Indicative error messages/codes are returned in case of errors. See the
      * [API Error Codes](#api-error-codes) section below for more information.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -163,7 +163,7 @@ private constructor(
 
         /**
          * A string indicating the state of the response. On successful responses, the value will be
-         * Ok. Indicative error messages/codes are returned in case of errors. See the
+         * `Ok`. Indicative error messages/codes are returned in case of errors. See the
          * [API Error Codes](#api-error-codes) section below for more information.
          */
         fun status(status: String) = status(JsonField.of(status))

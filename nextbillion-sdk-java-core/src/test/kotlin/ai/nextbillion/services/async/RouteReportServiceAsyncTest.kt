@@ -26,7 +26,7 @@ internal class RouteReportServiceAsyncTest {
             routeReportServiceAsync.create(
                 RouteReportCreateParams.builder()
                     .key("key=API_KEY")
-                    .originalShape("original_shape=sbp}_AlmgpFnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
+                    .originalShape("original_shape=sbp}_Almgp`FnLuToKmKviB{eDlcGhpFvj@qbAwoA_mA")
                     .originalShapeType(RouteReportCreateParams.OriginalShapeType.POLYLINE)
                     .build()
             )

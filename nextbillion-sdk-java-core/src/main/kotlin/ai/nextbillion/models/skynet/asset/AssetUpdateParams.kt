@@ -43,20 +43,20 @@ private constructor(
     fun cluster(): Optional<Cluster> = Optional.ofNullable(cluster)
 
     /**
-     * Use this param to update the attributes of an asset in key:value format. Users can maintain
-     * any useful information or context about the assets by utilising this parameter.
+     * Use this param to update the `attributes` of an asset in `key`:`value` format. Users can
+     * maintain any useful information or context about the assets by utilising this parameter.
      *
-     * Please be careful when using this parameter while updating an asset as the new attributes
-     * object provided will completely overwrite the old attributes object. Use the _Update Asset
+     * Please be careful when using this parameter while updating an `asset` as the new `attributes`
+     * object provided will completely overwrite the old `attributes` object. Use the _Update Asset
      * Attributes_ method to add new or modify existing attributes.
      *
-     * Another point to note is that the overall size of the attributes object cannot exceed 65kb
-     * and the maximum number of key:value pairs that can be added to this object is 100.
+     * Another point to note is that the overall size of the `attributes` object cannot exceed 65kb
+     * and the maximum number of `key`:`value` pairs that can be added to this object is 100.
      */
     fun _attributes(): JsonValue = body._attributes()
 
     /**
-     * Use this param to update the description of an asset.
+     * Use this param to update the `description` of an `asset`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -67,8 +67,8 @@ private constructor(
     fun _metaData(): JsonValue = body._metaData()
 
     /**
-     * Use this param to update the name of an asset. Users can assign meaningful custom names to
-     * their assets.
+     * Use this param to update the `name` of an `asset`. Users can assign meaningful custom names
+     * to their assets.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -76,11 +76,11 @@ private constructor(
     fun name(): Optional<String> = body.name()
 
     /**
-     * **This parameter will be deprecated soon! Please use the attributes parameter to add labels
+     * **This parameter will be deprecated soon! Please use the `attributes` parameter to add labels
      * or markers for the asset.**
      *
-     * Use this param to update the tags of an asset. tags can be used to filter asset in _Get Asset
-     * List_, **Search** and **Monitor** queries.
+     * Use this param to update the `tags` of an `asset`. `tags` can be used to filter `asset` in
+     * _Get Asset List_, **Search** and **Monitor** queries.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -180,19 +180,20 @@ private constructor(
         fun body(body: Body) = apply { this.body = body.toBuilder() }
 
         /**
-         * Use this param to update the attributes of an asset in key:value format. Users can
+         * Use this param to update the `attributes` of an asset in `key`:`value` format. Users can
          * maintain any useful information or context about the assets by utilising this parameter.
          *
-         * Please be careful when using this parameter while updating an asset as the new attributes
-         * object provided will completely overwrite the old attributes object. Use the _Update
-         * Asset Attributes_ method to add new or modify existing attributes.
+         * Please be careful when using this parameter while updating an `asset` as the new
+         * `attributes` object provided will completely overwrite the old `attributes` object. Use
+         * the _Update Asset Attributes_ method to add new or modify existing attributes.
          *
-         * Another point to note is that the overall size of the attributes object cannot exceed
-         * 65kb and the maximum number of key:value pairs that can be added to this object is 100.
+         * Another point to note is that the overall size of the `attributes` object cannot exceed
+         * 65kb and the maximum number of `key`:`value` pairs that can be added to this object
+         * is 100.
          */
         fun attributes(attributes: JsonValue) = apply { body.attributes(attributes) }
 
-        /** Use this param to update the description of an asset. */
+        /** Use this param to update the `description` of an `asset`. */
         fun description(description: String) = apply { body.description(description) }
 
         /**
@@ -208,8 +209,8 @@ private constructor(
         fun metaData(metaData: JsonValue) = apply { body.metaData(metaData) }
 
         /**
-         * Use this param to update the name of an asset. Users can assign meaningful custom names
-         * to their assets.
+         * Use this param to update the `name` of an `asset`. Users can assign meaningful custom
+         * names to their assets.
          */
         fun name(name: String) = apply { body.name(name) }
 
@@ -222,11 +223,11 @@ private constructor(
         fun name(name: JsonField<String>) = apply { body.name(name) }
 
         /**
-         * **This parameter will be deprecated soon! Please use the attributes parameter to add
+         * **This parameter will be deprecated soon! Please use the `attributes` parameter to add
          * labels or markers for the asset.**
          *
-         * Use this param to update the tags of an asset. tags can be used to filter asset in _Get
-         * Asset List_, **Search** and **Monitor** queries.
+         * Use this param to update the `tags` of an `asset`. `tags` can be used to filter `asset`
+         * in _Get Asset List_, **Search** and **Monitor** queries.
          */
         fun tags(tags: List<String>) = apply { body.tags(tags) }
 
@@ -427,20 +428,21 @@ private constructor(
         ) : this(attributes, description, metaData, name, tags, mutableMapOf())
 
         /**
-         * Use this param to update the attributes of an asset in key:value format. Users can
+         * Use this param to update the `attributes` of an asset in `key`:`value` format. Users can
          * maintain any useful information or context about the assets by utilising this parameter.
          *
-         * Please be careful when using this parameter while updating an asset as the new attributes
-         * object provided will completely overwrite the old attributes object. Use the _Update
-         * Asset Attributes_ method to add new or modify existing attributes.
+         * Please be careful when using this parameter while updating an `asset` as the new
+         * `attributes` object provided will completely overwrite the old `attributes` object. Use
+         * the _Update Asset Attributes_ method to add new or modify existing attributes.
          *
-         * Another point to note is that the overall size of the attributes object cannot exceed
-         * 65kb and the maximum number of key:value pairs that can be added to this object is 100.
+         * Another point to note is that the overall size of the `attributes` object cannot exceed
+         * 65kb and the maximum number of `key`:`value` pairs that can be added to this object
+         * is 100.
          */
         @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 
         /**
-         * Use this param to update the description of an asset.
+         * Use this param to update the `description` of an `asset`.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -451,8 +453,8 @@ private constructor(
         @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
         /**
-         * Use this param to update the name of an asset. Users can assign meaningful custom names
-         * to their assets.
+         * Use this param to update the `name` of an `asset`. Users can assign meaningful custom
+         * names to their assets.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -460,11 +462,11 @@ private constructor(
         fun name(): Optional<String> = name.getOptional("name")
 
         /**
-         * **This parameter will be deprecated soon! Please use the attributes parameter to add
+         * **This parameter will be deprecated soon! Please use the `attributes` parameter to add
          * labels or markers for the asset.**
          *
-         * Use this param to update the tags of an asset. tags can be used to filter asset in _Get
-         * Asset List_, **Search** and **Monitor** queries.
+         * Use this param to update the `tags` of an `asset`. `tags` can be used to filter `asset`
+         * in _Get Asset List_, **Search** and **Monitor** queries.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -533,21 +535,21 @@ private constructor(
             }
 
             /**
-             * Use this param to update the attributes of an asset in key:value format. Users can
-             * maintain any useful information or context about the assets by utilising this
+             * Use this param to update the `attributes` of an asset in `key`:`value` format. Users
+             * can maintain any useful information or context about the assets by utilising this
              * parameter.
              *
-             * Please be careful when using this parameter while updating an asset as the new
-             * attributes object provided will completely overwrite the old attributes object. Use
-             * the _Update Asset Attributes_ method to add new or modify existing attributes.
+             * Please be careful when using this parameter while updating an `asset` as the new
+             * `attributes` object provided will completely overwrite the old `attributes` object.
+             * Use the _Update Asset Attributes_ method to add new or modify existing attributes.
              *
-             * Another point to note is that the overall size of the attributes object cannot exceed
-             * 65kb and the maximum number of key:value pairs that can be added to this object
-             * is 100.
+             * Another point to note is that the overall size of the `attributes` object cannot
+             * exceed 65kb and the maximum number of `key`:`value` pairs that can be added to this
+             * object is 100.
              */
             fun attributes(attributes: JsonValue) = apply { this.attributes = attributes }
 
-            /** Use this param to update the description of an asset. */
+            /** Use this param to update the `description` of an `asset`. */
             fun description(description: String) = description(JsonField.of(description))
 
             /**
@@ -567,7 +569,7 @@ private constructor(
             fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }
 
             /**
-             * Use this param to update the name of an asset. Users can assign meaningful custom
+             * Use this param to update the `name` of an `asset`. Users can assign meaningful custom
              * names to their assets.
              */
             fun name(name: String) = name(JsonField.of(name))
@@ -582,11 +584,11 @@ private constructor(
             fun name(name: JsonField<String>) = apply { this.name = name }
 
             /**
-             * **This parameter will be deprecated soon! Please use the attributes parameter to add
-             * labels or markers for the asset.**
+             * **This parameter will be deprecated soon! Please use the `attributes` parameter to
+             * add labels or markers for the asset.**
              *
-             * Use this param to update the tags of an asset. tags can be used to filter asset in
-             * _Get Asset List_, **Search** and **Monitor** queries.
+             * Use this param to update the `tags` of an `asset`. `tags` can be used to filter
+             * `asset` in _Get Asset List_, **Search** and **Monitor** queries.
              */
             fun tags(tags: List<String>) = tags(JsonField.of(tags))
 

@@ -62,8 +62,8 @@ internal class ProGuardCompatibilityTest {
         assertThat(client.routeReport()).isNotNull()
         assertThat(client.snapToRoads()).isNotNull()
         assertThat(client.postalcode()).isNotNull()
-        assertThat(client.lookup()).isNotNull()
         assertThat(client.areas()).isNotNull()
+        assertThat(client.lookup()).isNotNull()
     }
 
     @Test

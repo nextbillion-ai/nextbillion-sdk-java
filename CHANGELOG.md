@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.5 (2025-07-31)
+
+Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
+
+### Features
+
+* **api:** manual updates ([5198105](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/5198105f41f7821a557cadb7b37377527d94b471))
+
+
+### Bug Fixes
+
+* List&lt;List&gt; problem in java by naming dto.Event ([539949b](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/539949bb8e37bdc9038628d21e7b1db141aa1c58))
+
 ## 0.1.0-alpha.4 (2025-07-30)
 
 Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)

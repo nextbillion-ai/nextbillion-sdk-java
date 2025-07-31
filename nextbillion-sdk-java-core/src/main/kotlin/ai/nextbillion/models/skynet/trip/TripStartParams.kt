@@ -48,20 +48,21 @@ private constructor(
     fun assetId(): String = body.assetId()
 
     /**
-     * attributes can be used to store custom information about a trip in key:value format. Use
-     * attributes to add any useful information or context to your trips like the driver name,
+     * `attributes` can be used to store custom information about a trip in `key`:`value` format.
+     * Use `attributes` to add any useful information or context to your trips like the driver name,
      * destination etc.
      *
-     * Please note that the maximum number of key:value pairs that can be added to an attributes
-     * object is 100. Also, the overall size of attributes object should not exceed 65kb.
+     * Please note that the maximum number of `key`:`value` pairs that can be added to an
+     * `attributes` object is 100. Also, the overall size of `attributes` object should not exceed
+     * 65kb.
      */
     fun _attributes(): JsonValue = body._attributes()
 
     /**
-     * Set a unique ID for the new trip. If not provided, an ID will be automatically generated in
-     * UUID format. A valid custom_id can contain letters, numbers, “-”, & “\_” only.
+     * Set a unique ID for the new `trip`. If not provided, an ID will be automatically generated in
+     * UUID format. A valid `custom_id` can contain letters, numbers, “-”, & “\_” only.
      *
-     * Please note that the ID of a trip can not be changed once it is created.
+     * Please note that the ID of a `trip` can not be changed once it is created.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -215,20 +216,22 @@ private constructor(
         fun assetId(assetId: JsonField<String>) = apply { body.assetId(assetId) }
 
         /**
-         * attributes can be used to store custom information about a trip in key:value format. Use
-         * attributes to add any useful information or context to your trips like the driver name,
-         * destination etc.
+         * `attributes` can be used to store custom information about a trip in `key`:`value`
+         * format. Use `attributes` to add any useful information or context to your trips like the
+         * driver name, destination etc.
          *
-         * Please note that the maximum number of key:value pairs that can be added to an attributes
-         * object is 100. Also, the overall size of attributes object should not exceed 65kb.
+         * Please note that the maximum number of `key`:`value` pairs that can be added to an
+         * `attributes` object is 100. Also, the overall size of `attributes` object should not
+         * exceed 65kb.
          */
         fun attributes(attributes: JsonValue) = apply { body.attributes(attributes) }
 
         /**
-         * Set a unique ID for the new trip. If not provided, an ID will be automatically generated
-         * in UUID format. A valid custom_id can contain letters, numbers, “-”, & “\_” only.
+         * Set a unique ID for the new `trip`. If not provided, an ID will be automatically
+         * generated in UUID format. A valid `custom_id` can contain letters, numbers, “-”, & “\_”
+         * only.
          *
-         * Please note that the ID of a trip can not be changed once it is created.
+         * Please note that the ID of a `trip` can not be changed once it is created.
          */
         fun customId(customId: String) = apply { body.customId(customId) }
 
@@ -482,20 +485,22 @@ private constructor(
         fun assetId(): String = assetId.getRequired("asset_id")
 
         /**
-         * attributes can be used to store custom information about a trip in key:value format. Use
-         * attributes to add any useful information or context to your trips like the driver name,
-         * destination etc.
+         * `attributes` can be used to store custom information about a trip in `key`:`value`
+         * format. Use `attributes` to add any useful information or context to your trips like the
+         * driver name, destination etc.
          *
-         * Please note that the maximum number of key:value pairs that can be added to an attributes
-         * object is 100. Also, the overall size of attributes object should not exceed 65kb.
+         * Please note that the maximum number of `key`:`value` pairs that can be added to an
+         * `attributes` object is 100. Also, the overall size of `attributes` object should not
+         * exceed 65kb.
          */
         @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 
         /**
-         * Set a unique ID for the new trip. If not provided, an ID will be automatically generated
-         * in UUID format. A valid custom_id can contain letters, numbers, “-”, & “\_” only.
+         * Set a unique ID for the new `trip`. If not provided, an ID will be automatically
+         * generated in UUID format. A valid `custom_id` can contain letters, numbers, “-”, & “\_”
+         * only.
          *
-         * Please note that the ID of a trip can not be changed once it is created.
+         * Please note that the ID of a `trip` can not be changed once it is created.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -636,22 +641,22 @@ private constructor(
             fun assetId(assetId: JsonField<String>) = apply { this.assetId = assetId }
 
             /**
-             * attributes can be used to store custom information about a trip in key:value format.
-             * Use attributes to add any useful information or context to your trips like the driver
-             * name, destination etc.
+             * `attributes` can be used to store custom information about a trip in `key`:`value`
+             * format. Use `attributes` to add any useful information or context to your trips like
+             * the driver name, destination etc.
              *
-             * Please note that the maximum number of key:value pairs that can be added to an
-             * attributes object is 100. Also, the overall size of attributes object should not
+             * Please note that the maximum number of `key`:`value` pairs that can be added to an
+             * `attributes` object is 100. Also, the overall size of `attributes` object should not
              * exceed 65kb.
              */
             fun attributes(attributes: JsonValue) = apply { this.attributes = attributes }
 
             /**
-             * Set a unique ID for the new trip. If not provided, an ID will be automatically
-             * generated in UUID format. A valid custom_id can contain letters, numbers, “-”, & “\_”
-             * only.
+             * Set a unique ID for the new `trip`. If not provided, an ID will be automatically
+             * generated in UUID format. A valid `custom_id` can contain letters, numbers, “-”, &
+             * “\_” only.
              *
-             * Please note that the ID of a trip can not be changed once it is created.
+             * Please note that the ID of a `trip` can not be changed once it is created.
              */
             fun customId(customId: String) = customId(JsonField.of(customId))
 

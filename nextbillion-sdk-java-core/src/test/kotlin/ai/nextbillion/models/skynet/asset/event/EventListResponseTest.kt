@@ -18,18 +18,18 @@ internal class EventListResponseTest {
                 .data(
                     EventListResponse.Data.builder()
                         .addList(
-                            EventListResponse.Data.List.builder()
+                            EventListResponse.Data.AssetEvent.builder()
                                 .assetId("asset_id")
-                                .eventType(EventListResponse.Data.List.EventType.ENTER)
+                                .eventType(EventListResponse.Data.AssetEvent.EventType.ENTER)
                                 .extra(JsonValue.from(mapOf<String, Any>()))
                                 .geofenceId("geofence_id")
                                 .monitorId("monitor_id")
                                 .addMonitorTag("string")
                                 .prevLocation(
-                                    EventListResponse.Data.List.PrevLocation.builder()
+                                    EventListResponse.Data.AssetEvent.PrevLocation.builder()
                                         .bearing(0.0)
                                         .location(
-                                            EventListResponse.Data.List.PrevLocation.Location
+                                            EventListResponse.Data.AssetEvent.PrevLocation.Location
                                                 .builder()
                                                 .lat(0.0)
                                                 .lon(0.0)
@@ -42,10 +42,11 @@ internal class EventListResponseTest {
                                 )
                                 .timestamp(0L)
                                 .triggeredLocation(
-                                    EventListResponse.Data.List.TriggeredLocation.builder()
+                                    EventListResponse.Data.AssetEvent.TriggeredLocation.builder()
                                         .bearing(0.0)
                                         .location(
-                                            EventListResponse.Data.List.TriggeredLocation.Location
+                                            EventListResponse.Data.AssetEvent.TriggeredLocation
+                                                .Location
                                                 .builder()
                                                 .lat(0.0)
                                                 .lon(0.0)
@@ -72,18 +73,19 @@ internal class EventListResponseTest {
             .contains(
                 EventListResponse.Data.builder()
                     .addList(
-                        EventListResponse.Data.List.builder()
+                        EventListResponse.Data.AssetEvent.builder()
                             .assetId("asset_id")
-                            .eventType(EventListResponse.Data.List.EventType.ENTER)
+                            .eventType(EventListResponse.Data.AssetEvent.EventType.ENTER)
                             .extra(JsonValue.from(mapOf<String, Any>()))
                             .geofenceId("geofence_id")
                             .monitorId("monitor_id")
                             .addMonitorTag("string")
                             .prevLocation(
-                                EventListResponse.Data.List.PrevLocation.builder()
+                                EventListResponse.Data.AssetEvent.PrevLocation.builder()
                                     .bearing(0.0)
                                     .location(
-                                        EventListResponse.Data.List.PrevLocation.Location.builder()
+                                        EventListResponse.Data.AssetEvent.PrevLocation.Location
+                                            .builder()
                                             .lat(0.0)
                                             .lon(0.0)
                                             .build()
@@ -95,10 +97,10 @@ internal class EventListResponseTest {
                             )
                             .timestamp(0L)
                             .triggeredLocation(
-                                EventListResponse.Data.List.TriggeredLocation.builder()
+                                EventListResponse.Data.AssetEvent.TriggeredLocation.builder()
                                     .bearing(0.0)
                                     .location(
-                                        EventListResponse.Data.List.TriggeredLocation.Location
+                                        EventListResponse.Data.AssetEvent.TriggeredLocation.Location
                                             .builder()
                                             .lat(0.0)
                                             .lon(0.0)
@@ -127,18 +129,18 @@ internal class EventListResponseTest {
                 .data(
                     EventListResponse.Data.builder()
                         .addList(
-                            EventListResponse.Data.List.builder()
+                            EventListResponse.Data.AssetEvent.builder()
                                 .assetId("asset_id")
-                                .eventType(EventListResponse.Data.List.EventType.ENTER)
+                                .eventType(EventListResponse.Data.AssetEvent.EventType.ENTER)
                                 .extra(JsonValue.from(mapOf<String, Any>()))
                                 .geofenceId("geofence_id")
                                 .monitorId("monitor_id")
                                 .addMonitorTag("string")
                                 .prevLocation(
-                                    EventListResponse.Data.List.PrevLocation.builder()
+                                    EventListResponse.Data.AssetEvent.PrevLocation.builder()
                                         .bearing(0.0)
                                         .location(
-                                            EventListResponse.Data.List.PrevLocation.Location
+                                            EventListResponse.Data.AssetEvent.PrevLocation.Location
                                                 .builder()
                                                 .lat(0.0)
                                                 .lon(0.0)
@@ -151,10 +153,11 @@ internal class EventListResponseTest {
                                 )
                                 .timestamp(0L)
                                 .triggeredLocation(
-                                    EventListResponse.Data.List.TriggeredLocation.builder()
+                                    EventListResponse.Data.AssetEvent.TriggeredLocation.builder()
                                         .bearing(0.0)
                                         .location(
-                                            EventListResponse.Data.List.TriggeredLocation.Location
+                                            EventListResponse.Data.AssetEvent.TriggeredLocation
+                                                .Location
                                                 .builder()
                                                 .lat(0.0)
                                                 .lon(0.0)

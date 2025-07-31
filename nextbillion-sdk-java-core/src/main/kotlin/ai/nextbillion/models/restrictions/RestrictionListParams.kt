@@ -43,7 +43,7 @@ private constructor(
     fun key(): String = key
 
     /**
-     * The number of restrictions to be returned in the response. Please note that if the limit is
+     * The number of restrictions to be returned in the response. Please note that if the `limit` is
      * set to a number more than the total number of available restrictions, then all restrictions
      * would be returned together.
      */
@@ -54,7 +54,7 @@ private constructor(
      * the response. Please note that the offset starts from 0, so the first item returned in the
      * result would be the item at (offset + 1) position in collection.
      *
-     * Users can use offset along with limit to implement paginated result.
+     * Users can use `offset` along with `limit` to implement paginated result.
      */
     fun offset(): Long = offset
 
@@ -76,7 +76,7 @@ private constructor(
     /**
      * This parameter is used to filter restrictions based on their state i.e. whether the
      * restriction is currently enabled, disabled, or deleted. For example, users can retrieve a
-     * list of all the deleted restrictions by setting state=deleted.
+     * list of all the deleted restrictions by setting `state=deleted`.
      */
     fun state(): Optional<State> = Optional.ofNullable(state)
 
@@ -163,8 +163,8 @@ private constructor(
         fun key(key: String) = apply { this.key = key }
 
         /**
-         * The number of restrictions to be returned in the response. Please note that if the limit
-         * is set to a number more than the total number of available restrictions, then all
+         * The number of restrictions to be returned in the response. Please note that if the
+         * `limit` is set to a number more than the total number of available restrictions, then all
          * restrictions would be returned together.
          */
         fun limit(limit: Long) = apply { this.limit = limit }
@@ -174,7 +174,7 @@ private constructor(
          * in the response. Please note that the offset starts from 0, so the first item returned in
          * the result would be the item at (offset + 1) position in collection.
          *
-         * Users can use offset along with limit to implement paginated result.
+         * Users can use `offset` along with `limit` to implement paginated result.
          */
         fun offset(offset: Long) = apply { this.offset = offset }
 
@@ -211,7 +211,7 @@ private constructor(
         /**
          * This parameter is used to filter restrictions based on their state i.e. whether the
          * restriction is currently enabled, disabled, or deleted. For example, users can retrieve a
-         * list of all the deleted restrictions by setting state=deleted.
+         * list of all the deleted restrictions by setting `state=deleted`.
          */
         fun state(state: State?) = apply { this.state = state }
 
@@ -411,15 +411,15 @@ private constructor(
 
         companion object {
 
-            @JvmField val _0W = of("0w")
+            @JvmField val _0W = of("`0w`")
 
-            @JvmField val _2W = of("2w")
+            @JvmField val _2W = of("`2w`")
 
-            @JvmField val _3W = of("3w")
+            @JvmField val _3W = of("`3w`")
 
-            @JvmField val _4W = of("4w")
+            @JvmField val _4W = of("`4w`")
 
-            @JvmField val _6W = of("6w")
+            @JvmField val _6W = of("`6w`")
 
             @JvmStatic fun of(value: String) = Mode(JsonField.of(value))
         }
@@ -558,17 +558,17 @@ private constructor(
 
         companion object {
 
-            @JvmField val TURN = of("turn")
+            @JvmField val TURN = of("`turn`")
 
-            @JvmField val PARKING = of("parking")
+            @JvmField val PARKING = of("`parking`")
 
-            @JvmField val FIXEDSPEED = of("fixedspeed")
+            @JvmField val FIXEDSPEED = of("`fixedspeed`")
 
-            @JvmField val MAXSPEED = of("maxspeed")
+            @JvmField val MAXSPEED = of("`maxspeed`")
 
-            @JvmField val CLOSURE = of("closure")
+            @JvmField val CLOSURE = of("`closure`")
 
-            @JvmField val TRUCK = of("truck")
+            @JvmField val TRUCK = of("`truck`")
 
             @JvmStatic fun of(value: String) = RestrictionType(JsonField.of(value))
         }
@@ -829,7 +829,7 @@ private constructor(
     /**
      * This parameter is used to filter restrictions based on their state i.e. whether the
      * restriction is currently enabled, disabled, or deleted. For example, users can retrieve a
-     * list of all the deleted restrictions by setting state=deleted.
+     * list of all the deleted restrictions by setting `state=deleted`.
      */
     class State @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -845,11 +845,11 @@ private constructor(
 
         companion object {
 
-            @JvmField val ENABLED = of("enabled")
+            @JvmField val ENABLED = of("`enabled`")
 
-            @JvmField val DISABLED = of("disabled")
+            @JvmField val DISABLED = of("`disabled`")
 
-            @JvmField val DELETED = of("deleted")
+            @JvmField val DELETED = of("`deleted`")
 
             @JvmStatic fun of(value: String) = State(JsonField.of(value))
         }
@@ -987,9 +987,9 @@ private constructor(
 
         companion object {
 
-            @JvmField val ACTIVE = of("active")
+            @JvmField val ACTIVE = of("`active`")
 
-            @JvmField val INACTIVE = of("inactive")
+            @JvmField val INACTIVE = of("`inactive`")
 
             @JvmStatic fun of(value: String) = Status(JsonField.of(value))
         }

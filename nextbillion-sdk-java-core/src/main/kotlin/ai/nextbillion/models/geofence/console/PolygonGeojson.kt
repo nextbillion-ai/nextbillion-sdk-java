@@ -47,7 +47,7 @@ private constructor(
     fun coordinates(): Optional<List<List<Double>>> = coordinates.getOptional("coordinates")
 
     /**
-     * Type of the geoJSON geometry. Will always be Polygon.
+     * Type of the geoJSON geometry. Will always be `Polygon`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -131,7 +131,7 @@ private constructor(
                 }
         }
 
-        /** Type of the geoJSON geometry. Will always be Polygon. */
+        /** Type of the geoJSON geometry. Will always be `Polygon`. */
         fun type(type: String) = type(JsonField.of(type))
 
         /**

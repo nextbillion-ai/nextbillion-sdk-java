@@ -251,7 +251,7 @@ private constructor(
 
         /**
          * The bounding box enclosing the geometric shape (area or line) that an individual result
-         * covers. place typed results have no mapView.
+         * covers. `place` typed results have no `mapView`.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -471,7 +471,7 @@ private constructor(
 
             /**
              * The bounding box enclosing the geometric shape (area or line) that an individual
-             * result covers. place typed results have no mapView.
+             * result covers. `place` typed results have no `mapView`.
              */
             fun mapView(mapView: MapView) = mapView(JsonField.of(mapView))
 

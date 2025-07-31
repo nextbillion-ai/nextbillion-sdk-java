@@ -109,8 +109,8 @@ private constructor(
     fun completion(): Optional<Completion> = completion.getOptional("completion")
 
     /**
-     * Represents the timestamp of the creation in seconds since the Unix epoch.
-     * Example: 1738743999.
+     * Represents the timestamp of the creation in seconds since the Unix epoch. Example:
+     * `1738743999`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -119,8 +119,8 @@ private constructor(
 
     /**
      * Returns the details of the document that was used for collecting the proof of completion for
-     * the step. In case no document template ID was provided for the given step, then a null value
-     * is returned. Each object represents a new field in the document.
+     * the step. In case no document template ID was provided for the given step, then a `null`
+     * value is returned. Each object represents a new field in the document.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -129,7 +129,7 @@ private constructor(
         documentSnapshot.getOptional("document_snapshot")
 
     /**
-     * Returns the duration for layover or break type steps.
+     * Returns the duration for `layover` or `break` type steps.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -163,9 +163,9 @@ private constructor(
     fun shortId(): Optional<String> = shortId.getOptional("short_id")
 
     /**
-     * Returns the step type. It can belong to one of the following: start, job , pickup, delivery,
-     * break, layover , and end. For any given step, it would be the same as that specified in the
-     * input request while configuring the step details.
+     * Returns the step type. It can belong to one of the following: `start`, `job` , `pickup`,
+     * `delivery`, `break`, `layover` , and `end`. For any given step, it would be the same as that
+     * specified in the input request while configuring the step details.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -173,8 +173,8 @@ private constructor(
     fun type(): Optional<String> = type.getOptional("type")
 
     /**
-     * Represents the timestamp of the last update in seconds since the Unix epoch.
-     * Example: 1738743999.
+     * Represents the timestamp of the last update in seconds since the Unix epoch. Example:
+     * `1738743999`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -377,8 +377,8 @@ private constructor(
         fun completion(completion: JsonField<Completion>) = apply { this.completion = completion }
 
         /**
-         * Represents the timestamp of the creation in seconds since the Unix epoch.
-         * Example: 1738743999.
+         * Represents the timestamp of the creation in seconds since the Unix epoch. Example:
+         * `1738743999`.
          */
         fun createdAt(createdAt: Long) = createdAt(JsonField.of(createdAt))
 
@@ -393,7 +393,7 @@ private constructor(
         /**
          * Returns the details of the document that was used for collecting the proof of completion
          * for the step. In case no document template ID was provided for the given step, then a
-         * null value is returned. Each object represents a new field in the document.
+         * `null` value is returned. Each object represents a new field in the document.
          */
         fun documentSnapshot(documentSnapshot: List<JsonValue>) =
             documentSnapshot(JsonField.of(documentSnapshot))
@@ -421,7 +421,7 @@ private constructor(
                 }
         }
 
-        /** Returns the duration for layover or break type steps. */
+        /** Returns the duration for `layover` or `break` type steps. */
         fun duration(duration: Long) = duration(JsonField.of(duration))
 
         /**
@@ -485,9 +485,9 @@ private constructor(
         fun shortId(shortId: JsonField<String>) = apply { this.shortId = shortId }
 
         /**
-         * Returns the step type. It can belong to one of the following: start, job , pickup,
-         * delivery, break, layover , and end. For any given step, it would be the same as that
-         * specified in the input request while configuring the step details.
+         * Returns the step type. It can belong to one of the following: `start`, `job` , `pickup`,
+         * `delivery`, `break`, `layover` , and `end`. For any given step, it would be the same as
+         * that specified in the input request while configuring the step details.
          */
         fun type(type: String) = type(JsonField.of(type))
 
@@ -500,8 +500,8 @@ private constructor(
         fun type(type: JsonField<String>) = apply { this.type = type }
 
         /**
-         * Represents the timestamp of the last update in seconds since the Unix epoch.
-         * Example: 1738743999.
+         * Represents the timestamp of the last update in seconds since the Unix epoch. Example:
+         * `1738743999`.
          */
         fun updatedAt(updatedAt: Long) = updatedAt(JsonField.of(updatedAt))
 
@@ -648,8 +648,8 @@ private constructor(
         )
 
         /**
-         * Represents the timestamp of the completion in seconds since the Unix epoch.
-         * Example: 1738743999.
+         * Represents the timestamp of the completion in seconds since the Unix epoch. Example:
+         * `1738743999`.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -659,10 +659,10 @@ private constructor(
         /**
          * Specify the mode of completion to be used for the step. Currently, following values are
          * allowed:
-         * - manual: Steps must be marked as completed manually through the Driver App.
-         * - geofence: Steps are marked as completed automatically based on the entry conditions and
-         *   geofence specified.
-         * - geofence_manual_fallback: Steps will be marked as completed automatically based on
+         * - `manual`: Steps must be marked as completed manually through the Driver App.
+         * - `geofence`: Steps are marked as completed automatically based on the entry conditions
+         *   and geofence specified.
+         * - `geofence_manual_fallback`: Steps will be marked as completed automatically based on
          *   geofence and entry condition configurations but there will also be a provision for
          *   manually updating the status in case, geofence detection fails.
          *
@@ -675,10 +675,10 @@ private constructor(
         /**
          * Specify the mode of completion to be used for the step. Currently, following values are
          * allowed:
-         * - manual: Steps must be marked as completed manually through the Driver App.
-         * - geofence: Steps are marked as completed automatically based on the entry conditions and
-         *   geofence specified.
-         * - geofence_manual_fallback: Steps will be marked as completed automatically based on
+         * - `manual`: Steps must be marked as completed manually through the Driver App.
+         * - `geofence`: Steps are marked as completed automatically based on the entry conditions
+         *   and geofence specified.
+         * - `geofence_manual_fallback`: Steps will be marked as completed automatically based on
          *   geofence and entry condition configurations but there will also be a provision for
          *   manually updating the status in case, geofence detection fails.
          *
@@ -696,7 +696,7 @@ private constructor(
 
         /**
          * Represents the timestamp of the last doc modification in seconds since the Unix epoch.
-         * Example: 1738743999.
+         * Example: `1738743999`.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -707,7 +707,7 @@ private constructor(
         /**
          * Specify the configurations of the geofence which will be used to detect presence of the
          * driver and complete the tasks automatically. Please note that this attribute is required
-         * when completion_mode is either "geofence" or "geofence_manual_fallback".
+         * when `completion_mode` is either "geofence" or "geofence_manual_fallback".
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -822,8 +822,8 @@ private constructor(
             }
 
             /**
-             * Represents the timestamp of the completion in seconds since the Unix epoch.
-             * Example: 1738743999.
+             * Represents the timestamp of the completion in seconds since the Unix epoch. Example:
+             * `1738743999`.
              */
             fun completedAt(completedAt: Long) = completedAt(JsonField.of(completedAt))
 
@@ -839,12 +839,12 @@ private constructor(
             /**
              * Specify the mode of completion to be used for the step. Currently, following values
              * are allowed:
-             * - manual: Steps must be marked as completed manually through the Driver App.
-             * - geofence: Steps are marked as completed automatically based on the entry conditions
-             *   and geofence specified.
-             * - geofence_manual_fallback: Steps will be marked as completed automatically based on
-             *   geofence and entry condition configurations but there will also be a provision for
-             *   manually updating the status in case, geofence detection fails.
+             * - `manual`: Steps must be marked as completed manually through the Driver App.
+             * - `geofence`: Steps are marked as completed automatically based on the entry
+             *   conditions and geofence specified.
+             * - `geofence_manual_fallback`: Steps will be marked as completed automatically based
+             *   on geofence and entry condition configurations but there will also be a provision
+             *   for manually updating the status in case, geofence detection fails.
              */
             fun completedByMode(completedByMode: RouteStepCompletionMode) =
                 completedByMode(JsonField.of(completedByMode))
@@ -863,12 +863,12 @@ private constructor(
             /**
              * Specify the mode of completion to be used for the step. Currently, following values
              * are allowed:
-             * - manual: Steps must be marked as completed manually through the Driver App.
-             * - geofence: Steps are marked as completed automatically based on the entry conditions
-             *   and geofence specified.
-             * - geofence_manual_fallback: Steps will be marked as completed automatically based on
-             *   geofence and entry condition configurations but there will also be a provision for
-             *   manually updating the status in case, geofence detection fails.
+             * - `manual`: Steps must be marked as completed manually through the Driver App.
+             * - `geofence`: Steps are marked as completed automatically based on the entry
+             *   conditions and geofence specified.
+             * - `geofence_manual_fallback`: Steps will be marked as completed automatically based
+             *   on geofence and entry condition configurations but there will also be a provision
+             *   for manually updating the status in case, geofence detection fails.
              */
             fun completionMode(completionMode: RouteStepCompletionMode) =
                 completionMode(JsonField.of(completionMode))
@@ -892,7 +892,7 @@ private constructor(
 
             /**
              * Represents the timestamp of the last doc modification in seconds since the Unix
-             * epoch. Example: 1738743999.
+             * epoch. Example: `1738743999`.
              */
             fun documentModifiedAt(documentModifiedAt: Long) =
                 documentModifiedAt(JsonField.of(documentModifiedAt))
@@ -911,7 +911,7 @@ private constructor(
             /**
              * Specify the configurations of the geofence which will be used to detect presence of
              * the driver and complete the tasks automatically. Please note that this attribute is
-             * required when completion_mode is either "geofence" or "geofence_manual_fallback".
+             * required when `completion_mode` is either "geofence" or "geofence_manual_fallback".
              */
             fun geofenceConfig(geofenceConfig: RouteStepGeofenceConfig) =
                 geofenceConfig(JsonField.of(geofenceConfig))
@@ -1197,7 +1197,7 @@ private constructor(
 
         /**
          * Returns the customer name associated with the step. It can configured in the input
-         * request using the metadata attribute of the step.
+         * request using the `metadata` attribute of the step.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1206,7 +1206,7 @@ private constructor(
 
         /**
          * Returns the customer's phone number associated with the step. It can configured in the
-         * input request using the metadata attribute of the step.
+         * input request using the `metadata` attribute of the step.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1290,7 +1290,7 @@ private constructor(
 
             /**
              * Returns the customer name associated with the step. It can configured in the input
-             * request using the metadata attribute of the step.
+             * request using the `metadata` attribute of the step.
              */
             fun customerName(customerName: String) = customerName(JsonField.of(customerName))
 
@@ -1307,7 +1307,7 @@ private constructor(
 
             /**
              * Returns the customer's phone number associated with the step. It can configured in
-             * the input request using the metadata attribute of the step.
+             * the input request using the `metadata` attribute of the step.
              */
             fun customerPhoneNumber(customerPhoneNumber: String) =
                 customerPhoneNumber(JsonField.of(customerPhoneNumber))

@@ -2,8 +2,8 @@
 
 <!-- x-release-please-start-version -->
 
-[![Maven Central](https://img.shields.io/maven-central/v/ai.nextbillion/nextbillion-sdk-java)](https://central.sonatype.com/artifact/ai.nextbillion/nextbillion-sdk-java/0.1.0-alpha.4)
-[![javadoc](https://javadoc.io/badge2/ai.nextbillion/nextbillion-sdk-java/0.1.0-alpha.4/javadoc.svg)](https://javadoc.io/doc/ai.nextbillion/nextbillion-sdk-java/0.1.0-alpha.4)
+[![Maven Central](https://img.shields.io/maven-central/v/ai.nextbillion/nextbillion-sdk-java)](https://central.sonatype.com/artifact/ai.nextbillion/nextbillion-sdk-java/0.1.0-alpha.5)
+[![javadoc](https://javadoc.io/badge2/ai.nextbillion/nextbillion-sdk-java/0.1.0-alpha.5/javadoc.svg)](https://javadoc.io/doc/ai.nextbillion/nextbillion-sdk-java/0.1.0-alpha.5)
 
 <!-- x-release-please-end -->
 
@@ -13,7 +13,7 @@ It is generated with [Stainless](https://www.stainless.com/).
 
 <!-- x-release-please-start-version -->
 
-The REST API documentation can be found on [docs.nextbillion.ai](https://docs.nextbillion.ai). Javadocs are available on [javadoc.io](https://javadoc.io/doc/ai.nextbillion/nextbillion-sdk-java/0.1.0-alpha.4).
+The REST API documentation can be found on [docs.nextbillion.ai](https://docs.nextbillion.ai). Javadocs are available on [javadoc.io](https://javadoc.io/doc/ai.nextbillion/nextbillion-sdk-java/0.1.0-alpha.5).
 
 <!-- x-release-please-end -->
 
@@ -24,7 +24,7 @@ The REST API documentation can be found on [docs.nextbillion.ai](https://docs.ne
 ### Gradle
 
 ```kotlin
-implementation("ai.nextbillion:nextbillion-sdk-java:0.1.0-alpha.4")
+implementation("ai.nextbillion:nextbillion-sdk-java:0.1.0-alpha.5")
 ```
 
 ### Maven
@@ -33,7 +33,7 @@ implementation("ai.nextbillion:nextbillion-sdk-java:0.1.0-alpha.4")
 <dependency>
   <groupId>ai.nextbillion</groupId>
   <artifactId>nextbillion-sdk-java</artifactId>
-  <version>0.1.0-alpha.4</version>
+  <version>0.1.0-alpha.5</version>
 </dependency>
 ```
 
@@ -56,8 +56,8 @@ import ai.nextbillion.models.directions.DirectionComputeRouteResponse;
 NextbillionSdkClient client = NextbillionSdkOkHttpClient.fromEnv();
 
 DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
-    .destination("1.335368,103.785517")
-    .origin("1.312164,103.841062")
+    .destination("41.349302,2.136480")
+    .origin("41.349302,2.136480")
     .build();
 DirectionComputeRouteResponse response = client.directions().computeRoute(params);
 ```
@@ -158,8 +158,8 @@ import java.util.concurrent.CompletableFuture;
 NextbillionSdkClient client = NextbillionSdkOkHttpClient.fromEnv();
 
 DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
-    .destination("1.335368,103.785517")
-    .origin("1.312164,103.841062")
+    .destination("41.349302,2.136480")
+    .origin("41.349302,2.136480")
     .build();
 CompletableFuture<DirectionComputeRouteResponse> response = client.async().directions().computeRoute(params);
 ```
@@ -178,8 +178,8 @@ import java.util.concurrent.CompletableFuture;
 NextbillionSdkClientAsync client = NextbillionSdkOkHttpClientAsync.fromEnv();
 
 DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
-    .destination("1.335368,103.785517")
-    .origin("1.312164,103.841062")
+    .destination("41.349302,2.136480")
+    .origin("41.349302,2.136480")
     .build();
 CompletableFuture<DirectionComputeRouteResponse> response = client.directions().computeRoute(params);
 ```
@@ -199,8 +199,8 @@ import ai.nextbillion.models.directions.DirectionComputeRouteParams;
 import ai.nextbillion.models.directions.DirectionComputeRouteResponse;
 
 DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
-    .destination("1.335368,103.785517")
-    .origin("1.312164,103.841062")
+    .destination("41.349302,2.136480")
+    .origin("41.349302,2.136480")
     .build();
 HttpResponseFor<DirectionComputeRouteResponse> response = client.directions().withRawResponse().computeRoute(params);
 
@@ -450,7 +450,7 @@ import ai.nextbillion.models.directions.DirectionComputeRouteParams;
 
 DirectionComputeRouteParams params = DirectionComputeRouteParams.builder()
     .destination(JsonValue.from(42))
-    .origin("1.312164,103.841062")
+    .origin("41.349302,2.136480")
     .build();
 ```
 

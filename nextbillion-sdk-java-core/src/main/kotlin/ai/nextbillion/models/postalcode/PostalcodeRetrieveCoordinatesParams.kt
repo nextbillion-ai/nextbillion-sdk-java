@@ -34,8 +34,8 @@ private constructor(
     fun key(): String = key
 
     /**
-     * Location coordinates that you want to get the postal code of. If not providing postalcode in
-     * the request, at becomes mandatory. Please note that only 1 point can be requested.
+     * Location coordinates that you want to get the postal code of. If not providing `postalcode`
+     * in the request, `at` becomes mandatory. Please note that only 1 point can be requested.
      * [See this example](#note).
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -44,8 +44,8 @@ private constructor(
     fun at(): Optional<At> = body.at()
 
     /**
-     * Country containing the postal code or the location. It is mandatory if postalcode is provided
-     * in the request. [See this example](#note).
+     * Country containing the postal code or the location. It is mandatory if `postalcode` is
+     * provided in the request. [See this example](#note).
      *
      * Please check the [API Query Limits](#api-query-limits) section below for a list of the
      * countries covered by the Geocode Postcode API. Users can provide either the name or the
@@ -59,7 +59,7 @@ private constructor(
 
     /**
      * Specify the format in which the boundary details of the post code will be returned. When
-     * specified, the boundary details will be returned in the geojson format. When not specified,
+     * specified, the boundary details will be returned in the `geojson` format. When not specified,
      * the boundary details are returned in general format.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -68,9 +68,9 @@ private constructor(
     fun format(): Optional<Format> = body.format()
 
     /**
-     * Provide the postal code for which the information is needed. At least one of (postalcode +
-     * country) or at needs to be provided. Please note that only 1 postal code can be requested.
-     * [See this example](#note).
+     * Provide the postal code for which the information is needed. At least one of (`postalcode` +
+     * `country`) or `at` needs to be provided. Please note that only 1 postal code can be
+     * requested. [See this example](#note).
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -164,9 +164,9 @@ private constructor(
         fun body(body: Body) = apply { this.body = body.toBuilder() }
 
         /**
-         * Location coordinates that you want to get the postal code of. If not providing postalcode
-         * in the request, at becomes mandatory. Please note that only 1 point can be requested.
-         * [See this example](#note).
+         * Location coordinates that you want to get the postal code of. If not providing
+         * `postalcode` in the request, `at` becomes mandatory. Please note that only 1 point can be
+         * requested. [See this example](#note).
          */
         fun at(at: At) = apply { body.at(at) }
 
@@ -179,7 +179,7 @@ private constructor(
         fun at(at: JsonField<At>) = apply { body.at(at) }
 
         /**
-         * Country containing the postal code or the location. It is mandatory if postalcode is
+         * Country containing the postal code or the location. It is mandatory if `postalcode` is
          * provided in the request. [See this example](#note).
          *
          * Please check the [API Query Limits](#api-query-limits) section below for a list of the
@@ -199,7 +199,7 @@ private constructor(
 
         /**
          * Specify the format in which the boundary details of the post code will be returned. When
-         * specified, the boundary details will be returned in the geojson format. When not
+         * specified, the boundary details will be returned in the `geojson` format. When not
          * specified, the boundary details are returned in general format.
          */
         fun format(format: Format) = apply { body.format(format) }
@@ -214,8 +214,8 @@ private constructor(
 
         /**
          * Provide the postal code for which the information is needed. At least one of
-         * (postalcode + country) or at needs to be provided. Please note that only 1 postal code
-         * can be requested. [See this example](#note).
+         * (`postalcode` + `country`) or `at` needs to be provided. Please note that only 1 postal
+         * code can be requested. [See this example](#note).
          */
         fun postalcode(postalcode: String) = apply { body.postalcode(postalcode) }
 
@@ -398,9 +398,9 @@ private constructor(
         ) : this(at, country, format, postalcode, mutableMapOf())
 
         /**
-         * Location coordinates that you want to get the postal code of. If not providing postalcode
-         * in the request, at becomes mandatory. Please note that only 1 point can be requested.
-         * [See this example](#note).
+         * Location coordinates that you want to get the postal code of. If not providing
+         * `postalcode` in the request, `at` becomes mandatory. Please note that only 1 point can be
+         * requested. [See this example](#note).
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -408,7 +408,7 @@ private constructor(
         fun at(): Optional<At> = at.getOptional("at")
 
         /**
-         * Country containing the postal code or the location. It is mandatory if postalcode is
+         * Country containing the postal code or the location. It is mandatory if `postalcode` is
          * provided in the request. [See this example](#note).
          *
          * Please check the [API Query Limits](#api-query-limits) section below for a list of the
@@ -423,7 +423,7 @@ private constructor(
 
         /**
          * Specify the format in which the boundary details of the post code will be returned. When
-         * specified, the boundary details will be returned in the geojson format. When not
+         * specified, the boundary details will be returned in the `geojson` format. When not
          * specified, the boundary details are returned in general format.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -433,8 +433,8 @@ private constructor(
 
         /**
          * Provide the postal code for which the information is needed. At least one of
-         * (postalcode + country) or at needs to be provided. Please note that only 1 postal code
-         * can be requested. [See this example](#note).
+         * (`postalcode` + `country`) or `at` needs to be provided. Please note that only 1 postal
+         * code can be requested. [See this example](#note).
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -509,8 +509,8 @@ private constructor(
 
             /**
              * Location coordinates that you want to get the postal code of. If not providing
-             * postalcode in the request, at becomes mandatory. Please note that only 1 point can be
-             * requested. [See this example](#note).
+             * `postalcode` in the request, `at` becomes mandatory. Please note that only 1 point
+             * can be requested. [See this example](#note).
              */
             fun at(at: At) = at(JsonField.of(at))
 
@@ -524,8 +524,8 @@ private constructor(
             fun at(at: JsonField<At>) = apply { this.at = at }
 
             /**
-             * Country containing the postal code or the location. It is mandatory if postalcode is
-             * provided in the request. [See this example](#note).
+             * Country containing the postal code or the location. It is mandatory if `postalcode`
+             * is provided in the request. [See this example](#note).
              *
              * Please check the [API Query Limits](#api-query-limits) section below for a list of
              * the countries covered by the Geocode Postcode API. Users can provide either the name
@@ -546,8 +546,8 @@ private constructor(
 
             /**
              * Specify the format in which the boundary details of the post code will be returned.
-             * When specified, the boundary details will be returned in the geojson format. When not
-             * specified, the boundary details are returned in general format.
+             * When specified, the boundary details will be returned in the `geojson` format. When
+             * not specified, the boundary details are returned in general format.
              */
             fun format(format: Format) = format(JsonField.of(format))
 
@@ -562,8 +562,8 @@ private constructor(
 
             /**
              * Provide the postal code for which the information is needed. At least one of
-             * (postalcode + country) or at needs to be provided. Please note that only 1 postal
-             * code can be requested. [See this example](#note).
+             * (`postalcode` + `country`) or `at` needs to be provided. Please note that only 1
+             * postal code can be requested. [See this example](#note).
              */
             fun postalcode(postalcode: String) = postalcode(JsonField.of(postalcode))
 
@@ -658,8 +658,8 @@ private constructor(
     }
 
     /**
-     * Location coordinates that you want to get the postal code of. If not providing postalcode in
-     * the request, at becomes mandatory. Please note that only 1 point can be requested.
+     * Location coordinates that you want to get the postal code of. If not providing `postalcode`
+     * in the request, `at` becomes mandatory. Please note that only 1 point can be requested.
      * [See this example](#note).
      */
     class At
@@ -838,7 +838,7 @@ private constructor(
 
     /**
      * Specify the format in which the boundary details of the post code will be returned. When
-     * specified, the boundary details will be returned in the geojson format. When not specified,
+     * specified, the boundary details will be returned in the `geojson` format. When not specified,
      * the boundary details are returned in general format.
      */
     class Format @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
@@ -855,7 +855,7 @@ private constructor(
 
         companion object {
 
-            @JvmField val GEOJSON = of("geojson")
+            @JvmField val GEOJSON = of("`geojson`")
 
             @JvmStatic fun of(value: String) = Format(JsonField.of(value))
         }

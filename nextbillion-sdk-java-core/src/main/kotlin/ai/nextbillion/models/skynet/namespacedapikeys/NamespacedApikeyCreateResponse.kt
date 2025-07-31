@@ -280,7 +280,7 @@ private constructor(
         ) : this(apikey, createdAt, expiresAt, namespace, subId, mutableMapOf())
 
         /**
-         * Returns the unique key created for the specified namespace.
+         * Returns the unique `key` created for the specified namespace.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -306,7 +306,7 @@ private constructor(
         fun expiresAt(): Optional<Long> = expiresAt.getOptional("expires_at")
 
         /**
-         * Returns the name of the namespace for which the key is created.
+         * Returns the name of the `namespace` for which the key is created.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -394,7 +394,7 @@ private constructor(
                 additionalProperties = result.additionalProperties.toMutableMap()
             }
 
-            /** Returns the unique key created for the specified namespace. */
+            /** Returns the unique `key` created for the specified namespace. */
             fun apikey(apikey: String) = apikey(JsonField.of(apikey))
 
             /**
@@ -436,7 +436,7 @@ private constructor(
              */
             fun expiresAt(expiresAt: JsonField<Long>) = apply { this.expiresAt = expiresAt }
 
-            /** Returns the name of the namespace for which the key is created. */
+            /** Returns the name of the `namespace` for which the key is created. */
             fun namespace(namespace: String) = namespace(JsonField.of(namespace))
 
             /**

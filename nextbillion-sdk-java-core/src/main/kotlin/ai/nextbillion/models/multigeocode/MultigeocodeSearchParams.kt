@@ -93,7 +93,7 @@ private constructor(
      * Filters the results to places within the specified radius from the 'at' location.
      *
      * Note: Supports 'meter' (m) and 'kilometer' (km) units. If no radius is given, the search
-     * method returns as many results as specified in limit.
+     * method returns as many results as specified in `limit`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -329,7 +329,7 @@ private constructor(
          * Filters the results to places within the specified radius from the 'at' location.
          *
          * Note: Supports 'meter' (m) and 'kilometer' (km) units. If no radius is given, the search
-         * method returns as many results as specified in limit.
+         * method returns as many results as specified in `limit`.
          */
         fun radius(radius: String) = apply { body.radius(radius) }
 
@@ -627,7 +627,7 @@ private constructor(
          * Filters the results to places within the specified radius from the 'at' location.
          *
          * Note: Supports 'meter' (m) and 'kilometer' (km) units. If no radius is given, the search
-         * method returns as many results as specified in limit.
+         * method returns as many results as specified in `limit`.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -869,7 +869,7 @@ private constructor(
              * Filters the results to places within the specified radius from the 'at' location.
              *
              * Note: Supports 'meter' (m) and 'kilometer' (km) units. If no radius is given, the
-             * search method returns as many results as specified in limit.
+             * search method returns as many results as specified in `limit`.
              */
             fun radius(radius: String) = radius(JsonField.of(radius))
 

@@ -62,8 +62,8 @@ private constructor(
      *   re-optimization input requests) will follow the updated list of locations.
      *
      * As a best practice:
-     * 1. Don't provide the locations input when re-optimizing, if the original set contains all the
-     *    required location coordinates.
+     * 1. Don't provide the `locations` input when re-optimizing, if the original set contains all
+     *    the required location coordinates.
      * 2. If any new location coordinates are required for re-optimization, copy the full, original
      *    location list and update it in the following manner before adding it to the
      *    re-optimization input:
@@ -230,8 +230,8 @@ private constructor(
          *   new re-optimization input requests) will follow the updated list of locations.
          *
          * As a best practice:
-         * 1. Don't provide the locations input when re-optimizing, if the original set contains all
-         *    the required location coordinates.
+         * 1. Don't provide the `locations` input when re-optimizing, if the original set contains
+         *    all the required location coordinates.
          * 2. If any new location coordinates are required for re-optimization, copy the full,
          *    original location list and update it in the following manner before adding it to the
          *    re-optimization input:
@@ -511,8 +511,8 @@ private constructor(
          *   new re-optimization input requests) will follow the updated list of locations.
          *
          * As a best practice:
-         * 1. Don't provide the locations input when re-optimizing, if the original set contains all
-         *    the required location coordinates.
+         * 1. Don't provide the `locations` input when re-optimizing, if the original set contains
+         *    all the required location coordinates.
          * 2. If any new location coordinates are required for re-optimization, copy the full,
          *    original location list and update it in the following manner before adding it to the
          *    re-optimization input:
@@ -684,8 +684,8 @@ private constructor(
              *   and new re-optimization input requests) will follow the updated list of locations.
              *
              * As a best practice:
-             * 1. Don't provide the locations input when re-optimizing, if the original set contains
-             *    all the required location coordinates.
+             * 1. Don't provide the `locations` input when re-optimizing, if the original set
+             *    contains all the required location coordinates.
              * 2. If any new location coordinates are required for re-optimization, copy the full,
              *    original location list and update it in the following manner before adding it to
              *    the re-optimization input:

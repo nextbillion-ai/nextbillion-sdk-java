@@ -41,10 +41,10 @@ private constructor(
     fun cluster(): Optional<Cluster> = Optional.ofNullable(cluster)
 
     /**
-     * ID of the device used to upload the tracking information of the asset.
+     * ID of the device used to upload the tracking information of the `asset`.
      *
-     * Please note that the device_id used here must already be linked to the asset. Use the _Bind
-     * Device to Asset_ method to link a device with your asset.
+     * Please note that the `device_id` used here must already be linked to the `asset`. Use the
+     * _Bind Device to Asset_ method to link a device with your `asset`.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
      *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -52,7 +52,7 @@ private constructor(
     fun deviceId(): String = body.deviceId()
 
     /**
-     * An array of objects to collect the location tracking information for an asset. Each object
+     * An array of objects to collect the location tracking information for an `asset`. Each object
      * must correspond to details of only one location.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
@@ -144,10 +144,10 @@ private constructor(
         fun body(body: Body) = apply { this.body = body.toBuilder() }
 
         /**
-         * ID of the device used to upload the tracking information of the asset.
+         * ID of the device used to upload the tracking information of the `asset`.
          *
-         * Please note that the device_id used here must already be linked to the asset. Use the
-         * _Bind Device to Asset_ method to link a device with your asset.
+         * Please note that the `device_id` used here must already be linked to the `asset`. Use the
+         * _Bind Device to Asset_ method to link a device with your `asset`.
          */
         fun deviceId(deviceId: String) = apply { body.deviceId(deviceId) }
 
@@ -160,7 +160,7 @@ private constructor(
         fun deviceId(deviceId: JsonField<String>) = apply { body.deviceId(deviceId) }
 
         /**
-         * An array of objects to collect the location tracking information for an asset. Each
+         * An array of objects to collect the location tracking information for an `asset`. Each
          * object must correspond to details of only one location.
          */
         fun locations(locations: Locations) = apply { body.locations(locations) }
@@ -353,10 +353,10 @@ private constructor(
         ) : this(deviceId, locations, mutableMapOf())
 
         /**
-         * ID of the device used to upload the tracking information of the asset.
+         * ID of the device used to upload the tracking information of the `asset`.
          *
-         * Please note that the device_id used here must already be linked to the asset. Use the
-         * _Bind Device to Asset_ method to link a device with your asset.
+         * Please note that the `device_id` used here must already be linked to the `asset`. Use the
+         * _Bind Device to Asset_ method to link a device with your `asset`.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -364,7 +364,7 @@ private constructor(
         fun deviceId(): String = deviceId.getRequired("device_id")
 
         /**
-         * An array of objects to collect the location tracking information for an asset. Each
+         * An array of objects to collect the location tracking information for an `asset`. Each
          * object must correspond to details of only one location.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
@@ -429,10 +429,10 @@ private constructor(
             }
 
             /**
-             * ID of the device used to upload the tracking information of the asset.
+             * ID of the device used to upload the tracking information of the `asset`.
              *
-             * Please note that the device_id used here must already be linked to the asset. Use the
-             * _Bind Device to Asset_ method to link a device with your asset.
+             * Please note that the `device_id` used here must already be linked to the `asset`. Use
+             * the _Bind Device to Asset_ method to link a device with your `asset`.
              */
             fun deviceId(deviceId: String) = deviceId(JsonField.of(deviceId))
 
@@ -446,7 +446,7 @@ private constructor(
             fun deviceId(deviceId: JsonField<String>) = apply { this.deviceId = deviceId }
 
             /**
-             * An array of objects to collect the location tracking information for an asset. Each
+             * An array of objects to collect the location tracking information for an `asset`. Each
              * object must correspond to details of only one location.
              */
             fun locations(locations: Locations) = locations(JsonField.of(locations))
@@ -550,7 +550,7 @@ private constructor(
     }
 
     /**
-     * An array of objects to collect the location tracking information for an asset. Each object
+     * An array of objects to collect the location tracking information for an `asset`. Each object
      * must correspond to details of only one location.
      */
     class Locations
@@ -632,7 +632,7 @@ private constructor(
         fun accuracy(): Optional<Double> = accuracy.getOptional("accuracy")
 
         /**
-         * Use this parameter to provide the altitude, in meters, of the asset at the tracked
+         * Use this parameter to provide the altitude, in meters, of the `asset` at the tracked
          * location.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -650,8 +650,8 @@ private constructor(
         fun batteryLevel(): Optional<Long> = batteryLevel.getOptional("battery_level")
 
         /**
-         * Use this parameter to provide the heading of the asset, in radians, calculated from true
-         * north in clockwise direction. This should always be in the range of [0, 360).
+         * Use this parameter to provide the heading of the `asset`, in radians, calculated from
+         * true north in clockwise direction. This should always be in the range of [0, 360).
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -660,14 +660,14 @@ private constructor(
 
         /**
          * Use this object to add any custom data about the location that is being uploaded.
-         * Recommended to use the key:value format for adding the desired information.
+         * Recommended to use the `key`:`value` format for adding the desired information.
          *
-         * Please note that the maximum size of meta_data object should not exceed 65Kb.
+         * Please note that the maximum size of `meta_data` object should not exceed 65Kb.
          */
         @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
         /**
-         * Use this parameter to provide the speed of the asset, in meters per second, at the
+         * Use this parameter to provide the speed of the `asset`, in meters per second, at the
          * tracked location.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -846,7 +846,7 @@ private constructor(
             fun accuracy(accuracy: JsonField<Double>) = apply { this.accuracy = accuracy }
 
             /**
-             * Use this parameter to provide the altitude, in meters, of the asset at the tracked
+             * Use this parameter to provide the altitude, in meters, of the `asset` at the tracked
              * location.
              */
             fun altitude(altitude: Double) = altitude(JsonField.of(altitude))
@@ -879,7 +879,7 @@ private constructor(
             }
 
             /**
-             * Use this parameter to provide the heading of the asset, in radians, calculated from
+             * Use this parameter to provide the heading of the `asset`, in radians, calculated from
              * true north in clockwise direction. This should always be in the range of [0, 360).
              */
             fun bearing(bearing: Double) = bearing(JsonField.of(bearing))
@@ -895,14 +895,14 @@ private constructor(
 
             /**
              * Use this object to add any custom data about the location that is being uploaded.
-             * Recommended to use the key:value format for adding the desired information.
+             * Recommended to use the `key`:`value` format for adding the desired information.
              *
-             * Please note that the maximum size of meta_data object should not exceed 65Kb.
+             * Please note that the maximum size of `meta_data` object should not exceed 65Kb.
              */
             fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }
 
             /**
-             * Use this parameter to provide the speed of the asset, in meters per second, at the
+             * Use this parameter to provide the speed of the `asset`, in meters per second, at the
              * tracked location.
              */
             fun speed(speed: Double) = speed(JsonField.of(speed))
@@ -1038,7 +1038,7 @@ private constructor(
             ) : this(lat, lon, mutableMapOf())
 
             /**
-             * Latitude of the tracked location of the asset.
+             * Latitude of the tracked location of the `asset`.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   or is unexpectedly missing or null (e.g. if the server responded with an unexpected
@@ -1047,7 +1047,7 @@ private constructor(
             fun lat(): Double = lat.getRequired("lat")
 
             /**
-             * Longitude of the tracked location of the asset.
+             * Longitude of the tracked location of the `asset`.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   or is unexpectedly missing or null (e.g. if the server responded with an unexpected
@@ -1109,7 +1109,7 @@ private constructor(
                     additionalProperties = location.additionalProperties.toMutableMap()
                 }
 
-                /** Latitude of the tracked location of the asset. */
+                /** Latitude of the tracked location of the `asset`. */
                 fun lat(lat: Double) = lat(JsonField.of(lat))
 
                 /**
@@ -1121,7 +1121,7 @@ private constructor(
                  */
                 fun lat(lat: JsonField<Double>) = apply { this.lat = lat }
 
-                /** Longitude of the tracked location of the asset. */
+                /** Longitude of the tracked location of the `asset`. */
                 fun lon(lon: Double) = lon(JsonField.of(lon))
 
                 /**
