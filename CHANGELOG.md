@@ -8,6 +8,14 @@ Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/nextbilli
 
 * **client:** bad setter types ([add1089](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/add1089da7e4ddb3c3b2a613805a5988bff5929e))
 
+## 0.1.0-alpha.12 (2025-08-01)
+
+Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
+
+### Bug Fixes
+
+* **client:** bad setter types ([add1089](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/add1089da7e4ddb3c3b2a613805a5988bff5929e))
+
 ## 0.1.0-alpha.11 (2025-08-01)
 
 Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
