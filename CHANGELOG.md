@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.9 (2025-08-01)
+
+Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
+
+### Bug Fixes
+
+* **client:** r8 support ([49c26b6](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/49c26b6517d56c8a708f4b3613740949b7e74bd0))
+
 ## 0.1.0-alpha.8 (2025-08-01)
 
 Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
