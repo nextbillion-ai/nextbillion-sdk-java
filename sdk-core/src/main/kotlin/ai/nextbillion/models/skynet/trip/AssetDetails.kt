@@ -9,6 +9,7 @@ import ai.nextbillion.core.JsonValue
 import ai.nextbillion.core.checkKnown
 import ai.nextbillion.core.toImmutable
 import ai.nextbillion.errors.NextbillionSdkInvalidDataException
+import ai.nextbillion.models.skynet.asset.MetaData
 import com.fasterxml.jackson.annotation.JsonAnyGetter
 import com.fasterxml.jackson.annotation.JsonAnySetter
 import com.fasterxml.jackson.annotation.JsonCreator
@@ -27,7 +28,7 @@ private constructor(
     private val description: JsonField<String>,
     private val deviceId: JsonField<String>,
     private val latestLocation: JsonField<LatestLocation>,
-    private val metaData: JsonValue,
+    private val metaData: JsonField<MetaData>,
     private val name: JsonField<String>,
     private val state: JsonField<String>,
     private val tags: JsonField<List<String>>,
@@ -48,7 +49,7 @@ private constructor(
         @JsonProperty("latest_location")
         @ExcludeMissing
         latestLocation: JsonField<LatestLocation> = JsonMissing.of(),
-        @JsonProperty("meta_data") @ExcludeMissing metaData: JsonValue = JsonMissing.of(),
+        @JsonProperty("meta_data") @ExcludeMissing metaData: JsonField<MetaData> = JsonMissing.of(),
         @JsonProperty("name") @ExcludeMissing name: JsonField<String> = JsonMissing.of(),
         @JsonProperty("state") @ExcludeMissing state: JsonField<String> = JsonMissing.of(),
         @JsonProperty("tags") @ExcludeMissing tags: JsonField<List<String>> = JsonMissing.of(),
@@ -124,8 +125,13 @@ private constructor(
      */
     fun latestLocation(): Optional<LatestLocation> = latestLocation.getOptional("latest_location")
 
-    /** Any valid json object data. Can be used to save customized data. Max size is 65kb. */
-    @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
+    /**
+     * Any valid json object data. Can be used to save customized data. Max size is 65kb.
+     *
+     * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
+     *   the server responded with an unexpected value).
+     */
+    fun metaData(): Optional<MetaData> = metaData.getOptional("meta_data")
 
     /**
      * Name of the asset. The value would be the same as that provided for the name parameter at the
@@ -213,6 +219,13 @@ private constructor(
     fun _latestLocation(): JsonField<LatestLocation> = latestLocation
 
     /**
+     * Returns the raw JSON value of [metaData].
+     *
+     * Unlike [metaData], this method doesn't throw if the JSON field has an unexpected type.
+     */
+    @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonField<MetaData> = metaData
+
+    /**
      * Returns the raw JSON value of [name].
      *
      * Unlike [name], this method doesn't throw if the JSON field has an unexpected type.
@@ -274,7 +287,7 @@ private constructor(
         private var description: JsonField<String> = JsonMissing.of()
         private var deviceId: JsonField<String> = JsonMissing.of()
         private var latestLocation: JsonField<LatestLocation> = JsonMissing.of()
-        private var metaData: JsonValue = JsonMissing.of()
+        private var metaData: JsonField<MetaData> = JsonMissing.of()
         private var name: JsonField<String> = JsonMissing.of()
         private var state: JsonField<String> = JsonMissing.of()
         private var tags: JsonField<MutableList<String>>? = null
@@ -382,7 +395,16 @@ private constructor(
         }
 
         /** Any valid json object data. Can be used to save customized data. Max size is 65kb. */
-        fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }
+        fun metaData(metaData: MetaData) = metaData(JsonField.of(metaData))
+
+        /**
+         * Sets [Builder.metaData] to an arbitrary JSON value.
+         *
+         * You should usually call [Builder.metaData] with a well-typed [MetaData] value instead.
+         * This method is primarily for setting the field to an undocumented or not yet supported
+         * value.
+         */
+        fun metaData(metaData: JsonField<MetaData>) = apply { this.metaData = metaData }
 
         /**
          * Name of the asset. The value would be the same as that provided for the name parameter at

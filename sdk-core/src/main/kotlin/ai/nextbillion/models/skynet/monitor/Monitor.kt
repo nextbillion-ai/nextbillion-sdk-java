@@ -28,7 +28,7 @@ private constructor(
     private val geofences: JsonField<List<String>>,
     private val idleConfig: JsonField<IdleConfig>,
     private val matchFilter: JsonField<MatchFilter>,
-    private val metaData: JsonValue,
+    private val metaData: JsonField<Metadata>,
     private val name: JsonField<String>,
     private val speedingConfig: JsonField<SpeedingConfig>,
     private val tags: JsonField<List<String>>,
@@ -56,7 +56,7 @@ private constructor(
         @JsonProperty("match_filter")
         @ExcludeMissing
         matchFilter: JsonField<MatchFilter> = JsonMissing.of(),
-        @JsonProperty("meta_data") @ExcludeMissing metaData: JsonValue = JsonMissing.of(),
+        @JsonProperty("meta_data") @ExcludeMissing metaData: JsonField<Metadata> = JsonMissing.of(),
         @JsonProperty("name") @ExcludeMissing name: JsonField<String> = JsonMissing.of(),
         @JsonProperty("speeding_config")
         @ExcludeMissing
@@ -144,8 +144,13 @@ private constructor(
      */
     fun matchFilter(): Optional<MatchFilter> = matchFilter.getOptional("match_filter")
 
-    /** Any valid json object data. Can be used to save customized data. Max size is 65kb. */
-    @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
+    /**
+     * Any valid json object data. Can be used to save customized data. Max size is 65kb.
+     *
+     * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
+     *   the server responded with an unexpected value).
+     */
+    fun metaData(): Optional<Metadata> = metaData.getOptional("meta_data")
 
     /**
      * Name of the monitor. The value would be the same as that provided for the name parameter at
@@ -248,6 +253,13 @@ private constructor(
     fun _matchFilter(): JsonField<MatchFilter> = matchFilter
 
     /**
+     * Returns the raw JSON value of [metaData].
+     *
+     * Unlike [metaData], this method doesn't throw if the JSON field has an unexpected type.
+     */
+    @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonField<Metadata> = metaData
+
+    /**
      * Returns the raw JSON value of [name].
      *
      * Unlike [name], this method doesn't throw if the JSON field has an unexpected type.
@@ -312,7 +324,7 @@ private constructor(
         private var geofences: JsonField<MutableList<String>>? = null
         private var idleConfig: JsonField<IdleConfig> = JsonMissing.of()
         private var matchFilter: JsonField<MatchFilter> = JsonMissing.of()
-        private var metaData: JsonValue = JsonMissing.of()
+        private var metaData: JsonField<Metadata> = JsonMissing.of()
         private var name: JsonField<String> = JsonMissing.of()
         private var speedingConfig: JsonField<SpeedingConfig> = JsonMissing.of()
         private var tags: JsonField<MutableList<String>>? = null
@@ -460,7 +472,16 @@ private constructor(
         }
 
         /** Any valid json object data. Can be used to save customized data. Max size is 65kb. */
-        fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }
+        fun metaData(metaData: Metadata) = metaData(JsonField.of(metaData))
+
+        /**
+         * Sets [Builder.metaData] to an arbitrary JSON value.
+         *
+         * You should usually call [Builder.metaData] with a well-typed [Metadata] value instead.
+         * This method is primarily for setting the field to an undocumented or not yet supported
+         * value.
+         */
+        fun metaData(metaData: JsonField<Metadata>) = apply { this.metaData = metaData }
 
         /**
          * Name of the monitor. The value would be the same as that provided for the name parameter
