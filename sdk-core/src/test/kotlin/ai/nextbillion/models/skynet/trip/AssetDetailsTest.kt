@@ -68,7 +68,7 @@ internal class AssetDetailsTest {
                     .timestamp(0L)
                     .build()
             )
-        assertThat(assetDetails.metaData()).isEqualTo(MetaData.builder().build())
+        assertThat(assetDetails.metaData()).contains(MetaData.builder().build())
         assertThat(assetDetails.name()).contains("name")
         assertThat(assetDetails.state()).contains("state")
         assertThat(assetDetails.tags().getOrNull()).containsExactly("string")
