@@ -69,8 +69,13 @@ private constructor(
      */
     fun description(): Optional<String> = body.description()
 
-    /** Any valid json object data. Can be used to save customized data. Max size is 65kb. */
-    fun _metaData(): JsonValue = body._metaData()
+    /**
+     * Any valid json object data. Can be used to save customized data. Max size is 65kb.
+     *
+     * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
+     *   the server responded with an unexpected value).
+     */
+    fun metaData(): Optional<MetaData> = body.metaData()
 
     /**
      * Name of the asset. Use this field to assign a meaningful, custom name to the asset being
@@ -110,6 +115,13 @@ private constructor(
      * Unlike [description], this method doesn't throw if the JSON field has an unexpected type.
      */
     fun _description(): JsonField<String> = body._description()
+
+    /**
+     * Returns the raw JSON value of [metaData].
+     *
+     * Unlike [metaData], this method doesn't throw if the JSON field has an unexpected type.
+     */
+    fun _metaData(): JsonField<MetaData> = body._metaData()
 
     /**
      * Returns the raw JSON value of [name].
@@ -229,7 +241,16 @@ private constructor(
         fun description(description: JsonField<String>) = apply { body.description(description) }
 
         /** Any valid json object data. Can be used to save customized data. Max size is 65kb. */
-        fun metaData(metaData: JsonValue) = apply { body.metaData(metaData) }
+        fun metaData(metaData: MetaData) = apply { body.metaData(metaData) }
+
+        /**
+         * Sets [Builder.metaData] to an arbitrary JSON value.
+         *
+         * You should usually call [Builder.metaData] with a well-typed [MetaData] value instead.
+         * This method is primarily for setting the field to an undocumented or not yet supported
+         * value.
+         */
+        fun metaData(metaData: JsonField<MetaData>) = apply { body.metaData(metaData) }
 
         /**
          * Name of the asset. Use this field to assign a meaningful, custom name to the asset being
@@ -431,7 +452,7 @@ private constructor(
         private val attributes: JsonValue,
         private val customId: JsonField<String>,
         private val description: JsonField<String>,
-        private val metaData: JsonValue,
+        private val metaData: JsonField<MetaData>,
         private val name: JsonField<String>,
         private val tags: JsonField<List<String>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -446,7 +467,9 @@ private constructor(
             @JsonProperty("description")
             @ExcludeMissing
             description: JsonField<String> = JsonMissing.of(),
-            @JsonProperty("meta_data") @ExcludeMissing metaData: JsonValue = JsonMissing.of(),
+            @JsonProperty("meta_data")
+            @ExcludeMissing
+            metaData: JsonField<MetaData> = JsonMissing.of(),
             @JsonProperty("name") @ExcludeMissing name: JsonField<String> = JsonMissing.of(),
             @JsonProperty("tags") @ExcludeMissing tags: JsonField<List<String>> = JsonMissing.of(),
         ) : this(attributes, customId, description, metaData, name, tags, mutableMapOf())
@@ -481,8 +504,13 @@ private constructor(
          */
         fun description(): Optional<String> = description.getOptional("description")
 
-        /** Any valid json object data. Can be used to save customized data. Max size is 65kb. */
-        @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
+        /**
+         * Any valid json object data. Can be used to save customized data. Max size is 65kb.
+         *
+         * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
+         *   if the server responded with an unexpected value).
+         */
+        fun metaData(): Optional<MetaData> = metaData.getOptional("meta_data")
 
         /**
          * Name of the asset. Use this field to assign a meaningful, custom name to the asset being
@@ -526,6 +554,13 @@ private constructor(
         fun _description(): JsonField<String> = description
 
         /**
+         * Returns the raw JSON value of [metaData].
+         *
+         * Unlike [metaData], this method doesn't throw if the JSON field has an unexpected type.
+         */
+        @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonField<MetaData> = metaData
+
+        /**
          * Returns the raw JSON value of [name].
          *
          * Unlike [name], this method doesn't throw if the JSON field has an unexpected type.
@@ -563,7 +598,7 @@ private constructor(
             private var attributes: JsonValue = JsonMissing.of()
             private var customId: JsonField<String> = JsonMissing.of()
             private var description: JsonField<String> = JsonMissing.of()
-            private var metaData: JsonValue = JsonMissing.of()
+            private var metaData: JsonField<MetaData> = JsonMissing.of()
             private var name: JsonField<String> = JsonMissing.of()
             private var tags: JsonField<MutableList<String>>? = null
             private var additionalProperties: MutableMap<String, JsonValue> = mutableMapOf()
@@ -626,7 +661,16 @@ private constructor(
             /**
              * Any valid json object data. Can be used to save customized data. Max size is 65kb.
              */
-            fun metaData(metaData: JsonValue) = apply { this.metaData = metaData }
+            fun metaData(metaData: MetaData) = metaData(JsonField.of(metaData))
+
+            /**
+             * Sets [Builder.metaData] to an arbitrary JSON value.
+             *
+             * You should usually call [Builder.metaData] with a well-typed [MetaData] value
+             * instead. This method is primarily for setting the field to an undocumented or not yet
+             * supported value.
+             */
+            fun metaData(metaData: JsonField<MetaData>) = apply { this.metaData = metaData }
 
             /**
              * Name of the asset. Use this field to assign a meaningful, custom name to the asset

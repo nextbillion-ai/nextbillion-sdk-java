@@ -48,8 +48,11 @@ private constructor(
     /**
      * A key-value map storing form submission data, where keys correspond to field labels and
      * values can be of any type depend on the type of according document item.
+     *
+     * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
+     *   the server responded with an unexpected value).
      */
-    fun _document(): JsonValue = body._document()
+    fun document(): Optional<DocumentSubmission> = body.document()
 
     /**
      * Sets the status of the route step. Currently only completed is supported.
@@ -72,6 +75,13 @@ private constructor(
      *   the server responded with an unexpected value).
      */
     fun status(): Optional<String> = body.status()
+
+    /**
+     * Returns the raw JSON value of [document].
+     *
+     * Unlike [document], this method doesn't throw if the JSON field has an unexpected type.
+     */
+    fun _document(): JsonField<DocumentSubmission> = body._document()
 
     /**
      * Returns the raw JSON value of [mode].
@@ -156,7 +166,16 @@ private constructor(
          * A key-value map storing form submission data, where keys correspond to field labels and
          * values can be of any type depend on the type of according document item.
          */
-        fun document(document: JsonValue) = apply { body.document(document) }
+        fun document(document: DocumentSubmission) = apply { body.document(document) }
+
+        /**
+         * Sets [Builder.document] to an arbitrary JSON value.
+         *
+         * You should usually call [Builder.document] with a well-typed [DocumentSubmission] value
+         * instead. This method is primarily for setting the field to an undocumented or not yet
+         * supported value.
+         */
+        fun document(document: JsonField<DocumentSubmission>) = apply { body.document(document) }
 
         /**
          * Sets the status of the route step. Currently only completed is supported.
@@ -352,7 +371,7 @@ private constructor(
 
     class Body
     private constructor(
-        private val document: JsonValue,
+        private val document: JsonField<DocumentSubmission>,
         private val mode: JsonField<String>,
         private val status: JsonField<String>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -360,7 +379,9 @@ private constructor(
 
         @JsonCreator
         private constructor(
-            @JsonProperty("document") @ExcludeMissing document: JsonValue = JsonMissing.of(),
+            @JsonProperty("document")
+            @ExcludeMissing
+            document: JsonField<DocumentSubmission> = JsonMissing.of(),
             @JsonProperty("mode") @ExcludeMissing mode: JsonField<String> = JsonMissing.of(),
             @JsonProperty("status") @ExcludeMissing status: JsonField<String> = JsonMissing.of(),
         ) : this(document, mode, status, mutableMapOf())
@@ -368,8 +389,11 @@ private constructor(
         /**
          * A key-value map storing form submission data, where keys correspond to field labels and
          * values can be of any type depend on the type of according document item.
+         *
+         * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
+         *   if the server responded with an unexpected value).
          */
-        @JsonProperty("document") @ExcludeMissing fun _document(): JsonValue = document
+        fun document(): Optional<DocumentSubmission> = document.getOptional("document")
 
         /**
          * Sets the status of the route step. Currently only completed is supported.
@@ -392,6 +416,15 @@ private constructor(
          *   if the server responded with an unexpected value).
          */
         fun status(): Optional<String> = status.getOptional("status")
+
+        /**
+         * Returns the raw JSON value of [document].
+         *
+         * Unlike [document], this method doesn't throw if the JSON field has an unexpected type.
+         */
+        @JsonProperty("document")
+        @ExcludeMissing
+        fun _document(): JsonField<DocumentSubmission> = document
 
         /**
          * Returns the raw JSON value of [mode].
@@ -428,7 +461,7 @@ private constructor(
         /** A builder for [Body]. */
         class Builder internal constructor() {
 
-            private var document: JsonValue = JsonMissing.of()
+            private var document: JsonField<DocumentSubmission> = JsonMissing.of()
             private var mode: JsonField<String> = JsonMissing.of()
             private var status: JsonField<String> = JsonMissing.of()
             private var additionalProperties: MutableMap<String, JsonValue> = mutableMapOf()
@@ -445,7 +478,18 @@ private constructor(
              * A key-value map storing form submission data, where keys correspond to field labels
              * and values can be of any type depend on the type of according document item.
              */
-            fun document(document: JsonValue) = apply { this.document = document }
+            fun document(document: DocumentSubmission) = document(JsonField.of(document))
+
+            /**
+             * Sets [Builder.document] to an arbitrary JSON value.
+             *
+             * You should usually call [Builder.document] with a well-typed [DocumentSubmission]
+             * value instead. This method is primarily for setting the field to an undocumented or
+             * not yet supported value.
+             */
+            fun document(document: JsonField<DocumentSubmission>) = apply {
+                this.document = document
+            }
 
             /**
              * Sets the status of the route step. Currently only completed is supported.

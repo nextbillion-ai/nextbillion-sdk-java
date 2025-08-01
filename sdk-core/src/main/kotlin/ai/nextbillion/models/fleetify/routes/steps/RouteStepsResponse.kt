@@ -610,7 +610,7 @@ private constructor(
         private val completedAt: JsonField<Long>,
         private val completedByMode: JsonField<RouteStepCompletionMode>,
         private val completionMode: JsonField<RouteStepCompletionMode>,
-        private val document: JsonValue,
+        private val document: JsonField<DocumentSubmission>,
         private val documentModifiedAt: JsonField<Long>,
         private val geofenceConfig: JsonField<RouteStepGeofenceConfig>,
         private val status: JsonField<Status>,
@@ -628,7 +628,9 @@ private constructor(
             @JsonProperty("completion_mode")
             @ExcludeMissing
             completionMode: JsonField<RouteStepCompletionMode> = JsonMissing.of(),
-            @JsonProperty("document") @ExcludeMissing document: JsonValue = JsonMissing.of(),
+            @JsonProperty("document")
+            @ExcludeMissing
+            document: JsonField<DocumentSubmission> = JsonMissing.of(),
             @JsonProperty("document_modified_at")
             @ExcludeMissing
             documentModifiedAt: JsonField<Long> = JsonMissing.of(),
@@ -691,8 +693,11 @@ private constructor(
         /**
          * A key-value map storing form submission data, where keys correspond to field labels and
          * values can be of any type depend on the type of according document item.
+         *
+         * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
+         *   if the server responded with an unexpected value).
          */
-        @JsonProperty("document") @ExcludeMissing fun _document(): JsonValue = document
+        fun document(): Optional<DocumentSubmission> = document.getOptional("document")
 
         /**
          * Represents the timestamp of the last doc modification in seconds since the Unix epoch.
@@ -753,6 +758,15 @@ private constructor(
         fun _completionMode(): JsonField<RouteStepCompletionMode> = completionMode
 
         /**
+         * Returns the raw JSON value of [document].
+         *
+         * Unlike [document], this method doesn't throw if the JSON field has an unexpected type.
+         */
+        @JsonProperty("document")
+        @ExcludeMissing
+        fun _document(): JsonField<DocumentSubmission> = document
+
+        /**
          * Returns the raw JSON value of [documentModifiedAt].
          *
          * Unlike [documentModifiedAt], this method doesn't throw if the JSON field has an
@@ -803,7 +817,7 @@ private constructor(
             private var completedAt: JsonField<Long> = JsonMissing.of()
             private var completedByMode: JsonField<RouteStepCompletionMode> = JsonMissing.of()
             private var completionMode: JsonField<RouteStepCompletionMode> = JsonMissing.of()
-            private var document: JsonValue = JsonMissing.of()
+            private var document: JsonField<DocumentSubmission> = JsonMissing.of()
             private var documentModifiedAt: JsonField<Long> = JsonMissing.of()
             private var geofenceConfig: JsonField<RouteStepGeofenceConfig> = JsonMissing.of()
             private var status: JsonField<Status> = JsonMissing.of()
@@ -888,7 +902,18 @@ private constructor(
              * A key-value map storing form submission data, where keys correspond to field labels
              * and values can be of any type depend on the type of according document item.
              */
-            fun document(document: JsonValue) = apply { this.document = document }
+            fun document(document: DocumentSubmission) = document(JsonField.of(document))
+
+            /**
+             * Sets [Builder.document] to an arbitrary JSON value.
+             *
+             * You should usually call [Builder.document] with a well-typed [DocumentSubmission]
+             * value instead. This method is primarily for setting the field to an undocumented or
+             * not yet supported value.
+             */
+            fun document(document: JsonField<DocumentSubmission>) = apply {
+                this.document = document
+            }
 
             /**
              * Represents the timestamp of the last doc modification in seconds since the Unix
