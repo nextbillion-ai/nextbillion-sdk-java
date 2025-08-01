@@ -99,7 +99,7 @@ internal class AssetUpdateParamsTest {
                 )
             )
         assertThat(body.description()).contains("description")
-        assertThat(body.metaData()).isEqualTo(MetaData.builder().build())
+        assertThat(body.metaData()).contains(MetaData.builder().build())
         assertThat(body.name()).contains("name")
         assertThat(body.tags().getOrNull()).containsExactly("string")
     }

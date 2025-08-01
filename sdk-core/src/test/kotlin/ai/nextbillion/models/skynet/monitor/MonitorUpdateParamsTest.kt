@@ -193,7 +193,7 @@ internal class MonitorUpdateParamsTest {
                     )
                     .build()
             )
-        assertThat(body.metaData()).isEqualTo(Metadata.builder().build())
+        assertThat(body.metaData()).contains(Metadata.builder().build())
         assertThat(body.name()).contains("\"name\":\"warehouse_exit\"")
         assertThat(body.speedingConfig())
             .contains(

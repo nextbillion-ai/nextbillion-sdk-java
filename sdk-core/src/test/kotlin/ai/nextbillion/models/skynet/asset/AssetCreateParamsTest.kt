@@ -91,7 +91,7 @@ internal class AssetCreateParamsTest {
             )
         assertThat(body.customId()).contains("custom_id")
         assertThat(body.description()).contains("description")
-        assertThat(body.metaData()).isEqualTo(MetaData.builder().build())
+        assertThat(body.metaData()).contains(MetaData.builder().build())
         assertThat(body.name()).contains("name")
         assertThat(body.tags().getOrNull()).containsExactly("string")
     }

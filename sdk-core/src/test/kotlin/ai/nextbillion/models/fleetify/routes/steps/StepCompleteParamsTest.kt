@@ -72,7 +72,7 @@ internal class StepCompleteParamsTest {
 
         val body = params._body()
 
-        assertThat(body.document()).isEqualTo(DocumentSubmission.builder().build())
+        assertThat(body.document()).contains(DocumentSubmission.builder().build())
         assertThat(body.mode()).contains("mode")
         assertThat(body.status()).contains("status")
     }
