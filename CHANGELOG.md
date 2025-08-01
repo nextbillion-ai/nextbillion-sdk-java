@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.8 (2025-08-01)
+
+Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
+
+### Build System
+
+* set log level to info ([b91ef5f](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/b91ef5fb24b2398620f53a780f80595cab0adaa8))
+
 ## 0.1.0-alpha.7 (2025-08-01)
 
 Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
