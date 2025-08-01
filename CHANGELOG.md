@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.10 (2025-08-01)
+
+Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
+
+### Chores
+
+* **internal:** bump ci test timeout ([70444a5](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/70444a5153bc2bb20cc2ada008fda099dfd82aa7))
+* **internal:** reduce proguard ci logging ([a8ab544](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/a8ab544c5811e3233625c5770ed95f2a69cf16d1))
+
 ## 0.1.0-alpha.9 (2025-08-01)
 
 Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
