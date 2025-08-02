@@ -2,8 +2,8 @@
 
 <!-- x-release-please-start-version -->
 
-[![Maven Central](https://img.shields.io/maven-central/v/ai.nextbillion/sdk)](https://central.sonatype.com/artifact/ai.nextbillion/sdk/0.1.0-alpha.11)
-[![javadoc](https://javadoc.io/badge2/ai.nextbillion/sdk/0.1.0-alpha.11/javadoc.svg)](https://javadoc.io/doc/ai.nextbillion/sdk/0.1.0-alpha.11)
+[![Maven Central](https://img.shields.io/maven-central/v/ai.nextbillion/sdk)](https://central.sonatype.com/artifact/ai.nextbillion/sdk/0.1.0-alpha.12)
+[![javadoc](https://javadoc.io/badge2/ai.nextbillion/sdk/0.1.0-alpha.12/javadoc.svg)](https://javadoc.io/doc/ai.nextbillion/sdk/0.1.0-alpha.12)
 
 <!-- x-release-please-end -->
 
@@ -13,7 +13,7 @@ It is generated with [Stainless](https://www.stainless.com/).
 
 <!-- x-release-please-start-version -->
 
-The REST API documentation can be found on [docs.nextbillion.ai](https://docs.nextbillion.ai). Javadocs are available on [javadoc.io](https://javadoc.io/doc/ai.nextbillion/sdk/0.1.0-alpha.11).
+The REST API documentation can be found on [docs.nextbillion.ai](https://docs.nextbillion.ai). Javadocs are available on [javadoc.io](https://javadoc.io/doc/ai.nextbillion/sdk/0.1.0-alpha.12).
 
 <!-- x-release-please-end -->
 
@@ -24,7 +24,7 @@ The REST API documentation can be found on [docs.nextbillion.ai](https://docs.ne
 ### Gradle
 
 ```kotlin
-implementation("ai.nextbillion:sdk:0.1.0-alpha.11")
+implementation("ai.nextbillion:sdk:0.1.0-alpha.12")
 ```
 
 ### Maven
@@ -33,7 +33,7 @@ implementation("ai.nextbillion:sdk:0.1.0-alpha.11")
 <dependency>
   <groupId>ai.nextbillion</groupId>
   <artifactId>sdk</artifactId>
-  <version>0.1.0-alpha.11</version>
+  <version>0.1.0-alpha.12</version>
 </dependency>
 ```
 
