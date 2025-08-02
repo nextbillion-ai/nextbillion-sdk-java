@@ -198,7 +198,7 @@ internal class MonitorCreateParamsTest {
                     )
                     .build()
             )
-        assertThat(body.metaData()).isEqualTo(Metadata.builder().build())
+        assertThat(body.metaData()).contains(Metadata.builder().build())
         assertThat(body.name()).contains("name")
         assertThat(body.speedingConfig())
             .contains(

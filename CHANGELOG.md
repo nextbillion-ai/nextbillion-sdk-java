@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.13 (2025-08-02)
+
+Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
+
+### Chores
+
+* **api:** dedupe location types ([fede6c0](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/fede6c0b7ed2558337b9834d6ea9dc422fd20da3))
+* **internal:** improve test assertions ([e4b08a8](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/e4b08a827e8980a14fc828cf052b860b7f86b49a))
+
 ## 0.1.0-alpha.12 (2025-08-01)
 
 Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)

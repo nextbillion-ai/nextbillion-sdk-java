@@ -74,7 +74,7 @@ internal class MonitorTest {
                     )
                     .build()
             )
-        assertThat(monitor.metaData()).isEqualTo(Metadata.builder().build())
+        assertThat(monitor.metaData()).contains(Metadata.builder().build())
         assertThat(monitor.name()).contains("name")
         assertThat(monitor.speedingConfig())
             .contains(
