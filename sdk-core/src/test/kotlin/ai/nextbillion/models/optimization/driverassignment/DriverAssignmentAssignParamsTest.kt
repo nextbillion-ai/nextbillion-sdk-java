@@ -74,7 +74,7 @@ internal class DriverAssignmentAssignParamsTest {
             .addVehicle(
                 Vehicle.builder()
                     .id("id")
-                    .location(Vehicle.Location.builder().lat(0.0).lng(0.0).build())
+                    .location(Location.builder().lat(-90.0).lon(-180.0).build())
                     .attributes(
                         JsonValue.from(
                             "\"attributes\":{\n    \"driver_rating\": \"4.0\",\n    \"trip_types\": \"premium\"\n  }"
@@ -177,7 +177,7 @@ internal class DriverAssignmentAssignParamsTest {
                 .addVehicle(
                     Vehicle.builder()
                         .id("id")
-                        .location(Vehicle.Location.builder().lat(0.0).lng(0.0).build())
+                        .location(Location.builder().lat(-90.0).lon(-180.0).build())
                         .attributes(
                             JsonValue.from(
                                 "\"attributes\":{\n    \"driver_rating\": \"4.0\",\n    \"trip_types\": \"premium\"\n  }"
@@ -232,7 +232,10 @@ internal class DriverAssignmentAssignParamsTest {
                         .build()
                 )
                 .addVehicle(
-                    Vehicle.builder().id("id").location(Vehicle.Location.builder().build()).build()
+                    Vehicle.builder()
+                        .id("id")
+                        .location(Location.builder().lat(-90.0).lon(-180.0).build())
+                        .build()
                 )
                 .build()
 
@@ -307,7 +310,7 @@ internal class DriverAssignmentAssignParamsTest {
                 .addVehicle(
                     Vehicle.builder()
                         .id("id")
-                        .location(Vehicle.Location.builder().lat(0.0).lng(0.0).build())
+                        .location(Location.builder().lat(-90.0).lon(-180.0).build())
                         .attributes(
                             JsonValue.from(
                                 "\"attributes\":{\n    \"driver_rating\": \"4.0\",\n    \"trip_types\": \"premium\"\n  }"
@@ -410,7 +413,7 @@ internal class DriverAssignmentAssignParamsTest {
             .containsExactly(
                 Vehicle.builder()
                     .id("id")
-                    .location(Vehicle.Location.builder().lat(0.0).lng(0.0).build())
+                    .location(Location.builder().lat(-90.0).lon(-180.0).build())
                     .attributes(
                         JsonValue.from(
                             "\"attributes\":{\n    \"driver_rating\": \"4.0\",\n    \"trip_types\": \"premium\"\n  }"
@@ -460,7 +463,10 @@ internal class DriverAssignmentAssignParamsTest {
                         .build()
                 )
                 .addVehicle(
-                    Vehicle.builder().id("id").location(Vehicle.Location.builder().build()).build()
+                    Vehicle.builder()
+                        .id("id")
+                        .location(Location.builder().lat(-90.0).lon(-180.0).build())
+                        .build()
                 )
                 .build()
 
@@ -476,7 +482,10 @@ internal class DriverAssignmentAssignParamsTest {
             )
         assertThat(body.vehicles())
             .containsExactly(
-                Vehicle.builder().id("id").location(Vehicle.Location.builder().build()).build()
+                Vehicle.builder()
+                    .id("id")
+                    .location(Location.builder().lat(-90.0).lon(-180.0).build())
+                    .build()
             )
     }
 }

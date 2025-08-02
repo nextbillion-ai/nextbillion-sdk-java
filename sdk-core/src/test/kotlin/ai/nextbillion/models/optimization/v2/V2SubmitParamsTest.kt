@@ -26,7 +26,7 @@ internal class V2SubmitParamsTest {
             .addVehicle(
                 Vehicle.builder()
                     .id("id")
-                    .location(Vehicle.Location.builder().lat(0.0).lng(0.0).build())
+                    .location(Location.builder().lat(-90.0).lon(-180.0).build())
                     .attributes(
                         JsonValue.from(
                             "\"attributes\":{\n    \"driver_rating\": \"4.0\",\n    \"trip_types\": \"premium\"\n  }"
@@ -295,7 +295,7 @@ internal class V2SubmitParamsTest {
                 .addVehicle(
                     Vehicle.builder()
                         .id("id")
-                        .location(Vehicle.Location.builder().lat(0.0).lng(0.0).build())
+                        .location(Location.builder().lat(-90.0).lon(-180.0).build())
                         .attributes(
                             JsonValue.from(
                                 "\"attributes\":{\n    \"driver_rating\": \"4.0\",\n    \"trip_types\": \"premium\"\n  }"
@@ -562,7 +562,10 @@ internal class V2SubmitParamsTest {
                 .key("key=API_KEY")
                 .locations(V2SubmitParams.Locations.builder().addLocation("string").build())
                 .addVehicle(
-                    Vehicle.builder().id("id").location(Vehicle.Location.builder().build()).build()
+                    Vehicle.builder()
+                        .id("id")
+                        .location(Location.builder().lat(-90.0).lon(-180.0).build())
+                        .build()
                 )
                 .build()
 
@@ -586,7 +589,7 @@ internal class V2SubmitParamsTest {
                 .addVehicle(
                     Vehicle.builder()
                         .id("id")
-                        .location(Vehicle.Location.builder().lat(0.0).lng(0.0).build())
+                        .location(Location.builder().lat(-90.0).lon(-180.0).build())
                         .attributes(
                             JsonValue.from(
                                 "\"attributes\":{\n    \"driver_rating\": \"4.0\",\n    \"trip_types\": \"premium\"\n  }"
@@ -855,7 +858,7 @@ internal class V2SubmitParamsTest {
             .containsExactly(
                 Vehicle.builder()
                     .id("id")
-                    .location(Vehicle.Location.builder().lat(0.0).lng(0.0).build())
+                    .location(Location.builder().lat(-90.0).lon(-180.0).build())
                     .attributes(
                         JsonValue.from(
                             "\"attributes\":{\n    \"driver_rating\": \"4.0\",\n    \"trip_types\": \"premium\"\n  }"
@@ -1123,7 +1126,10 @@ internal class V2SubmitParamsTest {
                 .key("key=API_KEY")
                 .locations(V2SubmitParams.Locations.builder().addLocation("string").build())
                 .addVehicle(
-                    Vehicle.builder().id("id").location(Vehicle.Location.builder().build()).build()
+                    Vehicle.builder()
+                        .id("id")
+                        .location(Location.builder().lat(-90.0).lon(-180.0).build())
+                        .build()
                 )
                 .build()
 
@@ -1133,7 +1139,10 @@ internal class V2SubmitParamsTest {
             .isEqualTo(V2SubmitParams.Locations.builder().addLocation("string").build())
         assertThat(body.vehicles())
             .containsExactly(
-                Vehicle.builder().id("id").location(Vehicle.Location.builder().build()).build()
+                Vehicle.builder()
+                    .id("id")
+                    .location(Location.builder().lat(-90.0).lon(-180.0).build())
+                    .build()
             )
     }
 }

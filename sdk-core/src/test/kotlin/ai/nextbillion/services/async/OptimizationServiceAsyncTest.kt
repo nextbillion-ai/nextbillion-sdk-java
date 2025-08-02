@@ -268,7 +268,7 @@ internal class OptimizationServiceAsyncTest {
                             .addAdd(
                                 Vehicle.builder()
                                     .id("id")
-                                    .location(Vehicle.Location.builder().lat(0.0).lng(0.0).build())
+                                    .location(Location.builder().lat(-90.0).lon(-180.0).build())
                                     .attributes(
                                         JsonValue.from(
                                             "\"attributes\":{\n    \"driver_rating\": \"4.0\",\n    \"trip_types\": \"premium\"\n  }"
@@ -283,7 +283,7 @@ internal class OptimizationServiceAsyncTest {
                             .modify(
                                 Vehicle.builder()
                                     .id("id")
-                                    .location(Vehicle.Location.builder().lat(0.0).lng(0.0).build())
+                                    .location(Location.builder().lat(-90.0).lon(-180.0).build())
                                     .attributes(
                                         JsonValue.from(
                                             "\"attributes\":{\n    \"driver_rating\": \"4.0\",\n    \"trip_types\": \"premium\"\n  }"
