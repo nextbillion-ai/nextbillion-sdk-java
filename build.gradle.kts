@@ -8,7 +8,7 @@ repositories {
 
 allprojects {
     group = "ai.nextbillion"
-    version = "0.1.0-alpha.14" // x-release-please-version
+    version = "0.1.0-alpha.17" // x-release-please-version
 }
 
 subprojects {
