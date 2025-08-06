@@ -12,13 +12,34 @@ repositories {
     mavenCentral()
 }
 
-extra["signingInMemoryKey"] = System.getenv("GPG_SIGNING_KEY")
+// Check for required environment variables
+val sonatypeUsername = System.getenv("SONATYPE_USERNAME")
+val sonatypePassword = System.getenv("SONATYPE_PASSWORD")
+val gpgSigningKey = System.getenv("GPG_SIGNING_KEY")
+val gpgSigningPassword = System.getenv("GPG_SIGNING_PASSWORD")
+
+println("Publishing configuration:")
+println("  Project: ${project.group}:${project.name}:${project.version}")
+println("  Sonatype username: ${if (sonatypeUsername.isNullOrBlank()) "NOT SET" else "SET"}")
+println("  Sonatype password: ${if (sonatypePassword.isNullOrBlank()) "NOT SET" else "SET"}")
+println("  GPG signing key: ${if (gpgSigningKey.isNullOrBlank()) "NOT SET" else "SET"}")
+println("  GPG signing password: ${if (gpgSigningPassword.isNullOrBlank()) "NOT SET" else "SET"}")
+
+if (sonatypeUsername.isNullOrBlank() || sonatypePassword.isNullOrBlank()) {
+    throw GradleException("SONATYPE_USERNAME and SONATYPE_PASSWORD environment variables are required for publishing")
+}
+
+if (gpgSigningKey.isNullOrBlank() || gpgSigningPassword.isNullOrBlank()) {
+    throw GradleException("GPG_SIGNING_KEY and GPG_SIGNING_PASSWORD environment variables are required for publishing")
+}
+
+extra["signingInMemoryKey"] = gpgSigningKey
 extra["signingInMemoryKeyId"] = System.getenv("GPG_SIGNING_KEY_ID")
-extra["signingInMemoryKeyPassword"] = System.getenv("GPG_SIGNING_PASSWORD")
+extra["signingInMemoryKeyPassword"] = gpgSigningPassword
 
 configure<MavenPublishBaseExtension> {
     signAllPublications()
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    publishToMavenCentral(SonatypeHost.S01)
 
     coordinates(project.group.toString(), project.name, project.version.toString())
     configure(

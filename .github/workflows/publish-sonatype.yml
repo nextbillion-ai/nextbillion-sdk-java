@@ -30,9 +30,30 @@ jobs:
 
       - name: Publish to Sonatype
         run: |-
+          # Validate environment variables
+          if [ -z "$SONATYPE_USERNAME" ]; then
+            echo "Error: SONATYPE_USERNAME is not set"
+            exit 1
+          fi
+          if [ -z "$SONATYPE_PASSWORD" ]; then
+            echo "Error: SONATYPE_PASSWORD is not set"
+            exit 1
+          fi
+          if [ -z "$GPG_SIGNING_KEY" ]; then
+            echo "Error: GPG_SIGNING_KEY is not set"
+            exit 1
+          fi
+          if [ -z "$GPG_SIGNING_PASSWORD" ]; then
+            echo "Error: GPG_SIGNING_PASSWORD is not set"
+            exit 1
+          fi
+          echo "All required environment variables are set"
+
+          # Setup GPG and publish
           export -- GPG_SIGNING_KEY_ID
           printenv -- GPG_SIGNING_KEY | gpg --batch --passphrase-fd 3 --import 3<<< "$GPG_SIGNING_PASSWORD"
           GPG_SIGNING_KEY_ID="$(gpg --with-colons --list-keys | awk -F : -- '/^pub:/ { getline; print "0x" substr($10, length($10) - 7) }')"
+          echo "GPG_SIGNING_KEY_ID: $GPG_SIGNING_KEY_ID"
           ./gradlew publish --no-configuration-cache --info --stacktrace
         env:
           SONATYPE_USERNAME: ${{ secrets.NEXTBILLION_SDK_SONATYPE_USERNAME || secrets.SONATYPE_USERNAME }}
