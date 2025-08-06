@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.16 (2025-08-06)
+
+Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.16](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.14...v0.1.0-alpha.16)
+
+### Bug Fixes
+
+* properly provide credentials for vanniktech publish plugin ([e6feb57](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/e6feb57351731af5bf44d2da526831342bc0a32c))
+
+
+### Chores
+
+* **example:** fix run example comment ([ec0e73c](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/ec0e73cffa96ddb2439bb5ae719ccd0531790993))
+
 ## 0.1.0-alpha.14 (2025-08-06)
 
 Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
