@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.14 (2025-08-06)
+
+Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
+
+### Chores
+
+* **internal:** add async lock helper ([1a69d67](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/1a69d673750210dce3cc5d1a14abd9853da52665))
+
 ## 0.1.0-alpha.13 (2025-08-02)
 
 Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
