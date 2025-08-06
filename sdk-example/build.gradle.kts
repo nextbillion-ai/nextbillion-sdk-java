@@ -18,7 +18,7 @@ tasks.withType<JavaCompile>().configureEach {
 
 application {
     // Use `./gradlew :sdk-example:run` to run `Main`
-    // Use `./gradlew :sdk-example:run -Dexample=Something` to run `SomethingExample`
+    // Use `./gradlew :sdk-example:run -Pexample=Something` to run `SomethingExample`
     mainClass = "ai.nextbillion.example.${
         if (project.hasProperty("example"))
             "${project.property("example")}Example"
