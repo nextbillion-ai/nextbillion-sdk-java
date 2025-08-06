@@ -1,10 +1,11 @@
 import com.vanniktech.maven.publish.JavadocJar
 import com.vanniktech.maven.publish.KotlinJvm
 import com.vanniktech.maven.publish.MavenPublishBaseExtension
-import com.vanniktech.maven.publish.SonatypeHost
+import org.gradle.plugins.signing.SigningExtension
 
 plugins {
     id("com.vanniktech.maven.publish")
+    id("signing")
 }
 
 repositories {
@@ -18,13 +19,6 @@ val sonatypePassword = System.getenv("SONATYPE_PASSWORD")
 val gpgSigningKey = System.getenv("GPG_SIGNING_KEY")
 val gpgSigningPassword = System.getenv("GPG_SIGNING_PASSWORD")
 
-println("Publishing configuration:")
-println("  Project: ${project.group}:${project.name}:${project.version}")
-println("  Sonatype username: ${if (sonatypeUsername.isNullOrBlank()) "NOT SET" else "SET"}")
-println("  Sonatype password: ${if (sonatypePassword.isNullOrBlank()) "NOT SET" else "SET"}")
-println("  GPG signing key: ${if (gpgSigningKey.isNullOrBlank()) "NOT SET" else "SET"}")
-println("  GPG signing password: ${if (gpgSigningPassword.isNullOrBlank()) "NOT SET" else "SET"}")
-
 if (sonatypeUsername.isNullOrBlank() || sonatypePassword.isNullOrBlank()) {
     throw GradleException("SONATYPE_USERNAME and SONATYPE_PASSWORD environment variables are required for publishing")
 }
@@ -33,13 +27,19 @@ if (gpgSigningKey.isNullOrBlank() || gpgSigningPassword.isNullOrBlank()) {
     throw GradleException("GPG_SIGNING_KEY and GPG_SIGNING_PASSWORD environment variables are required for publishing")
 }
 
-extra["signingInMemoryKey"] = gpgSigningKey
-extra["signingInMemoryKeyId"] = System.getenv("GPG_SIGNING_KEY_ID")
-extra["signingInMemoryKeyPassword"] = gpgSigningPassword
+configure<SigningExtension> {
+    useGpgCmd()
+    val signingKeyId = System.getenv("GPG_SIGNING_KEY_ID")
+    val signingPassword = gpgSigningPassword
+    
+    if (!signingKeyId.isNullOrBlank() && !signingPassword.isNullOrBlank()) {
+        useInMemoryPgpKeys(signingKeyId, gpgSigningKey, signingPassword)
+    }
+}
 
 configure<MavenPublishBaseExtension> {
     signAllPublications()
-    publishToMavenCentral(SonatypeHost.S01)
+    publishToMavenCentral(automaticRelease = true)
 
     coordinates(project.group.toString(), project.name, project.version.toString())
     configure(
