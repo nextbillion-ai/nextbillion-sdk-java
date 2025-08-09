@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.17 (2025-08-09)
+
+Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
+
+### Chores
+
+* increase max gradle JVM heap to 8GB ([bc27158](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/bc271583c24501618e3c1a11a6a3bd41bb2df6af))
+* update @stainless-api/prism-cli to v5.15.0 ([04a556d](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/04a556df867a4c5123edd2c7c214de8cfc783ef0))
+
 ## 0.1.0-alpha.16 (2025-08-06)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.16](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.14...v0.1.0-alpha.16)
