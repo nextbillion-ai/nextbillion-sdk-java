@@ -572,7 +572,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+            return other is Mode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -585,10 +585,36 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is IsochroneComputeParams && contoursMeters == other.contoursMeters && contoursMinutes == other.contoursMinutes && coordinates == other.coordinates && key == other.key && contoursColors == other.contoursColors && denoise == other.denoise && departureTime == other.departureTime && generalize == other.generalize && mode == other.mode && polygons == other.polygons && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is IsochroneComputeParams &&
+            contoursMeters == other.contoursMeters &&
+            contoursMinutes == other.contoursMinutes &&
+            coordinates == other.coordinates &&
+            key == other.key &&
+            contoursColors == other.contoursColors &&
+            denoise == other.denoise &&
+            departureTime == other.departureTime &&
+            generalize == other.generalize &&
+            mode == other.mode &&
+            polygons == other.polygons &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(contoursMeters, contoursMinutes, coordinates, key, contoursColors, denoise, departureTime, generalize, mode, polygons, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            contoursMeters,
+            contoursMinutes,
+            coordinates,
+            key,
+            contoursColors,
+            denoise,
+            departureTime,
+            generalize,
+            mode,
+            polygons,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "IsochroneComputeParams{contoursMeters=$contoursMeters, contoursMinutes=$contoursMinutes, coordinates=$coordinates, key=$key, contoursColors=$contoursColors, denoise=$denoise, departureTime=$departureTime, generalize=$generalize, mode=$mode, polygons=$polygons, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

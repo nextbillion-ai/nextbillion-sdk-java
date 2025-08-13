@@ -608,7 +608,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is SortBy && value == other.value /* spotless:on */
+            return other is SortBy && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -743,7 +743,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is SortDrivingMode && value == other.value /* spotless:on */
+            return other is SortDrivingMode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -756,10 +756,38 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is SearchBoundParams && bound == other.bound && key == other.key && filter == other.filter && includeAllOfAttributes == other.includeAllOfAttributes && includeAnyOfAttributes == other.includeAnyOfAttributes && maxSearchLimit == other.maxSearchLimit && pn == other.pn && ps == other.ps && sortBy == other.sortBy && sortDestination == other.sortDestination && sortDrivingMode == other.sortDrivingMode && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is SearchBoundParams &&
+            bound == other.bound &&
+            key == other.key &&
+            filter == other.filter &&
+            includeAllOfAttributes == other.includeAllOfAttributes &&
+            includeAnyOfAttributes == other.includeAnyOfAttributes &&
+            maxSearchLimit == other.maxSearchLimit &&
+            pn == other.pn &&
+            ps == other.ps &&
+            sortBy == other.sortBy &&
+            sortDestination == other.sortDestination &&
+            sortDrivingMode == other.sortDrivingMode &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(bound, key, filter, includeAllOfAttributes, includeAnyOfAttributes, maxSearchLimit, pn, ps, sortBy, sortDestination, sortDrivingMode, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            bound,
+            key,
+            filter,
+            includeAllOfAttributes,
+            includeAnyOfAttributes,
+            maxSearchLimit,
+            pn,
+            ps,
+            sortBy,
+            sortDestination,
+            sortDrivingMode,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "SearchBoundParams{bound=$bound, key=$key, filter=$filter, includeAllOfAttributes=$includeAllOfAttributes, includeAnyOfAttributes=$includeAnyOfAttributes, maxSearchLimit=$maxSearchLimit, pn=$pn, ps=$ps, sortBy=$sortBy, sortDestination=$sortDestination, sortDrivingMode=$sortDrivingMode, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

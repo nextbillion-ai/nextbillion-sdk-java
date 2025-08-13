@@ -584,7 +584,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Approaches && value == other.value /* spotless:on */
+            return other is Approaches && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -730,7 +730,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Avoid && value == other.value /* spotless:on */
+            return other is Avoid && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -869,7 +869,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Geometry && value == other.value /* spotless:on */
+            return other is Geometry && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1006,7 +1006,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+            return other is Mode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1135,7 +1135,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Option && value == other.value /* spotless:on */
+            return other is Option && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1260,7 +1260,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is RoadInfo && value == other.value /* spotless:on */
+            return other is RoadInfo && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1273,10 +1273,38 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is SnapToRoadSnapParams && key == other.key && path == other.path && approaches == other.approaches && avoid == other.avoid && geometry == other.geometry && mode == other.mode && option == other.option && radiuses == other.radiuses && roadInfo == other.roadInfo && timestamps == other.timestamps && tolerateOutlier == other.tolerateOutlier && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is SnapToRoadSnapParams &&
+            key == other.key &&
+            path == other.path &&
+            approaches == other.approaches &&
+            avoid == other.avoid &&
+            geometry == other.geometry &&
+            mode == other.mode &&
+            option == other.option &&
+            radiuses == other.radiuses &&
+            roadInfo == other.roadInfo &&
+            timestamps == other.timestamps &&
+            tolerateOutlier == other.tolerateOutlier &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, path, approaches, avoid, geometry, mode, option, radiuses, roadInfo, timestamps, tolerateOutlier, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            key,
+            path,
+            approaches,
+            avoid,
+            geometry,
+            mode,
+            option,
+            radiuses,
+            roadInfo,
+            timestamps,
+            tolerateOutlier,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "SnapToRoadSnapParams{key=$key, path=$path, approaches=$approaches, avoid=$avoid, geometry=$geometry, mode=$mode, option=$option, radiuses=$radiuses, roadInfo=$roadInfo, timestamps=$timestamps, tolerateOutlier=$tolerateOutlier, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

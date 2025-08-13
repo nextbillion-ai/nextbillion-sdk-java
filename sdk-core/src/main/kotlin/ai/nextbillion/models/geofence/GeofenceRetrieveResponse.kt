@@ -303,12 +303,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && geofence == other.geofence && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                geofence == other.geofence &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(geofence, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -321,12 +321,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is GeofenceRetrieveResponse && data == other.data && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is GeofenceRetrieveResponse &&
+            data == other.data &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

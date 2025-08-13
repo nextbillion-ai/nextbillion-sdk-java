@@ -534,7 +534,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+            return other is Mode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -690,7 +690,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is RestrictionType && value == other.value /* spotless:on */
+            return other is RestrictionType && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -818,7 +818,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Source && value == other.value /* spotless:on */
+            return other is Source && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -956,7 +956,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is State && value == other.value /* spotless:on */
+            return other is State && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1092,7 +1092,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Status && value == other.value /* spotless:on */
+            return other is Status && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1105,10 +1105,38 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RestrictionListParams && area == other.area && key == other.key && limit == other.limit && offset == other.offset && mode == other.mode && name == other.name && restrictionType == other.restrictionType && source == other.source && state == other.state && status == other.status && transform == other.transform && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is RestrictionListParams &&
+            area == other.area &&
+            key == other.key &&
+            limit == other.limit &&
+            offset == other.offset &&
+            mode == other.mode &&
+            name == other.name &&
+            restrictionType == other.restrictionType &&
+            source == other.source &&
+            state == other.state &&
+            status == other.status &&
+            transform == other.transform &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(area, key, limit, offset, mode, name, restrictionType, source, state, status, transform, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            area,
+            key,
+            limit,
+            offset,
+            mode,
+            name,
+            restrictionType,
+            source,
+            state,
+            status,
+            transform,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "RestrictionListParams{area=$area, key=$key, limit=$limit, offset=$offset, mode=$mode, name=$name, restrictionType=$restrictionType, source=$source, state=$state, status=$status, transform=$transform, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

@@ -530,12 +530,15 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && originalShape == other.originalShape && originalShapeType == other.originalShapeType && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                originalShape == other.originalShape &&
+                originalShapeType == other.originalShapeType &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(originalShape, originalShapeType, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(originalShape, originalShapeType, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -672,7 +675,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is OriginalShapeType && value == other.value /* spotless:on */
+            return other is OriginalShapeType && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -685,10 +688,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RouteReportCreateParams && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is RouteReportCreateParams &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int = Objects.hash(key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "RouteReportCreateParams{key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

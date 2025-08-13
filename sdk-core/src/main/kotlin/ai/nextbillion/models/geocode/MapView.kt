@@ -243,12 +243,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is MapView && east == other.east && north == other.north && south == other.south && west == other.west && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is MapView &&
+            east == other.east &&
+            north == other.north &&
+            south == other.south &&
+            west == other.west &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(east, north, south, west, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(east, north, south, west, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

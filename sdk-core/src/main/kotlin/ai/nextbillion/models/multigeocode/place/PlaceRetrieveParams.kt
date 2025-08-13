@@ -211,10 +211,15 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is PlaceRetrieveParams && docId == other.docId && key == other.key && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is PlaceRetrieveParams &&
+            docId == other.docId &&
+            key == other.key &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(docId, key, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(docId, key, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "PlaceRetrieveParams{docId=$docId, key=$key, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

@@ -209,10 +209,15 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is BatchRetrieveParams && key == other.key && trackId == other.trackId && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is BatchRetrieveParams &&
+            key == other.key &&
+            trackId == other.trackId &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, trackId, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(key, trackId, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "BatchRetrieveParams{key=$key, trackId=$trackId, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

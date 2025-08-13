@@ -889,12 +889,29 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && polygon == other.polygon && filter == other.filter && matchFilter == other.matchFilter && maxSearchLimit == other.maxSearchLimit && pn == other.pn && ps == other.ps && sort == other.sort && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                polygon == other.polygon &&
+                filter == other.filter &&
+                matchFilter == other.matchFilter &&
+                maxSearchLimit == other.maxSearchLimit &&
+                pn == other.pn &&
+                ps == other.ps &&
+                sort == other.sort &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(polygon, filter, matchFilter, maxSearchLimit, pn, ps, sort, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                polygon,
+                filter,
+                matchFilter,
+                maxSearchLimit,
+                pn,
+                ps,
+                sort,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1118,12 +1135,13 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Polygon && coordinates == other.coordinates && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Polygon &&
+                coordinates == other.coordinates &&
+                type == other.type &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(coordinates, type, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -1347,12 +1365,15 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is MatchFilter && includeAllOfAttributes == other.includeAllOfAttributes && includeAnyOfAttributes == other.includeAnyOfAttributes && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is MatchFilter &&
+                includeAllOfAttributes == other.includeAllOfAttributes &&
+                includeAnyOfAttributes == other.includeAnyOfAttributes &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(includeAllOfAttributes, includeAnyOfAttributes, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(includeAllOfAttributes, includeAnyOfAttributes, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1730,7 +1751,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is SortBy && value == other.value /* spotless:on */
+                return other is SortBy && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1932,12 +1953,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is SortDestination && lat == other.lat && lon == other.lon && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is SortDestination &&
+                    lat == other.lat &&
+                    lon == other.lon &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(lat, lon, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -2074,7 +2096,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is SortDrivingMode && value == other.value /* spotless:on */
+                return other is SortDrivingMode && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -2087,12 +2109,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Sort && sortBy == other.sortBy && sortDestination == other.sortDestination && sortDrivingMode == other.sortDrivingMode && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Sort &&
+                sortBy == other.sortBy &&
+                sortDestination == other.sortDestination &&
+                sortDrivingMode == other.sortDrivingMode &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(sortBy, sortDestination, sortDrivingMode, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(sortBy, sortDestination, sortDrivingMode, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2105,10 +2131,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is PolygonCreateParams && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is PolygonCreateParams &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int = Objects.hash(key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "PolygonCreateParams{key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

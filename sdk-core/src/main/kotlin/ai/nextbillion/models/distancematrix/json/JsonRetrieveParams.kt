@@ -572,7 +572,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Approaches && value == other.value /* spotless:on */
+            return other is Approaches && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -718,7 +718,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Avoid && value == other.value /* spotless:on */
+            return other is Avoid && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -868,7 +868,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+            return other is Mode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -881,10 +881,32 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is JsonRetrieveParams && destinations == other.destinations && key == other.key && origins == other.origins && approaches == other.approaches && avoid == other.avoid && bearings == other.bearings && mode == other.mode && routeFailedPrompt == other.routeFailedPrompt && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is JsonRetrieveParams &&
+            destinations == other.destinations &&
+            key == other.key &&
+            origins == other.origins &&
+            approaches == other.approaches &&
+            avoid == other.avoid &&
+            bearings == other.bearings &&
+            mode == other.mode &&
+            routeFailedPrompt == other.routeFailedPrompt &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(destinations, key, origins, approaches, avoid, bearings, mode, routeFailedPrompt, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            destinations,
+            key,
+            origins,
+            approaches,
+            avoid,
+            bearings,
+            mode,
+            routeFailedPrompt,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "JsonRetrieveParams{destinations=$destinations, key=$key, origins=$origins, approaches=$approaches, avoid=$avoid, bearings=$bearings, mode=$mode, routeFailedPrompt=$routeFailedPrompt, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

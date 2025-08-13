@@ -261,12 +261,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is AreaListResponse && code == other.code && modes == other.modes && name == other.name && timezone == other.timezone && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is AreaListResponse &&
+            code == other.code &&
+            modes == other.modes &&
+            name == other.name &&
+            timezone == other.timezone &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(code, modes, name, timezone, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(code, modes, name, timezone, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

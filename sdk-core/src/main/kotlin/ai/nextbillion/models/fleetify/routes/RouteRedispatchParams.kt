@@ -527,12 +527,15 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && operations == other.operations && distance == other.distance && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                operations == other.operations &&
+                distance == other.distance &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(operations, distance, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(operations, distance, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1013,12 +1016,17 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Data && completionMode == other.completionMode && documentTemplateId == other.documentTemplateId && step == other.step && stepId == other.stepId && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Data &&
+                    completionMode == other.completionMode &&
+                    documentTemplateId == other.documentTemplateId &&
+                    step == other.step &&
+                    stepId == other.stepId &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(completionMode, documentTemplateId, step, stepId, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(completionMode, documentTemplateId, step, stepId, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -1158,7 +1166,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is InnerOperation && value == other.value /* spotless:on */
+                return other is InnerOperation && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1171,12 +1179,13 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Operation && data == other.data && operation == other.operation && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Operation &&
+                data == other.data &&
+                operation == other.operation &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(data, operation, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -1189,10 +1198,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RouteRedispatchParams && routeId == other.routeId && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is RouteRedispatchParams &&
+            routeId == other.routeId &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(routeId, key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(routeId, key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "RouteRedispatchParams{routeId=$routeId, key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

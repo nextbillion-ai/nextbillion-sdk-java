@@ -417,12 +417,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && id == other.id && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                id == other.id &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(id, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -543,7 +543,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Cluster && value == other.value /* spotless:on */
+            return other is Cluster && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -556,10 +556,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is TripEndParams && key == other.key && cluster == other.cluster && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is TripEndParams &&
+            key == other.key &&
+            cluster == other.cluster &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, cluster, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(key, cluster, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "TripEndParams{key=$key, cluster=$cluster, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

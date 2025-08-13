@@ -287,10 +287,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RevgeocodeRetrieveParams && at == other.at && key == other.key && in_ == other.in_ && lang == other.lang && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is RevgeocodeRetrieveParams &&
+            at == other.at &&
+            key == other.key &&
+            in_ == other.in_ &&
+            lang == other.lang &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(at, key, in_, lang, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(at, key, in_, lang, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "RevgeocodeRetrieveParams{at=$at, key=$key, in_=$in_, lang=$lang, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

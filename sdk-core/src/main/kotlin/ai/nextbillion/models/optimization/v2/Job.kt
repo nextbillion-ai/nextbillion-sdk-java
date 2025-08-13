@@ -1791,7 +1791,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Alignment && value == other.value /* spotless:on */
+                return other is Alignment && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1804,12 +1804,17 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Volume && alignment == other.alignment && depth == other.depth && height == other.height && width == other.width && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Volume &&
+                alignment == other.alignment &&
+                depth == other.depth &&
+                height == other.height &&
+                width == other.width &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(alignment, depth, height, width, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(alignment, depth, height, width, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1822,12 +1827,59 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is Job && id == other.id && locationIndex == other.locationIndex && delivery == other.delivery && depotIds == other.depotIds && description == other.description && followLifoOrder == other.followLifoOrder && incompatibleLoadTypes == other.incompatibleLoadTypes && jointOrder == other.jointOrder && loadTypes == other.loadTypes && maxVisitLateness == other.maxVisitLateness && metadata == other.metadata && outsourcingCost == other.outsourcingCost && pickup == other.pickup && priority == other.priority && revenue == other.revenue && sequenceOrder == other.sequenceOrder && service == other.service && setup == other.setup && skills == other.skills && timeWindows == other.timeWindows && volume == other.volume && zones == other.zones && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is Job &&
+            id == other.id &&
+            locationIndex == other.locationIndex &&
+            delivery == other.delivery &&
+            depotIds == other.depotIds &&
+            description == other.description &&
+            followLifoOrder == other.followLifoOrder &&
+            incompatibleLoadTypes == other.incompatibleLoadTypes &&
+            jointOrder == other.jointOrder &&
+            loadTypes == other.loadTypes &&
+            maxVisitLateness == other.maxVisitLateness &&
+            metadata == other.metadata &&
+            outsourcingCost == other.outsourcingCost &&
+            pickup == other.pickup &&
+            priority == other.priority &&
+            revenue == other.revenue &&
+            sequenceOrder == other.sequenceOrder &&
+            service == other.service &&
+            setup == other.setup &&
+            skills == other.skills &&
+            timeWindows == other.timeWindows &&
+            volume == other.volume &&
+            zones == other.zones &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(id, locationIndex, delivery, depotIds, description, followLifoOrder, incompatibleLoadTypes, jointOrder, loadTypes, maxVisitLateness, metadata, outsourcingCost, pickup, priority, revenue, sequenceOrder, service, setup, skills, timeWindows, volume, zones, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(
+            id,
+            locationIndex,
+            delivery,
+            depotIds,
+            description,
+            followLifoOrder,
+            incompatibleLoadTypes,
+            jointOrder,
+            loadTypes,
+            maxVisitLateness,
+            metadata,
+            outsourcingCost,
+            pickup,
+            priority,
+            revenue,
+            sequenceOrder,
+            service,
+            setup,
+            skills,
+            timeWindows,
+            volume,
+            zones,
+            additionalProperties,
+        )
+    }
 
     override fun hashCode(): Int = hashCode
 
