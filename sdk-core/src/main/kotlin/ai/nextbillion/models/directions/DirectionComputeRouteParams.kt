@@ -2882,12 +2882,67 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && destination == other.destination && origin == other.origin && altcount == other.altcount && alternatives == other.alternatives && approaches == other.approaches && avoid == other.avoid && bearings == other.bearings && crossBorder == other.crossBorder && departureTime == other.departureTime && driveTimeLimits == other.driveTimeLimits && emissionClass == other.emissionClass && exclude == other.exclude && geometry == other.geometry && hazmatType == other.hazmatType && mode == other.mode && option == other.option && overview == other.overview && restTimes == other.restTimes && roadInfo == other.roadInfo && routeType == other.routeType && steps == other.steps && truckAxleLoad == other.truckAxleLoad && truckSize == other.truckSize && truckWeight == other.truckWeight && turnAngleRange == other.turnAngleRange && waypoints == other.waypoints && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                destination == other.destination &&
+                origin == other.origin &&
+                altcount == other.altcount &&
+                alternatives == other.alternatives &&
+                approaches == other.approaches &&
+                avoid == other.avoid &&
+                bearings == other.bearings &&
+                crossBorder == other.crossBorder &&
+                departureTime == other.departureTime &&
+                driveTimeLimits == other.driveTimeLimits &&
+                emissionClass == other.emissionClass &&
+                exclude == other.exclude &&
+                geometry == other.geometry &&
+                hazmatType == other.hazmatType &&
+                mode == other.mode &&
+                option == other.option &&
+                overview == other.overview &&
+                restTimes == other.restTimes &&
+                roadInfo == other.roadInfo &&
+                routeType == other.routeType &&
+                steps == other.steps &&
+                truckAxleLoad == other.truckAxleLoad &&
+                truckSize == other.truckSize &&
+                truckWeight == other.truckWeight &&
+                turnAngleRange == other.turnAngleRange &&
+                waypoints == other.waypoints &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(destination, origin, altcount, alternatives, approaches, avoid, bearings, crossBorder, departureTime, driveTimeLimits, emissionClass, exclude, geometry, hazmatType, mode, option, overview, restTimes, roadInfo, routeType, steps, truckAxleLoad, truckSize, truckWeight, turnAngleRange, waypoints, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                destination,
+                origin,
+                altcount,
+                alternatives,
+                approaches,
+                avoid,
+                bearings,
+                crossBorder,
+                departureTime,
+                driveTimeLimits,
+                emissionClass,
+                exclude,
+                geometry,
+                hazmatType,
+                mode,
+                option,
+                overview,
+                restTimes,
+                roadInfo,
+                routeType,
+                steps,
+                truckAxleLoad,
+                truckSize,
+                truckWeight,
+                turnAngleRange,
+                waypoints,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -3107,7 +3162,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Avoid && value == other.value /* spotless:on */
+            return other is Avoid && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -3294,7 +3349,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is EmissionClass && value == other.value /* spotless:on */
+            return other is EmissionClass && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -3476,7 +3531,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Exclude && value == other.value /* spotless:on */
+            return other is Exclude && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -3616,7 +3671,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Geometry && value == other.value /* spotless:on */
+            return other is Geometry && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -3766,7 +3821,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is HazmatType && value == other.value /* spotless:on */
+            return other is HazmatType && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -3911,7 +3966,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+            return other is Mode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -4044,7 +4099,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Option && value == other.value /* spotless:on */
+            return other is Option && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -4184,7 +4239,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Overview && value == other.value /* spotless:on */
+            return other is Overview && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -4328,7 +4383,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is RoadInfo && value == other.value /* spotless:on */
+            return other is RoadInfo && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -4462,7 +4517,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is RouteType && value == other.value /* spotless:on */
+            return other is RouteType && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -4475,10 +4530,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is DirectionComputeRouteParams && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is DirectionComputeRouteParams &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int = Objects.hash(body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "DirectionComputeRouteParams{body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

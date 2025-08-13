@@ -719,7 +719,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Approaches && value == other.value /* spotless:on */
+            return other is Approaches && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -865,7 +865,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Avoid && value == other.value /* spotless:on */
+            return other is Avoid && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1004,7 +1004,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Geometry && value == other.value /* spotless:on */
+            return other is Geometry && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1153,7 +1153,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+            return other is Mode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1290,7 +1290,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is OriginalShapeType && value == other.value /* spotless:on */
+            return other is OriginalShapeType && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1428,7 +1428,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Overview && value == other.value /* spotless:on */
+            return other is Overview && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1441,10 +1441,46 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is NavigationRetrieveRouteParams && key == other.key && altcount == other.altcount && alternatives == other.alternatives && approaches == other.approaches && avoid == other.avoid && bearings == other.bearings && destination == other.destination && geometry == other.geometry && lang == other.lang && mode == other.mode && origin == other.origin && originalShape == other.originalShape && originalShapeType == other.originalShapeType && overview == other.overview && waypoints == other.waypoints && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is NavigationRetrieveRouteParams &&
+            key == other.key &&
+            altcount == other.altcount &&
+            alternatives == other.alternatives &&
+            approaches == other.approaches &&
+            avoid == other.avoid &&
+            bearings == other.bearings &&
+            destination == other.destination &&
+            geometry == other.geometry &&
+            lang == other.lang &&
+            mode == other.mode &&
+            origin == other.origin &&
+            originalShape == other.originalShape &&
+            originalShapeType == other.originalShapeType &&
+            overview == other.overview &&
+            waypoints == other.waypoints &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, altcount, alternatives, approaches, avoid, bearings, destination, geometry, lang, mode, origin, originalShape, originalShapeType, overview, waypoints, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            key,
+            altcount,
+            alternatives,
+            approaches,
+            avoid,
+            bearings,
+            destination,
+            geometry,
+            lang,
+            mode,
+            origin,
+            originalShape,
+            originalShapeType,
+            overview,
+            waypoints,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "NavigationRetrieveRouteParams{key=$key, altcount=$altcount, alternatives=$alternatives, approaches=$approaches, avoid=$avoid, bearings=$bearings, destination=$destination, geometry=$geometry, lang=$lang, mode=$mode, origin=$origin, originalShape=$originalShape, originalShapeType=$originalShapeType, overview=$overview, waypoints=$waypoints, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

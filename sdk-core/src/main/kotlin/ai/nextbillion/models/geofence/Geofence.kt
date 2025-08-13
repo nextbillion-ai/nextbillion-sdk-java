@@ -927,12 +927,13 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is CircleCenter && lat == other.lat && lon == other.lon && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is CircleCenter &&
+                lat == other.lat &&
+                lon == other.lon &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(lat, lon, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -1066,7 +1067,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+            return other is Type && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1079,12 +1080,47 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is Geofence && id == other.id && circleCenter == other.circleCenter && circleRadius == other.circleRadius && createdAt == other.createdAt && geojson == other.geojson && icContoursMeter == other.icContoursMeter && icContoursMinute == other.icContoursMinute && icCoordinates == other.icCoordinates && icDenoise == other.icDenoise && icDepartureTime == other.icDepartureTime && icMode == other.icMode && metaData == other.metaData && name == other.name && tags == other.tags && type == other.type && updatedAt == other.updatedAt && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is Geofence &&
+            id == other.id &&
+            circleCenter == other.circleCenter &&
+            circleRadius == other.circleRadius &&
+            createdAt == other.createdAt &&
+            geojson == other.geojson &&
+            icContoursMeter == other.icContoursMeter &&
+            icContoursMinute == other.icContoursMinute &&
+            icCoordinates == other.icCoordinates &&
+            icDenoise == other.icDenoise &&
+            icDepartureTime == other.icDepartureTime &&
+            icMode == other.icMode &&
+            metaData == other.metaData &&
+            name == other.name &&
+            tags == other.tags &&
+            type == other.type &&
+            updatedAt == other.updatedAt &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(id, circleCenter, circleRadius, createdAt, geojson, icContoursMeter, icContoursMinute, icCoordinates, icDenoise, icDepartureTime, icMode, metaData, name, tags, type, updatedAt, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(
+            id,
+            circleCenter,
+            circleRadius,
+            createdAt,
+            geojson,
+            icContoursMeter,
+            icContoursMinute,
+            icCoordinates,
+            icDenoise,
+            icDepartureTime,
+            icMode,
+            metaData,
+            name,
+            tags,
+            type,
+            updatedAt,
+            additionalProperties,
+        )
+    }
 
     override fun hashCode(): Int = hashCode
 

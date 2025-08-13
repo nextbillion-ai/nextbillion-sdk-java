@@ -428,12 +428,15 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Response && response == other.response && statusCode == other.statusCode && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Response &&
+                response == other.response &&
+                statusCode == other.statusCode &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(response, statusCode, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(response, statusCode, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -446,12 +449,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is BatchRetrieveResponse && msg == other.msg && responses == other.responses && status == other.status && trackId == other.trackId && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is BatchRetrieveResponse &&
+            msg == other.msg &&
+            responses == other.responses &&
+            status == other.status &&
+            trackId == other.trackId &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(msg, responses, status, trackId, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(msg, responses, status, trackId, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

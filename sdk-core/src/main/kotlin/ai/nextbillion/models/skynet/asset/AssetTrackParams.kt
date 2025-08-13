@@ -536,12 +536,15 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && deviceId == other.deviceId && locations == other.locations && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                deviceId == other.deviceId &&
+                locations == other.locations &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(deviceId, locations, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(deviceId, locations, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1211,12 +1214,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Location && lat == other.lat && lon == other.lon && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Location &&
+                    lat == other.lat &&
+                    lon == other.lon &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(lat, lon, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -1229,12 +1233,33 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Locations && location == other.location && timestamp == other.timestamp && accuracy == other.accuracy && altitude == other.altitude && batteryLevel == other.batteryLevel && bearing == other.bearing && metaData == other.metaData && speed == other.speed && trackingMode == other.trackingMode && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Locations &&
+                location == other.location &&
+                timestamp == other.timestamp &&
+                accuracy == other.accuracy &&
+                altitude == other.altitude &&
+                batteryLevel == other.batteryLevel &&
+                bearing == other.bearing &&
+                metaData == other.metaData &&
+                speed == other.speed &&
+                trackingMode == other.trackingMode &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(location, timestamp, accuracy, altitude, batteryLevel, bearing, metaData, speed, trackingMode, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                location,
+                timestamp,
+                accuracy,
+                altitude,
+                batteryLevel,
+                bearing,
+                metaData,
+                speed,
+                trackingMode,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1356,7 +1381,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Cluster && value == other.value /* spotless:on */
+            return other is Cluster && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1369,10 +1394,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is AssetTrackParams && id == other.id && key == other.key && cluster == other.cluster && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is AssetTrackParams &&
+            id == other.id &&
+            key == other.key &&
+            cluster == other.cluster &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(id, key, cluster, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(id, key, cluster, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "AssetTrackParams{id=$id, key=$key, cluster=$cluster, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

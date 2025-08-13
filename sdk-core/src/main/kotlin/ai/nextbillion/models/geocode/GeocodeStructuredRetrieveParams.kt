@@ -400,10 +400,38 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is GeocodeStructuredRetrieveParams && countryCode == other.countryCode && key == other.key && at == other.at && city == other.city && county == other.county && houseNumber == other.houseNumber && in_ == other.in_ && limit == other.limit && postalCode == other.postalCode && state == other.state && street == other.street && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is GeocodeStructuredRetrieveParams &&
+            countryCode == other.countryCode &&
+            key == other.key &&
+            at == other.at &&
+            city == other.city &&
+            county == other.county &&
+            houseNumber == other.houseNumber &&
+            in_ == other.in_ &&
+            limit == other.limit &&
+            postalCode == other.postalCode &&
+            state == other.state &&
+            street == other.street &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(countryCode, key, at, city, county, houseNumber, in_, limit, postalCode, state, street, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            countryCode,
+            key,
+            at,
+            city,
+            county,
+            houseNumber,
+            in_,
+            limit,
+            postalCode,
+            state,
+            street,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "GeocodeStructuredRetrieveParams{countryCode=$countryCode, key=$key, at=$at, city=$city, county=$county, houseNumber=$houseNumber, in_=$in_, limit=$limit, postalCode=$postalCode, state=$state, street=$street, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

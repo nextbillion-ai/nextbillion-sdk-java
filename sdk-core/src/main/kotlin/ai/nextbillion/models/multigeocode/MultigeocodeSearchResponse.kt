@@ -761,7 +761,7 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Status && value == other.value /* spotless:on */
+                    return other is Status && value == other.value
                 }
 
                 override fun hashCode() = value.hashCode()
@@ -774,12 +774,16 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is DataSource && refId == other.refId && source == other.source && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is DataSource &&
+                    refId == other.refId &&
+                    source == other.source &&
+                    status == other.status &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(refId, source, status, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(refId, source, status, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -792,12 +796,17 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Entity && dataSource == other.dataSource && docId == other.docId && place == other.place && score == other.score && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Entity &&
+                dataSource == other.dataSource &&
+                docId == other.docId &&
+                place == other.place &&
+                score == other.score &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(dataSource, docId, place, score, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(dataSource, docId, place, score, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -810,12 +819,12 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is MultigeocodeSearchResponse && entities == other.entities && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is MultigeocodeSearchResponse &&
+            entities == other.entities &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(entities, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

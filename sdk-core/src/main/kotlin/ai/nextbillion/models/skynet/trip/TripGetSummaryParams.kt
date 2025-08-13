@@ -336,7 +336,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Cluster && value == other.value /* spotless:on */
+            return other is Cluster && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -349,10 +349,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is TripGetSummaryParams && id == other.id && key == other.key && cluster == other.cluster && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is TripGetSummaryParams &&
+            id == other.id &&
+            key == other.key &&
+            cluster == other.cluster &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(id, key, cluster, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(id, key, cluster, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "TripGetSummaryParams{id=$id, key=$key, cluster=$cluster, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

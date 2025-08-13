@@ -1033,12 +1033,15 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is EndLocation && latitude == other.latitude && longitude == other.longitude && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is EndLocation &&
+                    latitude == other.latitude &&
+                    longitude == other.longitude &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(latitude, longitude, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(latitude, longitude, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -1412,7 +1415,7 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+                    return other is Type && value == other.value
                 }
 
                 override fun hashCode() = value.hashCode()
@@ -1425,12 +1428,16 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Geojson && geometry == other.geometry && properties == other.properties && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Geojson &&
+                    geometry == other.geometry &&
+                    properties == other.properties &&
+                    type == other.type &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(geometry, properties, type, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(geometry, properties, type, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -1902,12 +1909,12 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Distance && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Distance &&
+                        value == other.value &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
                 private val hashCode: Int by lazy { Objects.hash(value, additionalProperties) }
-                /* spotless:on */
 
                 override fun hashCode(): Int = hashCode
 
@@ -2045,12 +2052,12 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Duration && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Duration &&
+                        value == other.value &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
                 private val hashCode: Int by lazy { Objects.hash(value, additionalProperties) }
-                /* spotless:on */
 
                 override fun hashCode(): Int = hashCode
 
@@ -2237,12 +2244,15 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is EndLocation && latitude == other.latitude && longitude == other.longitude && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is EndLocation &&
+                        latitude == other.latitude &&
+                        longitude == other.longitude &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(latitude, longitude, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(latitude, longitude, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -2431,12 +2441,15 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is StartLocation && latitude == other.latitude && longitude == other.longitude && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is StartLocation &&
+                        latitude == other.latitude &&
+                        longitude == other.longitude &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(latitude, longitude, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(latitude, longitude, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -3198,12 +3211,12 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is Distance && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is Distance &&
+                            value == other.value &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
                     private val hashCode: Int by lazy { Objects.hash(value, additionalProperties) }
-                    /* spotless:on */
 
                     override fun hashCode(): Int = hashCode
 
@@ -3344,12 +3357,12 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is Duration && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is Duration &&
+                            value == other.value &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
                     private val hashCode: Int by lazy { Objects.hash(value, additionalProperties) }
-                    /* spotless:on */
 
                     override fun hashCode(): Int = hashCode
 
@@ -3541,12 +3554,15 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is EndLocation && latitude == other.latitude && longitude == other.longitude && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is EndLocation &&
+                            latitude == other.latitude &&
+                            longitude == other.longitude &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
-                    private val hashCode: Int by lazy { Objects.hash(latitude, longitude, additionalProperties) }
-                    /* spotless:on */
+                    private val hashCode: Int by lazy {
+                        Objects.hash(latitude, longitude, additionalProperties)
+                    }
 
                     override fun hashCode(): Int = hashCode
 
@@ -3726,12 +3742,15 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is Geojson && geometry == other.geometry && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is Geojson &&
+                            geometry == other.geometry &&
+                            type == other.type &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
-                    private val hashCode: Int by lazy { Objects.hash(geometry, type, additionalProperties) }
-                    /* spotless:on */
+                    private val hashCode: Int by lazy {
+                        Objects.hash(geometry, type, additionalProperties)
+                    }
 
                     override fun hashCode(): Int = hashCode
 
@@ -4433,12 +4452,15 @@ private constructor(
                                 return true
                             }
 
-                            return /* spotless:off */ other is Lane && indications == other.indications && valid == other.valid && additionalProperties == other.additionalProperties /* spotless:on */
+                            return other is Lane &&
+                                indications == other.indications &&
+                                valid == other.valid &&
+                                additionalProperties == other.additionalProperties
                         }
 
-                        /* spotless:off */
-                        private val hashCode: Int by lazy { Objects.hash(indications, valid, additionalProperties) }
-                        /* spotless:on */
+                        private val hashCode: Int by lazy {
+                            Objects.hash(indications, valid, additionalProperties)
+                        }
 
                         override fun hashCode(): Int = hashCode
 
@@ -4675,12 +4697,16 @@ private constructor(
                                 return true
                             }
 
-                            return /* spotless:off */ other is Location && latitude == other.latitude && longitude == other.longitude && name == other.name && additionalProperties == other.additionalProperties /* spotless:on */
+                            return other is Location &&
+                                latitude == other.latitude &&
+                                longitude == other.longitude &&
+                                name == other.name &&
+                                additionalProperties == other.additionalProperties
                         }
 
-                        /* spotless:off */
-                        private val hashCode: Int by lazy { Objects.hash(latitude, longitude, name, additionalProperties) }
-                        /* spotless:on */
+                        private val hashCode: Int by lazy {
+                            Objects.hash(latitude, longitude, name, additionalProperties)
+                        }
 
                         override fun hashCode(): Int = hashCode
 
@@ -4693,12 +4719,29 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is Intersection && bearings == other.bearings && classes == other.classes && entry == other.entry && intersectionIn == other.intersectionIn && intersectionOut == other.intersectionOut && lanes == other.lanes && location == other.location && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is Intersection &&
+                            bearings == other.bearings &&
+                            classes == other.classes &&
+                            entry == other.entry &&
+                            intersectionIn == other.intersectionIn &&
+                            intersectionOut == other.intersectionOut &&
+                            lanes == other.lanes &&
+                            location == other.location &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
-                    private val hashCode: Int by lazy { Objects.hash(bearings, classes, entry, intersectionIn, intersectionOut, lanes, location, additionalProperties) }
-                    /* spotless:on */
+                    private val hashCode: Int by lazy {
+                        Objects.hash(
+                            bearings,
+                            classes,
+                            entry,
+                            intersectionIn,
+                            intersectionOut,
+                            lanes,
+                            location,
+                            additionalProperties,
+                        )
+                    }
 
                     override fun hashCode(): Int = hashCode
 
@@ -5428,12 +5471,16 @@ private constructor(
                                 return true
                             }
 
-                            return /* spotless:off */ other is Coordinate && latitude == other.latitude && longitude == other.longitude && name == other.name && additionalProperties == other.additionalProperties /* spotless:on */
+                            return other is Coordinate &&
+                                latitude == other.latitude &&
+                                longitude == other.longitude &&
+                                name == other.name &&
+                                additionalProperties == other.additionalProperties
                         }
 
-                        /* spotless:off */
-                        private val hashCode: Int by lazy { Objects.hash(latitude, longitude, name, additionalProperties) }
-                        /* spotless:on */
+                        private val hashCode: Int by lazy {
+                            Objects.hash(latitude, longitude, name, additionalProperties)
+                        }
 
                         override fun hashCode(): Int = hashCode
 
@@ -5672,12 +5719,21 @@ private constructor(
                                 return true
                             }
 
-                            return /* spotless:off */ other is VoiceInstruction && distanceAlongGeometry == other.distanceAlongGeometry && instruction == other.instruction && unit == other.unit && additionalProperties == other.additionalProperties /* spotless:on */
+                            return other is VoiceInstruction &&
+                                distanceAlongGeometry == other.distanceAlongGeometry &&
+                                instruction == other.instruction &&
+                                unit == other.unit &&
+                                additionalProperties == other.additionalProperties
                         }
 
-                        /* spotless:off */
-                        private val hashCode: Int by lazy { Objects.hash(distanceAlongGeometry, instruction, unit, additionalProperties) }
-                        /* spotless:on */
+                        private val hashCode: Int by lazy {
+                            Objects.hash(
+                                distanceAlongGeometry,
+                                instruction,
+                                unit,
+                                additionalProperties,
+                            )
+                        }
 
                         override fun hashCode(): Int = hashCode
 
@@ -5690,12 +5746,31 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is Maneuver && bearingAfter == other.bearingAfter && bearingBefore == other.bearingBefore && coordinate == other.coordinate && instruction == other.instruction && maneuverType == other.maneuverType && muted == other.muted && roundaboutCount == other.roundaboutCount && voiceInstruction == other.voiceInstruction && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is Maneuver &&
+                            bearingAfter == other.bearingAfter &&
+                            bearingBefore == other.bearingBefore &&
+                            coordinate == other.coordinate &&
+                            instruction == other.instruction &&
+                            maneuverType == other.maneuverType &&
+                            muted == other.muted &&
+                            roundaboutCount == other.roundaboutCount &&
+                            voiceInstruction == other.voiceInstruction &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
-                    private val hashCode: Int by lazy { Objects.hash(bearingAfter, bearingBefore, coordinate, instruction, maneuverType, muted, roundaboutCount, voiceInstruction, additionalProperties) }
-                    /* spotless:on */
+                    private val hashCode: Int by lazy {
+                        Objects.hash(
+                            bearingAfter,
+                            bearingBefore,
+                            coordinate,
+                            instruction,
+                            maneuverType,
+                            muted,
+                            roundaboutCount,
+                            voiceInstruction,
+                            additionalProperties,
+                        )
+                    }
 
                     override fun hashCode(): Int = hashCode
 
@@ -5889,12 +5964,15 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is RoadShieldType && imageUrl == other.imageUrl && label == other.label && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is RoadShieldType &&
+                            imageUrl == other.imageUrl &&
+                            label == other.label &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
-                    private val hashCode: Int by lazy { Objects.hash(imageUrl, label, additionalProperties) }
-                    /* spotless:on */
+                    private val hashCode: Int by lazy {
+                        Objects.hash(imageUrl, label, additionalProperties)
+                    }
 
                     override fun hashCode(): Int = hashCode
 
@@ -6087,12 +6165,15 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is StartLocation && latitude == other.latitude && longitude == other.longitude && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is StartLocation &&
+                            latitude == other.latitude &&
+                            longitude == other.longitude &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
-                    private val hashCode: Int by lazy { Objects.hash(latitude, longitude, additionalProperties) }
-                    /* spotless:on */
+                    private val hashCode: Int by lazy {
+                        Objects.hash(latitude, longitude, additionalProperties)
+                    }
 
                     override fun hashCode(): Int = hashCode
 
@@ -6105,12 +6186,39 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Step && distance == other.distance && drivingSide == other.drivingSide && duration == other.duration && endLocation == other.endLocation && geojson == other.geojson && geometry == other.geometry && intersections == other.intersections && maneuver == other.maneuver && name == other.name && reference == other.reference && roadShieldType == other.roadShieldType && startLocation == other.startLocation && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Step &&
+                        distance == other.distance &&
+                        drivingSide == other.drivingSide &&
+                        duration == other.duration &&
+                        endLocation == other.endLocation &&
+                        geojson == other.geojson &&
+                        geometry == other.geometry &&
+                        intersections == other.intersections &&
+                        maneuver == other.maneuver &&
+                        name == other.name &&
+                        reference == other.reference &&
+                        roadShieldType == other.roadShieldType &&
+                        startLocation == other.startLocation &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(distance, drivingSide, duration, endLocation, geojson, geometry, intersections, maneuver, name, reference, roadShieldType, startLocation, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(
+                        distance,
+                        drivingSide,
+                        duration,
+                        endLocation,
+                        geojson,
+                        geometry,
+                        intersections,
+                        maneuver,
+                        name,
+                        reference,
+                        roadShieldType,
+                        startLocation,
+                        additionalProperties,
+                    )
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -6123,12 +6231,27 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Leg && distance == other.distance && duration == other.duration && endLocation == other.endLocation && rawDuration == other.rawDuration && startLocation == other.startLocation && steps == other.steps && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Leg &&
+                    distance == other.distance &&
+                    duration == other.duration &&
+                    endLocation == other.endLocation &&
+                    rawDuration == other.rawDuration &&
+                    startLocation == other.startLocation &&
+                    steps == other.steps &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(distance, duration, endLocation, rawDuration, startLocation, steps, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(
+                    distance,
+                    duration,
+                    endLocation,
+                    rawDuration,
+                    startLocation,
+                    steps,
+                    additionalProperties,
+                )
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -6311,12 +6434,15 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is StartLocation && latitude == other.latitude && longitude == other.longitude && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is StartLocation &&
+                    latitude == other.latitude &&
+                    longitude == other.longitude &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(latitude, longitude, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(latitude, longitude, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -6329,12 +6455,39 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Route && distance == other.distance && distanceFull == other.distanceFull && duration == other.duration && endLocation == other.endLocation && geojson == other.geojson && geometry == other.geometry && legs == other.legs && predictedDuration == other.predictedDuration && rawDuration == other.rawDuration && specialObjects == other.specialObjects && startLocation == other.startLocation && weight == other.weight && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Route &&
+                distance == other.distance &&
+                distanceFull == other.distanceFull &&
+                duration == other.duration &&
+                endLocation == other.endLocation &&
+                geojson == other.geojson &&
+                geometry == other.geometry &&
+                legs == other.legs &&
+                predictedDuration == other.predictedDuration &&
+                rawDuration == other.rawDuration &&
+                specialObjects == other.specialObjects &&
+                startLocation == other.startLocation &&
+                weight == other.weight &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(distance, distanceFull, duration, endLocation, geojson, geometry, legs, predictedDuration, rawDuration, specialObjects, startLocation, weight, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                distance,
+                distanceFull,
+                duration,
+                endLocation,
+                geojson,
+                geometry,
+                legs,
+                predictedDuration,
+                rawDuration,
+                specialObjects,
+                startLocation,
+                weight,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -6347,12 +6500,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is NavigationRetrieveRouteResponse && msg == other.msg && routes == other.routes && status == other.status && warning == other.warning && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is NavigationRetrieveRouteResponse &&
+            msg == other.msg &&
+            routes == other.routes &&
+            status == other.status &&
+            warning == other.warning &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(msg, routes, status, warning, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(msg, routes, status, warning, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

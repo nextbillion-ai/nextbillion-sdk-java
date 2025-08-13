@@ -250,12 +250,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is Pagination && hasmore == other.hasmore && page == other.page && size == other.size && total == other.total && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is Pagination &&
+            hasmore == other.hasmore &&
+            page == other.page &&
+            size == other.size &&
+            total == other.total &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(hasmore, page, size, total, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(hasmore, page, size, total, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

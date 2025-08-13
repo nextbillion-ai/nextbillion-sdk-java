@@ -405,7 +405,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is RestrictionType && value == other.value /* spotless:on */
+            return other is RestrictionType && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -418,10 +418,24 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RestrictionCreateParams && restrictionType == other.restrictionType && key == other.key && latlon == other.latlon && richGroupRequest == other.richGroupRequest && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is RestrictionCreateParams &&
+            restrictionType == other.restrictionType &&
+            key == other.key &&
+            latlon == other.latlon &&
+            richGroupRequest == other.richGroupRequest &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(restrictionType, key, latlon, richGroupRequest, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            restrictionType,
+            key,
+            latlon,
+            richGroupRequest,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "RestrictionCreateParams{restrictionType=$restrictionType, key=$key, latlon=$latlon, richGroupRequest=$richGroupRequest, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

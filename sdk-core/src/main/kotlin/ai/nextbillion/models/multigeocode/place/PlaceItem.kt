@@ -707,12 +707,13 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Geopoint && lat == other.lat && lng == other.lng && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Geopoint &&
+                lat == other.lat &&
+                lng == other.lng &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(lat, lng, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -853,12 +854,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Poi && title == other.title && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Poi &&
+                title == other.title &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(title, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -870,12 +871,39 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is PlaceItem && address == other.address && building == other.building && city == other.city && country == other.country && district == other.district && geopoint == other.geopoint && house == other.house && poi == other.poi && postalCode == other.postalCode && state == other.state && street == other.street && subDistrict == other.subDistrict && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is PlaceItem &&
+            address == other.address &&
+            building == other.building &&
+            city == other.city &&
+            country == other.country &&
+            district == other.district &&
+            geopoint == other.geopoint &&
+            house == other.house &&
+            poi == other.poi &&
+            postalCode == other.postalCode &&
+            state == other.state &&
+            street == other.street &&
+            subDistrict == other.subDistrict &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(address, building, city, country, district, geopoint, house, poi, postalCode, state, street, subDistrict, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(
+            address,
+            building,
+            city,
+            country,
+            district,
+            geopoint,
+            house,
+            poi,
+            postalCode,
+            state,
+            street,
+            subDistrict,
+            additionalProperties,
+        )
+    }
 
     override fun hashCode(): Int = hashCode
 

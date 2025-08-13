@@ -243,10 +243,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is MonitorDeleteParams && id == other.id && key == other.key && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams && additionalBodyProperties == other.additionalBodyProperties /* spotless:on */
+        return other is MonitorDeleteParams &&
+            id == other.id &&
+            key == other.key &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams &&
+            additionalBodyProperties == other.additionalBodyProperties
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(id, key, additionalHeaders, additionalQueryParams, additionalBodyProperties) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(id, key, additionalHeaders, additionalQueryParams, additionalBodyProperties)
 
     override fun toString() =
         "MonitorDeleteParams{id=$id, key=$key, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams, additionalBodyProperties=$additionalBodyProperties}"

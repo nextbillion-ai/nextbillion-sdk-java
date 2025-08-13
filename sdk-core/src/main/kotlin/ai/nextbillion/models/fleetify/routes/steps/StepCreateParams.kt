@@ -1232,12 +1232,35 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && arrival == other.arrival && location == other.location && type == other.type && address == other.address && completionMode == other.completionMode && documentTemplateId == other.documentTemplateId && duration == other.duration && geofenceConfig == other.geofenceConfig && meta == other.meta && position == other.position && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                arrival == other.arrival &&
+                location == other.location &&
+                type == other.type &&
+                address == other.address &&
+                completionMode == other.completionMode &&
+                documentTemplateId == other.documentTemplateId &&
+                duration == other.duration &&
+                geofenceConfig == other.geofenceConfig &&
+                meta == other.meta &&
+                position == other.position &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(arrival, location, type, address, completionMode, documentTemplateId, duration, geofenceConfig, meta, position, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                arrival,
+                location,
+                type,
+                address,
+                completionMode,
+                documentTemplateId,
+                duration,
+                geofenceConfig,
+                meta,
+                position,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1250,10 +1273,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is StepCreateParams && routeId == other.routeId && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is StepCreateParams &&
+            routeId == other.routeId &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(routeId, key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(routeId, key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "StepCreateParams{routeId=$routeId, key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

@@ -145,7 +145,7 @@ private constructor(private val value: JsonField<String>) : Enum {
             return true
         }
 
-        return /* spotless:off */ other is RouteStepCompletionMode && value == other.value /* spotless:on */
+        return other is RouteStepCompletionMode && value == other.value
     }
 
     override fun hashCode() = value.hashCode()

@@ -237,10 +237,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RestrictionRetrieveParams && id == other.id && key == other.key && transform == other.transform && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is RestrictionRetrieveParams &&
+            id == other.id &&
+            key == other.key &&
+            transform == other.transform &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(id, key, transform, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(id, key, transform, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "RestrictionRetrieveParams{id=$id, key=$key, transform=$transform, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

@@ -339,12 +339,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && monitor == other.monitor && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                monitor == other.monitor &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(monitor, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -357,12 +357,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is MonitorRetrieveResponse && data == other.data && message == other.message && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is MonitorRetrieveResponse &&
+            data == other.data &&
+            message == other.message &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, message, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

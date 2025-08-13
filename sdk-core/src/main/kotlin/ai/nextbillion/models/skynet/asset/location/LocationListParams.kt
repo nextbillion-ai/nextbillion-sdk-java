@@ -495,7 +495,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Cluster && value == other.value /* spotless:on */
+            return other is Cluster && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -637,7 +637,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is GeometryType && value == other.value /* spotless:on */
+            return other is GeometryType && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -650,10 +650,34 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is LocationListParams && id == other.id && key == other.key && cluster == other.cluster && correction == other.correction && endTime == other.endTime && geometryType == other.geometryType && pn == other.pn && ps == other.ps && startTime == other.startTime && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is LocationListParams &&
+            id == other.id &&
+            key == other.key &&
+            cluster == other.cluster &&
+            correction == other.correction &&
+            endTime == other.endTime &&
+            geometryType == other.geometryType &&
+            pn == other.pn &&
+            ps == other.ps &&
+            startTime == other.startTime &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(id, key, cluster, correction, endTime, geometryType, pn, ps, startTime, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            id,
+            key,
+            cluster,
+            correction,
+            endTime,
+            geometryType,
+            pn,
+            ps,
+            startTime,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "LocationListParams{id=$id, key=$key, cluster=$cluster, correction=$correction, endTime=$endTime, geometryType=$geometryType, pn=$pn, ps=$ps, startTime=$startTime, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

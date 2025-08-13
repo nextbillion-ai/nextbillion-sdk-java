@@ -275,12 +275,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is PostResponse && id == other.id && message == other.message && status == other.status && warnings == other.warnings && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is PostResponse &&
+            id == other.id &&
+            message == other.message &&
+            status == other.status &&
+            warnings == other.warnings &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(id, message, status, warnings, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(id, message, status, warnings, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

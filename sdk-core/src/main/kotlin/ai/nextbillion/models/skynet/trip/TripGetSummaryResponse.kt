@@ -1158,12 +1158,49 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Trip && id == other.id && asset == other.asset && assetId == other.assetId && attributes == other.attributes && createdAt == other.createdAt && description == other.description && distance == other.distance && duration == other.duration && endedAt == other.endedAt && geometry == other.geometry && metaData == other.metaData && name == other.name && route == other.route && startedAt == other.startedAt && state == other.state && stops == other.stops && updatedAt == other.updatedAt && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Trip &&
+                    id == other.id &&
+                    asset == other.asset &&
+                    assetId == other.assetId &&
+                    attributes == other.attributes &&
+                    createdAt == other.createdAt &&
+                    description == other.description &&
+                    distance == other.distance &&
+                    duration == other.duration &&
+                    endedAt == other.endedAt &&
+                    geometry == other.geometry &&
+                    metaData == other.metaData &&
+                    name == other.name &&
+                    route == other.route &&
+                    startedAt == other.startedAt &&
+                    state == other.state &&
+                    stops == other.stops &&
+                    updatedAt == other.updatedAt &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(id, asset, assetId, attributes, createdAt, description, distance, duration, endedAt, geometry, metaData, name, route, startedAt, state, stops, updatedAt, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(
+                    id,
+                    asset,
+                    assetId,
+                    attributes,
+                    createdAt,
+                    description,
+                    distance,
+                    duration,
+                    endedAt,
+                    geometry,
+                    metaData,
+                    name,
+                    route,
+                    startedAt,
+                    state,
+                    stops,
+                    updatedAt,
+                    additionalProperties,
+                )
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -1176,12 +1213,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && trip == other.trip && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                trip == other.trip &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(trip, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -1193,12 +1230,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is TripGetSummaryResponse && data == other.data && message == other.message && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is TripGetSummaryResponse &&
+            data == other.data &&
+            message == other.message &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, message, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

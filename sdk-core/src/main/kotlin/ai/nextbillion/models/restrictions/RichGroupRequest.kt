@@ -1089,7 +1089,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Direction && value == other.value /* spotless:on */
+            return other is Direction && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1234,7 +1234,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+            return other is Mode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1403,12 +1403,13 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Segment && from == other.from && to == other.to && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Segment &&
+                from == other.from &&
+                to == other.to &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(from, to, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -1615,12 +1616,14 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Turn && from == other.from && to == other.to && via == other.via && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Turn &&
+                from == other.from &&
+                to == other.to &&
+                via == other.via &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(from, to, via, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -1633,12 +1636,51 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RichGroupRequest && area == other.area && name == other.name && comment == other.comment && direction == other.direction && endTime == other.endTime && geofence == other.geofence && height == other.height && length == other.length && mode == other.mode && repeatOn == other.repeatOn && segments == other.segments && speed == other.speed && speedLimit == other.speedLimit && startTime == other.startTime && tracks == other.tracks && turns == other.turns && weight == other.weight && width == other.width && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is RichGroupRequest &&
+            area == other.area &&
+            name == other.name &&
+            comment == other.comment &&
+            direction == other.direction &&
+            endTime == other.endTime &&
+            geofence == other.geofence &&
+            height == other.height &&
+            length == other.length &&
+            mode == other.mode &&
+            repeatOn == other.repeatOn &&
+            segments == other.segments &&
+            speed == other.speed &&
+            speedLimit == other.speedLimit &&
+            startTime == other.startTime &&
+            tracks == other.tracks &&
+            turns == other.turns &&
+            weight == other.weight &&
+            width == other.width &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(area, name, comment, direction, endTime, geofence, height, length, mode, repeatOn, segments, speed, speedLimit, startTime, tracks, turns, weight, width, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(
+            area,
+            name,
+            comment,
+            direction,
+            endTime,
+            geofence,
+            height,
+            length,
+            mode,
+            repeatOn,
+            segments,
+            speed,
+            speedLimit,
+            startTime,
+            tracks,
+            turns,
+            weight,
+            width,
+            additionalProperties,
+        )
+    }
 
     override fun hashCode(): Int = hashCode
 

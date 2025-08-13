@@ -1647,12 +1647,43 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && origins == other.origins && area == other.area && avoid == other.avoid && crossBorder == other.crossBorder && departureTime == other.departureTime && destinations == other.destinations && destinationsApproach == other.destinationsApproach && hazmatType == other.hazmatType && mode == other.mode && originsApproach == other.originsApproach && routeType == other.routeType && truckAxleLoad == other.truckAxleLoad && truckSize == other.truckSize && truckWeight == other.truckWeight && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                origins == other.origins &&
+                area == other.area &&
+                avoid == other.avoid &&
+                crossBorder == other.crossBorder &&
+                departureTime == other.departureTime &&
+                destinations == other.destinations &&
+                destinationsApproach == other.destinationsApproach &&
+                hazmatType == other.hazmatType &&
+                mode == other.mode &&
+                originsApproach == other.originsApproach &&
+                routeType == other.routeType &&
+                truckAxleLoad == other.truckAxleLoad &&
+                truckSize == other.truckSize &&
+                truckWeight == other.truckWeight &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(origins, area, avoid, crossBorder, departureTime, destinations, destinationsApproach, hazmatType, mode, originsApproach, routeType, truckAxleLoad, truckSize, truckWeight, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                origins,
+                area,
+                avoid,
+                crossBorder,
+                departureTime,
+                destinations,
+                destinationsApproach,
+                hazmatType,
+                mode,
+                originsApproach,
+                routeType,
+                truckAxleLoad,
+                truckSize,
+                truckWeight,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1790,7 +1821,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Area && value == other.value /* spotless:on */
+            return other is Area && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1976,7 +2007,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Avoid && value == other.value /* spotless:on */
+            return other is Avoid && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -2114,7 +2145,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is DestinationsApproach && value == other.value /* spotless:on */
+            return other is DestinationsApproach && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -2262,7 +2293,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is HazmatType && value == other.value /* spotless:on */
+            return other is HazmatType && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -2396,7 +2427,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+            return other is Mode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -2531,7 +2562,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is OriginsApproach && value == other.value /* spotless:on */
+            return other is OriginsApproach && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -2664,7 +2695,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is RouteType && value == other.value /* spotless:on */
+            return other is RouteType && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -2789,7 +2820,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Option && value == other.value /* spotless:on */
+            return other is Option && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -2931,7 +2962,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Spliter && value == other.value /* spotless:on */
+            return other is Spliter && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -2944,10 +2975,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is MdmCreateDistanceMatrixParams && key == other.key && option == other.option && spliter == other.spliter && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is MdmCreateDistanceMatrixParams &&
+            key == other.key &&
+            option == other.option &&
+            spliter == other.spliter &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, option, spliter, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(key, option, spliter, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "MdmCreateDistanceMatrixParams{key=$key, option=$option, spliter=$spliter, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"
