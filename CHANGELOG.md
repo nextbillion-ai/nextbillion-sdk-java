@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.1.0-alpha.17 (2025-08-15)
+
+Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
+
+### Performance Improvements
+
+* **internal:** make formatting faster ([3c54a84](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/3c54a84de7039f0f47a416d82f1bc25ff363af75))
+
+
+### Chores
+
+* **ci:** add build job ([c455cda](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/c455cda73812cc44839473e18a7cd3de27dff290))
+* increase max gradle JVM heap to 8GB ([bc27158](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/bc271583c24501618e3c1a11a6a3bd41bb2df6af))
+* **internal:** codegen related update ([a064241](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/a0642410ada67866b79a8c4feaf4f8011824ccfa))
+* **internal:** codegen related update ([396be71](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/396be7190331ca72e91c5bf6eef3e864f016a54c))
+* **internal:** dynamically determine included projects ([3dfe98d](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/3dfe98db9ca21896ed6b60feed8239443891a668))
+* **internal:** support passing arguments to test script ([69ca45d](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/69ca45d7205b2a1c70056ed345cd1cc52a356228))
+* **internal:** update comment in script ([a9f46d7](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/a9f46d793380e2de56f9efa6b14c1d09925ea2ab))
+* update @stainless-api/prism-cli to v5.15.0 ([04a556d](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/04a556df867a4c5123edd2c7c214de8cfc783ef0))
+
 ## 0.1.0-alpha.16 (2025-08-06)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.16](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.14...v0.1.0-alpha.16)
