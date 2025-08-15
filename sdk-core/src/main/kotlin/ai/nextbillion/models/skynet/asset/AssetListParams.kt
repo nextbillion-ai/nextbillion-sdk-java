@@ -500,7 +500,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Cluster && value == other.value /* spotless:on */
+            return other is Cluster && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -513,10 +513,32 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is AssetListParams && key == other.key && cluster == other.cluster && includeAllOfAttributes == other.includeAllOfAttributes && includeAnyOfAttributes == other.includeAnyOfAttributes && pn == other.pn && ps == other.ps && sort == other.sort && tags == other.tags && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is AssetListParams &&
+            key == other.key &&
+            cluster == other.cluster &&
+            includeAllOfAttributes == other.includeAllOfAttributes &&
+            includeAnyOfAttributes == other.includeAnyOfAttributes &&
+            pn == other.pn &&
+            ps == other.ps &&
+            sort == other.sort &&
+            tags == other.tags &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, cluster, includeAllOfAttributes, includeAnyOfAttributes, pn, ps, sort, tags, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            key,
+            cluster,
+            includeAllOfAttributes,
+            includeAnyOfAttributes,
+            pn,
+            ps,
+            sort,
+            tags,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "AssetListParams{key=$key, cluster=$cluster, includeAllOfAttributes=$includeAllOfAttributes, includeAnyOfAttributes=$includeAnyOfAttributes, pn=$pn, ps=$ps, sort=$sort, tags=$tags, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

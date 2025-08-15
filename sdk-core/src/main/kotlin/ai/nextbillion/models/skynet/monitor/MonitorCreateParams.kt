@@ -1371,12 +1371,37 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && tags == other.tags && type == other.type && customId == other.customId && description == other.description && geofenceConfig == other.geofenceConfig && geofenceIds == other.geofenceIds && idleConfig == other.idleConfig && matchFilter == other.matchFilter && metaData == other.metaData && name == other.name && speedingConfig == other.speedingConfig && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                tags == other.tags &&
+                type == other.type &&
+                customId == other.customId &&
+                description == other.description &&
+                geofenceConfig == other.geofenceConfig &&
+                geofenceIds == other.geofenceIds &&
+                idleConfig == other.idleConfig &&
+                matchFilter == other.matchFilter &&
+                metaData == other.metaData &&
+                name == other.name &&
+                speedingConfig == other.speedingConfig &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(tags, type, customId, description, geofenceConfig, geofenceIds, idleConfig, matchFilter, metaData, name, speedingConfig, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                tags,
+                type,
+                customId,
+                description,
+                geofenceConfig,
+                geofenceIds,
+                idleConfig,
+                matchFilter,
+                metaData,
+                name,
+                speedingConfig,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1537,7 +1562,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+            return other is Type && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1722,12 +1747,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is GeofenceConfig && geofenceIds == other.geofenceIds && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is GeofenceConfig &&
+                geofenceIds == other.geofenceIds &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(geofenceIds, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -1989,12 +2014,15 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is IdleConfig && distanceTolerance == other.distanceTolerance && timeTolerance == other.timeTolerance && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is IdleConfig &&
+                distanceTolerance == other.distanceTolerance &&
+                timeTolerance == other.timeTolerance &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(distanceTolerance, timeTolerance, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(distanceTolerance, timeTolerance, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2179,12 +2207,15 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is MatchFilter && includeAllOfAttributes == other.includeAllOfAttributes && includeAnyOfAttributes == other.includeAnyOfAttributes && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is MatchFilter &&
+                includeAllOfAttributes == other.includeAllOfAttributes &&
+                includeAnyOfAttributes == other.includeAnyOfAttributes &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(includeAllOfAttributes, includeAnyOfAttributes, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(includeAllOfAttributes, includeAnyOfAttributes, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2480,12 +2511,21 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is SpeedingConfig && customerSpeedLimit == other.customerSpeedLimit && timeTolerance == other.timeTolerance && useAdminSpeedLimit == other.useAdminSpeedLimit && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is SpeedingConfig &&
+                customerSpeedLimit == other.customerSpeedLimit &&
+                timeTolerance == other.timeTolerance &&
+                useAdminSpeedLimit == other.useAdminSpeedLimit &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(customerSpeedLimit, timeTolerance, useAdminSpeedLimit, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                customerSpeedLimit,
+                timeTolerance,
+                useAdminSpeedLimit,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2607,7 +2647,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Cluster && value == other.value /* spotless:on */
+            return other is Cluster && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -2620,10 +2660,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is MonitorCreateParams && key == other.key && cluster == other.cluster && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is MonitorCreateParams &&
+            key == other.key &&
+            cluster == other.cluster &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, cluster, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(key, cluster, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "MonitorCreateParams{key=$key, cluster=$cluster, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

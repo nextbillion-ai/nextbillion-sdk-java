@@ -915,12 +915,27 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && driverEmail == other.driverEmail && steps == other.steps && distance == other.distance && documentTemplateId == other.documentTemplateId && roRequestId == other.roRequestId && routing == other.routing && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                driverEmail == other.driverEmail &&
+                steps == other.steps &&
+                distance == other.distance &&
+                documentTemplateId == other.documentTemplateId &&
+                roRequestId == other.roRequestId &&
+                routing == other.routing &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(driverEmail, steps, distance, documentTemplateId, roRequestId, routing, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                driverEmail,
+                steps,
+                distance,
+                documentTemplateId,
+                roRequestId,
+                routing,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1493,7 +1508,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Approaches && value == other.value /* spotless:on */
+                return other is Approaches && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1669,7 +1684,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Avoid && value == other.value /* spotless:on */
+                return other is Avoid && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1819,7 +1834,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is HazmatType && value == other.value /* spotless:on */
+                return other is HazmatType && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1941,7 +1956,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+                return other is Mode && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1954,12 +1969,29 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Routing && approaches == other.approaches && avoid == other.avoid && hazmatType == other.hazmatType && mode == other.mode && truckAxleLoad == other.truckAxleLoad && truckSize == other.truckSize && truckWeight == other.truckWeight && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Routing &&
+                approaches == other.approaches &&
+                avoid == other.avoid &&
+                hazmatType == other.hazmatType &&
+                mode == other.mode &&
+                truckAxleLoad == other.truckAxleLoad &&
+                truckSize == other.truckSize &&
+                truckWeight == other.truckWeight &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(approaches, avoid, hazmatType, mode, truckAxleLoad, truckSize, truckWeight, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                approaches,
+                avoid,
+                hazmatType,
+                mode,
+                truckAxleLoad,
+                truckSize,
+                truckWeight,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1972,10 +2004,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RouteCreateParams && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is RouteCreateParams &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int = Objects.hash(key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "RouteCreateParams{key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

@@ -424,7 +424,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Cluster && value == other.value /* spotless:on */
+            return other is Cluster && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -437,10 +437,19 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is MonitorListParams && key == other.key && cluster == other.cluster && pn == other.pn && ps == other.ps && sort == other.sort && tags == other.tags && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is MonitorListParams &&
+            key == other.key &&
+            cluster == other.cluster &&
+            pn == other.pn &&
+            ps == other.ps &&
+            sort == other.sort &&
+            tags == other.tags &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, cluster, pn, ps, sort, tags, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(key, cluster, pn, ps, sort, tags, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "MonitorListParams{key=$key, cluster=$cluster, pn=$pn, ps=$ps, sort=$sort, tags=$tags, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

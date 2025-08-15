@@ -686,12 +686,15 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Geometry && coordinates == other.coordinates && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Geometry &&
+                    coordinates == other.coordinates &&
+                    type == other.type &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(coordinates, type, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(coordinates, type, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -1074,12 +1077,29 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Properties && color == other.color && contour == other.contour && fill == other.fill && fillColor == other.fillColor && fillOpacity == other.fillOpacity && metric == other.metric && opacity == other.opacity && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Properties &&
+                    color == other.color &&
+                    contour == other.contour &&
+                    fill == other.fill &&
+                    fillColor == other.fillColor &&
+                    fillOpacity == other.fillOpacity &&
+                    metric == other.metric &&
+                    opacity == other.opacity &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(color, contour, fill, fillColor, fillOpacity, metric, opacity, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(
+                    color,
+                    contour,
+                    fill,
+                    fillColor,
+                    fillOpacity,
+                    metric,
+                    opacity,
+                    additionalProperties,
+                )
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -1092,12 +1112,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Feature && geometry == other.geometry && properties == other.properties && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Feature &&
+                geometry == other.geometry &&
+                properties == other.properties &&
+                type == other.type &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(geometry, properties, type, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(geometry, properties, type, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1110,12 +1134,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is IsochroneComputeResponse && features == other.features && msg == other.msg && status == other.status && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is IsochroneComputeResponse &&
+            features == other.features &&
+            msg == other.msg &&
+            status == other.status &&
+            type == other.type &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(features, msg, status, type, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(features, msg, status, type, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

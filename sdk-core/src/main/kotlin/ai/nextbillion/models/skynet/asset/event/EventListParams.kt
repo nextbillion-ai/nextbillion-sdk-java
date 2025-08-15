@@ -460,7 +460,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Cluster && value == other.value /* spotless:on */
+            return other is Cluster && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -473,10 +473,32 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is EventListParams && id == other.id && key == other.key && cluster == other.cluster && endTime == other.endTime && monitorId == other.monitorId && pn == other.pn && ps == other.ps && startTime == other.startTime && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is EventListParams &&
+            id == other.id &&
+            key == other.key &&
+            cluster == other.cluster &&
+            endTime == other.endTime &&
+            monitorId == other.monitorId &&
+            pn == other.pn &&
+            ps == other.ps &&
+            startTime == other.startTime &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(id, key, cluster, endTime, monitorId, pn, ps, startTime, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            id,
+            key,
+            cluster,
+            endTime,
+            monitorId,
+            pn,
+            ps,
+            startTime,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "EventListParams{id=$id, key=$key, cluster=$cluster, endTime=$endTime, monitorId=$monitorId, pn=$pn, ps=$ps, startTime=$startTime, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

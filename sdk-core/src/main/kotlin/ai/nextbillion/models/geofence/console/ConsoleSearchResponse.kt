@@ -537,12 +537,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Result && id == other.id && name == other.name && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Result &&
+                    id == other.id &&
+                    name == other.name &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(id, name, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -555,12 +556,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && result == other.result && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                result == other.result &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(result, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -572,12 +573,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is ConsoleSearchResponse && data == other.data && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is ConsoleSearchResponse &&
+            data == other.data &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

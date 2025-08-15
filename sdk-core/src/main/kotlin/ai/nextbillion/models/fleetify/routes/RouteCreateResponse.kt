@@ -1020,12 +1020,16 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Driver && id == other.id && email == other.email && fullname == other.fullname && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Driver &&
+                    id == other.id &&
+                    email == other.email &&
+                    fullname == other.fullname &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(id, email, fullname, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(id, email, fullname, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -1038,12 +1042,39 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && id == other.id && createdAt == other.createdAt && distance == other.distance && documentSnapshot == other.documentSnapshot && driver == other.driver && roRequestId == other.roRequestId && routing == other.routing && shortId == other.shortId && steps == other.steps && totalSteps == other.totalSteps && updatedAt == other.updatedAt && vehicleId == other.vehicleId && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                id == other.id &&
+                createdAt == other.createdAt &&
+                distance == other.distance &&
+                documentSnapshot == other.documentSnapshot &&
+                driver == other.driver &&
+                roRequestId == other.roRequestId &&
+                routing == other.routing &&
+                shortId == other.shortId &&
+                steps == other.steps &&
+                totalSteps == other.totalSteps &&
+                updatedAt == other.updatedAt &&
+                vehicleId == other.vehicleId &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(id, createdAt, distance, documentSnapshot, driver, roRequestId, routing, shortId, steps, totalSteps, updatedAt, vehicleId, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                id,
+                createdAt,
+                distance,
+                documentSnapshot,
+                driver,
+                roRequestId,
+                routing,
+                shortId,
+                steps,
+                totalSteps,
+                updatedAt,
+                vehicleId,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1056,12 +1087,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RouteCreateResponse && data == other.data && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is RouteCreateResponse &&
+            data == other.data &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

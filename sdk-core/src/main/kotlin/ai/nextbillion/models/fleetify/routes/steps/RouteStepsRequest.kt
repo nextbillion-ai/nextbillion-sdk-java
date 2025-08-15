@@ -706,7 +706,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+            return other is Type && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -944,12 +944,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Meta && customerName == other.customerName && customerPhoneNumber == other.customerPhoneNumber && instructions == other.instructions && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Meta &&
+                customerName == other.customerName &&
+                customerPhoneNumber == other.customerPhoneNumber &&
+                instructions == other.instructions &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(customerName, customerPhoneNumber, instructions, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(customerName, customerPhoneNumber, instructions, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -962,12 +966,33 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RouteStepsRequest && arrival == other.arrival && location == other.location && type == other.type && address == other.address && completionMode == other.completionMode && documentTemplateId == other.documentTemplateId && duration == other.duration && geofenceConfig == other.geofenceConfig && meta == other.meta && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is RouteStepsRequest &&
+            arrival == other.arrival &&
+            location == other.location &&
+            type == other.type &&
+            address == other.address &&
+            completionMode == other.completionMode &&
+            documentTemplateId == other.documentTemplateId &&
+            duration == other.duration &&
+            geofenceConfig == other.geofenceConfig &&
+            meta == other.meta &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(arrival, location, type, address, completionMode, documentTemplateId, duration, geofenceConfig, meta, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(
+            arrival,
+            location,
+            type,
+            address,
+            completionMode,
+            documentTemplateId,
+            duration,
+            geofenceConfig,
+            meta,
+            additionalProperties,
+        )
+    }
 
     override fun hashCode(): Int = hashCode
 

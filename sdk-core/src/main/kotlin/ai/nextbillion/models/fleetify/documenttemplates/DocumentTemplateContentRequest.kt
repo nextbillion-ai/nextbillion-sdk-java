@@ -520,7 +520,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+            return other is Type && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -886,12 +886,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Option && label == other.label && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Option &&
+                    label == other.label &&
+                    value == other.value &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(label, value, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -904,12 +905,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Meta && options == other.options && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Meta &&
+                options == other.options &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(options, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -1167,12 +1168,17 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Validation && max == other.max && maxItems == other.maxItems && min == other.min && minItems == other.minItems && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Validation &&
+                max == other.max &&
+                maxItems == other.maxItems &&
+                min == other.min &&
+                minItems == other.minItems &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(max, maxItems, min, minItems, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(max, maxItems, min, minItems, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1185,12 +1191,19 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is DocumentTemplateContentRequest && label == other.label && type == other.type && meta == other.meta && name == other.name && required == other.required && validation == other.validation && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is DocumentTemplateContentRequest &&
+            label == other.label &&
+            type == other.type &&
+            meta == other.meta &&
+            name == other.name &&
+            required == other.required &&
+            validation == other.validation &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(label, type, meta, name, required, validation, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(label, type, meta, name, required, validation, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

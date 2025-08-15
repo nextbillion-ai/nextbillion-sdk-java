@@ -18,7 +18,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 @ExtendWith(TestServerExtension::class)
 internal class TripServiceTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
+    @Disabled("Prism tests are disabled")
     @Test
     fun retrieve() {
         val client =
@@ -40,7 +40,7 @@ internal class TripServiceTest {
         trip.validate()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
+    @Disabled("Prism tests are disabled")
     @Test
     fun update() {
         val client =
@@ -84,7 +84,7 @@ internal class TripServiceTest {
         simpleResp.validate()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
+    @Disabled("Prism tests are disabled")
     @Test
     fun delete() {
         val client =
@@ -106,7 +106,7 @@ internal class TripServiceTest {
         simpleResp.validate()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
+    @Disabled("Prism tests are disabled")
     @Test
     fun end() {
         val client =
@@ -128,7 +128,7 @@ internal class TripServiceTest {
         simpleResp.validate()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
+    @Disabled("Prism tests are disabled")
     @Test
     fun getSummary() {
         val client =
@@ -150,7 +150,7 @@ internal class TripServiceTest {
         response.validate()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
+    @Disabled("Prism tests are disabled")
     @Test
     fun start() {
         val client =

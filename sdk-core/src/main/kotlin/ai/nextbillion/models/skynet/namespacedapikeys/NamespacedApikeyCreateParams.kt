@@ -226,10 +226,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is NamespacedApikeyCreateParams && key == other.key && namespace == other.namespace && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is NamespacedApikeyCreateParams &&
+            key == other.key &&
+            namespace == other.namespace &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, namespace, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(key, namespace, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "NamespacedApikeyCreateParams{key=$key, namespace=$namespace, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

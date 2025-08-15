@@ -336,10 +336,19 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is DiscoverRetrieveParams && key == other.key && q == other.q && at == other.at && in_ == other.in_ && lang == other.lang && limit == other.limit && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is DiscoverRetrieveParams &&
+            key == other.key &&
+            q == other.q &&
+            at == other.at &&
+            in_ == other.in_ &&
+            lang == other.lang &&
+            limit == other.limit &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, q, at, in_, lang, limit, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(key, q, at, in_, lang, limit, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "DiscoverRetrieveParams{key=$key, q=$q, at=$at, in_=$in_, lang=$lang, limit=$limit, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

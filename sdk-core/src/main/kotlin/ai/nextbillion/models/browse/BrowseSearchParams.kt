@@ -334,10 +334,28 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is BrowseSearchParams && key == other.key && at == other.at && categories == other.categories && in_ == other.in_ && lang == other.lang && limit == other.limit && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is BrowseSearchParams &&
+            key == other.key &&
+            at == other.at &&
+            categories == other.categories &&
+            in_ == other.in_ &&
+            lang == other.lang &&
+            limit == other.limit &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, at, categories, in_, lang, limit, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            key,
+            at,
+            categories,
+            in_,
+            lang,
+            limit,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "BrowseSearchParams{key=$key, at=$at, categories=$categories, in_=$in_, lang=$lang, limit=$limit, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

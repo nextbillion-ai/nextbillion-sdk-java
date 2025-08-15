@@ -937,7 +937,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Direction && value == other.value /* spotless:on */
+            return other is Direction && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1096,7 +1096,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is RestrictionType && value == other.value /* spotless:on */
+            return other is RestrictionType && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1233,7 +1233,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is State && value == other.value /* spotless:on */
+            return other is State && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1367,7 +1367,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Status && value == other.value /* spotless:on */
+            return other is Status && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1380,12 +1380,53 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RichGroupResponse && id == other.id && area == other.area && bbox == other.bbox && comment == other.comment && createAt == other.createAt && direction == other.direction && endTime == other.endTime && geofence == other.geofence && highway == other.highway && mode == other.mode && name == other.name && repeatOn == other.repeatOn && restrictionType == other.restrictionType && speed == other.speed && speedLimit == other.speedLimit && startTime == other.startTime && state == other.state && status == other.status && updateAt == other.updateAt && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is RichGroupResponse &&
+            id == other.id &&
+            area == other.area &&
+            bbox == other.bbox &&
+            comment == other.comment &&
+            createAt == other.createAt &&
+            direction == other.direction &&
+            endTime == other.endTime &&
+            geofence == other.geofence &&
+            highway == other.highway &&
+            mode == other.mode &&
+            name == other.name &&
+            repeatOn == other.repeatOn &&
+            restrictionType == other.restrictionType &&
+            speed == other.speed &&
+            speedLimit == other.speedLimit &&
+            startTime == other.startTime &&
+            state == other.state &&
+            status == other.status &&
+            updateAt == other.updateAt &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(id, area, bbox, comment, createAt, direction, endTime, geofence, highway, mode, name, repeatOn, restrictionType, speed, speedLimit, startTime, state, status, updateAt, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(
+            id,
+            area,
+            bbox,
+            comment,
+            createAt,
+            direction,
+            endTime,
+            geofence,
+            highway,
+            mode,
+            name,
+            repeatOn,
+            restrictionType,
+            speed,
+            speedLimit,
+            startTime,
+            state,
+            status,
+            updateAt,
+            additionalProperties,
+        )
+    }
 
     override fun hashCode(): Int = hashCode
 

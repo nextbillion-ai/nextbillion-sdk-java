@@ -1488,12 +1488,33 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Delivery && id == other.id && locationIndex == other.locationIndex && description == other.description && maxVisitLateness == other.maxVisitLateness && metadata == other.metadata && sequenceOrder == other.sequenceOrder && service == other.service && setup == other.setup && timeWindows == other.timeWindows && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Delivery &&
+                id == other.id &&
+                locationIndex == other.locationIndex &&
+                description == other.description &&
+                maxVisitLateness == other.maxVisitLateness &&
+                metadata == other.metadata &&
+                sequenceOrder == other.sequenceOrder &&
+                service == other.service &&
+                setup == other.setup &&
+                timeWindows == other.timeWindows &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(id, locationIndex, description, maxVisitLateness, metadata, sequenceOrder, service, setup, timeWindows, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                id,
+                locationIndex,
+                description,
+                maxVisitLateness,
+                metadata,
+                sequenceOrder,
+                service,
+                setup,
+                timeWindows,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2051,12 +2072,33 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Pickup && id == other.id && locationIndex == other.locationIndex && description == other.description && maxVisitLateness == other.maxVisitLateness && metadata == other.metadata && sequenceOrder == other.sequenceOrder && service == other.service && setup == other.setup && timeWindows == other.timeWindows && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Pickup &&
+                id == other.id &&
+                locationIndex == other.locationIndex &&
+                description == other.description &&
+                maxVisitLateness == other.maxVisitLateness &&
+                metadata == other.metadata &&
+                sequenceOrder == other.sequenceOrder &&
+                service == other.service &&
+                setup == other.setup &&
+                timeWindows == other.timeWindows &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(id, locationIndex, description, maxVisitLateness, metadata, sequenceOrder, service, setup, timeWindows, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                id,
+                locationIndex,
+                description,
+                maxVisitLateness,
+                metadata,
+                sequenceOrder,
+                service,
+                setup,
+                timeWindows,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2493,7 +2535,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Alignment && value == other.value /* spotless:on */
+                return other is Alignment && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -2506,12 +2548,17 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Volume && alignment == other.alignment && depth == other.depth && height == other.height && width == other.width && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Volume &&
+                alignment == other.alignment &&
+                depth == other.depth &&
+                height == other.height &&
+                width == other.width &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(alignment, depth, height, width, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(alignment, depth, height, width, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2524,12 +2571,43 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is Shipment && delivery == other.delivery && pickup == other.pickup && amount == other.amount && followLifoOrder == other.followLifoOrder && incompatibleLoadTypes == other.incompatibleLoadTypes && jointOrder == other.jointOrder && loadTypes == other.loadTypes && maxTimeInVehicle == other.maxTimeInVehicle && outsourcingCost == other.outsourcingCost && priority == other.priority && revenue == other.revenue && skills == other.skills && volume == other.volume && zones == other.zones && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is Shipment &&
+            delivery == other.delivery &&
+            pickup == other.pickup &&
+            amount == other.amount &&
+            followLifoOrder == other.followLifoOrder &&
+            incompatibleLoadTypes == other.incompatibleLoadTypes &&
+            jointOrder == other.jointOrder &&
+            loadTypes == other.loadTypes &&
+            maxTimeInVehicle == other.maxTimeInVehicle &&
+            outsourcingCost == other.outsourcingCost &&
+            priority == other.priority &&
+            revenue == other.revenue &&
+            skills == other.skills &&
+            volume == other.volume &&
+            zones == other.zones &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(delivery, pickup, amount, followLifoOrder, incompatibleLoadTypes, jointOrder, loadTypes, maxTimeInVehicle, outsourcingCost, priority, revenue, skills, volume, zones, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(
+            delivery,
+            pickup,
+            amount,
+            followLifoOrder,
+            incompatibleLoadTypes,
+            jointOrder,
+            loadTypes,
+            maxTimeInVehicle,
+            outsourcingCost,
+            priority,
+            revenue,
+            skills,
+            volume,
+            zones,
+            additionalProperties,
+        )
+    }
 
     override fun hashCode(): Int = hashCode
 

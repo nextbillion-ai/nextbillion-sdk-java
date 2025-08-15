@@ -392,12 +392,19 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is Contacts && email == other.email && fax == other.fax && mobile == other.mobile && phone == other.phone && tollFree == other.tollFree && www == other.www && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is Contacts &&
+            email == other.email &&
+            fax == other.fax &&
+            mobile == other.mobile &&
+            phone == other.phone &&
+            tollFree == other.tollFree &&
+            www == other.www &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(email, fax, mobile, phone, tollFree, www, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(email, fax, mobile, phone, tollFree, www, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

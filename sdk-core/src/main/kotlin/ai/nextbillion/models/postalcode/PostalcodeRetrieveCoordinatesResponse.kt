@@ -1233,12 +1233,15 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Geometry && coordinates == other.coordinates && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Geometry &&
+                        coordinates == other.coordinates &&
+                        type == other.type &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(coordinates, type, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(coordinates, type, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -1736,12 +1739,15 @@ private constructor(
                                 return true
                             }
 
-                            return /* spotless:off */ other is Point && lat == other.lat && lng == other.lng && additionalProperties == other.additionalProperties /* spotless:on */
+                            return other is Point &&
+                                lat == other.lat &&
+                                lng == other.lng &&
+                                additionalProperties == other.additionalProperties
                         }
 
-                        /* spotless:off */
-                        private val hashCode: Int by lazy { Objects.hash(lat, lng, additionalProperties) }
-                        /* spotless:on */
+                        private val hashCode: Int by lazy {
+                            Objects.hash(lat, lng, additionalProperties)
+                        }
 
                         override fun hashCode(): Int = hashCode
 
@@ -1754,12 +1760,12 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is Polygon && points == other.points && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is Polygon &&
+                            points == other.points &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
                     private val hashCode: Int by lazy { Objects.hash(points, additionalProperties) }
-                    /* spotless:on */
 
                     override fun hashCode(): Int = hashCode
 
@@ -1772,12 +1778,12 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Multipolygon && polygon == other.polygon && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Multipolygon &&
+                        polygon == other.polygon &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
                 private val hashCode: Int by lazy { Objects.hash(polygon, additionalProperties) }
-                /* spotless:on */
 
                 override fun hashCode(): Int = hashCode
 
@@ -1790,12 +1796,17 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Boundary && geometry == other.geometry && multipolygon == other.multipolygon && properties == other.properties && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Boundary &&
+                    geometry == other.geometry &&
+                    multipolygon == other.multipolygon &&
+                    properties == other.properties &&
+                    type == other.type &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(geometry, multipolygon, properties, type, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(geometry, multipolygon, properties, type, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -1971,12 +1982,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Geopoint && lat == other.lat && lng == other.lng && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Geopoint &&
+                    lat == other.lat &&
+                    lng == other.lng &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(lat, lng, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -1989,12 +2001,35 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Places && address == other.address && boundary == other.boundary && country == other.country && countryCode == other.countryCode && distance == other.distance && district == other.district && geopoint == other.geopoint && postalcode == other.postalcode && state == other.state && subdistrict == other.subdistrict && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Places &&
+                address == other.address &&
+                boundary == other.boundary &&
+                country == other.country &&
+                countryCode == other.countryCode &&
+                distance == other.distance &&
+                district == other.district &&
+                geopoint == other.geopoint &&
+                postalcode == other.postalcode &&
+                state == other.state &&
+                subdistrict == other.subdistrict &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(address, boundary, country, countryCode, distance, district, geopoint, postalcode, state, subdistrict, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                address,
+                boundary,
+                country,
+                countryCode,
+                distance,
+                district,
+                geopoint,
+                postalcode,
+                state,
+                subdistrict,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2007,12 +2042,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is PostalcodeRetrieveCoordinatesResponse && places == other.places && warning == other.warning && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is PostalcodeRetrieveCoordinatesResponse &&
+            places == other.places &&
+            warning == other.warning &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(places, warning, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

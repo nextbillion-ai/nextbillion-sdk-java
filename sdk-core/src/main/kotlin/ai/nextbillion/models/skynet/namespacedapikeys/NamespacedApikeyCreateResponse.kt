@@ -537,12 +537,18 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Result && apikey == other.apikey && createdAt == other.createdAt && expiresAt == other.expiresAt && namespace == other.namespace && subId == other.subId && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Result &&
+                apikey == other.apikey &&
+                createdAt == other.createdAt &&
+                expiresAt == other.expiresAt &&
+                namespace == other.namespace &&
+                subId == other.subId &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(apikey, createdAt, expiresAt, namespace, subId, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(apikey, createdAt, expiresAt, namespace, subId, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -555,12 +561,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is NamespacedApikeyCreateResponse && error == other.error && message == other.message && result == other.result && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is NamespacedApikeyCreateResponse &&
+            error == other.error &&
+            message == other.message &&
+            result == other.result &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(error, message, result, status, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(error, message, result, status, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

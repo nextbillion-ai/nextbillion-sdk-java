@@ -18,7 +18,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 @ExtendWith(TestServerExtension::class)
 internal class MonitorServiceAsyncTest {
 
-    @Disabled("skipped: tests are disabled for the time being")
+    @Disabled("Prism tests are disabled")
     @Test
     fun create() {
         val client =
@@ -77,7 +77,7 @@ internal class MonitorServiceAsyncTest {
         monitor.validate()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
+    @Disabled("Prism tests are disabled")
     @Test
     fun retrieve() {
         val client =
@@ -96,7 +96,7 @@ internal class MonitorServiceAsyncTest {
         monitor.validate()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
+    @Disabled("Prism tests are disabled")
     @Test
     fun update() {
         val client =
@@ -154,7 +154,7 @@ internal class MonitorServiceAsyncTest {
         simpleResp.validate()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
+    @Disabled("Prism tests are disabled")
     @Test
     fun list() {
         val client =
@@ -180,7 +180,7 @@ internal class MonitorServiceAsyncTest {
         monitors.validate()
     }
 
-    @Disabled("skipped: tests are disabled for the time being")
+    @Disabled("Prism tests are disabled")
     @Test
     fun delete() {
         val client =
