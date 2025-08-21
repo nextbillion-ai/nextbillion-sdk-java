@@ -216,7 +216,7 @@ class NextbillionSdkClientImpl(private val clientOptions: ClientOptions) : Nextb
 
     override fun areas(): AreaService = areas
 
-    override fun close() = clientOptions.httpClient.close()
+    override fun close() = clientOptions.close()
 
     class WithRawResponseImpl internal constructor(private val clientOptions: ClientOptions) :
         NextbillionSdkClient.WithRawResponse {
