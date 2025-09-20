@@ -5,6 +5,7 @@ package ai.nextbillion.client.okhttp
 import ai.nextbillion.client.NextbillionSdkClient
 import ai.nextbillion.client.NextbillionSdkClientImpl
 import ai.nextbillion.core.ClientOptions
+import ai.nextbillion.core.Sleeper
 import ai.nextbillion.core.Timeout
 import ai.nextbillion.core.http.Headers
 import ai.nextbillion.core.http.HttpClient
@@ -119,6 +120,17 @@ class NextbillionSdkOkHttpClient private constructor() {
          * rarely needs to be overridden.
          */
         fun jsonMapper(jsonMapper: JsonMapper) = apply { clientOptions.jsonMapper(jsonMapper) }
+
+        /**
+         * The interface to use for delaying execution, like during retries.
+         *
+         * This is primarily useful for using fake delays in tests.
+         *
+         * Defaults to real execution delays.
+         *
+         * This class takes ownership of the sleeper and closes it when closed.
+         */
+        fun sleeper(sleeper: Sleeper) = apply { clientOptions.sleeper(sleeper) }
 
         /**
          * The clock to use for operations that require timing, like retries.
