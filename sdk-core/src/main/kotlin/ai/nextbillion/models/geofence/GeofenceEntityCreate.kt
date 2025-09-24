@@ -67,7 +67,7 @@ private constructor(
 
     /**
      * Set an unique ID for the new geofence. If not provided, an ID will be automatically generated
-     * in UUID format. A valid custom*id can contain letters, numbers, "-", & "*" only.
+     * in UUID format. A valid custom_id can contain letters, numbers, "-", & "_" only.
      *
      * Please note that the ID of a geofence can not be changed once it is created.
      *
@@ -124,7 +124,7 @@ private constructor(
      * filter geofences (using Get Geofence List method).
      *
      * Create valid tags using a string consisting of alphanumeric characters (A-Z, a-z, 0-9) along
-     * with the underscore ('\_') and hyphen ('-') symbols.
+     * with the underscore ('_') and hyphen ('-') symbols.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -259,7 +259,7 @@ private constructor(
 
         /**
          * Set an unique ID for the new geofence. If not provided, an ID will be automatically
-         * generated in UUID format. A valid custom*id can contain letters, numbers, "-", & "*"
+         * generated in UUID format. A valid custom_id can contain letters, numbers, "-", & "_"
          * only.
          *
          * Please note that the ID of a geofence can not be changed once it is created.
@@ -338,7 +338,7 @@ private constructor(
          * search or filter geofences (using Get Geofence List method).
          *
          * Create valid tags using a string consisting of alphanumeric characters (A-Z, a-z, 0-9)
-         * along with the underscore ('\_') and hyphen ('-') symbols.
+         * along with the underscore ('_') and hyphen ('-') symbols.
          */
         fun tags(tags: List<String>) = tags(JsonField.of(tags))
 

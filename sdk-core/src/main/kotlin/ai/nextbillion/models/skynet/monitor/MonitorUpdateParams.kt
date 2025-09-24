@@ -119,11 +119,11 @@ private constructor(
 
     /**
      * Use this parameter to update the tags of the monitor. tags can be used for filtering monitors
-     * in the _Get Monitor List_ operation. They can also be used for easy identification of
+     * in the *Get Monitor List* operation. They can also be used for easy identification of
      * monitors. Using this parameter overwrites the existing tags of the monitor.
      *
      * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z, a-z,
-     * 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
+     * 0-9) along with the underscore ('_') and hyphen ('-') symbols.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -426,12 +426,12 @@ private constructor(
 
         /**
          * Use this parameter to update the tags of the monitor. tags can be used for filtering
-         * monitors in the _Get Monitor List_ operation. They can also be used for easy
+         * monitors in the *Get Monitor List* operation. They can also be used for easy
          * identification of monitors. Using this parameter overwrites the existing tags of the
          * monitor.
          *
          * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z, a-z,
-         * 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
+         * 0-9) along with the underscore ('_') and hyphen ('-') symbols.
          */
         fun tags(tags: List<String>) = apply { body.tags(tags) }
 
@@ -773,12 +773,12 @@ private constructor(
 
         /**
          * Use this parameter to update the tags of the monitor. tags can be used for filtering
-         * monitors in the _Get Monitor List_ operation. They can also be used for easy
+         * monitors in the *Get Monitor List* operation. They can also be used for easy
          * identification of monitors. Using this parameter overwrites the existing tags of the
          * monitor.
          *
          * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z, a-z,
-         * 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
+         * 0-9) along with the underscore ('_') and hyphen ('-') symbols.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1093,12 +1093,12 @@ private constructor(
 
             /**
              * Use this parameter to update the tags of the monitor. tags can be used for filtering
-             * monitors in the _Get Monitor List_ operation. They can also be used for easy
+             * monitors in the *Get Monitor List* operation. They can also be used for easy
              * identification of monitors. Using this parameter overwrites the existing tags of the
              * monitor.
              *
              * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z,
-             * a-z, 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
+             * a-z, 0-9) along with the underscore ('_') and hyphen ('-') symbols.
              */
             fun tags(tags: List<String>) = tags(JsonField.of(tags))
 

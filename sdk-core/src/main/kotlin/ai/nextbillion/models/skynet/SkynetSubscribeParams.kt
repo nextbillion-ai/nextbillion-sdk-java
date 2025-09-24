@@ -32,9 +32,9 @@ private constructor(
     /**
      * Specify the behavior that needs to be achieved for the subscription. Following values are
      * accepted:
-     * - TRIP_SUBSCRIBE: Enable a trip subscription.
-     * - TRIP_UNSUBSCRIBE: Unsubscribe from a trip
-     * - HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message need
+     * * TRIP\_SUBSCRIBE: Enable a trip subscription.
+     * * TRIP\_UNSUBSCRIBE: Unsubscribe from a trip
+     * * HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message need
      *   to be sent at a frequency higher than every 5 mins to keep the connection alive.
      *   Alternatively, users can chose to respond to the ping frame sent by web socket server to
      *   keep the connection alive. Refer to
@@ -133,9 +133,9 @@ private constructor(
         /**
          * Specify the behavior that needs to be achieved for the subscription. Following values are
          * accepted:
-         * - TRIP_SUBSCRIBE: Enable a trip subscription.
-         * - TRIP_UNSUBSCRIBE: Unsubscribe from a trip
-         * - HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message
+         * * TRIP\_SUBSCRIBE: Enable a trip subscription.
+         * * TRIP\_UNSUBSCRIBE: Unsubscribe from a trip
+         * * HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message
          *   need to be sent at a frequency higher than every 5 mins to keep the connection alive.
          *   Alternatively, users can chose to respond to the ping frame sent by web socket server
          *   to keep the connection alive. Refer to
@@ -337,9 +337,9 @@ private constructor(
         /**
          * Specify the behavior that needs to be achieved for the subscription. Following values are
          * accepted:
-         * - TRIP_SUBSCRIBE: Enable a trip subscription.
-         * - TRIP_UNSUBSCRIBE: Unsubscribe from a trip
-         * - HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message
+         * * TRIP\_SUBSCRIBE: Enable a trip subscription.
+         * * TRIP\_UNSUBSCRIBE: Unsubscribe from a trip
+         * * HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message
          *   need to be sent at a frequency higher than every 5 mins to keep the connection alive.
          *   Alternatively, users can chose to respond to the ping frame sent by web socket server
          *   to keep the connection alive. Refer to
@@ -431,9 +431,9 @@ private constructor(
             /**
              * Specify the behavior that needs to be achieved for the subscription. Following values
              * are accepted:
-             * - TRIP_SUBSCRIBE: Enable a trip subscription.
-             * - TRIP_UNSUBSCRIBE: Unsubscribe from a trip
-             * - HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action
+             * * TRIP\_SUBSCRIBE: Enable a trip subscription.
+             * * TRIP\_UNSUBSCRIBE: Unsubscribe from a trip
+             * * HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action
              *   message need to be sent at a frequency higher than every 5 mins to keep the
              *   connection alive. Alternatively, users can chose to respond to the ping frame sent
              *   by web socket server to keep the connection alive. Refer to
@@ -573,9 +573,9 @@ private constructor(
     /**
      * Specify the behavior that needs to be achieved for the subscription. Following values are
      * accepted:
-     * - TRIP_SUBSCRIBE: Enable a trip subscription.
-     * - TRIP_UNSUBSCRIBE: Unsubscribe from a trip
-     * - HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message need
+     * * TRIP\_SUBSCRIBE: Enable a trip subscription.
+     * * TRIP\_UNSUBSCRIBE: Unsubscribe from a trip
+     * * HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message need
      *   to be sent at a frequency higher than every 5 mins to keep the connection alive.
      *   Alternatively, users can chose to respond to the ping frame sent by web socket server to
      *   keep the connection alive. Refer to
@@ -730,8 +730,8 @@ private constructor(
          * Specify the ID of an active trip that needs to be subscribed. The ID of a trip is
          * returned in the response when _Start A Trip_ request is acknowledged.
          *
-         * This attribute is mandatory when action is set to either "TRIP_SUBSCRIBE" or
-         * "TRIP_UNSUBSCRIBE"
+         * This attribute is mandatory when action is set to either "TRIP\_SUBSCRIBE" or
+         * "TRIP\_UNSUBSCRIBE"
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -786,8 +786,8 @@ private constructor(
              * Specify the ID of an active trip that needs to be subscribed. The ID of a trip is
              * returned in the response when _Start A Trip_ request is acknowledged.
              *
-             * This attribute is mandatory when action is set to either "TRIP_SUBSCRIBE" or
-             * "TRIP_UNSUBSCRIBE"
+             * This attribute is mandatory when action is set to either "TRIP\_SUBSCRIBE" or
+             * "TRIP\_UNSUBSCRIBE"
              */
             fun id(id: String) = id(JsonField.of(id))
 

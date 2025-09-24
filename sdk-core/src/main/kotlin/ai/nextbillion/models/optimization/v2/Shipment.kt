@@ -151,10 +151,10 @@ private constructor(
      * joint order group ID are treated as a single unit: either all tasks in the group are
      * assigned, or none are. Users can add tasks of both jobs and shipments types to a single joint
      * order group by using the same unique ID. Please note that:
-     * - Each shipment in a single joint order group will be fulfilled by a unique vehicle.
-     * - Shipments belonging to a joint order group can be served in any sequence while maintaining
+     * * Each shipment in a single joint order group will be fulfilled by a unique vehicle.
+     * * Shipments belonging to a joint order group can be served in any sequence while maintaining
      *   the pickup -> delivery sequence for an individual shipment.
-     * - Joint order settings will not be effective if \solution\ or \relations\ attributes are also
+     * * Joint order settings will not be effective if \solution\ or \relations\ attributes are also
      *   provided in the input request.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -277,13 +277,13 @@ private constructor(
      * assigned to this shipment. If the pickup and delivery steps belong to different zones, then a
      * vehicle should be allowed to fulfil tasks in both zones to take up such shipments. Please
      * note following points about shipment zones:
-     * - If zone IDs are provided for any one of the shipments, then all other shipments should also
+     * * If zone IDs are provided for any one of the shipments, then all other shipments should also
      *   be specified with zone IDs. Zone IDs provided here will override any zone geometries
      *   provided in the zones attribute and these IDs will be used for allocating appropriate
      *   vehicles.
-     * - Shipment steps can be auto-allocated to zones if this parameter is not specified while the
+     * * Shipment steps can be auto-allocated to zones if this parameter is not specified while the
      *   zone geometries (either zones.geometry or zones.geofence_id) are provided.
-     * - Shipments not falling in any zones can be fulfilled by only those vehicles which are
+     * * Shipments not falling in any zones can be fulfilled by only those vehicles which are
      *   allowed to take up tasks outside zones as well. Refer to vehicles attribute for more
      *   information.
      *
@@ -590,10 +590,10 @@ private constructor(
          * same joint order group ID are treated as a single unit: either all tasks in the group are
          * assigned, or none are. Users can add tasks of both jobs and shipments types to a single
          * joint order group by using the same unique ID. Please note that:
-         * - Each shipment in a single joint order group will be fulfilled by a unique vehicle.
-         * - Shipments belonging to a joint order group can be served in any sequence while
+         * * Each shipment in a single joint order group will be fulfilled by a unique vehicle.
+         * * Shipments belonging to a joint order group can be served in any sequence while
          *   maintaining the pickup -> delivery sequence for an individual shipment.
-         * - Joint order settings will not be effective if \solution\ or \relations\ attributes are
+         * * Joint order settings will not be effective if \solution\ or \relations\ attributes are
          *   also provided in the input request.
          */
         fun jointOrder(jointOrder: Long) = jointOrder(JsonField.of(jointOrder))
@@ -795,13 +795,13 @@ private constructor(
          * zone(s) assigned to this shipment. If the pickup and delivery steps belong to different
          * zones, then a vehicle should be allowed to fulfil tasks in both zones to take up such
          * shipments. Please note following points about shipment zones:
-         * - If zone IDs are provided for any one of the shipments, then all other shipments should
+         * * If zone IDs are provided for any one of the shipments, then all other shipments should
          *   also be specified with zone IDs. Zone IDs provided here will override any zone
          *   geometries provided in the zones attribute and these IDs will be used for allocating
          *   appropriate vehicles.
-         * - Shipment steps can be auto-allocated to zones if this parameter is not specified while
+         * * Shipment steps can be auto-allocated to zones if this parameter is not specified while
          *   the zone geometries (either zones.geometry or zones.geofence_id) are provided.
-         * - Shipments not falling in any zones can be fulfilled by only those vehicles which are
+         * * Shipments not falling in any zones can be fulfilled by only those vehicles which are
          *   allowed to take up tasks outside zones as well. Refer to vehicles attribute for more
          *   information.
          */
@@ -1041,15 +1041,16 @@ private constructor(
          * values for this input is \[0,100\].
          *
          * Please note that:
-         * - The shipment delivery's sequence order must be greater than or equal to its
+         * * The shipment delivery's sequence order must be greater than or equal to its
          *   corresponding pickup's sequence order.
-         * - Only the tasks within the same route are compared and ordered as per their
+         * * Only the tasks within the same route are compared and ordered as per their
          *   sequence_order.
-         * - Tasks without a sequence_order are not involved in the comparison.
-         * - Following is the precedence of sequence_order when used along side some of the other
+         * * Tasks without a sequence_order are not involved in the comparison.
+         * * Following is the precedence of sequence_order when used along side some of the other
          *   constraints:
-         *     - relations are prioritized over sequence_order comparisons.
-         *     - sequence_order will override order_grouping configurations.
+         *
+         *     *   relations are prioritized over sequence_order comparisons.
+         *     *   sequence_order will override order_grouping configurations.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1085,7 +1086,7 @@ private constructor(
          * should be expressed as a UNIX timestamp in seconds.
          *
          * Please note that the time periods should not overlap with each other and should always
-         * follow the format of \[start_timestamp, end_timestamp\].
+         * follow the format of \[start\_timestamp, end\_timestamp\].
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1302,15 +1303,16 @@ private constructor(
              * of values for this input is \[0,100\].
              *
              * Please note that:
-             * - The shipment delivery's sequence order must be greater than or equal to its
+             * * The shipment delivery's sequence order must be greater than or equal to its
              *   corresponding pickup's sequence order.
-             * - Only the tasks within the same route are compared and ordered as per their
+             * * Only the tasks within the same route are compared and ordered as per their
              *   sequence_order.
-             * - Tasks without a sequence_order are not involved in the comparison.
-             * - Following is the precedence of sequence_order when used along side some of the
+             * * Tasks without a sequence_order are not involved in the comparison.
+             * * Following is the precedence of sequence_order when used along side some of the
              *   other constraints:
-             *     - relations are prioritized over sequence_order comparisons.
-             *     - sequence_order will override order_grouping configurations.
+             *
+             *     *   relations are prioritized over sequence_order comparisons.
+             *     *   sequence_order will override order_grouping configurations.
              */
             fun sequenceOrder(sequenceOrder: Long) = sequenceOrder(JsonField.of(sequenceOrder))
 
@@ -1366,7 +1368,7 @@ private constructor(
              * periods should be expressed as a UNIX timestamp in seconds.
              *
              * Please note that the time periods should not overlap with each other and should
-             * always follow the format of \[start_timestamp, end_timestamp\].
+             * always follow the format of \[start\_timestamp, end\_timestamp\].
              */
             fun timeWindows(timeWindows: List<List<Long>>) = timeWindows(JsonField.of(timeWindows))
 
@@ -1627,15 +1629,16 @@ private constructor(
          * for this input is \[0,100\].
          *
          * Please note that:
-         * - The shipment pickups's sequence order must be lesser than or equal to its corresponding
+         * * The shipment pickups's sequence order must be lesser than or equal to its corresponding
          *   delivery's sequence order.
-         * - Only the tasks within the same route are compared and ordered as per their
+         * * Only the tasks within the same route are compared and ordered as per their
          *   sequence_order.
-         * - Tasks without a sequence_order are not involved in the comparison.
-         * - Following is the precedence of sequence_order when used along side some of the other
+         * * Tasks without a sequence_order are not involved in the comparison.
+         * * Following is the precedence of sequence_order when used along side some of the other
          *   constraints:
-         *     - relations are prioritized over sequence_order comparisons.
-         *     - sequence_order will override order_grouping configurations.
+         *
+         *     *   relations are prioritized over sequence_order comparisons.
+         *     *   sequence_order will override order_grouping configurations.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1671,7 +1674,7 @@ private constructor(
          * should be expressed as a UNIX timestamp in seconds.
          *
          * Please note that the time periods should not overlap with each other and should always
-         * follow the format of \[start_timestamp, end_timestamp\]
+         * follow the format of \[start\_timestamp, end\_timestamp\]
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1886,15 +1889,16 @@ private constructor(
              * of values for this input is \[0,100\].
              *
              * Please note that:
-             * - The shipment pickups's sequence order must be lesser than or equal to its
+             * * The shipment pickups's sequence order must be lesser than or equal to its
              *   corresponding delivery's sequence order.
-             * - Only the tasks within the same route are compared and ordered as per their
+             * * Only the tasks within the same route are compared and ordered as per their
              *   sequence_order.
-             * - Tasks without a sequence_order are not involved in the comparison.
-             * - Following is the precedence of sequence_order when used along side some of the
+             * * Tasks without a sequence_order are not involved in the comparison.
+             * * Following is the precedence of sequence_order when used along side some of the
              *   other constraints:
-             *     - relations are prioritized over sequence_order comparisons.
-             *     - sequence_order will override order_grouping configurations.
+             *
+             *     *   relations are prioritized over sequence_order comparisons.
+             *     *   sequence_order will override order_grouping configurations.
              */
             fun sequenceOrder(sequenceOrder: Long) = sequenceOrder(JsonField.of(sequenceOrder))
 
@@ -1950,7 +1954,7 @@ private constructor(
              * periods should be expressed as a UNIX timestamp in seconds.
              *
              * Please note that the time periods should not overlap with each other and should
-             * always follow the format of \[start_timestamp, end_timestamp\]
+             * always follow the format of \[start\_timestamp, end\_timestamp\]
              */
             fun timeWindows(timeWindows: List<List<Long>>) = timeWindows(JsonField.of(timeWindows))
 
@@ -2138,20 +2142,20 @@ private constructor(
         /**
          * Refers to the orientation of the cargo in the loading compartment. It supports the
          * following values:
-         * - **" "** : A blank space to indicate that the dimension check for the cargo should be
+         * * **" "** : A blank space to indicate that the dimension check for the cargo should be
          *   skipped. This is also the default value.
-         * - **strict :** In this orientation, the cargo must fit within the vehicle’s dimensions
+         * * **strict :** In this orientation, the cargo must fit within the vehicle’s dimensions
          *   exactly as is—no rotation is allowed. All dimensions of the cargo must be less than or
          *   equal to the corresponding dimensions of the vehicle. If any dimension exceeds that of
          *   the vehicle, the cargo cannot be loaded.
-         * - **parallel :** With parallel orientation, the cargo can be rotated around any one of
+         * * **parallel :** With parallel orientation, the cargo can be rotated around any one of
          *   the axes to help it fit into the loading compartment. For example, if the cargo is
          *   wider than the vehicle, it can still be loaded by rotating it around the vertical axis
          *   (so the width aligns with the vehicle’s depth) or the horizontal axis (so the width
          *   aligns with the vehicle’s height). Using this orientation, even a cargo whose one
          *   dimension is larger than the corresponding dimension of the vehicle but smaller than
          *   other dimensions, can also be loaded.
-         * - **fixed_bottom :** In this orientation, the cargo can only be rotated around the
+         * * **fixed\_bottom :** In this orientation, the cargo can only be rotated around the
          *   vertical axis, meaning its base stays fixed and it cannot be tilted or turned over. The
          *   height of the cargo remains aligned with the vehicle’s height and cannot be adjusted.
          *   As a result, if the cargo’s height exceeds the vehicle’s available height, it cannot be
@@ -2255,20 +2259,20 @@ private constructor(
             /**
              * Refers to the orientation of the cargo in the loading compartment. It supports the
              * following values:
-             * - **" "** : A blank space to indicate that the dimension check for the cargo should
+             * * **" "** : A blank space to indicate that the dimension check for the cargo should
              *   be skipped. This is also the default value.
-             * - **strict :** In this orientation, the cargo must fit within the vehicle’s
+             * * **strict :** In this orientation, the cargo must fit within the vehicle’s
              *   dimensions exactly as is—no rotation is allowed. All dimensions of the cargo must
              *   be less than or equal to the corresponding dimensions of the vehicle. If any
              *   dimension exceeds that of the vehicle, the cargo cannot be loaded.
-             * - **parallel :** With parallel orientation, the cargo can be rotated around any one
+             * * **parallel :** With parallel orientation, the cargo can be rotated around any one
              *   of the axes to help it fit into the loading compartment. For example, if the cargo
              *   is wider than the vehicle, it can still be loaded by rotating it around the
              *   vertical axis (so the width aligns with the vehicle’s depth) or the horizontal axis
              *   (so the width aligns with the vehicle’s height). Using this orientation, even a
              *   cargo whose one dimension is larger than the corresponding dimension of the vehicle
              *   but smaller than other dimensions, can also be loaded.
-             * - **fixed_bottom :** In this orientation, the cargo can only be rotated around the
+             * * **fixed\_bottom :** In this orientation, the cargo can only be rotated around the
              *   vertical axis, meaning its base stays fixed and it cannot be tilted or turned over.
              *   The height of the cargo remains aligned with the vehicle’s height and cannot be
              *   adjusted. As a result, if the cargo’s height exceeds the vehicle’s available
@@ -2387,20 +2391,20 @@ private constructor(
         /**
          * Refers to the orientation of the cargo in the loading compartment. It supports the
          * following values:
-         * - **" "** : A blank space to indicate that the dimension check for the cargo should be
+         * * **" "** : A blank space to indicate that the dimension check for the cargo should be
          *   skipped. This is also the default value.
-         * - **strict :** In this orientation, the cargo must fit within the vehicle’s dimensions
+         * * **strict :** In this orientation, the cargo must fit within the vehicle’s dimensions
          *   exactly as is—no rotation is allowed. All dimensions of the cargo must be less than or
          *   equal to the corresponding dimensions of the vehicle. If any dimension exceeds that of
          *   the vehicle, the cargo cannot be loaded.
-         * - **parallel :** With parallel orientation, the cargo can be rotated around any one of
+         * * **parallel :** With parallel orientation, the cargo can be rotated around any one of
          *   the axes to help it fit into the loading compartment. For example, if the cargo is
          *   wider than the vehicle, it can still be loaded by rotating it around the vertical axis
          *   (so the width aligns with the vehicle’s depth) or the horizontal axis (so the width
          *   aligns with the vehicle’s height). Using this orientation, even a cargo whose one
          *   dimension is larger than the corresponding dimension of the vehicle but smaller than
          *   other dimensions, can also be loaded.
-         * - **fixed_bottom :** In this orientation, the cargo can only be rotated around the
+         * * **fixed\_bottom :** In this orientation, the cargo can only be rotated around the
          *   vertical axis, meaning its base stays fixed and it cannot be tilted or turned over. The
          *   height of the cargo remains aligned with the vehicle’s height and cannot be adjusted.
          *   As a result, if the cargo’s height exceeds the vehicle’s available height, it cannot be

@@ -20,7 +20,7 @@ import kotlin.jvm.optionals.getOrNull
 /**
  * Specify the configurations of the geofence which will be used to detect presence of the driver
  * and complete the tasks automatically. Please note that this attribute is required when
- * completion_mode is either "geofence" or "geofence_manual_fallback".
+ * completion_mode is either "geofence" or "geofence\_manual\_fallback".
  */
 class RouteStepGeofenceConfig
 private constructor(

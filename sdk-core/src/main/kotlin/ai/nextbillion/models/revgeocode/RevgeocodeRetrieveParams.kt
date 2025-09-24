@@ -37,17 +37,17 @@ private constructor(
      * located within the specified area.
      *
      * A geographic area can be
-     * - a country (or multiple countries), provided as comma-separated
+     * * a country (or multiple countries), provided as comma-separated
      *   [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country codes
      *
      *   The country codes are to be provided in all uppercase.
      *
      *   Format: countryCode:{countryCode}[,{countryCode}]
-     * - a circular area, provided as latitude, longitude, and radius (an integer with meters as
+     * * a circular area, provided as latitude, longitude, and radius (an integer with meters as
      *   unit)
      *
      *   Format: circle:{latitude},{longitude};r={radius}
-     * - a bounding box, provided as _west longitude_, _south latitude_, _east longitude_, _north
+     * * a bounding box, provided as _west longitude_, _south latitude_, _east longitude_, _north
      *   latitude_
      *
      *   Format: bbox:{west longitude},{south latitude},{east longitude},{north latitude}
@@ -118,17 +118,17 @@ private constructor(
          * are located within the specified area.
          *
          * A geographic area can be
-         * - a country (or multiple countries), provided as comma-separated
+         * * a country (or multiple countries), provided as comma-separated
          *   [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country codes
          *
          *   The country codes are to be provided in all uppercase.
          *
          *   Format: countryCode:{countryCode}[,{countryCode}]
-         * - a circular area, provided as latitude, longitude, and radius (an integer with meters as
+         * * a circular area, provided as latitude, longitude, and radius (an integer with meters as
          *   unit)
          *
          *   Format: circle:{latitude},{longitude};r={radius}
-         * - a bounding box, provided as _west longitude_, _south latitude_, _east longitude_,
+         * * a bounding box, provided as _west longitude_, _south latitude_, _east longitude_,
          *   _north latitude_
          *
          *   Format: bbox:{west longitude},{south latitude},{east longitude},{north latitude}

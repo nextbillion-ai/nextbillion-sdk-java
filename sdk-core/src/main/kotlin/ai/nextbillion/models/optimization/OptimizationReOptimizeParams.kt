@@ -57,9 +57,9 @@ private constructor(
 
     /**
      * Provide the list of locations to be used during re-optimization process. Please note that
-     * - Providing the location input overwrites the list of locations used in the original request.
-     * - The location_indexes associated with all tasks and vehicles (both from the original and new
-     *   re-optimization input requests) will follow the updated list of locations.
+     * * Providing the location input overwrites the list of locations used in the original request.
+     * * The location\_indexes associated with all tasks and vehicles (both from the original and
+     *   new re-optimization input requests) will follow the updated list of locations.
      *
      * As a best practice:
      * 1. Don't provide the locations input when re-optimizing, if the original set contains all the
@@ -224,10 +224,10 @@ private constructor(
 
         /**
          * Provide the list of locations to be used during re-optimization process. Please note that
-         * - Providing the location input overwrites the list of locations used in the original
+         * * Providing the location input overwrites the list of locations used in the original
          *   request.
-         * - The location_indexes associated with all tasks and vehicles (both from the original and
-         *   new re-optimization input requests) will follow the updated list of locations.
+         * * The location\_indexes associated with all tasks and vehicles (both from the original
+         *   and new re-optimization input requests) will follow the updated list of locations.
          *
          * As a best practice:
          * 1. Don't provide the locations input when re-optimizing, if the original set contains all
@@ -505,10 +505,10 @@ private constructor(
 
         /**
          * Provide the list of locations to be used during re-optimization process. Please note that
-         * - Providing the location input overwrites the list of locations used in the original
+         * * Providing the location input overwrites the list of locations used in the original
          *   request.
-         * - The location_indexes associated with all tasks and vehicles (both from the original and
-         *   new re-optimization input requests) will follow the updated list of locations.
+         * * The location\_indexes associated with all tasks and vehicles (both from the original
+         *   and new re-optimization input requests) will follow the updated list of locations.
          *
          * As a best practice:
          * 1. Don't provide the locations input when re-optimizing, if the original set contains all
@@ -678,10 +678,11 @@ private constructor(
             /**
              * Provide the list of locations to be used during re-optimization process. Please note
              * that
-             * - Providing the location input overwrites the list of locations used in the original
+             * * Providing the location input overwrites the list of locations used in the original
              *   request.
-             * - The location_indexes associated with all tasks and vehicles (both from the original
-             *   and new re-optimization input requests) will follow the updated list of locations.
+             * * The location\_indexes associated with all tasks and vehicles (both from the
+             *   original and new re-optimization input requests) will follow the updated list of
+             *   locations.
              *
              * As a best practice:
              * 1. Don't provide the locations input when re-optimizing, if the original set contains

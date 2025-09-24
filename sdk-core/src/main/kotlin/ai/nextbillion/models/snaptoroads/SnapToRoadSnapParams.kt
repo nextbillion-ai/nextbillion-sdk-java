@@ -85,9 +85,9 @@ private constructor(
      * Include this parameter in the request to return segment-wise speed information of the route
      * returned in the response.
      *
-     * Please note that returning speed information is a function of "road_info" parameter, which is
-     * effective only when "option=flexible". However, the resultant route might not contain all the
-     * locations provided in "path" input.
+     * Please note that returning speed information is a function of "road\_info" parameter, which
+     * is effective only when "option=flexible". However, the resultant route might not contain all
+     * the locations provided in "path" input.
      */
     fun option(): Optional<Option> = Optional.ofNullable(option)
 
@@ -103,7 +103,7 @@ private constructor(
 
     /**
      * Use this parameter to receive segment-wise maximum speed information of the route in the
-     * response. "max_speed" is the only allowed value.
+     * response. "max\_speed" is the only allowed value.
      */
     fun roadInfo(): Optional<RoadInfo> = Optional.ofNullable(roadInfo)
 
@@ -244,7 +244,7 @@ private constructor(
          * Include this parameter in the request to return segment-wise speed information of the
          * route returned in the response.
          *
-         * Please note that returning speed information is a function of "road_info" parameter,
+         * Please note that returning speed information is a function of "road\_info" parameter,
          * which is effective only when "option=flexible". However, the resultant route might not
          * contain all the locations provided in "path" input.
          */
@@ -268,7 +268,7 @@ private constructor(
 
         /**
          * Use this parameter to receive segment-wise maximum speed information of the route in the
-         * response. "max_speed" is the only allowed value.
+         * response. "max\_speed" is the only allowed value.
          */
         fun roadInfo(roadInfo: RoadInfo?) = apply { this.roadInfo = roadInfo }
 
@@ -1018,9 +1018,9 @@ private constructor(
      * Include this parameter in the request to return segment-wise speed information of the route
      * returned in the response.
      *
-     * Please note that returning speed information is a function of "road_info" parameter, which is
-     * effective only when "option=flexible". However, the resultant route might not contain all the
-     * locations provided in "path" input.
+     * Please note that returning speed information is a function of "road\_info" parameter, which
+     * is effective only when "option=flexible". However, the resultant route might not contain all
+     * the locations provided in "path" input.
      */
     class Option @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -1145,7 +1145,7 @@ private constructor(
 
     /**
      * Use this parameter to receive segment-wise maximum speed information of the route in the
-     * response. "max_speed" is the only allowed value.
+     * response. "max\_speed" is the only allowed value.
      */
     class RoadInfo @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 

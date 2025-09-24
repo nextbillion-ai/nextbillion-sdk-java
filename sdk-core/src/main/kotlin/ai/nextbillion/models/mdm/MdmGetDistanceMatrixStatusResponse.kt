@@ -49,7 +49,7 @@ private constructor(
     /**
      * Returns the GCS result of a successful task. Please note that this is an internal field.
      *
-     * _internal field, the gcs result of specific task if task is success._
+     * *internal field, the gcs result of specific task if task is success.*
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -156,7 +156,7 @@ private constructor(
         /**
          * Returns the GCS result of a successful task. Please note that this is an internal field.
          *
-         * _internal field, the gcs result of specific task if task is success._
+         * *internal field, the gcs result of specific task if task is success.*
          */
         fun outputAddr(outputAddr: String) = outputAddr(JsonField.of(outputAddr))
 

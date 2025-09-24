@@ -9,10 +9,10 @@ import com.fasterxml.jackson.annotation.JsonCreator
 
 /**
  * Specify the mode of completion to be used for the step. Currently, following values are allowed:
- * - manual: Steps must be marked as completed manually through the Driver App.
- * - geofence: Steps are marked as completed automatically based on the entry conditions and
+ * * manual: Steps must be marked as completed manually through the Driver App.
+ * * geofence: Steps are marked as completed automatically based on the entry conditions and
  *   geofence specified.
- * - geofence_manual_fallback: Steps will be marked as completed automatically based on geofence and
+ * * geofence_manual_fallback: Steps will be marked as completed automatically based on geofence and
  *   entry condition configurations but there will also be a provision for manually updating the
  *   status in case, geofence detection fails.
  */

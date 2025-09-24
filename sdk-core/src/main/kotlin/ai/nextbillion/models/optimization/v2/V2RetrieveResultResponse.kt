@@ -3446,19 +3446,19 @@ private constructor(
              * Returns the most likely reason due to which the task remained unassigned. The
              * optimization service can capture the following causes of tasks remaining unassigned,
              * among others:
-             * - unmatched skills of the tasks
-             * - insufficient capacity of vehicle to accommodate the tasks
-             * - time_window requirements of the tasks or the vehicles
-             * - violation of vehicle’s max_activity_waiting_time constraint
-             * - violation of vehicle’s max_tasks or max_stops constraints
-             * - violation of vehicle’s max_distance or max_travel_time constraints
-             * - task unassigned due to zone constraints
-             * - task unassigned due to depot constraints
-             * - task unassigned due to load type incompatibility constraints
-             * - task unassigned due to max time in vehicle constraint
-             * - task unassigned as it is unprofitable
-             * - task unassigned due to low outsourcing cost
-             * - task unassigned due to infeasible conditions specified in relations attribute
+             * * unmatched skills of the tasks
+             * * insufficient capacity of vehicle to accommodate the tasks
+             * * time_window requirements of the tasks or the vehicles
+             * * violation of vehicle’s max_activity_waiting_time constraint
+             * * violation of vehicle’s max_tasks or max_stops constraints
+             * * violation of vehicle’s max_distance or max_travel_time constraints
+             * * task unassigned due to zone constraints
+             * * task unassigned due to depot constraints
+             * * task unassigned due to load type incompatibility constraints
+             * * task unassigned due to max time in vehicle constraint
+             * * task unassigned as it is unprofitable
+             * * task unassigned due to low outsourcing cost
+             * * task unassigned due to infeasible conditions specified in relations attribute
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -3625,19 +3625,19 @@ private constructor(
                  * Returns the most likely reason due to which the task remained unassigned. The
                  * optimization service can capture the following causes of tasks remaining
                  * unassigned, among others:
-                 * - unmatched skills of the tasks
-                 * - insufficient capacity of vehicle to accommodate the tasks
-                 * - time_window requirements of the tasks or the vehicles
-                 * - violation of vehicle’s max_activity_waiting_time constraint
-                 * - violation of vehicle’s max_tasks or max_stops constraints
-                 * - violation of vehicle’s max_distance or max_travel_time constraints
-                 * - task unassigned due to zone constraints
-                 * - task unassigned due to depot constraints
-                 * - task unassigned due to load type incompatibility constraints
-                 * - task unassigned due to max time in vehicle constraint
-                 * - task unassigned as it is unprofitable
-                 * - task unassigned due to low outsourcing cost
-                 * - task unassigned due to infeasible conditions specified in relations attribute
+                 * * unmatched skills of the tasks
+                 * * insufficient capacity of vehicle to accommodate the tasks
+                 * * time_window requirements of the tasks or the vehicles
+                 * * violation of vehicle’s max_activity_waiting_time constraint
+                 * * violation of vehicle’s max_tasks or max_stops constraints
+                 * * violation of vehicle’s max_distance or max_travel_time constraints
+                 * * task unassigned due to zone constraints
+                 * * task unassigned due to depot constraints
+                 * * task unassigned due to load type incompatibility constraints
+                 * * task unassigned due to max time in vehicle constraint
+                 * * task unassigned as it is unprofitable
+                 * * task unassigned due to low outsourcing cost
+                 * * task unassigned due to infeasible conditions specified in relations attribute
                  */
                 fun reason(reason: String) = reason(JsonField.of(reason))
 

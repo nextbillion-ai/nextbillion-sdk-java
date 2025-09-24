@@ -41,10 +41,10 @@ private constructor(
 
     /**
      * Use this parameter to add tags to the monitor. tags can be used for filtering monitors in the
-     * _Get Monitor List_ operation. They can also be used for easy identification of monitors.
+     * *Get Monitor List* operation. They can also be used for easy identification of monitors.
      *
      * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z, a-z,
-     * 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
+     * 0-9) along with the underscore ('_') and hyphen ('-') symbols.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
      *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -74,7 +74,7 @@ private constructor(
 
     /**
      * Set a unique ID for the new monitor. If not provided, an ID will be automatically generated
-     * in UUID format. A valid custom*id can contain letters, numbers, "-", & "*" only.
+     * in UUID format. A valid custom_id can contain letters, numbers, "-", & "_" only.
      *
      * Please note that the ID of an monitor can not be changed once it is created.
      *
@@ -314,11 +314,11 @@ private constructor(
 
         /**
          * Use this parameter to add tags to the monitor. tags can be used for filtering monitors in
-         * the _Get Monitor List_ operation. They can also be used for easy identification of
+         * the *Get Monitor List* operation. They can also be used for easy identification of
          * monitors.
          *
          * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z, a-z,
-         * 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
+         * 0-9) along with the underscore ('_') and hyphen ('-') symbols.
          */
         fun tags(tags: List<String>) = apply { body.tags(tags) }
 
@@ -368,7 +368,7 @@ private constructor(
 
         /**
          * Set a unique ID for the new monitor. If not provided, an ID will be automatically
-         * generated in UUID format. A valid custom*id can contain letters, numbers, "-", & "*"
+         * generated in UUID format. A valid custom_id can contain letters, numbers, "-", & "_"
          * only.
          *
          * Please note that the ID of an monitor can not be changed once it is created.
@@ -747,11 +747,11 @@ private constructor(
 
         /**
          * Use this parameter to add tags to the monitor. tags can be used for filtering monitors in
-         * the _Get Monitor List_ operation. They can also be used for easy identification of
+         * the *Get Monitor List* operation. They can also be used for easy identification of
          * monitors.
          *
          * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z, a-z,
-         * 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
+         * 0-9) along with the underscore ('_') and hyphen ('-') symbols.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -783,7 +783,7 @@ private constructor(
 
         /**
          * Set a unique ID for the new monitor. If not provided, an ID will be automatically
-         * generated in UUID format. A valid custom*id can contain letters, numbers, "-", & "*"
+         * generated in UUID format. A valid custom_id can contain letters, numbers, "-", & "_"
          * only.
          *
          * Please note that the ID of an monitor can not be changed once it is created.
@@ -1034,11 +1034,11 @@ private constructor(
 
             /**
              * Use this parameter to add tags to the monitor. tags can be used for filtering
-             * monitors in the _Get Monitor List_ operation. They can also be used for easy
+             * monitors in the *Get Monitor List* operation. They can also be used for easy
              * identification of monitors.
              *
              * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z,
-             * a-z, 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
+             * a-z, 0-9) along with the underscore ('_') and hyphen ('-') symbols.
              */
             fun tags(tags: List<String>) = tags(JsonField.of(tags))
 
@@ -1094,7 +1094,7 @@ private constructor(
 
             /**
              * Set a unique ID for the new monitor. If not provided, an ID will be automatically
-             * generated in UUID format. A valid custom*id can contain letters, numbers, "-", & "*"
+             * generated in UUID format. A valid custom_id can contain letters, numbers, "-", & "_"
              * only.
              *
              * Please note that the ID of an monitor can not be changed once it is created.
