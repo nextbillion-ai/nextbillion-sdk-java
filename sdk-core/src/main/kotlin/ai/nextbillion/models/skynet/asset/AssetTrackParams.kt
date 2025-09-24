@@ -43,8 +43,8 @@ private constructor(
     /**
      * ID of the device used to upload the tracking information of the asset.
      *
-     * Please note that the device_id used here must already be linked to the asset. Use the _Bind
-     * Device to Asset_ method to link a device with your asset.
+     * Please note that the device_id used here must already be linked to the asset. Use the *Bind
+     * Device to Asset* method to link a device with your asset.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
      *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -147,7 +147,7 @@ private constructor(
          * ID of the device used to upload the tracking information of the asset.
          *
          * Please note that the device_id used here must already be linked to the asset. Use the
-         * _Bind Device to Asset_ method to link a device with your asset.
+         * *Bind Device to Asset* method to link a device with your asset.
          */
         fun deviceId(deviceId: String) = apply { body.deviceId(deviceId) }
 
@@ -356,7 +356,7 @@ private constructor(
          * ID of the device used to upload the tracking information of the asset.
          *
          * Please note that the device_id used here must already be linked to the asset. Use the
-         * _Bind Device to Asset_ method to link a device with your asset.
+         * *Bind Device to Asset* method to link a device with your asset.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -432,7 +432,7 @@ private constructor(
              * ID of the device used to upload the tracking information of the asset.
              *
              * Please note that the device_id used here must already be linked to the asset. Use the
-             * _Bind Device to Asset_ method to link a device with your asset.
+             * *Bind Device to Asset* method to link a device with your asset.
              */
             fun deviceId(deviceId: String) = deviceId(JsonField.of(deviceId))
 

@@ -35,7 +35,7 @@ private constructor(
     /**
      * Specify the area name. It represents a region where restrictions can be applied.
      *
-     * _The area it belongs to. See Area API_
+     * *The area it belongs to. See Area API*
      */
     fun area(): String = area
 
@@ -155,7 +155,7 @@ private constructor(
         /**
          * Specify the area name. It represents a region where restrictions can be applied.
          *
-         * _The area it belongs to. See Area API_
+         * *The area it belongs to. See Area API*
          */
         fun area(area: String) = apply { this.area = area }
 

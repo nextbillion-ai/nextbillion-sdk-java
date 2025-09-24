@@ -94,9 +94,9 @@ private constructor(
 
     /**
      * Specify the metric to sort the assets returned in the search result. The valid values are:
-     * - **distance** : Sorts the assets by driving distance to the given sort_destination .
-     * - **duration** : Sorts the assets by travel time to the given sort_destination .
-     * - **straight_distance** : Sort the assets by straight-line distance to the given
+     * * **distance** : Sorts the assets by driving distance to the given sort_destination .
+     * * **duration** : Sorts the assets by travel time to the given sort_destination .
+     * * **straight\_distance** : Sort the assets by straight-line distance to the given
      *   sort-destination .
      */
     fun sortBy(): Optional<SortBy> = Optional.ofNullable(sortBy)
@@ -290,9 +290,9 @@ private constructor(
         /**
          * Specify the metric to sort the assets returned in the search result. The valid values
          * are:
-         * - **distance** : Sorts the assets by driving distance to the given sort_destination .
-         * - **duration** : Sorts the assets by travel time to the given sort_destination .
-         * - **straight_distance** : Sort the assets by straight-line distance to the given
+         * * **distance** : Sorts the assets by driving distance to the given sort_destination .
+         * * **duration** : Sorts the assets by travel time to the given sort_destination .
+         * * **straight\_distance** : Sort the assets by straight-line distance to the given
          *   sort-destination .
          */
         fun sortBy(sortBy: SortBy?) = apply { this.sortBy = sortBy }
@@ -478,9 +478,9 @@ private constructor(
 
     /**
      * Specify the metric to sort the assets returned in the search result. The valid values are:
-     * - **distance** : Sorts the assets by driving distance to the given sort_destination .
-     * - **duration** : Sorts the assets by travel time to the given sort_destination .
-     * - **straight_distance** : Sort the assets by straight-line distance to the given
+     * * **distance** : Sorts the assets by driving distance to the given sort_destination .
+     * * **duration** : Sorts the assets by travel time to the given sort_destination .
+     * * **straight\_distance** : Sort the assets by straight-line distance to the given
      *   sort-destination .
      */
     class SortBy @JsonCreator private constructor(private val value: JsonField<String>) : Enum {

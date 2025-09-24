@@ -62,11 +62,11 @@ private constructor(
      * located within the specified area.
      *
      * A geographic area can be
-     * - a circular area, provided as latitude, longitude, and radius (an integer with meters as
+     * * a circular area, provided as latitude, longitude, and radius (an integer with meters as
      *   unit)
      *
      *   Format: circle:{latitude},{longitude};r={radius}
-     * - a bounding box, provided as _west longitude_, _south latitude_, _east longitude_, _north
+     * * a bounding box, provided as _west longitude_, _south latitude_, _east longitude_, _north
      *   latitude_
      *
      *   Format: bbox:{west longitude},{south latitude},{east longitude},{north latitude}
@@ -196,11 +196,11 @@ private constructor(
          * are located within the specified area.
          *
          * A geographic area can be
-         * - a circular area, provided as latitude, longitude, and radius (an integer with meters as
+         * * a circular area, provided as latitude, longitude, and radius (an integer with meters as
          *   unit)
          *
          *   Format: circle:{latitude},{longitude};r={radius}
-         * - a bounding box, provided as _west longitude_, _south latitude_, _east longitude_,
+         * * a bounding box, provided as _west longitude_, _south latitude_, _east longitude_,
          *   _north latitude_
          *
          *   Format: bbox:{west longitude},{south latitude},{east longitude},{north latitude}

@@ -1021,8 +1021,8 @@ private constructor(
          * the intermediate stops to be completed before it.
          *
          * Please note
-         * - The last location provided is treated as the destination of the trip.
-         * - dropoffs is mandatory when dropoff_details is set to **true**.
+         * * The last location provided is treated as the destination of the trip.
+         * * dropoffs is mandatory when dropoff_details is set to **true**.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1213,8 +1213,8 @@ private constructor(
              * or the intermediate stops to be completed before it.
              *
              * Please note
-             * - The last location provided is treated as the destination of the trip.
-             * - dropoffs is mandatory when dropoff_details is set to **true**.
+             * * The last location provided is treated as the destination of the trip.
+             * * dropoffs is mandatory when dropoff_details is set to **true**.
              */
             fun dropoffs(dropoffs: List<Dropoff>) = dropoffs(JsonField.of(dropoffs))
 
@@ -2117,12 +2117,12 @@ private constructor(
                  * specified above. The attribute , operator and value together constitute the
                  * condition that a vehicle must meet to be eligible for assignment. Currently, we
                  * support following operators currently:
-                 * - Equal to (==)
-                 * - Less than (<)
-                 * - Less tha equal to (<=)
-                 * - Greater than (>)
-                 * - Greater than equal to (>=)
-                 * - Contains (contains)
+                 * * Equal to (==)
+                 * * Less than (<)
+                 * * Less tha equal to (<=)
+                 * * Greater than (>)
+                 * * Greater than equal to (>=)
+                 * * Contains (contains)
                  *
                  * Please note that when using "contains" operator only one value can be specified
                  * and the corresponding attribute must contain multiple values when defined for a
@@ -2240,12 +2240,12 @@ private constructor(
                      * specified above. The attribute , operator and value together constitute the
                      * condition that a vehicle must meet to be eligible for assignment. Currently,
                      * we support following operators currently:
-                     * - Equal to (==)
-                     * - Less than (<)
-                     * - Less tha equal to (<=)
-                     * - Greater than (>)
-                     * - Greater than equal to (>=)
-                     * - Contains (contains)
+                     * * Equal to (==)
+                     * * Less than (<)
+                     * * Less tha equal to (<=)
+                     * * Greater than (>)
+                     * * Greater than equal to (>=)
+                     * * Contains (contains)
                      *
                      * Please note that when using "contains" operator only one value can be
                      * specified and the corresponding attribute must contain multiple values when
@@ -2414,12 +2414,12 @@ private constructor(
                  * specified above. The attribute , operator and value together constitute the
                  * condition that a vehicle must meet to be eligible for assignment. Currently, we
                  * support following operators currently:
-                 * - Equal to (==)
-                 * - Less than (<)
-                 * - Less tha equal to (<=)
-                 * - Greater than (>)
-                 * - Greater than equal to (>=)
-                 * - Contains (contains)
+                 * * Equal to (==)
+                 * * Less than (<)
+                 * * Less tha equal to (<=)
+                 * * Greater than (>)
+                 * * Greater than equal to (>=)
+                 * * Contains (contains)
                  *
                  * Please note that when using "contains" operator only one value can be specified
                  * and the corresponding attribute must contain multiple values when defined for a
@@ -2537,12 +2537,12 @@ private constructor(
                      * specified above. The attribute , operator and value together constitute the
                      * condition that a vehicle must meet to be eligible for assignment. Currently,
                      * we support following operators currently:
-                     * - Equal to (==)
-                     * - Less than (<)
-                     * - Less tha equal to (<=)
-                     * - Greater than (>)
-                     * - Greater than equal to (>=)
-                     * - Contains (contains)
+                     * * Equal to (==)
+                     * * Less than (<)
+                     * * Less tha equal to (<=)
+                     * * Greater than (>)
+                     * * Greater than equal to (>=)
+                     * * Contains (contains)
                      *
                      * Please note that when using "contains" operator only one value can be
                      * specified and the corresponding attribute must contain multiple values when
@@ -2711,12 +2711,12 @@ private constructor(
                  * specified above. The attribute , operator and value together constitute the
                  * condition that a vehicle must meet to be eligible for assignment. Currently, we
                  * support following operators currently:
-                 * - Equal to (==)
-                 * - Less than (<)
-                 * - Less tha equal to (<=)
-                 * - Greater than (>)
-                 * - Greater than equal to (>=)
-                 * - Contains (contains)
+                 * * Equal to (==)
+                 * * Less than (<)
+                 * * Less tha equal to (<=)
+                 * * Greater than (>)
+                 * * Greater than equal to (>=)
+                 * * Contains (contains)
                  *
                  * Please note that when using "contains" operator only one value can be specified
                  * and the corresponding attribute must contain multiple values when defined for a
@@ -2834,12 +2834,12 @@ private constructor(
                      * specified above. The attribute , operator and value together constitute the
                      * condition that a vehicle must meet to be eligible for assignment. Currently,
                      * we support following operators currently:
-                     * - Equal to (==)
-                     * - Less than (<)
-                     * - Less tha equal to (<=)
-                     * - Greater than (>)
-                     * - Greater than equal to (>=)
-                     * - Contains (contains)
+                     * * Equal to (==)
+                     * * Less than (<)
+                     * * Less tha equal to (<=)
+                     * * Greater than (>)
+                     * * Greater than equal to (>=)
+                     * * Contains (contains)
                      *
                      * Please note that when using "contains" operator only one value can be
                      * specified and the corresponding attribute must contain multiple values when
@@ -3077,11 +3077,11 @@ private constructor(
         /**
          * Specify the maximum number of potential, alternate vehicle assignments to be returned for
          * each order, apart from the vehicle which was assigned as recommended. Please note that:
-         * - The maximum number of alternate assignments that can be requested are 3.
-         * - It is not necessary that the service will return the specified number of alternate
+         * * The maximum number of alternate assignments that can be requested are 3.
+         * * It is not necessary that the service will return the specified number of alternate
          *   assignments for each order. The number of alternate assignments returned will depend on
          *   the number of vehicles provided in the input.
-         * - Order which could not be assigned to any vehicles due to their filter or attribute
+         * * Order which could not be assigned to any vehicles due to their filter or attribute
          *   matching criteria will not be eligible for alternate assignments as well.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -3229,11 +3229,11 @@ private constructor(
              * Specify the maximum number of potential, alternate vehicle assignments to be returned
              * for each order, apart from the vehicle which was assigned as recommended. Please note
              * that:
-             * - The maximum number of alternate assignments that can be requested are 3.
-             * - It is not necessary that the service will return the specified number of alternate
+             * * The maximum number of alternate assignments that can be requested are 3.
+             * * It is not necessary that the service will return the specified number of alternate
              *   assignments for each order. The number of alternate assignments returned will
              *   depend on the number of vehicles provided in the input.
-             * - Order which could not be assigned to any vehicles due to their filter or attribute
+             * * Order which could not be assigned to any vehicles due to their filter or attribute
              *   matching criteria will not be eligible for alternate assignments as well.
              */
             fun alternateAssignments(alternateAssignments: Long) =
@@ -3478,12 +3478,12 @@ private constructor(
              * above. The attribute , operator and value together constitute the condition that an
              * order must meet to assume the specified priority. We support the following operators
              * currently:
-             * - Equal to (==)
-             * - Less than (<)
-             * - Less tha equal to (<=)
-             * - Greater than (>)
-             * - Greater than equal to (>=)
-             * - Contains (contains)
+             * * Equal to (==)
+             * * Less than (<)
+             * * Less tha equal to (<=)
+             * * Greater than (>)
+             * * Greater than equal to (>=)
+             * * Contains (contains)
              *
              * Please note that when using "contains" operator only one value can be specified and
              * the corresponding attribute must contain multiple values when defined for an order.
@@ -3618,12 +3618,12 @@ private constructor(
                  * specified above. The attribute , operator and value together constitute the
                  * condition that an order must meet to assume the specified priority. We support
                  * the following operators currently:
-                 * - Equal to (==)
-                 * - Less than (<)
-                 * - Less tha equal to (<=)
-                 * - Greater than (>)
-                 * - Greater than equal to (>=)
-                 * - Contains (contains)
+                 * * Equal to (==)
+                 * * Less than (<)
+                 * * Less tha equal to (<=)
+                 * * Greater than (>)
+                 * * Greater than equal to (>=)
+                 * * Contains (contains)
                  *
                  * Please note that when using "contains" operator only one value can be specified
                  * and the corresponding attribute must contain multiple values when defined for an
@@ -3956,12 +3956,12 @@ private constructor(
              * above. The attribute , operator and value together constitute the condition that a
              * vehicle must meet to assume the specified priority. We support the following
              * operators currently:
-             * - Equal to (==)
-             * - Less than (<)
-             * - Less tha equal to (<=)
-             * - Greater than (>)
-             * - Greater than equal to (>=)
-             * - Contains (contains)
+             * * Equal to (==)
+             * * Less than (<)
+             * * Less tha equal to (<=)
+             * * Greater than (>)
+             * * Greater than equal to (>=)
+             * * Contains (contains)
              *
              * Please note that when using "contains" operator only one value can be specified and
              * the corresponding attribute must contain multiple values when defined for a vehicle.
@@ -4097,12 +4097,12 @@ private constructor(
                  * specified above. The attribute , operator and value together constitute the
                  * condition that a vehicle must meet to assume the specified priority. We support
                  * the following operators currently:
-                 * - Equal to (==)
-                 * - Less than (<)
-                 * - Less tha equal to (<=)
-                 * - Greater than (>)
-                 * - Greater than equal to (>=)
-                 * - Contains (contains)
+                 * * Equal to (==)
+                 * * Less than (<)
+                 * * Less tha equal to (<=)
+                 * * Greater than (>)
+                 * * Greater than equal to (>=)
+                 * * Contains (contains)
                  *
                  * Please note that when using "contains" operator only one value can be specified
                  * and the corresponding attribute must contain multiple values when defined for a

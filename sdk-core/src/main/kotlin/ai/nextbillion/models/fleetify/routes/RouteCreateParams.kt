@@ -85,14 +85,14 @@ private constructor(
      * form the routes and corresponding steps.
      *
      * Please note that:
-     * - The driver's email ID must be provided in input vehicle.metadata as user_email such that
+     * * The driver's email ID must be provided in input vehicle.metadata as user_email such that
      *   the route optimization result must contain a valid driver email, step's arrival time, etc.,
      *   to make a successful dispatch.
-     * - Document Template for collecting proof of delivery or completion can not be specified when
+     * * Document Template for collecting proof of delivery or completion can not be specified when
      *   using this field to dispatch a route.
-     * - In case of an error at any part among the routes, the API will immediately return the error
+     * * In case of an error at any part among the routes, the API will immediately return the error
      *   with the index of the specific route or route step.
-     * - On a successful dispatch, the API returns the last route, if there are many, in the
+     * * On a successful dispatch, the API returns the last route, if there are many, in the
      *   response payload.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -294,14 +294,14 @@ private constructor(
          * used to form the routes and corresponding steps.
          *
          * Please note that:
-         * - The driver's email ID must be provided in input vehicle.metadata as user_email such
+         * * The driver's email ID must be provided in input vehicle.metadata as user_email such
          *   that the route optimization result must contain a valid driver email, step's arrival
          *   time, etc., to make a successful dispatch.
-         * - Document Template for collecting proof of delivery or completion can not be specified
+         * * Document Template for collecting proof of delivery or completion can not be specified
          *   when using this field to dispatch a route.
-         * - In case of an error at any part among the routes, the API will immediately return the
+         * * In case of an error at any part among the routes, the API will immediately return the
          *   error with the index of the specific route or route step.
-         * - On a successful dispatch, the API returns the last route, if there are many, in the
+         * * On a successful dispatch, the API returns the last route, if there are many, in the
          *   response payload.
          */
         fun roRequestId(roRequestId: String) = apply { body.roRequestId(roRequestId) }
@@ -569,14 +569,14 @@ private constructor(
          * used to form the routes and corresponding steps.
          *
          * Please note that:
-         * - The driver's email ID must be provided in input vehicle.metadata as user_email such
+         * * The driver's email ID must be provided in input vehicle.metadata as user_email such
          *   that the route optimization result must contain a valid driver email, step's arrival
          *   time, etc., to make a successful dispatch.
-         * - Document Template for collecting proof of delivery or completion can not be specified
+         * * Document Template for collecting proof of delivery or completion can not be specified
          *   when using this field to dispatch a route.
-         * - In case of an error at any part among the routes, the API will immediately return the
+         * * In case of an error at any part among the routes, the API will immediately return the
          *   error with the index of the specific route or route step.
-         * - On a successful dispatch, the API returns the last route, if there are many, in the
+         * * On a successful dispatch, the API returns the last route, if there are many, in the
          *   response payload.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -788,14 +788,14 @@ private constructor(
              * will be used to form the routes and corresponding steps.
              *
              * Please note that:
-             * - The driver's email ID must be provided in input vehicle.metadata as user_email such
+             * * The driver's email ID must be provided in input vehicle.metadata as user_email such
              *   that the route optimization result must contain a valid driver email, step's
              *   arrival time, etc., to make a successful dispatch.
-             * - Document Template for collecting proof of delivery or completion can not be
+             * * Document Template for collecting proof of delivery or completion can not be
              *   specified when using this field to dispatch a route.
-             * - In case of an error at any part among the routes, the API will immediately return
+             * * In case of an error at any part among the routes, the API will immediately return
              *   the error with the index of the specific route or route step.
-             * - On a successful dispatch, the API returns the last route, if there are many, in the
+             * * On a successful dispatch, the API returns the last route, if there are many, in the
              *   response payload.
              */
             fun roRequestId(roRequestId: String) = roRequestId(JsonField.of(roRequestId))

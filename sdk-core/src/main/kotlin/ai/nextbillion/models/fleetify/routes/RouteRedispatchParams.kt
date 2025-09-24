@@ -752,10 +752,10 @@ private constructor(
             /**
              * Specify the mode of completion to be used for the step. Currently, following values
              * are allowed:
-             * - manual: Steps must be marked as completed manually through the Driver App.
-             * - geofence: Steps are marked as completed automatically based on the entry conditions
+             * * manual: Steps must be marked as completed manually through the Driver App.
+             * * geofence: Steps are marked as completed automatically based on the entry conditions
              *   and geofence specified.
-             * - geofence_manual_fallback: Steps will be marked as completed automatically based on
+             * * geofence_manual_fallback: Steps will be marked as completed automatically based on
              *   geofence and entry condition configurations but there will also be a provision for
              *   manually updating the status in case, geofence detection fails.
              *
@@ -868,10 +868,10 @@ private constructor(
                 /**
                  * Specify the mode of completion to be used for the step. Currently, following
                  * values are allowed:
-                 * - manual: Steps must be marked as completed manually through the Driver App.
-                 * - geofence: Steps are marked as completed automatically based on the entry
+                 * * manual: Steps must be marked as completed manually through the Driver App.
+                 * * geofence: Steps are marked as completed automatically based on the entry
                  *   conditions and geofence specified.
-                 * - geofence_manual_fallback: Steps will be marked as completed automatically based
+                 * * geofence_manual_fallback: Steps will be marked as completed automatically based
                  *   on geofence and entry condition configurations but there will also be a
                  *   provision for manually updating the status in case, geofence detection fails.
                  */

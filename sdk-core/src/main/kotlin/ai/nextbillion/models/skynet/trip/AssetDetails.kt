@@ -84,7 +84,7 @@ private constructor(
      * A string dictionary object containing attributes of the asset. These attributes were
      * associated with the asset at the time of creating or updating it.
      *
-     * attributes can be added to an asset using the _Update Asset Attributes_ method.
+     * attributes can be added to an asset using the *Update Asset Attributes* method.
      */
     @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 
@@ -110,7 +110,7 @@ private constructor(
      * device_id linked to a single asset. An empty response is returned if no devices are linked to
      * the asset.
      *
-     * User can link a device to an asset using the _Bind Asset to Device_ method.
+     * User can link a device to an asset using the *Bind Asset to Device* method.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -156,7 +156,7 @@ private constructor(
      * parameter.**
      *
      * Tags of the asset. These were associated with the asset when it was created or updated. tags
-     * can be used for filtering assets in operations like _Get Asset List_ and asset **Search**
+     * can be used for filtering assets in operations like *Get Asset List* and asset **Search**
      * methods. They can also be used for monitoring of assets using **Monitor** methods after
      * linking tags and asset.
      *
@@ -330,7 +330,7 @@ private constructor(
          * A string dictionary object containing attributes of the asset. These attributes were
          * associated with the asset at the time of creating or updating it.
          *
-         * attributes can be added to an asset using the _Update Asset Attributes_ method.
+         * attributes can be added to an asset using the *Update Asset Attributes* method.
          */
         fun attributes(attributes: JsonValue) = apply { this.attributes = attributes }
 
@@ -367,7 +367,7 @@ private constructor(
          * device_id linked to a single asset. An empty response is returned if no devices are
          * linked to the asset.
          *
-         * User can link a device to an asset using the _Bind Asset to Device_ method.
+         * User can link a device to an asset using the *Bind Asset to Device* method.
          */
         fun deviceId(deviceId: String) = deviceId(JsonField.of(deviceId))
 
@@ -439,7 +439,7 @@ private constructor(
          * parameter.**
          *
          * Tags of the asset. These were associated with the asset when it was created or updated.
-         * tags can be used for filtering assets in operations like _Get Asset List_ and asset
+         * tags can be used for filtering assets in operations like *Get Asset List* and asset
          * **Search** methods. They can also be used for monitoring of assets using **Monitor**
          * methods after linking tags and asset.
          */

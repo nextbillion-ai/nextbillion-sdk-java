@@ -99,7 +99,7 @@ private constructor(
      * Specify the area name. It represents a region where restrictions can be applied. This is a
      * custom field and it is recommended for the users to check with
      * [NextBillion.ai](www.nextbillion.ai) support for the right value. Alternatively, users can
-     * invoke the _[Areas](#supported-areas)_ method to get a list of available areas for them.
+     * invoke the *[Areas](#supported-areas)* method to get a list of available areas for them.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
      *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -489,7 +489,7 @@ private constructor(
          * Specify the area name. It represents a region where restrictions can be applied. This is
          * a custom field and it is recommended for the users to check with
          * [NextBillion.ai](www.nextbillion.ai) support for the right value. Alternatively, users
-         * can invoke the _[Areas](#supported-areas)_ method to get a list of available areas for
+         * can invoke the *[Areas](#supported-areas)* method to get a list of available areas for
          * them.
          */
         fun area(area: String) = area(JsonField.of(area))

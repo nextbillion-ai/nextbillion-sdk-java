@@ -92,8 +92,8 @@ private constructor(
 
     /**
      * "destination" is the ending point of your route. Ensure that the "destination" is a routable
-     * land location. Please note that this parameter is mandatory if the "original_shape" parameter
-     * is not given.
+     * land location. Please note that this parameter is mandatory if the "original\_shape"
+     * parameter is not given.
      */
     fun destination(): Optional<String> = Optional.ofNullable(destination)
 
@@ -118,13 +118,13 @@ private constructor(
      *
      * When "mode=truck", following are the default dimensions that are used:
      *
-     * \- truck_height = 214 centimeters
+     * \- truck\_height = 214 centimeters
      *
-     * \- truck_width = 183 centimeters
+     * \- truck\_width = 183 centimeters
      *
-     * \- truck_length = 519 centimeters
+     * \- truck\_length = 519 centimeters
      *
-     * \- truck_weight = 5000 kg
+     * \- truck\_weight = 5000 kg
      *
      * Please use the Navigation Flexible version if you want to use custom truck dimensions.
      *
@@ -144,18 +144,18 @@ private constructor(
 
     /**
      * Takes a route geometry as input and returns the navigation information for that route.
-     * Accepts "polyline" and "polyline6" encoded geometry as input. "original_shape_type" becomes
-     * mandatory when "original_shape" is used. If this parameter is provided, the only other
-     * parameters which will be considered are "original_shape_type", "lang", "geometry". The rest
+     * Accepts "polyline" and "polyline6" encoded geometry as input. "original\_shape\_type" becomes
+     * mandatory when "original\_shape" is used. If this parameter is provided, the only other
+     * parameters which will be considered are "original\_shape\_type", "lang", "geometry". The rest
      * of the parameters in the input request will be ignored. Please note overview verbosity will
      * always be "full" when using this parameter.
      */
     fun originalShape(): Optional<String> = Optional.ofNullable(originalShape)
 
     /**
-     * Specify the encoding format of route geometry provided in the request using "original_shape"
+     * Specify the encoding format of route geometry provided in the request using "original\_shape"
      * parameter. Please note that an error is returned when this parameter is not specified while
-     * an input is added to "original_shape" parameter.
+     * an input is added to "original\_shape" parameter.
      */
     fun originalShapeType(): Optional<OriginalShapeType> = Optional.ofNullable(originalShapeType)
 
@@ -319,7 +319,7 @@ private constructor(
         /**
          * "destination" is the ending point of your route. Ensure that the "destination" is a
          * routable land location. Please note that this parameter is mandatory if the
-         * "original_shape" parameter is not given.
+         * "original\_shape" parameter is not given.
          */
         fun destination(destination: String?) = apply { this.destination = destination }
 
@@ -353,13 +353,13 @@ private constructor(
          *
          * When "mode=truck", following are the default dimensions that are used:
          *
-         * \- truck_height = 214 centimeters
+         * \- truck\_height = 214 centimeters
          *
-         * \- truck_width = 183 centimeters
+         * \- truck\_width = 183 centimeters
          *
-         * \- truck_length = 519 centimeters
+         * \- truck\_length = 519 centimeters
          *
-         * \- truck_weight = 5000 kg
+         * \- truck\_weight = 5000 kg
          *
          * Please use the Navigation Flexible version if you want to use custom truck dimensions.
          *
@@ -386,11 +386,11 @@ private constructor(
 
         /**
          * Takes a route geometry as input and returns the navigation information for that route.
-         * Accepts "polyline" and "polyline6" encoded geometry as input. "original_shape_type"
-         * becomes mandatory when "original_shape" is used. If this parameter is provided, the only
-         * other parameters which will be considered are "original_shape_type", "lang", "geometry".
-         * The rest of the parameters in the input request will be ignored. Please note overview
-         * verbosity will always be "full" when using this parameter.
+         * Accepts "polyline" and "polyline6" encoded geometry as input. "original\_shape\_type"
+         * becomes mandatory when "original\_shape" is used. If this parameter is provided, the only
+         * other parameters which will be considered are "original\_shape\_type", "lang",
+         * "geometry". The rest of the parameters in the input request will be ignored. Please note
+         * overview verbosity will always be "full" when using this parameter.
          */
         fun originalShape(originalShape: String?) = apply { this.originalShape = originalShape }
 
@@ -400,8 +400,8 @@ private constructor(
 
         /**
          * Specify the encoding format of route geometry provided in the request using
-         * "original_shape" parameter. Please note that an error is returned when this parameter is
-         * not specified while an input is added to "original_shape" parameter.
+         * "original\_shape" parameter. Please note that an error is returned when this parameter is
+         * not specified while an input is added to "original\_shape" parameter.
          */
         fun originalShapeType(originalShapeType: OriginalShapeType?) = apply {
             this.originalShapeType = originalShapeType
@@ -1019,13 +1019,13 @@ private constructor(
      *
      * When "mode=truck", following are the default dimensions that are used:
      *
-     * \- truck_height = 214 centimeters
+     * \- truck\_height = 214 centimeters
      *
-     * \- truck_width = 183 centimeters
+     * \- truck\_width = 183 centimeters
      *
-     * \- truck_length = 519 centimeters
+     * \- truck\_length = 519 centimeters
      *
-     * \- truck_weight = 5000 kg
+     * \- truck\_weight = 5000 kg
      *
      * Please use the Navigation Flexible version if you want to use custom truck dimensions.
      *
@@ -1162,9 +1162,9 @@ private constructor(
     }
 
     /**
-     * Specify the encoding format of route geometry provided in the request using "original_shape"
+     * Specify the encoding format of route geometry provided in the request using "original\_shape"
      * parameter. Please note that an error is returned when this parameter is not specified while
-     * an input is added to "original_shape" parameter.
+     * an input is added to "original\_shape" parameter.
      */
     class OriginalShapeType @JsonCreator private constructor(private val value: JsonField<String>) :
         Enum {

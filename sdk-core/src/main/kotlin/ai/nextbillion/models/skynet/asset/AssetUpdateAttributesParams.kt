@@ -37,7 +37,7 @@ private constructor(
     /**
      * attributes can be used to add any useful information or context to your assets like the
      * vehicle type, shift timing etc. These attributes can also be used to filter assets in
-     * **Search**, **Monitor**, and _Get Asset List_ queries.
+     * **Search**, **Monitor**, and *Get Asset List* queries.
      *
      * Provide the attributes to be added or updated, in key:value format. If an existing key is
      * provided in the input, then the value will be modified as per the input value. If a new key
@@ -112,7 +112,7 @@ private constructor(
         /**
          * attributes can be used to add any useful information or context to your assets like the
          * vehicle type, shift timing etc. These attributes can also be used to filter assets in
-         * **Search**, **Monitor**, and _Get Asset List_ queries.
+         * **Search**, **Monitor**, and *Get Asset List* queries.
          *
          * Provide the attributes to be added or updated, in key:value format. If an existing key is
          * provided in the input, then the value will be modified as per the input value. If a new
@@ -297,7 +297,7 @@ private constructor(
         /**
          * attributes can be used to add any useful information or context to your assets like the
          * vehicle type, shift timing etc. These attributes can also be used to filter assets in
-         * **Search**, **Monitor**, and _Get Asset List_ queries.
+         * **Search**, **Monitor**, and *Get Asset List* queries.
          *
          * Provide the attributes to be added or updated, in key:value format. If an existing key is
          * provided in the input, then the value will be modified as per the input value. If a new
@@ -350,7 +350,7 @@ private constructor(
             /**
              * attributes can be used to add any useful information or context to your assets like
              * the vehicle type, shift timing etc. These attributes can also be used to filter
-             * assets in **Search**, **Monitor**, and _Get Asset List_ queries.
+             * assets in **Search**, **Monitor**, and *Get Asset List* queries.
              *
              * Provide the attributes to be added or updated, in key:value format. If an existing
              * key is provided in the input, then the value will be modified as per the input value.

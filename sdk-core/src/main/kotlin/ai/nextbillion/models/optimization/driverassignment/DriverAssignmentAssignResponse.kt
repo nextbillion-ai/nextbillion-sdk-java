@@ -1420,13 +1420,13 @@ private constructor(
 
                     /**
                      * Returns the type of the step. Currently, it can take following values:
-                     * - **pickup:** Indicates the pickup step for an order
-                     * - **dropoff:** Indicates the dropoff step for an order. It is returned only
+                     * * **pickup:** Indicates the pickup step for an order
+                     * * **dropoff:** Indicates the dropoff step for an order. It is returned only
                      *   if dropoff_details was **true** in the input request.
-                     * - **ongoing:** Indicates a step that the vehicle needs to complete on its
+                     * * **ongoing:** Indicates a step that the vehicle needs to complete on its
                      *   current trip. This is returned in the response only when
                      *   remaining_waypoints input was provided for the given vehicle.
-                     * - **intermediate_waypoint:** Indicates an intermediate stop that the vehicle
+                     * * **intermediate\_waypoint:** Indicates an intermediate stop that the vehicle
                      *   needs to complete in case multiple dropoffs are provided in the input.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
@@ -1583,13 +1583,13 @@ private constructor(
 
                         /**
                          * Returns the type of the step. Currently, it can take following values:
-                         * - **pickup:** Indicates the pickup step for an order
-                         * - **dropoff:** Indicates the dropoff step for an order. It is returned
+                         * * **pickup:** Indicates the pickup step for an order
+                         * * **dropoff:** Indicates the dropoff step for an order. It is returned
                          *   only if dropoff_details was **true** in the input request.
-                         * - **ongoing:** Indicates a step that the vehicle needs to complete on its
+                         * * **ongoing:** Indicates a step that the vehicle needs to complete on its
                          *   current trip. This is returned in the response only when
                          *   remaining_waypoints input was provided for the given vehicle.
-                         * - **intermediate_waypoint:** Indicates an intermediate stop that the
+                         * * **intermediate\_waypoint:** Indicates an intermediate stop that the
                          *   vehicle needs to complete in case multiple dropoffs are provided in the
                          *   input.
                          */
@@ -1681,13 +1681,13 @@ private constructor(
 
                     /**
                      * Returns the type of the step. Currently, it can take following values:
-                     * - **pickup:** Indicates the pickup step for an order
-                     * - **dropoff:** Indicates the dropoff step for an order. It is returned only
+                     * * **pickup:** Indicates the pickup step for an order
+                     * * **dropoff:** Indicates the dropoff step for an order. It is returned only
                      *   if dropoff_details was **true** in the input request.
-                     * - **ongoing:** Indicates a step that the vehicle needs to complete on its
+                     * * **ongoing:** Indicates a step that the vehicle needs to complete on its
                      *   current trip. This is returned in the response only when
                      *   remaining_waypoints input was provided for the given vehicle.
-                     * - **intermediate_waypoint:** Indicates an intermediate stop that the vehicle
+                     * * **intermediate\_waypoint:** Indicates an intermediate stop that the vehicle
                      *   needs to complete in case multiple dropoffs are provided in the input.
                      */
                     class Type

@@ -97,7 +97,7 @@ private constructor(
      * search or filter geofences (using Get Geofence List method).
      *
      * Valid values for updating tags consist of alphanumeric characters (A-Z, a-z, 0-9) along with
-     * the underscore ('\_') and hyphen ('-') symbols.
+     * the underscore ('_') and hyphen ('-') symbols.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -299,7 +299,7 @@ private constructor(
          * search or filter geofences (using Get Geofence List method).
          *
          * Valid values for updating tags consist of alphanumeric characters (A-Z, a-z, 0-9) along
-         * with the underscore ('\_') and hyphen ('-') symbols.
+         * with the underscore ('_') and hyphen ('-') symbols.
          */
         fun tags(tags: List<String>) = apply { body.tags(tags) }
 
@@ -575,7 +575,7 @@ private constructor(
          * search or filter geofences (using Get Geofence List method).
          *
          * Valid values for updating tags consist of alphanumeric characters (A-Z, a-z, 0-9) along
-         * with the underscore ('\_') and hyphen ('-') symbols.
+         * with the underscore ('_') and hyphen ('-') symbols.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -761,7 +761,7 @@ private constructor(
              * to search or filter geofences (using Get Geofence List method).
              *
              * Valid values for updating tags consist of alphanumeric characters (A-Z, a-z, 0-9)
-             * along with the underscore ('\_') and hyphen ('-') symbols.
+             * along with the underscore ('_') and hyphen ('-') symbols.
              */
             fun tags(tags: List<String>) = tags(JsonField.of(tags))
 

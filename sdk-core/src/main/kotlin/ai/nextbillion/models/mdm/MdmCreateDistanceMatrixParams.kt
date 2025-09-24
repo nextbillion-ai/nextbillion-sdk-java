@@ -48,7 +48,7 @@ private constructor(
      *
      * Please note it is an internal, debug field only.
      *
-     * _debug field. choose specific spliter to split matrix._
+     * *debug field. choose specific spliter to split matrix.*
      */
     fun spliter(): Optional<Spliter> = Optional.ofNullable(spliter)
 
@@ -56,7 +56,7 @@ private constructor(
      * origins are the starting point of your route. Ensure that origins are routable land
      * locations. Multiple origins should be separated by a pipe symbol (|).
      *
-     * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
+     * **Format:** latitude\_1,longitude\_1|latitude\_2,longitude\_2|…
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
      *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -66,7 +66,7 @@ private constructor(
     /**
      * Provide the country that the coordinates belong to.
      *
-     * _the input coordinates area._
+     * *the input coordinates area.*
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -77,18 +77,14 @@ private constructor(
      * Setting this will ensure the route avoids the object(s) specified as input. Multiple values
      * should be separated by a pipe (|). If none is provided along with other values, an error is
      * returned as a valid route is not feasible.
-     * - **Note:**
-     *     - This parameter is effective only when route_type=fastest.
-     *     - When this parameter is not provided in the input, ferries are set to be avoided by
-     *       default. When avoid input is provided, only the mentioned objects are avoided.
-     *     - When using avoid=bbox users also need to specify the boundaries of the bounding box to
-     *       be avoid. Multiple bounding boxes can be specified simultaneously. Please note that
-     *       bounding box is a hard filter and if it blocks all possible routes between given
-     *       locations, a 4xx error is returned.
+     * * **Note:**
      *
-     *     - **Format:** bbox: min_latitude,min_longtitude,max_latitude,max_longitude.
-     *     - **Example:** avoid=bbox: 34.0635,-118.2547, 34.0679,-118.2478 | bbox: 34.0521,-118.2342, 34.0478,-118.2437
-     *     - When using avoid=sharp_turn, default range of permissible turn angles is \[120,240\].
+     *     *   This parameter is effective only when route_type=fastest.
+     *     *   When this parameter is not provided in the input, ferries are set to be avoided by default. When avoid input is provided, only the mentioned objects are avoided.
+     *     *   When using avoid=bbox users also need to specify the boundaries of the bounding box to be avoid. Multiple bounding boxes can be specified simultaneously. Please note that bounding box is a hard filter and if it blocks all possible routes between given locations, a 4xx error is returned.
+     *         *   **Format:** bbox: min\_latitude,min\_longtitude,max\_latitude,max\_longitude.
+     *         *   **Example:** avoid=bbox: 34.0635,-118.2547, 34.0679,-118.2478 | bbox: 34.0521,-118.2342, 34.0478,-118.2437
+     *     *   When using avoid=sharp_turn, default range of permissible turn angles is \[120,240\].
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -132,7 +128,7 @@ private constructor(
      * In case destinations are not provided or if it is left empty, then the input value of origins
      * will be copied to destinations to create the OD matrix pairs.
      *
-     * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
+     * **Format:** latitude\_1,longitude\_1|latitude\_2,longitude\_2|…
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -384,7 +380,7 @@ private constructor(
          *
          * Please note it is an internal, debug field only.
          *
-         * _debug field. choose specific spliter to split matrix._
+         * *debug field. choose specific spliter to split matrix.*
          */
         fun spliter(spliter: Spliter?) = apply { this.spliter = spliter }
 
@@ -409,7 +405,7 @@ private constructor(
          * origins are the starting point of your route. Ensure that origins are routable land
          * locations. Multiple origins should be separated by a pipe symbol (|).
          *
-         * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
+         * **Format:** latitude\_1,longitude\_1|latitude\_2,longitude\_2|…
          */
         fun origins(origins: String) = apply { body.origins(origins) }
 
@@ -424,7 +420,7 @@ private constructor(
         /**
          * Provide the country that the coordinates belong to.
          *
-         * _the input coordinates area._
+         * *the input coordinates area.*
          */
         fun area(area: Area) = apply { body.area(area) }
 
@@ -440,19 +436,14 @@ private constructor(
          * Setting this will ensure the route avoids the object(s) specified as input. Multiple
          * values should be separated by a pipe (|). If none is provided along with other values, an
          * error is returned as a valid route is not feasible.
-         * - **Note:**
-         *     - This parameter is effective only when route_type=fastest.
-         *     - When this parameter is not provided in the input, ferries are set to be avoided by
-         *       default. When avoid input is provided, only the mentioned objects are avoided.
-         *     - When using avoid=bbox users also need to specify the boundaries of the bounding box
-         *       to be avoid. Multiple bounding boxes can be specified simultaneously. Please note
-         *       that bounding box is a hard filter and if it blocks all possible routes between
-         *       given locations, a 4xx error is returned.
+         * * **Note:**
          *
-         *     - **Format:** bbox: min_latitude,min_longtitude,max_latitude,max_longitude.
-         *     - **Example:** avoid=bbox: 34.0635,-118.2547, 34.0679,-118.2478 | bbox: 34.0521,-118.2342, 34.0478,-118.2437
-         *     - When using avoid=sharp_turn, default range of permissible turn angles is
-         *       \[120,240\].
+         *     *   This parameter is effective only when route_type=fastest.
+         *     *   When this parameter is not provided in the input, ferries are set to be avoided by default. When avoid input is provided, only the mentioned objects are avoided.
+         *     *   When using avoid=bbox users also need to specify the boundaries of the bounding box to be avoid. Multiple bounding boxes can be specified simultaneously. Please note that bounding box is a hard filter and if it blocks all possible routes between given locations, a 4xx error is returned.
+         *         *   **Format:** bbox: min\_latitude,min\_longtitude,max\_latitude,max\_longitude.
+         *         *   **Example:** avoid=bbox: 34.0635,-118.2547, 34.0679,-118.2478 | bbox: 34.0521,-118.2342, 34.0478,-118.2437
+         *     *   When using avoid=sharp_turn, default range of permissible turn angles is \[120,240\].
          */
         fun avoid(avoid: Avoid) = apply { body.avoid(avoid) }
 
@@ -515,7 +506,7 @@ private constructor(
          * In case destinations are not provided or if it is left empty, then the input value of
          * origins will be copied to destinations to create the OD matrix pairs.
          *
-         * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
+         * **Format:** latitude\_1,longitude\_1|latitude\_2,longitude\_2|…
          */
         fun destinations(destinations: String) = apply { body.destinations(destinations) }
 
@@ -904,7 +895,7 @@ private constructor(
          * origins are the starting point of your route. Ensure that origins are routable land
          * locations. Multiple origins should be separated by a pipe symbol (|).
          *
-         * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
+         * **Format:** latitude\_1,longitude\_1|latitude\_2,longitude\_2|…
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -914,7 +905,7 @@ private constructor(
         /**
          * Provide the country that the coordinates belong to.
          *
-         * _the input coordinates area._
+         * *the input coordinates area.*
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -925,19 +916,14 @@ private constructor(
          * Setting this will ensure the route avoids the object(s) specified as input. Multiple
          * values should be separated by a pipe (|). If none is provided along with other values, an
          * error is returned as a valid route is not feasible.
-         * - **Note:**
-         *     - This parameter is effective only when route_type=fastest.
-         *     - When this parameter is not provided in the input, ferries are set to be avoided by
-         *       default. When avoid input is provided, only the mentioned objects are avoided.
-         *     - When using avoid=bbox users also need to specify the boundaries of the bounding box
-         *       to be avoid. Multiple bounding boxes can be specified simultaneously. Please note
-         *       that bounding box is a hard filter and if it blocks all possible routes between
-         *       given locations, a 4xx error is returned.
+         * * **Note:**
          *
-         *     - **Format:** bbox: min_latitude,min_longtitude,max_latitude,max_longitude.
-         *     - **Example:** avoid=bbox: 34.0635,-118.2547, 34.0679,-118.2478 | bbox: 34.0521,-118.2342, 34.0478,-118.2437
-         *     - When using avoid=sharp_turn, default range of permissible turn angles is
-         *       \[120,240\].
+         *     *   This parameter is effective only when route_type=fastest.
+         *     *   When this parameter is not provided in the input, ferries are set to be avoided by default. When avoid input is provided, only the mentioned objects are avoided.
+         *     *   When using avoid=bbox users also need to specify the boundaries of the bounding box to be avoid. Multiple bounding boxes can be specified simultaneously. Please note that bounding box is a hard filter and if it blocks all possible routes between given locations, a 4xx error is returned.
+         *         *   **Format:** bbox: min\_latitude,min\_longtitude,max\_latitude,max\_longitude.
+         *         *   **Example:** avoid=bbox: 34.0635,-118.2547, 34.0679,-118.2478 | bbox: 34.0521,-118.2342, 34.0478,-118.2437
+         *     *   When using avoid=sharp_turn, default range of permissible turn angles is \[120,240\].
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -981,7 +967,7 @@ private constructor(
          * In case destinations are not provided or if it is left empty, then the input value of
          * origins will be copied to destinations to create the OD matrix pairs.
          *
-         * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
+         * **Format:** latitude\_1,longitude\_1|latitude\_2,longitude\_2|…
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1262,7 +1248,7 @@ private constructor(
              * origins are the starting point of your route. Ensure that origins are routable land
              * locations. Multiple origins should be separated by a pipe symbol (|).
              *
-             * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
+             * **Format:** latitude\_1,longitude\_1|latitude\_2,longitude\_2|…
              */
             fun origins(origins: String) = origins(JsonField.of(origins))
 
@@ -1278,7 +1264,7 @@ private constructor(
             /**
              * Provide the country that the coordinates belong to.
              *
-             * _the input coordinates area._
+             * *the input coordinates area.*
              */
             fun area(area: Area) = area(JsonField.of(area))
 
@@ -1295,20 +1281,14 @@ private constructor(
              * Setting this will ensure the route avoids the object(s) specified as input. Multiple
              * values should be separated by a pipe (|). If none is provided along with other
              * values, an error is returned as a valid route is not feasible.
-             * - **Note:**
-             *     - This parameter is effective only when route_type=fastest.
-             *     - When this parameter is not provided in the input, ferries are set to be avoided
-             *       by default. When avoid input is provided, only the mentioned objects are
-             *       avoided.
-             *     - When using avoid=bbox users also need to specify the boundaries of the bounding
-             *       box to be avoid. Multiple bounding boxes can be specified simultaneously.
-             *       Please note that bounding box is a hard filter and if it blocks all possible
-             *       routes between given locations, a 4xx error is returned.
+             * * **Note:**
              *
-             *     - **Format:** bbox: min_latitude,min_longtitude,max_latitude,max_longitude.
-             *     - **Example:** avoid=bbox: 34.0635,-118.2547, 34.0679,-118.2478 | bbox: 34.0521,-118.2342, 34.0478,-118.2437
-             *     - When using avoid=sharp_turn, default range of permissible turn angles is
-             *       \[120,240\].
+             *     *   This parameter is effective only when route_type=fastest.
+             *     *   When this parameter is not provided in the input, ferries are set to be avoided by default. When avoid input is provided, only the mentioned objects are avoided.
+             *     *   When using avoid=bbox users also need to specify the boundaries of the bounding box to be avoid. Multiple bounding boxes can be specified simultaneously. Please note that bounding box is a hard filter and if it blocks all possible routes between given locations, a 4xx error is returned.
+             *         *   **Format:** bbox: min\_latitude,min\_longtitude,max\_latitude,max\_longitude.
+             *         *   **Example:** avoid=bbox: 34.0635,-118.2547, 34.0679,-118.2478 | bbox: 34.0521,-118.2342, 34.0478,-118.2437
+             *     *   When using avoid=sharp_turn, default range of permissible turn angles is \[120,240\].
              */
             fun avoid(avoid: Avoid) = avoid(JsonField.of(avoid))
 
@@ -1377,7 +1357,7 @@ private constructor(
              * In case destinations are not provided or if it is left empty, then the input value of
              * origins will be copied to destinations to create the OD matrix pairs.
              *
-             * **Format:** latitude_1,longitude_1|latitude_2,longitude_2|…
+             * **Format:** latitude\_1,longitude\_1|latitude\_2,longitude\_2|…
              */
             fun destinations(destinations: String) = destinations(JsonField.of(destinations))
 
@@ -1694,7 +1674,7 @@ private constructor(
     /**
      * Provide the country that the coordinates belong to.
      *
-     * _the input coordinates area._
+     * *the input coordinates area.*
      */
     class Area @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -1833,18 +1813,14 @@ private constructor(
      * Setting this will ensure the route avoids the object(s) specified as input. Multiple values
      * should be separated by a pipe (|). If none is provided along with other values, an error is
      * returned as a valid route is not feasible.
-     * - **Note:**
-     *     - This parameter is effective only when route_type=fastest.
-     *     - When this parameter is not provided in the input, ferries are set to be avoided by
-     *       default. When avoid input is provided, only the mentioned objects are avoided.
-     *     - When using avoid=bbox users also need to specify the boundaries of the bounding box to
-     *       be avoid. Multiple bounding boxes can be specified simultaneously. Please note that
-     *       bounding box is a hard filter and if it blocks all possible routes between given
-     *       locations, a 4xx error is returned.
+     * * **Note:**
      *
-     *     - **Format:** bbox: min_latitude,min_longtitude,max_latitude,max_longitude.
-     *     - **Example:** avoid=bbox: 34.0635,-118.2547, 34.0679,-118.2478 | bbox: 34.0521,-118.2342, 34.0478,-118.2437
-     *     - When using avoid=sharp_turn, default range of permissible turn angles is \[120,240\].
+     *     *   This parameter is effective only when route_type=fastest.
+     *     *   When this parameter is not provided in the input, ferries are set to be avoided by default. When avoid input is provided, only the mentioned objects are avoided.
+     *     *   When using avoid=bbox users also need to specify the boundaries of the bounding box to be avoid. Multiple bounding boxes can be specified simultaneously. Please note that bounding box is a hard filter and if it blocks all possible routes between given locations, a 4xx error is returned.
+     *         *   **Format:** bbox: min\_latitude,min\_longtitude,max\_latitude,max\_longitude.
+     *         *   **Example:** avoid=bbox: 34.0635,-118.2547, 34.0679,-118.2478 | bbox: 34.0521,-118.2342, 34.0478,-118.2437
+     *     *   When using avoid=sharp_turn, default range of permissible turn angles is \[120,240\].
      */
     class Avoid @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -2835,7 +2811,7 @@ private constructor(
      *
      * Please note it is an internal, debug field only.
      *
-     * _debug field. choose specific spliter to split matrix._
+     * *debug field. choose specific spliter to split matrix.*
      */
     class Spliter @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 

@@ -47,8 +47,8 @@ private constructor(
      * any useful information or context about the assets by utilising this parameter.
      *
      * Please be careful when using this parameter while updating an asset as the new attributes
-     * object provided will completely overwrite the old attributes object. Use the _Update Asset
-     * Attributes_ method to add new or modify existing attributes.
+     * object provided will completely overwrite the old attributes object. Use the *Update Asset
+     * Attributes* method to add new or modify existing attributes.
      *
      * Another point to note is that the overall size of the attributes object cannot exceed 65kb
      * and the maximum number of key:value pairs that can be added to this object is 100.
@@ -84,8 +84,8 @@ private constructor(
      * **This parameter will be deprecated soon! Please use the attributes parameter to add labels
      * or markers for the asset.**
      *
-     * Use this param to update the tags of an asset. tags can be used to filter asset in _Get Asset
-     * List_, **Search** and **Monitor** queries.
+     * Use this param to update the tags of an asset. tags can be used to filter asset in *Get Asset
+     * List*, **Search** and **Monitor** queries.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -196,8 +196,8 @@ private constructor(
          * maintain any useful information or context about the assets by utilising this parameter.
          *
          * Please be careful when using this parameter while updating an asset as the new attributes
-         * object provided will completely overwrite the old attributes object. Use the _Update
-         * Asset Attributes_ method to add new or modify existing attributes.
+         * object provided will completely overwrite the old attributes object. Use the *Update
+         * Asset Attributes* method to add new or modify existing attributes.
          *
          * Another point to note is that the overall size of the attributes object cannot exceed
          * 65kb and the maximum number of key:value pairs that can be added to this object is 100.
@@ -246,8 +246,8 @@ private constructor(
          * **This parameter will be deprecated soon! Please use the attributes parameter to add
          * labels or markers for the asset.**
          *
-         * Use this param to update the tags of an asset. tags can be used to filter asset in _Get
-         * Asset List_, **Search** and **Monitor** queries.
+         * Use this param to update the tags of an asset. tags can be used to filter asset in *Get
+         * Asset List*, **Search** and **Monitor** queries.
          */
         fun tags(tags: List<String>) = apply { body.tags(tags) }
 
@@ -454,8 +454,8 @@ private constructor(
          * maintain any useful information or context about the assets by utilising this parameter.
          *
          * Please be careful when using this parameter while updating an asset as the new attributes
-         * object provided will completely overwrite the old attributes object. Use the _Update
-         * Asset Attributes_ method to add new or modify existing attributes.
+         * object provided will completely overwrite the old attributes object. Use the *Update
+         * Asset Attributes* method to add new or modify existing attributes.
          *
          * Another point to note is that the overall size of the attributes object cannot exceed
          * 65kb and the maximum number of key:value pairs that can be added to this object is 100.
@@ -491,8 +491,8 @@ private constructor(
          * **This parameter will be deprecated soon! Please use the attributes parameter to add
          * labels or markers for the asset.**
          *
-         * Use this param to update the tags of an asset. tags can be used to filter asset in _Get
-         * Asset List_, **Search** and **Monitor** queries.
+         * Use this param to update the tags of an asset. tags can be used to filter asset in *Get
+         * Asset List*, **Search** and **Monitor** queries.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -574,7 +574,7 @@ private constructor(
              *
              * Please be careful when using this parameter while updating an asset as the new
              * attributes object provided will completely overwrite the old attributes object. Use
-             * the _Update Asset Attributes_ method to add new or modify existing attributes.
+             * the *Update Asset Attributes* method to add new or modify existing attributes.
              *
              * Another point to note is that the overall size of the attributes object cannot exceed
              * 65kb and the maximum number of key:value pairs that can be added to this object
@@ -630,7 +630,7 @@ private constructor(
              * labels or markers for the asset.**
              *
              * Use this param to update the tags of an asset. tags can be used to filter asset in
-             * _Get Asset List_, **Search** and **Monitor** queries.
+             * *Get Asset List*, **Search** and **Monitor** queries.
              */
             fun tags(tags: List<String>) = tags(JsonField.of(tags))
 

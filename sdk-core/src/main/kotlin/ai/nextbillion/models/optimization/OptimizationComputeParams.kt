@@ -82,13 +82,13 @@ private constructor(
      *
      * When "mode=truck", following are the default dimensions that are used:
      *
-     * \- truck_height = 214 centimeters
+     * \- truck\_height = 214 centimeters
      *
-     * \- truck_width = 183 centimeters
+     * \- truck\_width = 183 centimeters
      *
-     * \- truck_length = 519 centimeters
+     * \- truck\_length = 519 centimeters
      *
-     * \- truck_weight = 5000 kg
+     * \- truck\_weight = 5000 kg
      *
      * Please use the Directions Flexible version if you want to use custom truck dimensions.
      *
@@ -212,13 +212,13 @@ private constructor(
          *
          * When "mode=truck", following are the default dimensions that are used:
          *
-         * \- truck_height = 214 centimeters
+         * \- truck\_height = 214 centimeters
          *
-         * \- truck_width = 183 centimeters
+         * \- truck\_width = 183 centimeters
          *
-         * \- truck_length = 519 centimeters
+         * \- truck\_length = 519 centimeters
          *
-         * \- truck_weight = 5000 kg
+         * \- truck\_weight = 5000 kg
          *
          * Please use the Directions Flexible version if you want to use custom truck dimensions.
          *
@@ -831,13 +831,13 @@ private constructor(
      *
      * When "mode=truck", following are the default dimensions that are used:
      *
-     * \- truck_height = 214 centimeters
+     * \- truck\_height = 214 centimeters
      *
-     * \- truck_width = 183 centimeters
+     * \- truck\_width = 183 centimeters
      *
-     * \- truck_length = 519 centimeters
+     * \- truck\_length = 519 centimeters
      *
-     * \- truck_weight = 5000 kg
+     * \- truck\_weight = 5000 kg
      *
      * Please use the Directions Flexible version if you want to use custom truck dimensions.
      *
