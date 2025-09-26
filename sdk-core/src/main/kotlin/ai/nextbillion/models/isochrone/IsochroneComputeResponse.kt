@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class IsochroneComputeResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val features: JsonField<List<Feature>>,
     private val msg: JsonField<String>,
@@ -283,6 +284,7 @@ private constructor(
             (if (type.asKnown().isPresent) 1 else 0)
 
     class Feature
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val geometry: JsonField<Geometry>,
         private val properties: JsonField<Properties>,
@@ -494,6 +496,7 @@ private constructor(
          * details of the contour line.
          */
         class Geometry
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val coordinates: JsonField<List<Double>>,
             private val type: JsonField<String>,
@@ -704,6 +707,7 @@ private constructor(
 
         /** An object with details of how the isochrone contour can be drawn on a map. */
         class Properties
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val color: JsonField<String>,
             private val contour: JsonField<Double>,

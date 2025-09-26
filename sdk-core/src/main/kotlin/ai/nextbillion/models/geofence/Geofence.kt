@@ -22,6 +22,7 @@ import kotlin.jvm.optionals.getOrNull
 
 /** An object with details of the geofence. */
 class Geofence
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val id: JsonField<String>,
     private val circleCenter: JsonField<CircleCenter>,
@@ -767,6 +768,7 @@ private constructor(
             (if (updatedAt.asKnown().isPresent) 1 else 0)
 
     class CircleCenter
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val lat: JsonField<Double>,
         private val lon: JsonField<Double>,

@@ -16,6 +16,7 @@ import java.util.Objects
 import java.util.Optional
 
 class DocumentTemplateDeleteResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val msg: JsonField<String>,
     private val status: JsonField<Long>,

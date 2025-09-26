@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class V2RetrieveResultResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val description: JsonField<String>,
     private val message: JsonField<String>,
@@ -261,6 +262,7 @@ private constructor(
 
     /** An object containing the details of the optimized routes. */
     class Result
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val code: JsonField<Long>,
         private val error: JsonField<String>,
@@ -610,6 +612,7 @@ private constructor(
                 (unassigned.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
         class Route
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val adoptedCapacity: JsonField<List<Long>>,
             private val cost: JsonField<Long>,
@@ -1498,6 +1501,7 @@ private constructor(
              * array of objects with each object representing one step.
              */
             class Step
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val id: JsonField<String>,
                 private val arrival: JsonField<Long>,
@@ -2604,6 +2608,7 @@ private constructor(
          * be useful to quickly get an overview of the important result parameters.
          */
         class Summary
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val cost: JsonField<Long>,
             private val delivery: JsonField<List<Long>>,
@@ -3386,6 +3391,7 @@ private constructor(
         }
 
         class Unassigned
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val id: JsonField<String>,
             private val location: JsonField<List<Double>>,

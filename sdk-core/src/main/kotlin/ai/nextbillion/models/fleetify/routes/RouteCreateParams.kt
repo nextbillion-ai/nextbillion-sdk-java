@@ -483,6 +483,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val driverEmail: JsonField<String>,
         private val steps: JsonField<List<RouteStepsRequest>>,
@@ -949,6 +950,7 @@ private constructor(
      * currently.
      */
     class Routing
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val approaches: JsonField<Approaches>,
         private val avoid: JsonField<Avoid>,

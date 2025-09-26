@@ -17,6 +17,7 @@ import java.util.Optional
 
 /** Returns the location coordinates of the result. */
 class Position
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val lat: JsonField<String>,
     private val lng: JsonField<String>,

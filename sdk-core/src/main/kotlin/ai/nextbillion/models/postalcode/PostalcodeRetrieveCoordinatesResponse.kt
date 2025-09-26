@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class PostalcodeRetrieveCoordinatesResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val places: JsonField<Places>,
     private val warning: JsonField<List<String>>,
@@ -199,6 +200,7 @@ private constructor(
 
     /** An object that contains details about the place that was provided in the input. */
     class Places
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val address: JsonField<String>,
         private val boundary: JsonField<Boundary>,
@@ -737,6 +739,7 @@ private constructor(
          * [geojson format and standard](https://datatracker.ietf.org/doc/html/rfc7946).
          */
         class Boundary
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val geometry: JsonField<Geometry>,
             private val multipolygon: JsonField<List<Multipolygon>>,
@@ -1037,6 +1040,7 @@ private constructor(
              * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
              */
             class Geometry
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val coordinates: JsonField<List<List<List<Double>>>>,
                 private val type: JsonField<String>,
@@ -1250,6 +1254,7 @@ private constructor(
             }
 
             class Multipolygon
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val polygon: JsonField<List<Polygon>>,
                 private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1407,6 +1412,7 @@ private constructor(
                     (polygon.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
                 class Polygon
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val points: JsonField<List<Point>>,
                     private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1562,6 +1568,7 @@ private constructor(
                         (points.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
                     class Point
+                    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                     private constructor(
                         private val lat: JsonField<Double>,
                         private val lng: JsonField<Double>,
@@ -1819,6 +1826,7 @@ private constructor(
          * longitude format.
          */
         class Geopoint
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val lat: JsonField<Double>,
             private val lng: JsonField<Double>,

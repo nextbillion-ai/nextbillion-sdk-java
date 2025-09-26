@@ -819,6 +819,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val origins: JsonField<String>,
         private val area: JsonField<Area>,

@@ -528,6 +528,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val at: JsonField<At>,
         private val query: JsonField<String>,
@@ -1058,6 +1059,7 @@ private constructor(
 
     /** Specify the center of the search context expressed as coordinates. */
     class At
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val lat: JsonField<Double>,
         private val lng: JsonField<Double>,

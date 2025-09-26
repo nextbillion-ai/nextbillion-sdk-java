@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class DriverAssignmentAssignResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val message: JsonField<String>,
     private val result: JsonField<Result>,
@@ -227,6 +228,7 @@ private constructor(
 
     /** An object containing the details of the assignments. */
     class Result
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val alternateAssignments: JsonField<List<AlternateAssignment>>,
         private val availableVehicles: JsonField<List<String>>,
@@ -557,6 +559,7 @@ private constructor(
                 (unassignedOrders.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
         class AlternateAssignment
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val assignments: JsonField<List<Assignment>>,
             private val orderId: JsonField<String>,
@@ -750,6 +753,7 @@ private constructor(
                     (if (orderId.asKnown().isPresent) 1 else 0)
 
             class Assignment
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val pickupEta: JsonField<Long>,
                 private val vehicleId: JsonField<String>,
@@ -968,6 +972,7 @@ private constructor(
         }
 
         class Trip
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val tripId: JsonField<String>,
             private val vehicle: JsonField<Vehicle>,
@@ -1133,6 +1138,7 @@ private constructor(
 
             /** Returns the details of the vehicle, assigned order and the trip steps. */
             class Vehicle
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val id: JsonField<String>,
                 private val steps: JsonField<Steps>,
@@ -1353,6 +1359,7 @@ private constructor(
                  * perform for a trip.
                  */
                 class Steps
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val distance: JsonField<Long>,
                     private val eta: JsonField<Long>,
@@ -1900,6 +1907,7 @@ private constructor(
         }
 
         class UnassignedOrder
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val orderId: JsonField<String>,
             private val unassignedReason: JsonField<String>,

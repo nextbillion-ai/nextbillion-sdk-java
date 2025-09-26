@@ -21,6 +21,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class Shipment
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val delivery: JsonField<Delivery>,
     private val pickup: JsonField<Pickup>,
@@ -936,6 +937,7 @@ private constructor(
 
     /** Specify the details of the delivery step of the shipment. */
     class Delivery
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val locationIndex: JsonField<Long>,
@@ -1526,6 +1528,7 @@ private constructor(
 
     /** Specify the details of the pickup step of the shipment. */
     class Pickup
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val locationIndex: JsonField<Long>,
@@ -2121,6 +2124,7 @@ private constructor(
      * arranging such items.
      */
     class Volume
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val alignment: JsonField<Alignment>,
         private val depth: JsonField<Double>,

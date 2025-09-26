@@ -21,6 +21,7 @@ import kotlin.jvm.optionals.getOrNull
 
 /** Response Body */
 class SnapToRoadSnapResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val distance: JsonField<Long>,
     private val geojson: JsonField<Geojson>,
@@ -419,6 +420,7 @@ private constructor(
      * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
      */
     class Geojson
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val geometry: JsonField<Geometry>,
         private val properties: JsonField<String>,
@@ -617,6 +619,7 @@ private constructor(
 
         /** An object with details of the geoJSON geometry of the snapped path. */
         class Geometry
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val coordinates: JsonField<List<Double>>,
             private val type: JsonField<String>,
@@ -852,6 +855,7 @@ private constructor(
      * route.
      */
     class RoadInfo
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val maxSpeed: JsonField<List<MaxSpeed>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1002,6 +1006,7 @@ private constructor(
             (maxSpeed.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
         class MaxSpeed
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val length: JsonField<Long>,
             private val offset: JsonField<Long>,
@@ -1254,6 +1259,7 @@ private constructor(
     }
 
     class SnappedPoint
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val bearing: JsonField<Double>,
         private val distance: JsonField<Double>,
@@ -1563,6 +1569,7 @@ private constructor(
 
         /** The latitude and longitude coordinates of the snapped point. */
         class Location
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val latitude: JsonField<Double>,
             private val longitude: JsonField<Double>,

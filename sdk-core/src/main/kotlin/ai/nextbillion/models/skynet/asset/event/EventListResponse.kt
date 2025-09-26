@@ -21,6 +21,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class EventListResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val message: JsonField<String>,
@@ -219,6 +220,7 @@ private constructor(
 
     /** An object containing the information about the event history for the requested asset. */
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val list: JsonField<List<AssetEvent>>,
         private val page: JsonField<Pagination>,
@@ -401,6 +403,7 @@ private constructor(
                 (page.asKnown().getOrNull()?.validity() ?: 0)
 
         class AssetEvent
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val assetId: JsonField<String>,
             private val eventType: JsonField<EventType>,
@@ -1099,6 +1102,7 @@ private constructor(
              * triggered.
              */
             class PrevLocation
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val bearing: JsonField<Double>,
                 private val location: JsonField<Location>,
@@ -1374,6 +1378,7 @@ private constructor(
 
                 /** prev_location information of the asset. */
                 class Location
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val lat: JsonField<Double>,
                     private val lon: JsonField<Double>,
@@ -1597,6 +1602,7 @@ private constructor(
              * An object with details of the asset at the location where the event was triggered.
              */
             class TriggeredLocation
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val bearing: JsonField<Double>,
                 private val location: JsonField<Location>,
@@ -1880,6 +1886,7 @@ private constructor(
                  * An object with information about the location at which the event was triggered.
                  */
                 class Location
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val lat: JsonField<Double>,
                     private val lon: JsonField<Double>,

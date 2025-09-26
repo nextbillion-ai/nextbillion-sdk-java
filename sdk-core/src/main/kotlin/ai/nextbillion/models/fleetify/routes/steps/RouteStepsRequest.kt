@@ -21,6 +21,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class RouteStepsRequest
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val arrival: JsonField<Long>,
     private val location: JsonField<List<Double>>,
@@ -721,6 +722,7 @@ private constructor(
      * for performing the task
      */
     class Meta
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val customerName: JsonField<String>,
         private val customerPhoneNumber: JsonField<String>,

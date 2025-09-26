@@ -20,6 +20,7 @@ import java.util.Optional
  * place typed results have no mapView.
  */
 class MapView
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val east: JsonField<String>,
     private val north: JsonField<String>,

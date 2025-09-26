@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class RestrictionListResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<List<RichGroupResponse>>,
     private val meta: JsonField<Meta>,
@@ -196,6 +197,7 @@ private constructor(
             (meta.asKnown().getOrNull()?.validity() ?: 0)
 
     class Meta
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val limit: JsonField<Long>,
         private val offset: JsonField<Long>,

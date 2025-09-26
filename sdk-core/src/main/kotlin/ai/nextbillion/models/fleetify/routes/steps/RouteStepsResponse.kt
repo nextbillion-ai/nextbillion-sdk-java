@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class RouteStepsResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val id: JsonField<String>,
     private val address: JsonField<String>,
@@ -606,6 +607,7 @@ private constructor(
             (if (updatedAt.asKnown().isPresent) 1 else 0)
 
     class Completion
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val completedAt: JsonField<Long>,
         private val completedByMode: JsonField<RouteStepCompletionMode>,
@@ -1217,6 +1219,7 @@ private constructor(
      * display on the Driver's app under step details.
      */
     class Meta
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val customerName: JsonField<String>,
         private val customerPhoneNumber: JsonField<String>,

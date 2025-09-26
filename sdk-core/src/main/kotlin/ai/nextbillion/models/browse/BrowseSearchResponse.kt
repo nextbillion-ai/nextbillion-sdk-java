@@ -25,6 +25,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class BrowseSearchResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val items: JsonField<List<Item>>,
     private val additionalProperties: MutableMap<String, JsonValue>,
@@ -168,6 +169,7 @@ private constructor(
         (items.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
     class Item
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val access: JsonField<Access>,
@@ -706,6 +708,7 @@ private constructor(
 
         /** Returns the operating hours of the place, if available. */
         class OpeningHours
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val timeRanges: JsonField<List<TimeRange>>,
             private val additionalProperties: MutableMap<String, JsonValue>,
@@ -860,6 +863,7 @@ private constructor(
                 (timeRanges.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
             class TimeRange
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val endTime: JsonField<EndTime>,
                 private val startTime: JsonField<StartTime>,
@@ -1034,6 +1038,7 @@ private constructor(
 
                 /** Returns the closing time details. */
                 class EndTime
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val date: JsonField<String>,
                     private val hour: JsonField<Long>,
@@ -1261,6 +1266,7 @@ private constructor(
 
                 /** Returns the open time details. */
                 class StartTime
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val date: JsonField<String>,
                     private val hour: JsonField<Long>,
@@ -1529,6 +1535,7 @@ private constructor(
 
         /** Score of the result. A higher score indicates a closer match. */
         class Scoring
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val fieldScore: JsonValue,
             private val queryScore: JsonField<Double>,

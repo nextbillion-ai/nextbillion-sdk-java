@@ -379,6 +379,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val at: JsonField<At>,
         private val country: JsonField<String>,
@@ -668,6 +669,7 @@ private constructor(
      * [See this example](#note).
      */
     class At
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val lat: JsonField<Double>,
         private val lng: JsonField<Double>,

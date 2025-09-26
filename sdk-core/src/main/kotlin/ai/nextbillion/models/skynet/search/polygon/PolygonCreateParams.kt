@@ -477,6 +477,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val polygon: JsonField<Polygon>,
         private val filter: JsonField<String>,
@@ -931,6 +932,7 @@ private constructor(
      * Please note that the maximum area of the search polygon allowed is 3000 km<sup>2</sup>.
      */
     class Polygon
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val coordinates: JsonField<List<Double>>,
         private val type: JsonField<String>,
@@ -1154,6 +1156,7 @@ private constructor(
      * polygon.
      */
     class MatchFilter
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val includeAllOfAttributes: JsonField<String>,
         private val includeAnyOfAttributes: JsonField<String>,
@@ -1382,6 +1385,7 @@ private constructor(
     }
 
     class Sort
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val sortBy: JsonField<SortBy>,
         private val sortDestination: JsonField<SortDestination>,
@@ -1767,6 +1771,7 @@ private constructor(
          * that sort_destination is required when sort_by is provided.
          */
         class SortDestination
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val lat: JsonField<Double>,
             private val lon: JsonField<Double>,

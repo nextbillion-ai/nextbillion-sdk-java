@@ -21,6 +21,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class Job
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val id: JsonField<String>,
     private val locationIndex: JsonField<Long>,
@@ -1375,6 +1376,7 @@ private constructor(
      * arranging such items.
      */
     class Volume
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val alignment: JsonField<Alignment>,
         private val depth: JsonField<Double>,

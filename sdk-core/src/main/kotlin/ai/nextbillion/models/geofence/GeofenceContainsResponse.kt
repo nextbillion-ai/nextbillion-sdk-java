@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class GeofenceContainsResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val status: JsonField<String>,
@@ -176,6 +177,7 @@ private constructor(
         (data.asKnown().getOrNull()?.validity() ?: 0) + (if (status.asKnown().isPresent) 1 else 0)
 
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val resultList: JsonField<List<ResultList>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -328,6 +330,7 @@ private constructor(
             (resultList.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
         class ResultList
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val geofenceDetail: JsonField<Geofence>,
             private val geofenceId: JsonField<String>,
@@ -562,6 +565,7 @@ private constructor(
                     (result.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
             class Result
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val contain: JsonField<Boolean>,
                 private val locationIndex: JsonField<Long>,

@@ -23,6 +23,7 @@ import kotlin.jvm.optionals.getOrNull
  * completion_mode is either "geofence" or "geofence\_manual\_fallback".
  */
 class RouteStepGeofenceConfig
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val radius: JsonField<Double>,
     private val type: JsonField<Type>,

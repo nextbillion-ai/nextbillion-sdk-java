@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class TripRetrieveResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val message: JsonField<String>,
@@ -218,6 +219,7 @@ private constructor(
 
     /** An container for the trip returned by the service. */
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val trip: JsonField<Trip>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -341,6 +343,7 @@ private constructor(
 
         /** An object containing the returned trip details. */
         class Trip
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val id: JsonField<String>,
             private val assetId: JsonField<String>,

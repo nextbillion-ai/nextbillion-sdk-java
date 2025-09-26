@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class LocationListResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val message: JsonField<String>,
@@ -214,6 +215,7 @@ private constructor(
             (if (status.asKnown().isPresent) 1 else 0)
 
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val distance: JsonField<Double>,
         private val geojson: JsonField<Geojson>,
@@ -613,6 +615,7 @@ private constructor(
          * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
          */
         class Geojson
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val geometry: JsonField<Geometry>,
             private val type: JsonField<String>,
@@ -779,6 +782,7 @@ private constructor(
 
             /** An object with details of the geoJSON geometry of the route. */
             class Geometry
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val coordinates: JsonField<List<Double>>,
                 private val type: JsonField<String>,
@@ -1009,6 +1013,7 @@ private constructor(
         }
 
         class SnappedPoint
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val bearing: JsonField<String>,
             private val distance: JsonField<Double>,
@@ -1301,6 +1306,7 @@ private constructor(
 
             /** The latitude and longitude coordinates of the snapped point. */
             class Location
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val lat: JsonField<Double>,
                 private val lon: JsonField<Double>,

@@ -287,6 +287,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val deviceId: JsonField<String>,
         private val additionalProperties: MutableMap<String, JsonValue>,

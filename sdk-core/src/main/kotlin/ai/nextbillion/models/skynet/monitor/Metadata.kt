@@ -13,6 +13,7 @@ import java.util.Objects
 
 /** Any valid json object data. Can be used to save customized data. Max size is 65kb. */
 class Metadata
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(private val additionalProperties: MutableMap<String, JsonValue>) {
 
     @JsonCreator private constructor() : this(mutableMapOf())

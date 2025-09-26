@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class NavigationRetrieveRouteResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val msg: JsonField<String>,
     private val routes: JsonField<List<Route>>,
@@ -294,6 +295,7 @@ private constructor(
             (warning.asKnown().getOrNull()?.size ?: 0)
 
     class Route
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val distance: JsonField<Double>,
         private val distanceFull: JsonField<Double>,
@@ -860,6 +862,7 @@ private constructor(
 
         /** Location coordinates of the point where the route ends. */
         class EndLocation
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val latitude: JsonField<Double>,
             private val longitude: JsonField<Double>,
@@ -1051,6 +1054,7 @@ private constructor(
 
         /** The GeoJSON representation of the route. */
         class Geojson
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val geometry: JsonField<String>,
             private val properties: JsonField<String>,
@@ -1446,6 +1450,7 @@ private constructor(
         }
 
         class Leg
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val distance: JsonField<Distance>,
             private val duration: JsonField<Duration>,
@@ -1781,6 +1786,7 @@ private constructor(
 
             /** An object containing leg distance value, in meters. */
             class Distance
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val value: JsonField<Long>,
                 private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1924,6 +1930,7 @@ private constructor(
 
             /** An object containing leg duration value, in seconds. */
             class Duration
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val value: JsonField<Long>,
                 private val additionalProperties: MutableMap<String, JsonValue>,
@@ -2067,6 +2074,7 @@ private constructor(
 
             /** Location coordinates of the point where the leg ends. */
             class EndLocation
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val latitude: JsonField<Double>,
                 private val longitude: JsonField<Double>,
@@ -2262,6 +2270,7 @@ private constructor(
 
             /** Location coordinates of the point where the leg starts. */
             class StartLocation
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val latitude: JsonField<Double>,
                 private val longitude: JsonField<Double>,
@@ -2458,6 +2467,7 @@ private constructor(
             }
 
             class Step
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val distance: JsonField<Distance>,
                 private val drivingSide: JsonField<String>,
@@ -3080,6 +3090,7 @@ private constructor(
 
                 /** An object containing step distance value, in meters. */
                 class Distance
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val value: JsonField<Long>,
                     private val additionalProperties: MutableMap<String, JsonValue>,
@@ -3226,6 +3237,7 @@ private constructor(
 
                 /** An object containing step duration value, in seconds. */
                 class Duration
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val value: JsonField<Long>,
                     private val additionalProperties: MutableMap<String, JsonValue>,
@@ -3372,6 +3384,7 @@ private constructor(
 
                 /** Location coordinates of the point where the step ends. */
                 class EndLocation
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val latitude: JsonField<Double>,
                     private val longitude: JsonField<Double>,
@@ -3572,6 +3585,7 @@ private constructor(
 
                 /** The GeoJSON representation of the step. */
                 class Geojson
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val geometry: JsonField<String>,
                     private val type: JsonField<String>,
@@ -3759,6 +3773,7 @@ private constructor(
                 }
 
                 class Intersection
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val bearings: JsonField<List<Long>>,
                     private val classes: JsonField<List<String>>,
@@ -4238,6 +4253,7 @@ private constructor(
                             (location.asKnown().getOrNull()?.validity() ?: 0)
 
                     class Lane
+                    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                     private constructor(
                         private val indications: JsonField<List<String>>,
                         private val valid: JsonField<Boolean>,
@@ -4470,6 +4486,7 @@ private constructor(
 
                     /** A [longitude, latitude] pair describing the location of the intersection. */
                     class Location
+                    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                     private constructor(
                         private val latitude: JsonField<Double>,
                         private val longitude: JsonField<Double>,
@@ -4751,6 +4768,7 @@ private constructor(
 
                 /** An object with maneuver details for the step. */
                 class Maneuver
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val bearingAfter: JsonField<Double>,
                     private val bearingBefore: JsonField<Double>,
@@ -5242,6 +5260,7 @@ private constructor(
 
                     /** A coordinate pair describing the location of the maneuver. */
                     class Coordinate
+                    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                     private constructor(
                         private val latitude: JsonField<Double>,
                         private val longitude: JsonField<Double>,
@@ -5489,6 +5508,7 @@ private constructor(
                     }
 
                     class VoiceInstruction
+                    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                     private constructor(
                         private val distanceAlongGeometry: JsonField<Long>,
                         private val instruction: JsonField<String>,
@@ -5780,6 +5800,7 @@ private constructor(
 
                 /** An object containing road shield information. */
                 class RoadShieldType
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val imageUrl: JsonField<String>,
                     private val label: JsonField<String>,
@@ -5982,6 +6003,7 @@ private constructor(
 
                 /** Location coordinates of the point where the step starts. */
                 class StartLocation
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val latitude: JsonField<Double>,
                     private val longitude: JsonField<Double>,
@@ -6261,6 +6283,7 @@ private constructor(
 
         /** Location coordinates of the point where the route starts. */
         class StartLocation
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val latitude: JsonField<Double>,
             private val longitude: JsonField<Double>,

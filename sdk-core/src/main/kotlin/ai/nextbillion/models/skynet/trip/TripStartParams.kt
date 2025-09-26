@@ -446,6 +446,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val assetId: JsonField<String>,
         private val attributes: JsonValue,
@@ -844,6 +845,7 @@ private constructor(
     }
 
     class Stop
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val geofenceId: JsonField<String>,
         private val metaData: JsonValue,

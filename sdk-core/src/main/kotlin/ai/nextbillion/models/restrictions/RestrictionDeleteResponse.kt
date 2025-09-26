@@ -16,6 +16,7 @@ import java.util.Objects
 import java.util.Optional
 
 class RestrictionDeleteResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val id: JsonField<Double>,
     private val state: JsonField<String>,

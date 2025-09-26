@@ -24,6 +24,7 @@ import java.util.Optional
  * input request. The fields which were not specified in the input will be returned as blanks.
  */
 class RoutingResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val approaches: JsonField<String>,
     private val avoid: JsonField<String>,

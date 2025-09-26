@@ -21,6 +21,7 @@ import kotlin.jvm.optionals.getOrNull
 
 /** An object with details of the asset properties. */
 class AssetDetails
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val id: JsonField<String>,
     private val attributes: JsonValue,
@@ -582,6 +583,7 @@ private constructor(
 
     /** An object with details of the last tracked location of the asset. */
     class LatestLocation
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val accuracy: JsonField<Double>,
         private val altitude: JsonField<Double>,
@@ -917,6 +919,7 @@ private constructor(
 
         /** An object with the coordinates of the last tracked location. */
         class Location
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val lat: JsonField<Double>,
             private val lon: JsonField<Double>,

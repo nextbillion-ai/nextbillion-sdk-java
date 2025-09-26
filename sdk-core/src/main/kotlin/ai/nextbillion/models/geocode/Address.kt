@@ -17,6 +17,7 @@ import java.util.Optional
 
 /** Postal address of the result item. */
 class Address
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val city: JsonField<String>,
     private val countryCode: JsonField<String>,

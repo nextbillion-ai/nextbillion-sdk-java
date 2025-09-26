@@ -389,6 +389,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val place: JsonField<List<Place>>,
         private val dataSource: JsonField<DataSource>,
@@ -703,6 +704,7 @@ private constructor(
     }
 
     class Place
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val geopoint: JsonField<Geopoint>,
         private val address: JsonField<String>,
@@ -1277,6 +1279,7 @@ private constructor(
          * latitude and longitude values.
          */
         class Geopoint
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val lat: JsonField<Double>,
             private val lng: JsonField<Double>,
@@ -1461,6 +1464,7 @@ private constructor(
          * people might find important or intriguing.
          */
         class Poi
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val title: JsonField<String>,
             private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1650,6 +1654,7 @@ private constructor(
 
     /** It contains information about the dataset that returns the specific result */
     class DataSource
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val refId: JsonField<String>,
         private val source: JsonField<String>,

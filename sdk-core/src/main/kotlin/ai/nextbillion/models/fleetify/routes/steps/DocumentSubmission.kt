@@ -16,6 +16,7 @@ import java.util.Objects
  * can be of any type depend on the type of according document item.
  */
 class DocumentSubmission
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(private val additionalProperties: MutableMap<String, JsonValue>) {
 
     @JsonCreator private constructor() : this(mutableMapOf())

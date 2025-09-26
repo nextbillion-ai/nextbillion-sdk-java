@@ -17,6 +17,7 @@ import java.util.Objects
 
 /** Location info. */
 class Location
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val lat: JsonField<Double>,
     private val lon: JsonField<Double>,

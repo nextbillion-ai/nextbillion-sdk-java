@@ -384,6 +384,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val filter: JsonField<Filter>,
         private val orders: JsonField<List<Order>>,
@@ -709,6 +710,7 @@ private constructor(
      * filter is a mandatory input for all requests.
      */
     class Filter
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val drivingDistance: JsonField<Double>,
         private val pickupEta: JsonField<Long>,
@@ -952,6 +954,7 @@ private constructor(
     }
 
     class Order
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val pickup: JsonField<Pickup>,
@@ -1392,6 +1395,7 @@ private constructor(
          * mandatory for each order.
          */
         class Pickup
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val lat: JsonField<Double>,
             private val lng: JsonField<Double>,
@@ -1570,6 +1574,7 @@ private constructor(
         }
 
         class Dropoff
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val lat: JsonField<Double>,
             private val lng: JsonField<Double>,
@@ -1763,6 +1768,7 @@ private constructor(
          * an order which has vehicle_preferences configured.
          */
         class VehiclePreferences
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val excludeAllOfAttributes: JsonField<List<ExcludeAllOfAttribute>>,
             private val requiredAllOfAttributes: JsonField<List<RequiredAllOfAttribute>>,
@@ -2082,6 +2088,7 @@ private constructor(
                         ?: 0)
 
             class ExcludeAllOfAttribute
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val attribute: JsonField<String>,
                 private val operator: JsonField<String>,
@@ -2379,6 +2386,7 @@ private constructor(
             }
 
             class RequiredAllOfAttribute
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val attribute: JsonField<String>,
                 private val operator: JsonField<String>,
@@ -2676,6 +2684,7 @@ private constructor(
             }
 
             class RequiredAnyOfAttribute
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val attribute: JsonField<String>,
                 private val operator: JsonField<String>,
@@ -3036,6 +3045,7 @@ private constructor(
 
     /** Configure the assignment constraints and response settings. */
     class Options
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val alternateAssignments: JsonField<Long>,
         private val dropoffDetails: JsonField<Boolean>,
@@ -3441,6 +3451,7 @@ private constructor(
                 } ?: 0)
 
         class OrderAttributePriorityMapping
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val attribute: JsonField<String>,
             private val operator: JsonField<String>,
@@ -3919,6 +3930,7 @@ private constructor(
         }
 
         class VehicleAttributePriorityMapping
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val attribute: JsonField<String>,
             private val operator: JsonField<String>,
