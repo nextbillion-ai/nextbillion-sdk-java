@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class BatchCreateResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val status: JsonField<String>,
@@ -180,6 +181,7 @@ private constructor(
 
     /** A data object containing the IDs of the geofences created. */
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val ids: JsonField<List<String>>,
         private val additionalProperties: MutableMap<String, JsonValue>,

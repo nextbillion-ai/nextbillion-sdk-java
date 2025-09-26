@@ -325,6 +325,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val operations: JsonField<List<Operation>>,
         private val distance: JsonField<Double>,
@@ -544,6 +545,7 @@ private constructor(
     }
 
     class Operation
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val data: JsonField<Data>,
         private val operation: JsonField<InnerOperation>,
@@ -725,6 +727,7 @@ private constructor(
                 (operation.asKnown().getOrNull()?.validity() ?: 0)
 
         class Data
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val completionMode: JsonField<RouteStepCompletionMode>,
             private val documentTemplateId: JsonField<String>,

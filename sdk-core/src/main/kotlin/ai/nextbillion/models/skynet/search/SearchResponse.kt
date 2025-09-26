@@ -22,6 +22,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class SearchResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val message: JsonField<String>,
@@ -220,6 +221,7 @@ private constructor(
 
     /** A data object containing the search result. */
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val assets: JsonField<List<Asset>>,
         private val page: JsonField<Pagination>,
@@ -406,6 +408,7 @@ private constructor(
                 (page.asKnown().getOrNull()?.validity() ?: 0)
 
         class Asset
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val id: JsonField<String>,
             private val createdAt: JsonField<Long>,
@@ -958,6 +961,7 @@ private constructor(
              * specified in the input.
              */
             class RankingInfo
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val distance: JsonField<Double>,
                 private val duration: JsonField<Double>,

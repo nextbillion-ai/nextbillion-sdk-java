@@ -25,6 +25,7 @@ import kotlin.jvm.optionals.getOrNull
  * collecting required information after successfully executing a route step.
  */
 class DocumentTemplateContentRequest
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val label: JsonField<String>,
     private val type: JsonField<Type>,
@@ -533,6 +534,7 @@ private constructor(
      * document items.
      */
     class Meta
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val options: JsonField<List<Option>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -695,6 +697,7 @@ private constructor(
             (options.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
         class Option
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val label: JsonField<String>,
             private val value: JsonField<String>,
@@ -924,6 +927,7 @@ private constructor(
      * constraints like minimum / maximum number values.
      */
     class Validation
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val max: JsonField<Long>,
         private val maxItems: JsonField<Long>,

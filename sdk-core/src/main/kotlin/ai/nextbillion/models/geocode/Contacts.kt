@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class Contacts
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val email: JsonField<List<ContactObject>>,
     private val fax: JsonField<List<ContactObject>>,

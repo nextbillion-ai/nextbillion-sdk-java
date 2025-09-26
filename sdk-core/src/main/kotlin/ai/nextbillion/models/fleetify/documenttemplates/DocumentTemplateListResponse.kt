@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class DocumentTemplateListResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<List<Data>>,
     private val msg: JsonField<String>,
@@ -242,6 +243,7 @@ private constructor(
      * templates associated with the given key, a blank array is returned.
      */
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val content: JsonField<List<DocumentTemplateContentResponse>>,

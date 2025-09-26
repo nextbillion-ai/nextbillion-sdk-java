@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class ContactObject
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val categories: JsonField<List<Category>>,
     private val label: JsonField<String>,
@@ -230,6 +231,7 @@ private constructor(
             (if (value.asKnown().isPresent) 1 else 0)
 
     class Category
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val additionalProperties: MutableMap<String, JsonValue>,

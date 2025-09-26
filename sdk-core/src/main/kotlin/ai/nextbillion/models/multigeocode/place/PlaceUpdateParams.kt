@@ -374,6 +374,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val dataSource: JsonField<DataSource>,
         private val place: JsonField<List<PlaceItem>>,
@@ -638,6 +639,7 @@ private constructor(
      * specific business use cases.
      */
     class DataSource
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val refId: JsonField<String>,
         private val source: JsonField<String>,

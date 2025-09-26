@@ -336,6 +336,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val deviceId: JsonField<String>,
         private val locations: JsonField<Locations>,
@@ -557,6 +558,7 @@ private constructor(
      * must correspond to details of only one location.
      */
     class Locations
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val location: JsonField<Location>,
         private val timestamp: JsonField<Long>,
@@ -1028,6 +1030,7 @@ private constructor(
          * field is mandatory when uploading locations for an asset.
          */
         class Location
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val lat: JsonField<Double>,
             private val lon: JsonField<Double>,

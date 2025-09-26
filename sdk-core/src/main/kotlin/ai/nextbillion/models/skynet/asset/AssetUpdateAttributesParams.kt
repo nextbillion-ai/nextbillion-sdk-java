@@ -284,6 +284,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val attributes: JsonValue,
         private val additionalProperties: MutableMap<String, JsonValue>,

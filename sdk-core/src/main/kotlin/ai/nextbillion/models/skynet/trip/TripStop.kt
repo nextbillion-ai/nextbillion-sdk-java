@@ -16,6 +16,7 @@ import java.util.Objects
 import java.util.Optional
 
 class TripStop
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val geofenceId: JsonField<String>,
     private val metaData: JsonValue,

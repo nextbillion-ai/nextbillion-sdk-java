@@ -21,6 +21,7 @@ import kotlin.jvm.optionals.getOrNull
  * for an asset, no location data will be returned.
  */
 class TrackLocation
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val accuracy: JsonField<Double>,
     private val altitude: JsonField<Double>,
@@ -453,6 +454,7 @@ private constructor(
 
     /** An object with the coordinates of the last tracked location. */
     class Location
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val lat: JsonField<Double>,
         private val lon: JsonField<Double>,

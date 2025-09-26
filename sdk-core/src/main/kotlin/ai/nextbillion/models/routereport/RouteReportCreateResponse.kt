@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class RouteReportCreateResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val geometry: JsonField<List<String>>,
     private val mileage: JsonField<List<Mileage>>,
@@ -358,6 +359,7 @@ private constructor(
             (if (status.asKnown().isPresent) 1 else 0)
 
     class Mileage
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val segment: JsonField<Segment>,
         private val summary: JsonField<Summary>,
@@ -526,6 +528,7 @@ private constructor(
          * countries.
          */
         class Segment
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val country: JsonField<List<Country>>,
             private val state: JsonField<List<State>>,
@@ -733,6 +736,7 @@ private constructor(
                     (state.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
             class Country
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val distance: JsonField<Double>,
                 private val length: JsonField<Long>,
@@ -1013,6 +1017,7 @@ private constructor(
             }
 
             class State
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val distance: JsonField<Double>,
                 private val length: JsonField<Long>,
@@ -1309,6 +1314,7 @@ private constructor(
          * Returns a summary of distances that the route covers in different states and countries.
          */
         class Summary
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val country: JsonValue,
             private val state: JsonValue,
@@ -1471,6 +1477,7 @@ private constructor(
     }
 
     class RoadSummary
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val segment: JsonField<Segment>,
         private val summary: JsonField<Summary>,
@@ -1634,6 +1641,7 @@ private constructor(
 
         /** Returns the segment-wise road class and max speed information of the route. */
         class Segment
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val maxSpeed: JsonField<List<MaxSpeed>>,
             private val roadClass: JsonField<List<RoadClass>>,
@@ -1846,6 +1854,7 @@ private constructor(
                     (roadClass.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
             class MaxSpeed
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val distance: JsonField<Long>,
                 private val length: JsonField<Long>,
@@ -2132,6 +2141,7 @@ private constructor(
             }
 
             class RoadClass
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val distance: JsonField<Long>,
                 private val length: JsonField<Long>,
@@ -2437,6 +2447,7 @@ private constructor(
          * class details among others.
          */
         class Summary
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val distance: JsonField<Double>,
             private val duration: JsonField<Double>,

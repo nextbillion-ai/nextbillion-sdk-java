@@ -636,6 +636,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val description: JsonField<String>,
         private val geofenceConfig: JsonField<GeofenceConfig>,
@@ -1283,6 +1284,7 @@ private constructor(
      * mandatory when the monitor type belongs to one of enter, exit or enter_and_exit.
      */
     class GeofenceConfig
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val geofenceIds: JsonField<List<String>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1470,6 +1472,7 @@ private constructor(
      * Please note that this object is mandatory when the monitor type is idle.
      */
     class IdleConfig
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val distanceTolerance: JsonField<Double>,
         private val timeTolerance: JsonField<Long>,
@@ -1723,6 +1726,7 @@ private constructor(
      * asset(s).
      */
     class MatchFilter
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val includeAllOfAttributes: JsonValue,
         private val includeAnyOfAttributes: JsonValue,
@@ -1922,6 +1926,7 @@ private constructor(
      * Please note that this object is mandatory when the monitor type is speeding.
      */
     class SpeedingConfig
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val customerSpeedLimit: JsonField<String>,
         private val timeTolerance: JsonField<Long>,

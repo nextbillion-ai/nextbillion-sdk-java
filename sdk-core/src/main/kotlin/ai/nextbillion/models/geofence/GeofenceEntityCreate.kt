@@ -21,6 +21,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class GeofenceEntityCreate
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val type: JsonField<Type>,
     private val circle: JsonField<Circle>,
@@ -587,6 +588,7 @@ private constructor(
      * ignored while creating the geofence.
      */
     class Circle
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val center: JsonField<Center>,
         private val radius: JsonField<Double>,
@@ -768,6 +770,7 @@ private constructor(
 
         /** Coordinate of the location which will act as the center of a circular geofence. */
         class Center
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val lat: JsonField<Double>,
             private val lon: JsonField<Double>,
@@ -993,6 +996,7 @@ private constructor(
      * while creating the geofence.
      */
     class Isochrone
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val coordinates: JsonField<String>,
         private val contoursMeter: JsonField<Long>,
@@ -1584,6 +1588,7 @@ private constructor(
      * Area of the polygon should be less than 2000 km<sup>2</sup>.
      */
     class Polygon
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val geojson: JsonField<Geojson>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1730,6 +1735,7 @@ private constructor(
          * the [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
          */
         class Geojson
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val coordinates: JsonField<List<List<Double>>>,
             private val type: JsonField<String>,

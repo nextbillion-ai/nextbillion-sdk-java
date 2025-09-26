@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class RouteRedispatchResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val message: JsonField<String>,
@@ -219,6 +220,7 @@ private constructor(
      * represents a single step.
      */
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val completedSteps: JsonField<Long>,
@@ -901,6 +903,7 @@ private constructor(
 
         /** Returns the completion status of the route. */
         class Completion
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val status: JsonField<Status>,
             private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1185,6 +1188,7 @@ private constructor(
 
         /** An object returning the details of the driver to whom the route was dispatched. */
         class Driver
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val id: JsonField<String>,
             private val email: JsonField<String>,
@@ -1416,6 +1420,7 @@ private constructor(
         }
 
         class Steps
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val id: JsonField<String>,
             private val address: JsonField<String>,
@@ -2047,6 +2052,7 @@ private constructor(
 
             /** Returns the completion status of the step. */
             class Completion
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val status: JsonField<String>,
                 private val additionalProperties: MutableMap<String, JsonValue>,
@@ -2204,6 +2210,7 @@ private constructor(
              * available for display on the Driver's app under step details.
              */
             class Meta
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val customerName: JsonField<String>,
                 private val customerPhoneNumber: JsonField<String>,

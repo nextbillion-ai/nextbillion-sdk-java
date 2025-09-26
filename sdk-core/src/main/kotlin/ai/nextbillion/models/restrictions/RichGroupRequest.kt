@@ -21,6 +21,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class RichGroupRequest
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val area: JsonField<String>,
     private val name: JsonField<String>,
@@ -1243,6 +1244,7 @@ private constructor(
     }
 
     class Segment
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val from: JsonField<Double>,
         private val to: JsonField<Double>,
@@ -1418,6 +1420,7 @@ private constructor(
     }
 
     class Turn
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val from: JsonField<Long>,
         private val to: JsonField<Long>,

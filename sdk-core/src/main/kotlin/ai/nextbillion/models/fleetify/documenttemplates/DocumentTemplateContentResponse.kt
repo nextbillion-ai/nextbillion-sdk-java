@@ -23,6 +23,7 @@ import kotlin.jvm.optionals.getOrNull
  * properties of all document fields. Each object represents one document field.
  */
 class DocumentTemplateContentResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val label: JsonField<String>,
     private val meta: JsonField<Meta>,
@@ -335,6 +336,7 @@ private constructor(
 
     /** Returns the options configured for single_choice or multi_choices type document items. */
     class Meta
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val options: JsonField<List<Option>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -483,6 +485,7 @@ private constructor(
             (options.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
         class Option
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val label: JsonField<String>,
             private val value: JsonField<String>,
@@ -687,6 +690,7 @@ private constructor(
      * Returns the validation rules for number , multi_choices , and photos document field types.
      */
     class Validation
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val max: JsonField<Long>,
         private val maxItems: JsonField<String>,

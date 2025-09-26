@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class Monitor
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val id: JsonField<String>,
     private val createdAt: JsonField<Long>,
@@ -667,6 +668,7 @@ private constructor(
      * enter, exit or enter_and_exit type of monitor.
      */
     class GeofenceConfig
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val geofenceIds: JsonField<List<String>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -836,6 +838,7 @@ private constructor(
      * An object returning the details of the idle activity constraints for a idle type of monitor.
      */
     class IdleConfig
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val distanceTolerance: JsonField<Double>,
         private val timeTolerance: JsonField<Long>,
@@ -1045,6 +1048,7 @@ private constructor(
 
     /** Use this object to update the attributes of the monitor. */
     class MatchFilter
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val includeAllOfAttributes: JsonValue,
         private val includeAnyOfAttributes: JsonValue,
@@ -1242,6 +1246,7 @@ private constructor(
      * monitor.
      */
     class SpeedingConfig
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val customerSpeedLimit: JsonField<Long>,
         private val timeTolerance: JsonField<Long>,

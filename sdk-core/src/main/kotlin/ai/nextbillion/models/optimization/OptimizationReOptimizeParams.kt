@@ -450,6 +450,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val existingRequestId: JsonField<String>,
         private val jobChanges: JsonField<JobChanges>,
@@ -875,6 +876,7 @@ private constructor(
      * be re-planned without alteration during the re-optimization process.
      */
     class JobChanges
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val add: JsonField<List<Job>>,
         private val modify: JsonField<List<Job>>,
@@ -1156,6 +1158,7 @@ private constructor(
      * specified here will be re-planned without alteration during the re-optimization process.
      */
     class ShipmentChanges
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val add: JsonField<List<Shipment>>,
         private val modify: JsonField<List<Shipment>>,
@@ -1444,6 +1447,7 @@ private constructor(
      * process.
      */
     class VehicleChanges
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val add: JsonField<List<Vehicle>>,
         private val modify: JsonField<Vehicle>,

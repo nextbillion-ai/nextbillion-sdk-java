@@ -17,6 +17,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class PlaceItem
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val address: JsonField<String>,
     private val building: JsonField<String>,
@@ -547,6 +548,7 @@ private constructor(
      * and longitude values.
      */
     class Geopoint
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val lat: JsonField<Double>,
         private val lng: JsonField<Double>,
@@ -728,6 +730,7 @@ private constructor(
      * find important or intriguing.
      */
     class Poi
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val title: JsonField<String>,
         private val additionalProperties: MutableMap<String, JsonValue>,

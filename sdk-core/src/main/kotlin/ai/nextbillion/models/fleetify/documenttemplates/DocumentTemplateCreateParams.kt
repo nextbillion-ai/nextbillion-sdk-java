@@ -307,6 +307,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val content: JsonField<List<DocumentTemplateContentRequest>>,
         private val name: JsonField<String>,

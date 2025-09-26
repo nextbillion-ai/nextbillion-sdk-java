@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class BatchRetrieveResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val msg: JsonField<String>,
     private val responses: JsonField<List<Response>>,
@@ -275,6 +276,7 @@ private constructor(
             (if (trackId.asKnown().isPresent) 1 else 0)
 
     class Response
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val response: JsonValue,
         private val statusCode: JsonField<Long>,

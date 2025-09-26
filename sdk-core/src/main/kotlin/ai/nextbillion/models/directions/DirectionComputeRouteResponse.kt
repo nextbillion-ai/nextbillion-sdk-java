@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class DirectionComputeRouteResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val msg: JsonField<String>,
     private val route: JsonField<Route>,
@@ -227,6 +228,7 @@ private constructor(
      * than one routes are present in the response.
      */
     class Route
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val distance: JsonField<Double>,
         private val duration: JsonField<Double>,
@@ -629,6 +631,7 @@ private constructor(
          * in the input request. Returned only when steps is true in the input request.
          */
         class EndLocation
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val latitude: JsonField<Double>,
             private val longitude: JsonField<Double>,
@@ -825,6 +828,7 @@ private constructor(
          * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
          */
         class Geojson
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val geometry: JsonField<Geometry>,
             private val properties: JsonField<String>,
@@ -1032,6 +1036,7 @@ private constructor(
 
             /** An object with details of the geoJSON geometry of the route. */
             class Geometry
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val coordinates: JsonField<List<Double>>,
                 private val type: JsonField<String>,
@@ -1265,6 +1270,7 @@ private constructor(
         }
 
         class Leg
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val distance: JsonField<Distance>,
             private val duration: JsonField<Duration>,
@@ -1589,6 +1595,7 @@ private constructor(
 
             /** An object containing leg distance value, in meters. */
             class Distance
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val value: JsonField<Double>,
                 private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1734,6 +1741,7 @@ private constructor(
 
             /** An object containing leg duration value, in seconds. */
             class Duration
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val value: JsonField<Double>,
                 private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1882,6 +1890,7 @@ private constructor(
              * true in the input request.
              */
             class EndLocation
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val latitude: JsonField<Double>,
                 private val longitude: JsonField<Double>,
@@ -2080,6 +2089,7 @@ private constructor(
              * true in the input request.
              */
             class StartLocation
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val latitude: JsonField<Double>,
                 private val longitude: JsonField<Double>,
@@ -2276,6 +2286,7 @@ private constructor(
             }
 
             class Step
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val distance: JsonField<Distance>,
                 private val duration: JsonField<Duration>,
@@ -2671,6 +2682,7 @@ private constructor(
 
                 /** An object containing step distance value, in meters. */
                 class Distance
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val value: JsonField<Double>,
                     private val additionalProperties: MutableMap<String, JsonValue>,
@@ -2817,6 +2829,7 @@ private constructor(
 
                 /** An object containing step duration value, in seconds. */
                 class Duration
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val value: JsonField<Double>,
                     private val additionalProperties: MutableMap<String, JsonValue>,
@@ -2963,6 +2976,7 @@ private constructor(
 
                 /** Location coordinates of the point where the step ends. */
                 class EndLocation
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val latitude: JsonField<Double>,
                     private val longitude: JsonField<Double>,
@@ -3168,6 +3182,7 @@ private constructor(
                  * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
                  */
                 class Geojson
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val geometry: JsonField<Geometry>,
                     private val properties: JsonField<String>,
@@ -3381,6 +3396,7 @@ private constructor(
 
                     /** An object with details of the geoJSON geometry of the step. */
                     class Geometry
+                    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                     private constructor(
                         private val coordinates: JsonField<List<Double>>,
                         private val type: JsonField<String>,
@@ -3625,6 +3641,7 @@ private constructor(
 
                 /** An object with maneuver details for the step. */
                 class Maneuver
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val bearingAfter: JsonField<Long>,
                     private val bearingBefore: JsonField<Long>,
@@ -3949,6 +3966,7 @@ private constructor(
 
                     /** A coordinate pair describing the location of the maneuver. */
                     class Coordinate
+                    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                     private constructor(
                         private val latitude: JsonField<Double>,
                         private val longitude: JsonField<Double>,
@@ -4185,6 +4203,7 @@ private constructor(
 
                 /** Location coordinates of the point where the step starts. */
                 class StartLocation
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val latitude: JsonField<Double>,
                     private val longitude: JsonField<Double>,
@@ -4455,6 +4474,7 @@ private constructor(
          * the input request. Returned only when steps is true in the input request.
          */
         class StartLocation
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val latitude: JsonField<Double>,
             private val longitude: JsonField<Double>,

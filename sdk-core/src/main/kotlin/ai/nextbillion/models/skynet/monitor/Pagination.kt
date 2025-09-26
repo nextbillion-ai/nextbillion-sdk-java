@@ -20,6 +20,7 @@ import java.util.Optional
  * in your application.
  */
 class Pagination
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val hasmore: JsonField<Boolean>,
     private val page: JsonField<Long>,

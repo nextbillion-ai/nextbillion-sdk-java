@@ -18,6 +18,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class AssetRetrieveResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val message: JsonField<String>,
@@ -216,6 +217,7 @@ private constructor(
 
     /** An object containing the information about the asset returned. */
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val asset: JsonField<AssetDetails>,
         private val additionalProperties: MutableMap<String, JsonValue>,

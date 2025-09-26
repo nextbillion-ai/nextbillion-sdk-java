@@ -622,6 +622,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val arrival: JsonField<Long>,
         private val position: JsonField<Long>,
@@ -1241,6 +1242,7 @@ private constructor(
      * for performing the task
      */
     class Meta
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val customerName: JsonField<String>,
         private val customerPhoneNumber: JsonField<String>,

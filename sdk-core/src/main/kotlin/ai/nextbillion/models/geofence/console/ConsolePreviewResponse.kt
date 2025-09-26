@@ -17,6 +17,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class ConsolePreviewResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val message: JsonField<String>,
@@ -165,6 +166,7 @@ private constructor(
         (data.asKnown().getOrNull()?.validity() ?: 0) + (if (message.asKnown().isPresent) 1 else 0)
 
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val geojson: JsonField<PolygonGeojson>,
         private val additionalProperties: MutableMap<String, JsonValue>,

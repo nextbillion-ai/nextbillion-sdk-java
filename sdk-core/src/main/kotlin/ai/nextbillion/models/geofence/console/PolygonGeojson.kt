@@ -23,6 +23,7 @@ import kotlin.jvm.optionals.getOrNull
  * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
  */
 class PolygonGeojson
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val coordinates: JsonField<List<List<Double>>>,
     private val type: JsonField<String>,

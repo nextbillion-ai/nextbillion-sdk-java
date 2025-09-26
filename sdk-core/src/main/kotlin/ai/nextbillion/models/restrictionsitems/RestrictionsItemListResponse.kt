@@ -21,6 +21,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class RestrictionsItemListResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val id: JsonField<Double>,
     private val area: JsonField<String>,
@@ -521,6 +522,7 @@ private constructor(
             (status.asKnown().getOrNull()?.validity() ?: 0)
 
     class Coordinate
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val lat: JsonField<Double>,
         private val lon: JsonField<Double>,

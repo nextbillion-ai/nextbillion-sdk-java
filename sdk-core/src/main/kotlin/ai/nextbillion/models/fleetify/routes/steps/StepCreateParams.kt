@@ -625,6 +625,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val arrival: JsonField<Long>,
         private val location: JsonField<List<Double>>,

@@ -954,6 +954,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val locations: JsonField<Locations>,
         private val vehicles: JsonField<List<Vehicle>>,
@@ -2066,6 +2067,7 @@ private constructor(
      * [Location Object](#location-object) section.
      */
     class Locations
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val location: JsonField<List<String>>,
         private val id: JsonField<Long>,
@@ -2498,6 +2500,7 @@ private constructor(
     }
 
     class Depot
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val locationIndex: JsonField<Long>,
@@ -2877,6 +2880,7 @@ private constructor(
      * that the solver provides a solution that meets the desired business objectives.
      */
     class Options
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val constraint: JsonField<Constraint>,
         private val grouping: JsonField<Grouping>,
@@ -3159,6 +3163,7 @@ private constructor(
          * type is in_same_route and ineffective for all other types.
          */
         class Constraint
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val maxActivityWaitingTime: JsonField<Long>,
             private val maxVehicleOvertime: JsonField<Long>,
@@ -3464,6 +3469,7 @@ private constructor(
          * * Use route_grouping to control route sequencing.
          */
         class Grouping
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val orderGrouping: JsonField<OrderGrouping>,
             private val proximityFactor: JsonField<Double>,
@@ -3762,6 +3768,7 @@ private constructor(
              * those tasks.
              */
             class OrderGrouping
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val groupingDiameter: JsonField<Double>,
                 private val additionalProperties: MutableMap<String, JsonValue>,
@@ -3929,6 +3936,7 @@ private constructor(
              * any tasks that are part of a different zone.
              */
             class RouteGrouping
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val penaltyFactor: JsonField<Double>,
                 private val zoneDiameter: JsonField<Double>,
@@ -4387,6 +4395,7 @@ private constructor(
 
         /** This attribute is used to configure the objective of the optimization job. */
         class Objective
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val allowEarlyArrival: JsonField<Boolean>,
             private val custom: JsonField<Custom>,
@@ -4837,6 +4846,7 @@ private constructor(
              * travel cost minimization objectives.
              */
             class Custom
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val type: JsonField<Type>,
                 private val value: JsonField<ObjectiveValue>,
@@ -5763,6 +5773,7 @@ private constructor(
 
         /** This attribute is used to define the routing configurations for the optimization job. */
         class Routing
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val allow: JsonField<List<Allow>>,
             private val avoid: JsonField<List<Avoid>>,
@@ -7308,6 +7319,7 @@ private constructor(
     }
 
     class Relation
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val steps: JsonField<List<Step>>,
         private val type: JsonField<Type>,
@@ -7734,6 +7746,7 @@ private constructor(
                 (if (vehicle.asKnown().isPresent) 1 else 0)
 
         class Step
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val type: JsonField<Type>,
             private val id: JsonField<String>,
@@ -8280,6 +8293,7 @@ private constructor(
     }
 
     class Solution
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val cost: JsonField<Long>,
         private val steps: JsonField<List<Step>>,
@@ -8930,6 +8944,7 @@ private constructor(
 
         /** Describe details about a step of a route */
         class Step
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val id: JsonField<String>,
             private val arrival: JsonField<Long>,
@@ -9869,6 +9884,7 @@ private constructor(
      * the necessary constraints and objectives.
      */
     class Unassigned
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val jobs: JsonField<List<String>>,
         private val shipments: JsonField<List<List<String>>>,
@@ -10109,6 +10125,7 @@ private constructor(
     }
 
     class Zone
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<Long>,
         private val geofenceId: JsonField<String>,
@@ -10350,6 +10367,7 @@ private constructor(
          * Please note that one of geometry or geofence_id should be provided.
          */
         class Geometry
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val coordinates: JsonField<List<List<Double>>>,
             private val description: JsonField<String>,

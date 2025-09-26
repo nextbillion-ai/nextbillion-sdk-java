@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class JsonRetrieveResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val msg: JsonField<String>,
     private val rows: JsonField<List<Row>>,
@@ -230,6 +231,7 @@ private constructor(
             (if (status.asKnown().isPresent) 1 else 0)
 
     class Row
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val elements: JsonField<List<Element>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -384,6 +386,7 @@ private constructor(
             (elements.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
         class Element
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val distance: JsonField<Double>,
             private val duration: JsonField<Double>,

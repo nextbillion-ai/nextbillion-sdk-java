@@ -16,6 +16,7 @@ import java.util.Objects
 import java.util.Optional
 
 class PlaceCreateResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val docId: JsonField<String>,
     private val additionalProperties: MutableMap<String, JsonValue>,

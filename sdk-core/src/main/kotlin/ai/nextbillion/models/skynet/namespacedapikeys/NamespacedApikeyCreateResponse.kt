@@ -17,6 +17,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class NamespacedApikeyCreateResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val error: JsonField<String>,
     private val message: JsonField<String>,
@@ -255,6 +256,7 @@ private constructor(
 
     /** An object to return the details about the namespace key created. */
     class Result
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val apikey: JsonField<String>,
         private val createdAt: JsonField<Long>,

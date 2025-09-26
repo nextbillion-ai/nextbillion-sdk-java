@@ -17,6 +17,7 @@ import java.util.Optional
 
 /** An array returning the location coordinates of all the access points of the search result. */
 class Access
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val lat: JsonField<Double>,
     private val lng: JsonField<Double>,

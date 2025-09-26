@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class PlaceRetrieveResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val dataSorce: JsonField<DataSorce>,
     private val docId: JsonField<String>,
@@ -283,6 +284,7 @@ private constructor(
      * “Update Place” method to change these values, as needed.
      */
     class DataSorce
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val refId: JsonField<String>,
         private val source: JsonField<String>,

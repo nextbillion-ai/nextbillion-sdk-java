@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class RouteCreateResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val status: JsonField<Long>,
@@ -182,6 +183,7 @@ private constructor(
      * represents a single step.
      */
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val createdAt: JsonField<Long>,
@@ -807,6 +809,7 @@ private constructor(
 
         /** An object returning the details of the driver to whom the route was dispatched. */
         class Driver
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val id: JsonField<String>,
             private val email: JsonField<String>,

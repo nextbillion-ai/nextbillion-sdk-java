@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class OptimizationComputeResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val code: JsonField<String>,
     private val location: JsonField<Location>,
@@ -285,6 +286,7 @@ private constructor(
 
     /** Contains the latitude and longitude of a location */
     class Location
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val latitude: JsonField<Double>,
         private val longitude: JsonField<Double>,
@@ -468,6 +470,7 @@ private constructor(
     }
 
     class Trip
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val distance: JsonField<Double>,
         private val duration: JsonField<Double>,
@@ -748,6 +751,7 @@ private constructor(
 
         /** The GeoJSON representation of the route. */
         class Geojson
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val geometry: JsonField<String>,
             private val properties: JsonField<String>,
@@ -1153,6 +1157,7 @@ private constructor(
         }
 
         class Leg
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val distance: JsonField<Double>,
             private val duration: JsonField<Double>,
@@ -1410,6 +1415,7 @@ private constructor(
                     (if (summary.asKnown().isPresent) 1 else 0)
 
             class Step
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val distance: JsonField<Double>,
                 private val duration: JsonField<Double>,
@@ -1664,6 +1670,7 @@ private constructor(
 
                 /** The GeoJSON representation of the step. */
                 class Geojson
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val geometry: JsonField<String>,
                     private val properties: JsonField<String>,
@@ -2153,6 +2160,7 @@ private constructor(
     }
 
     class Waypoint
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val location: JsonField<Location>,
         private val name: JsonField<String>,
@@ -2399,6 +2407,7 @@ private constructor(
 
         /** Describes the location of the waypoint. */
         class Location
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val latitude: JsonField<Double>,
             private val longitude: JsonField<Double>,
