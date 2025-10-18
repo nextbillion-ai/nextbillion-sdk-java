@@ -5,14 +5,18 @@ package ai.nextbillion.models.geocode
 import ai.nextbillion.core.ExcludeMissing
 import ai.nextbillion.core.JsonField
 import ai.nextbillion.core.JsonMissing
+import ai.nextbillion.core.JsonValue
 import ai.nextbillion.core.Params
 import ai.nextbillion.core.checkRequired
 import ai.nextbillion.core.http.Headers
 import ai.nextbillion.core.http.QueryParams
 import ai.nextbillion.core.toImmutable
 import ai.nextbillion.errors.NextbillionSdkInvalidDataException
+import com.fasterxml.jackson.annotation.JsonAnyGetter
+import com.fasterxml.jackson.annotation.JsonAnySetter
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
+import java.util.Collections
 import java.util.Objects
 import java.util.Optional
 
@@ -215,14 +219,24 @@ private constructor(
             .build()
 
     class Body
-    @JsonCreator
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
-        @JsonProperty("q") @ExcludeMissing private val q: JsonField<String>,
-        @JsonProperty("at") @ExcludeMissing private val at: JsonField<String>,
-        @JsonProperty("in") @ExcludeMissing private val in_: JsonField<String>,
-        @JsonProperty("lang") @ExcludeMissing private val lang: JsonField<String>,
-        @JsonProperty("limit") @ExcludeMissing private val limit: JsonField<Long>,
+        private val q: JsonField<String>,
+        private val at: JsonField<String>,
+        private val in_: JsonField<String>,
+        private val lang: JsonField<String>,
+        private val limit: JsonField<Long>,
+        private val additionalProperties: MutableMap<String, JsonValue>,
     ) {
+
+        @JsonCreator
+        private constructor(
+            @JsonProperty("q") @ExcludeMissing q: JsonField<String> = JsonMissing.of(),
+            @JsonProperty("at") @ExcludeMissing at: JsonField<String> = JsonMissing.of(),
+            @JsonProperty("in") @ExcludeMissing in_: JsonField<String> = JsonMissing.of(),
+            @JsonProperty("lang") @ExcludeMissing lang: JsonField<String> = JsonMissing.of(),
+            @JsonProperty("limit") @ExcludeMissing limit: JsonField<Long> = JsonMissing.of(),
+        ) : this(q, at, in_, lang, limit, mutableMapOf())
 
         /**
          * Specify the free-text search query. Please note that whitespace, urls, email addresses,
@@ -324,6 +338,16 @@ private constructor(
          */
         @JsonProperty("limit") @ExcludeMissing fun _limit(): JsonField<Long> = limit
 
+        @JsonAnySetter
+        private fun putAdditionalProperty(key: String, value: JsonValue) {
+            additionalProperties.put(key, value)
+        }
+
+        @JsonAnyGetter
+        @ExcludeMissing
+        fun _additionalProperties(): Map<String, JsonValue> =
+            Collections.unmodifiableMap(additionalProperties)
+
         fun toBuilder() = Builder().from(this)
 
         companion object {
@@ -347,6 +371,7 @@ private constructor(
             private var in_: JsonField<String> = JsonMissing.of()
             private var lang: JsonField<String> = JsonMissing.of()
             private var limit: JsonField<Long> = JsonMissing.of()
+            private var additionalProperties: MutableMap<String, JsonValue> = mutableMapOf()
 
             @JvmSynthetic
             internal fun from(body: Body) = apply {
@@ -355,6 +380,7 @@ private constructor(
                 in_ = body.in_
                 lang = body.lang
                 limit = body.limit
+                additionalProperties = body.additionalProperties.toMutableMap()
             }
 
             /**
@@ -453,6 +479,25 @@ private constructor(
              */
             fun limit(limit: JsonField<Long>) = apply { this.limit = limit }
 
+            fun additionalProperties(additionalProperties: Map<String, JsonValue>) = apply {
+                this.additionalProperties.clear()
+                putAllAdditionalProperties(additionalProperties)
+            }
+
+            fun putAdditionalProperty(key: String, value: JsonValue) = apply {
+                additionalProperties.put(key, value)
+            }
+
+            fun putAllAdditionalProperties(additionalProperties: Map<String, JsonValue>) = apply {
+                this.additionalProperties.putAll(additionalProperties)
+            }
+
+            fun removeAdditionalProperty(key: String) = apply { additionalProperties.remove(key) }
+
+            fun removeAllAdditionalProperties(keys: Set<String>) = apply {
+                keys.forEach(::removeAdditionalProperty)
+            }
+
             /**
              * Returns an immutable instance of [Body].
              *
@@ -465,7 +510,15 @@ private constructor(
              *
              * @throws IllegalStateException if any required field is unset.
              */
-            fun build(): Body = Body(checkRequired("q", q), at, in_, lang, limit)
+            fun build(): Body =
+                Body(
+                    checkRequired("q", q),
+                    at,
+                    in_,
+                    lang,
+                    limit,
+                    additionalProperties.toMutableMap(),
+                )
         }
 
         private var validated: Boolean = false
@@ -515,14 +568,18 @@ private constructor(
                 at == other.at &&
                 in_ == other.in_ &&
                 lang == other.lang &&
-                limit == other.limit
+                limit == other.limit &&
+                additionalProperties == other.additionalProperties
         }
 
-        private val hashCode: Int by lazy { Objects.hash(q, at, in_, lang, limit) }
+        private val hashCode: Int by lazy {
+            Objects.hash(q, at, in_, lang, limit, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
-        override fun toString() = "Body{q=$q, at=$at, in_=$in_, lang=$lang, limit=$limit}"
+        override fun toString() =
+            "Body{q=$q, at=$at, in_=$in_, lang=$lang, limit=$limit, additionalProperties=$additionalProperties}"
     }
 
     override fun equals(other: Any?): Boolean {
