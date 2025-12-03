@@ -248,13 +248,13 @@ The SDK uses the standard [OkHttp logging interceptor](https://github.com/square
 Enable logging by setting the `NEXTBILLION_SDK_LOG` environment variable to `info`:
 
 ```sh
-$ export NEXTBILLION_SDK_LOG=info
+export NEXTBILLION_SDK_LOG=info
 ```
 
 Or to `debug` for more verbose logging:
 
 ```sh
-$ export NEXTBILLION_SDK_LOG=debug
+export NEXTBILLION_SDK_LOG=debug
 ```
 
 ## ProGuard and R8
