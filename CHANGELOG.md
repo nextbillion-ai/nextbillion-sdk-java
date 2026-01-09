@@ -1,5 +1,54 @@
 # Changelog
 
+## 0.1.0-alpha.17 (2026-01-09)
+
+Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
+
+### Features
+
+* **client:** add convenience overloads for some methods ([e38d9d8](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/e38d9d81de29f6e8eb267d771eb1f990dee9b009))
+
+
+### Bug Fixes
+
+* **ci:** use java-version 21 for publish step ([e4dd121](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/e4dd12142e24986d78712fde2043364c216e8941))
+* **client:** deserialization of empty objects ([17f0718](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/17f0718be39af305dba0ac5afe3811560268e243))
+* **client:** incorrect `getPackageVersion` impl ([9fd3e73](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/9fd3e73e9b926fb2e03161f74dd8ba8fb7b04690))
+
+
+### Performance Improvements
+
+* **internal:** make formatting faster ([3c54a84](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/3c54a84de7039f0f47a416d82f1bc25ff363af75))
+
+
+### Chores
+
+* **ci:** add build job ([c455cda](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/c455cda73812cc44839473e18a7cd3de27dff290))
+* **ci:** reduce log noise ([12a5d49](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/12a5d496adf31776307fea59a642563c8499c815))
+* **client:** refactor closing / shutdown ([9e56932](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/9e5693261602fc59ff4bffc540bd33b5d82b0326))
+* improve formatter performance ([a20b953](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/a20b9536186a4aad161337c6655b4e10d1b2c18e))
+* improve formatter performance ([f0a384f](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/f0a384fc4bb9aeb9ea74b158515c38fc91444a4c))
+* increase max gradle JVM heap to 8GB ([bc27158](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/bc271583c24501618e3c1a11a6a3bd41bb2df6af))
+* **internal:** change some comment formatting ([5c236a5](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/5c236a5cf9b4da47020aced721869db43b7bb10a))
+* **internal:** codegen related update ([7229647](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/72296476b1d7e00c8dcf84c8459145304c313bd1))
+* **internal:** codegen related update ([088b0a0](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/088b0a078322fccd574983520cc6f16ccb398c32))
+* **internal:** codegen related update ([e9f3506](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/e9f35064e66ac6ec72634b01f74155693dd7ac37))
+* **internal:** codegen related update ([041fb97](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/041fb973574faf3470624a08dbf2ec49c08650ef))
+* **internal:** codegen related update ([21a5aa4](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/21a5aa4ae21d992daca6e5886339745da87aa5ab))
+* **internal:** codegen related update ([45721bc](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/45721bcfe65af29e0057e838e372bf5cbbc2a305))
+* **internal:** codegen related update ([4a756ce](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/4a756cefc329007dae15b152041ff9274330f364))
+* **internal:** codegen related update ([729797f](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/729797fa5171831bf6bad793d427b19dd600c897))
+* **internal:** codegen related update ([67ffbaf](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/67ffbaf47f559ad1a4242896df5f6661224e54da))
+* **internal:** codegen related update ([a489f5c](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/a489f5c420d8c5a61986fe8fcea1a45a5239916d))
+* **internal:** codegen related update ([a064241](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/a0642410ada67866b79a8c4feaf4f8011824ccfa))
+* **internal:** codegen related update ([396be71](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/396be7190331ca72e91c5bf6eef3e864f016a54c))
+* **internal:** dynamically determine included projects ([3dfe98d](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/3dfe98db9ca21896ed6b60feed8239443891a668))
+* **internal:** support passing arguments to test script ([69ca45d](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/69ca45d7205b2a1c70056ed345cd1cc52a356228))
+* **internal:** support running formatters directly ([cc6ce63](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/cc6ce6318a7b5e79cec804ea8e84ac37c34929e2))
+* **internal:** update comment in script ([a9f46d7](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/a9f46d793380e2de56f9efa6b14c1d09925ea2ab))
+* remove memory upper bound from publishing step ([477e7b0](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/477e7b0caad9fc3eda93bcc1940f8eec4851eabc))
+* update @stainless-api/prism-cli to v5.15.0 ([04a556d](https://github.com/nextbillion-ai/nextbillion-sdk-java/commit/04a556df867a4c5123edd2c7c214de8cfc783ef0))
+
 ## 0.1.0-alpha.16 (2025-08-06)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.16](https://github.com/nextbillion-ai/nextbillion-sdk-java/compare/v0.1.0-alpha.14...v0.1.0-alpha.16)
