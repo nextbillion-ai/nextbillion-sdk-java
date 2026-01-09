@@ -85,9 +85,9 @@ private constructor(
      * Include this parameter in the request to return segment-wise speed information of the route
      * returned in the response.
      *
-     * Please note that returning speed information is a function of "road_info" parameter, which is
-     * effective only when "option=flexible". However, the resultant route might not contain all the
-     * locations provided in "path" input.
+     * Please note that returning speed information is a function of "road\_info" parameter, which
+     * is effective only when "option=flexible". However, the resultant route might not contain all
+     * the locations provided in "path" input.
      */
     fun option(): Optional<Option> = Optional.ofNullable(option)
 
@@ -103,7 +103,7 @@ private constructor(
 
     /**
      * Use this parameter to receive segment-wise maximum speed information of the route in the
-     * response. "max_speed" is the only allowed value.
+     * response. "max\_speed" is the only allowed value.
      */
     fun roadInfo(): Optional<RoadInfo> = Optional.ofNullable(roadInfo)
 
@@ -244,7 +244,7 @@ private constructor(
          * Include this parameter in the request to return segment-wise speed information of the
          * route returned in the response.
          *
-         * Please note that returning speed information is a function of "road_info" parameter,
+         * Please note that returning speed information is a function of "road\_info" parameter,
          * which is effective only when "option=flexible". However, the resultant route might not
          * contain all the locations provided in "path" input.
          */
@@ -268,7 +268,7 @@ private constructor(
 
         /**
          * Use this parameter to receive segment-wise maximum speed information of the route in the
-         * response. "max_speed" is the only allowed value.
+         * response. "max\_speed" is the only allowed value.
          */
         fun roadInfo(roadInfo: RoadInfo?) = apply { this.roadInfo = roadInfo }
 
@@ -584,7 +584,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Approaches && value == other.value /* spotless:on */
+            return other is Approaches && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -730,7 +730,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Avoid && value == other.value /* spotless:on */
+            return other is Avoid && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -869,7 +869,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Geometry && value == other.value /* spotless:on */
+            return other is Geometry && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1006,7 +1006,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+            return other is Mode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1018,9 +1018,9 @@ private constructor(
      * Include this parameter in the request to return segment-wise speed information of the route
      * returned in the response.
      *
-     * Please note that returning speed information is a function of "road_info" parameter, which is
-     * effective only when "option=flexible". However, the resultant route might not contain all the
-     * locations provided in "path" input.
+     * Please note that returning speed information is a function of "road\_info" parameter, which
+     * is effective only when "option=flexible". However, the resultant route might not contain all
+     * the locations provided in "path" input.
      */
     class Option @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -1135,7 +1135,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Option && value == other.value /* spotless:on */
+            return other is Option && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1145,7 +1145,7 @@ private constructor(
 
     /**
      * Use this parameter to receive segment-wise maximum speed information of the route in the
-     * response. "max_speed" is the only allowed value.
+     * response. "max\_speed" is the only allowed value.
      */
     class RoadInfo @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
 
@@ -1260,7 +1260,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is RoadInfo && value == other.value /* spotless:on */
+            return other is RoadInfo && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1273,10 +1273,38 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is SnapToRoadSnapParams && key == other.key && path == other.path && approaches == other.approaches && avoid == other.avoid && geometry == other.geometry && mode == other.mode && option == other.option && radiuses == other.radiuses && roadInfo == other.roadInfo && timestamps == other.timestamps && tolerateOutlier == other.tolerateOutlier && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is SnapToRoadSnapParams &&
+            key == other.key &&
+            path == other.path &&
+            approaches == other.approaches &&
+            avoid == other.avoid &&
+            geometry == other.geometry &&
+            mode == other.mode &&
+            option == other.option &&
+            radiuses == other.radiuses &&
+            roadInfo == other.roadInfo &&
+            timestamps == other.timestamps &&
+            tolerateOutlier == other.tolerateOutlier &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, path, approaches, avoid, geometry, mode, option, radiuses, roadInfo, timestamps, tolerateOutlier, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            key,
+            path,
+            approaches,
+            avoid,
+            geometry,
+            mode,
+            option,
+            radiuses,
+            roadInfo,
+            timestamps,
+            tolerateOutlier,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "SnapToRoadSnapParams{key=$key, path=$path, approaches=$approaches, avoid=$avoid, geometry=$geometry, mode=$mode, option=$option, radiuses=$radiuses, roadInfo=$roadInfo, timestamps=$timestamps, tolerateOutlier=$tolerateOutlier, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

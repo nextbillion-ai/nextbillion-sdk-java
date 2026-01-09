@@ -38,8 +38,8 @@ private constructor(
     /**
      * Device ID to be linked to the asset identified by id.
      *
-     * Please note that the device needs to be linked to an asset before using it in the _Upload
-     * locations of an Asset_ method for sending GPS information about the asset.
+     * Please note that the device needs to be linked to an asset before using it in the *Upload
+     * locations of an Asset* method for sending GPS information about the asset.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
      *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -115,8 +115,8 @@ private constructor(
         /**
          * Device ID to be linked to the asset identified by id.
          *
-         * Please note that the device needs to be linked to an asset before using it in the _Upload
-         * locations of an Asset_ method for sending GPS information about the asset.
+         * Please note that the device needs to be linked to an asset before using it in the *Upload
+         * locations of an Asset* method for sending GPS information about the asset.
          */
         fun deviceId(deviceId: String) = apply { body.deviceId(deviceId) }
 
@@ -287,6 +287,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val deviceId: JsonField<String>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -302,8 +303,8 @@ private constructor(
         /**
          * Device ID to be linked to the asset identified by id.
          *
-         * Please note that the device needs to be linked to an asset before using it in the _Upload
-         * locations of an Asset_ method for sending GPS information about the asset.
+         * Please note that the device needs to be linked to an asset before using it in the *Upload
+         * locations of an Asset* method for sending GPS information about the asset.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -358,7 +359,7 @@ private constructor(
              * Device ID to be linked to the asset identified by id.
              *
              * Please note that the device needs to be linked to an asset before using it in the
-             * _Upload locations of an Asset_ method for sending GPS information about the asset.
+             * *Upload locations of an Asset* method for sending GPS information about the asset.
              */
             fun deviceId(deviceId: String) = deviceId(JsonField.of(deviceId))
 
@@ -438,12 +439,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && deviceId == other.deviceId && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                deviceId == other.deviceId &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(deviceId, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -456,10 +457,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is AssetBindParams && id == other.id && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is AssetBindParams &&
+            id == other.id &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(id, key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(id, key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "AssetBindParams{id=$id, key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

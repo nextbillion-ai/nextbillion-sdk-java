@@ -16,6 +16,7 @@ import java.util.Objects
 import java.util.Optional
 
 class Categories
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val id: JsonField<String>,
     private val name: JsonField<String>,
@@ -209,12 +210,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is Categories && id == other.id && name == other.name && primary == other.primary && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is Categories &&
+            id == other.id &&
+            name == other.name &&
+            primary == other.primary &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(id, name, primary, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

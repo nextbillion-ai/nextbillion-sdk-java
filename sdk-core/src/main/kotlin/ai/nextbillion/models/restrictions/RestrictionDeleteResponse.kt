@@ -16,6 +16,7 @@ import java.util.Objects
 import java.util.Optional
 
 class RestrictionDeleteResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val id: JsonField<Double>,
     private val state: JsonField<String>,
@@ -176,12 +177,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RestrictionDeleteResponse && id == other.id && state == other.state && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is RestrictionDeleteResponse &&
+            id == other.id &&
+            state == other.state &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(id, state, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

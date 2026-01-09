@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class LocationListResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val message: JsonField<String>,
@@ -214,6 +215,7 @@ private constructor(
             (if (status.asKnown().isPresent) 1 else 0)
 
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val distance: JsonField<Double>,
         private val geojson: JsonField<Geojson>,
@@ -613,6 +615,7 @@ private constructor(
          * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
          */
         class Geojson
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val geometry: JsonField<Geometry>,
             private val type: JsonField<String>,
@@ -779,6 +782,7 @@ private constructor(
 
             /** An object with details of the geoJSON geometry of the route. */
             class Geometry
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val coordinates: JsonField<List<Double>>,
                 private val type: JsonField<String>,
@@ -973,12 +977,15 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Geometry && coordinates == other.coordinates && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Geometry &&
+                        coordinates == other.coordinates &&
+                        type == other.type &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(coordinates, type, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(coordinates, type, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -991,12 +998,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Geojson && geometry == other.geometry && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Geojson &&
+                    geometry == other.geometry &&
+                    type == other.type &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(geometry, type, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -1005,6 +1013,7 @@ private constructor(
         }
 
         class SnappedPoint
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val bearing: JsonField<String>,
             private val distance: JsonField<Double>,
@@ -1297,6 +1306,7 @@ private constructor(
 
             /** The latitude and longitude coordinates of the snapped point. */
             class Location
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val lat: JsonField<Double>,
                 private val lon: JsonField<Double>,
@@ -1461,12 +1471,13 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Location && lat == other.lat && lon == other.lon && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Location &&
+                        lat == other.lat &&
+                        lon == other.lon &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
                 private val hashCode: Int by lazy { Objects.hash(lat, lon, additionalProperties) }
-                /* spotless:on */
 
                 override fun hashCode(): Int = hashCode
 
@@ -1479,12 +1490,18 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is SnappedPoint && bearing == other.bearing && distance == other.distance && location == other.location && name == other.name && originalIndex == other.originalIndex && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is SnappedPoint &&
+                    bearing == other.bearing &&
+                    distance == other.distance &&
+                    location == other.location &&
+                    name == other.name &&
+                    originalIndex == other.originalIndex &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(bearing, distance, location, name, originalIndex, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(bearing, distance, location, name, originalIndex, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -1497,12 +1514,27 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && distance == other.distance && geojson == other.geojson && geometry == other.geometry && list == other.list && page == other.page && snappedPoints == other.snappedPoints && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                distance == other.distance &&
+                geojson == other.geojson &&
+                geometry == other.geometry &&
+                list == other.list &&
+                page == other.page &&
+                snappedPoints == other.snappedPoints &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(distance, geojson, geometry, list, page, snappedPoints, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                distance,
+                geojson,
+                geometry,
+                list,
+                page,
+                snappedPoints,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1515,12 +1547,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is LocationListResponse && data == other.data && message == other.message && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is LocationListResponse &&
+            data == other.data &&
+            message == other.message &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, message, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

@@ -20,9 +20,10 @@ import kotlin.jvm.optionals.getOrNull
 /**
  * Specify the configurations of the geofence which will be used to detect presence of the driver
  * and complete the tasks automatically. Please note that this attribute is required when
- * completion_mode is either "geofence" or "geofence_manual_fallback".
+ * completion_mode is either "geofence" or "geofence\_manual\_fallback".
  */
 class RouteStepGeofenceConfig
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val radius: JsonField<Double>,
     private val type: JsonField<Type>,
@@ -296,7 +297,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+            return other is Type && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -309,12 +310,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RouteStepGeofenceConfig && radius == other.radius && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is RouteStepGeofenceConfig &&
+            radius == other.radius &&
+            type == other.type &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(radius, type, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

@@ -370,6 +370,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val document: JsonField<DocumentSubmission>,
         private val mode: JsonField<String>,
@@ -587,12 +588,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && document == other.document && mode == other.mode && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                document == other.document &&
+                mode == other.mode &&
+                status == other.status &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(document, mode, status, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(document, mode, status, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -605,10 +610,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is StepCompleteParams && routeId == other.routeId && stepId == other.stepId && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is StepCompleteParams &&
+            routeId == other.routeId &&
+            stepId == other.stepId &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(routeId, stepId, key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(routeId, stepId, key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "StepCompleteParams{routeId=$routeId, stepId=$stepId, key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

@@ -255,10 +255,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is GeofenceContainsParams && key == other.key && locations == other.locations && geofences == other.geofences && verbose == other.verbose && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is GeofenceContainsParams &&
+            key == other.key &&
+            locations == other.locations &&
+            geofences == other.geofences &&
+            verbose == other.verbose &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, locations, geofences, verbose, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(key, locations, geofences, verbose, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "GeofenceContainsParams{key=$key, locations=$locations, geofences=$geofences, verbose=$verbose, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

@@ -35,7 +35,7 @@ private constructor(
     fun keyToDelete(): String = keyToDelete
 
     /**
-     * Specify the name of the namespace to which the \key_to_delete\ belongs. Please note that a
+     * Specify the name of the namespace to which the \key\_to\_delete\ belongs. Please note that a
      * namespace key cannot be deleted using another namespace key.
      */
     fun namespace(): String = namespace
@@ -100,8 +100,8 @@ private constructor(
         fun keyToDelete(keyToDelete: String) = apply { this.keyToDelete = keyToDelete }
 
         /**
-         * Specify the name of the namespace to which the \key_to_delete\ belongs. Please note that
-         * a namespace key cannot be deleted using another namespace key.
+         * Specify the name of the namespace to which the \key\_to\_delete\ belongs. Please note
+         * that a namespace key cannot be deleted using another namespace key.
          */
         fun namespace(namespace: String) = apply { this.namespace = namespace }
 
@@ -270,10 +270,24 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is NamespacedApikeyDeleteParams && key == other.key && keyToDelete == other.keyToDelete && namespace == other.namespace && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams && additionalBodyProperties == other.additionalBodyProperties /* spotless:on */
+        return other is NamespacedApikeyDeleteParams &&
+            key == other.key &&
+            keyToDelete == other.keyToDelete &&
+            namespace == other.namespace &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams &&
+            additionalBodyProperties == other.additionalBodyProperties
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, keyToDelete, namespace, additionalHeaders, additionalQueryParams, additionalBodyProperties) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            key,
+            keyToDelete,
+            namespace,
+            additionalHeaders,
+            additionalQueryParams,
+            additionalBodyProperties,
+        )
 
     override fun toString() =
         "NamespacedApikeyDeleteParams{key=$key, keyToDelete=$keyToDelete, namespace=$namespace, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams, additionalBodyProperties=$additionalBodyProperties}"

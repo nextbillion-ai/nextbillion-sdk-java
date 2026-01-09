@@ -24,6 +24,7 @@ import java.util.Optional
  * input request. The fields which were not specified in the input will be returned as blanks.
  */
 class RoutingResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val approaches: JsonField<String>,
     private val avoid: JsonField<String>,
@@ -410,12 +411,29 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RoutingResponse && approaches == other.approaches && avoid == other.avoid && hazmatType == other.hazmatType && mode == other.mode && truckAxleLoad == other.truckAxleLoad && truckSize == other.truckSize && truckWeight == other.truckWeight && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is RoutingResponse &&
+            approaches == other.approaches &&
+            avoid == other.avoid &&
+            hazmatType == other.hazmatType &&
+            mode == other.mode &&
+            truckAxleLoad == other.truckAxleLoad &&
+            truckSize == other.truckSize &&
+            truckWeight == other.truckWeight &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(approaches, avoid, hazmatType, mode, truckAxleLoad, truckSize, truckWeight, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(
+            approaches,
+            avoid,
+            hazmatType,
+            mode,
+            truckAxleLoad,
+            truckSize,
+            truckWeight,
+            additionalProperties,
+        )
+    }
 
     override fun hashCode(): Int = hashCode
 

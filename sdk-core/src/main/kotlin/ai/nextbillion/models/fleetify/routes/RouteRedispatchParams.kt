@@ -325,6 +325,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val operations: JsonField<List<Operation>>,
         private val distance: JsonField<Double>,
@@ -527,12 +528,15 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && operations == other.operations && distance == other.distance && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                operations == other.operations &&
+                distance == other.distance &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(operations, distance, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(operations, distance, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -541,6 +545,7 @@ private constructor(
     }
 
     class Operation
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val data: JsonField<Data>,
         private val operation: JsonField<InnerOperation>,
@@ -722,6 +727,7 @@ private constructor(
                 (operation.asKnown().getOrNull()?.validity() ?: 0)
 
         class Data
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val completionMode: JsonField<RouteStepCompletionMode>,
             private val documentTemplateId: JsonField<String>,
@@ -749,10 +755,10 @@ private constructor(
             /**
              * Specify the mode of completion to be used for the step. Currently, following values
              * are allowed:
-             * - manual: Steps must be marked as completed manually through the Driver App.
-             * - geofence: Steps are marked as completed automatically based on the entry conditions
+             * * manual: Steps must be marked as completed manually through the Driver App.
+             * * geofence: Steps are marked as completed automatically based on the entry conditions
              *   and geofence specified.
-             * - geofence_manual_fallback: Steps will be marked as completed automatically based on
+             * * geofence_manual_fallback: Steps will be marked as completed automatically based on
              *   geofence and entry condition configurations but there will also be a provision for
              *   manually updating the status in case, geofence detection fails.
              *
@@ -865,10 +871,10 @@ private constructor(
                 /**
                  * Specify the mode of completion to be used for the step. Currently, following
                  * values are allowed:
-                 * - manual: Steps must be marked as completed manually through the Driver App.
-                 * - geofence: Steps are marked as completed automatically based on the entry
+                 * * manual: Steps must be marked as completed manually through the Driver App.
+                 * * geofence: Steps are marked as completed automatically based on the entry
                  *   conditions and geofence specified.
-                 * - geofence_manual_fallback: Steps will be marked as completed automatically based
+                 * * geofence_manual_fallback: Steps will be marked as completed automatically based
                  *   on geofence and entry condition configurations but there will also be a
                  *   provision for manually updating the status in case, geofence detection fails.
                  */
@@ -1013,12 +1019,17 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Data && completionMode == other.completionMode && documentTemplateId == other.documentTemplateId && step == other.step && stepId == other.stepId && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Data &&
+                    completionMode == other.completionMode &&
+                    documentTemplateId == other.documentTemplateId &&
+                    step == other.step &&
+                    stepId == other.stepId &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(completionMode, documentTemplateId, step, stepId, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(completionMode, documentTemplateId, step, stepId, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -1158,7 +1169,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is InnerOperation && value == other.value /* spotless:on */
+                return other is InnerOperation && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1171,12 +1182,13 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Operation && data == other.data && operation == other.operation && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Operation &&
+                data == other.data &&
+                operation == other.operation &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(data, operation, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -1189,10 +1201,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RouteRedispatchParams && routeId == other.routeId && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is RouteRedispatchParams &&
+            routeId == other.routeId &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(routeId, key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(routeId, key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "RouteRedispatchParams{routeId=$routeId, key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

@@ -25,6 +25,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class RevgeocodeRetrieveResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val items: JsonField<List<Item>>,
     private val additionalProperties: MutableMap<String, JsonValue>,
@@ -170,6 +171,7 @@ private constructor(
         (items.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
     class Item
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val access: JsonField<Access>,
@@ -708,6 +710,7 @@ private constructor(
 
         /** Returns the operating hours of the place, if available. */
         class OpeningHours
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val timeRanges: JsonField<List<TimeRange>>,
             private val additionalProperties: MutableMap<String, JsonValue>,
@@ -862,6 +865,7 @@ private constructor(
                 (timeRanges.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
             class TimeRange
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val endTime: JsonField<EndTime>,
                 private val startTime: JsonField<StartTime>,
@@ -1036,6 +1040,7 @@ private constructor(
 
                 /** Returns the closing time details. */
                 class EndTime
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val date: JsonField<String>,
                     private val hour: JsonField<Long>,
@@ -1244,12 +1249,16 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is EndTime && date == other.date && hour == other.hour && minute == other.minute && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is EndTime &&
+                            date == other.date &&
+                            hour == other.hour &&
+                            minute == other.minute &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
-                    private val hashCode: Int by lazy { Objects.hash(date, hour, minute, additionalProperties) }
-                    /* spotless:on */
+                    private val hashCode: Int by lazy {
+                        Objects.hash(date, hour, minute, additionalProperties)
+                    }
 
                     override fun hashCode(): Int = hashCode
 
@@ -1259,6 +1268,7 @@ private constructor(
 
                 /** Returns the open time details. */
                 class StartTime
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val date: JsonField<String>,
                     private val hour: JsonField<Long>,
@@ -1469,12 +1479,16 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is StartTime && date == other.date && hour == other.hour && minute == other.minute && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is StartTime &&
+                            date == other.date &&
+                            hour == other.hour &&
+                            minute == other.minute &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
-                    private val hashCode: Int by lazy { Objects.hash(date, hour, minute, additionalProperties) }
-                    /* spotless:on */
+                    private val hashCode: Int by lazy {
+                        Objects.hash(date, hour, minute, additionalProperties)
+                    }
 
                     override fun hashCode(): Int = hashCode
 
@@ -1487,12 +1501,15 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is TimeRange && endTime == other.endTime && startTime == other.startTime && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is TimeRange &&
+                        endTime == other.endTime &&
+                        startTime == other.startTime &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(endTime, startTime, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(endTime, startTime, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -1505,12 +1522,12 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is OpeningHours && timeRanges == other.timeRanges && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is OpeningHours &&
+                    timeRanges == other.timeRanges &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(timeRanges, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -1520,6 +1537,7 @@ private constructor(
 
         /** Score of the result. A higher score indicates a closer match. */
         class Scoring
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val fieldScore: JsonValue,
             private val queryScore: JsonField<Double>,
@@ -1680,12 +1698,15 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Scoring && fieldScore == other.fieldScore && queryScore == other.queryScore && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Scoring &&
+                    fieldScore == other.fieldScore &&
+                    queryScore == other.queryScore &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(fieldScore, queryScore, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(fieldScore, queryScore, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -1698,12 +1719,37 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Item && id == other.id && access == other.access && address == other.address && categories == other.categories && contacts == other.contacts && distance == other.distance && mapView == other.mapView && openingHours == other.openingHours && position == other.position && scoring == other.scoring && title == other.title && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Item &&
+                id == other.id &&
+                access == other.access &&
+                address == other.address &&
+                categories == other.categories &&
+                contacts == other.contacts &&
+                distance == other.distance &&
+                mapView == other.mapView &&
+                openingHours == other.openingHours &&
+                position == other.position &&
+                scoring == other.scoring &&
+                title == other.title &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(id, access, address, categories, contacts, distance, mapView, openingHours, position, scoring, title, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                id,
+                access,
+                address,
+                categories,
+                contacts,
+                distance,
+                mapView,
+                openingHours,
+                position,
+                scoring,
+                title,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1716,12 +1762,12 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RevgeocodeRetrieveResponse && items == other.items && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is RevgeocodeRetrieveResponse &&
+            items == other.items &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(items, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

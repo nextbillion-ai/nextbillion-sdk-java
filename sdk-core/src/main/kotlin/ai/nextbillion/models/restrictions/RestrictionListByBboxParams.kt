@@ -522,7 +522,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+            return other is Mode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -678,7 +678,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is RestrictionType && value == other.value /* spotless:on */
+            return other is RestrictionType && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -813,7 +813,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Source && value == other.value /* spotless:on */
+            return other is Source && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -951,7 +951,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is State && value == other.value /* spotless:on */
+            return other is State && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1087,7 +1087,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Status && value == other.value /* spotless:on */
+            return other is Status && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1100,10 +1100,38 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RestrictionListByBboxParams && key == other.key && maxLat == other.maxLat && maxLon == other.maxLon && minLat == other.minLat && minLon == other.minLon && mode == other.mode && restrictionType == other.restrictionType && source == other.source && state == other.state && status == other.status && transform == other.transform && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is RestrictionListByBboxParams &&
+            key == other.key &&
+            maxLat == other.maxLat &&
+            maxLon == other.maxLon &&
+            minLat == other.minLat &&
+            minLon == other.minLon &&
+            mode == other.mode &&
+            restrictionType == other.restrictionType &&
+            source == other.source &&
+            state == other.state &&
+            status == other.status &&
+            transform == other.transform &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, maxLat, maxLon, minLat, minLon, mode, restrictionType, source, state, status, transform, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            key,
+            maxLat,
+            maxLon,
+            minLat,
+            minLon,
+            mode,
+            restrictionType,
+            source,
+            state,
+            status,
+            transform,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "RestrictionListByBboxParams{key=$key, maxLat=$maxLat, maxLon=$maxLon, minLat=$minLat, minLon=$minLon, mode=$mode, restrictionType=$restrictionType, source=$source, state=$state, status=$status, transform=$transform, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

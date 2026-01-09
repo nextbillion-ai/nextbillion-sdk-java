@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class BatchRetrieveResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val msg: JsonField<String>,
     private val responses: JsonField<List<Response>>,
@@ -275,6 +276,7 @@ private constructor(
             (if (trackId.asKnown().isPresent) 1 else 0)
 
     class Response
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val response: JsonValue,
         private val statusCode: JsonField<Long>,
@@ -428,12 +430,15 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Response && response == other.response && statusCode == other.statusCode && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Response &&
+                response == other.response &&
+                statusCode == other.statusCode &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(response, statusCode, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(response, statusCode, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -446,12 +451,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is BatchRetrieveResponse && msg == other.msg && responses == other.responses && status == other.status && trackId == other.trackId && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is BatchRetrieveResponse &&
+            msg == other.msg &&
+            responses == other.responses &&
+            status == other.status &&
+            trackId == other.trackId &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(msg, responses, status, trackId, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(msg, responses, status, trackId, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

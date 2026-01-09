@@ -44,9 +44,9 @@ private constructor(
     /**
      * Specify the scheduled arrival time of the driver, as an UNIX timestamp in seconds, at the
      * step. Please note that:
-     * - Arrival time for each step should be equal to or greater than the previous step.
-     * - Past times can not be provided.
-     * - The time provided is used only for informative display on the driver app and it does not
+     * * Arrival time for each step should be equal to or greater than the previous step.
+     * * Past times can not be provided.
+     * * The time provided is used only for informative display on the driver app and it does not
      *   impact or get affected by the route generated.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
@@ -74,10 +74,10 @@ private constructor(
     /**
      * Specify the mode of completion to be used for the step. Currently, following values are
      * allowed:
-     * - manual: Steps must be marked as completed manually through the Driver App.
-     * - geofence: Steps are marked as completed automatically based on the entry conditions and
+     * * manual: Steps must be marked as completed manually through the Driver App.
+     * * geofence: Steps are marked as completed automatically based on the entry conditions and
      *   geofence specified.
-     * - geofence_manual_fallback: Steps will be marked as completed automatically based on geofence
+     * * geofence_manual_fallback: Steps will be marked as completed automatically based on geofence
      *   and entry condition configurations but there will also be a provision for manually updating
      *   the status in case, geofence detection fails.
      *
@@ -108,7 +108,7 @@ private constructor(
     /**
      * Specify the configurations of the geofence which will be used to detect presence of the
      * driver and complete the tasks automatically. Please note that this attribute is required when
-     * completion_mode is either "geofence" or "geofence_manual_fallback".
+     * completion_mode is either "geofence" or "geofence\_manual\_fallback".
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -288,9 +288,9 @@ private constructor(
         /**
          * Specify the scheduled arrival time of the driver, as an UNIX timestamp in seconds, at the
          * step. Please note that:
-         * - Arrival time for each step should be equal to or greater than the previous step.
-         * - Past times can not be provided.
-         * - The time provided is used only for informative display on the driver app and it does
+         * * Arrival time for each step should be equal to or greater than the previous step.
+         * * Past times can not be provided.
+         * * The time provided is used only for informative display on the driver app and it does
          *   not impact or get affected by the route generated.
          */
         fun arrival(arrival: Long) = apply { body.arrival(arrival) }
@@ -331,10 +331,10 @@ private constructor(
         /**
          * Specify the mode of completion to be used for the step. Currently, following values are
          * allowed:
-         * - manual: Steps must be marked as completed manually through the Driver App.
-         * - geofence: Steps are marked as completed automatically based on the entry conditions and
+         * * manual: Steps must be marked as completed manually through the Driver App.
+         * * geofence: Steps are marked as completed automatically based on the entry conditions and
          *   geofence specified.
-         * - geofence_manual_fallback: Steps will be marked as completed automatically based on
+         * * geofence_manual_fallback: Steps will be marked as completed automatically based on
          *   geofence and entry condition configurations but there will also be a provision for
          *   manually updating the status in case, geofence detection fails.
          */
@@ -390,7 +390,7 @@ private constructor(
         /**
          * Specify the configurations of the geofence which will be used to detect presence of the
          * driver and complete the tasks automatically. Please note that this attribute is required
-         * when completion_mode is either "geofence" or "geofence_manual_fallback".
+         * when completion_mode is either "geofence" or "geofence\_manual\_fallback".
          */
         fun geofenceConfig(geofenceConfig: RouteStepGeofenceConfig) = apply {
             body.geofenceConfig(geofenceConfig)
@@ -622,6 +622,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val arrival: JsonField<Long>,
         private val position: JsonField<Long>,
@@ -673,9 +674,9 @@ private constructor(
         /**
          * Specify the scheduled arrival time of the driver, as an UNIX timestamp in seconds, at the
          * step. Please note that:
-         * - Arrival time for each step should be equal to or greater than the previous step.
-         * - Past times can not be provided.
-         * - The time provided is used only for informative display on the driver app and it does
+         * * Arrival time for each step should be equal to or greater than the previous step.
+         * * Past times can not be provided.
+         * * The time provided is used only for informative display on the driver app and it does
          *   not impact or get affected by the route generated.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
@@ -703,10 +704,10 @@ private constructor(
         /**
          * Specify the mode of completion to be used for the step. Currently, following values are
          * allowed:
-         * - manual: Steps must be marked as completed manually through the Driver App.
-         * - geofence: Steps are marked as completed automatically based on the entry conditions and
+         * * manual: Steps must be marked as completed manually through the Driver App.
+         * * geofence: Steps are marked as completed automatically based on the entry conditions and
          *   geofence specified.
-         * - geofence_manual_fallback: Steps will be marked as completed automatically based on
+         * * geofence_manual_fallback: Steps will be marked as completed automatically based on
          *   geofence and entry condition configurations but there will also be a provision for
          *   manually updating the status in case, geofence detection fails.
          *
@@ -739,7 +740,7 @@ private constructor(
         /**
          * Specify the configurations of the geofence which will be used to detect presence of the
          * driver and complete the tasks automatically. Please note that this attribute is required
-         * when completion_mode is either "geofence" or "geofence_manual_fallback".
+         * when completion_mode is either "geofence" or "geofence\_manual\_fallback".
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -916,9 +917,9 @@ private constructor(
             /**
              * Specify the scheduled arrival time of the driver, as an UNIX timestamp in seconds, at
              * the step. Please note that:
-             * - Arrival time for each step should be equal to or greater than the previous step.
-             * - Past times can not be provided.
-             * - The time provided is used only for informative display on the driver app and it
+             * * Arrival time for each step should be equal to or greater than the previous step.
+             * * Past times can not be provided.
+             * * The time provided is used only for informative display on the driver app and it
              *   does not impact or get affected by the route generated.
              */
             fun arrival(arrival: Long) = arrival(JsonField.of(arrival))
@@ -962,10 +963,10 @@ private constructor(
             /**
              * Specify the mode of completion to be used for the step. Currently, following values
              * are allowed:
-             * - manual: Steps must be marked as completed manually through the Driver App.
-             * - geofence: Steps are marked as completed automatically based on the entry conditions
+             * * manual: Steps must be marked as completed manually through the Driver App.
+             * * geofence: Steps are marked as completed automatically based on the entry conditions
              *   and geofence specified.
-             * - geofence_manual_fallback: Steps will be marked as completed automatically based on
+             * * geofence_manual_fallback: Steps will be marked as completed automatically based on
              *   geofence and entry condition configurations but there will also be a provision for
              *   manually updating the status in case, geofence detection fails.
              */
@@ -1020,7 +1021,7 @@ private constructor(
             /**
              * Specify the configurations of the geofence which will be used to detect presence of
              * the driver and complete the tasks automatically. Please note that this attribute is
-             * required when completion_mode is either "geofence" or "geofence_manual_fallback".
+             * required when completion_mode is either "geofence" or "geofence\_manual\_fallback".
              */
             fun geofenceConfig(geofenceConfig: RouteStepGeofenceConfig) =
                 geofenceConfig(JsonField.of(geofenceConfig))
@@ -1198,12 +1199,35 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && arrival == other.arrival && position == other.position && address == other.address && completionMode == other.completionMode && documentTemplateId == other.documentTemplateId && duration == other.duration && geofenceConfig == other.geofenceConfig && location == other.location && meta == other.meta && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                arrival == other.arrival &&
+                position == other.position &&
+                address == other.address &&
+                completionMode == other.completionMode &&
+                documentTemplateId == other.documentTemplateId &&
+                duration == other.duration &&
+                geofenceConfig == other.geofenceConfig &&
+                location == other.location &&
+                meta == other.meta &&
+                type == other.type &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(arrival, position, address, completionMode, documentTemplateId, duration, geofenceConfig, location, meta, type, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                arrival,
+                position,
+                address,
+                completionMode,
+                documentTemplateId,
+                duration,
+                geofenceConfig,
+                location,
+                meta,
+                type,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1218,6 +1242,7 @@ private constructor(
      * for performing the task
      */
     class Meta
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val customerName: JsonField<String>,
         private val customerPhoneNumber: JsonField<String>,
@@ -1441,12 +1466,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Meta && customerName == other.customerName && customerPhoneNumber == other.customerPhoneNumber && instructions == other.instructions && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Meta &&
+                customerName == other.customerName &&
+                customerPhoneNumber == other.customerPhoneNumber &&
+                instructions == other.instructions &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(customerName, customerPhoneNumber, instructions, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(customerName, customerPhoneNumber, instructions, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1607,7 +1636,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+            return other is Type && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1620,10 +1649,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is StepUpdateParams && routeId == other.routeId && stepId == other.stepId && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is StepUpdateParams &&
+            routeId == other.routeId &&
+            stepId == other.stepId &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(routeId, stepId, key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(routeId, stepId, key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "StepUpdateParams{routeId=$routeId, stepId=$stepId, key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

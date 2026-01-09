@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class GeofenceContainsResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val status: JsonField<String>,
@@ -176,6 +177,7 @@ private constructor(
         (data.asKnown().getOrNull()?.validity() ?: 0) + (if (status.asKnown().isPresent) 1 else 0)
 
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val resultList: JsonField<List<ResultList>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -328,6 +330,7 @@ private constructor(
             (resultList.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
         class ResultList
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val geofenceDetail: JsonField<Geofence>,
             private val geofenceId: JsonField<String>,
@@ -562,6 +565,7 @@ private constructor(
                     (result.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
             class Result
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val contain: JsonField<Boolean>,
                 private val locationIndex: JsonField<Long>,
@@ -740,12 +744,15 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Result && contain == other.contain && locationIndex == other.locationIndex && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Result &&
+                        contain == other.contain &&
+                        locationIndex == other.locationIndex &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(contain, locationIndex, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(contain, locationIndex, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -758,12 +765,16 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is ResultList && geofenceDetail == other.geofenceDetail && geofenceId == other.geofenceId && result == other.result && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is ResultList &&
+                    geofenceDetail == other.geofenceDetail &&
+                    geofenceId == other.geofenceId &&
+                    result == other.result &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(geofenceDetail, geofenceId, result, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(geofenceDetail, geofenceId, result, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -776,12 +787,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && resultList == other.resultList && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                resultList == other.resultList &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(resultList, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -794,12 +805,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is GeofenceContainsResponse && data == other.data && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is GeofenceContainsResponse &&
+            data == other.data &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

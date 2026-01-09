@@ -477,6 +477,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val polygon: JsonField<Polygon>,
         private val filter: JsonField<String>,
@@ -889,12 +890,29 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && polygon == other.polygon && filter == other.filter && matchFilter == other.matchFilter && maxSearchLimit == other.maxSearchLimit && pn == other.pn && ps == other.ps && sort == other.sort && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                polygon == other.polygon &&
+                filter == other.filter &&
+                matchFilter == other.matchFilter &&
+                maxSearchLimit == other.maxSearchLimit &&
+                pn == other.pn &&
+                ps == other.ps &&
+                sort == other.sort &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(polygon, filter, matchFilter, maxSearchLimit, pn, ps, sort, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                polygon,
+                filter,
+                matchFilter,
+                maxSearchLimit,
+                pn,
+                ps,
+                sort,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -914,6 +932,7 @@ private constructor(
      * Please note that the maximum area of the search polygon allowed is 3000 km<sup>2</sup>.
      */
     class Polygon
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val coordinates: JsonField<List<Double>>,
         private val type: JsonField<String>,
@@ -1118,12 +1137,13 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Polygon && coordinates == other.coordinates && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Polygon &&
+                coordinates == other.coordinates &&
+                type == other.type &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(coordinates, type, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -1136,6 +1156,7 @@ private constructor(
      * polygon.
      */
     class MatchFilter
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val includeAllOfAttributes: JsonField<String>,
         private val includeAnyOfAttributes: JsonField<String>,
@@ -1347,12 +1368,15 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is MatchFilter && includeAllOfAttributes == other.includeAllOfAttributes && includeAnyOfAttributes == other.includeAnyOfAttributes && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is MatchFilter &&
+                includeAllOfAttributes == other.includeAllOfAttributes &&
+                includeAnyOfAttributes == other.includeAnyOfAttributes &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(includeAllOfAttributes, includeAnyOfAttributes, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(includeAllOfAttributes, includeAnyOfAttributes, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1361,6 +1385,7 @@ private constructor(
     }
 
     class Sort
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val sortBy: JsonField<SortBy>,
         private val sortDestination: JsonField<SortDestination>,
@@ -1382,9 +1407,9 @@ private constructor(
         /**
          * Specify the metric to sort the assets returned in the search result. The valid values
          * are:
-         * - **distance** : Sorts the assets by driving distance to the given sort_destination .
-         * - **duration** : Sorts the assets by travel time to the given sort_destination .
-         * - **straight_distance** : Sort the assets by straight-line distance to the given
+         * * **distance** : Sorts the assets by driving distance to the given sort_destination .
+         * * **duration** : Sorts the assets by travel time to the given sort_destination .
+         * * **straight\_distance** : Sort the assets by straight-line distance to the given
          *   sort-destination .
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -1479,9 +1504,9 @@ private constructor(
             /**
              * Specify the metric to sort the assets returned in the search result. The valid values
              * are:
-             * - **distance** : Sorts the assets by driving distance to the given sort_destination .
-             * - **duration** : Sorts the assets by travel time to the given sort_destination .
-             * - **straight_distance** : Sort the assets by straight-line distance to the given
+             * * **distance** : Sorts the assets by driving distance to the given sort_destination .
+             * * **duration** : Sorts the assets by travel time to the given sort_destination .
+             * * **straight\_distance** : Sort the assets by straight-line distance to the given
              *   sort-destination .
              */
             fun sortBy(sortBy: SortBy) = sortBy(JsonField.of(sortBy))
@@ -1598,9 +1623,9 @@ private constructor(
         /**
          * Specify the metric to sort the assets returned in the search result. The valid values
          * are:
-         * - **distance** : Sorts the assets by driving distance to the given sort_destination .
-         * - **duration** : Sorts the assets by travel time to the given sort_destination .
-         * - **straight_distance** : Sort the assets by straight-line distance to the given
+         * * **distance** : Sorts the assets by driving distance to the given sort_destination .
+         * * **duration** : Sorts the assets by travel time to the given sort_destination .
+         * * **straight\_distance** : Sort the assets by straight-line distance to the given
          *   sort-destination .
          */
         class SortBy @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
@@ -1730,7 +1755,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is SortBy && value == other.value /* spotless:on */
+                return other is SortBy && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1746,6 +1771,7 @@ private constructor(
          * that sort_destination is required when sort_by is provided.
          */
         class SortDestination
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val lat: JsonField<Double>,
             private val lon: JsonField<Double>,
@@ -1932,12 +1958,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is SortDestination && lat == other.lat && lon == other.lon && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is SortDestination &&
+                    lat == other.lat &&
+                    lon == other.lon &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(lat, lon, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -2074,7 +2101,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is SortDrivingMode && value == other.value /* spotless:on */
+                return other is SortDrivingMode && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -2087,12 +2114,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Sort && sortBy == other.sortBy && sortDestination == other.sortDestination && sortDrivingMode == other.sortDrivingMode && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Sort &&
+                sortBy == other.sortBy &&
+                sortDestination == other.sortDestination &&
+                sortDrivingMode == other.sortDrivingMode &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(sortBy, sortDestination, sortDrivingMode, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(sortBy, sortDestination, sortDrivingMode, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2105,10 +2136,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is PolygonCreateParams && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is PolygonCreateParams &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int = Objects.hash(key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "PolygonCreateParams{key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

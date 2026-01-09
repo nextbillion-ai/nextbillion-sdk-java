@@ -82,13 +82,13 @@ private constructor(
      *
      * When "mode=truck", following are the default dimensions that are used:
      *
-     * \- truck_height = 214 centimeters
+     * \- truck\_height = 214 centimeters
      *
-     * \- truck_width = 183 centimeters
+     * \- truck\_width = 183 centimeters
      *
-     * \- truck_length = 519 centimeters
+     * \- truck\_length = 519 centimeters
      *
-     * \- truck_weight = 5000 kg
+     * \- truck\_weight = 5000 kg
      *
      * Please use the Directions Flexible version if you want to use custom truck dimensions.
      *
@@ -212,13 +212,13 @@ private constructor(
          *
          * When "mode=truck", following are the default dimensions that are used:
          *
-         * \- truck_height = 214 centimeters
+         * \- truck\_height = 214 centimeters
          *
-         * \- truck_width = 183 centimeters
+         * \- truck\_width = 183 centimeters
          *
-         * \- truck_length = 519 centimeters
+         * \- truck\_length = 519 centimeters
          *
-         * \- truck_weight = 5000 kg
+         * \- truck\_weight = 5000 kg
          *
          * Please use the Directions Flexible version if you want to use custom truck dimensions.
          *
@@ -540,7 +540,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Approaches && value == other.value /* spotless:on */
+            return other is Approaches && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -674,7 +674,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Destination && value == other.value /* spotless:on */
+            return other is Destination && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -816,7 +816,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Geometries && value == other.value /* spotless:on */
+            return other is Geometries && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -831,13 +831,13 @@ private constructor(
      *
      * When "mode=truck", following are the default dimensions that are used:
      *
-     * \- truck_height = 214 centimeters
+     * \- truck\_height = 214 centimeters
      *
-     * \- truck_width = 183 centimeters
+     * \- truck\_width = 183 centimeters
      *
-     * \- truck_length = 519 centimeters
+     * \- truck\_length = 519 centimeters
      *
-     * \- truck_weight = 5000 kg
+     * \- truck\_weight = 5000 kg
      *
      * Please use the Directions Flexible version if you want to use custom truck dimensions.
      *
@@ -965,7 +965,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+            return other is Mode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1096,7 +1096,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Source && value == other.value /* spotless:on */
+            return other is Source && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1109,10 +1109,34 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is OptimizationComputeParams && coordinates == other.coordinates && key == other.key && approaches == other.approaches && destination == other.destination && geometries == other.geometries && mode == other.mode && roundtrip == other.roundtrip && source == other.source && withGeometry == other.withGeometry && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is OptimizationComputeParams &&
+            coordinates == other.coordinates &&
+            key == other.key &&
+            approaches == other.approaches &&
+            destination == other.destination &&
+            geometries == other.geometries &&
+            mode == other.mode &&
+            roundtrip == other.roundtrip &&
+            source == other.source &&
+            withGeometry == other.withGeometry &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(coordinates, key, approaches, destination, geometries, mode, roundtrip, source, withGeometry, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            coordinates,
+            key,
+            approaches,
+            destination,
+            geometries,
+            mode,
+            roundtrip,
+            source,
+            withGeometry,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "OptimizationComputeParams{coordinates=$coordinates, key=$key, approaches=$approaches, destination=$destination, geometries=$geometries, mode=$mode, roundtrip=$roundtrip, source=$source, withGeometry=$withGeometry, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

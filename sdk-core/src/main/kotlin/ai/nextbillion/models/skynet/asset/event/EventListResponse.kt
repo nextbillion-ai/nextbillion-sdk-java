@@ -21,6 +21,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class EventListResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val message: JsonField<String>,
@@ -219,6 +220,7 @@ private constructor(
 
     /** An object containing the information about the event history for the requested asset. */
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val list: JsonField<List<AssetEvent>>,
         private val page: JsonField<Pagination>,
@@ -401,6 +403,7 @@ private constructor(
                 (page.asKnown().getOrNull()?.validity() ?: 0)
 
         class AssetEvent
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val assetId: JsonField<String>,
             private val eventType: JsonField<EventType>,
@@ -1086,7 +1089,7 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is EventType && value == other.value /* spotless:on */
+                    return other is EventType && value == other.value
                 }
 
                 override fun hashCode() = value.hashCode()
@@ -1099,6 +1102,7 @@ private constructor(
              * triggered.
              */
             class PrevLocation
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val bearing: JsonField<Double>,
                 private val location: JsonField<Location>,
@@ -1374,6 +1378,7 @@ private constructor(
 
                 /** prev_location information of the asset. */
                 class Location
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val lat: JsonField<Double>,
                     private val lon: JsonField<Double>,
@@ -1546,12 +1551,15 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is Location && lat == other.lat && lon == other.lon && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is Location &&
+                            lat == other.lat &&
+                            lon == other.lon &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
-                    private val hashCode: Int by lazy { Objects.hash(lat, lon, additionalProperties) }
-                    /* spotless:on */
+                    private val hashCode: Int by lazy {
+                        Objects.hash(lat, lon, additionalProperties)
+                    }
 
                     override fun hashCode(): Int = hashCode
 
@@ -1564,12 +1572,25 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is PrevLocation && bearing == other.bearing && location == other.location && metaData == other.metaData && speed == other.speed && timestamp == other.timestamp && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is PrevLocation &&
+                        bearing == other.bearing &&
+                        location == other.location &&
+                        metaData == other.metaData &&
+                        speed == other.speed &&
+                        timestamp == other.timestamp &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(bearing, location, metaData, speed, timestamp, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(
+                        bearing,
+                        location,
+                        metaData,
+                        speed,
+                        timestamp,
+                        additionalProperties,
+                    )
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -1581,6 +1602,7 @@ private constructor(
              * An object with details of the asset at the location where the event was triggered.
              */
             class TriggeredLocation
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val bearing: JsonField<Double>,
                 private val location: JsonField<Location>,
@@ -1864,6 +1886,7 @@ private constructor(
                  * An object with information about the location at which the event was triggered.
                  */
                 class Location
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val lat: JsonField<Double>,
                     private val lon: JsonField<Double>,
@@ -2036,12 +2059,15 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is Location && lat == other.lat && lon == other.lon && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is Location &&
+                            lat == other.lat &&
+                            lon == other.lon &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
-                    private val hashCode: Int by lazy { Objects.hash(lat, lon, additionalProperties) }
-                    /* spotless:on */
+                    private val hashCode: Int by lazy {
+                        Objects.hash(lat, lon, additionalProperties)
+                    }
 
                     override fun hashCode(): Int = hashCode
 
@@ -2054,12 +2080,25 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is TriggeredLocation && bearing == other.bearing && location == other.location && metaData == other.metaData && speed == other.speed && timestamp == other.timestamp && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is TriggeredLocation &&
+                        bearing == other.bearing &&
+                        location == other.location &&
+                        metaData == other.metaData &&
+                        speed == other.speed &&
+                        timestamp == other.timestamp &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(bearing, location, metaData, speed, timestamp, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(
+                        bearing,
+                        location,
+                        metaData,
+                        speed,
+                        timestamp,
+                        additionalProperties,
+                    )
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -2072,12 +2111,35 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is AssetEvent && assetId == other.assetId && eventType == other.eventType && extra == other.extra && geofenceId == other.geofenceId && monitorId == other.monitorId && monitorTags == other.monitorTags && prevLocation == other.prevLocation && timestamp == other.timestamp && triggeredLocation == other.triggeredLocation && triggeredTimestamp == other.triggeredTimestamp && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is AssetEvent &&
+                    assetId == other.assetId &&
+                    eventType == other.eventType &&
+                    extra == other.extra &&
+                    geofenceId == other.geofenceId &&
+                    monitorId == other.monitorId &&
+                    monitorTags == other.monitorTags &&
+                    prevLocation == other.prevLocation &&
+                    timestamp == other.timestamp &&
+                    triggeredLocation == other.triggeredLocation &&
+                    triggeredTimestamp == other.triggeredTimestamp &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(assetId, eventType, extra, geofenceId, monitorId, monitorTags, prevLocation, timestamp, triggeredLocation, triggeredTimestamp, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(
+                    assetId,
+                    eventType,
+                    extra,
+                    geofenceId,
+                    monitorId,
+                    monitorTags,
+                    prevLocation,
+                    timestamp,
+                    triggeredLocation,
+                    triggeredTimestamp,
+                    additionalProperties,
+                )
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -2090,12 +2152,13 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && list == other.list && page == other.page && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                list == other.list &&
+                page == other.page &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(list, page, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -2108,12 +2171,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is EventListResponse && data == other.data && message == other.message && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is EventListResponse &&
+            data == other.data &&
+            message == other.message &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, message, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

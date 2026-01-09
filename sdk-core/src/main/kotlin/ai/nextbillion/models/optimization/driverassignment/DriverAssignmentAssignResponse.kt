@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class DriverAssignmentAssignResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val message: JsonField<String>,
     private val result: JsonField<Result>,
@@ -227,6 +228,7 @@ private constructor(
 
     /** An object containing the details of the assignments. */
     class Result
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val alternateAssignments: JsonField<List<AlternateAssignment>>,
         private val availableVehicles: JsonField<List<String>>,
@@ -557,6 +559,7 @@ private constructor(
                 (unassignedOrders.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
         class AlternateAssignment
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val assignments: JsonField<List<Assignment>>,
             private val orderId: JsonField<String>,
@@ -750,6 +753,7 @@ private constructor(
                     (if (orderId.asKnown().isPresent) 1 else 0)
 
             class Assignment
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val pickupEta: JsonField<Long>,
                 private val vehicleId: JsonField<String>,
@@ -930,12 +934,15 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Assignment && pickupEta == other.pickupEta && vehicleId == other.vehicleId && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Assignment &&
+                        pickupEta == other.pickupEta &&
+                        vehicleId == other.vehicleId &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(pickupEta, vehicleId, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(pickupEta, vehicleId, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -948,12 +955,15 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is AlternateAssignment && assignments == other.assignments && orderId == other.orderId && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is AlternateAssignment &&
+                    assignments == other.assignments &&
+                    orderId == other.orderId &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(assignments, orderId, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(assignments, orderId, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -962,6 +972,7 @@ private constructor(
         }
 
         class Trip
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val tripId: JsonField<String>,
             private val vehicle: JsonField<Vehicle>,
@@ -1127,6 +1138,7 @@ private constructor(
 
             /** Returns the details of the vehicle, assigned order and the trip steps. */
             class Vehicle
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val id: JsonField<String>,
                 private val steps: JsonField<Steps>,
@@ -1347,6 +1359,7 @@ private constructor(
                  * perform for a trip.
                  */
                 class Steps
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val distance: JsonField<Long>,
                     private val eta: JsonField<Long>,
@@ -1414,13 +1427,13 @@ private constructor(
 
                     /**
                      * Returns the type of the step. Currently, it can take following values:
-                     * - **pickup:** Indicates the pickup step for an order
-                     * - **dropoff:** Indicates the dropoff step for an order. It is returned only
+                     * * **pickup:** Indicates the pickup step for an order
+                     * * **dropoff:** Indicates the dropoff step for an order. It is returned only
                      *   if dropoff_details was **true** in the input request.
-                     * - **ongoing:** Indicates a step that the vehicle needs to complete on its
+                     * * **ongoing:** Indicates a step that the vehicle needs to complete on its
                      *   current trip. This is returned in the response only when
                      *   remaining_waypoints input was provided for the given vehicle.
-                     * - **intermediate_waypoint:** Indicates an intermediate stop that the vehicle
+                     * * **intermediate\_waypoint:** Indicates an intermediate stop that the vehicle
                      *   needs to complete in case multiple dropoffs are provided in the input.
                      *
                      * @throws NextbillionSdkInvalidDataException if the JSON field has an
@@ -1577,13 +1590,13 @@ private constructor(
 
                         /**
                          * Returns the type of the step. Currently, it can take following values:
-                         * - **pickup:** Indicates the pickup step for an order
-                         * - **dropoff:** Indicates the dropoff step for an order. It is returned
+                         * * **pickup:** Indicates the pickup step for an order
+                         * * **dropoff:** Indicates the dropoff step for an order. It is returned
                          *   only if dropoff_details was **true** in the input request.
-                         * - **ongoing:** Indicates a step that the vehicle needs to complete on its
+                         * * **ongoing:** Indicates a step that the vehicle needs to complete on its
                          *   current trip. This is returned in the response only when
                          *   remaining_waypoints input was provided for the given vehicle.
-                         * - **intermediate_waypoint:** Indicates an intermediate stop that the
+                         * * **intermediate\_waypoint:** Indicates an intermediate stop that the
                          *   vehicle needs to complete in case multiple dropoffs are provided in the
                          *   input.
                          */
@@ -1675,13 +1688,13 @@ private constructor(
 
                     /**
                      * Returns the type of the step. Currently, it can take following values:
-                     * - **pickup:** Indicates the pickup step for an order
-                     * - **dropoff:** Indicates the dropoff step for an order. It is returned only
+                     * * **pickup:** Indicates the pickup step for an order
+                     * * **dropoff:** Indicates the dropoff step for an order. It is returned only
                      *   if dropoff_details was **true** in the input request.
-                     * - **ongoing:** Indicates a step that the vehicle needs to complete on its
+                     * * **ongoing:** Indicates a step that the vehicle needs to complete on its
                      *   current trip. This is returned in the response only when
                      *   remaining_waypoints input was provided for the given vehicle.
-                     * - **intermediate_waypoint:** Indicates an intermediate stop that the vehicle
+                     * * **intermediate\_waypoint:** Indicates an intermediate stop that the vehicle
                      *   needs to complete in case multiple dropoffs are provided in the input.
                      */
                     class Type
@@ -1818,7 +1831,7 @@ private constructor(
                                 return true
                             }
 
-                            return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+                            return other is Type && value == other.value
                         }
 
                         override fun hashCode() = value.hashCode()
@@ -1831,12 +1844,18 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is Steps && distance == other.distance && eta == other.eta && location == other.location && orderId == other.orderId && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is Steps &&
+                            distance == other.distance &&
+                            eta == other.eta &&
+                            location == other.location &&
+                            orderId == other.orderId &&
+                            type == other.type &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
-                    private val hashCode: Int by lazy { Objects.hash(distance, eta, location, orderId, type, additionalProperties) }
-                    /* spotless:on */
+                    private val hashCode: Int by lazy {
+                        Objects.hash(distance, eta, location, orderId, type, additionalProperties)
+                    }
 
                     override fun hashCode(): Int = hashCode
 
@@ -1849,12 +1868,16 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Vehicle && id == other.id && steps == other.steps && vehicleCurrentLocation == other.vehicleCurrentLocation && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Vehicle &&
+                        id == other.id &&
+                        steps == other.steps &&
+                        vehicleCurrentLocation == other.vehicleCurrentLocation &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(id, steps, vehicleCurrentLocation, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(id, steps, vehicleCurrentLocation, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -1867,12 +1890,15 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Trip && tripId == other.tripId && vehicle == other.vehicle && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Trip &&
+                    tripId == other.tripId &&
+                    vehicle == other.vehicle &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(tripId, vehicle, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(tripId, vehicle, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -1881,6 +1907,7 @@ private constructor(
         }
 
         class UnassignedOrder
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val orderId: JsonField<String>,
             private val unassignedReason: JsonField<String>,
@@ -2057,12 +2084,15 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is UnassignedOrder && orderId == other.orderId && unassignedReason == other.unassignedReason && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is UnassignedOrder &&
+                    orderId == other.orderId &&
+                    unassignedReason == other.unassignedReason &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(orderId, unassignedReason, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(orderId, unassignedReason, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -2075,12 +2105,23 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Result && alternateAssignments == other.alternateAssignments && availableVehicles == other.availableVehicles && trips == other.trips && unassignedOrders == other.unassignedOrders && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Result &&
+                alternateAssignments == other.alternateAssignments &&
+                availableVehicles == other.availableVehicles &&
+                trips == other.trips &&
+                unassignedOrders == other.unassignedOrders &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(alternateAssignments, availableVehicles, trips, unassignedOrders, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                alternateAssignments,
+                availableVehicles,
+                trips,
+                unassignedOrders,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2093,12 +2134,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is DriverAssignmentAssignResponse && message == other.message && result == other.result && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is DriverAssignmentAssignResponse &&
+            message == other.message &&
+            result == other.result &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(message, result, status, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(message, result, status, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

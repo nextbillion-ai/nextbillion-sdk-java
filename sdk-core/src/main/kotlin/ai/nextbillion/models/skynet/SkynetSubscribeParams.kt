@@ -32,9 +32,9 @@ private constructor(
     /**
      * Specify the behavior that needs to be achieved for the subscription. Following values are
      * accepted:
-     * - TRIP_SUBSCRIBE: Enable a trip subscription.
-     * - TRIP_UNSUBSCRIBE: Unsubscribe from a trip
-     * - HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message need
+     * * TRIP\_SUBSCRIBE: Enable a trip subscription.
+     * * TRIP\_UNSUBSCRIBE: Unsubscribe from a trip
+     * * HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message need
      *   to be sent at a frequency higher than every 5 mins to keep the connection alive.
      *   Alternatively, users can chose to respond to the ping frame sent by web socket server to
      *   keep the connection alive. Refer to
@@ -133,9 +133,9 @@ private constructor(
         /**
          * Specify the behavior that needs to be achieved for the subscription. Following values are
          * accepted:
-         * - TRIP_SUBSCRIBE: Enable a trip subscription.
-         * - TRIP_UNSUBSCRIBE: Unsubscribe from a trip
-         * - HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message
+         * * TRIP\_SUBSCRIBE: Enable a trip subscription.
+         * * TRIP\_UNSUBSCRIBE: Unsubscribe from a trip
+         * * HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message
          *   need to be sent at a frequency higher than every 5 mins to keep the connection alive.
          *   Alternatively, users can chose to respond to the ping frame sent by web socket server
          *   to keep the connection alive. Refer to
@@ -320,6 +320,7 @@ private constructor(
     override fun _queryParams(): QueryParams = additionalQueryParams
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val action: JsonField<Action>,
         private val id: JsonField<String>,
@@ -337,9 +338,9 @@ private constructor(
         /**
          * Specify the behavior that needs to be achieved for the subscription. Following values are
          * accepted:
-         * - TRIP_SUBSCRIBE: Enable a trip subscription.
-         * - TRIP_UNSUBSCRIBE: Unsubscribe from a trip
-         * - HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message
+         * * TRIP\_SUBSCRIBE: Enable a trip subscription.
+         * * TRIP\_UNSUBSCRIBE: Unsubscribe from a trip
+         * * HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message
          *   need to be sent at a frequency higher than every 5 mins to keep the connection alive.
          *   Alternatively, users can chose to respond to the ping frame sent by web socket server
          *   to keep the connection alive. Refer to
@@ -431,9 +432,9 @@ private constructor(
             /**
              * Specify the behavior that needs to be achieved for the subscription. Following values
              * are accepted:
-             * - TRIP_SUBSCRIBE: Enable a trip subscription.
-             * - TRIP_UNSUBSCRIBE: Unsubscribe from a trip
-             * - HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action
+             * * TRIP\_SUBSCRIBE: Enable a trip subscription.
+             * * TRIP\_UNSUBSCRIBE: Unsubscribe from a trip
+             * * HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action
              *   message need to be sent at a frequency higher than every 5 mins to keep the
              *   connection alive. Alternatively, users can chose to respond to the ping frame sent
              *   by web socket server to keep the connection alive. Refer to
@@ -555,12 +556,14 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && action == other.action && id == other.id && params == other.params && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                action == other.action &&
+                id == other.id &&
+                params == other.params &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(action, id, params, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -571,9 +574,9 @@ private constructor(
     /**
      * Specify the behavior that needs to be achieved for the subscription. Following values are
      * accepted:
-     * - TRIP_SUBSCRIBE: Enable a trip subscription.
-     * - TRIP_UNSUBSCRIBE: Unsubscribe from a trip
-     * - HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message need
+     * * TRIP\_SUBSCRIBE: Enable a trip subscription.
+     * * TRIP\_UNSUBSCRIBE: Unsubscribe from a trip
+     * * HEARTBEAT: Enable heartbeat mechanism for a web-socket connection. The action message need
      *   to be sent at a frequency higher than every 5 mins to keep the connection alive.
      *   Alternatively, users can chose to respond to the ping frame sent by web socket server to
      *   keep the connection alive. Refer to
@@ -705,7 +708,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Action && value == other.value /* spotless:on */
+            return other is Action && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -714,6 +717,7 @@ private constructor(
     }
 
     class Params
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -728,8 +732,8 @@ private constructor(
          * Specify the ID of an active trip that needs to be subscribed. The ID of a trip is
          * returned in the response when _Start A Trip_ request is acknowledged.
          *
-         * This attribute is mandatory when action is set to either "TRIP_SUBSCRIBE" or
-         * "TRIP_UNSUBSCRIBE"
+         * This attribute is mandatory when action is set to either "TRIP\_SUBSCRIBE" or
+         * "TRIP\_UNSUBSCRIBE"
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -784,8 +788,8 @@ private constructor(
              * Specify the ID of an active trip that needs to be subscribed. The ID of a trip is
              * returned in the response when _Start A Trip_ request is acknowledged.
              *
-             * This attribute is mandatory when action is set to either "TRIP_SUBSCRIBE" or
-             * "TRIP_UNSUBSCRIBE"
+             * This attribute is mandatory when action is set to either "TRIP\_SUBSCRIBE" or
+             * "TRIP\_UNSUBSCRIBE"
              */
             fun id(id: String) = id(JsonField.of(id))
 
@@ -865,12 +869,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Params && id == other.id && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Params &&
+                id == other.id &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(id, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -882,10 +886,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is SkynetSubscribeParams && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is SkynetSubscribeParams &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int = Objects.hash(body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "SkynetSubscribeParams{body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

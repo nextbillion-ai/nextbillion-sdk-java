@@ -190,10 +190,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is AreaListParams && key == other.key && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is AreaListParams &&
+            key == other.key &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int = Objects.hash(key, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "AreaListParams{key=$key, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

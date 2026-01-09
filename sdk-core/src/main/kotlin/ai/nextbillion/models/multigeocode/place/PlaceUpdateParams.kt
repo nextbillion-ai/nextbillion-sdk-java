@@ -374,6 +374,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val dataSource: JsonField<DataSource>,
         private val place: JsonField<List<PlaceItem>>,
@@ -616,12 +617,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && dataSource == other.dataSource && place == other.place && score == other.score && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                dataSource == other.dataSource &&
+                place == other.place &&
+                score == other.score &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(dataSource, place, score, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(dataSource, place, score, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -634,6 +639,7 @@ private constructor(
      * specific business use cases.
      */
     class DataSource
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val refId: JsonField<String>,
         private val source: JsonField<String>,
@@ -965,7 +971,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Status && value == other.value /* spotless:on */
+                return other is Status && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -978,12 +984,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is DataSource && refId == other.refId && source == other.source && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is DataSource &&
+                refId == other.refId &&
+                source == other.source &&
+                status == other.status &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(refId, source, status, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(refId, source, status, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -996,10 +1006,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is PlaceUpdateParams && docId == other.docId && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is PlaceUpdateParams &&
+            docId == other.docId &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(docId, key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(docId, key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "PlaceUpdateParams{docId=$docId, key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

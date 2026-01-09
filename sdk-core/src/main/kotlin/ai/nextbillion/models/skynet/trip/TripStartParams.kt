@@ -446,6 +446,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val assetId: JsonField<String>,
         private val attributes: JsonValue,
@@ -813,12 +814,29 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && assetId == other.assetId && attributes == other.attributes && customId == other.customId && description == other.description && metaData == other.metaData && name == other.name && stops == other.stops && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                assetId == other.assetId &&
+                attributes == other.attributes &&
+                customId == other.customId &&
+                description == other.description &&
+                metaData == other.metaData &&
+                name == other.name &&
+                stops == other.stops &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(assetId, attributes, customId, description, metaData, name, stops, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                assetId,
+                attributes,
+                customId,
+                description,
+                metaData,
+                name,
+                stops,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -827,6 +845,7 @@ private constructor(
     }
 
     class Stop
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val geofenceId: JsonField<String>,
         private val metaData: JsonValue,
@@ -1020,12 +1039,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Stop && geofenceId == other.geofenceId && metaData == other.metaData && name == other.name && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Stop &&
+                geofenceId == other.geofenceId &&
+                metaData == other.metaData &&
+                name == other.name &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(geofenceId, metaData, name, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(geofenceId, metaData, name, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1147,7 +1170,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Cluster && value == other.value /* spotless:on */
+            return other is Cluster && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1160,10 +1183,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is TripStartParams && key == other.key && cluster == other.cluster && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is TripStartParams &&
+            key == other.key &&
+            cluster == other.cluster &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, cluster, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(key, cluster, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "TripStartParams{key=$key, cluster=$cluster, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

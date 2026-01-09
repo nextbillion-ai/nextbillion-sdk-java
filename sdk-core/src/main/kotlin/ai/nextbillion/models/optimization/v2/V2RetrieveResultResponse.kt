@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class V2RetrieveResultResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val description: JsonField<String>,
     private val message: JsonField<String>,
@@ -261,6 +262,7 @@ private constructor(
 
     /** An object containing the details of the optimized routes. */
     class Result
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val code: JsonField<Long>,
         private val error: JsonField<String>,
@@ -610,6 +612,7 @@ private constructor(
                 (unassigned.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
         class Route
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val adoptedCapacity: JsonField<List<Long>>,
             private val cost: JsonField<Long>,
@@ -1498,6 +1501,7 @@ private constructor(
              * array of objects with each object representing one step.
              */
             class Step
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val id: JsonField<String>,
                 private val arrival: JsonField<Long>,
@@ -2490,12 +2494,51 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Step && id == other.id && arrival == other.arrival && depot == other.depot && description == other.description && distance == other.distance && duration == other.duration && lateBy == other.lateBy && load == other.load && location == other.location && locationIndex == other.locationIndex && metadata == other.metadata && projectedLocation == other.projectedLocation && run == other.run && service == other.service && setup == other.setup && snappedLocation == other.snappedLocation && type == other.type && waitingTime == other.waitingTime && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Step &&
+                        id == other.id &&
+                        arrival == other.arrival &&
+                        depot == other.depot &&
+                        description == other.description &&
+                        distance == other.distance &&
+                        duration == other.duration &&
+                        lateBy == other.lateBy &&
+                        load == other.load &&
+                        location == other.location &&
+                        locationIndex == other.locationIndex &&
+                        metadata == other.metadata &&
+                        projectedLocation == other.projectedLocation &&
+                        run == other.run &&
+                        service == other.service &&
+                        setup == other.setup &&
+                        snappedLocation == other.snappedLocation &&
+                        type == other.type &&
+                        waitingTime == other.waitingTime &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(id, arrival, depot, description, distance, duration, lateBy, load, location, locationIndex, metadata, projectedLocation, run, service, setup, snappedLocation, type, waitingTime, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(
+                        id,
+                        arrival,
+                        depot,
+                        description,
+                        distance,
+                        duration,
+                        lateBy,
+                        load,
+                        location,
+                        locationIndex,
+                        metadata,
+                        projectedLocation,
+                        run,
+                        service,
+                        setup,
+                        snappedLocation,
+                        type,
+                        waitingTime,
+                        additionalProperties,
+                    )
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -2508,12 +2551,51 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Route && adoptedCapacity == other.adoptedCapacity && cost == other.cost && delivery == other.delivery && description == other.description && distance == other.distance && duration == other.duration && geometry == other.geometry && metadata == other.metadata && pickup == other.pickup && priority == other.priority && profile == other.profile && revenue == other.revenue && service == other.service && setup == other.setup && steps == other.steps && vehicle == other.vehicle && vehicleOvertime == other.vehicleOvertime && waitingTime == other.waitingTime && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Route &&
+                    adoptedCapacity == other.adoptedCapacity &&
+                    cost == other.cost &&
+                    delivery == other.delivery &&
+                    description == other.description &&
+                    distance == other.distance &&
+                    duration == other.duration &&
+                    geometry == other.geometry &&
+                    metadata == other.metadata &&
+                    pickup == other.pickup &&
+                    priority == other.priority &&
+                    profile == other.profile &&
+                    revenue == other.revenue &&
+                    service == other.service &&
+                    setup == other.setup &&
+                    steps == other.steps &&
+                    vehicle == other.vehicle &&
+                    vehicleOvertime == other.vehicleOvertime &&
+                    waitingTime == other.waitingTime &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(adoptedCapacity, cost, delivery, description, distance, duration, geometry, metadata, pickup, priority, profile, revenue, service, setup, steps, vehicle, vehicleOvertime, waitingTime, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(
+                    adoptedCapacity,
+                    cost,
+                    delivery,
+                    description,
+                    distance,
+                    duration,
+                    geometry,
+                    metadata,
+                    pickup,
+                    priority,
+                    profile,
+                    revenue,
+                    service,
+                    setup,
+                    steps,
+                    vehicle,
+                    vehicleOvertime,
+                    waitingTime,
+                    additionalProperties,
+                )
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -2526,6 +2608,7 @@ private constructor(
          * be useful to quickly get an overview of the important result parameters.
          */
         class Summary
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val cost: JsonField<Long>,
             private val delivery: JsonField<List<Long>>,
@@ -3263,12 +3346,43 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Summary && cost == other.cost && delivery == other.delivery && distance == other.distance && duration == other.duration && numLateVisits == other.numLateVisits && pickup == other.pickup && priority == other.priority && revenue == other.revenue && routes == other.routes && service == other.service && setup == other.setup && totalVisitLateness == other.totalVisitLateness && unassigned == other.unassigned && waitingTime == other.waitingTime && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Summary &&
+                    cost == other.cost &&
+                    delivery == other.delivery &&
+                    distance == other.distance &&
+                    duration == other.duration &&
+                    numLateVisits == other.numLateVisits &&
+                    pickup == other.pickup &&
+                    priority == other.priority &&
+                    revenue == other.revenue &&
+                    routes == other.routes &&
+                    service == other.service &&
+                    setup == other.setup &&
+                    totalVisitLateness == other.totalVisitLateness &&
+                    unassigned == other.unassigned &&
+                    waitingTime == other.waitingTime &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(cost, delivery, distance, duration, numLateVisits, pickup, priority, revenue, routes, service, setup, totalVisitLateness, unassigned, waitingTime, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(
+                    cost,
+                    delivery,
+                    distance,
+                    duration,
+                    numLateVisits,
+                    pickup,
+                    priority,
+                    revenue,
+                    routes,
+                    service,
+                    setup,
+                    totalVisitLateness,
+                    unassigned,
+                    waitingTime,
+                    additionalProperties,
+                )
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -3277,6 +3391,7 @@ private constructor(
         }
 
         class Unassigned
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val id: JsonField<String>,
             private val location: JsonField<List<Double>>,
@@ -3337,19 +3452,19 @@ private constructor(
              * Returns the most likely reason due to which the task remained unassigned. The
              * optimization service can capture the following causes of tasks remaining unassigned,
              * among others:
-             * - unmatched skills of the tasks
-             * - insufficient capacity of vehicle to accommodate the tasks
-             * - time_window requirements of the tasks or the vehicles
-             * - violation of vehicle’s max_activity_waiting_time constraint
-             * - violation of vehicle’s max_tasks or max_stops constraints
-             * - violation of vehicle’s max_distance or max_travel_time constraints
-             * - task unassigned due to zone constraints
-             * - task unassigned due to depot constraints
-             * - task unassigned due to load type incompatibility constraints
-             * - task unassigned due to max time in vehicle constraint
-             * - task unassigned as it is unprofitable
-             * - task unassigned due to low outsourcing cost
-             * - task unassigned due to infeasible conditions specified in relations attribute
+             * * unmatched skills of the tasks
+             * * insufficient capacity of vehicle to accommodate the tasks
+             * * time_window requirements of the tasks or the vehicles
+             * * violation of vehicle’s max_activity_waiting_time constraint
+             * * violation of vehicle’s max_tasks or max_stops constraints
+             * * violation of vehicle’s max_distance or max_travel_time constraints
+             * * task unassigned due to zone constraints
+             * * task unassigned due to depot constraints
+             * * task unassigned due to load type incompatibility constraints
+             * * task unassigned due to max time in vehicle constraint
+             * * task unassigned as it is unprofitable
+             * * task unassigned due to low outsourcing cost
+             * * task unassigned due to infeasible conditions specified in relations attribute
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
              *   (e.g. if the server responded with an unexpected value).
@@ -3516,19 +3631,19 @@ private constructor(
                  * Returns the most likely reason due to which the task remained unassigned. The
                  * optimization service can capture the following causes of tasks remaining
                  * unassigned, among others:
-                 * - unmatched skills of the tasks
-                 * - insufficient capacity of vehicle to accommodate the tasks
-                 * - time_window requirements of the tasks or the vehicles
-                 * - violation of vehicle’s max_activity_waiting_time constraint
-                 * - violation of vehicle’s max_tasks or max_stops constraints
-                 * - violation of vehicle’s max_distance or max_travel_time constraints
-                 * - task unassigned due to zone constraints
-                 * - task unassigned due to depot constraints
-                 * - task unassigned due to load type incompatibility constraints
-                 * - task unassigned due to max time in vehicle constraint
-                 * - task unassigned as it is unprofitable
-                 * - task unassigned due to low outsourcing cost
-                 * - task unassigned due to infeasible conditions specified in relations attribute
+                 * * unmatched skills of the tasks
+                 * * insufficient capacity of vehicle to accommodate the tasks
+                 * * time_window requirements of the tasks or the vehicles
+                 * * violation of vehicle’s max_activity_waiting_time constraint
+                 * * violation of vehicle’s max_tasks or max_stops constraints
+                 * * violation of vehicle’s max_distance or max_travel_time constraints
+                 * * task unassigned due to zone constraints
+                 * * task unassigned due to depot constraints
+                 * * task unassigned due to load type incompatibility constraints
+                 * * task unassigned due to max time in vehicle constraint
+                 * * task unassigned as it is unprofitable
+                 * * task unassigned due to low outsourcing cost
+                 * * task unassigned due to infeasible conditions specified in relations attribute
                  */
                 fun reason(reason: String) = reason(JsonField.of(reason))
 
@@ -3636,12 +3751,18 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Unassigned && id == other.id && location == other.location && outsourcingCost == other.outsourcingCost && reason == other.reason && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Unassigned &&
+                    id == other.id &&
+                    location == other.location &&
+                    outsourcingCost == other.outsourcingCost &&
+                    reason == other.reason &&
+                    type == other.type &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(id, location, outsourcingCost, reason, type, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(id, location, outsourcingCost, reason, type, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -3654,12 +3775,27 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Result && code == other.code && error == other.error && routes == other.routes && routingProfiles == other.routingProfiles && summary == other.summary && unassigned == other.unassigned && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Result &&
+                code == other.code &&
+                error == other.error &&
+                routes == other.routes &&
+                routingProfiles == other.routingProfiles &&
+                summary == other.summary &&
+                unassigned == other.unassigned &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(code, error, routes, routingProfiles, summary, unassigned, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                code,
+                error,
+                routes,
+                routingProfiles,
+                summary,
+                unassigned,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -3790,7 +3926,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Status && value == other.value /* spotless:on */
+            return other is Status && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -3803,12 +3939,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is V2RetrieveResultResponse && description == other.description && message == other.message && result == other.result && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is V2RetrieveResultResponse &&
+            description == other.description &&
+            message == other.message &&
+            result == other.result &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(description, message, result, status, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(description, message, result, status, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

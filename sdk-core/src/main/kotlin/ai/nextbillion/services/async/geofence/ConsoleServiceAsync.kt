@@ -5,6 +5,7 @@ package ai.nextbillion.services.async.geofence
 import ai.nextbillion.core.ClientOptions
 import ai.nextbillion.core.RequestOptions
 import ai.nextbillion.core.http.HttpResponseFor
+import ai.nextbillion.models.geofence.GeofenceEntityCreate
 import ai.nextbillion.models.geofence.console.ConsolePreviewParams
 import ai.nextbillion.models.geofence.console.ConsolePreviewResponse
 import ai.nextbillion.models.geofence.console.ConsoleSearchParams
@@ -35,6 +36,22 @@ interface ConsoleServiceAsync {
         params: ConsolePreviewParams,
         requestOptions: RequestOptions = RequestOptions.none(),
     ): CompletableFuture<ConsolePreviewResponse>
+
+    /** @see preview */
+    fun preview(
+        geofenceEntityCreate: GeofenceEntityCreate,
+        requestOptions: RequestOptions = RequestOptions.none(),
+    ): CompletableFuture<ConsolePreviewResponse> =
+        preview(
+            ConsolePreviewParams.builder().geofenceEntityCreate(geofenceEntityCreate).build(),
+            requestOptions,
+        )
+
+    /** @see preview */
+    fun preview(
+        geofenceEntityCreate: GeofenceEntityCreate
+    ): CompletableFuture<ConsolePreviewResponse> =
+        preview(geofenceEntityCreate, RequestOptions.none())
 
     /** Console Geofence Search API */
     fun search(params: ConsoleSearchParams): CompletableFuture<ConsoleSearchResponse> =
@@ -74,6 +91,22 @@ interface ConsoleServiceAsync {
             params: ConsolePreviewParams,
             requestOptions: RequestOptions = RequestOptions.none(),
         ): CompletableFuture<HttpResponseFor<ConsolePreviewResponse>>
+
+        /** @see preview */
+        fun preview(
+            geofenceEntityCreate: GeofenceEntityCreate,
+            requestOptions: RequestOptions = RequestOptions.none(),
+        ): CompletableFuture<HttpResponseFor<ConsolePreviewResponse>> =
+            preview(
+                ConsolePreviewParams.builder().geofenceEntityCreate(geofenceEntityCreate).build(),
+                requestOptions,
+            )
+
+        /** @see preview */
+        fun preview(
+            geofenceEntityCreate: GeofenceEntityCreate
+        ): CompletableFuture<HttpResponseFor<ConsolePreviewResponse>> =
+            preview(geofenceEntityCreate, RequestOptions.none())
 
         /**
          * Returns a raw HTTP response for `get /geofence/console/search`, but is otherwise the same

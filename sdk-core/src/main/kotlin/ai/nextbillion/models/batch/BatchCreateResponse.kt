@@ -16,6 +16,7 @@ import java.util.Objects
 import java.util.Optional
 
 class BatchCreateResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val msg: JsonField<String>,
     private val status: JsonField<String>,
@@ -221,12 +222,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is BatchCreateResponse && msg == other.msg && status == other.status && trackId == other.trackId && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is BatchCreateResponse &&
+            msg == other.msg &&
+            status == other.status &&
+            trackId == other.trackId &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(msg, status, trackId, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

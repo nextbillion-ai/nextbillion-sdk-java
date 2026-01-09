@@ -17,6 +17,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class MonitorRetrieveResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val message: JsonField<String>,
@@ -215,6 +216,7 @@ private constructor(
 
     /** A data object containing the details of the monitor. */
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val monitor: JsonField<Monitor>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -339,12 +341,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && monitor == other.monitor && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                monitor == other.monitor &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(monitor, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -357,12 +359,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is MonitorRetrieveResponse && data == other.data && message == other.message && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is MonitorRetrieveResponse &&
+            data == other.data &&
+            message == other.message &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, message, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

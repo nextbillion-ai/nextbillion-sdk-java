@@ -384,6 +384,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val filter: JsonField<Filter>,
         private val orders: JsonField<List<Order>>,
@@ -686,12 +687,17 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && filter == other.filter && orders == other.orders && vehicles == other.vehicles && options == other.options && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                filter == other.filter &&
+                orders == other.orders &&
+                vehicles == other.vehicles &&
+                options == other.options &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(filter, orders, vehicles, options, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(filter, orders, vehicles, options, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -704,6 +710,7 @@ private constructor(
      * filter is a mandatory input for all requests.
      */
     class Filter
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val drivingDistance: JsonField<Double>,
         private val pickupEta: JsonField<Long>,
@@ -929,12 +936,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Filter && drivingDistance == other.drivingDistance && pickupEta == other.pickupEta && radius == other.radius && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Filter &&
+                drivingDistance == other.drivingDistance &&
+                pickupEta == other.pickupEta &&
+                radius == other.radius &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(drivingDistance, pickupEta, radius, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(drivingDistance, pickupEta, radius, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -943,6 +954,7 @@ private constructor(
     }
 
     class Order
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val pickup: JsonField<Pickup>,
@@ -1012,8 +1024,8 @@ private constructor(
          * the intermediate stops to be completed before it.
          *
          * Please note
-         * - The last location provided is treated as the destination of the trip.
-         * - dropoffs is mandatory when dropoff_details is set to **true**.
+         * * The last location provided is treated as the destination of the trip.
+         * * dropoffs is mandatory when dropoff_details is set to **true**.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1204,8 +1216,8 @@ private constructor(
              * or the intermediate stops to be completed before it.
              *
              * Please note
-             * - The last location provided is treated as the destination of the trip.
-             * - dropoffs is mandatory when dropoff_details is set to **true**.
+             * * The last location provided is treated as the destination of the trip.
+             * * dropoffs is mandatory when dropoff_details is set to **true**.
              */
             fun dropoffs(dropoffs: List<Dropoff>) = dropoffs(JsonField.of(dropoffs))
 
@@ -1383,6 +1395,7 @@ private constructor(
          * mandatory for each order.
          */
         class Pickup
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val lat: JsonField<Double>,
             private val lng: JsonField<Double>,
@@ -1546,12 +1559,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Pickup && lat == other.lat && lng == other.lng && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Pickup &&
+                    lat == other.lat &&
+                    lng == other.lng &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(lat, lng, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -1560,6 +1574,7 @@ private constructor(
         }
 
         class Dropoff
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val lat: JsonField<Double>,
             private val lng: JsonField<Double>,
@@ -1723,12 +1738,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Dropoff && lat == other.lat && lng == other.lng && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Dropoff &&
+                    lat == other.lat &&
+                    lng == other.lng &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(lat, lng, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -1752,6 +1768,7 @@ private constructor(
          * an order which has vehicle_preferences configured.
          */
         class VehiclePreferences
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val excludeAllOfAttributes: JsonField<List<ExcludeAllOfAttribute>>,
             private val requiredAllOfAttributes: JsonField<List<RequiredAllOfAttribute>>,
@@ -2071,6 +2088,7 @@ private constructor(
                         ?: 0)
 
             class ExcludeAllOfAttribute
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val attribute: JsonField<String>,
                 private val operator: JsonField<String>,
@@ -2106,12 +2124,12 @@ private constructor(
                  * specified above. The attribute , operator and value together constitute the
                  * condition that a vehicle must meet to be eligible for assignment. Currently, we
                  * support following operators currently:
-                 * - Equal to (==)
-                 * - Less than (<)
-                 * - Less tha equal to (<=)
-                 * - Greater than (>)
-                 * - Greater than equal to (>=)
-                 * - Contains (contains)
+                 * * Equal to (==)
+                 * * Less than (<)
+                 * * Less tha equal to (<=)
+                 * * Greater than (>)
+                 * * Greater than equal to (>=)
+                 * * Contains (contains)
                  *
                  * Please note that when using "contains" operator only one value can be specified
                  * and the corresponding attribute must contain multiple values when defined for a
@@ -2229,12 +2247,12 @@ private constructor(
                      * specified above. The attribute , operator and value together constitute the
                      * condition that a vehicle must meet to be eligible for assignment. Currently,
                      * we support following operators currently:
-                     * - Equal to (==)
-                     * - Less than (<)
-                     * - Less tha equal to (<=)
-                     * - Greater than (>)
-                     * - Greater than equal to (>=)
-                     * - Contains (contains)
+                     * * Equal to (==)
+                     * * Less than (<)
+                     * * Less tha equal to (<=)
+                     * * Greater than (>)
+                     * * Greater than equal to (>=)
+                     * * Contains (contains)
                      *
                      * Please note that when using "contains" operator only one value can be
                      * specified and the corresponding attribute must contain multiple values when
@@ -2350,12 +2368,16 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is ExcludeAllOfAttribute && attribute == other.attribute && operator == other.operator && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is ExcludeAllOfAttribute &&
+                        attribute == other.attribute &&
+                        operator == other.operator &&
+                        value == other.value &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(attribute, operator, value, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(attribute, operator, value, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -2364,6 +2386,7 @@ private constructor(
             }
 
             class RequiredAllOfAttribute
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val attribute: JsonField<String>,
                 private val operator: JsonField<String>,
@@ -2399,12 +2422,12 @@ private constructor(
                  * specified above. The attribute , operator and value together constitute the
                  * condition that a vehicle must meet to be eligible for assignment. Currently, we
                  * support following operators currently:
-                 * - Equal to (==)
-                 * - Less than (<)
-                 * - Less tha equal to (<=)
-                 * - Greater than (>)
-                 * - Greater than equal to (>=)
-                 * - Contains (contains)
+                 * * Equal to (==)
+                 * * Less than (<)
+                 * * Less tha equal to (<=)
+                 * * Greater than (>)
+                 * * Greater than equal to (>=)
+                 * * Contains (contains)
                  *
                  * Please note that when using "contains" operator only one value can be specified
                  * and the corresponding attribute must contain multiple values when defined for a
@@ -2522,12 +2545,12 @@ private constructor(
                      * specified above. The attribute , operator and value together constitute the
                      * condition that a vehicle must meet to be eligible for assignment. Currently,
                      * we support following operators currently:
-                     * - Equal to (==)
-                     * - Less than (<)
-                     * - Less tha equal to (<=)
-                     * - Greater than (>)
-                     * - Greater than equal to (>=)
-                     * - Contains (contains)
+                     * * Equal to (==)
+                     * * Less than (<)
+                     * * Less tha equal to (<=)
+                     * * Greater than (>)
+                     * * Greater than equal to (>=)
+                     * * Contains (contains)
                      *
                      * Please note that when using "contains" operator only one value can be
                      * specified and the corresponding attribute must contain multiple values when
@@ -2643,12 +2666,16 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is RequiredAllOfAttribute && attribute == other.attribute && operator == other.operator && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is RequiredAllOfAttribute &&
+                        attribute == other.attribute &&
+                        operator == other.operator &&
+                        value == other.value &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(attribute, operator, value, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(attribute, operator, value, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -2657,6 +2684,7 @@ private constructor(
             }
 
             class RequiredAnyOfAttribute
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val attribute: JsonField<String>,
                 private val operator: JsonField<String>,
@@ -2692,12 +2720,12 @@ private constructor(
                  * specified above. The attribute , operator and value together constitute the
                  * condition that a vehicle must meet to be eligible for assignment. Currently, we
                  * support following operators currently:
-                 * - Equal to (==)
-                 * - Less than (<)
-                 * - Less tha equal to (<=)
-                 * - Greater than (>)
-                 * - Greater than equal to (>=)
-                 * - Contains (contains)
+                 * * Equal to (==)
+                 * * Less than (<)
+                 * * Less tha equal to (<=)
+                 * * Greater than (>)
+                 * * Greater than equal to (>=)
+                 * * Contains (contains)
                  *
                  * Please note that when using "contains" operator only one value can be specified
                  * and the corresponding attribute must contain multiple values when defined for a
@@ -2815,12 +2843,12 @@ private constructor(
                      * specified above. The attribute , operator and value together constitute the
                      * condition that a vehicle must meet to be eligible for assignment. Currently,
                      * we support following operators currently:
-                     * - Equal to (==)
-                     * - Less than (<)
-                     * - Less tha equal to (<=)
-                     * - Greater than (>)
-                     * - Greater than equal to (>=)
-                     * - Contains (contains)
+                     * * Equal to (==)
+                     * * Less than (<)
+                     * * Less tha equal to (<=)
+                     * * Greater than (>)
+                     * * Greater than equal to (>=)
+                     * * Contains (contains)
                      *
                      * Please note that when using "contains" operator only one value can be
                      * specified and the corresponding attribute must contain multiple values when
@@ -2936,12 +2964,16 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is RequiredAnyOfAttribute && attribute == other.attribute && operator == other.operator && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is RequiredAnyOfAttribute &&
+                        attribute == other.attribute &&
+                        operator == other.operator &&
+                        value == other.value &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(attribute, operator, value, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(attribute, operator, value, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -2954,12 +2986,21 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is VehiclePreferences && excludeAllOfAttributes == other.excludeAllOfAttributes && requiredAllOfAttributes == other.requiredAllOfAttributes && requiredAnyOfAttributes == other.requiredAnyOfAttributes && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is VehiclePreferences &&
+                    excludeAllOfAttributes == other.excludeAllOfAttributes &&
+                    requiredAllOfAttributes == other.requiredAllOfAttributes &&
+                    requiredAnyOfAttributes == other.requiredAnyOfAttributes &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(excludeAllOfAttributes, requiredAllOfAttributes, requiredAnyOfAttributes, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(
+                    excludeAllOfAttributes,
+                    requiredAllOfAttributes,
+                    requiredAnyOfAttributes,
+                    additionalProperties,
+                )
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -2972,12 +3013,29 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Order && id == other.id && pickup == other.pickup && attributes == other.attributes && dropoffs == other.dropoffs && priority == other.priority && serviceTime == other.serviceTime && vehiclePreferences == other.vehiclePreferences && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Order &&
+                id == other.id &&
+                pickup == other.pickup &&
+                attributes == other.attributes &&
+                dropoffs == other.dropoffs &&
+                priority == other.priority &&
+                serviceTime == other.serviceTime &&
+                vehiclePreferences == other.vehiclePreferences &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(id, pickup, attributes, dropoffs, priority, serviceTime, vehiclePreferences, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                id,
+                pickup,
+                attributes,
+                dropoffs,
+                priority,
+                serviceTime,
+                vehiclePreferences,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2987,6 +3045,7 @@ private constructor(
 
     /** Configure the assignment constraints and response settings. */
     class Options
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val alternateAssignments: JsonField<Long>,
         private val dropoffDetails: JsonField<Boolean>,
@@ -3028,11 +3087,11 @@ private constructor(
         /**
          * Specify the maximum number of potential, alternate vehicle assignments to be returned for
          * each order, apart from the vehicle which was assigned as recommended. Please note that:
-         * - The maximum number of alternate assignments that can be requested are 3.
-         * - It is not necessary that the service will return the specified number of alternate
+         * * The maximum number of alternate assignments that can be requested are 3.
+         * * It is not necessary that the service will return the specified number of alternate
          *   assignments for each order. The number of alternate assignments returned will depend on
          *   the number of vehicles provided in the input.
-         * - Order which could not be assigned to any vehicles due to their filter or attribute
+         * * Order which could not be assigned to any vehicles due to their filter or attribute
          *   matching criteria will not be eligible for alternate assignments as well.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -3180,11 +3239,11 @@ private constructor(
              * Specify the maximum number of potential, alternate vehicle assignments to be returned
              * for each order, apart from the vehicle which was assigned as recommended. Please note
              * that:
-             * - The maximum number of alternate assignments that can be requested are 3.
-             * - It is not necessary that the service will return the specified number of alternate
+             * * The maximum number of alternate assignments that can be requested are 3.
+             * * It is not necessary that the service will return the specified number of alternate
              *   assignments for each order. The number of alternate assignments returned will
              *   depend on the number of vehicles provided in the input.
-             * - Order which could not be assigned to any vehicles due to their filter or attribute
+             * * Order which could not be assigned to any vehicles due to their filter or attribute
              *   matching criteria will not be eligible for alternate assignments as well.
              */
             fun alternateAssignments(alternateAssignments: Long) =
@@ -3392,6 +3451,7 @@ private constructor(
                 } ?: 0)
 
         class OrderAttributePriorityMapping
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val attribute: JsonField<String>,
             private val operator: JsonField<String>,
@@ -3429,12 +3489,12 @@ private constructor(
              * above. The attribute , operator and value together constitute the condition that an
              * order must meet to assume the specified priority. We support the following operators
              * currently:
-             * - Equal to (==)
-             * - Less than (<)
-             * - Less tha equal to (<=)
-             * - Greater than (>)
-             * - Greater than equal to (>=)
-             * - Contains (contains)
+             * * Equal to (==)
+             * * Less than (<)
+             * * Less tha equal to (<=)
+             * * Greater than (>)
+             * * Greater than equal to (>=)
+             * * Contains (contains)
              *
              * Please note that when using "contains" operator only one value can be specified and
              * the corresponding attribute must contain multiple values when defined for an order.
@@ -3569,12 +3629,12 @@ private constructor(
                  * specified above. The attribute , operator and value together constitute the
                  * condition that an order must meet to assume the specified priority. We support
                  * the following operators currently:
-                 * - Equal to (==)
-                 * - Less than (<)
-                 * - Less tha equal to (<=)
-                 * - Greater than (>)
-                 * - Greater than equal to (>=)
-                 * - Contains (contains)
+                 * * Equal to (==)
+                 * * Less than (<)
+                 * * Less tha equal to (<=)
+                 * * Greater than (>)
+                 * * Greater than equal to (>=)
+                 * * Contains (contains)
                  *
                  * Please note that when using "contains" operator only one value can be specified
                  * and the corresponding attribute must contain multiple values when defined for an
@@ -3710,12 +3770,17 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is OrderAttributePriorityMapping && attribute == other.attribute && operator == other.operator && priority == other.priority && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is OrderAttributePriorityMapping &&
+                    attribute == other.attribute &&
+                    operator == other.operator &&
+                    priority == other.priority &&
+                    value == other.value &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(attribute, operator, priority, value, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(attribute, operator, priority, value, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -3856,7 +3921,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is TravelCost && value == other.value /* spotless:on */
+                return other is TravelCost && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -3865,6 +3930,7 @@ private constructor(
         }
 
         class VehicleAttributePriorityMapping
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val attribute: JsonField<String>,
             private val operator: JsonField<String>,
@@ -3902,12 +3968,12 @@ private constructor(
              * above. The attribute , operator and value together constitute the condition that a
              * vehicle must meet to assume the specified priority. We support the following
              * operators currently:
-             * - Equal to (==)
-             * - Less than (<)
-             * - Less tha equal to (<=)
-             * - Greater than (>)
-             * - Greater than equal to (>=)
-             * - Contains (contains)
+             * * Equal to (==)
+             * * Less than (<)
+             * * Less tha equal to (<=)
+             * * Greater than (>)
+             * * Greater than equal to (>=)
+             * * Contains (contains)
              *
              * Please note that when using "contains" operator only one value can be specified and
              * the corresponding attribute must contain multiple values when defined for a vehicle.
@@ -4043,12 +4109,12 @@ private constructor(
                  * specified above. The attribute , operator and value together constitute the
                  * condition that a vehicle must meet to assume the specified priority. We support
                  * the following operators currently:
-                 * - Equal to (==)
-                 * - Less than (<)
-                 * - Less tha equal to (<=)
-                 * - Greater than (>)
-                 * - Greater than equal to (>=)
-                 * - Contains (contains)
+                 * * Equal to (==)
+                 * * Less than (<)
+                 * * Less tha equal to (<=)
+                 * * Greater than (>)
+                 * * Greater than equal to (>=)
+                 * * Contains (contains)
                  *
                  * Please note that when using "contains" operator only one value can be specified
                  * and the corresponding attribute must contain multiple values when defined for a
@@ -4184,12 +4250,17 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is VehicleAttributePriorityMapping && attribute == other.attribute && operator == other.operator && priority == other.priority && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is VehicleAttributePriorityMapping &&
+                    attribute == other.attribute &&
+                    operator == other.operator &&
+                    priority == other.priority &&
+                    value == other.value &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(attribute, operator, priority, value, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(attribute, operator, priority, value, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -4202,12 +4273,25 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Options && alternateAssignments == other.alternateAssignments && dropoffDetails == other.dropoffDetails && orderAttributePriorityMappings == other.orderAttributePriorityMappings && travelCost == other.travelCost && vehicleAttributePriorityMappings == other.vehicleAttributePriorityMappings && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Options &&
+                alternateAssignments == other.alternateAssignments &&
+                dropoffDetails == other.dropoffDetails &&
+                orderAttributePriorityMappings == other.orderAttributePriorityMappings &&
+                travelCost == other.travelCost &&
+                vehicleAttributePriorityMappings == other.vehicleAttributePriorityMappings &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(alternateAssignments, dropoffDetails, orderAttributePriorityMappings, travelCost, vehicleAttributePriorityMappings, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                alternateAssignments,
+                dropoffDetails,
+                orderAttributePriorityMappings,
+                travelCost,
+                vehicleAttributePriorityMappings,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -4220,10 +4304,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is DriverAssignmentAssignParams && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is DriverAssignmentAssignParams &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int = Objects.hash(key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "DriverAssignmentAssignParams{key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

@@ -16,6 +16,7 @@ import java.util.Objects
 import java.util.Optional
 
 class TripStop
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val geofenceId: JsonField<String>,
     private val metaData: JsonValue,
@@ -191,12 +192,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is TripStop && geofenceId == other.geofenceId && metaData == other.metaData && name == other.name && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is TripStop &&
+            geofenceId == other.geofenceId &&
+            metaData == other.metaData &&
+            name == other.name &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(geofenceId, metaData, name, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(geofenceId, metaData, name, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

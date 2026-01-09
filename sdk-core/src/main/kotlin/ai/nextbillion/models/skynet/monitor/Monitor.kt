@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class Monitor
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val id: JsonField<String>,
     private val createdAt: JsonField<Long>,
@@ -667,6 +668,7 @@ private constructor(
      * enter, exit or enter_and_exit type of monitor.
      */
     class GeofenceConfig
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val geofenceIds: JsonField<List<String>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -819,12 +821,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is GeofenceConfig && geofenceIds == other.geofenceIds && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is GeofenceConfig &&
+                geofenceIds == other.geofenceIds &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(geofenceIds, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -836,6 +838,7 @@ private constructor(
      * An object returning the details of the idle activity constraints for a idle type of monitor.
      */
     class IdleConfig
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val distanceTolerance: JsonField<Double>,
         private val timeTolerance: JsonField<Long>,
@@ -1027,12 +1030,15 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is IdleConfig && distanceTolerance == other.distanceTolerance && timeTolerance == other.timeTolerance && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is IdleConfig &&
+                distanceTolerance == other.distanceTolerance &&
+                timeTolerance == other.timeTolerance &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(distanceTolerance, timeTolerance, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(distanceTolerance, timeTolerance, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1042,6 +1048,7 @@ private constructor(
 
     /** Use this object to update the attributes of the monitor. */
     class MatchFilter
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val includeAllOfAttributes: JsonValue,
         private val includeAnyOfAttributes: JsonValue,
@@ -1218,12 +1225,15 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is MatchFilter && includeAllOfAttributes == other.includeAllOfAttributes && includeAnyOfAttributes == other.includeAnyOfAttributes && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is MatchFilter &&
+                includeAllOfAttributes == other.includeAllOfAttributes &&
+                includeAnyOfAttributes == other.includeAnyOfAttributes &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(includeAllOfAttributes, includeAnyOfAttributes, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(includeAllOfAttributes, includeAnyOfAttributes, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1236,6 +1246,7 @@ private constructor(
      * monitor.
      */
     class SpeedingConfig
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val customerSpeedLimit: JsonField<Long>,
         private val timeTolerance: JsonField<Long>,
@@ -1485,12 +1496,21 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is SpeedingConfig && customerSpeedLimit == other.customerSpeedLimit && timeTolerance == other.timeTolerance && useAdminSpeedLimit == other.useAdminSpeedLimit && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is SpeedingConfig &&
+                customerSpeedLimit == other.customerSpeedLimit &&
+                timeTolerance == other.timeTolerance &&
+                useAdminSpeedLimit == other.useAdminSpeedLimit &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(customerSpeedLimit, timeTolerance, useAdminSpeedLimit, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                customerSpeedLimit,
+                timeTolerance,
+                useAdminSpeedLimit,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1639,7 +1659,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+            return other is Type && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1652,12 +1672,41 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is Monitor && id == other.id && createdAt == other.createdAt && description == other.description && geofenceConfig == other.geofenceConfig && geofences == other.geofences && idleConfig == other.idleConfig && matchFilter == other.matchFilter && metaData == other.metaData && name == other.name && speedingConfig == other.speedingConfig && tags == other.tags && type == other.type && updatedAt == other.updatedAt && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is Monitor &&
+            id == other.id &&
+            createdAt == other.createdAt &&
+            description == other.description &&
+            geofenceConfig == other.geofenceConfig &&
+            geofences == other.geofences &&
+            idleConfig == other.idleConfig &&
+            matchFilter == other.matchFilter &&
+            metaData == other.metaData &&
+            name == other.name &&
+            speedingConfig == other.speedingConfig &&
+            tags == other.tags &&
+            type == other.type &&
+            updatedAt == other.updatedAt &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(id, createdAt, description, geofenceConfig, geofences, idleConfig, matchFilter, metaData, name, speedingConfig, tags, type, updatedAt, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(
+            id,
+            createdAt,
+            description,
+            geofenceConfig,
+            geofences,
+            idleConfig,
+            matchFilter,
+            metaData,
+            name,
+            speedingConfig,
+            tags,
+            type,
+            updatedAt,
+            additionalProperties,
+        )
+    }
 
     override fun hashCode(): Int = hashCode
 

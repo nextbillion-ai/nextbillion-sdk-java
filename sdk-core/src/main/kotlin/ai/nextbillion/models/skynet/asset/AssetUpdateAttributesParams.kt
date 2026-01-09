@@ -37,7 +37,7 @@ private constructor(
     /**
      * attributes can be used to add any useful information or context to your assets like the
      * vehicle type, shift timing etc. These attributes can also be used to filter assets in
-     * **Search**, **Monitor**, and _Get Asset List_ queries.
+     * **Search**, **Monitor**, and *Get Asset List* queries.
      *
      * Provide the attributes to be added or updated, in key:value format. If an existing key is
      * provided in the input, then the value will be modified as per the input value. If a new key
@@ -112,7 +112,7 @@ private constructor(
         /**
          * attributes can be used to add any useful information or context to your assets like the
          * vehicle type, shift timing etc. These attributes can also be used to filter assets in
-         * **Search**, **Monitor**, and _Get Asset List_ queries.
+         * **Search**, **Monitor**, and *Get Asset List* queries.
          *
          * Provide the attributes to be added or updated, in key:value format. If an existing key is
          * provided in the input, then the value will be modified as per the input value. If a new
@@ -284,6 +284,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val attributes: JsonValue,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -297,7 +298,7 @@ private constructor(
         /**
          * attributes can be used to add any useful information or context to your assets like the
          * vehicle type, shift timing etc. These attributes can also be used to filter assets in
-         * **Search**, **Monitor**, and _Get Asset List_ queries.
+         * **Search**, **Monitor**, and *Get Asset List* queries.
          *
          * Provide the attributes to be added or updated, in key:value format. If an existing key is
          * provided in the input, then the value will be modified as per the input value. If a new
@@ -350,7 +351,7 @@ private constructor(
             /**
              * attributes can be used to add any useful information or context to your assets like
              * the vehicle type, shift timing etc. These attributes can also be used to filter
-             * assets in **Search**, **Monitor**, and _Get Asset List_ queries.
+             * assets in **Search**, **Monitor**, and *Get Asset List* queries.
              *
              * Provide the attributes to be added or updated, in key:value format. If an existing
              * key is provided in the input, then the value will be modified as per the input value.
@@ -430,12 +431,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && attributes == other.attributes && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                attributes == other.attributes &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(attributes, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -448,10 +449,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is AssetUpdateAttributesParams && id == other.id && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is AssetUpdateAttributesParams &&
+            id == other.id &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(id, key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(id, key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "AssetUpdateAttributesParams{id=$id, key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

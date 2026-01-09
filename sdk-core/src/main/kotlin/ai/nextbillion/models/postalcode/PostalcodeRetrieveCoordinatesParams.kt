@@ -379,6 +379,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val at: JsonField<At>,
         private val country: JsonField<String>,
@@ -644,12 +645,17 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && at == other.at && country == other.country && format == other.format && postalcode == other.postalcode && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                at == other.at &&
+                country == other.country &&
+                format == other.format &&
+                postalcode == other.postalcode &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(at, country, format, postalcode, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(at, country, format, postalcode, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -663,6 +669,7 @@ private constructor(
      * [See this example](#note).
      */
     class At
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val lat: JsonField<Double>,
         private val lng: JsonField<Double>,
@@ -823,12 +830,13 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is At && lat == other.lat && lng == other.lng && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is At &&
+                lat == other.lat &&
+                lng == other.lng &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(lat, lng, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -954,7 +962,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Format && value == other.value /* spotless:on */
+            return other is Format && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -967,10 +975,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is PostalcodeRetrieveCoordinatesParams && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is PostalcodeRetrieveCoordinatesParams &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int = Objects.hash(key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "PostalcodeRetrieveCoordinatesParams{key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

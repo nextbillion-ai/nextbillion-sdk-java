@@ -19,6 +19,7 @@ import java.util.Objects
 import kotlin.jvm.optionals.getOrNull
 
 class ConsoleSearchResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val status: JsonField<String>,
@@ -196,6 +197,7 @@ private constructor(
         (data.asKnown().getOrNull()?.validity() ?: 0) + (if (status.asKnown().isPresent) 1 else 0)
 
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val result: JsonField<List<Result>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -351,6 +353,7 @@ private constructor(
             (result.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
         class Result
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val id: JsonField<String>,
             private val name: JsonField<String>,
@@ -537,12 +540,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Result && id == other.id && name == other.name && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Result &&
+                    id == other.id &&
+                    name == other.name &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(id, name, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -555,12 +559,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && result == other.result && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                result == other.result &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(result, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -572,12 +576,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is ConsoleSearchResponse && data == other.data && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is ConsoleSearchResponse &&
+            data == other.data &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

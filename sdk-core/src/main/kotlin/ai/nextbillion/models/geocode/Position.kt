@@ -17,6 +17,7 @@ import java.util.Optional
 
 /** Returns the location coordinates of the result. */
 class Position
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val lat: JsonField<String>,
     private val lng: JsonField<String>,
@@ -174,12 +175,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is Position && lat == other.lat && lng == other.lng && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is Position &&
+            lat == other.lat &&
+            lng == other.lng &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(lat, lng, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

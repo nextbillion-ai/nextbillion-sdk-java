@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class TripRetrieveResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val message: JsonField<String>,
@@ -218,6 +219,7 @@ private constructor(
 
     /** An container for the trip returned by the service. */
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val trip: JsonField<Trip>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -341,6 +343,7 @@ private constructor(
 
         /** An object containing the returned trip details. */
         class Trip
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val id: JsonField<String>,
             private val assetId: JsonField<String>,
@@ -973,12 +976,41 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Trip && id == other.id && assetId == other.assetId && attributes == other.attributes && createdAt == other.createdAt && description == other.description && endedAt == other.endedAt && metaData == other.metaData && name == other.name && route == other.route && startedAt == other.startedAt && state == other.state && stops == other.stops && updatedAt == other.updatedAt && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Trip &&
+                    id == other.id &&
+                    assetId == other.assetId &&
+                    attributes == other.attributes &&
+                    createdAt == other.createdAt &&
+                    description == other.description &&
+                    endedAt == other.endedAt &&
+                    metaData == other.metaData &&
+                    name == other.name &&
+                    route == other.route &&
+                    startedAt == other.startedAt &&
+                    state == other.state &&
+                    stops == other.stops &&
+                    updatedAt == other.updatedAt &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(id, assetId, attributes, createdAt, description, endedAt, metaData, name, route, startedAt, state, stops, updatedAt, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(
+                    id,
+                    assetId,
+                    attributes,
+                    createdAt,
+                    description,
+                    endedAt,
+                    metaData,
+                    name,
+                    route,
+                    startedAt,
+                    state,
+                    stops,
+                    updatedAt,
+                    additionalProperties,
+                )
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -991,12 +1023,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && trip == other.trip && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                trip == other.trip &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(trip, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -1008,12 +1040,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is TripRetrieveResponse && data == other.data && message == other.message && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is TripRetrieveResponse &&
+            data == other.data &&
+            message == other.message &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, message, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

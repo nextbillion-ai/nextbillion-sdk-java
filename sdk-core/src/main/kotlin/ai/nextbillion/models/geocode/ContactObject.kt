@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class ContactObject
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val categories: JsonField<List<Category>>,
     private val label: JsonField<String>,
@@ -230,6 +231,7 @@ private constructor(
             (if (value.asKnown().isPresent) 1 else 0)
 
     class Category
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -356,12 +358,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Category && id == other.id && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Category &&
+                id == other.id &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(id, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -373,12 +375,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is ContactObject && categories == other.categories && label == other.label && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is ContactObject &&
+            categories == other.categories &&
+            label == other.label &&
+            value == other.value &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(categories, label, value, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(categories, label, value, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

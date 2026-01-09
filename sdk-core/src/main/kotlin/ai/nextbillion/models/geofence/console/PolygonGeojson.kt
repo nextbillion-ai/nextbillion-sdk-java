@@ -23,6 +23,7 @@ import kotlin.jvm.optionals.getOrNull
  * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
  */
 class PolygonGeojson
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val coordinates: JsonField<List<List<Double>>>,
     private val type: JsonField<String>,
@@ -209,12 +210,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is PolygonGeojson && coordinates == other.coordinates && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is PolygonGeojson &&
+            coordinates == other.coordinates &&
+            type == other.type &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(coordinates, type, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

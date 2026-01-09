@@ -274,6 +274,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val requests: JsonField<List<Request>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -428,12 +429,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && requests == other.requests && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                requests == other.requests &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(requests, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -442,6 +443,7 @@ private constructor(
     }
 
     class Request
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val query: JsonField<String>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -578,12 +580,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Request && query == other.query && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Request &&
+                query == other.query &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(query, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -596,10 +598,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is BatchCreateParams && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is BatchCreateParams &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int = Objects.hash(key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "BatchCreateParams{key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

@@ -21,6 +21,7 @@ import kotlin.jvm.optionals.getOrNull
 
 /** An object with details of the asset properties. */
 class AssetDetails
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val id: JsonField<String>,
     private val attributes: JsonValue,
@@ -84,7 +85,7 @@ private constructor(
      * A string dictionary object containing attributes of the asset. These attributes were
      * associated with the asset at the time of creating or updating it.
      *
-     * attributes can be added to an asset using the _Update Asset Attributes_ method.
+     * attributes can be added to an asset using the *Update Asset Attributes* method.
      */
     @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 
@@ -110,7 +111,7 @@ private constructor(
      * device_id linked to a single asset. An empty response is returned if no devices are linked to
      * the asset.
      *
-     * User can link a device to an asset using the _Bind Asset to Device_ method.
+     * User can link a device to an asset using the *Bind Asset to Device* method.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -156,7 +157,7 @@ private constructor(
      * parameter.**
      *
      * Tags of the asset. These were associated with the asset when it was created or updated. tags
-     * can be used for filtering assets in operations like _Get Asset List_ and asset **Search**
+     * can be used for filtering assets in operations like *Get Asset List* and asset **Search**
      * methods. They can also be used for monitoring of assets using **Monitor** methods after
      * linking tags and asset.
      *
@@ -330,7 +331,7 @@ private constructor(
          * A string dictionary object containing attributes of the asset. These attributes were
          * associated with the asset at the time of creating or updating it.
          *
-         * attributes can be added to an asset using the _Update Asset Attributes_ method.
+         * attributes can be added to an asset using the *Update Asset Attributes* method.
          */
         fun attributes(attributes: JsonValue) = apply { this.attributes = attributes }
 
@@ -367,7 +368,7 @@ private constructor(
          * device_id linked to a single asset. An empty response is returned if no devices are
          * linked to the asset.
          *
-         * User can link a device to an asset using the _Bind Asset to Device_ method.
+         * User can link a device to an asset using the *Bind Asset to Device* method.
          */
         fun deviceId(deviceId: String) = deviceId(JsonField.of(deviceId))
 
@@ -439,7 +440,7 @@ private constructor(
          * parameter.**
          *
          * Tags of the asset. These were associated with the asset when it was created or updated.
-         * tags can be used for filtering assets in operations like _Get Asset List_ and asset
+         * tags can be used for filtering assets in operations like *Get Asset List* and asset
          * **Search** methods. They can also be used for monitoring of assets using **Monitor**
          * methods after linking tags and asset.
          */
@@ -582,6 +583,7 @@ private constructor(
 
     /** An object with details of the last tracked location of the asset. */
     class LatestLocation
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val accuracy: JsonField<Double>,
         private val altitude: JsonField<Double>,
@@ -917,6 +919,7 @@ private constructor(
 
         /** An object with the coordinates of the last tracked location. */
         class Location
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val lat: JsonField<Double>,
             private val lon: JsonField<Double>,
@@ -1080,12 +1083,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Location && lat == other.lat && lon == other.lon && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Location &&
+                    lat == other.lat &&
+                    lon == other.lon &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(lat, lon, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -1098,12 +1102,27 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is LatestLocation && accuracy == other.accuracy && altitude == other.altitude && bearing == other.bearing && location == other.location && speed == other.speed && timestamp == other.timestamp && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is LatestLocation &&
+                accuracy == other.accuracy &&
+                altitude == other.altitude &&
+                bearing == other.bearing &&
+                location == other.location &&
+                speed == other.speed &&
+                timestamp == other.timestamp &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(accuracy, altitude, bearing, location, speed, timestamp, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                accuracy,
+                altitude,
+                bearing,
+                location,
+                speed,
+                timestamp,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1116,12 +1135,39 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is AssetDetails && id == other.id && attributes == other.attributes && createdAt == other.createdAt && description == other.description && deviceId == other.deviceId && latestLocation == other.latestLocation && metaData == other.metaData && name == other.name && state == other.state && tags == other.tags && trackedAt == other.trackedAt && updatedAt == other.updatedAt && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is AssetDetails &&
+            id == other.id &&
+            attributes == other.attributes &&
+            createdAt == other.createdAt &&
+            description == other.description &&
+            deviceId == other.deviceId &&
+            latestLocation == other.latestLocation &&
+            metaData == other.metaData &&
+            name == other.name &&
+            state == other.state &&
+            tags == other.tags &&
+            trackedAt == other.trackedAt &&
+            updatedAt == other.updatedAt &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(id, attributes, createdAt, description, deviceId, latestLocation, metaData, name, state, tags, trackedAt, updatedAt, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(
+            id,
+            attributes,
+            createdAt,
+            description,
+            deviceId,
+            latestLocation,
+            metaData,
+            name,
+            state,
+            tags,
+            trackedAt,
+            updatedAt,
+            additionalProperties,
+        )
+    }
 
     override fun hashCode(): Int = hashCode
 

@@ -20,6 +20,7 @@ import java.util.Objects
 import kotlin.jvm.optionals.getOrNull
 
 class BatchListResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val status: JsonField<String>,
@@ -197,6 +198,7 @@ private constructor(
         (data.asKnown().getOrNull()?.validity() ?: 0) + (if (status.asKnown().isPresent) 1 else 0)
 
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val list: JsonField<List<Geofence>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -361,12 +363,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && list == other.list && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                list == other.list &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(list, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -378,12 +380,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is BatchListResponse && data == other.data && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is BatchListResponse &&
+            data == other.data &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

@@ -21,6 +21,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class RichGroupRequest
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val area: JsonField<String>,
     private val name: JsonField<String>,
@@ -99,7 +100,7 @@ private constructor(
      * Specify the area name. It represents a region where restrictions can be applied. This is a
      * custom field and it is recommended for the users to check with
      * [NextBillion.ai](www.nextbillion.ai) support for the right value. Alternatively, users can
-     * invoke the _[Areas](#supported-areas)_ method to get a list of available areas for them.
+     * invoke the *[Areas](#supported-areas)* method to get a list of available areas for them.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
      *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -489,7 +490,7 @@ private constructor(
          * Specify the area name. It represents a region where restrictions can be applied. This is
          * a custom field and it is recommended for the users to check with
          * [NextBillion.ai](www.nextbillion.ai) support for the right value. Alternatively, users
-         * can invoke the _[Areas](#supported-areas)_ method to get a list of available areas for
+         * can invoke the *[Areas](#supported-areas)* method to get a list of available areas for
          * them.
          */
         fun area(area: String) = area(JsonField.of(area))
@@ -1089,7 +1090,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Direction && value == other.value /* spotless:on */
+            return other is Direction && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1234,7 +1235,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+            return other is Mode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1243,6 +1244,7 @@ private constructor(
     }
 
     class Segment
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val from: JsonField<Double>,
         private val to: JsonField<Double>,
@@ -1403,12 +1405,13 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Segment && from == other.from && to == other.to && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Segment &&
+                from == other.from &&
+                to == other.to &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(from, to, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -1417,6 +1420,7 @@ private constructor(
     }
 
     class Turn
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val from: JsonField<Long>,
         private val to: JsonField<Long>,
@@ -1615,12 +1619,14 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Turn && from == other.from && to == other.to && via == other.via && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Turn &&
+                from == other.from &&
+                to == other.to &&
+                via == other.via &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(from, to, via, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -1633,12 +1639,51 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RichGroupRequest && area == other.area && name == other.name && comment == other.comment && direction == other.direction && endTime == other.endTime && geofence == other.geofence && height == other.height && length == other.length && mode == other.mode && repeatOn == other.repeatOn && segments == other.segments && speed == other.speed && speedLimit == other.speedLimit && startTime == other.startTime && tracks == other.tracks && turns == other.turns && weight == other.weight && width == other.width && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is RichGroupRequest &&
+            area == other.area &&
+            name == other.name &&
+            comment == other.comment &&
+            direction == other.direction &&
+            endTime == other.endTime &&
+            geofence == other.geofence &&
+            height == other.height &&
+            length == other.length &&
+            mode == other.mode &&
+            repeatOn == other.repeatOn &&
+            segments == other.segments &&
+            speed == other.speed &&
+            speedLimit == other.speedLimit &&
+            startTime == other.startTime &&
+            tracks == other.tracks &&
+            turns == other.turns &&
+            weight == other.weight &&
+            width == other.width &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(area, name, comment, direction, endTime, geofence, height, length, mode, repeatOn, segments, speed, speedLimit, startTime, tracks, turns, weight, width, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(
+            area,
+            name,
+            comment,
+            direction,
+            endTime,
+            geofence,
+            height,
+            length,
+            mode,
+            repeatOn,
+            segments,
+            speed,
+            speedLimit,
+            startTime,
+            tracks,
+            turns,
+            weight,
+            width,
+            additionalProperties,
+        )
+    }
 
     override fun hashCode(): Int = hashCode
 

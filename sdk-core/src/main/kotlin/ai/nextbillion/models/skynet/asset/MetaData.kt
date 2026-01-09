@@ -13,6 +13,7 @@ import java.util.Objects
 
 /** Any valid json object data. Can be used to save customized data. Max size is 65kb. */
 class MetaData
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(private val additionalProperties: MutableMap<String, JsonValue>) {
 
     @JsonCreator private constructor() : this(mutableMapOf())
@@ -102,12 +103,10 @@ private constructor(private val additionalProperties: MutableMap<String, JsonVal
             return true
         }
 
-        return /* spotless:off */ other is MetaData && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is MetaData && additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

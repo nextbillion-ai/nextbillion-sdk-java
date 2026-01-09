@@ -21,6 +21,7 @@ import kotlin.jvm.optionals.getOrNull
  * for an asset, no location data will be returned.
  */
 class TrackLocation
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val accuracy: JsonField<Double>,
     private val altitude: JsonField<Double>,
@@ -453,6 +454,7 @@ private constructor(
 
     /** An object with the coordinates of the last tracked location. */
     class Location
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val lat: JsonField<Double>,
         private val lon: JsonField<Double>,
@@ -613,12 +615,13 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Location && lat == other.lat && lon == other.lon && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Location &&
+                lat == other.lat &&
+                lon == other.lon &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(lat, lon, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -631,12 +634,33 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is TrackLocation && accuracy == other.accuracy && altitude == other.altitude && batteryLevel == other.batteryLevel && bearing == other.bearing && location == other.location && metaData == other.metaData && speed == other.speed && timestamp == other.timestamp && trackingMode == other.trackingMode && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is TrackLocation &&
+            accuracy == other.accuracy &&
+            altitude == other.altitude &&
+            batteryLevel == other.batteryLevel &&
+            bearing == other.bearing &&
+            location == other.location &&
+            metaData == other.metaData &&
+            speed == other.speed &&
+            timestamp == other.timestamp &&
+            trackingMode == other.trackingMode &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(accuracy, altitude, batteryLevel, bearing, location, metaData, speed, timestamp, trackingMode, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(
+            accuracy,
+            altitude,
+            batteryLevel,
+            bearing,
+            location,
+            metaData,
+            speed,
+            timestamp,
+            trackingMode,
+            additionalProperties,
+        )
+    }
 
     override fun hashCode(): Int = hashCode
 

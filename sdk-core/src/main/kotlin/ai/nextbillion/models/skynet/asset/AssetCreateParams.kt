@@ -43,7 +43,7 @@ private constructor(
      * attributes can be used to store custom information about an asset in key:value format. Use
      * attributes to add any useful information or context to your assets like the vehicle type,
      * shift timing etc. Moreover, these attributes can be used to filter assets in **Search**,
-     * **Monitor**, and _Get Asset List_ queries.
+     * **Monitor**, and *Get Asset List* queries.
      *
      * Please note that the maximum number of key:value pairs that can be added to an attributes
      * object is 100. Also, the overall size of attributes object should not exceed 65kb.
@@ -52,7 +52,7 @@ private constructor(
 
     /**
      * Set a unique ID for the new asset. If not provided, an ID will be automatically generated in
-     * UUID format. A valid custom*id can contain letters, numbers, "-", & "*" only.
+     * UUID format. A valid custom_id can contain letters, numbers, "-", & "_" only.
      *
      * Please note that the ID of an asset can not be changed once it is created.
      *
@@ -90,12 +90,12 @@ private constructor(
      * **This parameter will be deprecated soon! Please use the attributes parameter to add labels
      * or markers for the asset.**
      *
-     * Tags of the asset. tags can be used for filtering assets in operations like _Get Asset List_
+     * Tags of the asset. tags can be used for filtering assets in operations like *Get Asset List*
      * and asset **Search** methods. They can also be used for monitoring of assets using the
      * **Monitor** methods after linking tags and asset.
      *
      * Valid tags are strings consisting of alphanumeric characters (A-Z, a-z, 0-9) along with the
-     * underscore ('\_') and hyphen ('-') symbols.
+     * underscore ('_') and hyphen ('-') symbols.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -205,7 +205,7 @@ private constructor(
          * attributes can be used to store custom information about an asset in key:value format.
          * Use attributes to add any useful information or context to your assets like the vehicle
          * type, shift timing etc. Moreover, these attributes can be used to filter assets in
-         * **Search**, **Monitor**, and _Get Asset List_ queries.
+         * **Search**, **Monitor**, and *Get Asset List* queries.
          *
          * Please note that the maximum number of key:value pairs that can be added to an attributes
          * object is 100. Also, the overall size of attributes object should not exceed 65kb.
@@ -214,7 +214,7 @@ private constructor(
 
         /**
          * Set a unique ID for the new asset. If not provided, an ID will be automatically generated
-         * in UUID format. A valid custom*id can contain letters, numbers, "-", & "*" only.
+         * in UUID format. A valid custom_id can contain letters, numbers, "-", & "_" only.
          *
          * Please note that the ID of an asset can not be changed once it is created.
          */
@@ -270,12 +270,12 @@ private constructor(
          * **This parameter will be deprecated soon! Please use the attributes parameter to add
          * labels or markers for the asset.**
          *
-         * Tags of the asset. tags can be used for filtering assets in operations like _Get Asset
-         * List_ and asset **Search** methods. They can also be used for monitoring of assets using
+         * Tags of the asset. tags can be used for filtering assets in operations like *Get Asset
+         * List* and asset **Search** methods. They can also be used for monitoring of assets using
          * the **Monitor** methods after linking tags and asset.
          *
          * Valid tags are strings consisting of alphanumeric characters (A-Z, a-z, 0-9) along with
-         * the underscore ('\_') and hyphen ('-') symbols.
+         * the underscore ('_') and hyphen ('-') symbols.
          */
         fun tags(tags: List<String>) = apply { body.tags(tags) }
 
@@ -448,6 +448,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val attributes: JsonValue,
         private val customId: JsonField<String>,
@@ -478,7 +479,7 @@ private constructor(
          * attributes can be used to store custom information about an asset in key:value format.
          * Use attributes to add any useful information or context to your assets like the vehicle
          * type, shift timing etc. Moreover, these attributes can be used to filter assets in
-         * **Search**, **Monitor**, and _Get Asset List_ queries.
+         * **Search**, **Monitor**, and *Get Asset List* queries.
          *
          * Please note that the maximum number of key:value pairs that can be added to an attributes
          * object is 100. Also, the overall size of attributes object should not exceed 65kb.
@@ -487,7 +488,7 @@ private constructor(
 
         /**
          * Set a unique ID for the new asset. If not provided, an ID will be automatically generated
-         * in UUID format. A valid custom*id can contain letters, numbers, "-", & "*" only.
+         * in UUID format. A valid custom_id can contain letters, numbers, "-", & "_" only.
          *
          * Please note that the ID of an asset can not be changed once it is created.
          *
@@ -525,12 +526,12 @@ private constructor(
          * **This parameter will be deprecated soon! Please use the attributes parameter to add
          * labels or markers for the asset.**
          *
-         * Tags of the asset. tags can be used for filtering assets in operations like _Get Asset
-         * List_ and asset **Search** methods. They can also be used for monitoring of assets using
+         * Tags of the asset. tags can be used for filtering assets in operations like *Get Asset
+         * List* and asset **Search** methods. They can also be used for monitoring of assets using
          * the **Monitor** methods after linking tags and asset.
          *
          * Valid tags are strings consisting of alphanumeric characters (A-Z, a-z, 0-9) along with
-         * the underscore ('\_') and hyphen ('-') symbols.
+         * the underscore ('_') and hyphen ('-') symbols.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -618,7 +619,7 @@ private constructor(
              * attributes can be used to store custom information about an asset in key:value
              * format. Use attributes to add any useful information or context to your assets like
              * the vehicle type, shift timing etc. Moreover, these attributes can be used to filter
-             * assets in **Search**, **Monitor**, and _Get Asset List_ queries.
+             * assets in **Search**, **Monitor**, and *Get Asset List* queries.
              *
              * Please note that the maximum number of key:value pairs that can be added to an
              * attributes object is 100. Also, the overall size of attributes object should not
@@ -628,7 +629,7 @@ private constructor(
 
             /**
              * Set a unique ID for the new asset. If not provided, an ID will be automatically
-             * generated in UUID format. A valid custom*id can contain letters, numbers, "-", & "*"
+             * generated in UUID format. A valid custom_id can contain letters, numbers, "-", & "_"
              * only.
              *
              * Please note that the ID of an asset can not be changed once it is created.
@@ -691,12 +692,12 @@ private constructor(
              * **This parameter will be deprecated soon! Please use the attributes parameter to add
              * labels or markers for the asset.**
              *
-             * Tags of the asset. tags can be used for filtering assets in operations like _Get
-             * Asset List_ and asset **Search** methods. They can also be used for monitoring of
+             * Tags of the asset. tags can be used for filtering assets in operations like *Get
+             * Asset List* and asset **Search** methods. They can also be used for monitoring of
              * assets using the **Monitor** methods after linking tags and asset.
              *
              * Valid tags are strings consisting of alphanumeric characters (A-Z, a-z, 0-9) along
-             * with the underscore ('\_') and hyphen ('-') symbols.
+             * with the underscore ('_') and hyphen ('-') symbols.
              */
             fun tags(tags: List<String>) = tags(JsonField.of(tags))
 
@@ -797,12 +798,27 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && attributes == other.attributes && customId == other.customId && description == other.description && metaData == other.metaData && name == other.name && tags == other.tags && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                attributes == other.attributes &&
+                customId == other.customId &&
+                description == other.description &&
+                metaData == other.metaData &&
+                name == other.name &&
+                tags == other.tags &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(attributes, customId, description, metaData, name, tags, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                attributes,
+                customId,
+                description,
+                metaData,
+                name,
+                tags,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -924,7 +940,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Cluster && value == other.value /* spotless:on */
+            return other is Cluster && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -937,10 +953,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is AssetCreateParams && key == other.key && cluster == other.cluster && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is AssetCreateParams &&
+            key == other.key &&
+            cluster == other.cluster &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, cluster, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(key, cluster, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "AssetCreateParams{key=$key, cluster=$cluster, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

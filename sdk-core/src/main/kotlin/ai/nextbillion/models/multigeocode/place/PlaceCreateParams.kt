@@ -389,6 +389,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val place: JsonField<List<Place>>,
         private val dataSource: JsonField<DataSource>,
@@ -684,12 +685,17 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && place == other.place && dataSource == other.dataSource && force == other.force && score == other.score && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                place == other.place &&
+                dataSource == other.dataSource &&
+                force == other.force &&
+                score == other.score &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(place, dataSource, force, score, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(place, dataSource, force, score, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -698,6 +704,7 @@ private constructor(
     }
 
     class Place
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val geopoint: JsonField<Geopoint>,
         private val address: JsonField<String>,
@@ -1272,6 +1279,7 @@ private constructor(
          * latitude and longitude values.
          */
         class Geopoint
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val lat: JsonField<Double>,
             private val lng: JsonField<Double>,
@@ -1435,12 +1443,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Geopoint && lat == other.lat && lng == other.lng && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Geopoint &&
+                    lat == other.lat &&
+                    lng == other.lng &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(lat, lng, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -1455,6 +1464,7 @@ private constructor(
          * people might find important or intriguing.
          */
         class Poi
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val title: JsonField<String>,
             private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1584,12 +1594,12 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Poi && title == other.title && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Poi &&
+                    title == other.title &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(title, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -1602,12 +1612,39 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Place && geopoint == other.geopoint && address == other.address && building == other.building && city == other.city && country == other.country && district == other.district && house == other.house && poi == other.poi && postalCode == other.postalCode && state == other.state && street == other.street && subDistrict == other.subDistrict && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Place &&
+                geopoint == other.geopoint &&
+                address == other.address &&
+                building == other.building &&
+                city == other.city &&
+                country == other.country &&
+                district == other.district &&
+                house == other.house &&
+                poi == other.poi &&
+                postalCode == other.postalCode &&
+                state == other.state &&
+                street == other.street &&
+                subDistrict == other.subDistrict &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(geopoint, address, building, city, country, district, house, poi, postalCode, state, street, subDistrict, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                geopoint,
+                address,
+                building,
+                city,
+                country,
+                district,
+                house,
+                poi,
+                postalCode,
+                state,
+                street,
+                subDistrict,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1617,6 +1654,7 @@ private constructor(
 
     /** It contains information about the dataset that returns the specific result */
     class DataSource
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val refId: JsonField<String>,
         private val source: JsonField<String>,
@@ -1931,7 +1969,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Status && value == other.value /* spotless:on */
+                return other is Status && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1944,12 +1982,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is DataSource && refId == other.refId && source == other.source && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is DataSource &&
+                refId == other.refId &&
+                source == other.source &&
+                status == other.status &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(refId, source, status, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(refId, source, status, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1962,10 +2004,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is PlaceCreateParams && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is PlaceCreateParams &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int = Objects.hash(key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "PlaceCreateParams{key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

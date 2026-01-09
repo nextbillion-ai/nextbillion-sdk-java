@@ -43,8 +43,8 @@ private constructor(
     /**
      * ID of the device used to upload the tracking information of the asset.
      *
-     * Please note that the device_id used here must already be linked to the asset. Use the _Bind
-     * Device to Asset_ method to link a device with your asset.
+     * Please note that the device_id used here must already be linked to the asset. Use the *Bind
+     * Device to Asset* method to link a device with your asset.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
      *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -147,7 +147,7 @@ private constructor(
          * ID of the device used to upload the tracking information of the asset.
          *
          * Please note that the device_id used here must already be linked to the asset. Use the
-         * _Bind Device to Asset_ method to link a device with your asset.
+         * *Bind Device to Asset* method to link a device with your asset.
          */
         fun deviceId(deviceId: String) = apply { body.deviceId(deviceId) }
 
@@ -336,6 +336,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val deviceId: JsonField<String>,
         private val locations: JsonField<Locations>,
@@ -356,7 +357,7 @@ private constructor(
          * ID of the device used to upload the tracking information of the asset.
          *
          * Please note that the device_id used here must already be linked to the asset. Use the
-         * _Bind Device to Asset_ method to link a device with your asset.
+         * *Bind Device to Asset* method to link a device with your asset.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type or is
          *   unexpectedly missing or null (e.g. if the server responded with an unexpected value).
@@ -432,7 +433,7 @@ private constructor(
              * ID of the device used to upload the tracking information of the asset.
              *
              * Please note that the device_id used here must already be linked to the asset. Use the
-             * _Bind Device to Asset_ method to link a device with your asset.
+             * *Bind Device to Asset* method to link a device with your asset.
              */
             fun deviceId(deviceId: String) = deviceId(JsonField.of(deviceId))
 
@@ -536,12 +537,15 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && deviceId == other.deviceId && locations == other.locations && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                deviceId == other.deviceId &&
+                locations == other.locations &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(deviceId, locations, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(deviceId, locations, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -554,6 +558,7 @@ private constructor(
      * must correspond to details of only one location.
      */
     class Locations
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val location: JsonField<Location>,
         private val timestamp: JsonField<Long>,
@@ -1025,6 +1030,7 @@ private constructor(
          * field is mandatory when uploading locations for an asset.
          */
         class Location
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val lat: JsonField<Double>,
             private val lon: JsonField<Double>,
@@ -1211,12 +1217,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Location && lat == other.lat && lon == other.lon && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Location &&
+                    lat == other.lat &&
+                    lon == other.lon &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(lat, lon, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -1229,12 +1236,33 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Locations && location == other.location && timestamp == other.timestamp && accuracy == other.accuracy && altitude == other.altitude && batteryLevel == other.batteryLevel && bearing == other.bearing && metaData == other.metaData && speed == other.speed && trackingMode == other.trackingMode && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Locations &&
+                location == other.location &&
+                timestamp == other.timestamp &&
+                accuracy == other.accuracy &&
+                altitude == other.altitude &&
+                batteryLevel == other.batteryLevel &&
+                bearing == other.bearing &&
+                metaData == other.metaData &&
+                speed == other.speed &&
+                trackingMode == other.trackingMode &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(location, timestamp, accuracy, altitude, batteryLevel, bearing, metaData, speed, trackingMode, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                location,
+                timestamp,
+                accuracy,
+                altitude,
+                batteryLevel,
+                bearing,
+                metaData,
+                speed,
+                trackingMode,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1356,7 +1384,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Cluster && value == other.value /* spotless:on */
+            return other is Cluster && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1369,10 +1397,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is AssetTrackParams && id == other.id && key == other.key && cluster == other.cluster && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is AssetTrackParams &&
+            id == other.id &&
+            key == other.key &&
+            cluster == other.cluster &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(id, key, cluster, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(id, key, cluster, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "AssetTrackParams{id=$id, key=$key, cluster=$cluster, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

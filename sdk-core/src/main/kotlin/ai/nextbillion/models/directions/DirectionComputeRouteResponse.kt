@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class DirectionComputeRouteResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val msg: JsonField<String>,
     private val route: JsonField<Route>,
@@ -227,6 +228,7 @@ private constructor(
      * than one routes are present in the response.
      */
     class Route
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val distance: JsonField<Double>,
         private val duration: JsonField<Double>,
@@ -629,6 +631,7 @@ private constructor(
          * in the input request. Returned only when steps is true in the input request.
          */
         class EndLocation
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val latitude: JsonField<Double>,
             private val longitude: JsonField<Double>,
@@ -802,12 +805,15 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is EndLocation && latitude == other.latitude && longitude == other.longitude && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is EndLocation &&
+                    latitude == other.latitude &&
+                    longitude == other.longitude &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(latitude, longitude, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(latitude, longitude, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -822,6 +828,7 @@ private constructor(
          * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
          */
         class Geojson
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val geometry: JsonField<Geometry>,
             private val properties: JsonField<String>,
@@ -1029,6 +1036,7 @@ private constructor(
 
             /** An object with details of the geoJSON geometry of the route. */
             class Geometry
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val coordinates: JsonField<List<Double>>,
                 private val type: JsonField<String>,
@@ -1223,12 +1231,15 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Geometry && coordinates == other.coordinates && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Geometry &&
+                        coordinates == other.coordinates &&
+                        type == other.type &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(coordinates, type, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(coordinates, type, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -1241,12 +1252,16 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Geojson && geometry == other.geometry && properties == other.properties && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Geojson &&
+                    geometry == other.geometry &&
+                    properties == other.properties &&
+                    type == other.type &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(geometry, properties, type, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(geometry, properties, type, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -1255,6 +1270,7 @@ private constructor(
         }
 
         class Leg
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val distance: JsonField<Distance>,
             private val duration: JsonField<Duration>,
@@ -1579,6 +1595,7 @@ private constructor(
 
             /** An object containing leg distance value, in meters. */
             class Distance
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val value: JsonField<Double>,
                 private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1709,12 +1726,12 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Distance && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Distance &&
+                        value == other.value &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
                 private val hashCode: Int by lazy { Objects.hash(value, additionalProperties) }
-                /* spotless:on */
 
                 override fun hashCode(): Int = hashCode
 
@@ -1724,6 +1741,7 @@ private constructor(
 
             /** An object containing leg duration value, in seconds. */
             class Duration
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val value: JsonField<Double>,
                 private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1854,12 +1872,12 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Duration && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Duration &&
+                        value == other.value &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
                 private val hashCode: Int by lazy { Objects.hash(value, additionalProperties) }
-                /* spotless:on */
 
                 override fun hashCode(): Int = hashCode
 
@@ -1872,6 +1890,7 @@ private constructor(
              * true in the input request.
              */
             class EndLocation
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val latitude: JsonField<Double>,
                 private val longitude: JsonField<Double>,
@@ -2049,12 +2068,15 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is EndLocation && latitude == other.latitude && longitude == other.longitude && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is EndLocation &&
+                        latitude == other.latitude &&
+                        longitude == other.longitude &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(latitude, longitude, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(latitude, longitude, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -2067,6 +2089,7 @@ private constructor(
              * true in the input request.
              */
             class StartLocation
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val latitude: JsonField<Double>,
                 private val longitude: JsonField<Double>,
@@ -2246,12 +2269,15 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is StartLocation && latitude == other.latitude && longitude == other.longitude && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is StartLocation &&
+                        latitude == other.latitude &&
+                        longitude == other.longitude &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(latitude, longitude, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(latitude, longitude, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -2260,6 +2286,7 @@ private constructor(
             }
 
             class Step
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val distance: JsonField<Distance>,
                 private val duration: JsonField<Duration>,
@@ -2655,6 +2682,7 @@ private constructor(
 
                 /** An object containing step distance value, in meters. */
                 class Distance
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val value: JsonField<Double>,
                     private val additionalProperties: MutableMap<String, JsonValue>,
@@ -2786,12 +2814,12 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is Distance && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is Distance &&
+                            value == other.value &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
                     private val hashCode: Int by lazy { Objects.hash(value, additionalProperties) }
-                    /* spotless:on */
 
                     override fun hashCode(): Int = hashCode
 
@@ -2801,6 +2829,7 @@ private constructor(
 
                 /** An object containing step duration value, in seconds. */
                 class Duration
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val value: JsonField<Double>,
                     private val additionalProperties: MutableMap<String, JsonValue>,
@@ -2932,12 +2961,12 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is Duration && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is Duration &&
+                            value == other.value &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
                     private val hashCode: Int by lazy { Objects.hash(value, additionalProperties) }
-                    /* spotless:on */
 
                     override fun hashCode(): Int = hashCode
 
@@ -2947,6 +2976,7 @@ private constructor(
 
                 /** Location coordinates of the point where the step ends. */
                 class EndLocation
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val latitude: JsonField<Double>,
                     private val longitude: JsonField<Double>,
@@ -3129,12 +3159,15 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is EndLocation && latitude == other.latitude && longitude == other.longitude && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is EndLocation &&
+                            latitude == other.latitude &&
+                            longitude == other.longitude &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
-                    private val hashCode: Int by lazy { Objects.hash(latitude, longitude, additionalProperties) }
-                    /* spotless:on */
+                    private val hashCode: Int by lazy {
+                        Objects.hash(latitude, longitude, additionalProperties)
+                    }
 
                     override fun hashCode(): Int = hashCode
 
@@ -3149,6 +3182,7 @@ private constructor(
                  * [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
                  */
                 class Geojson
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val geometry: JsonField<Geometry>,
                     private val properties: JsonField<String>,
@@ -3362,6 +3396,7 @@ private constructor(
 
                     /** An object with details of the geoJSON geometry of the step. */
                     class Geometry
+                    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                     private constructor(
                         private val coordinates: JsonField<List<Double>>,
                         private val type: JsonField<String>,
@@ -3566,12 +3601,15 @@ private constructor(
                                 return true
                             }
 
-                            return /* spotless:off */ other is Geometry && coordinates == other.coordinates && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+                            return other is Geometry &&
+                                coordinates == other.coordinates &&
+                                type == other.type &&
+                                additionalProperties == other.additionalProperties
                         }
 
-                        /* spotless:off */
-                        private val hashCode: Int by lazy { Objects.hash(coordinates, type, additionalProperties) }
-                        /* spotless:on */
+                        private val hashCode: Int by lazy {
+                            Objects.hash(coordinates, type, additionalProperties)
+                        }
 
                         override fun hashCode(): Int = hashCode
 
@@ -3584,12 +3622,16 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is Geojson && geometry == other.geometry && properties == other.properties && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is Geojson &&
+                            geometry == other.geometry &&
+                            properties == other.properties &&
+                            type == other.type &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
-                    private val hashCode: Int by lazy { Objects.hash(geometry, properties, type, additionalProperties) }
-                    /* spotless:on */
+                    private val hashCode: Int by lazy {
+                        Objects.hash(geometry, properties, type, additionalProperties)
+                    }
 
                     override fun hashCode(): Int = hashCode
 
@@ -3599,6 +3641,7 @@ private constructor(
 
                 /** An object with maneuver details for the step. */
                 class Maneuver
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val bearingAfter: JsonField<Long>,
                     private val bearingBefore: JsonField<Long>,
@@ -3923,6 +3966,7 @@ private constructor(
 
                     /** A coordinate pair describing the location of the maneuver. */
                     class Coordinate
+                    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                     private constructor(
                         private val latitude: JsonField<Double>,
                         private val longitude: JsonField<Double>,
@@ -4110,12 +4154,15 @@ private constructor(
                                 return true
                             }
 
-                            return /* spotless:off */ other is Coordinate && latitude == other.latitude && longitude == other.longitude && additionalProperties == other.additionalProperties /* spotless:on */
+                            return other is Coordinate &&
+                                latitude == other.latitude &&
+                                longitude == other.longitude &&
+                                additionalProperties == other.additionalProperties
                         }
 
-                        /* spotless:off */
-                        private val hashCode: Int by lazy { Objects.hash(latitude, longitude, additionalProperties) }
-                        /* spotless:on */
+                        private val hashCode: Int by lazy {
+                            Objects.hash(latitude, longitude, additionalProperties)
+                        }
 
                         override fun hashCode(): Int = hashCode
 
@@ -4128,12 +4175,25 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is Maneuver && bearingAfter == other.bearingAfter && bearingBefore == other.bearingBefore && coordinate == other.coordinate && maneuverType == other.maneuverType && modifier == other.modifier && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is Maneuver &&
+                            bearingAfter == other.bearingAfter &&
+                            bearingBefore == other.bearingBefore &&
+                            coordinate == other.coordinate &&
+                            maneuverType == other.maneuverType &&
+                            modifier == other.modifier &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
-                    private val hashCode: Int by lazy { Objects.hash(bearingAfter, bearingBefore, coordinate, maneuverType, modifier, additionalProperties) }
-                    /* spotless:on */
+                    private val hashCode: Int by lazy {
+                        Objects.hash(
+                            bearingAfter,
+                            bearingBefore,
+                            coordinate,
+                            maneuverType,
+                            modifier,
+                            additionalProperties,
+                        )
+                    }
 
                     override fun hashCode(): Int = hashCode
 
@@ -4143,6 +4203,7 @@ private constructor(
 
                 /** Location coordinates of the point where the step starts. */
                 class StartLocation
+                @JsonCreator(mode = JsonCreator.Mode.DISABLED)
                 private constructor(
                     private val latitude: JsonField<Double>,
                     private val longitude: JsonField<Double>,
@@ -4326,12 +4387,15 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is StartLocation && latitude == other.latitude && longitude == other.longitude && additionalProperties == other.additionalProperties /* spotless:on */
+                        return other is StartLocation &&
+                            latitude == other.latitude &&
+                            longitude == other.longitude &&
+                            additionalProperties == other.additionalProperties
                     }
 
-                    /* spotless:off */
-                    private val hashCode: Int by lazy { Objects.hash(latitude, longitude, additionalProperties) }
-                    /* spotless:on */
+                    private val hashCode: Int by lazy {
+                        Objects.hash(latitude, longitude, additionalProperties)
+                    }
 
                     override fun hashCode(): Int = hashCode
 
@@ -4344,12 +4408,29 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Step && distance == other.distance && duration == other.duration && endLocation == other.endLocation && geojson == other.geojson && geometry == other.geometry && maneuver == other.maneuver && startLocation == other.startLocation && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Step &&
+                        distance == other.distance &&
+                        duration == other.duration &&
+                        endLocation == other.endLocation &&
+                        geojson == other.geojson &&
+                        geometry == other.geometry &&
+                        maneuver == other.maneuver &&
+                        startLocation == other.startLocation &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(distance, duration, endLocation, geojson, geometry, maneuver, startLocation, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(
+                        distance,
+                        duration,
+                        endLocation,
+                        geojson,
+                        geometry,
+                        maneuver,
+                        startLocation,
+                        additionalProperties,
+                    )
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -4362,12 +4443,25 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Leg && distance == other.distance && duration == other.duration && endLocation == other.endLocation && startLocation == other.startLocation && steps == other.steps && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Leg &&
+                    distance == other.distance &&
+                    duration == other.duration &&
+                    endLocation == other.endLocation &&
+                    startLocation == other.startLocation &&
+                    steps == other.steps &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(distance, duration, endLocation, startLocation, steps, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(
+                    distance,
+                    duration,
+                    endLocation,
+                    startLocation,
+                    steps,
+                    additionalProperties,
+                )
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -4380,6 +4474,7 @@ private constructor(
          * the input request. Returned only when steps is true in the input request.
          */
         class StartLocation
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val latitude: JsonField<Double>,
             private val longitude: JsonField<Double>,
@@ -4553,12 +4648,15 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is StartLocation && latitude == other.latitude && longitude == other.longitude && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is StartLocation &&
+                    latitude == other.latitude &&
+                    longitude == other.longitude &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(latitude, longitude, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(latitude, longitude, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -4571,12 +4669,29 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Route && distance == other.distance && duration == other.duration && endLocation == other.endLocation && geojson == other.geojson && geometry == other.geometry && legs == other.legs && startLocation == other.startLocation && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Route &&
+                distance == other.distance &&
+                duration == other.duration &&
+                endLocation == other.endLocation &&
+                geojson == other.geojson &&
+                geometry == other.geometry &&
+                legs == other.legs &&
+                startLocation == other.startLocation &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(distance, duration, endLocation, geojson, geometry, legs, startLocation, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                distance,
+                duration,
+                endLocation,
+                geojson,
+                geometry,
+                legs,
+                startLocation,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -4589,12 +4704,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is DirectionComputeRouteResponse && msg == other.msg && route == other.route && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is DirectionComputeRouteResponse &&
+            msg == other.msg &&
+            route == other.route &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(msg, route, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

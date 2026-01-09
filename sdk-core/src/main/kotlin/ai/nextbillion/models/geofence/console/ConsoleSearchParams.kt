@@ -190,10 +190,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is ConsoleSearchParams && query == other.query && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is ConsoleSearchParams &&
+            query == other.query &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(query, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int = Objects.hash(query, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "ConsoleSearchParams{query=$query, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

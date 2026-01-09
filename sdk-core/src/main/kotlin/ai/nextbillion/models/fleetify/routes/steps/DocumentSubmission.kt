@@ -16,6 +16,7 @@ import java.util.Objects
  * can be of any type depend on the type of according document item.
  */
 class DocumentSubmission
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(private val additionalProperties: MutableMap<String, JsonValue>) {
 
     @JsonCreator private constructor() : this(mutableMapOf())
@@ -105,12 +106,10 @@ private constructor(private val additionalProperties: MutableMap<String, JsonVal
             return true
         }
 
-        return /* spotless:off */ other is DocumentSubmission && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is DocumentSubmission && additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

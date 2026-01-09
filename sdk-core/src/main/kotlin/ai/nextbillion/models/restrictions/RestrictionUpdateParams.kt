@@ -263,10 +263,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RestrictionUpdateParams && id == other.id && key == other.key && latlon == other.latlon && richGroupRequest == other.richGroupRequest && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is RestrictionUpdateParams &&
+            id == other.id &&
+            key == other.key &&
+            latlon == other.latlon &&
+            richGroupRequest == other.richGroupRequest &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(id, key, latlon, richGroupRequest, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(id, key, latlon, richGroupRequest, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "RestrictionUpdateParams{id=$id, key=$key, latlon=$latlon, richGroupRequest=$richGroupRequest, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

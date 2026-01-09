@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class RouteRedispatchResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val message: JsonField<String>,
@@ -219,6 +220,7 @@ private constructor(
      * represents a single step.
      */
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val completedSteps: JsonField<Long>,
@@ -901,6 +903,7 @@ private constructor(
 
         /** Returns the completion status of the route. */
         class Completion
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val status: JsonField<Status>,
             private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1157,7 +1160,7 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Status && value == other.value /* spotless:on */
+                    return other is Status && value == other.value
                 }
 
                 override fun hashCode() = value.hashCode()
@@ -1170,12 +1173,12 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Completion && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Completion &&
+                    status == other.status &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(status, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -1185,6 +1188,7 @@ private constructor(
 
         /** An object returning the details of the driver to whom the route was dispatched. */
         class Driver
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val id: JsonField<String>,
             private val email: JsonField<String>,
@@ -1398,12 +1402,16 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Driver && id == other.id && email == other.email && fullname == other.fullname && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Driver &&
+                    id == other.id &&
+                    email == other.email &&
+                    fullname == other.fullname &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(id, email, fullname, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(id, email, fullname, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -1412,6 +1420,7 @@ private constructor(
         }
 
         class Steps
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val id: JsonField<String>,
             private val address: JsonField<String>,
@@ -2043,6 +2052,7 @@ private constructor(
 
             /** Returns the completion status of the step. */
             class Completion
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val status: JsonField<String>,
                 private val additionalProperties: MutableMap<String, JsonValue>,
@@ -2181,12 +2191,12 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Completion && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Completion &&
+                        status == other.status &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
                 private val hashCode: Int by lazy { Objects.hash(status, additionalProperties) }
-                /* spotless:on */
 
                 override fun hashCode(): Int = hashCode
 
@@ -2200,6 +2210,7 @@ private constructor(
              * available for display on the Driver's app under step details.
              */
             class Meta
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val customerName: JsonField<String>,
                 private val customerPhoneNumber: JsonField<String>,
@@ -2442,12 +2453,21 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Meta && customerName == other.customerName && customerPhoneNumber == other.customerPhoneNumber && instructions == other.instructions && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Meta &&
+                        customerName == other.customerName &&
+                        customerPhoneNumber == other.customerPhoneNumber &&
+                        instructions == other.instructions &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(customerName, customerPhoneNumber, instructions, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(
+                        customerName,
+                        customerPhoneNumber,
+                        instructions,
+                        additionalProperties,
+                    )
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -2460,12 +2480,39 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Steps && id == other.id && address == other.address && arrival == other.arrival && completion == other.completion && createdAt == other.createdAt && documentSnapshot == other.documentSnapshot && duration == other.duration && location == other.location && meta == other.meta && shortId == other.shortId && type == other.type && updatedAt == other.updatedAt && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Steps &&
+                    id == other.id &&
+                    address == other.address &&
+                    arrival == other.arrival &&
+                    completion == other.completion &&
+                    createdAt == other.createdAt &&
+                    documentSnapshot == other.documentSnapshot &&
+                    duration == other.duration &&
+                    location == other.location &&
+                    meta == other.meta &&
+                    shortId == other.shortId &&
+                    type == other.type &&
+                    updatedAt == other.updatedAt &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(id, address, arrival, completion, createdAt, documentSnapshot, duration, location, meta, shortId, type, updatedAt, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(
+                    id,
+                    address,
+                    arrival,
+                    completion,
+                    createdAt,
+                    documentSnapshot,
+                    duration,
+                    location,
+                    meta,
+                    shortId,
+                    type,
+                    updatedAt,
+                    additionalProperties,
+                )
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -2478,12 +2525,43 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && id == other.id && completedSteps == other.completedSteps && completion == other.completion && createdAt == other.createdAt && distance == other.distance && documentSnapshot == other.documentSnapshot && driver == other.driver && roRequestId == other.roRequestId && routing == other.routing && shortId == other.shortId && steps == other.steps && totalSteps == other.totalSteps && updatedAt == other.updatedAt && vehicleId == other.vehicleId && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                id == other.id &&
+                completedSteps == other.completedSteps &&
+                completion == other.completion &&
+                createdAt == other.createdAt &&
+                distance == other.distance &&
+                documentSnapshot == other.documentSnapshot &&
+                driver == other.driver &&
+                roRequestId == other.roRequestId &&
+                routing == other.routing &&
+                shortId == other.shortId &&
+                steps == other.steps &&
+                totalSteps == other.totalSteps &&
+                updatedAt == other.updatedAt &&
+                vehicleId == other.vehicleId &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(id, completedSteps, completion, createdAt, distance, documentSnapshot, driver, roRequestId, routing, shortId, steps, totalSteps, updatedAt, vehicleId, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                id,
+                completedSteps,
+                completion,
+                createdAt,
+                distance,
+                documentSnapshot,
+                driver,
+                roRequestId,
+                routing,
+                shortId,
+                steps,
+                totalSteps,
+                updatedAt,
+                vehicleId,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2496,12 +2574,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RouteRedispatchResponse && data == other.data && message == other.message && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is RouteRedispatchResponse &&
+            data == other.data &&
+            message == other.message &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, message, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

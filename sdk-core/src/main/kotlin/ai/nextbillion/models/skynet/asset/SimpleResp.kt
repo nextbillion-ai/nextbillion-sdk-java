@@ -16,6 +16,7 @@ import java.util.Objects
 import java.util.Optional
 
 class SimpleResp
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val message: JsonField<String>,
     private val status: JsonField<String>,
@@ -183,12 +184,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is SimpleResp && message == other.message && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is SimpleResp &&
+            message == other.message &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(message, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

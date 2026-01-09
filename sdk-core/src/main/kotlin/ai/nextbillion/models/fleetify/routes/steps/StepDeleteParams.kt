@@ -254,10 +254,24 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is StepDeleteParams && routeId == other.routeId && stepId == other.stepId && key == other.key && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams && additionalBodyProperties == other.additionalBodyProperties /* spotless:on */
+        return other is StepDeleteParams &&
+            routeId == other.routeId &&
+            stepId == other.stepId &&
+            key == other.key &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams &&
+            additionalBodyProperties == other.additionalBodyProperties
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(routeId, stepId, key, additionalHeaders, additionalQueryParams, additionalBodyProperties) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            routeId,
+            stepId,
+            key,
+            additionalHeaders,
+            additionalQueryParams,
+            additionalBodyProperties,
+        )
 
     override fun toString() =
         "StepDeleteParams{routeId=$routeId, stepId=$stepId, key=$key, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams, additionalBodyProperties=$additionalBodyProperties}"

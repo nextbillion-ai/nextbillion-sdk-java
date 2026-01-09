@@ -92,8 +92,8 @@ private constructor(
 
     /**
      * "destination" is the ending point of your route. Ensure that the "destination" is a routable
-     * land location. Please note that this parameter is mandatory if the "original_shape" parameter
-     * is not given.
+     * land location. Please note that this parameter is mandatory if the "original\_shape"
+     * parameter is not given.
      */
     fun destination(): Optional<String> = Optional.ofNullable(destination)
 
@@ -118,13 +118,13 @@ private constructor(
      *
      * When "mode=truck", following are the default dimensions that are used:
      *
-     * \- truck_height = 214 centimeters
+     * \- truck\_height = 214 centimeters
      *
-     * \- truck_width = 183 centimeters
+     * \- truck\_width = 183 centimeters
      *
-     * \- truck_length = 519 centimeters
+     * \- truck\_length = 519 centimeters
      *
-     * \- truck_weight = 5000 kg
+     * \- truck\_weight = 5000 kg
      *
      * Please use the Navigation Flexible version if you want to use custom truck dimensions.
      *
@@ -144,18 +144,18 @@ private constructor(
 
     /**
      * Takes a route geometry as input and returns the navigation information for that route.
-     * Accepts "polyline" and "polyline6" encoded geometry as input. "original_shape_type" becomes
-     * mandatory when "original_shape" is used. If this parameter is provided, the only other
-     * parameters which will be considered are "original_shape_type", "lang", "geometry". The rest
+     * Accepts "polyline" and "polyline6" encoded geometry as input. "original\_shape\_type" becomes
+     * mandatory when "original\_shape" is used. If this parameter is provided, the only other
+     * parameters which will be considered are "original\_shape\_type", "lang", "geometry". The rest
      * of the parameters in the input request will be ignored. Please note overview verbosity will
      * always be "full" when using this parameter.
      */
     fun originalShape(): Optional<String> = Optional.ofNullable(originalShape)
 
     /**
-     * Specify the encoding format of route geometry provided in the request using "original_shape"
+     * Specify the encoding format of route geometry provided in the request using "original\_shape"
      * parameter. Please note that an error is returned when this parameter is not specified while
-     * an input is added to "original_shape" parameter.
+     * an input is added to "original\_shape" parameter.
      */
     fun originalShapeType(): Optional<OriginalShapeType> = Optional.ofNullable(originalShapeType)
 
@@ -319,7 +319,7 @@ private constructor(
         /**
          * "destination" is the ending point of your route. Ensure that the "destination" is a
          * routable land location. Please note that this parameter is mandatory if the
-         * "original_shape" parameter is not given.
+         * "original\_shape" parameter is not given.
          */
         fun destination(destination: String?) = apply { this.destination = destination }
 
@@ -353,13 +353,13 @@ private constructor(
          *
          * When "mode=truck", following are the default dimensions that are used:
          *
-         * \- truck_height = 214 centimeters
+         * \- truck\_height = 214 centimeters
          *
-         * \- truck_width = 183 centimeters
+         * \- truck\_width = 183 centimeters
          *
-         * \- truck_length = 519 centimeters
+         * \- truck\_length = 519 centimeters
          *
-         * \- truck_weight = 5000 kg
+         * \- truck\_weight = 5000 kg
          *
          * Please use the Navigation Flexible version if you want to use custom truck dimensions.
          *
@@ -386,11 +386,11 @@ private constructor(
 
         /**
          * Takes a route geometry as input and returns the navigation information for that route.
-         * Accepts "polyline" and "polyline6" encoded geometry as input. "original_shape_type"
-         * becomes mandatory when "original_shape" is used. If this parameter is provided, the only
-         * other parameters which will be considered are "original_shape_type", "lang", "geometry".
-         * The rest of the parameters in the input request will be ignored. Please note overview
-         * verbosity will always be "full" when using this parameter.
+         * Accepts "polyline" and "polyline6" encoded geometry as input. "original\_shape\_type"
+         * becomes mandatory when "original\_shape" is used. If this parameter is provided, the only
+         * other parameters which will be considered are "original\_shape\_type", "lang",
+         * "geometry". The rest of the parameters in the input request will be ignored. Please note
+         * overview verbosity will always be "full" when using this parameter.
          */
         fun originalShape(originalShape: String?) = apply { this.originalShape = originalShape }
 
@@ -400,8 +400,8 @@ private constructor(
 
         /**
          * Specify the encoding format of route geometry provided in the request using
-         * "original_shape" parameter. Please note that an error is returned when this parameter is
-         * not specified while an input is added to "original_shape" parameter.
+         * "original\_shape" parameter. Please note that an error is returned when this parameter is
+         * not specified while an input is added to "original\_shape" parameter.
          */
         fun originalShapeType(originalShapeType: OriginalShapeType?) = apply {
             this.originalShapeType = originalShapeType
@@ -719,7 +719,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Approaches && value == other.value /* spotless:on */
+            return other is Approaches && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -865,7 +865,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Avoid && value == other.value /* spotless:on */
+            return other is Avoid && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1004,7 +1004,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Geometry && value == other.value /* spotless:on */
+            return other is Geometry && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1019,13 +1019,13 @@ private constructor(
      *
      * When "mode=truck", following are the default dimensions that are used:
      *
-     * \- truck_height = 214 centimeters
+     * \- truck\_height = 214 centimeters
      *
-     * \- truck_width = 183 centimeters
+     * \- truck\_width = 183 centimeters
      *
-     * \- truck_length = 519 centimeters
+     * \- truck\_length = 519 centimeters
      *
-     * \- truck_weight = 5000 kg
+     * \- truck\_weight = 5000 kg
      *
      * Please use the Navigation Flexible version if you want to use custom truck dimensions.
      *
@@ -1153,7 +1153,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+            return other is Mode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1162,9 +1162,9 @@ private constructor(
     }
 
     /**
-     * Specify the encoding format of route geometry provided in the request using "original_shape"
+     * Specify the encoding format of route geometry provided in the request using "original\_shape"
      * parameter. Please note that an error is returned when this parameter is not specified while
-     * an input is added to "original_shape" parameter.
+     * an input is added to "original\_shape" parameter.
      */
     class OriginalShapeType @JsonCreator private constructor(private val value: JsonField<String>) :
         Enum {
@@ -1290,7 +1290,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is OriginalShapeType && value == other.value /* spotless:on */
+            return other is OriginalShapeType && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1428,7 +1428,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Overview && value == other.value /* spotless:on */
+            return other is Overview && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -1441,10 +1441,46 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is NavigationRetrieveRouteParams && key == other.key && altcount == other.altcount && alternatives == other.alternatives && approaches == other.approaches && avoid == other.avoid && bearings == other.bearings && destination == other.destination && geometry == other.geometry && lang == other.lang && mode == other.mode && origin == other.origin && originalShape == other.originalShape && originalShapeType == other.originalShapeType && overview == other.overview && waypoints == other.waypoints && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is NavigationRetrieveRouteParams &&
+            key == other.key &&
+            altcount == other.altcount &&
+            alternatives == other.alternatives &&
+            approaches == other.approaches &&
+            avoid == other.avoid &&
+            bearings == other.bearings &&
+            destination == other.destination &&
+            geometry == other.geometry &&
+            lang == other.lang &&
+            mode == other.mode &&
+            origin == other.origin &&
+            originalShape == other.originalShape &&
+            originalShapeType == other.originalShapeType &&
+            overview == other.overview &&
+            waypoints == other.waypoints &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, altcount, alternatives, approaches, avoid, bearings, destination, geometry, lang, mode, origin, originalShape, originalShapeType, overview, waypoints, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            key,
+            altcount,
+            alternatives,
+            approaches,
+            avoid,
+            bearings,
+            destination,
+            geometry,
+            lang,
+            mode,
+            origin,
+            originalShape,
+            originalShapeType,
+            overview,
+            waypoints,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "NavigationRetrieveRouteParams{key=$key, altcount=$altcount, alternatives=$alternatives, approaches=$approaches, avoid=$avoid, bearings=$bearings, destination=$destination, geometry=$geometry, lang=$lang, mode=$mode, origin=$origin, originalShape=$originalShape, originalShapeType=$originalShapeType, overview=$overview, waypoints=$waypoints, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

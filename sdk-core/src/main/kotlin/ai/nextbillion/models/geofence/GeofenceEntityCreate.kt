@@ -21,6 +21,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class GeofenceEntityCreate
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val type: JsonField<Type>,
     private val circle: JsonField<Circle>,
@@ -67,7 +68,7 @@ private constructor(
 
     /**
      * Set an unique ID for the new geofence. If not provided, an ID will be automatically generated
-     * in UUID format. A valid custom*id can contain letters, numbers, "-", & "*" only.
+     * in UUID format. A valid custom_id can contain letters, numbers, "-", & "_" only.
      *
      * Please note that the ID of a geofence can not be changed once it is created.
      *
@@ -124,7 +125,7 @@ private constructor(
      * filter geofences (using Get Geofence List method).
      *
      * Create valid tags using a string consisting of alphanumeric characters (A-Z, a-z, 0-9) along
-     * with the underscore ('\_') and hyphen ('-') symbols.
+     * with the underscore ('_') and hyphen ('-') symbols.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -259,7 +260,7 @@ private constructor(
 
         /**
          * Set an unique ID for the new geofence. If not provided, an ID will be automatically
-         * generated in UUID format. A valid custom*id can contain letters, numbers, "-", & "*"
+         * generated in UUID format. A valid custom_id can contain letters, numbers, "-", & "_"
          * only.
          *
          * Please note that the ID of a geofence can not be changed once it is created.
@@ -338,7 +339,7 @@ private constructor(
          * search or filter geofences (using Get Geofence List method).
          *
          * Create valid tags using a string consisting of alphanumeric characters (A-Z, a-z, 0-9)
-         * along with the underscore ('\_') and hyphen ('-') symbols.
+         * along with the underscore ('_') and hyphen ('-') symbols.
          */
         fun tags(tags: List<String>) = tags(JsonField.of(tags))
 
@@ -573,7 +574,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+            return other is Type && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -587,6 +588,7 @@ private constructor(
      * ignored while creating the geofence.
      */
     class Circle
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val center: JsonField<Center>,
         private val radius: JsonField<Double>,
@@ -768,6 +770,7 @@ private constructor(
 
         /** Coordinate of the location which will act as the center of a circular geofence. */
         class Center
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val lat: JsonField<Double>,
             private val lon: JsonField<Double>,
@@ -954,12 +957,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Center && lat == other.lat && lon == other.lon && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Center &&
+                    lat == other.lat &&
+                    lon == other.lon &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(lat, lon, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -972,12 +976,13 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Circle && center == other.center && radius == other.radius && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Circle &&
+                center == other.center &&
+                radius == other.radius &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(center, radius, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -991,6 +996,7 @@ private constructor(
      * while creating the geofence.
      */
     class Isochrone
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val coordinates: JsonField<String>,
         private val contoursMeter: JsonField<Long>,
@@ -1530,7 +1536,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+                return other is Mode && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1543,12 +1549,27 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Isochrone && coordinates == other.coordinates && contoursMeter == other.contoursMeter && contoursMinute == other.contoursMinute && denoise == other.denoise && departureTime == other.departureTime && mode == other.mode && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Isochrone &&
+                coordinates == other.coordinates &&
+                contoursMeter == other.contoursMeter &&
+                contoursMinute == other.contoursMinute &&
+                denoise == other.denoise &&
+                departureTime == other.departureTime &&
+                mode == other.mode &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(coordinates, contoursMeter, contoursMinute, denoise, departureTime, mode, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                coordinates,
+                contoursMeter,
+                contoursMinute,
+                denoise,
+                departureTime,
+                mode,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1567,6 +1588,7 @@ private constructor(
      * Area of the polygon should be less than 2000 km<sup>2</sup>.
      */
     class Polygon
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val geojson: JsonField<Geojson>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1713,6 +1735,7 @@ private constructor(
          * the [geoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946).
          */
         class Geojson
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val coordinates: JsonField<List<List<Double>>>,
             private val type: JsonField<String>,
@@ -1924,12 +1947,15 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Geojson && coordinates == other.coordinates && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Geojson &&
+                    coordinates == other.coordinates &&
+                    type == other.type &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(coordinates, type, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(coordinates, type, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -1942,12 +1968,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Polygon && geojson == other.geojson && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Polygon &&
+                geojson == other.geojson &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(geojson, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -1960,12 +1986,31 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is GeofenceEntityCreate && type == other.type && circle == other.circle && customId == other.customId && isochrone == other.isochrone && metaData == other.metaData && name == other.name && polygon == other.polygon && tags == other.tags && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is GeofenceEntityCreate &&
+            type == other.type &&
+            circle == other.circle &&
+            customId == other.customId &&
+            isochrone == other.isochrone &&
+            metaData == other.metaData &&
+            name == other.name &&
+            polygon == other.polygon &&
+            tags == other.tags &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(type, circle, customId, isochrone, metaData, name, polygon, tags, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(
+            type,
+            circle,
+            customId,
+            isochrone,
+            metaData,
+            name,
+            polygon,
+            tags,
+            additionalProperties,
+        )
+    }
 
     override fun hashCode(): Int = hashCode
 

@@ -249,10 +249,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is PlaceDeleteParams && docId == other.docId && key == other.key && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams && additionalBodyProperties == other.additionalBodyProperties /* spotless:on */
+        return other is PlaceDeleteParams &&
+            docId == other.docId &&
+            key == other.key &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams &&
+            additionalBodyProperties == other.additionalBodyProperties
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(docId, key, additionalHeaders, additionalQueryParams, additionalBodyProperties) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(docId, key, additionalHeaders, additionalQueryParams, additionalBodyProperties)
 
     override fun toString() =
         "PlaceDeleteParams{docId=$docId, key=$key, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams, additionalBodyProperties=$additionalBodyProperties}"

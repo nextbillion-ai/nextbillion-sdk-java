@@ -47,17 +47,17 @@ private constructor(
      * located within the specified area.
      *
      * A geographic area can be
-     * - a country (or multiple countries), provided as comma-separated
+     * * a country (or multiple countries), provided as comma-separated
      *   [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country codes
      *
      *   The country codes are to be provided in all uppercase.
      *
      *   Format: countryCode:{countryCode}[,{countryCode}]
-     * - a circular area, provided as latitude, longitude, and radius (an integer with meters as
+     * * a circular area, provided as latitude, longitude, and radius (an integer with meters as
      *   unit)
      *
      *   Format: circle:{latitude},{longitude};r={radius}
-     * - a bounding box, provided as _west longitude_, _south latitude_, _east longitude_, _north
+     * * a bounding box, provided as _west longitude_, _south latitude_, _east longitude_, _north
      *   latitude_
      *
      *   Format: bbox:{west longitude},{south latitude},{east longitude},{north latitude}
@@ -148,17 +148,17 @@ private constructor(
          * are located within the specified area.
          *
          * A geographic area can be
-         * - a country (or multiple countries), provided as comma-separated
+         * * a country (or multiple countries), provided as comma-separated
          *   [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country codes
          *
          *   The country codes are to be provided in all uppercase.
          *
          *   Format: countryCode:{countryCode}[,{countryCode}]
-         * - a circular area, provided as latitude, longitude, and radius (an integer with meters as
+         * * a circular area, provided as latitude, longitude, and radius (an integer with meters as
          *   unit)
          *
          *   Format: circle:{latitude},{longitude};r={radius}
-         * - a bounding box, provided as _west longitude_, _south latitude_, _east longitude_,
+         * * a bounding box, provided as _west longitude_, _south latitude_, _east longitude_,
          *   _north latitude_
          *
          *   Format: bbox:{west longitude},{south latitude},{east longitude},{north latitude}
@@ -336,10 +336,19 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is DiscoverRetrieveParams && key == other.key && q == other.q && at == other.at && in_ == other.in_ && lang == other.lang && limit == other.limit && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is DiscoverRetrieveParams &&
+            key == other.key &&
+            q == other.q &&
+            at == other.at &&
+            in_ == other.in_ &&
+            lang == other.lang &&
+            limit == other.limit &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, q, at, in_, lang, limit, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(key, q, at, in_, lang, limit, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "DiscoverRetrieveParams{key=$key, q=$q, at=$at, in_=$in_, lang=$lang, limit=$limit, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

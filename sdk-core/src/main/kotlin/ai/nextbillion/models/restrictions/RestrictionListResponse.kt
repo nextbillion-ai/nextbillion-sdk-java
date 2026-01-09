@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class RestrictionListResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<List<RichGroupResponse>>,
     private val meta: JsonField<Meta>,
@@ -196,6 +197,7 @@ private constructor(
             (meta.asKnown().getOrNull()?.validity() ?: 0)
 
     class Meta
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val limit: JsonField<Long>,
         private val offset: JsonField<Long>,
@@ -398,12 +400,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Meta && limit == other.limit && offset == other.offset && total == other.total && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Meta &&
+                limit == other.limit &&
+                offset == other.offset &&
+                total == other.total &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(limit, offset, total, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(limit, offset, total, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -416,12 +422,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RestrictionListResponse && data == other.data && meta == other.meta && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is RestrictionListResponse &&
+            data == other.data &&
+            meta == other.meta &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, meta, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

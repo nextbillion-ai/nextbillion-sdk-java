@@ -17,6 +17,7 @@ import java.util.Optional
 
 /** An array returning the location coordinates of all the access points of the search result. */
 class Access
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val lat: JsonField<Double>,
     private val lng: JsonField<Double>,
@@ -174,12 +175,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is Access && lat == other.lat && lng == other.lng && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is Access &&
+            lat == other.lat &&
+            lng == other.lng &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(lat, lng, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

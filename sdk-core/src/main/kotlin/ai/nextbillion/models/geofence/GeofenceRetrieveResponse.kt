@@ -17,6 +17,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class GeofenceRetrieveResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val status: JsonField<String>,
@@ -174,6 +175,7 @@ private constructor(
         (data.asKnown().getOrNull()?.validity() ?: 0) + (if (status.asKnown().isPresent) 1 else 0)
 
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val geofence: JsonField<Geofence>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -303,12 +305,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && geofence == other.geofence && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                geofence == other.geofence &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(geofence, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -321,12 +323,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is GeofenceRetrieveResponse && data == other.data && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is GeofenceRetrieveResponse &&
+            data == other.data &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

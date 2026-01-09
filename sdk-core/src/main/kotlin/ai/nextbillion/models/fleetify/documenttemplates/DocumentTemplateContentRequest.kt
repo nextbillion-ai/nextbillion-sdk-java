@@ -25,6 +25,7 @@ import kotlin.jvm.optionals.getOrNull
  * collecting required information after successfully executing a route step.
  */
 class DocumentTemplateContentRequest
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val label: JsonField<String>,
     private val type: JsonField<Type>,
@@ -520,7 +521,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+            return other is Type && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -533,6 +534,7 @@ private constructor(
      * document items.
      */
     class Meta
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val options: JsonField<List<Option>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -695,6 +697,7 @@ private constructor(
             (options.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
         class Option
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val label: JsonField<String>,
             private val value: JsonField<String>,
@@ -886,12 +889,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Option && label == other.label && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Option &&
+                    label == other.label &&
+                    value == other.value &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(label, value, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -904,12 +908,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Meta && options == other.options && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Meta &&
+                options == other.options &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(options, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -923,6 +927,7 @@ private constructor(
      * constraints like minimum / maximum number values.
      */
     class Validation
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val max: JsonField<Long>,
         private val maxItems: JsonField<Long>,
@@ -1167,12 +1172,17 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Validation && max == other.max && maxItems == other.maxItems && min == other.min && minItems == other.minItems && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Validation &&
+                max == other.max &&
+                maxItems == other.maxItems &&
+                min == other.min &&
+                minItems == other.minItems &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(max, maxItems, min, minItems, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(max, maxItems, min, minItems, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1185,12 +1195,19 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is DocumentTemplateContentRequest && label == other.label && type == other.type && meta == other.meta && name == other.name && required == other.required && validation == other.validation && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is DocumentTemplateContentRequest &&
+            label == other.label &&
+            type == other.type &&
+            meta == other.meta &&
+            name == other.name &&
+            required == other.required &&
+            validation == other.validation &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(label, type, meta, name, required, validation, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(label, type, meta, name, required, validation, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

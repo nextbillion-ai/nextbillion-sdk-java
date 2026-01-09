@@ -119,11 +119,11 @@ private constructor(
 
     /**
      * Use this parameter to update the tags of the monitor. tags can be used for filtering monitors
-     * in the _Get Monitor List_ operation. They can also be used for easy identification of
+     * in the *Get Monitor List* operation. They can also be used for easy identification of
      * monitors. Using this parameter overwrites the existing tags of the monitor.
      *
      * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z, a-z,
-     * 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
+     * 0-9) along with the underscore ('_') and hyphen ('-') symbols.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -426,12 +426,12 @@ private constructor(
 
         /**
          * Use this parameter to update the tags of the monitor. tags can be used for filtering
-         * monitors in the _Get Monitor List_ operation. They can also be used for easy
+         * monitors in the *Get Monitor List* operation. They can also be used for easy
          * identification of monitors. Using this parameter overwrites the existing tags of the
          * monitor.
          *
          * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z, a-z,
-         * 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
+         * 0-9) along with the underscore ('_') and hyphen ('-') symbols.
          */
         fun tags(tags: List<String>) = apply { body.tags(tags) }
 
@@ -636,6 +636,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val description: JsonField<String>,
         private val geofenceConfig: JsonField<GeofenceConfig>,
@@ -773,12 +774,12 @@ private constructor(
 
         /**
          * Use this parameter to update the tags of the monitor. tags can be used for filtering
-         * monitors in the _Get Monitor List_ operation. They can also be used for easy
+         * monitors in the *Get Monitor List* operation. They can also be used for easy
          * identification of monitors. Using this parameter overwrites the existing tags of the
          * monitor.
          *
          * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z, a-z,
-         * 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
+         * 0-9) along with the underscore ('_') and hyphen ('-') symbols.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -1093,12 +1094,12 @@ private constructor(
 
             /**
              * Use this parameter to update the tags of the monitor. tags can be used for filtering
-             * monitors in the _Get Monitor List_ operation. They can also be used for easy
+             * monitors in the *Get Monitor List* operation. They can also be used for easy
              * identification of monitors. Using this parameter overwrites the existing tags of the
              * monitor.
              *
              * Please note that valid tags are strings, consisting of alphanumeric characters (A-Z,
-             * a-z, 0-9) along with the underscore ('\_') and hyphen ('-') symbols.
+             * a-z, 0-9) along with the underscore ('_') and hyphen ('-') symbols.
              */
             fun tags(tags: List<String>) = tags(JsonField.of(tags))
 
@@ -1241,12 +1242,35 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && description == other.description && geofenceConfig == other.geofenceConfig && geofenceIds == other.geofenceIds && idleConfig == other.idleConfig && matchFilter == other.matchFilter && metaData == other.metaData && name == other.name && speedingConfig == other.speedingConfig && tags == other.tags && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                description == other.description &&
+                geofenceConfig == other.geofenceConfig &&
+                geofenceIds == other.geofenceIds &&
+                idleConfig == other.idleConfig &&
+                matchFilter == other.matchFilter &&
+                metaData == other.metaData &&
+                name == other.name &&
+                speedingConfig == other.speedingConfig &&
+                tags == other.tags &&
+                type == other.type &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(description, geofenceConfig, geofenceIds, idleConfig, matchFilter, metaData, name, speedingConfig, tags, type, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                description,
+                geofenceConfig,
+                geofenceIds,
+                idleConfig,
+                matchFilter,
+                metaData,
+                name,
+                speedingConfig,
+                tags,
+                type,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1260,6 +1284,7 @@ private constructor(
      * mandatory when the monitor type belongs to one of enter, exit or enter_and_exit.
      */
     class GeofenceConfig
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val geofenceIds: JsonField<List<String>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -1426,12 +1451,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is GeofenceConfig && geofenceIds == other.geofenceIds && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is GeofenceConfig &&
+                geofenceIds == other.geofenceIds &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(geofenceIds, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -1447,6 +1472,7 @@ private constructor(
      * Please note that this object is mandatory when the monitor type is idle.
      */
     class IdleConfig
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val distanceTolerance: JsonField<Double>,
         private val timeTolerance: JsonField<Long>,
@@ -1678,12 +1704,15 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is IdleConfig && distanceTolerance == other.distanceTolerance && timeTolerance == other.timeTolerance && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is IdleConfig &&
+                distanceTolerance == other.distanceTolerance &&
+                timeTolerance == other.timeTolerance &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(distanceTolerance, timeTolerance, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(distanceTolerance, timeTolerance, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1697,6 +1726,7 @@ private constructor(
      * asset(s).
      */
     class MatchFilter
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val includeAllOfAttributes: JsonValue,
         private val includeAnyOfAttributes: JsonValue,
@@ -1872,12 +1902,15 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is MatchFilter && includeAllOfAttributes == other.includeAllOfAttributes && includeAnyOfAttributes == other.includeAnyOfAttributes && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is MatchFilter &&
+                includeAllOfAttributes == other.includeAllOfAttributes &&
+                includeAnyOfAttributes == other.includeAnyOfAttributes &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(includeAllOfAttributes, includeAnyOfAttributes, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(includeAllOfAttributes, includeAnyOfAttributes, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1893,6 +1926,7 @@ private constructor(
      * Please note that this object is mandatory when the monitor type is speeding.
      */
     class SpeedingConfig
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val customerSpeedLimit: JsonField<String>,
         private val timeTolerance: JsonField<Long>,
@@ -2171,12 +2205,21 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is SpeedingConfig && customerSpeedLimit == other.customerSpeedLimit && timeTolerance == other.timeTolerance && useAdminSpeedLimit == other.useAdminSpeedLimit && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is SpeedingConfig &&
+                customerSpeedLimit == other.customerSpeedLimit &&
+                timeTolerance == other.timeTolerance &&
+                useAdminSpeedLimit == other.useAdminSpeedLimit &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(customerSpeedLimit, timeTolerance, useAdminSpeedLimit, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                customerSpeedLimit,
+                timeTolerance,
+                useAdminSpeedLimit,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2336,7 +2379,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+            return other is Type && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -2349,10 +2392,16 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is MonitorUpdateParams && id == other.id && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is MonitorUpdateParams &&
+            id == other.id &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(id, key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(id, key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "MonitorUpdateParams{id=$id, key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

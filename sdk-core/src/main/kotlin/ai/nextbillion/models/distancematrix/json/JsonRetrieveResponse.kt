@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class JsonRetrieveResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val msg: JsonField<String>,
     private val rows: JsonField<List<Row>>,
@@ -230,6 +231,7 @@ private constructor(
             (if (status.asKnown().isPresent) 1 else 0)
 
     class Row
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val elements: JsonField<List<Element>>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -384,6 +386,7 @@ private constructor(
             (elements.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
         class Element
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val distance: JsonField<Double>,
             private val duration: JsonField<Double>,
@@ -555,12 +558,15 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Element && distance == other.distance && duration == other.duration && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Element &&
+                    distance == other.distance &&
+                    duration == other.duration &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(distance, duration, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(distance, duration, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -573,12 +579,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Row && elements == other.elements && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Row &&
+                elements == other.elements &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(elements, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -591,12 +597,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is JsonRetrieveResponse && msg == other.msg && rows == other.rows && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is JsonRetrieveResponse &&
+            msg == other.msg &&
+            rows == other.rows &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(msg, rows, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

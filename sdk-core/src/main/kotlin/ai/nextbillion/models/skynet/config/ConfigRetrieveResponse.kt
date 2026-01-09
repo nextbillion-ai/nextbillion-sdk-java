@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class ConfigRetrieveResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val message: JsonField<String>,
@@ -217,6 +218,7 @@ private constructor(
 
     /** A data object containing the config response. */
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val config: JsonField<Config>,
         private val additionalProperties: MutableMap<String, JsonValue>,
@@ -336,6 +338,7 @@ private constructor(
         @JvmSynthetic internal fun validity(): Int = (config.asKnown().getOrNull()?.validity() ?: 0)
 
         class Config
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val webhook: JsonField<List<String>>,
             private val additionalProperties: MutableMap<String, JsonValue>,
@@ -491,12 +494,12 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Config && webhook == other.webhook && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Config &&
+                    webhook == other.webhook &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(webhook, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -509,12 +512,12 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && config == other.config && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                config == other.config &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(config, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -526,12 +529,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is ConfigRetrieveResponse && data == other.data && message == other.message && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is ConfigRetrieveResponse &&
+            data == other.data &&
+            message == other.message &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, message, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

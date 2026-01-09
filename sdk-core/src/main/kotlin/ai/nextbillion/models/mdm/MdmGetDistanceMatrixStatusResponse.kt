@@ -18,6 +18,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class MdmGetDistanceMatrixStatusResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val code: JsonField<Code>,
     private val outputAddr: JsonField<String>,
@@ -49,7 +50,7 @@ private constructor(
     /**
      * Returns the GCS result of a successful task. Please note that this is an internal field.
      *
-     * _internal field, the gcs result of specific task if task is success._
+     * *internal field, the gcs result of specific task if task is success.*
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -156,7 +157,7 @@ private constructor(
         /**
          * Returns the GCS result of a successful task. Please note that this is an internal field.
          *
-         * _internal field, the gcs result of specific task if task is success._
+         * *internal field, the gcs result of specific task if task is success.*
          */
         fun outputAddr(outputAddr: String) = outputAddr(JsonField.of(outputAddr))
 
@@ -393,7 +394,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Code && value == other.value /* spotless:on */
+            return other is Code && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -406,12 +407,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is MdmGetDistanceMatrixStatusResponse && code == other.code && outputAddr == other.outputAddr && resultLink == other.resultLink && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is MdmGetDistanceMatrixStatusResponse &&
+            code == other.code &&
+            outputAddr == other.outputAddr &&
+            resultLink == other.resultLink &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(code, outputAddr, resultLink, status, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(code, outputAddr, resultLink, status, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

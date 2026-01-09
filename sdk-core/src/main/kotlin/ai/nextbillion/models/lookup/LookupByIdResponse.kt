@@ -25,6 +25,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class LookupByIdResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val items: JsonField<List<Item>>,
     private val additionalProperties: MutableMap<String, JsonValue>,
@@ -168,6 +169,7 @@ private constructor(
         (items.asKnown().getOrNull()?.sumOf { it.validity().toInt() } ?: 0)
 
     class Item
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val access: JsonField<Access>,
@@ -594,12 +596,31 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Item && id == other.id && access == other.access && address == other.address && categories == other.categories && contacts == other.contacts && mapView == other.mapView && position == other.position && title == other.title && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Item &&
+                id == other.id &&
+                access == other.access &&
+                address == other.address &&
+                categories == other.categories &&
+                contacts == other.contacts &&
+                mapView == other.mapView &&
+                position == other.position &&
+                title == other.title &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(id, access, address, categories, contacts, mapView, position, title, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                id,
+                access,
+                address,
+                categories,
+                contacts,
+                mapView,
+                position,
+                title,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -612,12 +633,12 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is LookupByIdResponse && items == other.items && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is LookupByIdResponse &&
+            items == other.items &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(items, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

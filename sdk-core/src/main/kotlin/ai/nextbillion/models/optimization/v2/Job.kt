@@ -21,6 +21,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class Job
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val id: JsonField<String>,
     private val locationIndex: JsonField<Long>,
@@ -162,11 +163,11 @@ private constructor(
      * specified here, before starting the trip.
      *
      * **Note:**
-     * - If multiple IDs are provided for this field then any of the given depots can be used to
+     * * If multiple IDs are provided for this field then any of the given depots can be used to
      *   fulfil the job.
-     * - If this field is not provided then the given job can be fulfilled by any vehicle (subject
+     * * If this field is not provided then the given job can be fulfilled by any vehicle (subject
      *   to other constraints configured in the input).
-     * - If the job does not have any delivery or pick-up step configured then depots configuration
+     * * If the job does not have any delivery or pick-up step configured then depots configuration
      *   will not have any impact on the given job.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -205,8 +206,8 @@ private constructor(
      * food.
      *
      * Note:
-     * - This parameter is effective only when a pickup / delivery is configured for the job.
-     * - If the job is part of any relations then, configured incompatible_load_types might be
+     * * This parameter is effective only when a pickup / delivery is configured for the job.
+     * * If the job is part of any relations then, configured incompatible_load_types might be
      *   ignored.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -220,9 +221,9 @@ private constructor(
      * order group ID are treated as a single unit: either all tasks in the group are assigned, or
      * none are. Users can add tasks of both jobs and shipments types to a single joint order group
      * by using the same unique ID. Please note that:
-     * - Each job in a single joint order group will be fulfilled by a unique vehicle.
-     * - Jobs belonging to a joint order group can be served in any sequence.
-     * - Joint order settings will not be effective if \solution\ or \relations\ attributes are also
+     * * Each job in a single joint order group will be fulfilled by a unique vehicle.
+     * * Jobs belonging to a joint order group can be served in any sequence.
+     * * Joint order settings will not be effective if \solution\ or \relations\ attributes are also
      *   provided in the input request.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -242,8 +243,8 @@ private constructor(
      * groceries or food.
      *
      * Note:
-     * - This parameter is effective only when a pickup / delivery is configured for the job.
-     * - If the job is part of any relations then, load_types might be ignored.
+     * * This parameter is effective only when a pickup / delivery is configured for the job.
+     * * If the job is part of any relations then, load_types might be ignored.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -340,12 +341,13 @@ private constructor(
      * \[0,100\].
      *
      * Please note that:
-     * - Only the tasks within the same route are compared and ordered as per their sequence_order.
-     * - Tasks without a sequence_order are not involved in the comparison.
-     * - Following is the precedence of sequence_order when used along side some of the other
+     * * Only the tasks within the same route are compared and ordered as per their sequence_order.
+     * * Tasks without a sequence_order are not involved in the comparison.
+     * * Following is the precedence of sequence_order when used along side some of the other
      *   constraints:
-     *     - relations are prioritized over sequence_order comparisons.
-     *     - sequence_order will override order_grouping configurations.
+     *
+     *     *   relations are prioritized over sequence_order comparisons.
+     *     *   sequence_order will override order_grouping configurations.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -392,7 +394,7 @@ private constructor(
      * expressed as a UNIX timestamp in seconds.
      *
      * Please note that the time periods should not overlap with each other and should always follow
-     * the format of \[start_timestamp, end_timestamp\].
+     * the format of \[start\_timestamp, end\_timestamp\].
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -418,12 +420,12 @@ private constructor(
      * An array of integers specifying the IDs of the zone(s) that this job belongs to. The job can
      * be fulfilled by all vehicles which are allowed to complete tasks in the zone(s) assigned to
      * this job. Please note following points about job zones:
-     * - If zone IDs are provided for any one of the jobs, then all other jobs should also be
+     * * If zone IDs are provided for any one of the jobs, then all other jobs should also be
      *   specified with zone IDs. Zone IDs provided here will override any zone geometries provided
      *   in the zones attribute and these IDs will be used for allocating appropriate vehicles.
-     * - Jobs can be auto-allocated to zones if this parameter is not specified while the zone
+     * * Jobs can be auto-allocated to zones if this parameter is not specified while the zone
      *   geometries (either zones.geometry or zones.geofence_id) are provided.
-     * - Jobs not falling in any zones can be fulfilled by only those vehicles which are allowed to
+     * * Jobs not falling in any zones can be fulfilled by only those vehicles which are allowed to
      *   take up tasks outside zones as well. Refer to vehicles attribute for more information.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -753,11 +755,11 @@ private constructor(
          * depot specified here, before starting the trip.
          *
          * **Note:**
-         * - If multiple IDs are provided for this field then any of the given depots can be used to
+         * * If multiple IDs are provided for this field then any of the given depots can be used to
          *   fulfil the job.
-         * - If this field is not provided then the given job can be fulfilled by any vehicle
+         * * If this field is not provided then the given job can be fulfilled by any vehicle
          *   (subject to other constraints configured in the input).
-         * - If the job does not have any delivery or pick-up step configured then depots
+         * * If the job does not have any delivery or pick-up step configured then depots
          *   configuration will not have any impact on the given job.
          */
         fun depotIds(depotIds: List<String>) = depotIds(JsonField.of(depotIds))
@@ -829,8 +831,8 @@ private constructor(
          * groceries or food.
          *
          * Note:
-         * - This parameter is effective only when a pickup / delivery is configured for the job.
-         * - If the job is part of any relations then, configured incompatible_load_types might be
+         * * This parameter is effective only when a pickup / delivery is configured for the job.
+         * * If the job is part of any relations then, configured incompatible_load_types might be
          *   ignored.
          */
         fun incompatibleLoadTypes(incompatibleLoadTypes: List<String>) =
@@ -864,9 +866,9 @@ private constructor(
          * joint order group ID are treated as a single unit: either all tasks in the group are
          * assigned, or none are. Users can add tasks of both jobs and shipments types to a single
          * joint order group by using the same unique ID. Please note that:
-         * - Each job in a single joint order group will be fulfilled by a unique vehicle.
-         * - Jobs belonging to a joint order group can be served in any sequence.
-         * - Joint order settings will not be effective if \solution\ or \relations\ attributes are
+         * * Each job in a single joint order group will be fulfilled by a unique vehicle.
+         * * Jobs belonging to a joint order group can be served in any sequence.
+         * * Joint order settings will not be effective if \solution\ or \relations\ attributes are
          *   also provided in the input request.
          */
         fun jointOrder(jointOrder: Long) = jointOrder(JsonField.of(jointOrder))
@@ -891,8 +893,8 @@ private constructor(
          * do not contain either groceries or food.
          *
          * Note:
-         * - This parameter is effective only when a pickup / delivery is configured for the job.
-         * - If the job is part of any relations then, load_types might be ignored.
+         * * This parameter is effective only when a pickup / delivery is configured for the job.
+         * * If the job is part of any relations then, load_types might be ignored.
          */
         fun loadTypes(loadTypes: List<String>) = loadTypes(JsonField.of(loadTypes))
 
@@ -1058,13 +1060,14 @@ private constructor(
          * for this input is \[0,100\].
          *
          * Please note that:
-         * - Only the tasks within the same route are compared and ordered as per their
+         * * Only the tasks within the same route are compared and ordered as per their
          *   sequence_order.
-         * - Tasks without a sequence_order are not involved in the comparison.
-         * - Following is the precedence of sequence_order when used along side some of the other
+         * * Tasks without a sequence_order are not involved in the comparison.
+         * * Following is the precedence of sequence_order when used along side some of the other
          *   constraints:
-         *     - relations are prioritized over sequence_order comparisons.
-         *     - sequence_order will override order_grouping configurations.
+         *
+         *     *   relations are prioritized over sequence_order comparisons.
+         *     *   sequence_order will override order_grouping configurations.
          */
         fun sequenceOrder(sequenceOrder: Long) = sequenceOrder(JsonField.of(sequenceOrder))
 
@@ -1150,7 +1153,7 @@ private constructor(
          * expressed as a UNIX timestamp in seconds.
          *
          * Please note that the time periods should not overlap with each other and should always
-         * follow the format of \[start_timestamp, end_timestamp\].
+         * follow the format of \[start\_timestamp, end\_timestamp\].
          */
         fun timeWindows(timeWindows: List<List<Long>>) = timeWindows(JsonField.of(timeWindows))
 
@@ -1201,13 +1204,13 @@ private constructor(
          * An array of integers specifying the IDs of the zone(s) that this job belongs to. The job
          * can be fulfilled by all vehicles which are allowed to complete tasks in the zone(s)
          * assigned to this job. Please note following points about job zones:
-         * - If zone IDs are provided for any one of the jobs, then all other jobs should also be
+         * * If zone IDs are provided for any one of the jobs, then all other jobs should also be
          *   specified with zone IDs. Zone IDs provided here will override any zone geometries
          *   provided in the zones attribute and these IDs will be used for allocating appropriate
          *   vehicles.
-         * - Jobs can be auto-allocated to zones if this parameter is not specified while the zone
+         * * Jobs can be auto-allocated to zones if this parameter is not specified while the zone
          *   geometries (either zones.geometry or zones.geofence_id) are provided.
-         * - Jobs not falling in any zones can be fulfilled by only those vehicles which are allowed
+         * * Jobs not falling in any zones can be fulfilled by only those vehicles which are allowed
          *   to take up tasks outside zones as well. Refer to vehicles attribute for more
          *   information.
          */
@@ -1373,6 +1376,7 @@ private constructor(
      * arranging such items.
      */
     class Volume
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val alignment: JsonField<Alignment>,
         private val depth: JsonField<Double>,
@@ -1394,20 +1398,20 @@ private constructor(
         /**
          * Refers to the orientation of the cargo in the loading compartment. It supports the
          * following values:
-         * - **" "** : A blank space to indicate that the dimension check for the cargo should be
+         * * **" "** : A blank space to indicate that the dimension check for the cargo should be
          *   skipped. This is also the default value.
-         * - **strict :** In this orientation, the cargo must fit within the vehicle’s dimensions
+         * * **strict :** In this orientation, the cargo must fit within the vehicle’s dimensions
          *   exactly as is—no rotation is allowed. All dimensions of the cargo must be less than or
          *   equal to the corresponding dimensions of the vehicle. If any dimension exceeds that of
          *   the vehicle, the cargo cannot be loaded.
-         * - **parallel :** With parallel orientation, the cargo can be rotated around any one of
+         * * **parallel :** With parallel orientation, the cargo can be rotated around any one of
          *   the axes to help it fit into the loading compartment. For example, if the cargo is
          *   wider than the vehicle, it can still be loaded by rotating it around the vertical axis
          *   (so the width aligns with the vehicle’s depth) or the horizontal axis (so the width
          *   aligns with the vehicle’s height). Using this orientation, even a cargo whose one
          *   dimension is larger than the corresponding dimension of the vehicle but smaller than
          *   other dimensions, can also be loaded.
-         * - **fixed_bottom :** In this orientation, the cargo can only be rotated around the
+         * * **fixed\_bottom :** In this orientation, the cargo can only be rotated around the
          *   vertical axis, meaning its base stays fixed and it cannot be tilted or turned over. The
          *   height of the cargo remains aligned with the vehicle’s height and cannot be adjusted.
          *   As a result, if the cargo’s height exceeds the vehicle’s available height, it cannot be
@@ -1511,20 +1515,20 @@ private constructor(
             /**
              * Refers to the orientation of the cargo in the loading compartment. It supports the
              * following values:
-             * - **" "** : A blank space to indicate that the dimension check for the cargo should
+             * * **" "** : A blank space to indicate that the dimension check for the cargo should
              *   be skipped. This is also the default value.
-             * - **strict :** In this orientation, the cargo must fit within the vehicle’s
+             * * **strict :** In this orientation, the cargo must fit within the vehicle’s
              *   dimensions exactly as is—no rotation is allowed. All dimensions of the cargo must
              *   be less than or equal to the corresponding dimensions of the vehicle. If any
              *   dimension exceeds that of the vehicle, the cargo cannot be loaded.
-             * - **parallel :** With parallel orientation, the cargo can be rotated around any one
+             * * **parallel :** With parallel orientation, the cargo can be rotated around any one
              *   of the axes to help it fit into the loading compartment. For example, if the cargo
              *   is wider than the vehicle, it can still be loaded by rotating it around the
              *   vertical axis (so the width aligns with the vehicle’s depth) or the horizontal axis
              *   (so the width aligns with the vehicle’s height). Using this orientation, even a
              *   cargo whose one dimension is larger than the corresponding dimension of the vehicle
              *   but smaller than other dimensions, can also be loaded.
-             * - **fixed_bottom :** In this orientation, the cargo can only be rotated around the
+             * * **fixed\_bottom :** In this orientation, the cargo can only be rotated around the
              *   vertical axis, meaning its base stays fixed and it cannot be tilted or turned over.
              *   The height of the cargo remains aligned with the vehicle’s height and cannot be
              *   adjusted. As a result, if the cargo’s height exceeds the vehicle’s available
@@ -1643,20 +1647,20 @@ private constructor(
         /**
          * Refers to the orientation of the cargo in the loading compartment. It supports the
          * following values:
-         * - **" "** : A blank space to indicate that the dimension check for the cargo should be
+         * * **" "** : A blank space to indicate that the dimension check for the cargo should be
          *   skipped. This is also the default value.
-         * - **strict :** In this orientation, the cargo must fit within the vehicle’s dimensions
+         * * **strict :** In this orientation, the cargo must fit within the vehicle’s dimensions
          *   exactly as is—no rotation is allowed. All dimensions of the cargo must be less than or
          *   equal to the corresponding dimensions of the vehicle. If any dimension exceeds that of
          *   the vehicle, the cargo cannot be loaded.
-         * - **parallel :** With parallel orientation, the cargo can be rotated around any one of
+         * * **parallel :** With parallel orientation, the cargo can be rotated around any one of
          *   the axes to help it fit into the loading compartment. For example, if the cargo is
          *   wider than the vehicle, it can still be loaded by rotating it around the vertical axis
          *   (so the width aligns with the vehicle’s depth) or the horizontal axis (so the width
          *   aligns with the vehicle’s height). Using this orientation, even a cargo whose one
          *   dimension is larger than the corresponding dimension of the vehicle but smaller than
          *   other dimensions, can also be loaded.
-         * - **fixed_bottom :** In this orientation, the cargo can only be rotated around the
+         * * **fixed\_bottom :** In this orientation, the cargo can only be rotated around the
          *   vertical axis, meaning its base stays fixed and it cannot be tilted or turned over. The
          *   height of the cargo remains aligned with the vehicle’s height and cannot be adjusted.
          *   As a result, if the cargo’s height exceeds the vehicle’s available height, it cannot be
@@ -1791,7 +1795,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Alignment && value == other.value /* spotless:on */
+                return other is Alignment && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1804,12 +1808,17 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Volume && alignment == other.alignment && depth == other.depth && height == other.height && width == other.width && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Volume &&
+                alignment == other.alignment &&
+                depth == other.depth &&
+                height == other.height &&
+                width == other.width &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(alignment, depth, height, width, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(alignment, depth, height, width, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1822,12 +1831,59 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is Job && id == other.id && locationIndex == other.locationIndex && delivery == other.delivery && depotIds == other.depotIds && description == other.description && followLifoOrder == other.followLifoOrder && incompatibleLoadTypes == other.incompatibleLoadTypes && jointOrder == other.jointOrder && loadTypes == other.loadTypes && maxVisitLateness == other.maxVisitLateness && metadata == other.metadata && outsourcingCost == other.outsourcingCost && pickup == other.pickup && priority == other.priority && revenue == other.revenue && sequenceOrder == other.sequenceOrder && service == other.service && setup == other.setup && skills == other.skills && timeWindows == other.timeWindows && volume == other.volume && zones == other.zones && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is Job &&
+            id == other.id &&
+            locationIndex == other.locationIndex &&
+            delivery == other.delivery &&
+            depotIds == other.depotIds &&
+            description == other.description &&
+            followLifoOrder == other.followLifoOrder &&
+            incompatibleLoadTypes == other.incompatibleLoadTypes &&
+            jointOrder == other.jointOrder &&
+            loadTypes == other.loadTypes &&
+            maxVisitLateness == other.maxVisitLateness &&
+            metadata == other.metadata &&
+            outsourcingCost == other.outsourcingCost &&
+            pickup == other.pickup &&
+            priority == other.priority &&
+            revenue == other.revenue &&
+            sequenceOrder == other.sequenceOrder &&
+            service == other.service &&
+            setup == other.setup &&
+            skills == other.skills &&
+            timeWindows == other.timeWindows &&
+            volume == other.volume &&
+            zones == other.zones &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(id, locationIndex, delivery, depotIds, description, followLifoOrder, incompatibleLoadTypes, jointOrder, loadTypes, maxVisitLateness, metadata, outsourcingCost, pickup, priority, revenue, sequenceOrder, service, setup, skills, timeWindows, volume, zones, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(
+            id,
+            locationIndex,
+            delivery,
+            depotIds,
+            description,
+            followLifoOrder,
+            incompatibleLoadTypes,
+            jointOrder,
+            loadTypes,
+            maxVisitLateness,
+            metadata,
+            outsourcingCost,
+            pickup,
+            priority,
+            revenue,
+            sequenceOrder,
+            service,
+            setup,
+            skills,
+            timeWindows,
+            volume,
+            zones,
+            additionalProperties,
+        )
+    }
 
     override fun hashCode(): Int = hashCode
 

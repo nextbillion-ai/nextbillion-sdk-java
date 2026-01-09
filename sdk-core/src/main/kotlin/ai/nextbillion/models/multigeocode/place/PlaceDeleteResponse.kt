@@ -16,6 +16,7 @@ import java.util.Objects
 import java.util.Optional
 
 class PlaceDeleteResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val msg: JsonField<String>,
     private val status: JsonField<String>,
@@ -178,12 +179,13 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is PlaceDeleteResponse && msg == other.msg && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is PlaceDeleteResponse &&
+            msg == other.msg &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(msg, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

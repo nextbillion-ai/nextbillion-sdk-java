@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class DocumentTemplateUpdateResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val msg: JsonField<String>,
@@ -215,6 +216,7 @@ private constructor(
 
     /** An object returning the details of the updated document template. */
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val content: JsonField<List<DocumentTemplateContentResponse>>,
@@ -439,12 +441,14 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && id == other.id && content == other.content && name == other.name && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                id == other.id &&
+                content == other.content &&
+                name == other.name &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(id, content, name, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -457,12 +461,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is DocumentTemplateUpdateResponse && data == other.data && msg == other.msg && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is DocumentTemplateUpdateResponse &&
+            data == other.data &&
+            msg == other.msg &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, msg, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

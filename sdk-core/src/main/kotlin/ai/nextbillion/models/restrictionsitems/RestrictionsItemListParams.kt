@@ -447,7 +447,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+            return other is Mode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -602,7 +602,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is RestrictionType && value == other.value /* spotless:on */
+            return other is RestrictionType && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -735,7 +735,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is State && value == other.value /* spotless:on */
+            return other is State && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -862,7 +862,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Status && value == other.value /* spotless:on */
+            return other is Status && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -875,10 +875,36 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RestrictionsItemListParams && maxLat == other.maxLat && maxLon == other.maxLon && minLat == other.minLat && minLon == other.minLon && groupId == other.groupId && mode == other.mode && restrictionType == other.restrictionType && source == other.source && state == other.state && status == other.status && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is RestrictionsItemListParams &&
+            maxLat == other.maxLat &&
+            maxLon == other.maxLon &&
+            minLat == other.minLat &&
+            minLon == other.minLon &&
+            groupId == other.groupId &&
+            mode == other.mode &&
+            restrictionType == other.restrictionType &&
+            source == other.source &&
+            state == other.state &&
+            status == other.status &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(maxLat, maxLon, minLat, minLon, groupId, mode, restrictionType, source, state, status, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            maxLat,
+            maxLon,
+            minLat,
+            minLon,
+            groupId,
+            mode,
+            restrictionType,
+            source,
+            state,
+            status,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "RestrictionsItemListParams{maxLat=$maxLat, maxLon=$maxLon, minLat=$minLat, minLon=$minLon, groupId=$groupId, mode=$mode, restrictionType=$restrictionType, source=$source, state=$state, status=$status, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

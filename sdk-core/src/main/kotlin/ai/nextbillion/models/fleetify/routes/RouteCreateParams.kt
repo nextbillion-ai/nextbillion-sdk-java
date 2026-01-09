@@ -85,14 +85,14 @@ private constructor(
      * form the routes and corresponding steps.
      *
      * Please note that:
-     * - The driver's email ID must be provided in input vehicle.metadata as user_email such that
+     * * The driver's email ID must be provided in input vehicle.metadata as user_email such that
      *   the route optimization result must contain a valid driver email, step's arrival time, etc.,
      *   to make a successful dispatch.
-     * - Document Template for collecting proof of delivery or completion can not be specified when
+     * * Document Template for collecting proof of delivery or completion can not be specified when
      *   using this field to dispatch a route.
-     * - In case of an error at any part among the routes, the API will immediately return the error
+     * * In case of an error at any part among the routes, the API will immediately return the error
      *   with the index of the specific route or route step.
-     * - On a successful dispatch, the API returns the last route, if there are many, in the
+     * * On a successful dispatch, the API returns the last route, if there are many, in the
      *   response payload.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
@@ -294,14 +294,14 @@ private constructor(
          * used to form the routes and corresponding steps.
          *
          * Please note that:
-         * - The driver's email ID must be provided in input vehicle.metadata as user_email such
+         * * The driver's email ID must be provided in input vehicle.metadata as user_email such
          *   that the route optimization result must contain a valid driver email, step's arrival
          *   time, etc., to make a successful dispatch.
-         * - Document Template for collecting proof of delivery or completion can not be specified
+         * * Document Template for collecting proof of delivery or completion can not be specified
          *   when using this field to dispatch a route.
-         * - In case of an error at any part among the routes, the API will immediately return the
+         * * In case of an error at any part among the routes, the API will immediately return the
          *   error with the index of the specific route or route step.
-         * - On a successful dispatch, the API returns the last route, if there are many, in the
+         * * On a successful dispatch, the API returns the last route, if there are many, in the
          *   response payload.
          */
         fun roRequestId(roRequestId: String) = apply { body.roRequestId(roRequestId) }
@@ -483,6 +483,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val driverEmail: JsonField<String>,
         private val steps: JsonField<List<RouteStepsRequest>>,
@@ -569,14 +570,14 @@ private constructor(
          * used to form the routes and corresponding steps.
          *
          * Please note that:
-         * - The driver's email ID must be provided in input vehicle.metadata as user_email such
+         * * The driver's email ID must be provided in input vehicle.metadata as user_email such
          *   that the route optimization result must contain a valid driver email, step's arrival
          *   time, etc., to make a successful dispatch.
-         * - Document Template for collecting proof of delivery or completion can not be specified
+         * * Document Template for collecting proof of delivery or completion can not be specified
          *   when using this field to dispatch a route.
-         * - In case of an error at any part among the routes, the API will immediately return the
+         * * In case of an error at any part among the routes, the API will immediately return the
          *   error with the index of the specific route or route step.
-         * - On a successful dispatch, the API returns the last route, if there are many, in the
+         * * On a successful dispatch, the API returns the last route, if there are many, in the
          *   response payload.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -788,14 +789,14 @@ private constructor(
              * will be used to form the routes and corresponding steps.
              *
              * Please note that:
-             * - The driver's email ID must be provided in input vehicle.metadata as user_email such
+             * * The driver's email ID must be provided in input vehicle.metadata as user_email such
              *   that the route optimization result must contain a valid driver email, step's
              *   arrival time, etc., to make a successful dispatch.
-             * - Document Template for collecting proof of delivery or completion can not be
+             * * Document Template for collecting proof of delivery or completion can not be
              *   specified when using this field to dispatch a route.
-             * - In case of an error at any part among the routes, the API will immediately return
+             * * In case of an error at any part among the routes, the API will immediately return
              *   the error with the index of the specific route or route step.
-             * - On a successful dispatch, the API returns the last route, if there are many, in the
+             * * On a successful dispatch, the API returns the last route, if there are many, in the
              *   response payload.
              */
             fun roRequestId(roRequestId: String) = roRequestId(JsonField.of(roRequestId))
@@ -915,12 +916,27 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && driverEmail == other.driverEmail && steps == other.steps && distance == other.distance && documentTemplateId == other.documentTemplateId && roRequestId == other.roRequestId && routing == other.routing && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                driverEmail == other.driverEmail &&
+                steps == other.steps &&
+                distance == other.distance &&
+                documentTemplateId == other.documentTemplateId &&
+                roRequestId == other.roRequestId &&
+                routing == other.routing &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(driverEmail, steps, distance, documentTemplateId, roRequestId, routing, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                driverEmail,
+                steps,
+                distance,
+                documentTemplateId,
+                roRequestId,
+                routing,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -934,6 +950,7 @@ private constructor(
      * currently.
      */
     class Routing
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val approaches: JsonField<Approaches>,
         private val avoid: JsonField<Avoid>,
@@ -1493,7 +1510,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Approaches && value == other.value /* spotless:on */
+                return other is Approaches && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1669,7 +1686,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Avoid && value == other.value /* spotless:on */
+                return other is Avoid && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1819,7 +1836,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is HazmatType && value == other.value /* spotless:on */
+                return other is HazmatType && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1941,7 +1958,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+                return other is Mode && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -1954,12 +1971,29 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Routing && approaches == other.approaches && avoid == other.avoid && hazmatType == other.hazmatType && mode == other.mode && truckAxleLoad == other.truckAxleLoad && truckSize == other.truckSize && truckWeight == other.truckWeight && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Routing &&
+                approaches == other.approaches &&
+                avoid == other.avoid &&
+                hazmatType == other.hazmatType &&
+                mode == other.mode &&
+                truckAxleLoad == other.truckAxleLoad &&
+                truckSize == other.truckSize &&
+                truckWeight == other.truckWeight &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(approaches, avoid, hazmatType, mode, truckAxleLoad, truckSize, truckWeight, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                approaches,
+                avoid,
+                hazmatType,
+                mode,
+                truckAxleLoad,
+                truckSize,
+                truckWeight,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1972,10 +2006,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is RouteCreateParams && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is RouteCreateParams &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int = Objects.hash(key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "RouteCreateParams{key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

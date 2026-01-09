@@ -20,6 +20,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class Vehicle
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val id: JsonField<String>,
     private val location: JsonField<Location>,
@@ -337,12 +338,18 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is Vehicle && id == other.id && location == other.location && attributes == other.attributes && priority == other.priority && remainingWaypoints == other.remainingWaypoints && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is Vehicle &&
+            id == other.id &&
+            location == other.location &&
+            attributes == other.attributes &&
+            priority == other.priority &&
+            remainingWaypoints == other.remainingWaypoints &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(id, location, attributes, priority, remainingWaypoints, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(id, location, attributes, priority, remainingWaypoints, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

@@ -102,8 +102,8 @@ private constructor(
      * elements as well.
      *
      * **Note:**
-     * - duration_matrix is mandatory when usingdistance_matrix.
-     * - When using distance_matrix route geometry will not be available in the optimized solution.
+     * * duration_matrix is mandatory when usingdistance_matrix.
+     * * When using distance_matrix route geometry will not be available in the optimized solution.
      *
      * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g. if
      *   the server responded with an unexpected value).
@@ -124,8 +124,8 @@ private constructor(
      *
      * Please note that, unlike distance_matrix, duration_matrix can be used independently in
      * following cases:
-     * - when travel_cost is “duration”
-     * - when travel_cost is “customized” and a cost_matrix is provided
+     * * when travel_cost is “duration”
+     * * when travel_cost is “customized” and a cost_matrix is provided
      *
      * Also, the route geometry will not be available in the optimized solution when using
      * duration_matrix.
@@ -170,8 +170,8 @@ private constructor(
      * object are mandatory when using this attribute.
      *
      * Please note:
-     * - The soft constraints are **not** effective when using the relations attribute.
-     * - In case a given relation can't be satisfied, the optimizer will flag all the tasks involved
+     * * The soft constraints are **not** effective when using the relations attribute.
+     * * In case a given relation can't be satisfied, the optimizer will flag all the tasks involved
      *   in that "relation" as unassigned.
      *
      * Read more about this attribute in the [Relations Object](#relations-object) section.
@@ -215,10 +215,10 @@ private constructor(
      *
      * Users can reduce the number of unassigned tasks in the re-optimized solution, by following
      * strategies such as:
-     * - Extending the time windows for vehicles or tasks to give more flexibility
-     * - Adding more vehicles to the optimization problem
-     * - Adjusting the priority of different tasks to balance the workload more evenly
-     * - Modifying other constraints or parameters to make the problem more solvable
+     * * Extending the time windows for vehicles or tasks to give more flexibility
+     * * Adding more vehicles to the optimization problem
+     * * Adjusting the priority of different tasks to balance the workload more evenly
+     * * Modifying other constraints or parameters to make the problem more solvable
      *
      * Ultimately, the goal is to minimize the number of unassigned tasks while still meeting all
      * the necessary constraints and objectives.
@@ -236,9 +236,9 @@ private constructor(
      * API](https://docs.nextbillion.ai/docs/tracking/api/geofence).
      *
      * Please note that
-     * - Each zone should have a geometry specified either throughgeometry or through the
+     * * Each zone should have a geometry specified either throughgeometry or through the
      *   geofence_id parameter.
-     * - When zone IDs are not provided for individual tasks (jobs or shipments) then the API will
+     * * When zone IDs are not provided for individual tasks (jobs or shipments) then the API will
      *   automatically allocate zones based on the task’s geolocation and the geometries of the
      *   zones provided here. Otherwise, if the zone IDs are provided while configuring individual
      *   tasks, the zone IDs will override the geometries provided here.
@@ -532,8 +532,8 @@ private constructor(
          * of elements as well.
          *
          * **Note:**
-         * - duration_matrix is mandatory when usingdistance_matrix.
-         * - When using distance_matrix route geometry will not be available in the optimized
+         * * duration_matrix is mandatory when usingdistance_matrix.
+         * * When using distance_matrix route geometry will not be available in the optimized
          *   solution.
          */
         fun distanceMatrix(distanceMatrix: List<List<Long>>) = apply {
@@ -574,8 +574,8 @@ private constructor(
          *
          * Please note that, unlike distance_matrix, duration_matrix can be used independently in
          * following cases:
-         * - when travel_cost is “duration”
-         * - when travel_cost is “customized” and a cost_matrix is provided
+         * * when travel_cost is “duration”
+         * * when travel_cost is “customized” and a cost_matrix is provided
          *
          * Also, the route geometry will not be available in the optimized solution when using
          * duration_matrix.
@@ -665,8 +665,8 @@ private constructor(
          * object are mandatory when using this attribute.
          *
          * Please note:
-         * - The soft constraints are **not** effective when using the relations attribute.
-         * - In case a given relation can't be satisfied, the optimizer will flag all the tasks
+         * * The soft constraints are **not** effective when using the relations attribute.
+         * * In case a given relation can't be satisfied, the optimizer will flag all the tasks
          *   involved in that "relation" as unassigned.
          *
          * Read more about this attribute in the [Relations Object](#relations-object) section.
@@ -749,10 +749,10 @@ private constructor(
          *
          * Users can reduce the number of unassigned tasks in the re-optimized solution, by
          * following strategies such as:
-         * - Extending the time windows for vehicles or tasks to give more flexibility
-         * - Adding more vehicles to the optimization problem
-         * - Adjusting the priority of different tasks to balance the workload more evenly
-         * - Modifying other constraints or parameters to make the problem more solvable
+         * * Extending the time windows for vehicles or tasks to give more flexibility
+         * * Adding more vehicles to the optimization problem
+         * * Adjusting the priority of different tasks to balance the workload more evenly
+         * * Modifying other constraints or parameters to make the problem more solvable
          *
          * Ultimately, the goal is to minimize the number of unassigned tasks while still meeting
          * all the necessary constraints and objectives.
@@ -776,9 +776,9 @@ private constructor(
          * API](https://docs.nextbillion.ai/docs/tracking/api/geofence).
          *
          * Please note that
-         * - Each zone should have a geometry specified either throughgeometry or through the
+         * * Each zone should have a geometry specified either throughgeometry or through the
          *   geofence_id parameter.
-         * - When zone IDs are not provided for individual tasks (jobs or shipments) then the API
+         * * When zone IDs are not provided for individual tasks (jobs or shipments) then the API
          *   will automatically allocate zones based on the task’s geolocation and the geometries of
          *   the zones provided here. Otherwise, if the zone IDs are provided while configuring
          *   individual tasks, the zone IDs will override the geometries provided here.
@@ -954,6 +954,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val locations: JsonField<Locations>,
         private val vehicles: JsonField<List<Vehicle>>,
@@ -1100,8 +1101,8 @@ private constructor(
          * of elements as well.
          *
          * **Note:**
-         * - duration_matrix is mandatory when usingdistance_matrix.
-         * - When using distance_matrix route geometry will not be available in the optimized
+         * * duration_matrix is mandatory when usingdistance_matrix.
+         * * When using distance_matrix route geometry will not be available in the optimized
          *   solution.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -1124,8 +1125,8 @@ private constructor(
          *
          * Please note that, unlike distance_matrix, duration_matrix can be used independently in
          * following cases:
-         * - when travel_cost is “duration”
-         * - when travel_cost is “customized” and a cost_matrix is provided
+         * * when travel_cost is “duration”
+         * * when travel_cost is “customized” and a cost_matrix is provided
          *
          * Also, the route geometry will not be available in the optimized solution when using
          * duration_matrix.
@@ -1173,8 +1174,8 @@ private constructor(
          * object are mandatory when using this attribute.
          *
          * Please note:
-         * - The soft constraints are **not** effective when using the relations attribute.
-         * - In case a given relation can't be satisfied, the optimizer will flag all the tasks
+         * * The soft constraints are **not** effective when using the relations attribute.
+         * * In case a given relation can't be satisfied, the optimizer will flag all the tasks
          *   involved in that "relation" as unassigned.
          *
          * Read more about this attribute in the [Relations Object](#relations-object) section.
@@ -1218,10 +1219,10 @@ private constructor(
          *
          * Users can reduce the number of unassigned tasks in the re-optimized solution, by
          * following strategies such as:
-         * - Extending the time windows for vehicles or tasks to give more flexibility
-         * - Adding more vehicles to the optimization problem
-         * - Adjusting the priority of different tasks to balance the workload more evenly
-         * - Modifying other constraints or parameters to make the problem more solvable
+         * * Extending the time windows for vehicles or tasks to give more flexibility
+         * * Adding more vehicles to the optimization problem
+         * * Adjusting the priority of different tasks to balance the workload more evenly
+         * * Modifying other constraints or parameters to make the problem more solvable
          *
          * Ultimately, the goal is to minimize the number of unassigned tasks while still meeting
          * all the necessary constraints and objectives.
@@ -1239,9 +1240,9 @@ private constructor(
          * API](https://docs.nextbillion.ai/docs/tracking/api/geofence).
          *
          * Please note that
-         * - Each zone should have a geometry specified either throughgeometry or through the
+         * * Each zone should have a geometry specified either throughgeometry or through the
          *   geofence_id parameter.
-         * - When zone IDs are not provided for individual tasks (jobs or shipments) then the API
+         * * When zone IDs are not provided for individual tasks (jobs or shipments) then the API
          *   will automatically allocate zones based on the task’s geolocation and the geometries of
          *   the zones provided here. Otherwise, if the zone IDs are provided while configuring
          *   individual tasks, the zone IDs will override the geometries provided here.
@@ -1588,8 +1589,8 @@ private constructor(
              * number of elements as well.
              *
              * **Note:**
-             * - duration_matrix is mandatory when usingdistance_matrix.
-             * - When using distance_matrix route geometry will not be available in the optimized
+             * * duration_matrix is mandatory when usingdistance_matrix.
+             * * When using distance_matrix route geometry will not be available in the optimized
              *   solution.
              */
             fun distanceMatrix(distanceMatrix: List<List<Long>>) =
@@ -1632,8 +1633,8 @@ private constructor(
              *
              * Please note that, unlike distance_matrix, duration_matrix can be used independently
              * in following cases:
-             * - when travel_cost is “duration”
-             * - when travel_cost is “customized” and a cost_matrix is provided
+             * * when travel_cost is “duration”
+             * * when travel_cost is “customized” and a cost_matrix is provided
              *
              * Also, the route geometry will not be available in the optimized solution when using
              * duration_matrix.
@@ -1732,8 +1733,8 @@ private constructor(
              * steps object are mandatory when using this attribute.
              *
              * Please note:
-             * - The soft constraints are **not** effective when using the relations attribute.
-             * - In case a given relation can't be satisfied, the optimizer will flag all the tasks
+             * * The soft constraints are **not** effective when using the relations attribute.
+             * * In case a given relation can't be satisfied, the optimizer will flag all the tasks
              *   involved in that "relation" as unassigned.
              *
              * Read more about this attribute in the [Relations Object](#relations-object) section.
@@ -1837,10 +1838,10 @@ private constructor(
              *
              * Users can reduce the number of unassigned tasks in the re-optimized solution, by
              * following strategies such as:
-             * - Extending the time windows for vehicles or tasks to give more flexibility
-             * - Adding more vehicles to the optimization problem
-             * - Adjusting the priority of different tasks to balance the workload more evenly
-             * - Modifying other constraints or parameters to make the problem more solvable
+             * * Extending the time windows for vehicles or tasks to give more flexibility
+             * * Adding more vehicles to the optimization problem
+             * * Adjusting the priority of different tasks to balance the workload more evenly
+             * * Modifying other constraints or parameters to make the problem more solvable
              *
              * Ultimately, the goal is to minimize the number of unassigned tasks while still
              * meeting all the necessary constraints and objectives.
@@ -1866,9 +1867,9 @@ private constructor(
              * [Geofence API](https://docs.nextbillion.ai/docs/tracking/api/geofence).
              *
              * Please note that
-             * - Each zone should have a geometry specified either throughgeometry or through the
+             * * Each zone should have a geometry specified either throughgeometry or through the
              *   geofence_id parameter.
-             * - When zone IDs are not provided for individual tasks (jobs or shipments) then the
+             * * When zone IDs are not provided for individual tasks (jobs or shipments) then the
              *   API will automatically allocate zones based on the task’s geolocation and the
              *   geometries of the zones provided here. Otherwise, if the zone IDs are provided
              *   while configuring individual tasks, the zone IDs will override the geometries
@@ -2014,12 +2015,45 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && locations == other.locations && vehicles == other.vehicles && costMatrix == other.costMatrix && depots == other.depots && description == other.description && distanceMatrix == other.distanceMatrix && durationMatrix == other.durationMatrix && existingSolutionId == other.existingSolutionId && jobs == other.jobs && options == other.options && relations == other.relations && shipments == other.shipments && solution == other.solution && unassigned == other.unassigned && zones == other.zones && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                locations == other.locations &&
+                vehicles == other.vehicles &&
+                costMatrix == other.costMatrix &&
+                depots == other.depots &&
+                description == other.description &&
+                distanceMatrix == other.distanceMatrix &&
+                durationMatrix == other.durationMatrix &&
+                existingSolutionId == other.existingSolutionId &&
+                jobs == other.jobs &&
+                options == other.options &&
+                relations == other.relations &&
+                shipments == other.shipments &&
+                solution == other.solution &&
+                unassigned == other.unassigned &&
+                zones == other.zones &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(locations, vehicles, costMatrix, depots, description, distanceMatrix, durationMatrix, existingSolutionId, jobs, options, relations, shipments, solution, unassigned, zones, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                locations,
+                vehicles,
+                costMatrix,
+                depots,
+                description,
+                distanceMatrix,
+                durationMatrix,
+                existingSolutionId,
+                jobs,
+                options,
+                relations,
+                shipments,
+                solution,
+                unassigned,
+                zones,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2033,6 +2067,7 @@ private constructor(
      * [Location Object](#location-object) section.
      */
     class Locations
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val location: JsonField<List<String>>,
         private val id: JsonField<Long>,
@@ -2434,7 +2469,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Approach && value == other.value /* spotless:on */
+                return other is Approach && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -2447,12 +2482,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Locations && location == other.location && id == other.id && approaches == other.approaches && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Locations &&
+                location == other.location &&
+                id == other.id &&
+                approaches == other.approaches &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(location, id, approaches, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(location, id, approaches, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2461,6 +2500,7 @@ private constructor(
     }
 
     class Depot
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<String>,
         private val locationIndex: JsonField<Long>,
@@ -2527,13 +2567,13 @@ private constructor(
          * loaded / unloaded. The time periods should be expressed as a UNIX timestamp in seconds.
          *
          * Please note that:
-         * - Multiple time-windows can be provided but those time windows should not overlap with
+         * * Multiple time-windows can be provided but those time windows should not overlap with
          *   each other.
-         * - Time windows should always be specified in the format of \[start_timestamp,
-         *   end_timestamp\].
-         * - Depot's time-windows are ineffective used when max_activity_waiting_time is specified
+         * * Time windows should always be specified in the format of \[start\_timestamp,
+         *   end\_timestamp\].
+         * * Depot's time-windows are ineffective used when max_activity_waiting_time is specified
          *   in the input.
-         * - Using relations along with depot time-window is not allowed and the service will return
+         * * Using relations along with depot time-window is not allowed and the service will return
          *   an error.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
@@ -2697,13 +2737,13 @@ private constructor(
              * seconds.
              *
              * Please note that:
-             * - Multiple time-windows can be provided but those time windows should not overlap
+             * * Multiple time-windows can be provided but those time windows should not overlap
              *   with each other.
-             * - Time windows should always be specified in the format of \[start_timestamp,
-             *   end_timestamp\].
-             * - Depot's time-windows are ineffective used when max_activity_waiting_time is
+             * * Time windows should always be specified in the format of \[start\_timestamp,
+             *   end\_timestamp\].
+             * * Depot's time-windows are ineffective used when max_activity_waiting_time is
              *   specified in the input.
-             * - Using relations along with depot time-window is not allowed and the service will
+             * * Using relations along with depot time-window is not allowed and the service will
              *   return an error.
              */
             fun timeWindows(timeWindows: List<List<Long>>) = timeWindows(JsonField.of(timeWindows))
@@ -2816,12 +2856,18 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Depot && id == other.id && locationIndex == other.locationIndex && description == other.description && service == other.service && timeWindows == other.timeWindows && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Depot &&
+                id == other.id &&
+                locationIndex == other.locationIndex &&
+                description == other.description &&
+                service == other.service &&
+                timeWindows == other.timeWindows &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(id, locationIndex, description, service, timeWindows, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(id, locationIndex, description, service, timeWindows, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -2834,6 +2880,7 @@ private constructor(
      * that the solver provides a solution that meets the desired business objectives.
      */
     class Options
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val constraint: JsonField<Constraint>,
         private val grouping: JsonField<Grouping>,
@@ -2875,8 +2922,8 @@ private constructor(
 
         /**
          * Set grouping rules for the tasks and routes.
-         * - Use order_grouping to group nearby tasks
-         * - Use route_grouping to control route sequencing.
+         * * Use order_grouping to group nearby tasks
+         * * Use route_grouping to control route sequencing.
          *
          * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type (e.g.
          *   if the server responded with an unexpected value).
@@ -2994,8 +3041,8 @@ private constructor(
 
             /**
              * Set grouping rules for the tasks and routes.
-             * - Use order_grouping to group nearby tasks
-             * - Use route_grouping to control route sequencing.
+             * * Use order_grouping to group nearby tasks
+             * * Use route_grouping to control route sequencing.
              */
             fun grouping(grouping: Grouping) = grouping(JsonField.of(grouping))
 
@@ -3116,6 +3163,7 @@ private constructor(
          * type is in_same_route and ineffective for all other types.
          */
         class Constraint
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val maxActivityWaitingTime: JsonField<Long>,
             private val maxVehicleOvertime: JsonField<Long>,
@@ -3393,12 +3441,21 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Constraint && maxActivityWaitingTime == other.maxActivityWaitingTime && maxVehicleOvertime == other.maxVehicleOvertime && maxVisitLateness == other.maxVisitLateness && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Constraint &&
+                    maxActivityWaitingTime == other.maxActivityWaitingTime &&
+                    maxVehicleOvertime == other.maxVehicleOvertime &&
+                    maxVisitLateness == other.maxVisitLateness &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(maxActivityWaitingTime, maxVehicleOvertime, maxVisitLateness, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(
+                    maxActivityWaitingTime,
+                    maxVehicleOvertime,
+                    maxVisitLateness,
+                    additionalProperties,
+                )
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -3408,10 +3465,11 @@ private constructor(
 
         /**
          * Set grouping rules for the tasks and routes.
-         * - Use order_grouping to group nearby tasks
-         * - Use route_grouping to control route sequencing.
+         * * Use order_grouping to group nearby tasks
+         * * Use route_grouping to control route sequencing.
          */
         class Grouping
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val orderGrouping: JsonField<OrderGrouping>,
             private val proximityFactor: JsonField<Double>,
@@ -3463,9 +3521,9 @@ private constructor(
              * the previous one.
              *
              * Please note that:
-             * - Valid values are \[0,10\]
-             * - Default value is 0.0.
-             * - It is recommended to use values lower values, in the range of \[0, 1\]. Higher
+             * * Valid values are \[0,10\]
+             * * Default value is 0.0.
+             * * It is recommended to use values lower values, in the range of \[0, 1\]. Higher
              *   values may adversely impact the solution metrics due to higher number of resulting
              *   routes: costs, mileage etc.
              *
@@ -3589,9 +3647,9 @@ private constructor(
                  * return to the previous one.
                  *
                  * Please note that:
-                 * - Valid values are \[0,10\]
-                 * - Default value is 0.0.
-                 * - It is recommended to use values lower values, in the range of \[0, 1\]. Higher
+                 * * Valid values are \[0,10\]
+                 * * Default value is 0.0.
+                 * * It is recommended to use values lower values, in the range of \[0, 1\]. Higher
                  *   values may adversely impact the solution metrics due to higher number of
                  *   resulting routes: costs, mileage etc.
                  */
@@ -3710,6 +3768,7 @@ private constructor(
              * those tasks.
              */
             class OrderGrouping
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val groupingDiameter: JsonField<Double>,
                 private val additionalProperties: MutableMap<String, JsonValue>,
@@ -3856,12 +3915,14 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is OrderGrouping && groupingDiameter == other.groupingDiameter && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is OrderGrouping &&
+                        groupingDiameter == other.groupingDiameter &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(groupingDiameter, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(groupingDiameter, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -3875,6 +3936,7 @@ private constructor(
              * any tasks that are part of a different zone.
              */
             class RouteGrouping
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val penaltyFactor: JsonField<Double>,
                 private val zoneDiameter: JsonField<Double>,
@@ -3924,10 +3986,10 @@ private constructor(
 
                 /**
                  * Specify the source for creating boundaries of the routing zones. The default
-                 * value is “system_generated”.
-                 * - system_generated - Routing zone boundaries are created automatically by the
+                 * value is “system\_generated”.
+                 * * system\_generated - Routing zone boundaries are created automatically by the
                  *   optimizer based on the zone_diameter provided.
-                 * - custom_definition - Custom routing zone boundaries should be provided by the
+                 * * custom\_definition - Custom routing zone boundaries should be provided by the
                  *   user in input using the zones attribute. An error would be returned if the
                  *   zones attribute is null or missing in the input request.
                  *
@@ -4050,10 +4112,10 @@ private constructor(
 
                     /**
                      * Specify the source for creating boundaries of the routing zones. The default
-                     * value is “system_generated”.
-                     * - system_generated - Routing zone boundaries are created automatically by the
-                     *   optimizer based on the zone_diameter provided.
-                     * - custom_definition - Custom routing zone boundaries should be provided by
+                     * value is “system\_generated”.
+                     * * system\_generated - Routing zone boundaries are created automatically by
+                     *   the optimizer based on the zone_diameter provided.
+                     * * custom\_definition - Custom routing zone boundaries should be provided by
                      *   the user in input using the zones attribute. An error would be returned if
                      *   the zones attribute is null or missing in the input request.
                      */
@@ -4141,10 +4203,10 @@ private constructor(
 
                 /**
                  * Specify the source for creating boundaries of the routing zones. The default
-                 * value is “system_generated”.
-                 * - system_generated - Routing zone boundaries are created automatically by the
+                 * value is “system\_generated”.
+                 * * system\_generated - Routing zone boundaries are created automatically by the
                  *   optimizer based on the zone_diameter provided.
-                 * - custom_definition - Custom routing zone boundaries should be provided by the
+                 * * custom\_definition - Custom routing zone boundaries should be provided by the
                  *   user in input using the zones attribute. An error would be returned if the
                  *   zones attribute is null or missing in the input request.
                  */
@@ -4279,7 +4341,7 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is ZoneSource && value == other.value /* spotless:on */
+                        return other is ZoneSource && value == other.value
                     }
 
                     override fun hashCode() = value.hashCode()
@@ -4292,12 +4354,16 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is RouteGrouping && penaltyFactor == other.penaltyFactor && zoneDiameter == other.zoneDiameter && zoneSource == other.zoneSource && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is RouteGrouping &&
+                        penaltyFactor == other.penaltyFactor &&
+                        zoneDiameter == other.zoneDiameter &&
+                        zoneSource == other.zoneSource &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(penaltyFactor, zoneDiameter, zoneSource, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(penaltyFactor, zoneDiameter, zoneSource, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -4310,12 +4376,16 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Grouping && orderGrouping == other.orderGrouping && proximityFactor == other.proximityFactor && routeGrouping == other.routeGrouping && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Grouping &&
+                    orderGrouping == other.orderGrouping &&
+                    proximityFactor == other.proximityFactor &&
+                    routeGrouping == other.routeGrouping &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(orderGrouping, proximityFactor, routeGrouping, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(orderGrouping, proximityFactor, routeGrouping, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -4325,6 +4395,7 @@ private constructor(
 
         /** This attribute is used to configure the objective of the optimization job. */
         class Objective
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val allowEarlyArrival: JsonField<Boolean>,
             private val custom: JsonField<Custom>,
@@ -4414,9 +4485,9 @@ private constructor(
              * optimization request.
              *
              * Please note that:
-             * - In case the specified time limit is not enough to generate a solution for a given
+             * * In case the specified time limit is not enough to generate a solution for a given
              *   problem set, the optimizer will continue processing until it arrives at a solution.
-             * - It is recommended to specify a duration of at least 5-7 minutes in case the input
+             * * It is recommended to specify a duration of at least 5-7 minutes in case the input
              *   problem contains a large set of tasks or vehicles.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
@@ -4631,10 +4702,10 @@ private constructor(
                  * optimization request.
                  *
                  * Please note that:
-                 * - In case the specified time limit is not enough to generate a solution for a
+                 * * In case the specified time limit is not enough to generate a solution for a
                  *   given problem set, the optimizer will continue processing until it arrives at a
                  *   solution.
-                 * - It is recommended to specify a duration of at least 5-7 minutes in case the
+                 * * It is recommended to specify a duration of at least 5-7 minutes in case the
                  *   input problem contains a large set of tasks or vehicles.
                  */
                 fun solvingTimeLimit(solvingTimeLimit: Long) =
@@ -4775,6 +4846,7 @@ private constructor(
              * travel cost minimization objectives.
              */
             class Custom
+            @JsonCreator(mode = JsonCreator.Mode.DISABLED)
             private constructor(
                 private val type: JsonField<Type>,
                 private val value: JsonField<ObjectiveValue>,
@@ -4791,9 +4863,9 @@ private constructor(
 
                 /**
                  * The type parameter accepts two inputs:
-                 * - min: This type of customized objective will minimize the metric provided in the
+                 * * min: This type of customized objective will minimize the metric provided in the
                  *   value parameter.
-                 * - min-max: This type of customized objective will approximate an even
+                 * * min-max: This type of customized objective will approximate an even
                  *   distribution of the metric provided in the value parameter, among all the
                  *   routes in solution.
                  *
@@ -4809,13 +4881,13 @@ private constructor(
                  * The value parameter accepts four inputs, two of them are valid for min type and
                  * other two are valid for min-max type custom objective. Let’s look at the values
                  * for min type objective:
-                 * - vehicles: Solver will minimize the number of vehicles used in the solution.
-                 * - completion_time: Solver will minimize the total time taken to complete all
+                 * * vehicles: Solver will minimize the number of vehicles used in the solution.
+                 * * completion_time: Solver will minimize the total time taken to complete all
                  *   tasks.
                  *
                  * The next set of values are acceptable when type is set to min-max.
-                 * - tasks: Solver will evenly distribute the tasks on each route.
-                 * - travel_cost: Solver will assign tasks such that the traveling cost of each
+                 * * tasks: Solver will evenly distribute the tasks on each route.
+                 * * travel_cost: Solver will assign tasks such that the traveling cost of each
                  *   route is within a close range of other routes. The travel cost metric
                  *   considered here is the one set using objective.travel_cost .
                  *
@@ -4890,9 +4962,9 @@ private constructor(
 
                     /**
                      * The type parameter accepts two inputs:
-                     * - min: This type of customized objective will minimize the metric provided in
+                     * * min: This type of customized objective will minimize the metric provided in
                      *   the value parameter.
-                     * - min-max: This type of customized objective will approximate an even
+                     * * min-max: This type of customized objective will approximate an even
                      *   distribution of the metric provided in the value parameter, among all the
                      *   routes in solution.
                      *
@@ -4913,13 +4985,13 @@ private constructor(
                      * The value parameter accepts four inputs, two of them are valid for min type
                      * and other two are valid for min-max type custom objective. Let’s look at the
                      * values for min type objective:
-                     * - vehicles: Solver will minimize the number of vehicles used in the solution.
-                     * - completion_time: Solver will minimize the total time taken to complete all
+                     * * vehicles: Solver will minimize the number of vehicles used in the solution.
+                     * * completion_time: Solver will minimize the total time taken to complete all
                      *   tasks.
                      *
                      * The next set of values are acceptable when type is set to min-max.
-                     * - tasks: Solver will evenly distribute the tasks on each route.
-                     * - travel_cost: Solver will assign tasks such that the traveling cost of each
+                     * * tasks: Solver will evenly distribute the tasks on each route.
+                     * * travel_cost: Solver will assign tasks such that the traveling cost of each
                      *   route is within a close range of other routes. The travel cost metric
                      *   considered here is the one set using objective.travel_cost .
                      *
@@ -5015,9 +5087,9 @@ private constructor(
 
                 /**
                  * The type parameter accepts two inputs:
-                 * - min: This type of customized objective will minimize the metric provided in the
+                 * * min: This type of customized objective will minimize the metric provided in the
                  *   value parameter.
-                 * - min-max: This type of customized objective will approximate an even
+                 * * min-max: This type of customized objective will approximate an even
                  *   distribution of the metric provided in the value parameter, among all the
                  *   routes in solution.
                  *
@@ -5148,7 +5220,7 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+                        return other is Type && value == other.value
                     }
 
                     override fun hashCode() = value.hashCode()
@@ -5160,13 +5232,13 @@ private constructor(
                  * The value parameter accepts four inputs, two of them are valid for min type and
                  * other two are valid for min-max type custom objective. Let’s look at the values
                  * for min type objective:
-                 * - vehicles: Solver will minimize the number of vehicles used in the solution.
-                 * - completion_time: Solver will minimize the total time taken to complete all
+                 * * vehicles: Solver will minimize the number of vehicles used in the solution.
+                 * * completion_time: Solver will minimize the total time taken to complete all
                  *   tasks.
                  *
                  * The next set of values are acceptable when type is set to min-max.
-                 * - tasks: Solver will evenly distribute the tasks on each route.
-                 * - travel_cost: Solver will assign tasks such that the traveling cost of each
+                 * * tasks: Solver will evenly distribute the tasks on each route.
+                 * * travel_cost: Solver will assign tasks such that the traveling cost of each
                  *   route is within a close range of other routes. The travel cost metric
                  *   considered here is the one set using objective.travel_cost .
                  *
@@ -5318,7 +5390,7 @@ private constructor(
                             return true
                         }
 
-                        return /* spotless:off */ other is ObjectiveValue && value == other.value /* spotless:on */
+                        return other is ObjectiveValue && value == other.value
                     }
 
                     override fun hashCode() = value.hashCode()
@@ -5331,12 +5403,15 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Custom && type == other.type && value == other.value && additionalProperties == other.additionalProperties /* spotless:on */
+                    return other is Custom &&
+                        type == other.type &&
+                        value == other.value &&
+                        additionalProperties == other.additionalProperties
                 }
 
-                /* spotless:off */
-                private val hashCode: Int by lazy { Objects.hash(type, value, additionalProperties) }
-                /* spotless:on */
+                private val hashCode: Int by lazy {
+                    Objects.hash(type, value, additionalProperties)
+                }
 
                 override fun hashCode(): Int = hashCode
 
@@ -5483,7 +5558,7 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is SolverMode && value == other.value /* spotless:on */
+                    return other is SolverMode && value == other.value
                 }
 
                 override fun hashCode() = value.hashCode()
@@ -5655,7 +5730,7 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is TravelCost && value == other.value /* spotless:on */
+                    return other is TravelCost && value == other.value
                 }
 
                 override fun hashCode() = value.hashCode()
@@ -5668,12 +5743,27 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Objective && allowEarlyArrival == other.allowEarlyArrival && custom == other.custom && minimiseNumDepots == other.minimiseNumDepots && solverMode == other.solverMode && solvingTimeLimit == other.solvingTimeLimit && travelCost == other.travelCost && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Objective &&
+                    allowEarlyArrival == other.allowEarlyArrival &&
+                    custom == other.custom &&
+                    minimiseNumDepots == other.minimiseNumDepots &&
+                    solverMode == other.solverMode &&
+                    solvingTimeLimit == other.solvingTimeLimit &&
+                    travelCost == other.travelCost &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(allowEarlyArrival, custom, minimiseNumDepots, solverMode, solvingTimeLimit, travelCost, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(
+                    allowEarlyArrival,
+                    custom,
+                    minimiseNumDepots,
+                    solverMode,
+                    solvingTimeLimit,
+                    travelCost,
+                    additionalProperties,
+                )
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -5683,6 +5773,7 @@ private constructor(
 
         /** This attribute is used to define the routing configurations for the optimization job. */
         class Routing
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val allow: JsonField<List<Allow>>,
             private val avoid: JsonField<List<Avoid>>,
@@ -5759,17 +5850,17 @@ private constructor(
              * Specify the type of objects/maneuvers that the route should avoid.
              *
              * Please note that:
-             * - The values are case-sensitive.
-             * - When using avoid:bbox feature, users need to specify the boundaries of the bounding
+             * * The values are case-sensitive.
+             * * When using avoid:bbox feature, users need to specify the boundaries of the bounding
              *   box to be avoided. Multiple bounding boxes can be provided simultaneously. Please
              *   note that bounding box is a hard filter and if it blocks all possible routes
              *   between given locations, a 4xx error is returned. Mention the bounding box
              *   boundaries in the following format: bbox:
-             *   min_latitude,min_longitude,max_latitude,max_longitude.
-             * - When using avoid=sharp_turn, the range of allowed turn angles is \[120,240\] in the
+             *   min\_latitude,min\_longitude,max\_latitude,max\_longitude.
+             * * When using avoid=sharp_turn, the range of allowed turn angles is \[120,240\] in the
              *   clockwise direction from the current road. Any roads with turn angles outside the
              *   range will be avoided.
-             * - If none is provided along with other values, an error is returned as a valid route
+             * * If none is provided along with other values, an error is returned as a valid route
              *   is not feasible.
              *
              * @throws NextbillionSdkInvalidDataException if the JSON field has an unexpected type
@@ -5848,22 +5939,23 @@ private constructor(
              * in options.routing can be added as values for a given profile.
              *
              * Please note:
-             * - The routing properties configured using options.routing (and not part of any
+             * * The routing properties configured using options.routing (and not part of any
              *   \profiles\) are considered as default route settings i.e. they are applied to
              *   vehicles which are not associated with any profile.
-             * - The default route settings are independent from those defined for any profiles .
+             * * The default route settings are independent from those defined for any profiles .
              *   Consequently, for vehicles which are tagged to a given profile, only the routing
              *   properties configured for the given profile will apply.
-             * - If the "mode" is not specified for any profile, by default it is considered to be
+             * * If the "mode" is not specified for any profile, by default it is considered to be
              *   car .
-             * - "default" is a reserved keyword and can not be used as the name for any custom
+             * * "default" is a reserved keyword and can not be used as the name for any custom
              *   profile.
-             * - profiles can't be nested in other profiles.
-             * - The number of profiles, including default route settings, are limited to
-             *     - 15, if 0 < number of location <= 100
-             *     - 6, if 100 < number of location <= 600，
-             *     - 2, if 600 < number of location <= 1200,
-             *     - 1, if number of location > 1200
+             * * profiles can't be nested in other profiles.
+             * * The number of profiles, including default route settings, are limited to
+             *
+             *     *   15, if 0 < number of location <= 100
+             *     *   6, if 100 < number of location <= 600，
+             *     *   2, if 600 < number of location <= 1200,
+             *     *   1, if number of location > 1200
              *
              * Routing profiles attribute is useful for configuring fleets containing multiple
              * vehicles types. Check
@@ -6093,17 +6185,17 @@ private constructor(
                  * Specify the type of objects/maneuvers that the route should avoid.
                  *
                  * Please note that:
-                 * - The values are case-sensitive.
-                 * - When using avoid:bbox feature, users need to specify the boundaries of the
+                 * * The values are case-sensitive.
+                 * * When using avoid:bbox feature, users need to specify the boundaries of the
                  *   bounding box to be avoided. Multiple bounding boxes can be provided
                  *   simultaneously. Please note that bounding box is a hard filter and if it blocks
                  *   all possible routes between given locations, a 4xx error is returned. Mention
                  *   the bounding box boundaries in the following format: bbox:
-                 *   min_latitude,min_longitude,max_latitude,max_longitude.
-                 * - When using avoid=sharp_turn, the range of allowed turn angles is \[120,240\] in
+                 *   min\_latitude,min\_longitude,max\_latitude,max\_longitude.
+                 * * When using avoid=sharp_turn, the range of allowed turn angles is \[120,240\] in
                  *   the clockwise direction from the current road. Any roads with turn angles
                  *   outside the range will be avoided.
-                 * - If none is provided along with other values, an error is returned as a valid
+                 * * If none is provided along with other values, an error is returned as a valid
                  *   route is not feasible.
                  */
                 fun avoid(avoid: List<Avoid>) = avoid(JsonField.of(avoid))
@@ -6249,22 +6341,23 @@ private constructor(
                  * available in options.routing can be added as values for a given profile.
                  *
                  * Please note:
-                 * - The routing properties configured using options.routing (and not part of any
+                 * * The routing properties configured using options.routing (and not part of any
                  *   \profiles\) are considered as default route settings i.e. they are applied to
                  *   vehicles which are not associated with any profile.
-                 * - The default route settings are independent from those defined for any profiles
+                 * * The default route settings are independent from those defined for any profiles
                  *   . Consequently, for vehicles which are tagged to a given profile, only the
                  *   routing properties configured for the given profile will apply.
-                 * - If the "mode" is not specified for any profile, by default it is considered to
+                 * * If the "mode" is not specified for any profile, by default it is considered to
                  *   be car .
-                 * - "default" is a reserved keyword and can not be used as the name for any custom
+                 * * "default" is a reserved keyword and can not be used as the name for any custom
                  *   profile.
-                 * - profiles can't be nested in other profiles.
-                 * - The number of profiles, including default route settings, are limited to
-                 *     - 15, if 0 < number of location <= 100
-                 *     - 6, if 100 < number of location <= 600，
-                 *     - 2, if 600 < number of location <= 1200,
-                 *     - 1, if number of location > 1200
+                 * * profiles can't be nested in other profiles.
+                 * * The number of profiles, including default route settings, are limited to
+                 *
+                 *     *   15, if 0 < number of location <= 100
+                 *     *   6, if 100 < number of location <= 600，
+                 *     *   2, if 600 < number of location <= 1200,
+                 *     *   1, if number of location > 1200
                  *
                  * Routing profiles attribute is useful for configuring fleets containing multiple
                  * vehicles types. Check
@@ -6564,7 +6657,7 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Allow && value == other.value /* spotless:on */
+                    return other is Allow && value == other.value
                 }
 
                 override fun hashCode() = value.hashCode()
@@ -6743,7 +6836,7 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Avoid && value == other.value /* spotless:on */
+                    return other is Avoid && value == other.value
                 }
 
                 override fun hashCode() = value.hashCode()
@@ -6873,7 +6966,7 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Context && value == other.value /* spotless:on */
+                    return other is Context && value == other.value
                 }
 
                 override fun hashCode() = value.hashCode()
@@ -7018,7 +7111,7 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is HazmatType && value == other.value /* spotless:on */
+                    return other is HazmatType && value == other.value
                 }
 
                 override fun hashCode() = value.hashCode()
@@ -7149,7 +7242,7 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Mode && value == other.value /* spotless:on */
+                    return other is Mode && value == other.value
                 }
 
                 override fun hashCode() = value.hashCode()
@@ -7162,12 +7255,39 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Routing && allow == other.allow && avoid == other.avoid && context == other.context && crossBorder == other.crossBorder && disableCache == other.disableCache && hazmatType == other.hazmatType && mode == other.mode && profiles == other.profiles && trafficTimestamp == other.trafficTimestamp && truckAxleLoad == other.truckAxleLoad && truckSize == other.truckSize && truckWeight == other.truckWeight && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Routing &&
+                    allow == other.allow &&
+                    avoid == other.avoid &&
+                    context == other.context &&
+                    crossBorder == other.crossBorder &&
+                    disableCache == other.disableCache &&
+                    hazmatType == other.hazmatType &&
+                    mode == other.mode &&
+                    profiles == other.profiles &&
+                    trafficTimestamp == other.trafficTimestamp &&
+                    truckAxleLoad == other.truckAxleLoad &&
+                    truckSize == other.truckSize &&
+                    truckWeight == other.truckWeight &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(allow, avoid, context, crossBorder, disableCache, hazmatType, mode, profiles, trafficTimestamp, truckAxleLoad, truckSize, truckWeight, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(
+                    allow,
+                    avoid,
+                    context,
+                    crossBorder,
+                    disableCache,
+                    hazmatType,
+                    mode,
+                    profiles,
+                    trafficTimestamp,
+                    truckAxleLoad,
+                    truckSize,
+                    truckWeight,
+                    additionalProperties,
+                )
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -7180,12 +7300,17 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Options && constraint == other.constraint && grouping == other.grouping && objective == other.objective && routing == other.routing && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Options &&
+                constraint == other.constraint &&
+                grouping == other.grouping &&
+                objective == other.objective &&
+                routing == other.routing &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(constraint, grouping, objective, routing, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(constraint, grouping, objective, routing, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -7194,6 +7319,7 @@ private constructor(
     }
 
     class Relation
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val steps: JsonField<List<Step>>,
         private val type: JsonField<Type>,
@@ -7230,13 +7356,13 @@ private constructor(
 
         /**
          * Specifies the type of relation constraint. The following types are supported:
-         * - in_same_route: Ensures that all steps are covered in the same route in solution.
-         * - in_sequence: Ensures that all steps are in the same route and their sequence matches
+         * * in_same_route: Ensures that all steps are covered in the same route in solution.
+         * * in_sequence: Ensures that all steps are in the same route and their sequence matches
          *   the order specified in the steps field. Insertion of new steps between the steps
          *   specified, is allowed.
-         * - in_direct_sequence: Similar to in_sequence, but insertion of new steps is not allowed
+         * * in_direct_sequence: Similar to in_sequence, but insertion of new steps is not allowed
          *   in the final route.
-         * - precedence: Restricts the travel time between the first step and second step. If the
+         * * precedence: Restricts the travel time between the first step and second step. If the
          *   precedence requirement cannot be satisfied, then the task specified at the second step
          *   will not be assigned. Only 2 steps can be specified in a single precedence type
          *   relations. Please use multiple precedence relations to apply restrictions on more than
@@ -7431,13 +7557,13 @@ private constructor(
 
             /**
              * Specifies the type of relation constraint. The following types are supported:
-             * - in_same_route: Ensures that all steps are covered in the same route in solution.
-             * - in_sequence: Ensures that all steps are in the same route and their sequence
+             * * in_same_route: Ensures that all steps are covered in the same route in solution.
+             * * in_sequence: Ensures that all steps are in the same route and their sequence
              *   matches the order specified in the steps field. Insertion of new steps between the
              *   steps specified, is allowed.
-             * - in_direct_sequence: Similar to in_sequence, but insertion of new steps is not
+             * * in_direct_sequence: Similar to in_sequence, but insertion of new steps is not
              *   allowed in the final route.
-             * - precedence: Restricts the travel time between the first step and second step. If
+             * * precedence: Restricts the travel time between the first step and second step. If
              *   the precedence requirement cannot be satisfied, then the task specified at the
              *   second step will not be assigned. Only 2 steps can be specified in a single
              *   precedence type relations. Please use multiple precedence relations to apply
@@ -7620,6 +7746,7 @@ private constructor(
                 (if (vehicle.asKnown().isPresent) 1 else 0)
 
         class Step
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val type: JsonField<Type>,
             private val id: JsonField<String>,
@@ -7955,7 +8082,7 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+                    return other is Type && value == other.value
                 }
 
                 override fun hashCode() = value.hashCode()
@@ -7968,12 +8095,13 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Step && type == other.type && id == other.id && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Step &&
+                    type == other.type &&
+                    id == other.id &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
             private val hashCode: Int by lazy { Objects.hash(type, id, additionalProperties) }
-            /* spotless:on */
 
             override fun hashCode(): Int = hashCode
 
@@ -7983,13 +8111,13 @@ private constructor(
 
         /**
          * Specifies the type of relation constraint. The following types are supported:
-         * - in_same_route: Ensures that all steps are covered in the same route in solution.
-         * - in_sequence: Ensures that all steps are in the same route and their sequence matches
+         * * in_same_route: Ensures that all steps are covered in the same route in solution.
+         * * in_sequence: Ensures that all steps are in the same route and their sequence matches
          *   the order specified in the steps field. Insertion of new steps between the steps
          *   specified, is allowed.
-         * - in_direct_sequence: Similar to in_sequence, but insertion of new steps is not allowed
+         * * in_direct_sequence: Similar to in_sequence, but insertion of new steps is not allowed
          *   in the final route.
-         * - precedence: Restricts the travel time between the first step and second step. If the
+         * * precedence: Restricts the travel time between the first step and second step. If the
          *   precedence requirement cannot be satisfied, then the task specified at the second step
          *   will not be assigned. Only 2 steps can be specified in a single precedence type
          *   relations. Please use multiple precedence relations to apply restrictions on more than
@@ -8131,7 +8259,7 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+                return other is Type && value == other.value
             }
 
             override fun hashCode() = value.hashCode()
@@ -8144,12 +8272,19 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Relation && steps == other.steps && type == other.type && id == other.id && maxDuration == other.maxDuration && minDuration == other.minDuration && vehicle == other.vehicle && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Relation &&
+                steps == other.steps &&
+                type == other.type &&
+                id == other.id &&
+                maxDuration == other.maxDuration &&
+                minDuration == other.minDuration &&
+                vehicle == other.vehicle &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(steps, type, id, maxDuration, minDuration, vehicle, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(steps, type, id, maxDuration, minDuration, vehicle, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -8158,6 +8293,7 @@ private constructor(
     }
 
     class Solution
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val cost: JsonField<Long>,
         private val steps: JsonField<List<Step>>,
@@ -8808,6 +8944,7 @@ private constructor(
 
         /** Describe details about a step of a route */
         class Step
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val id: JsonField<String>,
             private val arrival: JsonField<Long>,
@@ -9630,7 +9767,7 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+                    return other is Type && value == other.value
                 }
 
                 override fun hashCode() = value.hashCode()
@@ -9643,12 +9780,39 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Step && id == other.id && arrival == other.arrival && type == other.type && description == other.description && distance == other.distance && duration == other.duration && load == other.load && location == other.location && locationIndex == other.locationIndex && service == other.service && setup == other.setup && waitingTime == other.waitingTime && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Step &&
+                    id == other.id &&
+                    arrival == other.arrival &&
+                    type == other.type &&
+                    description == other.description &&
+                    distance == other.distance &&
+                    duration == other.duration &&
+                    load == other.load &&
+                    location == other.location &&
+                    locationIndex == other.locationIndex &&
+                    service == other.service &&
+                    setup == other.setup &&
+                    waitingTime == other.waitingTime &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(id, arrival, type, description, distance, duration, load, location, locationIndex, service, setup, waitingTime, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(
+                    id,
+                    arrival,
+                    type,
+                    description,
+                    distance,
+                    duration,
+                    load,
+                    location,
+                    locationIndex,
+                    service,
+                    setup,
+                    waitingTime,
+                    additionalProperties,
+                )
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -9661,12 +9825,41 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Solution && cost == other.cost && steps == other.steps && vehicle == other.vehicle && delivery == other.delivery && description == other.description && distance == other.distance && duration == other.duration && geometry == other.geometry && pickup == other.pickup && priority == other.priority && service == other.service && setup == other.setup && waitingTime == other.waitingTime && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Solution &&
+                cost == other.cost &&
+                steps == other.steps &&
+                vehicle == other.vehicle &&
+                delivery == other.delivery &&
+                description == other.description &&
+                distance == other.distance &&
+                duration == other.duration &&
+                geometry == other.geometry &&
+                pickup == other.pickup &&
+                priority == other.priority &&
+                service == other.service &&
+                setup == other.setup &&
+                waitingTime == other.waitingTime &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(cost, steps, vehicle, delivery, description, distance, duration, geometry, pickup, priority, service, setup, waitingTime, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                cost,
+                steps,
+                vehicle,
+                delivery,
+                description,
+                distance,
+                duration,
+                geometry,
+                pickup,
+                priority,
+                service,
+                setup,
+                waitingTime,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -9682,15 +9875,16 @@ private constructor(
      *
      * Users can reduce the number of unassigned tasks in the re-optimized solution, by following
      * strategies such as:
-     * - Extending the time windows for vehicles or tasks to give more flexibility
-     * - Adding more vehicles to the optimization problem
-     * - Adjusting the priority of different tasks to balance the workload more evenly
-     * - Modifying other constraints or parameters to make the problem more solvable
+     * * Extending the time windows for vehicles or tasks to give more flexibility
+     * * Adding more vehicles to the optimization problem
+     * * Adjusting the priority of different tasks to balance the workload more evenly
+     * * Modifying other constraints or parameters to make the problem more solvable
      *
      * Ultimately, the goal is to minimize the number of unassigned tasks while still meeting all
      * the necessary constraints and objectives.
      */
     class Unassigned
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val jobs: JsonField<List<String>>,
         private val shipments: JsonField<List<List<String>>>,
@@ -9916,12 +10110,13 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Unassigned && jobs == other.jobs && shipments == other.shipments && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Unassigned &&
+                jobs == other.jobs &&
+                shipments == other.shipments &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(jobs, shipments, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -9930,6 +10125,7 @@ private constructor(
     }
 
     class Zone
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val id: JsonField<Long>,
         private val geofenceId: JsonField<String>,
@@ -10171,6 +10367,7 @@ private constructor(
          * Please note that one of geometry or geofence_id should be provided.
          */
         class Geometry
+        @JsonCreator(mode = JsonCreator.Mode.DISABLED)
         private constructor(
             private val coordinates: JsonField<List<List<Double>>>,
             private val description: JsonField<String>,
@@ -10523,7 +10720,7 @@ private constructor(
                         return true
                     }
 
-                    return /* spotless:off */ other is Type && value == other.value /* spotless:on */
+                    return other is Type && value == other.value
                 }
 
                 override fun hashCode() = value.hashCode()
@@ -10536,12 +10733,16 @@ private constructor(
                     return true
                 }
 
-                return /* spotless:off */ other is Geometry && coordinates == other.coordinates && description == other.description && type == other.type && additionalProperties == other.additionalProperties /* spotless:on */
+                return other is Geometry &&
+                    coordinates == other.coordinates &&
+                    description == other.description &&
+                    type == other.type &&
+                    additionalProperties == other.additionalProperties
             }
 
-            /* spotless:off */
-            private val hashCode: Int by lazy { Objects.hash(coordinates, description, type, additionalProperties) }
-            /* spotless:on */
+            private val hashCode: Int by lazy {
+                Objects.hash(coordinates, description, type, additionalProperties)
+            }
 
             override fun hashCode(): Int = hashCode
 
@@ -10554,12 +10755,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Zone && id == other.id && geofenceId == other.geofenceId && geometry == other.geometry && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Zone &&
+                id == other.id &&
+                geofenceId == other.geofenceId &&
+                geometry == other.geometry &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(id, geofenceId, geometry, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(id, geofenceId, geometry, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -10572,10 +10777,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is V2SubmitParams && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is V2SubmitParams &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int = Objects.hash(key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "V2SubmitParams{key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

@@ -19,6 +19,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class MdmCreateDistanceMatrixResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val code: JsonField<String>,
     private val message: JsonField<String>,
@@ -286,12 +287,17 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is MdmCreateDistanceMatrixResponse && code == other.code && message == other.message && taskId == other.taskId && warning == other.warning && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is MdmCreateDistanceMatrixResponse &&
+            code == other.code &&
+            message == other.message &&
+            taskId == other.taskId &&
+            warning == other.warning &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
-    private val hashCode: Int by lazy { Objects.hash(code, message, taskId, warning, additionalProperties) }
-    /* spotless:on */
+    private val hashCode: Int by lazy {
+        Objects.hash(code, message, taskId, warning, additionalProperties)
+    }
 
     override fun hashCode(): Int = hashCode
 

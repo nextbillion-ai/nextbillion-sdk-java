@@ -97,9 +97,9 @@ private constructor(
 
     /**
      * Specify the metric to sort the assets returned in the search result. The valid values are:
-     * - **distance** : Sorts the assets by driving distance to the given sort_destination .
-     * - **duration** : Sorts the assets by travel time to the given sort_destination .
-     * - **straight_distance** : Sort the assets by straight-line distance to the given
+     * * **distance** : Sorts the assets by driving distance to the given sort_destination .
+     * * **duration** : Sorts the assets by travel time to the given sort_destination .
+     * * **straight\_distance** : Sort the assets by straight-line distance to the given
      *   sort-destination .
      */
     fun sortBy(): Optional<SortBy> = Optional.ofNullable(sortBy)
@@ -298,9 +298,9 @@ private constructor(
         /**
          * Specify the metric to sort the assets returned in the search result. The valid values
          * are:
-         * - **distance** : Sorts the assets by driving distance to the given sort_destination .
-         * - **duration** : Sorts the assets by travel time to the given sort_destination .
-         * - **straight_distance** : Sort the assets by straight-line distance to the given
+         * * **distance** : Sorts the assets by driving distance to the given sort_destination .
+         * * **duration** : Sorts the assets by travel time to the given sort_destination .
+         * * **straight\_distance** : Sort the assets by straight-line distance to the given
          *   sort-destination .
          */
         fun sortBy(sortBy: SortBy?) = apply { this.sortBy = sortBy }
@@ -489,9 +489,9 @@ private constructor(
 
     /**
      * Specify the metric to sort the assets returned in the search result. The valid values are:
-     * - **distance** : Sorts the assets by driving distance to the given sort_destination .
-     * - **duration** : Sorts the assets by travel time to the given sort_destination .
-     * - **straight_distance** : Sort the assets by straight-line distance to the given
+     * * **distance** : Sorts the assets by driving distance to the given sort_destination .
+     * * **duration** : Sorts the assets by travel time to the given sort_destination .
+     * * **straight\_distance** : Sort the assets by straight-line distance to the given
      *   sort-destination .
      */
     class SortBy @JsonCreator private constructor(private val value: JsonField<String>) : Enum {
@@ -619,7 +619,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is SortBy && value == other.value /* spotless:on */
+            return other is SortBy && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -754,7 +754,7 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is SortDrivingMode && value == other.value /* spotless:on */
+            return other is SortDrivingMode && value == other.value
         }
 
         override fun hashCode() = value.hashCode()
@@ -767,10 +767,40 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is SearchAroundParams && center == other.center && key == other.key && radius == other.radius && filter == other.filter && includeAllOfAttributes == other.includeAllOfAttributes && includeAnyOfAttributes == other.includeAnyOfAttributes && maxSearchLimit == other.maxSearchLimit && pn == other.pn && ps == other.ps && sortBy == other.sortBy && sortDestination == other.sortDestination && sortDrivingMode == other.sortDrivingMode && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is SearchAroundParams &&
+            center == other.center &&
+            key == other.key &&
+            radius == other.radius &&
+            filter == other.filter &&
+            includeAllOfAttributes == other.includeAllOfAttributes &&
+            includeAnyOfAttributes == other.includeAnyOfAttributes &&
+            maxSearchLimit == other.maxSearchLimit &&
+            pn == other.pn &&
+            ps == other.ps &&
+            sortBy == other.sortBy &&
+            sortDestination == other.sortDestination &&
+            sortDrivingMode == other.sortDrivingMode &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(center, key, radius, filter, includeAllOfAttributes, includeAnyOfAttributes, maxSearchLimit, pn, ps, sortBy, sortDestination, sortDrivingMode, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int =
+        Objects.hash(
+            center,
+            key,
+            radius,
+            filter,
+            includeAllOfAttributes,
+            includeAnyOfAttributes,
+            maxSearchLimit,
+            pn,
+            ps,
+            sortBy,
+            sortDestination,
+            sortDrivingMode,
+            additionalHeaders,
+            additionalQueryParams,
+        )
 
     override fun toString() =
         "SearchAroundParams{center=$center, key=$key, radius=$radius, filter=$filter, includeAllOfAttributes=$includeAllOfAttributes, includeAnyOfAttributes=$includeAnyOfAttributes, maxSearchLimit=$maxSearchLimit, pn=$pn, ps=$ps, sortBy=$sortBy, sortDestination=$sortDestination, sortDrivingMode=$sortDrivingMode, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

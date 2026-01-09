@@ -16,6 +16,7 @@ import java.util.Objects
 import java.util.Optional
 
 class PlaceCreateResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val docId: JsonField<String>,
     private val additionalProperties: MutableMap<String, JsonValue>,
@@ -147,12 +148,12 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is PlaceCreateResponse && docId == other.docId && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is PlaceCreateResponse &&
+            docId == other.docId &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(docId, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 

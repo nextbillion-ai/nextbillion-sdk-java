@@ -57,9 +57,9 @@ private constructor(
 
     /**
      * Provide the list of locations to be used during re-optimization process. Please note that
-     * - Providing the location input overwrites the list of locations used in the original request.
-     * - The location_indexes associated with all tasks and vehicles (both from the original and new
-     *   re-optimization input requests) will follow the updated list of locations.
+     * * Providing the location input overwrites the list of locations used in the original request.
+     * * The location\_indexes associated with all tasks and vehicles (both from the original and
+     *   new re-optimization input requests) will follow the updated list of locations.
      *
      * As a best practice:
      * 1. Don't provide the locations input when re-optimizing, if the original set contains all the
@@ -224,10 +224,10 @@ private constructor(
 
         /**
          * Provide the list of locations to be used during re-optimization process. Please note that
-         * - Providing the location input overwrites the list of locations used in the original
+         * * Providing the location input overwrites the list of locations used in the original
          *   request.
-         * - The location_indexes associated with all tasks and vehicles (both from the original and
-         *   new re-optimization input requests) will follow the updated list of locations.
+         * * The location\_indexes associated with all tasks and vehicles (both from the original
+         *   and new re-optimization input requests) will follow the updated list of locations.
          *
          * As a best practice:
          * 1. Don't provide the locations input when re-optimizing, if the original set contains all
@@ -450,6 +450,7 @@ private constructor(
             .build()
 
     class Body
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val existingRequestId: JsonField<String>,
         private val jobChanges: JsonField<JobChanges>,
@@ -505,10 +506,10 @@ private constructor(
 
         /**
          * Provide the list of locations to be used during re-optimization process. Please note that
-         * - Providing the location input overwrites the list of locations used in the original
+         * * Providing the location input overwrites the list of locations used in the original
          *   request.
-         * - The location_indexes associated with all tasks and vehicles (both from the original and
-         *   new re-optimization input requests) will follow the updated list of locations.
+         * * The location\_indexes associated with all tasks and vehicles (both from the original
+         *   and new re-optimization input requests) will follow the updated list of locations.
          *
          * As a best practice:
          * 1. Don't provide the locations input when re-optimizing, if the original set contains all
@@ -678,10 +679,11 @@ private constructor(
             /**
              * Provide the list of locations to be used during re-optimization process. Please note
              * that
-             * - Providing the location input overwrites the list of locations used in the original
+             * * Providing the location input overwrites the list of locations used in the original
              *   request.
-             * - The location_indexes associated with all tasks and vehicles (both from the original
-             *   and new re-optimization input requests) will follow the updated list of locations.
+             * * The location\_indexes associated with all tasks and vehicles (both from the
+             *   original and new re-optimization input requests) will follow the updated list of
+             *   locations.
              *
              * As a best practice:
              * 1. Don't provide the locations input when re-optimizing, if the original set contains
@@ -842,12 +844,25 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Body && existingRequestId == other.existingRequestId && jobChanges == other.jobChanges && locations == other.locations && shipmentChanges == other.shipmentChanges && vehicleChanges == other.vehicleChanges && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Body &&
+                existingRequestId == other.existingRequestId &&
+                jobChanges == other.jobChanges &&
+                locations == other.locations &&
+                shipmentChanges == other.shipmentChanges &&
+                vehicleChanges == other.vehicleChanges &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(existingRequestId, jobChanges, locations, shipmentChanges, vehicleChanges, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(
+                existingRequestId,
+                jobChanges,
+                locations,
+                shipmentChanges,
+                vehicleChanges,
+                additionalProperties,
+            )
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -861,6 +876,7 @@ private constructor(
      * be re-planned without alteration during the re-optimization process.
      */
     class JobChanges
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val add: JsonField<List<Job>>,
         private val modify: JsonField<List<Job>>,
@@ -1119,12 +1135,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is JobChanges && add == other.add && modify == other.modify && remove == other.remove && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is JobChanges &&
+                add == other.add &&
+                modify == other.modify &&
+                remove == other.remove &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(add, modify, remove, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(add, modify, remove, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1138,6 +1158,7 @@ private constructor(
      * specified here will be re-planned without alteration during the re-optimization process.
      */
     class ShipmentChanges
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val add: JsonField<List<Shipment>>,
         private val modify: JsonField<List<Shipment>>,
@@ -1402,12 +1423,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is ShipmentChanges && add == other.add && modify == other.modify && remove == other.remove && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is ShipmentChanges &&
+                add == other.add &&
+                modify == other.modify &&
+                remove == other.remove &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(add, modify, remove, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(add, modify, remove, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1422,6 +1447,7 @@ private constructor(
      * process.
      */
     class VehicleChanges
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val add: JsonField<List<Vehicle>>,
         private val modify: JsonField<Vehicle>,
@@ -1661,12 +1687,16 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is VehicleChanges && add == other.add && modify == other.modify && remove == other.remove && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is VehicleChanges &&
+                add == other.add &&
+                modify == other.modify &&
+                remove == other.remove &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
-        private val hashCode: Int by lazy { Objects.hash(add, modify, remove, additionalProperties) }
-        /* spotless:on */
+        private val hashCode: Int by lazy {
+            Objects.hash(add, modify, remove, additionalProperties)
+        }
 
         override fun hashCode(): Int = hashCode
 
@@ -1679,10 +1709,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is OptimizationReOptimizeParams && key == other.key && body == other.body && additionalHeaders == other.additionalHeaders && additionalQueryParams == other.additionalQueryParams /* spotless:on */
+        return other is OptimizationReOptimizeParams &&
+            key == other.key &&
+            body == other.body &&
+            additionalHeaders == other.additionalHeaders &&
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = /* spotless:off */ Objects.hash(key, body, additionalHeaders, additionalQueryParams) /* spotless:on */
+    override fun hashCode(): Int = Objects.hash(key, body, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
         "OptimizationReOptimizeParams{key=$key, body=$body, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"

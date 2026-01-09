@@ -21,6 +21,7 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class AssetListResponse
+@JsonCreator(mode = JsonCreator.Mode.DISABLED)
 private constructor(
     private val data: JsonField<Data>,
     private val message: JsonField<String>,
@@ -219,6 +220,7 @@ private constructor(
 
     /** A data object containing the list of assets. */
     class Data
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     private constructor(
         private val list: JsonField<List<AssetDetails>>,
         private val page: JsonField<Pagination>,
@@ -405,12 +407,13 @@ private constructor(
                 return true
             }
 
-            return /* spotless:off */ other is Data && list == other.list && page == other.page && additionalProperties == other.additionalProperties /* spotless:on */
+            return other is Data &&
+                list == other.list &&
+                page == other.page &&
+                additionalProperties == other.additionalProperties
         }
 
-        /* spotless:off */
         private val hashCode: Int by lazy { Objects.hash(list, page, additionalProperties) }
-        /* spotless:on */
 
         override fun hashCode(): Int = hashCode
 
@@ -423,12 +426,14 @@ private constructor(
             return true
         }
 
-        return /* spotless:off */ other is AssetListResponse && data == other.data && message == other.message && status == other.status && additionalProperties == other.additionalProperties /* spotless:on */
+        return other is AssetListResponse &&
+            data == other.data &&
+            message == other.message &&
+            status == other.status &&
+            additionalProperties == other.additionalProperties
     }
 
-    /* spotless:off */
     private val hashCode: Int by lazy { Objects.hash(data, message, status, additionalProperties) }
-    /* spotless:on */
 
     override fun hashCode(): Int = hashCode
 
