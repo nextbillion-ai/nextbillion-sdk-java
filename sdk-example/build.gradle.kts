@@ -8,7 +8,8 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":sdk"))
+    implementation(project(":sdk-core"))
+    implementation(project(":sdk-client-okhttp"))
 }
 
 tasks.withType<JavaCompile>().configureEach {
