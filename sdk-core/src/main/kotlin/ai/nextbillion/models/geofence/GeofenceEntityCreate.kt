@@ -93,6 +93,11 @@ private constructor(
      *
      * The data being added should be in valid JSON object format (i.e. key and value pairs). Max
      * size allowed for the object is 65kb.
+     *
+     * This arbitrary value can be deserialized into a custom type using the `convert` method:
+     * ```java
+     * MyClass myObject = geofenceEntityCreate.metaData().convert(MyClass.class);
+     * ```
      */
     @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 

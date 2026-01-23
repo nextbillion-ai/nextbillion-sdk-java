@@ -435,7 +435,14 @@ private constructor(
          */
         fun rawDuration(): Optional<Double> = rawDuration.getOptional("raw_duration")
 
-        /** Special geospatial objects or landmarks crossed along the route. */
+        /**
+         * Special geospatial objects or landmarks crossed along the route.
+         *
+         * This arbitrary value can be deserialized into a custom type using the `convert` method:
+         * ```java
+         * MyClass myObject = route.specialObjects().convert(MyClass.class);
+         * ```
+         */
         @JsonProperty("special_objects")
         @ExcludeMissing
         fun _specialObjects(): JsonValue = specialObjects
@@ -1515,7 +1522,15 @@ private constructor(
              */
             fun endLocation(): Optional<EndLocation> = endLocation.getOptional("end_location")
 
-            /** The raw estimated duration of the leg in seconds. */
+            /**
+             * The raw estimated duration of the leg in seconds.
+             *
+             * This arbitrary value can be deserialized into a custom type using the `convert`
+             * method:
+             * ```java
+             * MyClass myObject = leg.rawDuration().convert(MyClass.class);
+             * ```
+             */
             @JsonProperty("raw_duration")
             @ExcludeMissing
             fun _rawDuration(): JsonValue = rawDuration

@@ -52,6 +52,11 @@ private constructor(
      *
      * Another point to note is that the overall size of the attributes object cannot exceed 65kb
      * and the maximum number of key:value pairs that can be added to this object is 100.
+     *
+     * This arbitrary value can be deserialized into a custom type using the `convert` method:
+     * ```java
+     * MyClass myObject = assetUpdateParams.attributes().convert(MyClass.class);
+     * ```
      */
     fun _attributes(): JsonValue = body._attributes()
 
@@ -460,6 +465,11 @@ private constructor(
          *
          * Another point to note is that the overall size of the attributes object cannot exceed
          * 65kb and the maximum number of key:value pairs that can be added to this object is 100.
+         *
+         * This arbitrary value can be deserialized into a custom type using the `convert` method:
+         * ```java
+         * MyClass myObject = body.attributes().convert(MyClass.class);
+         * ```
          */
         @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 

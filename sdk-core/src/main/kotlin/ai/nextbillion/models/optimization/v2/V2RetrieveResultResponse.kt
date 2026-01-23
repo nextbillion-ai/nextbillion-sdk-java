@@ -323,6 +323,11 @@ private constructor(
          * provided in the input or if the vehicles tagged to profiles were not used in the
          * solution, the "default" routing properties are returned. Default routing properties are
          * indicated by options.routing in the input.
+         *
+         * This arbitrary value can be deserialized into a custom type using the `convert` method:
+         * ```java
+         * MyClass myObject = result.routingProfiles().convert(MyClass.class);
+         * ```
          */
         @JsonProperty("routing_profiles")
         @ExcludeMissing
@@ -775,6 +780,12 @@ private constructor(
              * Returns the custom information that was provided when the vehicle was configured.
              * This field would not be present for the vehicles that were not provided with any
              * metadata.
+             *
+             * This arbitrary value can be deserialized into a custom type using the `convert`
+             * method:
+             * ```java
+             * MyClass myObject = route.metadata().convert(MyClass.class);
+             * ```
              */
             @JsonProperty("metadata") @ExcludeMissing fun _metadata(): JsonValue = metadata
 
@@ -1723,6 +1734,12 @@ private constructor(
                  * pickup / delivery) was configured. This field would not be present for the tasks
                  * that were not provided with any metadata. It will also be not present for “start”
                  * and “end” steps.
+                 *
+                 * This arbitrary value can be deserialized into a custom type using the `convert`
+                 * method:
+                 * ```java
+                 * MyClass myObject = step.metadata().convert(MyClass.class);
+                 * ```
                  */
                 @JsonProperty("metadata") @ExcludeMissing fun _metadata(): JsonValue = metadata
 

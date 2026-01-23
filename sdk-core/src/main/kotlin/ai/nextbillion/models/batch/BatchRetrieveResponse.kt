@@ -296,6 +296,11 @@ private constructor(
          * structure of the response would vary depending on the routing endpoint used in each
          * individual query. However, it will be consistent with standard response for a given
          * routing endpoint.
+         *
+         * This arbitrary value can be deserialized into a custom type using the `convert` method:
+         * ```java
+         * MyClass myObject = response.response().convert(MyClass.class);
+         * ```
          */
         @JsonProperty("response") @ExcludeMissing fun _response(): JsonValue = response
 

@@ -457,6 +457,12 @@ private constructor(
 
             /**
              * Returns the attributes provided for the trip at the time of starting or updating it.
+             *
+             * This arbitrary value can be deserialized into a custom type using the `convert`
+             * method:
+             * ```java
+             * MyClass myObject = trip.attributes().convert(MyClass.class);
+             * ```
              */
             @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 
@@ -520,6 +526,12 @@ private constructor(
             /**
              * Returns the metadata containing additional information about the trip as provided at
              * the time of starting or updating the trip.
+             *
+             * This arbitrary value can be deserialized into a custom type using the `convert`
+             * method:
+             * ```java
+             * MyClass myObject = trip.metaData().convert(MyClass.class);
+             * ```
              */
             @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 

@@ -1033,6 +1033,11 @@ private constructor(
          *
          * Please note that the metadata content must always be specified in a key : value pair
          * format, where the “key” is always a string.
+         *
+         * This arbitrary value can be deserialized into a custom type using the `convert` method:
+         * ```java
+         * MyClass myObject = delivery.metadata().convert(MyClass.class);
+         * ```
          */
         @JsonProperty("metadata") @ExcludeMissing fun _metadata(): JsonValue = metadata
 
@@ -1622,6 +1627,11 @@ private constructor(
          *
          * Please note that the metadata content must always be specified in akey : value pair
          * format, where the “key” is always a string.
+         *
+         * This arbitrary value can be deserialized into a custom type using the `convert` method:
+         * ```java
+         * MyClass myObject = pickup.metadata().convert(MyClass.class);
+         * ```
          */
         @JsonProperty("metadata") @ExcludeMissing fun _metadata(): JsonValue = metadata
 

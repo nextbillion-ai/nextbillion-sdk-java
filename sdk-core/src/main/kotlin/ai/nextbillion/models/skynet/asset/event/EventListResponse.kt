@@ -492,6 +492,12 @@ private constructor(
              * use_admin_speed_limit is false, the speed limit will be equal to the
              * customer_speed_limit value provided by the user when creating or updating the
              * monitor.
+             *
+             * This arbitrary value can be deserialized into a custom type using the `convert`
+             * method:
+             * ```java
+             * MyClass myObject = assetEvent.extra().convert(MyClass.class);
+             * ```
              */
             @JsonProperty("extra") @ExcludeMissing fun _extra(): JsonValue = extra
 
@@ -1148,7 +1154,15 @@ private constructor(
                  */
                 fun location(): Optional<Location> = location.getOptional("location")
 
-                /** Returns the custom data added during the location information upload. */
+                /**
+                 * Returns the custom data added during the location information upload.
+                 *
+                 * This arbitrary value can be deserialized into a custom type using the `convert`
+                 * method:
+                 * ```java
+                 * MyClass myObject = prevLocation.metaData().convert(MyClass.class);
+                 * ```
+                 */
                 @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
                 /**
@@ -1648,7 +1662,15 @@ private constructor(
                  */
                 fun location(): Optional<Location> = location.getOptional("location")
 
-                /** Returns the custom data added during the location information upload. */
+                /**
+                 * Returns the custom data added during the location information upload.
+                 *
+                 * This arbitrary value can be deserialized into a custom type using the `convert`
+                 * method:
+                 * ```java
+                 * MyClass myObject = triggeredLocation.metaData().convert(MyClass.class);
+                 * ```
+                 */
                 @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
                 /**

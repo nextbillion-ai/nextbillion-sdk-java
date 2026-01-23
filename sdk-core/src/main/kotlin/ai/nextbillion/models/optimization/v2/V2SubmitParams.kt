@@ -5961,6 +5961,12 @@ private constructor(
              * vehicles types. Check
              * [Routing Profiles](https://docs.nextbillion.ai/docs/optimization/api/route-optimization-flexible/tutorials/routing-profiles)
              * tutorial to learn more.
+             *
+             * This arbitrary value can be deserialized into a custom type using the `convert`
+             * method:
+             * ```java
+             * MyClass myObject = routing.profiles().convert(MyClass.class);
+             * ```
              */
             @JsonProperty("profiles") @ExcludeMissing fun _profiles(): JsonValue = profiles
 

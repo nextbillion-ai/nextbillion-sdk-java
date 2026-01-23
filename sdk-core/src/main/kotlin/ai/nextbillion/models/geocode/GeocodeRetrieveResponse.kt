@@ -1549,6 +1549,12 @@ private constructor(
             /**
              * A breakdown of how closely individual field of the result matched with the provided
              * query q.
+             *
+             * This arbitrary value can be deserialized into a custom type using the `convert`
+             * method:
+             * ```java
+             * MyClass myObject = scoring.fieldScore().convert(MyClass.class);
+             * ```
              */
             @JsonProperty("fieldScore") @ExcludeMissing fun _fieldScore(): JsonValue = fieldScore
 

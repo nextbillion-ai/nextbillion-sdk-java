@@ -54,6 +54,11 @@ private constructor(
      *
      * Please note that the maximum number of key:value pairs that can be added to an attributes
      * object is 100. Also, the overall size of attributes object should not exceed 65kb.
+     *
+     * This arbitrary value can be deserialized into a custom type using the `convert` method:
+     * ```java
+     * MyClass myObject = tripStartParams.attributes().convert(MyClass.class);
+     * ```
      */
     fun _attributes(): JsonValue = body._attributes()
 
@@ -80,6 +85,11 @@ private constructor(
      * An JSON object to collect additional details about the trip. Use this property to add any
      * custom information / context about the trip. The input will be passed on to the response
      * as-is and can be used to display useful information on, for example, a UI app.
+     *
+     * This arbitrary value can be deserialized into a custom type using the `convert` method:
+     * ```java
+     * MyClass myObject = tripStartParams.metaData().convert(MyClass.class);
+     * ```
      */
     fun _metaData(): JsonValue = body._metaData()
 
@@ -489,6 +499,11 @@ private constructor(
          *
          * Please note that the maximum number of key:value pairs that can be added to an attributes
          * object is 100. Also, the overall size of attributes object should not exceed 65kb.
+         *
+         * This arbitrary value can be deserialized into a custom type using the `convert` method:
+         * ```java
+         * MyClass myObject = body.attributes().convert(MyClass.class);
+         * ```
          */
         @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 
@@ -515,6 +530,11 @@ private constructor(
          * An JSON object to collect additional details about the trip. Use this property to add any
          * custom information / context about the trip. The input will be passed on to the response
          * as-is and can be used to display useful information on, for example, a UI app.
+         *
+         * This arbitrary value can be deserialized into a custom type using the `convert` method:
+         * ```java
+         * MyClass myObject = body.metaData().convert(MyClass.class);
+         * ```
          */
         @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
@@ -877,6 +897,11 @@ private constructor(
          * An JSON object to collect additional details about the stop. Use this property to add any
          * custom information / context about the stop. The input will be passed on to the response
          * as-is and can be used to display useful information on, for example, a UI app.
+         *
+         * This arbitrary value can be deserialized into a custom type using the `convert` method:
+         * ```java
+         * MyClass myObject = stop.metaData().convert(MyClass.class);
+         * ```
          */
         @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 

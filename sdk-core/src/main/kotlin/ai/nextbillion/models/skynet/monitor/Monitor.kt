@@ -1076,6 +1076,11 @@ private constructor(
          * Please note that the maximum number of key:value pairs that 'include_all_of_attributes'
          * can take is 100. Also, the overall size of the match_filter object should not exceed
          * 65kb.
+         *
+         * This arbitrary value can be deserialized into a custom type using the `convert` method:
+         * ```java
+         * MyClass myObject = matchFilter.includeAllOfAttributes().convert(MyClass.class);
+         * ```
          */
         @JsonProperty("include_all_of_attributes")
         @ExcludeMissing
@@ -1092,6 +1097,11 @@ private constructor(
          *
          * Please note that the maximum number of key:value pairs that include_any_of_attributes can
          * take is 100. Also, the overall size of match_filter object should not exceed 65kb.
+         *
+         * This arbitrary value can be deserialized into a custom type using the `convert` method:
+         * ```java
+         * MyClass myObject = matchFilter.includeAnyOfAttributes().convert(MyClass.class);
+         * ```
          */
         @JsonProperty("include_any_of_attributes")
         @ExcludeMissing

@@ -41,7 +41,14 @@ private constructor(
      */
     fun geofenceId(): Optional<String> = geofenceId.getOptional("geofence_id")
 
-    /** Returns any meta data that was added to provide additional information about the stop. */
+    /**
+     * Returns any meta data that was added to provide additional information about the stop.
+     *
+     * This arbitrary value can be deserialized into a custom type using the `convert` method:
+     * ```java
+     * MyClass myObject = tripStop.metaData().convert(MyClass.class);
+     * ```
+     */
     @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
     /**

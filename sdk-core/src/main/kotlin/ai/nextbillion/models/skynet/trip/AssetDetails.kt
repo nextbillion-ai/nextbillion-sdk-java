@@ -86,6 +86,11 @@ private constructor(
      * associated with the asset at the time of creating or updating it.
      *
      * attributes can be added to an asset using the *Update Asset Attributes* method.
+     *
+     * This arbitrary value can be deserialized into a custom type using the `convert` method:
+     * ```java
+     * MyClass myObject = assetDetails.attributes().convert(MyClass.class);
+     * ```
      */
     @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 

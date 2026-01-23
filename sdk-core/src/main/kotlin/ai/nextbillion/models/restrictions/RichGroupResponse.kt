@@ -116,7 +116,14 @@ private constructor(
      */
     fun area(): Optional<String> = area.getOptional("area")
 
-    /** Returns the details of the bounding box containing the restriction. */
+    /**
+     * Returns the details of the bounding box containing the restriction.
+     *
+     * This arbitrary value can be deserialized into a custom type using the `convert` method:
+     * ```java
+     * MyClass myObject = richGroupResponse.bbox().convert(MyClass.class);
+     * ```
+     */
     @JsonProperty("bbox") @ExcludeMissing fun _bbox(): JsonValue = bbox
 
     /**
@@ -156,6 +163,11 @@ private constructor(
      * Returns the list of coordinates representing the area that was used to apply the given
      * restriction. The geofence returned is same as that provided while creating or updating the
      * restriction.
+     *
+     * This arbitrary value can be deserialized into a custom type using the `convert` method:
+     * ```java
+     * MyClass myObject = richGroupResponse.geofence().convert(MyClass.class);
+     * ```
      */
     @JsonProperty("geofence") @ExcludeMissing fun _geofence(): JsonValue = geofence
 

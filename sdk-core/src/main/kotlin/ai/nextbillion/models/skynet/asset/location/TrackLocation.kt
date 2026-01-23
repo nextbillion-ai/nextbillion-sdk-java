@@ -114,6 +114,11 @@ private constructor(
 
     /**
      * Specifies the custom data about the location that was added when the location was uploaded.
+     *
+     * This arbitrary value can be deserialized into a custom type using the `convert` method:
+     * ```java
+     * MyClass myObject = trackLocation.metaData().convert(MyClass.class);
+     * ```
      */
     @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 

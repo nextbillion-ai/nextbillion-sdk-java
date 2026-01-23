@@ -56,6 +56,11 @@ private constructor(
     /**
      * Use this field to update the attributes of the trip. Please note that when updating the
      * attributes field, previously added information will be overwritten.
+     *
+     * This arbitrary value can be deserialized into a custom type using the `convert` method:
+     * ```java
+     * MyClass myObject = tripUpdateParams.attributes().convert(MyClass.class);
+     * ```
      */
     fun _attributes(): JsonValue = body._attributes()
 
@@ -73,6 +78,11 @@ private constructor(
      *
      * Please note that updating the meta_data field will overwrite the previously added
      * information.
+     *
+     * This arbitrary value can be deserialized into a custom type using the `convert` method:
+     * ```java
+     * MyClass myObject = tripUpdateParams.metaData().convert(MyClass.class);
+     * ```
      */
     fun _metaData(): JsonValue = body._metaData()
 
@@ -473,6 +483,11 @@ private constructor(
         /**
          * Use this field to update the attributes of the trip. Please note that when updating the
          * attributes field, previously added information will be overwritten.
+         *
+         * This arbitrary value can be deserialized into a custom type using the `convert` method:
+         * ```java
+         * MyClass myObject = body.attributes().convert(MyClass.class);
+         * ```
          */
         @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 
@@ -490,6 +505,11 @@ private constructor(
          *
          * Please note that updating the meta_data field will overwrite the previously added
          * information.
+         *
+         * This arbitrary value can be deserialized into a custom type using the `convert` method:
+         * ```java
+         * MyClass myObject = body.metaData().convert(MyClass.class);
+         * ```
          */
         @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
@@ -828,6 +848,11 @@ private constructor(
          *
          * Please note that updating the meta_data field will overwrite the previously added
          * information.
+         *
+         * This arbitrary value can be deserialized into a custom type using the `convert` method:
+         * ```java
+         * MyClass myObject = stop.metaData().convert(MyClass.class);
+         * ```
          */
         @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 

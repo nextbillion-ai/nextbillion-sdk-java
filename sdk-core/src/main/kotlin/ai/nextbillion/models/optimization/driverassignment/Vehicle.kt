@@ -65,6 +65,11 @@ private constructor(
      *
      * The maximum number of key:value pairs that can be specified under attributes for a given
      * vehicle, is limited to 30.
+     *
+     * This arbitrary value can be deserialized into a custom type using the `convert` method:
+     * ```java
+     * MyClass myObject = vehicle.attributes().convert(MyClass.class);
+     * ```
      */
     @JsonProperty("attributes") @ExcludeMissing fun _attributes(): JsonValue = attributes
 

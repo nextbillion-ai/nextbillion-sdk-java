@@ -1329,12 +1329,24 @@ private constructor(
 
             /**
              * A break up of country-wise distances that the route covers in key:value pair format.
+             *
+             * This arbitrary value can be deserialized into a custom type using the `convert`
+             * method:
+             * ```java
+             * MyClass myObject = summary.country().convert(MyClass.class);
+             * ```
              */
             @JsonProperty("country") @ExcludeMissing fun _country(): JsonValue = country
 
             /**
              * A break up of state-wise distances that the route covers specified in key:value pair
              * format.
+             *
+             * This arbitrary value can be deserialized into a custom type using the `convert`
+             * method:
+             * ```java
+             * MyClass myObject = summary.state().convert(MyClass.class);
+             * ```
              */
             @JsonProperty("state") @ExcludeMissing fun _state(): JsonValue = state
 
@@ -2548,6 +2560,12 @@ private constructor(
              * An object with details about the different types of road classes that the route goes
              * through. Distance traversed on a given road class is also returned. The contents of
              * this object follow the key:value pair format.
+             *
+             * This arbitrary value can be deserialized into a custom type using the `convert`
+             * method:
+             * ```java
+             * MyClass myObject = summary.roadClass().convert(MyClass.class);
+             * ```
              */
             @JsonProperty("road_class") @ExcludeMissing fun _roadClass(): JsonValue = roadClass
 

@@ -668,6 +668,11 @@ private constructor(
          * Recommended to use the key:value format for adding the desired information.
          *
          * Please note that the maximum size of meta_data object should not exceed 65Kb.
+         *
+         * This arbitrary value can be deserialized into a custom type using the `convert` method:
+         * ```java
+         * MyClass myObject = locations.metaData().convert(MyClass.class);
+         * ```
          */
         @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 

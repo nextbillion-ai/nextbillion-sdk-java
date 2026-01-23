@@ -205,7 +205,14 @@ private constructor(
      */
     fun icMode(): Optional<Double> = icMode.getOptional("ic_mode")
 
-    /** Metadata of the geofence added at the time of creating or updating it. */
+    /**
+     * Metadata of the geofence added at the time of creating or updating it.
+     *
+     * This arbitrary value can be deserialized into a custom type using the `convert` method:
+     * ```java
+     * MyClass myObject = geofence.metaData().convert(MyClass.class);
+     * ```
+     */
     @JsonProperty("meta_data") @ExcludeMissing fun _metaData(): JsonValue = metaData
 
     /**
