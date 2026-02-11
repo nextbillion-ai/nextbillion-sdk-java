@@ -12,7 +12,7 @@ internal class StepCreateParamsTest {
     fun create() {
         StepCreateParams.builder()
             .routeId("routeID")
-            .key("key")
+            .key("key=API_KEY")
             .arrival(0L)
             .addLocation(0.0)
             .type(RouteStepsRequest.Type.START)
@@ -42,7 +42,7 @@ internal class StepCreateParamsTest {
         val params =
             StepCreateParams.builder()
                 .routeId("routeID")
-                .key("key")
+                .key("key=API_KEY")
                 .arrival(0L)
                 .addLocation(0.0)
                 .type(RouteStepsRequest.Type.START)
@@ -59,7 +59,7 @@ internal class StepCreateParamsTest {
         val params =
             StepCreateParams.builder()
                 .routeId("routeID")
-                .key("key")
+                .key("key=API_KEY")
                 .arrival(0L)
                 .addLocation(0.0)
                 .type(RouteStepsRequest.Type.START)
@@ -87,7 +87,7 @@ internal class StepCreateParamsTest {
 
         val queryParams = params._queryParams()
 
-        assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key").build())
+        assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key=API_KEY").build())
     }
 
     @Test
@@ -95,7 +95,7 @@ internal class StepCreateParamsTest {
         val params =
             StepCreateParams.builder()
                 .routeId("routeID")
-                .key("key")
+                .key("key=API_KEY")
                 .arrival(0L)
                 .addLocation(0.0)
                 .type(RouteStepsRequest.Type.START)
@@ -104,7 +104,7 @@ internal class StepCreateParamsTest {
 
         val queryParams = params._queryParams()
 
-        assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key").build())
+        assertThat(queryParams).isEqualTo(QueryParams.builder().put("key", "key=API_KEY").build())
     }
 
     @Test
@@ -112,7 +112,7 @@ internal class StepCreateParamsTest {
         val params =
             StepCreateParams.builder()
                 .routeId("routeID")
-                .key("key")
+                .key("key=API_KEY")
                 .arrival(0L)
                 .addLocation(0.0)
                 .type(RouteStepsRequest.Type.START)
@@ -171,7 +171,7 @@ internal class StepCreateParamsTest {
         val params =
             StepCreateParams.builder()
                 .routeId("routeID")
-                .key("key")
+                .key("key=API_KEY")
                 .arrival(0L)
                 .addLocation(0.0)
                 .type(RouteStepsRequest.Type.START)

@@ -33,7 +33,7 @@ internal class StepServiceAsyncTest {
             stepServiceAsync.create(
                 StepCreateParams.builder()
                     .routeId("routeID")
-                    .key("key")
+                    .key("key=API_KEY")
                     .arrival(0L)
                     .addLocation(0.0)
                     .type(RouteStepsRequest.Type.START)
