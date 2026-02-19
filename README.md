@@ -360,6 +360,25 @@ NextbillionSdkClient client = NextbillionSdkOkHttpClient.builder()
     .build();
 ```
 
+### Connection pooling
+
+To customize the underlying OkHttp connection pool, configure the client using the `maxIdleConnections` and `keepAliveDuration` methods:
+
+```java
+import ai.nextbillion.client.NextbillionSdkClient;
+import ai.nextbillion.client.okhttp.NextbillionSdkOkHttpClient;
+import java.time.Duration;
+
+NextbillionSdkClient client = NextbillionSdkOkHttpClient.builder()
+    .fromEnv()
+    // If `maxIdleConnections` is set, then `keepAliveDuration` must be set, and vice versa.
+    .maxIdleConnections(10)
+    .keepAliveDuration(Duration.ofMinutes(2))
+    .build();
+```
+
+If both options are unset, OkHttp's default connection pool settings are used.
+
 ### HTTPS
 
 > [!NOTE]
