@@ -2,26 +2,19 @@
 
 package ai.nextbillion.services.async.geofence
 
-import ai.nextbillion.TestServerExtension
 import ai.nextbillion.client.okhttp.NextbillionSdkOkHttpClientAsync
 import ai.nextbillion.core.JsonValue
 import ai.nextbillion.models.geofence.GeofenceEntityCreate
 import ai.nextbillion.models.geofence.console.ConsoleSearchParams
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class ConsoleServiceAsyncTest {
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun preview() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val consoleServiceAsync = client.geofence().console()
 
         val responseFuture =
@@ -72,14 +65,10 @@ internal class ConsoleServiceAsyncTest {
         response.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun search() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val consoleServiceAsync = client.geofence().console()
 
         val responseFuture =

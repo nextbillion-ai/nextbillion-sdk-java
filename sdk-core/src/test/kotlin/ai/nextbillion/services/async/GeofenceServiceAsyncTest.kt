@@ -2,7 +2,6 @@
 
 package ai.nextbillion.services.async
 
-import ai.nextbillion.TestServerExtension
 import ai.nextbillion.client.okhttp.NextbillionSdkOkHttpClientAsync
 import ai.nextbillion.core.JsonValue
 import ai.nextbillion.models.geofence.GeofenceContainsParams
@@ -14,19 +13,13 @@ import ai.nextbillion.models.geofence.GeofenceRetrieveParams
 import ai.nextbillion.models.geofence.GeofenceUpdateParams
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class GeofenceServiceAsyncTest {
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun create() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val geofenceServiceAsync = client.geofence()
 
         val geofenceFuture =
@@ -86,14 +79,10 @@ internal class GeofenceServiceAsyncTest {
         geofence.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun retrieve() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val geofenceServiceAsync = client.geofence()
 
         val geofenceFuture =
@@ -105,14 +94,10 @@ internal class GeofenceServiceAsyncTest {
         geofence.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun update() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val geofenceServiceAsync = client.geofence()
 
         val simpleRespFuture =
@@ -162,14 +147,10 @@ internal class GeofenceServiceAsyncTest {
         simpleResp.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun list() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val geofenceServiceAsync = client.geofence()
 
         val geofencesFuture =
@@ -186,14 +167,10 @@ internal class GeofenceServiceAsyncTest {
         geofences.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun delete() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val geofenceServiceAsync = client.geofence()
 
         val simpleRespFuture =
@@ -205,14 +182,10 @@ internal class GeofenceServiceAsyncTest {
         simpleResp.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun contains() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val geofenceServiceAsync = client.geofence()
 
         val responseFuture =

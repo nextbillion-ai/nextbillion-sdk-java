@@ -2,7 +2,6 @@
 
 package ai.nextbillion.services.blocking.geofence
 
-import ai.nextbillion.TestServerExtension
 import ai.nextbillion.client.okhttp.NextbillionSdkOkHttpClient
 import ai.nextbillion.core.JsonValue
 import ai.nextbillion.models.geofence.GeofenceEntityCreate
@@ -11,19 +10,13 @@ import ai.nextbillion.models.geofence.batch.BatchDeleteParams
 import ai.nextbillion.models.geofence.batch.BatchListParams
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class BatchServiceTest {
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun create() {
-        val client =
-            NextbillionSdkOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClient.builder().apiKey("My API Key").build()
         val batchService = client.geofence().batch()
 
         val batch =
@@ -82,14 +75,10 @@ internal class BatchServiceTest {
         batch.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun list() {
-        val client =
-            NextbillionSdkOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClient.builder().apiKey("My API Key").build()
         val batchService = client.geofence().batch()
 
         val batches =
@@ -98,14 +87,10 @@ internal class BatchServiceTest {
         batches.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun delete() {
-        val client =
-            NextbillionSdkOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClient.builder().apiKey("My API Key").build()
         val batchService = client.geofence().batch()
 
         val simpleResp =

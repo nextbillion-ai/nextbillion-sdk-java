@@ -2,24 +2,17 @@
 
 package ai.nextbillion.services.async
 
-import ai.nextbillion.TestServerExtension
 import ai.nextbillion.client.okhttp.NextbillionSdkOkHttpClientAsync
 import ai.nextbillion.models.multigeocode.MultigeocodeSearchParams
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class MultigeocodeServiceAsyncTest {
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun search() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val multigeocodeServiceAsync = client.multigeocode()
 
         val responseFuture =

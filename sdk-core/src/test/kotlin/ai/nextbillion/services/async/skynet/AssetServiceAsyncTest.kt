@@ -2,7 +2,6 @@
 
 package ai.nextbillion.services.async.skynet
 
-import ai.nextbillion.TestServerExtension
 import ai.nextbillion.client.okhttp.NextbillionSdkOkHttpClientAsync
 import ai.nextbillion.core.JsonValue
 import ai.nextbillion.models.skynet.asset.AssetBindParams
@@ -16,19 +15,13 @@ import ai.nextbillion.models.skynet.asset.AssetUpdateParams
 import ai.nextbillion.models.skynet.asset.MetaData
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class AssetServiceAsyncTest {
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun create() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val assetServiceAsync = client.skynet().asset()
 
         val assetFuture =
@@ -53,14 +46,10 @@ internal class AssetServiceAsyncTest {
         asset.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun retrieve() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val assetServiceAsync = client.skynet().asset()
 
         val assetFuture =
@@ -76,14 +65,10 @@ internal class AssetServiceAsyncTest {
         asset.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun update() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val assetServiceAsync = client.skynet().asset()
 
         val simpleRespFuture =
@@ -108,14 +93,10 @@ internal class AssetServiceAsyncTest {
         simpleResp.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun list() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val assetServiceAsync = client.skynet().asset()
 
         val assetsFuture =
@@ -140,14 +121,10 @@ internal class AssetServiceAsyncTest {
         assets.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun delete() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val assetServiceAsync = client.skynet().asset()
 
         val simpleRespFuture =
@@ -163,14 +140,10 @@ internal class AssetServiceAsyncTest {
         simpleResp.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun bind() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val assetServiceAsync = client.skynet().asset()
 
         val simpleRespFuture =
@@ -182,14 +155,10 @@ internal class AssetServiceAsyncTest {
         simpleResp.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun track() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val assetServiceAsync = client.skynet().asset()
 
         val simpleRespFuture =
@@ -228,14 +197,10 @@ internal class AssetServiceAsyncTest {
         simpleResp.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun updateAttributes() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val assetServiceAsync = client.skynet().asset()
 
         val simpleRespFuture =

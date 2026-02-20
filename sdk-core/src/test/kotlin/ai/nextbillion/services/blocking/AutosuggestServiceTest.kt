@@ -2,24 +2,17 @@
 
 package ai.nextbillion.services.blocking
 
-import ai.nextbillion.TestServerExtension
 import ai.nextbillion.client.okhttp.NextbillionSdkOkHttpClient
 import ai.nextbillion.models.autosuggest.AutosuggestSuggestParams
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class AutosuggestServiceTest {
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun suggest() {
-        val client =
-            NextbillionSdkOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClient.builder().apiKey("My API Key").build()
         val autosuggestService = client.autosuggest()
 
         val response =

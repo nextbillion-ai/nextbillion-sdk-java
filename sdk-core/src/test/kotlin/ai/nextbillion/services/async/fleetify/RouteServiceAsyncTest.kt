@@ -2,7 +2,6 @@
 
 package ai.nextbillion.services.async.fleetify
 
-import ai.nextbillion.TestServerExtension
 import ai.nextbillion.client.okhttp.NextbillionSdkOkHttpClientAsync
 import ai.nextbillion.models.fleetify.routes.RouteCreateParams
 import ai.nextbillion.models.fleetify.routes.RouteRedispatchParams
@@ -11,19 +10,13 @@ import ai.nextbillion.models.fleetify.routes.steps.RouteStepGeofenceConfig
 import ai.nextbillion.models.fleetify.routes.steps.RouteStepsRequest
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class RouteServiceAsyncTest {
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun create() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val routeServiceAsync = client.fleetify().routes()
 
         val routeFuture =
@@ -84,14 +77,10 @@ internal class RouteServiceAsyncTest {
         route.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun redispatch() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val routeServiceAsync = client.fleetify().routes()
 
         val responseFuture =

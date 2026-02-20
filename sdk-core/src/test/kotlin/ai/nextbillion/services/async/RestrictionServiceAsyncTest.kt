@@ -2,7 +2,6 @@
 
 package ai.nextbillion.services.async
 
-import ai.nextbillion.TestServerExtension
 import ai.nextbillion.client.okhttp.NextbillionSdkOkHttpClientAsync
 import ai.nextbillion.models.restrictions.RestrictionCreateParams
 import ai.nextbillion.models.restrictions.RestrictionDeleteParams
@@ -14,19 +13,13 @@ import ai.nextbillion.models.restrictions.RestrictionUpdateParams
 import ai.nextbillion.models.restrictions.RichGroupRequest
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class RestrictionServiceAsyncTest {
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun create() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val restrictionServiceAsync = client.restrictions()
 
         val richGroupResponseFuture =
@@ -68,14 +61,10 @@ internal class RestrictionServiceAsyncTest {
         richGroupResponse.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun retrieve() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val restrictionServiceAsync = client.restrictions()
 
         val richGroupResponseFuture =
@@ -91,14 +80,10 @@ internal class RestrictionServiceAsyncTest {
         richGroupResponse.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun update() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val restrictionServiceAsync = client.restrictions()
 
         val richGroupResponseFuture =
@@ -140,14 +125,10 @@ internal class RestrictionServiceAsyncTest {
         richGroupResponse.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun list() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val restrictionServiceAsync = client.restrictions()
 
         val restrictionsFuture =
@@ -171,14 +152,10 @@ internal class RestrictionServiceAsyncTest {
         restrictions.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun delete() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val restrictionServiceAsync = client.restrictions()
 
         val restrictionFuture =
@@ -190,14 +167,10 @@ internal class RestrictionServiceAsyncTest {
         restriction.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun listByBbox() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val restrictionServiceAsync = client.restrictions()
 
         val richGroupResponsesFuture =
@@ -221,14 +194,10 @@ internal class RestrictionServiceAsyncTest {
         richGroupResponses.forEach { it.validate() }
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun setState() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val restrictionServiceAsync = client.restrictions()
 
         val richGroupResponseFuture =

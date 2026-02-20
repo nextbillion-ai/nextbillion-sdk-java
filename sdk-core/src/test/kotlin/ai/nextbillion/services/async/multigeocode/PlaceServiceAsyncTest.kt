@@ -2,7 +2,6 @@
 
 package ai.nextbillion.services.async.multigeocode
 
-import ai.nextbillion.TestServerExtension
 import ai.nextbillion.client.okhttp.NextbillionSdkOkHttpClientAsync
 import ai.nextbillion.models.multigeocode.place.PlaceCreateParams
 import ai.nextbillion.models.multigeocode.place.PlaceDeleteParams
@@ -11,19 +10,13 @@ import ai.nextbillion.models.multigeocode.place.PlaceRetrieveParams
 import ai.nextbillion.models.multigeocode.place.PlaceUpdateParams
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class PlaceServiceAsyncTest {
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun create() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val placeServiceAsync = client.multigeocode().place()
 
         val placeFuture =
@@ -64,14 +57,10 @@ internal class PlaceServiceAsyncTest {
         place.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun retrieve() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val placeServiceAsync = client.multigeocode().place()
 
         val placeFuture =
@@ -83,14 +72,10 @@ internal class PlaceServiceAsyncTest {
         place.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun update() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val placeServiceAsync = client.multigeocode().place()
 
         val placeFuture =
@@ -129,14 +114,10 @@ internal class PlaceServiceAsyncTest {
         place.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun delete() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val placeServiceAsync = client.multigeocode().place()
 
         val placeFuture =

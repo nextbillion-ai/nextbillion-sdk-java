@@ -2,26 +2,19 @@
 
 package ai.nextbillion.services.blocking.skynet
 
-import ai.nextbillion.TestServerExtension
 import ai.nextbillion.client.okhttp.NextbillionSdkOkHttpClient
 import ai.nextbillion.models.skynet.config.ConfigRetrieveParams
 import ai.nextbillion.models.skynet.config.ConfigTestWebhookParams
 import ai.nextbillion.models.skynet.config.ConfigUpdateParams
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class ConfigServiceTest {
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun retrieve() {
-        val client =
-            NextbillionSdkOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClient.builder().apiKey("My API Key").build()
         val configService = client.skynet().config()
 
         val config =
@@ -35,14 +28,10 @@ internal class ConfigServiceTest {
         config.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun update() {
-        val client =
-            NextbillionSdkOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClient.builder().apiKey("My API Key").build()
         val configService = client.skynet().config()
 
         val simpleResp =
@@ -57,14 +46,10 @@ internal class ConfigServiceTest {
         simpleResp.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun testWebhook() {
-        val client =
-            NextbillionSdkOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClient.builder().apiKey("My API Key").build()
         val configService = client.skynet().config()
 
         val response =

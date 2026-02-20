@@ -2,7 +2,6 @@
 
 package ai.nextbillion.services.blocking.optimization
 
-import ai.nextbillion.TestServerExtension
 import ai.nextbillion.client.okhttp.NextbillionSdkOkHttpClient
 import ai.nextbillion.core.JsonValue
 import ai.nextbillion.models.optimization.driverassignment.Location
@@ -13,19 +12,13 @@ import ai.nextbillion.models.optimization.v2.V2RetrieveResultParams
 import ai.nextbillion.models.optimization.v2.V2SubmitParams
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class V2ServiceTest {
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun retrieveResult() {
-        val client =
-            NextbillionSdkOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClient.builder().apiKey("My API Key").build()
         val v2Service = client.optimization().v2()
 
         val response =
@@ -36,14 +29,10 @@ internal class V2ServiceTest {
         response.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun submit() {
-        val client =
-            NextbillionSdkOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClient.builder().apiKey("My API Key").build()
         val v2Service = client.optimization().v2()
 
         val postResponse =

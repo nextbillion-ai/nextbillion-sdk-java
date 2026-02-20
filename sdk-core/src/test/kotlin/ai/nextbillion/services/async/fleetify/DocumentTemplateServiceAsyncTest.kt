@@ -2,7 +2,6 @@
 
 package ai.nextbillion.services.async.fleetify
 
-import ai.nextbillion.TestServerExtension
 import ai.nextbillion.client.okhttp.NextbillionSdkOkHttpClientAsync
 import ai.nextbillion.models.fleetify.documenttemplates.DocumentTemplateContentRequest
 import ai.nextbillion.models.fleetify.documenttemplates.DocumentTemplateCreateParams
@@ -12,19 +11,13 @@ import ai.nextbillion.models.fleetify.documenttemplates.DocumentTemplateRetrieve
 import ai.nextbillion.models.fleetify.documenttemplates.DocumentTemplateUpdateParams
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class DocumentTemplateServiceAsyncTest {
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun create() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val documentTemplateServiceAsync = client.fleetify().documentTemplates()
 
         val documentTemplateFuture =
@@ -65,14 +58,10 @@ internal class DocumentTemplateServiceAsyncTest {
         documentTemplate.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun retrieve() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val documentTemplateServiceAsync = client.fleetify().documentTemplates()
 
         val documentTemplateFuture =
@@ -84,14 +73,10 @@ internal class DocumentTemplateServiceAsyncTest {
         documentTemplate.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun update() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val documentTemplateServiceAsync = client.fleetify().documentTemplates()
 
         val documentTemplateFuture =
@@ -133,14 +118,10 @@ internal class DocumentTemplateServiceAsyncTest {
         documentTemplate.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun list() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val documentTemplateServiceAsync = client.fleetify().documentTemplates()
 
         val documentTemplatesFuture =
@@ -152,14 +133,10 @@ internal class DocumentTemplateServiceAsyncTest {
         documentTemplates.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun delete() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val documentTemplateServiceAsync = client.fleetify().documentTemplates()
 
         val documentTemplateFuture =

@@ -2,26 +2,19 @@
 
 package ai.nextbillion.services.async.skynet
 
-import ai.nextbillion.TestServerExtension
 import ai.nextbillion.client.okhttp.NextbillionSdkOkHttpClientAsync
 import ai.nextbillion.core.JsonValue
 import ai.nextbillion.models.skynet.namespacedapikeys.NamespacedApikeyCreateParams
 import ai.nextbillion.models.skynet.namespacedapikeys.NamespacedApikeyDeleteParams
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class NamespacedApikeyServiceAsyncTest {
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun create() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val namespacedApikeyServiceAsync = client.skynet().namespacedApikeys()
 
         val namespacedApikeyFuture =
@@ -37,14 +30,10 @@ internal class NamespacedApikeyServiceAsyncTest {
         namespacedApikey.validate()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun delete() {
-        val client =
-            NextbillionSdkOkHttpClientAsync.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = NextbillionSdkOkHttpClientAsync.builder().apiKey("My API Key").build()
         val namespacedApikeyServiceAsync = client.skynet().namespacedApikeys()
 
         val namespacedApikeyFuture =
