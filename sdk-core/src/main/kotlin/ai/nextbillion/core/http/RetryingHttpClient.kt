@@ -1,3 +1,5 @@
+// File generated from our OpenAPI spec by Stainless.
+
 package ai.nextbillion.core.http
 
 import ai.nextbillion.core.DefaultSleeper
