@@ -80,8 +80,16 @@ interface NextbillionSdkClient {
 
     fun browse(): BrowseService
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     fun mdm(): MdmService
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     fun isochrone(): IsochroneService
 
     fun restrictions(): RestrictionService
@@ -92,22 +100,42 @@ interface NextbillionSdkClient {
 
     fun autocomplete(): AutocompleteService
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     fun navigation(): NavigationService
 
     fun map(): MapService
 
     fun autosuggest(): AutosuggestService
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     fun directions(): DirectionService
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     fun batch(): BatchService
 
     fun multigeocode(): MultigeocodeService
 
     fun revgeocode(): RevgeocodeService
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     fun routeReport(): RouteReportService
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     fun snapToRoads(): SnapToRoadService
 
     fun postalcode(): PostalcodeService
@@ -157,8 +185,16 @@ interface NextbillionSdkClient {
 
         fun browse(): BrowseService.WithRawResponse
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         fun mdm(): MdmService.WithRawResponse
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         fun isochrone(): IsochroneService.WithRawResponse
 
         fun restrictions(): RestrictionService.WithRawResponse
@@ -169,22 +205,42 @@ interface NextbillionSdkClient {
 
         fun autocomplete(): AutocompleteService.WithRawResponse
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         fun navigation(): NavigationService.WithRawResponse
 
         fun map(): MapService.WithRawResponse
 
         fun autosuggest(): AutosuggestService.WithRawResponse
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         fun directions(): DirectionService.WithRawResponse
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         fun batch(): BatchService.WithRawResponse
 
         fun multigeocode(): MultigeocodeService.WithRawResponse
 
         fun revgeocode(): RevgeocodeService.WithRawResponse
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         fun routeReport(): RouteReportService.WithRawResponse
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         fun snapToRoads(): SnapToRoadService.WithRawResponse
 
         fun postalcode(): PostalcodeService.WithRawResponse

@@ -18,6 +18,10 @@ import ai.nextbillion.models.navigation.NavigationRetrieveRouteParams
 import ai.nextbillion.models.navigation.NavigationRetrieveRouteResponse
 import java.util.function.Consumer
 
+/**
+ * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+ * insights.</p>
+ */
 class NavigationServiceImpl internal constructor(private val clientOptions: ClientOptions) :
     NavigationService {
 

@@ -21,6 +21,10 @@ import ai.nextbillion.models.mdm.MdmGetDistanceMatrixStatusParams
 import ai.nextbillion.models.mdm.MdmGetDistanceMatrixStatusResponse
 import java.util.function.Consumer
 
+/**
+ * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+ * insights.</p>
+ */
 class MdmServiceImpl internal constructor(private val clientOptions: ClientOptions) : MdmService {
 
     private val withRawResponse: MdmService.WithRawResponse by lazy {

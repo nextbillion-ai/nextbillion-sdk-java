@@ -20,6 +20,10 @@ interface DistanceMatrixServiceAsync {
      */
     fun withOptions(modifier: Consumer<ClientOptions.Builder>): DistanceMatrixServiceAsync
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     fun json(): JsonServiceAsync
 
     /**
@@ -37,6 +41,10 @@ interface DistanceMatrixServiceAsync {
             modifier: Consumer<ClientOptions.Builder>
         ): DistanceMatrixServiceAsync.WithRawResponse
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         fun json(): JsonServiceAsync.WithRawResponse
     }
 }

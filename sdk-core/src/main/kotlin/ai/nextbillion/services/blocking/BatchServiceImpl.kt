@@ -21,6 +21,10 @@ import ai.nextbillion.models.batch.BatchRetrieveParams
 import ai.nextbillion.models.batch.BatchRetrieveResponse
 import java.util.function.Consumer
 
+/**
+ * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+ * insights.</p>
+ */
 class BatchServiceImpl internal constructor(private val clientOptions: ClientOptions) :
     BatchService {
 

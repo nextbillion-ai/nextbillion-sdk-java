@@ -19,6 +19,10 @@ import ai.nextbillion.models.snaptoroads.SnapToRoadSnapResponse
 import java.util.concurrent.CompletableFuture
 import java.util.function.Consumer
 
+/**
+ * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+ * insights.</p>
+ */
 class SnapToRoadServiceAsyncImpl internal constructor(private val clientOptions: ClientOptions) :
     SnapToRoadServiceAsync {
 

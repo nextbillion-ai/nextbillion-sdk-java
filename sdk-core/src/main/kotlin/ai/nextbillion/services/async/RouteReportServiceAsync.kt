@@ -10,6 +10,10 @@ import ai.nextbillion.models.routereport.RouteReportCreateResponse
 import java.util.concurrent.CompletableFuture
 import java.util.function.Consumer
 
+/**
+ * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+ * insights.</p>
+ */
 interface RouteReportServiceAsync {
 
     /**

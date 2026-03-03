@@ -19,6 +19,10 @@ import ai.nextbillion.models.directions.DirectionComputeRouteParams
 import ai.nextbillion.models.directions.DirectionComputeRouteResponse
 import java.util.function.Consumer
 
+/**
+ * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+ * insights.</p>
+ */
 class DirectionServiceImpl internal constructor(private val clientOptions: ClientOptions) :
     DirectionService {
 

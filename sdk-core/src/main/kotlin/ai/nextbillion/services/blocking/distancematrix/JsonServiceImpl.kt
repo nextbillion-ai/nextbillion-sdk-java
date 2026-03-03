@@ -21,6 +21,10 @@ import ai.nextbillion.models.distancematrix.json.JsonRetrieveParams
 import ai.nextbillion.models.distancematrix.json.JsonRetrieveResponse
 import java.util.function.Consumer
 
+/**
+ * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+ * insights.</p>
+ */
 class JsonServiceImpl internal constructor(private val clientOptions: ClientOptions) : JsonService {
 
     private val withRawResponse: JsonService.WithRawResponse by lazy {

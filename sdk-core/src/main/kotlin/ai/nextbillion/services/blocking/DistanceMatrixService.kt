@@ -20,6 +20,10 @@ interface DistanceMatrixService {
      */
     fun withOptions(modifier: Consumer<ClientOptions.Builder>): DistanceMatrixService
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     fun json(): JsonService
 
     /**
@@ -36,6 +40,10 @@ interface DistanceMatrixService {
             modifier: Consumer<ClientOptions.Builder>
         ): DistanceMatrixService.WithRawResponse
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         fun json(): JsonService.WithRawResponse
     }
 }

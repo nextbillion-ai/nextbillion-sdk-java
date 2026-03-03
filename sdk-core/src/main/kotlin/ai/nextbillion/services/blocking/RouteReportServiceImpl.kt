@@ -19,6 +19,10 @@ import ai.nextbillion.models.routereport.RouteReportCreateParams
 import ai.nextbillion.models.routereport.RouteReportCreateResponse
 import java.util.function.Consumer
 
+/**
+ * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+ * insights.</p>
+ */
 class RouteReportServiceImpl internal constructor(private val clientOptions: ClientOptions) :
     RouteReportService {
 

@@ -23,6 +23,10 @@ internal constructor(private val clientOptions: ClientOptions) : DistanceMatrixS
     ): DistanceMatrixServiceAsync =
         DistanceMatrixServiceAsyncImpl(clientOptions.toBuilder().apply(modifier::accept).build())
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     override fun json(): JsonServiceAsync = json
 
     class WithRawResponseImpl internal constructor(private val clientOptions: ClientOptions) :
@@ -39,6 +43,10 @@ internal constructor(private val clientOptions: ClientOptions) : DistanceMatrixS
                 clientOptions.toBuilder().apply(modifier::accept).build()
             )
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         override fun json(): JsonServiceAsync.WithRawResponse = json
     }
 }

@@ -189,8 +189,16 @@ class NextbillionSdkClientAsyncImpl(private val clientOptions: ClientOptions) :
 
     override fun browse(): BrowseServiceAsync = browse
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     override fun mdm(): MdmServiceAsync = mdm
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     override fun isochrone(): IsochroneServiceAsync = isochrone
 
     override fun restrictions(): RestrictionServiceAsync = restrictions
@@ -201,22 +209,42 @@ class NextbillionSdkClientAsyncImpl(private val clientOptions: ClientOptions) :
 
     override fun autocomplete(): AutocompleteServiceAsync = autocomplete
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     override fun navigation(): NavigationServiceAsync = navigation
 
     override fun map(): MapServiceAsync = map
 
     override fun autosuggest(): AutosuggestServiceAsync = autosuggest
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     override fun directions(): DirectionServiceAsync = directions
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     override fun batch(): BatchServiceAsync = batch
 
     override fun multigeocode(): MultigeocodeServiceAsync = multigeocode
 
     override fun revgeocode(): RevgeocodeServiceAsync = revgeocode
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     override fun routeReport(): RouteReportServiceAsync = routeReport
 
+    /**
+     * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+     * insights.</p>
+     */
     override fun snapToRoads(): SnapToRoadServiceAsync = snapToRoads
 
     override fun postalcode(): PostalcodeServiceAsync = postalcode
@@ -351,8 +379,16 @@ class NextbillionSdkClientAsyncImpl(private val clientOptions: ClientOptions) :
 
         override fun browse(): BrowseServiceAsync.WithRawResponse = browse
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         override fun mdm(): MdmServiceAsync.WithRawResponse = mdm
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         override fun isochrone(): IsochroneServiceAsync.WithRawResponse = isochrone
 
         override fun restrictions(): RestrictionServiceAsync.WithRawResponse = restrictions
@@ -364,22 +400,42 @@ class NextbillionSdkClientAsyncImpl(private val clientOptions: ClientOptions) :
 
         override fun autocomplete(): AutocompleteServiceAsync.WithRawResponse = autocomplete
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         override fun navigation(): NavigationServiceAsync.WithRawResponse = navigation
 
         override fun map(): MapServiceAsync.WithRawResponse = map
 
         override fun autosuggest(): AutosuggestServiceAsync.WithRawResponse = autosuggest
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         override fun directions(): DirectionServiceAsync.WithRawResponse = directions
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         override fun batch(): BatchServiceAsync.WithRawResponse = batch
 
         override fun multigeocode(): MultigeocodeServiceAsync.WithRawResponse = multigeocode
 
         override fun revgeocode(): RevgeocodeServiceAsync.WithRawResponse = revgeocode
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         override fun routeReport(): RouteReportServiceAsync.WithRawResponse = routeReport
 
+        /**
+         * <p>Get travel time and find optimal routes. Add guided navigation and gain trip data
+         * insights.</p>
+         */
         override fun snapToRoads(): SnapToRoadServiceAsync.WithRawResponse = snapToRoads
 
         override fun postalcode(): PostalcodeServiceAsync.WithRawResponse = postalcode
