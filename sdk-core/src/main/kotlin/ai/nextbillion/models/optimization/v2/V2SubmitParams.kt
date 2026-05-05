@@ -1955,6 +1955,15 @@ private constructor(
 
         private var validated: Boolean = false
 
+        /**
+         * Validates that the types of all values in this object match their expected types
+         * recursively.
+         *
+         * This method is _not_ forwards compatible with new types from the API for existing fields.
+         *
+         * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't match
+         *   its expected type.
+         */
         fun validate(): Body = apply {
             if (validated) {
                 return@apply
@@ -2310,6 +2319,15 @@ private constructor(
 
         private var validated: Boolean = false
 
+        /**
+         * Validates that the types of all values in this object match their expected types
+         * recursively.
+         *
+         * This method is _not_ forwards compatible with new types from the API for existing fields.
+         *
+         * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't match
+         *   its expected type.
+         */
         fun validate(): Locations = apply {
             if (validated) {
                 return@apply
@@ -2439,6 +2457,16 @@ private constructor(
 
             private var validated: Boolean = false
 
+            /**
+             * Validates that the types of all values in this object match their expected types
+             * recursively.
+             *
+             * This method is _not_ forwards compatible with new types from the API for existing
+             * fields.
+             *
+             * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't
+             *   match its expected type.
+             */
             fun validate(): Approach = apply {
                 if (validated) {
                     return@apply
@@ -2816,6 +2844,15 @@ private constructor(
 
         private var validated: Boolean = false
 
+        /**
+         * Validates that the types of all values in this object match their expected types
+         * recursively.
+         *
+         * This method is _not_ forwards compatible with new types from the API for existing fields.
+         *
+         * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't match
+         *   its expected type.
+         */
         fun validate(): Depot = apply {
             if (validated) {
                 return@apply
@@ -3117,6 +3154,15 @@ private constructor(
 
         private var validated: Boolean = false
 
+        /**
+         * Validates that the types of all values in this object match their expected types
+         * recursively.
+         *
+         * This method is _not_ forwards compatible with new types from the API for existing fields.
+         *
+         * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't match
+         *   its expected type.
+         */
         fun validate(): Options = apply {
             if (validated) {
                 return@apply
@@ -3405,6 +3451,16 @@ private constructor(
 
             private var validated: Boolean = false
 
+            /**
+             * Validates that the types of all values in this object match their expected types
+             * recursively.
+             *
+             * This method is _not_ forwards compatible with new types from the API for existing
+             * fields.
+             *
+             * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't
+             *   match its expected type.
+             */
             fun validate(): Constraint = apply {
                 if (validated) {
                     return@apply
@@ -3724,6 +3780,16 @@ private constructor(
 
             private var validated: Boolean = false
 
+            /**
+             * Validates that the types of all values in this object match their expected types
+             * recursively.
+             *
+             * This method is _not_ forwards compatible with new types from the API for existing
+             * fields.
+             *
+             * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't
+             *   match its expected type.
+             */
             fun validate(): Grouping = apply {
                 if (validated) {
                     return@apply
@@ -3884,6 +3950,16 @@ private constructor(
 
                 private var validated: Boolean = false
 
+                /**
+                 * Validates that the types of all values in this object match their expected types
+                 * recursively.
+                 *
+                 * This method is _not_ forwards compatible with new types from the API for existing
+                 * fields.
+                 *
+                 * @throws NextbillionSdkInvalidDataException if any value type in this object
+                 *   doesn't match its expected type.
+                 */
                 fun validate(): OrderGrouping = apply {
                     if (validated) {
                         return@apply
@@ -4170,6 +4246,16 @@ private constructor(
 
                 private var validated: Boolean = false
 
+                /**
+                 * Validates that the types of all values in this object match their expected types
+                 * recursively.
+                 *
+                 * This method is _not_ forwards compatible with new types from the API for existing
+                 * fields.
+                 *
+                 * @throws NextbillionSdkInvalidDataException if any value type in this object
+                 *   doesn't match its expected type.
+                 */
                 fun validate(): RouteGrouping = apply {
                     if (validated) {
                         return@apply
@@ -4310,6 +4396,16 @@ private constructor(
 
                     private var validated: Boolean = false
 
+                    /**
+                     * Validates that the types of all values in this object match their expected
+                     * types recursively.
+                     *
+                     * This method is _not_ forwards compatible with new types from the API for
+                     * existing fields.
+                     *
+                     * @throws NextbillionSdkInvalidDataException if any value type in this object
+                     *   doesn't match its expected type.
+                     */
                     fun validate(): ZoneSource = apply {
                         if (validated) {
                             return@apply
@@ -4804,6 +4900,16 @@ private constructor(
 
             private var validated: Boolean = false
 
+            /**
+             * Validates that the types of all values in this object match their expected types
+             * recursively.
+             *
+             * This method is _not_ forwards compatible with new types from the API for existing
+             * fields.
+             *
+             * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't
+             *   match its expected type.
+             */
             fun validate(): Objective = apply {
                 if (validated) {
                     return@apply
@@ -5056,6 +5162,16 @@ private constructor(
 
                 private var validated: Boolean = false
 
+                /**
+                 * Validates that the types of all values in this object match their expected types
+                 * recursively.
+                 *
+                 * This method is _not_ forwards compatible with new types from the API for existing
+                 * fields.
+                 *
+                 * @throws NextbillionSdkInvalidDataException if any value type in this object
+                 *   doesn't match its expected type.
+                 */
                 fun validate(): Custom = apply {
                     if (validated) {
                         return@apply
@@ -5189,6 +5305,16 @@ private constructor(
 
                     private var validated: Boolean = false
 
+                    /**
+                     * Validates that the types of all values in this object match their expected
+                     * types recursively.
+                     *
+                     * This method is _not_ forwards compatible with new types from the API for
+                     * existing fields.
+                     *
+                     * @throws NextbillionSdkInvalidDataException if any value type in this object
+                     *   doesn't match its expected type.
+                     */
                     fun validate(): Type = apply {
                         if (validated) {
                             return@apply
@@ -5359,6 +5485,16 @@ private constructor(
 
                     private var validated: Boolean = false
 
+                    /**
+                     * Validates that the types of all values in this object match their expected
+                     * types recursively.
+                     *
+                     * This method is _not_ forwards compatible with new types from the API for
+                     * existing fields.
+                     *
+                     * @throws NextbillionSdkInvalidDataException if any value type in this object
+                     *   doesn't match its expected type.
+                     */
                     fun validate(): ObjectiveValue = apply {
                         if (validated) {
                             return@apply
@@ -5528,6 +5664,16 @@ private constructor(
 
                 private var validated: Boolean = false
 
+                /**
+                 * Validates that the types of all values in this object match their expected types
+                 * recursively.
+                 *
+                 * This method is _not_ forwards compatible with new types from the API for existing
+                 * fields.
+                 *
+                 * @throws NextbillionSdkInvalidDataException if any value type in this object
+                 *   doesn't match its expected type.
+                 */
                 fun validate(): SolverMode = apply {
                     if (validated) {
                         return@apply
@@ -5700,6 +5846,16 @@ private constructor(
 
                 private var validated: Boolean = false
 
+                /**
+                 * Validates that the types of all values in this object match their expected types
+                 * recursively.
+                 *
+                 * This method is _not_ forwards compatible with new types from the API for existing
+                 * fields.
+                 *
+                 * @throws NextbillionSdkInvalidDataException if any value type in this object
+                 *   doesn't match its expected type.
+                 */
                 fun validate(): TravelCost = apply {
                     if (validated) {
                         return@apply
@@ -6493,6 +6649,16 @@ private constructor(
 
             private var validated: Boolean = false
 
+            /**
+             * Validates that the types of all values in this object match their expected types
+             * recursively.
+             *
+             * This method is _not_ forwards compatible with new types from the API for existing
+             * fields.
+             *
+             * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't
+             *   match its expected type.
+             */
             fun validate(): Routing = apply {
                 if (validated) {
                     return@apply
@@ -6633,6 +6799,16 @@ private constructor(
 
                 private var validated: Boolean = false
 
+                /**
+                 * Validates that the types of all values in this object match their expected types
+                 * recursively.
+                 *
+                 * This method is _not_ forwards compatible with new types from the API for existing
+                 * fields.
+                 *
+                 * @throws NextbillionSdkInvalidDataException if any value type in this object
+                 *   doesn't match its expected type.
+                 */
                 fun validate(): Allow = apply {
                     if (validated) {
                         return@apply
@@ -6812,6 +6988,16 @@ private constructor(
 
                 private var validated: Boolean = false
 
+                /**
+                 * Validates that the types of all values in this object match their expected types
+                 * recursively.
+                 *
+                 * This method is _not_ forwards compatible with new types from the API for existing
+                 * fields.
+                 *
+                 * @throws NextbillionSdkInvalidDataException if any value type in this object
+                 *   doesn't match its expected type.
+                 */
                 fun validate(): Avoid = apply {
                     if (validated) {
                         return@apply
@@ -6942,6 +7128,16 @@ private constructor(
 
                 private var validated: Boolean = false
 
+                /**
+                 * Validates that the types of all values in this object match their expected types
+                 * recursively.
+                 *
+                 * This method is _not_ forwards compatible with new types from the API for existing
+                 * fields.
+                 *
+                 * @throws NextbillionSdkInvalidDataException if any value type in this object
+                 *   doesn't match its expected type.
+                 */
                 fun validate(): Context = apply {
                     if (validated) {
                         return@apply
@@ -7087,6 +7283,16 @@ private constructor(
 
                 private var validated: Boolean = false
 
+                /**
+                 * Validates that the types of all values in this object match their expected types
+                 * recursively.
+                 *
+                 * This method is _not_ forwards compatible with new types from the API for existing
+                 * fields.
+                 *
+                 * @throws NextbillionSdkInvalidDataException if any value type in this object
+                 *   doesn't match its expected type.
+                 */
                 fun validate(): HazmatType = apply {
                     if (validated) {
                         return@apply
@@ -7218,6 +7424,16 @@ private constructor(
 
                 private var validated: Boolean = false
 
+                /**
+                 * Validates that the types of all values in this object match their expected types
+                 * recursively.
+                 *
+                 * This method is _not_ forwards compatible with new types from the API for existing
+                 * fields.
+                 *
+                 * @throws NextbillionSdkInvalidDataException if any value type in this object
+                 *   doesn't match its expected type.
+                 */
                 fun validate(): Mode = apply {
                     if (validated) {
                         return@apply
@@ -7714,6 +7930,15 @@ private constructor(
 
         private var validated: Boolean = false
 
+        /**
+         * Validates that the types of all values in this object match their expected types
+         * recursively.
+         *
+         * This method is _not_ forwards compatible with new types from the API for existing fields.
+         *
+         * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't match
+         *   its expected type.
+         */
         fun validate(): Relation = apply {
             if (validated) {
                 return@apply
@@ -7913,6 +8138,16 @@ private constructor(
 
             private var validated: Boolean = false
 
+            /**
+             * Validates that the types of all values in this object match their expected types
+             * recursively.
+             *
+             * This method is _not_ forwards compatible with new types from the API for existing
+             * fields.
+             *
+             * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't
+             *   match its expected type.
+             */
             fun validate(): Step = apply {
                 if (validated) {
                     return@apply
@@ -8058,6 +8293,16 @@ private constructor(
 
                 private var validated: Boolean = false
 
+                /**
+                 * Validates that the types of all values in this object match their expected types
+                 * recursively.
+                 *
+                 * This method is _not_ forwards compatible with new types from the API for existing
+                 * fields.
+                 *
+                 * @throws NextbillionSdkInvalidDataException if any value type in this object
+                 *   doesn't match its expected type.
+                 */
                 fun validate(): Type = apply {
                     if (validated) {
                         return@apply
@@ -8235,6 +8480,16 @@ private constructor(
 
             private var validated: Boolean = false
 
+            /**
+             * Validates that the types of all values in this object match their expected types
+             * recursively.
+             *
+             * This method is _not_ forwards compatible with new types from the API for existing
+             * fields.
+             *
+             * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't
+             *   match its expected type.
+             */
             fun validate(): Type = apply {
                 if (validated) {
                     return@apply
@@ -8897,6 +9152,15 @@ private constructor(
 
         private var validated: Boolean = false
 
+        /**
+         * Validates that the types of all values in this object match their expected types
+         * recursively.
+         *
+         * This method is _not_ forwards compatible with new types from the API for existing fields.
+         *
+         * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't match
+         *   its expected type.
+         */
         fun validate(): Solution = apply {
             if (validated) {
                 return@apply
@@ -9577,6 +9841,16 @@ private constructor(
 
             private var validated: Boolean = false
 
+            /**
+             * Validates that the types of all values in this object match their expected types
+             * recursively.
+             *
+             * This method is _not_ forwards compatible with new types from the API for existing
+             * fields.
+             *
+             * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't
+             *   match its expected type.
+             */
             fun validate(): Step = apply {
                 if (validated) {
                     return@apply
@@ -9743,6 +10017,16 @@ private constructor(
 
                 private var validated: Boolean = false
 
+                /**
+                 * Validates that the types of all values in this object match their expected types
+                 * recursively.
+                 *
+                 * This method is _not_ forwards compatible with new types from the API for existing
+                 * fields.
+                 *
+                 * @throws NextbillionSdkInvalidDataException if any value type in this object
+                 *   doesn't match its expected type.
+                 */
                 fun validate(): Type = apply {
                     if (validated) {
                         return@apply
@@ -10082,6 +10366,15 @@ private constructor(
 
         private var validated: Boolean = false
 
+        /**
+         * Validates that the types of all values in this object match their expected types
+         * recursively.
+         *
+         * This method is _not_ forwards compatible with new types from the API for existing fields.
+         *
+         * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't match
+         *   its expected type.
+         */
         fun validate(): Unassigned = apply {
             if (validated) {
                 return@apply
@@ -10334,6 +10627,15 @@ private constructor(
 
         private var validated: Boolean = false
 
+        /**
+         * Validates that the types of all values in this object match their expected types
+         * recursively.
+         *
+         * This method is _not_ forwards compatible with new types from the API for existing fields.
+         *
+         * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't match
+         *   its expected type.
+         */
         fun validate(): Zone = apply {
             if (validated) {
                 return@apply
@@ -10572,6 +10874,16 @@ private constructor(
 
             private var validated: Boolean = false
 
+            /**
+             * Validates that the types of all values in this object match their expected types
+             * recursively.
+             *
+             * This method is _not_ forwards compatible with new types from the API for existing
+             * fields.
+             *
+             * @throws NextbillionSdkInvalidDataException if any value type in this object doesn't
+             *   match its expected type.
+             */
             fun validate(): Geometry = apply {
                 if (validated) {
                     return@apply
@@ -10696,6 +11008,16 @@ private constructor(
 
                 private var validated: Boolean = false
 
+                /**
+                 * Validates that the types of all values in this object match their expected types
+                 * recursively.
+                 *
+                 * This method is _not_ forwards compatible with new types from the API for existing
+                 * fields.
+                 *
+                 * @throws NextbillionSdkInvalidDataException if any value type in this object
+                 *   doesn't match its expected type.
+                 */
                 fun validate(): Type = apply {
                     if (validated) {
                         return@apply

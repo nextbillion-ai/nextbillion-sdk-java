@@ -5,12 +5,16 @@ package ai.nextbillion.errors
 import ai.nextbillion.core.JsonValue
 import ai.nextbillion.core.checkRequired
 import ai.nextbillion.core.http.Headers
+import ai.nextbillion.core.jsonMapper
 import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 class UnauthorizedException
 private constructor(private val headers: Headers, private val body: JsonValue, cause: Throwable?) :
-    NextbillionSdkServiceException("401: $body", cause) {
+    NextbillionSdkServiceException(
+        "401: ${if (body.isMissing()) "Unknown" else jsonMapper().writeValueAsString(body)}",
+        cause,
+    ) {
 
     override fun statusCode(): Int = 401
 
