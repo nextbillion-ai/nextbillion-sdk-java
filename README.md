@@ -360,6 +360,21 @@ NextbillionSdkClient client = NextbillionSdkOkHttpClient.builder()
     .build();
 ```
 
+If the proxy responds with `407 Proxy Authentication Required`, supply credentials by also configuring `proxyAuthenticator`:
+
+```java
+import ai.nextbillion.client.NextbillionSdkClient;
+import ai.nextbillion.client.okhttp.NextbillionSdkOkHttpClient;
+import ai.nextbillion.core.http.ProxyAuthenticator;
+
+NextbillionSdkClient client = NextbillionSdkOkHttpClient.builder()
+    .fromEnv()
+    .proxy(...)
+    // Or a custom implementation of `ProxyAuthenticator`.
+    .proxyAuthenticator(ProxyAuthenticator.basic("username", "password"))
+    .build();
+```
+
 ### Connection pooling
 
 To customize the underlying OkHttp connection pool, configure the client using the `maxIdleConnections` and `keepAliveDuration` methods:
