@@ -5,6 +5,7 @@ package ai.nextbillion.client.okhttp
 import ai.nextbillion.client.NextbillionSdkClientAsync
 import ai.nextbillion.client.NextbillionSdkClientAsyncImpl
 import ai.nextbillion.core.ClientOptions
+import ai.nextbillion.core.LogLevel
 import ai.nextbillion.core.Sleeper
 import ai.nextbillion.core.Timeout
 import ai.nextbillion.core.http.Headers
@@ -278,6 +279,15 @@ class NextbillionSdkOkHttpClientAsync private constructor() {
          * Defaults to 2.
          */
         fun maxRetries(maxRetries: Int) = apply { clientOptions.maxRetries(maxRetries) }
+
+        /**
+         * The level at which to log request and response information.
+         *
+         * [fromEnv] will set the level from environment variables. See [LogLevel.fromEnv].
+         *
+         * Defaults to [LogLevel.fromEnv].
+         */
+        fun logLevel(logLevel: LogLevel) = apply { clientOptions.logLevel(logLevel) }
 
         fun apiKey(apiKey: String) = apply { clientOptions.apiKey(apiKey) }
 
